@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AB60606A333
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 16:24:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D26A60A2612
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 16:24:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uN3HebKX;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=bxbyJN/D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0CqIWDP2;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=dvUZau1M
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,19 +14,19 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=3/GqENplgSKTJ2aHPDh3UzbEKHiQ/JUxaAFlEI95KpQ=; b=uN3HebKXmS4RAlK+A74IJw3id2
-	gejrdVsSb/oRo3CRvcotXwQigsIrALnCqiGk7ti64atRoY2yhnD6STSWW/XQRT+mZm1F3R9SYFjMn
-	kT518Ct6TCt737T1j25feVN7bkRTSnKbJ9Ma2oLQLWOXl8ujkdlfjqPuHJ8Ak5tGljHH3ebYYvQ+h
-	HvwgF0SG2nCNRUPPWulrcMmFLdHXIoHlBHu91aVnpP0nafNgmyUjNZrhtT0yjR1gRdOQyJxNxBYz0
-	WzYLivGvW6dxcMggWCRzgZJ9O+8gpJUTZPAF6Tm44kFIMwT+wvZRAAnB+kWoR9RfCyHJw45ZCsOyg
-	fDttM1lQ==;
+	bh=sNLk8eov5jSY/6yhIh6nl/EpSm3S8XN0Na6t+lquwHE=; b=0CqIWDP2vjolvg5rsIpbbQ1nfU
+	fQjLWsmHzgobw8/EGY29Y6GEZRsQJvSFvn1fvC8iJD414IpvZFKZELCqmzRCd+IxxCAAcNibDrPnH
+	jP4udjU0uor527PgzYdFkjfHVlZKBlcw91Y/CnxRvvV3Tw1Y+XSnX7qlYuCYUXaF0OQORT8tIzMdA
+	3dvKM0dkjmXIDXr//dkA6tg86IroM8f9uBzHvZvSMoIgmlhbQEeMAWq2VPBnQCO7kLuc7gPNiF+U0
+	rJPotIrmlnw9r6ixbVQfVi7NpJ1RlUSxVSrrZKUsEjsdBP4sM13ORPHw7qgorz+j/8/SoP9ZaTjjE
+	Y/B7bUaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTiSe-00000009SoQ-3owi;
+	id 1xTiSd-00000009Smk-0x9O;
 	Wed, 18 Nov 2026 16:24:40 +0000
-Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
+Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTiSM-00000009SWi-244Q
+	id 1xTiSE-00000009SWU-0aNS
 	for linux-riscv@lists.infradead.org;
 	Wed, 18 Nov 2026 16:24:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
@@ -34,32 +34,32 @@ DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   t=1795019062; x=1826555062;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=yr2kQJNeyn3uaFWqSqXQR1aynTUwhHQ6ShSXTCKHmRc=;
-  b=bxbyJN/DcA3SymkzKOOZWlg8Q8+tf0D82Vtzz0bUlWOyCl6NC59Ease4
-   hp6o9gFLy05PMt31xlDr0syaWZwfJ3VP+4KXRXMNAPfUXRilpijI0xU+h
-   opVlO13YqeE2hUZ0ITfY0oa8T+yhwjFANT1La7+wzL/FiUbXXyrobYMJg
-   cUbkQynOX9eF3qjXUhjl88iF2Nu58xoVbhva44QAOErTl5PiSycxS9SIQ
-   Oj0nHqMVvj7XD4IbNsLZ1YYMD+J0EHVxC9qxVJNuleokoRgIMSkZtTqOa
-   o+XXIzBKAaeSXly6Zxz2+5ntl/IOdXYYhlbqtD0uC7/yCS15qYccrajIe
-   Q==;
-X-CSE-ConnectionGUID: Yw/ltHEJRrygCHWi3lgHsg==
-X-CSE-MsgGUID: kpuP2ZjKSla64HE0EyEVSA==
+  bh=uJLbSaQ6CohucxXN2TVQE+Xs8HAfM53v5a5dblMD2jQ=;
+  b=dvUZau1MT59AUHZKmCHk6A1xlyQBtqzYngMPc/od/IVqo5YaTZS0Q1ps
+   ODbCN/nDXDAfDe6bqRjjwqnESMIJ9NMhs8jTfuid1lIWcTkMZK2Ghpg/Y
+   wT3FNkpZFMcfzgxkECwgJS5wiI2ut2/nsti2qrcE9uBb+/UBYrlnJDnJv
+   pKp13gX9VvhINZS1hEQJMHFflEgYrmkcp/Z7tiXsBmAYx9FysCQHh/NQL
+   XwYhr9+OUHxoa4ZTQFvRpL+bkZV9BKlNl7ncfhgUOvPYgkJTJkHBVu/Ev
+   YRnKLTbHcO4WRcWdnxHoaW2vCFGKLJET5F3IBcXT+a4ckfNNGVAm5oXwy
+   A==;
+X-CSE-ConnectionGUID: 8vFHnoc4Td+/BfhLNTTBKw==
+X-CSE-MsgGUID: e8FrwN7bQWKAA+Ih8VPc3w==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
-  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 18:24:16 +0200
-X-CSE-ConnectionGUID: FrFXV3NYTwCT7xQ0UBOVZg==
-X-CSE-MsgGUID: ON26Kt2CQbOpeTJvDmw0/A==
+Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
+  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 18:24:18 +0200
+X-CSE-ConnectionGUID: hSrjCXbOS9iGOHOJujXGjg==
+X-CSE-MsgGUID: gvA9BLFrQtqMpRiTpmGy+w==
 Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
-  by ces02_data.me-corp.lan with SMTP; 18 Nov 2026 18:32:30 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 18 Nov 2026 18:24:14 +0200
+  by ces03_data.me-corp.lan with SMTP; 18 Nov 2026 18:32:15 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 18 Nov 2026 18:24:08 +0200
 From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Wed, 18 Nov 2026 18:24:02 +0200
-Subject: [PATCH v7 6/6] riscv: hwprobe: report whether AMO is faster than
- LR/SC
+Date: Wed, 18 Nov 2026 18:23:57 +0200
+Subject: [PATCH v7 1/6] riscv: build kernel atomics from LR/SC when Zaamo
+ is disabled
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261118-lrsc-only-v7-6-602dcf4c1921@mobileye.com>
+Message-Id: <20261118-lrsc-only-v7-1-602dcf4c1921@mobileye.com>
 References: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
 In-Reply-To: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -101,12 +101,11 @@ Cc: Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
  linux-doc@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>, 
  Nam Cao <namcao@linutronix.de>, rust-for-linux@vger.kernel.org, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- Jesse Taube <jtaubepe@redhat.com>
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_082424_719227_54919EB6 
-X-CRM114-Status: GOOD (  34.30  )
+X-CRM114-CacheID: sfid-20261118_082414_662810_42328147 
+X-CRM114-Status: GOOD (  26.03  )
 X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,447 +126,621 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On a CPU that traps AMO instructions into firmware and emulates them
-there, such as MIPS P8700, an uncontended AMO costs about 600 cycles
-where the equivalent LR/SC sequence costs about 40. Userspace built for
-the A extension uses AMO for every atomic and pays that on every one.
-It cannot tell from the ISA string: such a CPU still has Zaamo, and
-correctly so.
+The A extension is Zaamo plus Zalrsc. On some CPUs Zaamo is present
+only formally. MIPS P8700 traps every AMO instruction into M-mode and
+emulates it there, so the extension is supported but very slow. A
+typical uncontended atomic increment costs:
 
-Give userspace the same kind of hint the kernel gives for misaligned
-access. At boot, time AMO_SPEED_ITERS amoadd.w against the same number
-of lr.w/addi/sc.w loops on each CPU, take the best sample from an 8 ms
-window of each, and report the result through a new hwprobe key,
-RISCV_HWPROBE_KEY_AMO_PERF:
+  native AMO                                     2..5 cycles
+  LR/SC, private L1 reservation monitor         6..12 cycles
+  LR/SC, PoC (L2) reservation monitor       about 40 cycles
+  AMO emulated by an M-mode trap           about 600 cycles
 
-  RISCV_HWPROBE_AMO_FAST         AMO is at least as fast as LR/SC
-  RISCV_HWPROBE_AMO_SLOW         LR/SC is faster; use it where possible
-  RISCV_HWPROBE_AMO_UNSUPPORTED  the CPU has no Zaamo
-  RISCV_HWPROBE_AMO_UNKNOWN      not measured, or differs across CPUs
+The last two were measured on the eyeq7h hardware. On such a CPU the
+kernel must use LR/SC for every atomic.
 
-Only the direction of the difference is reported, not its size: the
-question a program can act on is which sequence to pick. Each CPU logs
-its ratio, and a kernel whose own atomics are AMO warns once when the
-CPU turns out to be slow, pointing at RISCV_ISA_ZAAMO.
+Add RISCV_ISA_ZAAMO, default y. The default keeps "a" in -march and
+the generated code unchanged. When it is disabled, -march carries
+_zalrsc instead of "a", and atomic_*, bitops, xchg, futex and the
+early boot code use LR/SC loops. The sequence is chosen with the
+preprocessor, on CONFIG_RISCV_ISA_ZAAMO like the other ISA options in
+the headers, because the assembler rejects AMO mnemonics once -march
+lacks Zaamo. A kernel built this way runs on any hart that implements
+A; it just does not use AMO. It is therefore a plain option, not a
+NONPORTABLE one, and the hart keeps advertising "a" to userspace,
+which is true.
 
-The amoadd.w is spelled with .insn through a new AMOADD_W() in
-insn-def.h, so the file assembles when -march has no Zaamo, and the
-probe is skipped on a CPU whose ISA lacks the extension. CPUs that come
-online later are measured by a hotplug callback. amo_speed={slow|fast}
-on the command line skips the measurement, as unaligned_scalar_speed=
-does; a CPU without Zaamo is reported unsupported either way. The
-probe runs at the same initcall level as the misaligned access probe,
-for the same reasons, and refreshes the vDSO hwprobe data when done.
+The LR/SC loops follow the ordering convention of the existing ones
+in cmpxchg.h, from commit 5ce6c1f3535f ("riscv/atomic: Strengthen
+implementations with fences") and commit 1d84afaf0252 ("riscv: Fix
+fully ordered LR/SC xchg[8|16]() implementations"): a fully ordered
+operation is lr, sc.rl and a trailing fence rw,rw; acquire is lr.aq
+with a plain sc; release is a plain lr with sc.rl. The futex loop is
+bounded to 128 retries and returns -EAGAIN after that, as arm64 does,
+because userspace can keep the word changing from another thread and
+futex_wake_op() retries on -EAGAIN anyway.
 
-Tested on the eyeq7h hardware, with the DT advertising "a":
+Zabha, Zacas and the ssamoswap instruction of Zicfiss are AMO
+instructions, so RISCV_ISA_ZABHA, RISCV_ISA_ZACAS and RISCV_USER_CFI
+depend on RISCV_ISA_ZAAMO. The riscv64imac Rust target emits AMO too,
+so RUSTC_SUPPORTS_RISCV depends on it as well.
 
-  [    0.163714] cpu10: AMO speed is 0.07x LR/SC speed (slow)
-  [    0.163727] cpu11: AMO speed is 0.07x LR/SC speed (slow)
-  [    0.163724] cpu6: AMO speed is 0.07x LR/SC speed (slow)
+The choice is made at compile time rather than with alternatives.
+Nearly every CPU has a native A extension, and an alternative would
+inflate all those kernels with the nops needed to pad one AMO to the
+size of an LR/SC loop, at every atomic site, for the benefit of a few.
 
-and, with CONFIG_RISCV_ISA_ZAAMO set:
+Turning Zaamo off needs a compiler that accepts _zaamo and _zalrsc in
+-march. GCC 15.1 is the first release that does.
+TOOLCHAIN_HAS_ZALRSC_ZAAMO checks for it; with an older compiler the
+option stays at y.
 
-  [    0.163729] AMO is slow but kernel atomics use it, consider disabling RISCV_ISA_ZAAMO
+Three sets of extensions provide every atomic Linux needs. "a" is what
+the kernel supports today. Zalrsc plus Ziccrse is what this patch adds:
+every atomic is a constrained LR/SC loop, and Ziccrse is the
+forward-progress guarantee for such loops. Zaamo plus Zacas would do
+as well, with CAS loops in place of LR/SC as on x86, and is left for
+whoever has such hardware.
 
-Reviewed-by: Jesse Taube <jtaubepe@redhat.com>
+Suggested-by: Chao-ying Fu <chao-ying.fu@globalfoundries.com>
 Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 ---
- Documentation/admin-guide/kernel-parameters.txt |   7 +
- Documentation/arch/riscv/hwprobe.rst            |  18 +++
- arch/riscv/Kconfig                              |  13 ++
- arch/riscv/include/asm/cpufeature.h             |   4 +
- arch/riscv/include/asm/hwprobe.h                |   2 +-
- arch/riscv/include/asm/insn-def.h               |   5 +
- arch/riscv/include/uapi/asm/hwprobe.h           |   5 +
- arch/riscv/kernel/Makefile                      |   1 +
- arch/riscv/kernel/amo_speed.c                   | 183 ++++++++++++++++++++++++
- arch/riscv/kernel/sys_hwprobe.c                 |  37 +++++
- 10 files changed, 274 insertions(+), 1 deletion(-)
+ arch/riscv/Kconfig               | 36 +++++++++++++++++++
+ arch/riscv/Makefile              | 15 +++++---
+ arch/riscv/include/asm/atomic.h  | 53 +++++++++++++++++++++++++++-
+ arch/riscv/include/asm/bitops.h  | 76 ++++++++++++++++++++++++++++++++++++++--
+ arch/riscv/include/asm/cmpxchg.h | 39 +++++++++++++++++----
+ arch/riscv/include/asm/futex.h   | 58 ++++++++++++++++++++++++++++++
+ arch/riscv/kernel/entry.S        |  7 ++++
+ arch/riscv/kernel/head.S         | 12 +++++++
+ 8 files changed, 281 insertions(+), 15 deletions(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index e75344f4e0cd..9bc5baff20ff 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -513,6 +513,13 @@ Kernel parameters
- 			Format: <a>,<b>
- 			See also Documentation/input/joydev/joystick.rst
- 
-+	amo_speed=	[RISCV]
-+			Format: {slow | fast}
-+			Allow skipping the AMO instruction speed test. This is
-+			useful for testing alternative code paths and to skip
-+			the test in environments where it runs too slowly. All
-+			CPUs must have the same AMO speed.
-+
- 	analog.map=	[HW,JOY] Analog joystick and gamepad support
- 			Specifies type or capabilities of an analog joystick
- 			connected to one of 16 gameports
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index 63d7ef028bf8..84aef6a0a79c 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -425,3 +425,21 @@ The following keys are defined:
-   * :c:macro:`RISCV_HWPROBE_EXT_ZA64RS`: The Za64rs extension is supported,
-     as defined in the RISC-V Profiles specification starting from commit
-     b1d80660 ("Updated to ratified state.")
-+
-+* :c:macro:`RISCV_HWPROBE_KEY_AMO_PERF`: An enum value describing the
-+  performance of the AMO instructions of the Zaamo extension, relative to
-+  the equivalent LR/SC sequence, on the selected set of processors.
-+
-+  * :c:macro:`RISCV_HWPROBE_AMO_UNKNOWN`: The performance of AMO instructions
-+    is unknown.
-+
-+  * :c:macro:`RISCV_HWPROBE_AMO_SLOW`: An uncontended AMO instruction takes
-+    longer than the equivalent LR/SC sequence. This is the case when AMO
-+    instructions are trapped and emulated by firmware. Code that can choose
-+    should use LR/SC.
-+
-+  * :c:macro:`RISCV_HWPROBE_AMO_FAST`: An uncontended AMO instruction is at
-+    least as fast as the equivalent LR/SC sequence.
-+
-+  * :c:macro:`RISCV_HWPROBE_AMO_UNSUPPORTED`: AMO instructions are not
-+    supported, the Zaamo extension is absent.
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 3c3679701a60..dfd6237f879b 100644
+index 5874ca30f4f6..3c3679701a60 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -764,6 +764,19 @@ config RISCV_ISA_ZAAMO
+@@ -237,6 +237,8 @@ config RISCV
+ config RUSTC_SUPPORTS_RISCV
+ 	def_bool y
+ 	depends on 64BIT
++	# The riscv64imac target emits AMO instructions
++	depends on RISCV_ISA_ZAAMO
+ 
+ config CLANG_SUPPORTS_DYNAMIC_FTRACE
+ 	def_bool CC_IS_CLANG
+@@ -706,6 +708,7 @@ config RISCV_ISA_ZABHA
+ 	bool "Zabha extension support for atomic byte/halfword operations"
+ 	depends on TOOLCHAIN_HAS_ZABHA
+ 	depends on RISCV_ALTERNATIVE
++	depends on RISCV_ISA_ZAAMO
+ 	default y
+ 	help
+ 	  Enable the use of the Zabha ISA-extension to implement kernel
+@@ -723,6 +726,7 @@ config TOOLCHAIN_HAS_ZACAS
+ config RISCV_ISA_ZACAS
+ 	bool "Zacas extension support for atomic CAS"
+ 	depends on RISCV_ALTERNATIVE
++	depends on RISCV_ISA_ZAAMO
+ 	default y
+ 	help
+ 	  Enable the use of the Zacas ISA-extension to implement kernel atomic
+@@ -730,6 +734,36 @@ config RISCV_ISA_ZACAS
  
  	  If you don't know what to do here, say Y.
  
-+config RISCV_PROBE_AMO_SPEED
-+	bool "Probe AMO instruction speed at boot"
++config TOOLCHAIN_HAS_ZALRSC_ZAAMO
++	bool
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64im_zaamo_zalrsc)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32im_zaamo_zalrsc)
++
++config RISCV_ISA_ZAAMO
++	bool "Zaamo extension support for AMO atomics" if TOOLCHAIN_HAS_ZALRSC_ZAAMO
 +	default y
 +	help
-+	  During boot, time an uncontended AMO instruction against the
-+	  equivalent LR/SC sequence on every CPU, and report which one is
-+	  faster to userspace through the hwprobe syscall, as
-+	  RISCV_HWPROBE_KEY_AMO_PERF. On a CPU that traps AMO instructions
-+	  into firmware and emulates them there, LR/SC is much faster, and
-+	  code that can choose should use it.
++	  Use AMO instructions for kernel atomic memory operations. When
++	  disabled, those operations are built from LR/SC and the kernel
++	  is compiled with zalrsc instead of the A extension.
++
++	  Disable this for a CPU where AMO is much slower than LR/SC. That
++	  is the case when AMO instructions are emulated by a trap into
++	  M-mode, as on the MIPS P8700: an emulated atomic costs hundreds
++	  of cycles where LR/SC costs tens.
++
++	  A kernel built without Zaamo runs on any CPU that implements the
++	  A extension. Zabha, Zacas, userspace control flow integrity and
++	  Rust need Zaamo and are unavailable without it.
++
++	  The compiler must accept _zaamo and _zalrsc in -march to make
++	  this choice. GCC 15.1 is the first release that does. With an
++	  older compiler the option stays enabled and -march keeps the A
++	  extension.
 +
 +	  If you don't know what to do here, say Y.
 +
  config TOOLCHAIN_HAS_ZBB
  	bool
  	default y
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index 5efa72823475..92cab4a7a0f1 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -83,6 +83,10 @@ static inline bool unaligned_ctl_available(void)
- }
- #endif
+@@ -1206,6 +1240,8 @@ config RISCV_USER_CFI
+ 	depends on 64BIT && MMU && \
+ 		$(cc-option,-mabi=lp64 -march=rv64ima_zicfiss_zicfilp -fcf-protection=full)
+ 	depends on RISCV_ALTERNATIVE
++	# ssamoswap is an AMO instruction
++	depends on RISCV_ISA_ZAAMO
+ 	select RISCV_SBI
+ 	select ARCH_HAS_USER_SHADOW_STACK
+ 	select ARCH_USES_HIGH_VMA_FLAGS
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 44f5a439741a..59c5123c5485 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -58,8 +58,9 @@ ifeq ($(CONFIG_SHADOW_CALL_STACK),y)
+ endif
  
-+#ifdef CONFIG_RISCV_PROBE_AMO_SPEED
-+DECLARE_PER_CPU(long, amo_speed);
-+#endif
-+
- #if defined(CONFIG_RISCV_MISALIGNED)
- DECLARE_PER_CPU(long, misaligned_access_speed);
- bool misaligned_traps_can_delegate(void);
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 1cc83cecbc05..a7eb17c8180f 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -8,7 +8,7 @@
+ # ISA string setting
+-riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
+-riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
++riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32im
++riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64im
++riscv-march-$(CONFIG_RISCV_ISA_ZAAMO)	:= $(riscv-march-y)a
+ riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
+ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+ riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
+@@ -75,9 +76,15 @@ else
+ riscv-march-$(CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI) := $(riscv-march-y)_zicsr_zifencei
+ endif
  
- #include <uapi/asm/hwprobe.h>
+-KBUILD_BASE_ISA = -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
++KBUILD_BASE_ISA = -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima?|rv64ima?)fd([^v_]*)v?/\1\2/')
+ export KBUILD_BASE_ISA
  
--#define RISCV_HWPROBE_MAX_KEY		16
-+#define RISCV_HWPROBE_MAX_KEY		17
++# Without Zaamo only the LR/SC half of "a" is used. The compiler accepts
++# _zalrsc here, see TOOLCHAIN_HAS_ZALRSC_ZAAMO.
++ifneq ($(CONFIG_RISCV_ISA_ZAAMO),y)
++riscv-march-y := $(riscv-march-y)_zalrsc
++endif
++
+ # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+ # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+ KBUILD_CFLAGS += $(KBUILD_BASE_ISA)
+@@ -85,7 +92,7 @@ KBUILD_CFLAGS += $(KBUILD_BASE_ISA)
+ KBUILD_AFLAGS += -march=$(riscv-march-y)
  
- static inline bool riscv_hwprobe_key_is_valid(__s64 key)
- {
-diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-index 8fcc848c196e..5ca5c0b8ad66 100644
---- a/arch/riscv/include/asm/insn-def.h
-+++ b/arch/riscv/include/asm/insn-def.h
-@@ -219,6 +219,11 @@ ALTERNATIVE("nop", "fence rw, rw", SIFIVE_VENDOR_ID,			\
- 	__ASM_STR(.error "hlv.d requires 64-bit support")
- #endif
+ # For C code built with floating-point support, exclude V but keep F and D.
+-CC_FLAGS_FPU  := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)([^v_]*)v?/\1\2/')
++CC_FLAGS_FPU  := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima?|rv64ima?)([^v_]*)v?/\1\2/')
  
-+/* Spelled out so that it assembles when -march lacks Zaamo */
-+#define AMOADD_W(dest, addr, val)				\
-+	INSN_R(OPCODE_AMO, FUNC3(2), FUNC7(0),			\
-+	       RD(dest), RS1(addr), RS2(val))
-+
- #define LB_AQ(dest, addr)					\
- 	INSN_R(OPCODE_AMO, FUNC3(0), FUNC7(26),			\
- 	       RD(dest), RS1(addr), __RS2(0))
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index e6a394fbe7fc..a5f726f94204 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -122,6 +122,11 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_EXT_ZICCIF	_BITULL(3)
- #define		RISCV_HWPROBE_EXT_ZICCRSE	_BITULL(4)
- #define		RISCV_HWPROBE_EXT_ZA64RS	_BITULL(5)
-+#define RISCV_HWPROBE_KEY_AMO_PERF	17
-+#define		RISCV_HWPROBE_AMO_UNKNOWN	0
-+#define		RISCV_HWPROBE_AMO_SLOW		1
-+#define		RISCV_HWPROBE_AMO_FAST		2
-+#define		RISCV_HWPROBE_AMO_UNSUPPORTED	3
+ KBUILD_CFLAGS += -mno-save-restore
  
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index ebe1c3588177..fc935c877e82 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -79,6 +79,7 @@ obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
- obj-$(CONFIG_RISCV_MISALIGNED)	+= unaligned_access_speed.o
- obj-$(CONFIG_RISCV_PROBE_UNALIGNED_ACCESS)		+= copy-unaligned.o
- obj-$(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)	+= vec-copy-unaligned.o
-+obj-$(CONFIG_RISCV_PROBE_AMO_SPEED)	+= amo_speed.o
- 
- obj-$(CONFIG_FPU)		+= fpu.o
- obj-$(CONFIG_FPU)		+= kernel_mode_fpu.o
-diff --git a/arch/riscv/kernel/amo_speed.c b/arch/riscv/kernel/amo_speed.c
-new file mode 100644
-index 000000000000..8cd66941c3a6
---- /dev/null
-+++ b/arch/riscv/kernel/amo_speed.c
-@@ -0,0 +1,183 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Measure whether AMO instructions are faster than the equivalent LR/SC
-+ * sequence. They are not on a CPU that traps them into firmware and
-+ * emulates them there, such as MIPS P8700, where an AMO costs hundreds of
-+ * cycles and LR/SC tens. The result goes to userspace through hwprobe,
-+ * so code that can choose between the two knows which one to use.
-+ */
-+
-+#include <linux/cpu.h>
-+#include <linux/smp.h>
-+#include <linux/timekeeping.h>
-+#include <asm/cpufeature.h>
-+#include <asm/hwprobe.h>
-+#include <asm/insn-def.h>
-+#include <asm/timex.h>
-+
-+/* Time window for each measurement, and atomics per sample within it */
-+#define AMO_SPEED_NS		8000000
-+#define AMO_SPEED_ITERS		1024
-+
-+DEFINE_PER_CPU(long, amo_speed) = RISCV_HWPROBE_AMO_UNKNOWN;
-+
-+static DEFINE_PER_CPU_ALIGNED(u32, amo_speed_word);
-+static long amo_speed_param = RISCV_HWPROBE_AMO_UNKNOWN;
-+
-+static void amo_speed_amo(u32 *word, unsigned long n)
-+{
-+	unsigned long tmp;
-+
-+	asm volatile(
-+		"1:\n"
-+		AMOADD_W(%[tmp], %[word], %[one])
-+		"	addi %[n], %[n], -1\n"
-+		"	bnez %[n], 1b\n"
-+		: [tmp] "=&r" (tmp), [n] "+&r" (n), "+m" (*word)
-+		: [word] "r" (word), [one] "r" (1UL)
-+		: "memory");
-+}
-+
-+static void amo_speed_lrsc(u32 *word, unsigned long n)
-+{
-+	unsigned long tmp;
-+
-+	asm volatile(
-+		"1:	lr.w %[tmp], (%[word])\n"
-+		"	addi %[tmp], %[tmp], 1\n"
-+		"	sc.w %[tmp], %[tmp], (%[word])\n"
-+		"	bnez %[tmp], 1b\n"
-+		"	addi %[n], %[n], -1\n"
-+		"	bnez %[n], 1b\n"
-+		: [tmp] "=&r" (tmp), [n] "+&r" (n), "+m" (*word)
-+		: [word] "r" (word)
-+		: "memory");
-+}
-+
-+/*
-+ * For a fixed amount of time, repeatedly run func and take the best time
-+ * in cycles as the measurement.
-+ */
-+static u64 amo_speed_measure(void (*func)(u32 *word, unsigned long n),
-+			     u32 *word)
-+{
-+	u64 start_cycles, end_cycles, cycles = -1ULL;
-+	u64 start_ns;
-+
-+	/* Do a warmup. */
-+	func(word, AMO_SPEED_ITERS);
-+
-+	preempt_disable();
-+
-+	start_ns = ktime_get_mono_fast_ns();
-+	while (ktime_get_mono_fast_ns() < start_ns + AMO_SPEED_NS) {
-+		start_cycles = get_cycles64();
-+		/* Ensure the CSR read can't reorder WRT to the atomics. */
-+		mb();
-+		func(word, AMO_SPEED_ITERS);
-+		/* Ensure the atomics end before the end time is snapped. */
-+		mb();
-+		end_cycles = get_cycles64();
-+		if ((end_cycles - start_cycles) < cycles)
-+			cycles = end_cycles - start_cycles;
-+	}
-+
-+	preempt_enable();
-+
-+	return cycles;
-+}
-+
-+/*
-+ * Settle the speed of one CPU: unsupported without Zaamo, the command
-+ * line value if one was given, otherwise measure. Runs on that CPU.
-+ */
-+static void check_amo_speed(void *unused)
-+{
-+	int cpu = smp_processor_id();
-+	u32 *word = this_cpu_ptr(&amo_speed_word);
-+	u64 amo_cycles, lrsc_cycles;
-+	long speed;
-+	int ratio;
-+
-+	if (per_cpu(amo_speed, cpu) != RISCV_HWPROBE_AMO_UNKNOWN)
-+		return;
-+
-+	if (!riscv_cpu_has_extension_unlikely(cpu, RISCV_ISA_EXT_ZAAMO)) {
-+		per_cpu(amo_speed, cpu) = RISCV_HWPROBE_AMO_UNSUPPORTED;
-+		return;
-+	}
-+
-+	if (amo_speed_param != RISCV_HWPROBE_AMO_UNKNOWN) {
-+		per_cpu(amo_speed, cpu) = amo_speed_param;
-+		return;
-+	}
-+
-+	amo_cycles = amo_speed_measure(amo_speed_amo, word);
-+	lrsc_cycles = amo_speed_measure(amo_speed_lrsc, word);
-+
-+	/* Don't divide by zero. */
-+	if (!amo_cycles || !lrsc_cycles) {
-+		pr_warn("cpu%d: rdtime lacks granularity needed to measure AMO speed\n",
-+			cpu);
-+		return;
-+	}
-+
-+	if (amo_cycles <= lrsc_cycles)
-+		speed = RISCV_HWPROBE_AMO_FAST;
-+	else
-+		speed = RISCV_HWPROBE_AMO_SLOW;
-+
-+	ratio = div64_u64(lrsc_cycles * 100, amo_cycles);
-+	pr_info("cpu%d: AMO speed is %d.%02dx LR/SC speed (%s)\n",
-+		cpu, ratio / 100, ratio % 100,
-+		speed == RISCV_HWPROBE_AMO_FAST ? "fast" : "slow");
-+
-+	per_cpu(amo_speed, cpu) = speed;
-+
-+	if (speed == RISCV_HWPROBE_AMO_SLOW && IS_ENABLED(CONFIG_RISCV_ISA_ZAAMO))
-+		pr_warn_once("AMO is slow but kernel atomics use it, consider disabling RISCV_ISA_ZAAMO\n");
-+}
-+
-+static int amo_speed_online_cpu(unsigned int cpu)
-+{
-+	check_amo_speed(NULL);
-+	return 0;
-+}
-+
-+static int __init set_amo_speed_param(char *str)
-+{
-+	if (!strcmp(str, "slow"))
-+		amo_speed_param = RISCV_HWPROBE_AMO_SLOW;
-+	else if (!strcmp(str, "fast"))
-+		amo_speed_param = RISCV_HWPROBE_AMO_FAST;
-+	else
-+		return 0;
-+
-+	return 1;
-+}
-+__setup("amo_speed=", set_amo_speed_param);
-+
-+static int __init check_amo_speed_all_cpus(void)
-+{
-+	if (amo_speed_param != RISCV_HWPROBE_AMO_UNKNOWN)
-+		pr_info("AMO speed set to '%s' (%lu) by command line\n",
-+			amo_speed_param == RISCV_HWPROBE_AMO_FAST ? "fast" : "slow",
-+			amo_speed_param);
-+
-+	on_each_cpu(check_amo_speed, NULL, 1);
-+
-+	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:amo_speed",
-+				  amo_speed_online_cpu, NULL);
-+
-+	/* The vDSO was filled before the probe ran; give it the result. */
-+	riscv_hwprobe_update_vdso_data();
-+
-+	return 0;
-+}
-+
-+/*
-+ * Same level as the unaligned access probe: after clocksource_done_booting()
-+ * so that amo_speed_measure() uses a stable clocksource, but before
-+ * rootfs_initcall() enables usermode helpers that can reach hwprobe.
-+ */
-+fs_initcall_sync(check_amo_speed_all_cpus);
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 2c64a13c5155..32ce3ac8bc4a 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -269,6 +269,39 @@ static u64 hwprobe_misaligned(const struct cpumask *cpus)
- }
- #endif
- 
-+#ifdef CONFIG_RISCV_PROBE_AMO_SPEED
-+static u64 hwprobe_amo(const struct cpumask *cpus)
-+{
-+	int cpu;
-+	u64 perf = -1ULL;
-+
-+	for_each_cpu(cpu, cpus) {
-+		int this_perf = per_cpu(amo_speed, cpu);
-+
-+		if (perf == -1ULL)
-+			perf = this_perf;
-+
-+		if (perf != this_perf) {
-+			perf = RISCV_HWPROBE_AMO_UNKNOWN;
-+			break;
-+		}
-+	}
-+
-+	if (perf == -1ULL)
-+		return RISCV_HWPROBE_AMO_UNKNOWN;
-+
-+	return perf;
+diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
+index 616b8b332ac5..cca1fc3a68ff 100644
+--- a/arch/riscv/include/asm/atomic.h
++++ b/arch/riscv/include/asm/atomic.h
+@@ -50,6 +50,7 @@ static __always_inline void arch_atomic64_set(atomic64_t *v, s64 i)
+  * have the AQ or RL bits set.  These don't return anything, so there's only
+  * one version to worry about.
+  */
++#ifdef CONFIG_RISCV_ISA_ZAAMO
+ #define ATOMIC_OP(op, asm_op, I, asm_type, c_type, prefix)		\
+ static __always_inline							\
+ void arch_atomic##prefix##_##op(c_type i, atomic##prefix##_t *v)	\
+@@ -59,7 +60,23 @@ void arch_atomic##prefix##_##op(c_type i, atomic##prefix##_t *v)	\
+ 		: "+A" (v->counter)					\
+ 		: "r" (I)						\
+ 		: "memory");						\
+-}									\
 +}
 +#else
-+static u64 hwprobe_amo(const struct cpumask *cpus)
-+{
-+	if (!hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZAAMO))
-+		return RISCV_HWPROBE_AMO_UNSUPPORTED;
-+
-+	return RISCV_HWPROBE_AMO_UNKNOWN;
++#define ATOMIC_OP(op, asm_op, I, asm_type, c_type, prefix)		\
++static __always_inline							\
++void arch_atomic##prefix##_##op(c_type i, atomic##prefix##_t *v)	\
++{									\
++	register c_type ret, temp;					\
++	__asm__ __volatile__ (						\
++		"1:	lr." #asm_type " %1, %0\n"			\
++		"	" #asm_op " %2, %1, %3\n"			\
++		"	sc." #asm_type " %2, %2, %0\n"			\
++		"	bnez %2, 1b\n"					\
++		: "+A" (v->counter), "=&r" (ret), "=&r" (temp)		\
++		: "r" (I)						\
++		: "memory");						\
 +}
 +#endif
-+
- #ifdef CONFIG_RISCV_VECTOR_MISALIGNED
- static u64 hwprobe_vec_misaligned(const struct cpumask *cpus)
- {
-@@ -345,6 +378,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 		pair->value = hwprobe_vec_misaligned(cpus);
- 		break;
  
-+	case RISCV_HWPROBE_KEY_AMO_PERF:
-+		pair->value = hwprobe_amo(cpus);
-+		break;
+ #ifdef CONFIG_GENERIC_ATOMIC64
+ #define ATOMIC_OPS(op, asm_op, I)					\
+@@ -84,6 +101,7 @@ ATOMIC_OPS(xor, xor,  i)
+  * There's two flavors of these: the arithmetic ops have both fetch and return
+  * versions, while the logical ops only have fetch versions.
+  */
++#ifdef CONFIG_RISCV_ISA_ZAAMO
+ #define ATOMIC_FETCH_OP(op, asm_op, I, asm_type, c_type, prefix)	\
+ static __always_inline							\
+ c_type arch_atomic##prefix##_fetch_##op##_relaxed(c_type i,		\
+@@ -108,6 +126,39 @@ c_type arch_atomic##prefix##_fetch_##op(c_type i, atomic##prefix##_t *v)	\
+ 		: "memory");						\
+ 	return ret;							\
+ }
++#else
++#define ATOMIC_FETCH_OP(op, asm_op, I, asm_type, c_type, prefix)	\
++static __always_inline							\
++c_type arch_atomic##prefix##_fetch_##op##_relaxed(c_type i,		\
++					     atomic##prefix##_t *v)	\
++{									\
++	register c_type ret, temp;					\
++	__asm__ __volatile__ (						\
++		"1:	lr." #asm_type " %1, %0\n"			\
++		"	" #asm_op " %2, %1, %3\n"			\
++		"	sc." #asm_type " %2, %2, %0\n"			\
++		"	bnez %2, 1b\n"					\
++		: "+A" (v->counter), "=&r" (ret), "=&r" (temp)		\
++		: "r" (I)						\
++		: "memory");						\
++	return ret;							\
++}									\
++static __always_inline							\
++c_type arch_atomic##prefix##_fetch_##op(c_type i, atomic##prefix##_t *v)	\
++{									\
++	register c_type ret, temp;					\
++	__asm__ __volatile__ (						\
++		"1:	lr." #asm_type " %1, %0\n"			\
++		"	" #asm_op " %2, %1, %3\n"			\
++		"	sc." #asm_type ".rl %2, %2, %0\n"		\
++		"	bnez %2, 1b\n"					\
++		RISCV_FULL_BARRIER					\
++		: "+A" (v->counter), "=&r" (ret), "=&r" (temp)		\
++		: "r" (I)						\
++		: "memory");						\
++	return ret;							\
++}
++#endif
+ 
+ #define ATOMIC_OP_RETURN(op, asm_op, c_op, I, asm_type, c_type, prefix)	\
+ static __always_inline							\
+diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+index 3c1a15be54d8..adcd70525774 100644
+--- a/arch/riscv/include/asm/bitops.h
++++ b/arch/riscv/include/asm/bitops.h
+@@ -170,12 +170,17 @@ static __always_inline int variable_fls(unsigned int x)
+ 
+ #if (BITS_PER_LONG == 64)
+ #define __AMO(op)	"amo" #op ".d"
++#define __LR	"lr.d"
++#define __SC	"sc.d"
+ #elif (BITS_PER_LONG == 32)
+ #define __AMO(op)	"amo" #op ".w"
++#define __LR	"lr.w"
++#define __SC	"sc.w"
+ #else
+ #error "Unexpected BITS_PER_LONG"
+ #endif
+ 
++#ifdef CONFIG_RISCV_ISA_ZAAMO
+ #define __test_and_op_bit_ord(op, mod, nr, addr, ord)		\
+ ({								\
+ 	unsigned long __res, __mask;				\
+@@ -195,10 +200,58 @@ static __always_inline int variable_fls(unsigned int x)
+ 		: "r" (mod(BIT_MASK(nr)))			\
+ 		: "memory");
+ 
+-#define __test_and_op_bit(op, mod, nr, addr) 			\
++#define __test_and_op_bit(op, mod, nr, addr)			\
+ 	__test_and_op_bit_ord(op, mod, nr, addr, .aqrl)
++#define __test_and_op_bit_acquire(op, mod, nr, addr)		\
++	__test_and_op_bit_ord(op, mod, nr, addr, .aq)
+ #define __op_bit(op, mod, nr, addr)				\
+ 	__op_bit_ord(op, mod, nr, addr, )
++#define __op_bit_release(op, mod, nr, addr)			\
++	__op_bit_ord(op, mod, nr, addr, .rl)
++#else
++/*
++ * Fully ordered LR/SC is lr, sc.rl and a full fence; acquire is lr.aq and
++ * release is sc.rl, with no ordering on the other instruction. This is how
++ * the LR/SC loops in asm/atomic.h and asm/cmpxchg.h are built.
++ */
++#define __test_and_op_bit_lrsc(op, mod, nr, addr, lr_sfx, sc_sfx, append)	\
++({								\
++	unsigned long __res, __mask, __temp;			\
++	__mask = BIT_MASK(nr);					\
++	__asm__ __volatile__ (					\
++		"1: " __LR lr_sfx " %0, %1\n"			\
++		#op " %2, %0, %3\n"				\
++		__SC sc_sfx " %2, %2, %1\n"			\
++		"bnez %2, 1b\n"					\
++		append						\
++		: "=&r" (__res), "+A" (addr[BIT_WORD(nr)]), "=&r" (__temp)	\
++		: "r" (mod(__mask))				\
++		: "memory");					\
++	((__res & __mask) != 0);				\
++})
 +
- 	case RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE:
- 		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
- 			pair->value = riscv_cboz_block_size;
++#define __op_bit_lrsc(op, mod, nr, addr, lr_sfx, sc_sfx)	\
++do {								\
++	unsigned long __res, __temp;				\
++	__asm__ __volatile__ (					\
++		"1: " __LR lr_sfx " %0, %1\n"			\
++		#op " %2, %0, %3\n"				\
++		__SC sc_sfx " %2, %2, %1\n"			\
++		"bnez %2, 1b\n"					\
++		: "=&r" (__res), "+A" (addr[BIT_WORD(nr)]), "=&r" (__temp)	\
++		: "r" (mod(BIT_MASK(nr)))			\
++		: "memory");					\
++} while (0)
++
++#define __test_and_op_bit(op, mod, nr, addr)			\
++	__test_and_op_bit_lrsc(op, mod, nr, addr, "", ".rl", RISCV_FULL_BARRIER)
++#define __test_and_op_bit_acquire(op, mod, nr, addr)		\
++	__test_and_op_bit_lrsc(op, mod, nr, addr, ".aq", "", "")
++#define __op_bit(op, mod, nr, addr)				\
++	__op_bit_lrsc(op, mod, nr, addr, "", "")
++#define __op_bit_release(op, mod, nr, addr)			\
++	__op_bit_lrsc(op, mod, nr, addr, "", ".rl")
++#endif
+ 
+ /* Bitmask modifiers */
+ #define __NOP(x)	(x)
+@@ -297,7 +350,7 @@ static __always_inline void arch_change_bit(int nr, volatile unsigned long *addr
+ static __always_inline int arch_test_and_set_bit_lock(
+ 	unsigned long nr, volatile unsigned long *addr)
+ {
+-	return __test_and_op_bit_ord(or, __NOP, nr, addr, .aq);
++	return __test_and_op_bit_acquire(or, __NOP, nr, addr);
+ }
+ 
+ /**
+@@ -310,7 +363,7 @@ static __always_inline int arch_test_and_set_bit_lock(
+ static __always_inline void arch_clear_bit_unlock(
+ 	unsigned long nr, volatile unsigned long *addr)
+ {
+-	__op_bit_ord(and, __NOT, nr, addr, .rl);
++	__op_bit_release(and, __NOT, nr, addr);
+ }
+ 
+ /**
+@@ -337,20 +390,37 @@ static __always_inline void arch___clear_bit_unlock(
+ static __always_inline bool arch_xor_unlock_is_negative_byte(unsigned long mask,
+ 		volatile unsigned long *addr)
+ {
++#ifdef CONFIG_RISCV_ISA_ZAAMO
+ 	unsigned long res;
+ 	__asm__ __volatile__ (
+ 		__AMO(xor) ".rl %0, %2, %1"
+ 		: "=r" (res), "+A" (*addr)
+ 		: "r" (__NOP(mask))
+ 		: "memory");
++#else
++	unsigned long res, temp;
++
++	__asm__ __volatile__ (
++		"1: " __LR " %0, %1\n"
++		"xor %2, %0, %3\n"
++		__SC ".rl %2, %2, %1\n"
++		"bnez %2, 1b\n"
++		: "=&r" (res), "+A" (*addr), "=&r" (temp)
++		: "r" (__NOP(mask))
++		: "memory");
++#endif
+ 	return (res & BIT(7)) != 0;
+ }
+ 
+ #undef __test_and_op_bit
++#undef __test_and_op_bit_acquire
+ #undef __op_bit
++#undef __op_bit_release
+ #undef __NOP
+ #undef __NOT
+ #undef __AMO
++#undef __LR
++#undef __SC
+ 
+ #include <asm-generic/bitops/instrumented-atomic.h>
+ #include <asm-generic/bitops/instrumented-lock.h>
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 662e160b0522..f0199432948a 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -57,16 +57,39 @@
+ 	}									\
+ })
+ 
+-#define __arch_xchg(sfx, prepend, append, r, p, n)			\
++/*
++ * Word and double-word xchg is one amoswap, or an LR/SC loop without
++ * Zaamo. Each form uses its own pair of ordering arguments, as in
++ * __arch_xchg_masked() above.
++ */
++#ifdef CONFIG_RISCV_ISA_ZAAMO
++#define __arch_xchg(w, sc_sfx, swap_sfx, prepend, sc_append,		\
++		    swap_append, r, p, n)				\
+ ({									\
+ 	__asm__ __volatile__ (						\
+ 		prepend							\
+-		"	amoswap" sfx " %0, %2, %1\n"			\
+-		append							\
++		"	amoswap" w swap_sfx " %0, %2, %1\n"		\
++		swap_append						\
+ 		: "=r" (r), "+A" (*(p))					\
+ 		: "r" (n)						\
+ 		: "memory");						\
+ })
++#else
++#define __arch_xchg(w, sc_sfx, swap_sfx, prepend, sc_append,		\
++		    swap_append, r, p, n)				\
++({									\
++	__typeof__(*(p)) __temp;					\
++	__asm__ __volatile__ (						\
++		prepend							\
++		"1:	lr" w " %0, %1\n"				\
++		"	sc" w sc_sfx " %2, %3, %1\n"			\
++		"	bnez %2, 1b\n"					\
++		sc_append						\
++		: "=&r" (r), "+A" (*(p)), "=&r" (__temp)		\
++		: "r" (n)						\
++		: "memory");						\
++})
++#endif
+ 
+ #define _arch_xchg(ptr, new, sc_sfx, swap_sfx, prepend,			\
+ 		   sc_append, swap_append)				\
+@@ -87,12 +110,14 @@
+ 				   __ret, __ptr, __new);		\
+ 		break;							\
+ 	case 4:								\
+-		__arch_xchg(".w" swap_sfx, prepend, swap_append,	\
+-			      __ret, __ptr, __new);			\
++		__arch_xchg(".w", sc_sfx, swap_sfx,			\
++			    prepend, sc_append, swap_append,		\
++			    __ret, __ptr, __new);			\
+ 		break;							\
+ 	case 8:								\
+-		__arch_xchg(".d" swap_sfx, prepend, swap_append,	\
+-			      __ret, __ptr, __new);			\
++		__arch_xchg(".d", sc_sfx, swap_sfx,			\
++			    prepend, sc_append, swap_append,		\
++			    __ret, __ptr, __new);			\
+ 		break;							\
+ 	default:							\
+ 		BUILD_BUG();						\
+diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
+index 6f3bc9bdb85e..e79d28af55cd 100644
+--- a/arch/riscv/include/asm/futex.h
++++ b/arch/riscv/include/asm/futex.h
+@@ -12,6 +12,7 @@
+ #include <linux/errno.h>
+ #include <asm/asm.h>
+ #include <asm/asm-extable.h>
++#include <asm/fence.h>
+ 
+ /* We don't even really need the extable code, but for now keep it simple */
+ #ifndef CONFIG_MMU
+@@ -19,6 +20,7 @@
+ #define __disable_user_access()		do { } while (0)
+ #endif
+ 
++#ifdef CONFIG_RISCV_ISA_ZAAMO
+ #define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)	\
+ {								\
+ 	__enable_user_access();					\
+@@ -32,6 +34,39 @@
+ 	: "memory");						\
+ 	__disable_user_access();				\
+ }
++#else
++/*
++ * Bound the number of LR/SC retries, as arm64 does for LL/SC: a user can
++ * keep the word changing from another thread forever. futex_wake_op()
++ * retries on -EAGAIN after dropping the hash bucket locks.
++ */
++#define FUTEX_MAX_LOOPS	128
++
++#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)	\
++{								\
++	int temp, loops = FUTEX_MAX_LOOPS;			\
++								\
++	__enable_user_access();					\
++	__asm__ __volatile__ (					\
++	"1:	lr.w %[ov], %[u]			\n"	\
++	"	" insn "				\n"	\
++	"2:	sc.w.rl %[t], %[t], %[u]		\n"	\
++	"	beqz %[t], 3f				\n"	\
++	"	addi %[l], %[l], -1			\n"	\
++	"	bnez %[l], 1b				\n"	\
++	"	li %[r], %[ea]				\n"	\
++	"3:						\n"	\
++	RISCV_FULL_BARRIER					\
++	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %[r])			\
++	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %[r])			\
++	: [r] "+r" (ret), [ov] "=&r" (oldval),			\
++	  [t] "=&r" (temp), [l] "+&r" (loops),			\
++	  [u] "+m" (*(uaddr))					\
++	: [op] "Jr" (oparg), [ea] "I" (-EAGAIN)			\
++	: "memory");						\
++	__disable_user_access();				\
++}
++#endif
+ 
+ static inline int
+ arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *uaddr)
+@@ -43,6 +78,7 @@ arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *uaddr)
+ 	uaddr = untagged_addr(uaddr);
+ 
+ 	switch (op) {
++#ifdef CONFIG_RISCV_ISA_ZAAMO
+ 	case FUTEX_OP_SET:
+ 		__futex_atomic_op("amoswap.w.aqrl %[ov],%z[op],%[u]",
+ 				  ret, oldval, uaddr, oparg);
+@@ -63,6 +99,28 @@ arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *uaddr)
+ 		__futex_atomic_op("amoxor.w.aqrl %[ov],%z[op],%[u]",
+ 				  ret, oldval, uaddr, oparg);
+ 		break;
++#else
++	case FUTEX_OP_SET:
++		__futex_atomic_op("mv %[t], %z[op]",
++				  ret, oldval, uaddr, oparg);
++		break;
++	case FUTEX_OP_ADD:
++		__futex_atomic_op("add %[t], %[ov], %z[op]",
++				  ret, oldval, uaddr, oparg);
++		break;
++	case FUTEX_OP_OR:
++		__futex_atomic_op("or %[t], %[ov], %z[op]",
++				  ret, oldval, uaddr, oparg);
++		break;
++	case FUTEX_OP_ANDN:
++		__futex_atomic_op("and %[t], %[ov], %z[op]",
++				  ret, oldval, uaddr, ~oparg);
++		break;
++	case FUTEX_OP_XOR:
++		__futex_atomic_op("xor %[t], %[ov], %z[op]",
++				  ret, oldval, uaddr, oparg);
++		break;
++#endif
+ 	default:
+ 		ret = -ENOSYS;
+ 	}
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 61b7a7716697..ba2db6804a6c 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -73,7 +73,14 @@
+ 	beq	a2, zero, .Lnew_valid_map_cpus_restore_context
+ 
+ 	/* Atomically reset the current cpu bit in new_valid_map_cpus */
++#ifdef CONFIG_RISCV_ISA_ZAAMO
+ 	amoxor.d	a0, a1, (a0)
++#else
++1:	lr.d	a2, (a0)
++	xor	a2, a1, a2
++	sc.d	a2, a2, (a0)
++	bnez	a2, 1b
++#endif
+ 
+ 	/*
+ 	 * A sfence.vma is required here. Even if we had Svvptc, there's no
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index f6a8ca49e627..dc3862ed29c4 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -265,7 +265,19 @@ SYM_CODE_START(_start_kernel)
+ 	/* Pick one hart to run the main boot sequence */
+ 	la a3, hart_lottery
+ 	li a2, 1
++#ifdef CONFIG_RISCV_ISA_ZAAMO
+ 	amoadd.w a3, a2, (a3)
++#else
++	/*
++	 * hart_lottery is a small 32-bit counter. add is valid on RV32
++	 * and RV64; sc.w stores the low 32 bits.
++	 */
++1:	lr.w t0, (a3)
++	add t1, t0, a2
++	sc.w t1, t1, (a3)
++	bnez t1, 1b
++	mv a3, t0
++#endif
+ 	bnez a3, .Lsecondary_start
+ #endif /* CONFIG_RISCV_BOOT_SPINWAIT */
+ 
 
 -- 
 2.43.0
