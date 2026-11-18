@@ -2,78 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB34660A2607
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 23:13:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51EEB606A331
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 23:13:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FfjTS+JJ;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wwt/vb+L
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bwpdsyZM;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lwzriDw7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:To:MIME-Version:Message-Id:Date:Subject
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=WRzIB26Mxkh633piTgQR8NfgxathKgPX+zmPTaJAm6c=; b=FfjTS+JJr4tPHSAwvaFN+dMyM5
-	DiMWgp6ZvqHfaGiECwM0ILtbNwdJruiL/fYzbz164capFetOU3wfOvC80HUrav+a/V9Z0yrwptaym
-	x6HH15F7UIXIsY1ct+bCMo0Yt0Wfap+tX221AQrD4BPDSEG6usIKL3mUw+SdCWXdQzBbHQ+zFg8TO
-	2emBif+Np876wTlavbidF9j+Gw5qxcTpacD5B4BI7JDn1d6Ruk+3QFhUDvBIyyJNrlw7i3NdvKn4n
-	f+qbmIl+vOiCjQECTUgmDXzpIo6P3nGBKimbmVTtMfDsF5fiYqsbkF5Sjl4LXkCN5sO91K9GCsvBB
-	2O7HibFA==;
+	bh=JzVGo5l0X6h0YRvGL5zYGDuGYDmyoZ2SUKkWoK/yizU=; b=bwpdsyZMAvZ+C8UoHVrr0Ntkbu
+	+Y4CVgRXaLubEsVXiegN6fhk3q3dMUDVDwpxQ/YjKt849R2Ta+5h4Ocit8qNrXaV566vjNQCSoN2M
+	fubyG7HGev5s2DqxAm6apBg6JQINYFWY3BWDVWZtdj6PcLWCE3f8QTIKc6dpCePNCPk1jLBZj7wAo
+	jyAhJDCC3immquXc3StUMBNqS+An5QHkWPMFkfNIdPpD48DEd/NVU54Mw/29OH8TGJZz2gakEpYr/
+	3TW8MxncQGutk6RUeKSlrEObXBiQHKWJiNhrzWMylF1gpDIzV8LIEOTByMhLTQ2RasQPzkSZf70yZ
+	8tlsNABQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xToqZ-0000000ASce-14JL;
-	Wed, 18 Nov 2026 23:13:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xToqS-0000000ASbc-39BP;
+	Wed, 18 Nov 2026 23:13:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xToqX-0000000AScP-3ab9
+	id 1xToqR-0000000ASbL-2qYF
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 23:13:45 +0000
+	Wed, 18 Nov 2026 23:13:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4CD99423C5;
-	Wed, 18 Nov 2026 23:13:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 532141F000C8;
-	Wed, 18 Nov 2026 23:13:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C574A61D1E;
+	Wed, 18 Nov 2026 23:13:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 836111F000C8;
+	Wed, 18 Nov 2026 23:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795043625;
-	bh=dQr8XwXR7m0qxbyXrJ5j+jZmA4RXmXwWBQdSH2URNgY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Wwt/vb+LD7m06w2ubrPiGBebpGU57JsNY1lLpplQWBezfjQxkGN0XYRV6oVx01tIf
-	 BV63sfEQPkFt8IySyjtHpfaDcHeRKZnIbdn+LJ6a+aXNDI2MjLHa8n+BIoF8CvzH4D
-	 u1lTPGMzVOSktmHYg1jJHrx526NKNddilXDIuN/RZFjRZtnONhw7ZvqGRv4D72LxeQ
-	 dPhqiuRrR69EUW7gVwB1rCV11EeFBfceebfW/dnHbNIS1pcDLZFlsOf5Jq1cUbxm9L
-	 2UDrruehhMtyXuZ830EDYm1thj6rL/UuP0Z0U9dp4tEcgf6Uezu20j1li/AMJW1jia
-	 NF8RTXxuPQYaQ==
+	s=k20260515; t=1795043618;
+	bh=uthXM6AxMh++BZoRfLANxhung5bsXeyFFnHLnIx3PQ8=;
+	h=From:Subject:Date:To:Cc;
+	b=lwzriDw74S3uh8xf6HvVI61QO1ZnRSHG5266D3U4SHz2fo5h244CXqvX8w1CFky78
+	 /xDQr0MAX1G8fVl0IiMLoqcnj/JOefW7P7ln9LOs+o5RxUEq9+noEHvIqsWAoc8303
+	 6BDXeAcrByKocXYUWxnRShiT++I/e8NjQL3P+SjQ5hjCbnRmC8fpaMgmhoXbgWI02N
+	 jzelGx/zG+/8/qCi9o9UBoaxZlDzz7HD0WGc5Axm0V3nlkBFKsCxwGJB2up2MYjiMx
+	 faPzHE8yZiyqm0RHWRtS7H7vfCG/fNQ35zgdH4h3ZWndzt+b1/BQKlVz8OZOrJO/tC
+	 p6FNGwvCcKj7g==
 From: Yixun Lan <dlan@kernel.org>
-Date: Wed, 18 Nov 2026 23:13:10 +0000
-Subject: [PATCH v5 2/2] pmdomain: spacemit: Add power domain driver
+Subject: [PATCH v5 0/2] PM: spacemit: Add power domain support
+Date: Wed, 18 Nov 2026 23:13:08 +0000
+Message-Id: <20261118-04-k3-pm-support-v5-0-42394acdf3e3@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261118-04-k3-pm-support-v5-2-42394acdf3e3@kernel.org>
-References: <20261118-04-k3-pm-support-v5-0-42394acdf3e3@kernel.org>
-In-Reply-To: <20261118-04-k3-pm-support-v5-0-42394acdf3e3@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23NTQ6CMBCG4auYrq2ZtpRSV97DuAA6QP2hpAWiI
+ dzdggs1unyTb56ZSEBvMZD9ZiIeRxusa2PI7YaUTd7WSK2JTTjwFDRoCgm9CNrdaBi6zvmeQoF
+ VApipyigSzzqPlb2v5PH06jAUZyz7xVkWjQ2984/158iX3cozgOyXHzkFmlZKZbkUxnBzuKBv8
+ bpzviaLP4q3wP4KIgqFNiVkUoHQxY+QfAiM/xGSKBgUWrA8l0yKL2Ge5ycoKxcpRwEAAA==
+X-Change-ID: 20260909-04-k3-pm-support-0bef40e87fd7
 To: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Alexandre Ghiti <alex@ghiti.fr>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=14424; i=dlan@kernel.org;
- h=from:subject:message-id; bh=CcwdDfyWe7xxhc1dHRNOEvqujnUzEKS3Juwt4KgVDvQ=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBq/jEczr27doHBuhfTaWraR1H2Ywlm61Z8GCGS6
- KLLQ2eoZJiJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCav4xHBsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3463; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=dIcn4UKroERxmS7Nu963yNp5RWL56ReaEAU4lVs9RqI=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBq/jEVPiq46KOXgLjax5SPnS3Plqx47MmZgpwVV
+ MAPRHk7dZuJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCav4xFRsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+0jYQ/9HWG1YEjh25AcHaLkbmkDI+iq5tY1H3ljz45OoqPbKzJd5ZCLP4+I9
- otiD4olqVv21I4s7sRyMn2L4ox8HnM1pmbBPPQI0EubrW7pdbWvCThJzBc5KIeZzqV5ZCl0GyAa
- PiH+X2dXujIRrKimQy3ZtSbv8g/2IndSNDbP4UiHNginbpvA2FbEKKF4e8xmog1ruC83jOFU2dz
- 5ByE9VQjuKlbWwfBGJluKaL89Dni3q9UAKl57wsPS/WYsc5nSayxyU9MY7Ybe/Nee/MpCGNGi82
- JNikkr4XmtaMz3x+2xiPYiV/wLkgyS3LAV3EzPIxtOqda7ISAd1YpqcNFhr0NI6ObItMpZKFgrs
- 7A+USKMMFFEGmybP/sWFaCXRBugVW459xjYbv2+D2ggSoHgHCJ8S8KI1QsVjraC1sPltlnOyC/u
- osNg3c/OGx/ONBhvHgt03DZlFiNivX4mw9pxzl2mvtbaO562YwcUlJJKkG+u5hBo21LssBrvxyA
- OsxssqZO1DwVU9XaVBXRLZzOAAs9q/RBQV6uFjpAeGL4k1hJXVXOilSDONURIfR4ECFffHt2l3x
- gIhXUBc8atwQR6LA/tcNRgj7PrAl1LOwU4dzJ8+q8xsWaRaKb3askrud/vxMDPQYJtp/Pdqaukw
- ZcUw8/fxzvBPH6cf6X9a/OZEOoPz7Y=
+ QACgkQMarqR1lNu+0Dhw//dGZeYB0SmyPcVLPgv5mSKL7/6pSsnmsLioEXbGrdiYa8ZrAJ1CcU7
+ QlJvtryqTGJVXmpmadynV+MNKqbwreVUWcU+6nGleJ4cj6U6bxkD8Qh5OoekrcBgXXSShxSc511
+ zltESptRs+5dkT5xniFsCarrRiMF00AFt0NmCglcG6CBrdK9/gWkOc0wJKmXgxUqyzLpcYi49Lg
+ beFejV39AnaxJ8/DWDa0KxU4oY4ZKiifAq5fxFdDkLbDT/MxWAi4LTYaAOjG0BMlYB5UQ1X6vNr
+ DMLzLj8DrwXy/xi71yr5Hn5Mb0qyGwmwWQgK0P1Ou4g9ocuTU6KEO3KladDBtqUI1HuzgBsWRkj
+ /GXbQwmKEfjZAfSMbLmknQGSiBIv48/qi3xszquBqqXbjrNtk2X+cQIfzAVmi2tVcQttSOmkohU
+ LaeL9bqdzb4sEYdu6Ep56DY5TfUgAPukoJt8kTKsNckcMDY2MFqYvY93TLVBGNBjdBWXcqBsL4W
+ 34VIp8NotgBrQrHCr8XpHcQRy0dNNWo/m4+67p873WCXZ4AmJ4/2b8Wj2b+niJ9ynLsPM/+j1CP
+ +4Jkic171ygwA+sHtlY78bmsbrNA1h1wGqR1T0k1iBVL8yMdVq2gsfmM+LPvmU8jr7P2s3bQSG5
+ HJPoN74Ngn+FLQFbEzwt9wTlLSQSp8=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -85,7 +88,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Iker Pedrosa <ikerpedrosam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Yixun Lan <dlan@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Iker Pedrosa <ikerpedrosam@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -96,517 +99,88 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-  SpacemiT's PMU (Power Management Unit) consist of several power domains
-which can be managed independently, depending on different application
-scenario, each domain can be powered on/off for saving power.
+In this series, we try to add a Power Domain driver support for SpacemiT
+K1/K3 SoCs, the driver implement the power-switch functionaly which support
+power on/off, and it's based on Linux Generic PM Domain framework and
+similiar to vendor K1's implementation, but unlike the K3's vendor
+version which is more complicated.
 
-  The driver is implemented based on Linux Generic PM Domain framework.
-From a hardware perspective, either of two distinct power-on sequences
-are supported, in software mode (SW mode), the driver is responsible for
-controlling the states of bits such as sleep1, sleep2, isolation and
-pwr_state, while in hardware mode (HW mode), the PMU hardware will complete
-the sequence automatically without requiring software intervention.
+  The DT documentation for Power Domain already exist in below file,
+and APMU already has #power-domain-cells property.
+Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
 
-Tested-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-Reviewed-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+  The previous DTS patch is obsolete, so I dropped it. For devices required
+PM feature, it need to add a "power-domains" property, and should send in
+a separate patch.
+
+  In order to test this series, a prerequisite CCU patches are needed,
+which can be found here [1].
+
+Hi Ulf,
+ Would you be ok to take this version? only minor change updated.
+I think the sudden removal of pmdomain supplier is kind of an
+independent common issue (exist in other platfroms too), I do not
+want to addresse it in this series, see a possible solution in separate
+patch here [2], or Icenowy's preference in comment[3], or whatever
+way to take. Just let me know what you think..
+
+Link: https://lore.kernel.org/spacemit/20261008-04-k3-clk-pm-aux-v1-0-8372d7307694@kernel.org/ [1]
+Link: https://lore.kernel.org/spacemit/20261112-01-pm-device-link-v1-1-8932e0862378@kernel.org/ [2]
+Link: https://lore.kernel.org/spacemit/b7d7ac2eee0e64aa7c267def5c2a8a022c7da425.camel@icenowy.me [3]
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
+Changes in v5:
+- drop pm_index
+- fix dev_err() to return error code
+- Link to v4: https://patch.msgid.link/20261112-04-k3-pm-support-v4-0-de3931aa5153@kernel.org
+
+Changes in v4:
+- adjust Kconfig help message
+- drop unused include header 
+- propagate regmap_read_x() error code
+- simplify spacemit_pm_is_off_state()
+- Link to v3: https://patch.msgid.link/20261108-04-k3-pm-support-v3-0-b9dc0857039b@kernel.org
+
+Changes in v3:
+- collect tags
+- rename spacemit_pm_is_off_state()
+- implement a remove() function
+- use proper type in struct spacemit_pm_domain_param
+- refactor struct spacemit_pmu
+- Link to v2: https://patch.msgid.link/20261008-04-k3-pm-support-v2-0-6f778a53dd2d@kernel.org
+
+Changes in v2:
+- convert to auxilary driver
+- no need dt-binding doc, drop it
+- drop dts patch
+- support to build as module
+- set always on for K3 audio pm 
+- no global variable for struct spacemit_pmu
+- no force to do power-off in spacemit_pd_power_on()
+- check return value of pm_genpd_init()
+- adjust license header format
+- Link to v1: https://patch.msgid.link/20260918-04-k3-pm-support-v1-0-0acd2b36b96f@kernel.org
+
+---
+Yixun Lan (2):
+      dt-bindings: power: spacemit: Add power domain controller IDs
+      pmdomain: spacemit: Add power domain driver
+
  drivers/pmdomain/Kconfig                        |   1 +
  drivers/pmdomain/Makefile                       |   1 +
  drivers/pmdomain/spacemit/Kconfig               |  21 ++
  drivers/pmdomain/spacemit/Makefile              |   1 +
  drivers/pmdomain/spacemit/spacemit-pm-domains.c | 422 ++++++++++++++++++++++++
- 5 files changed, 446 insertions(+)
+ include/dt-bindings/power/spacemit,k1-power.h   |  14 +
+ include/dt-bindings/power/spacemit,k3-power.h   |  12 +
+ 7 files changed, 472 insertions(+)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20260909-04-k3-pm-support-0bef40e87fd7
 
-diff --git a/drivers/pmdomain/Kconfig b/drivers/pmdomain/Kconfig
-index 5341dff669be..20aea5fe94b2 100644
---- a/drivers/pmdomain/Kconfig
-+++ b/drivers/pmdomain/Kconfig
-@@ -14,6 +14,7 @@ source "drivers/pmdomain/renesas/Kconfig"
- source "drivers/pmdomain/riscv/Kconfig"
- source "drivers/pmdomain/rockchip/Kconfig"
- source "drivers/pmdomain/samsung/Kconfig"
-+source "drivers/pmdomain/spacemit/Kconfig"
- source "drivers/pmdomain/st/Kconfig"
- source "drivers/pmdomain/starfive/Kconfig"
- source "drivers/pmdomain/sunxi/Kconfig"
-diff --git a/drivers/pmdomain/Makefile b/drivers/pmdomain/Makefile
-index d7aee13ae571..25238576f8a3 100644
---- a/drivers/pmdomain/Makefile
-+++ b/drivers/pmdomain/Makefile
-@@ -12,6 +12,7 @@ obj-y					+= renesas/
- obj-y					+= riscv/
- obj-y					+= rockchip/
- obj-y					+= samsung/
-+obj-y					+= spacemit/
- obj-y					+= st/
- obj-y					+= starfive/
- obj-y					+= sunxi/
-diff --git a/drivers/pmdomain/spacemit/Kconfig b/drivers/pmdomain/spacemit/Kconfig
-new file mode 100644
-index 000000000000..8e2808e92be3
---- /dev/null
-+++ b/drivers/pmdomain/spacemit/Kconfig
-@@ -0,0 +1,21 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+menu "SpacemiT PM Domains"
-+
-+config SPACEMIT_PM_DOMAINS
-+	tristate "PM Domain driver for SpacemiT SoC"
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	depends on PM && OF
-+	select PM_GENERIC_DOMAINS
-+	select PM_GENERIC_DOMAINS_OF
-+	select AUXILIARY_BUS
-+	help
-+	  This driver enables power domain management for the SpacemiT
-+	  SoC. On the SoC there are number of power domains available,
-+	  which can be managed independently. For example VPU, GPU, LCD,
-+	  and Audio reside in their own power domains which can be
-+	  turned on/off.
-+
-+	  Say Y or M to enable device power management through PM domains.
-+
-+endmenu
-diff --git a/drivers/pmdomain/spacemit/Makefile b/drivers/pmdomain/spacemit/Makefile
-new file mode 100644
-index 000000000000..d0bd77a520c0
---- /dev/null
-+++ b/drivers/pmdomain/spacemit/Makefile
-@@ -0,0 +1 @@
-+obj-$(CONFIG_SPACEMIT_PM_DOMAINS)	+= spacemit-pm-domains.o
-diff --git a/drivers/pmdomain/spacemit/spacemit-pm-domains.c b/drivers/pmdomain/spacemit/spacemit-pm-domains.c
-new file mode 100644
-index 000000000000..9d77d3f4c182
---- /dev/null
-+++ b/drivers/pmdomain/spacemit/spacemit-pm-domains.c
-@@ -0,0 +1,422 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Spacemit Generic power domain support.
-+ *
-+ * Copyright (c) 2026 SpacemiT Technology Co. Ltd
-+ */
-+
-+#include <linux/pm_domain.h>
-+#include <linux/regmap.h>
-+#include <linux/auxiliary_bus.h>
-+#include <dt-bindings/power/spacemit,k1-power.h>
-+#include <dt-bindings/power/spacemit,k3-power.h>
-+#include <soc/spacemit/ccu.h>
-+
-+#define APMU_POWER_STATUS_REG	0xf0
-+#define APMU_POWER_TIMEOUT_US	10000
-+
-+struct spacemit_pm_domain_param {
-+	unsigned int reg_pwr_ctrl;
-+	u8 bit_hw_mode;
-+	u8 bit_sleep2;
-+	u8 bit_sleep1;
-+	u8 bit_isolation;
-+	u8 bit_auto_pwr_on;
-+	u8 bit_hw_pwr_stat;
-+	u8 bit_pwr_stat;
-+	bool use_hw;
-+	unsigned int flags;
-+	const char *name;
-+};
-+
-+struct spacemit_pm_domain {
-+	struct generic_pm_domain genpd;
-+	struct spacemit_pmu *pmu;
-+	const struct spacemit_pm_domain_param *param;
-+};
-+
-+struct spacemit_pmu {
-+	struct device *dev;
-+	struct regmap *regmap;
-+	struct genpd_onecell_data genpd_data;
-+	struct generic_pm_domain *domains[];
-+};
-+
-+struct spacemit_pm_aux_data {
-+	int num_domains;
-+	const struct spacemit_pm_domain_param *param;
-+};
-+
-+#define to_spacemit_pd(gpd) container_of(gpd, struct spacemit_pm_domain, genpd)
-+
-+static int spacemit_pd_power_off(struct generic_pm_domain *domain)
-+{
-+	struct spacemit_pm_domain *pd = to_spacemit_pd(domain);
-+	struct spacemit_pmu *pmu = pd->pmu;
-+	const struct spacemit_pm_domain_param *p = pd->param;
-+	unsigned int val;
-+	int ret;
-+
-+	if (!pd->param->use_hw) {
-+		regmap_clear_bits(pmu->regmap, p->reg_pwr_ctrl, BIT(p->bit_isolation));
-+		fsleep(15);
-+
-+		val = BIT(p->bit_sleep1) | BIT(p->bit_sleep2);
-+		regmap_clear_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(15);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       !(val & BIT(p->bit_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	} else {
-+		val = BIT(p->bit_auto_pwr_on) | BIT(p->bit_hw_mode);
-+		regmap_clear_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(15);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       !(val & BIT(p->bit_hw_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	}
-+
-+	if (ret)
-+		dev_err(&domain->dev, "failed to power off domain %s: %d\n",
-+			p->name, ret);
-+
-+	return ret;
-+}
-+
-+static int spacemit_pd_power_on(struct generic_pm_domain *domain)
-+{
-+	struct spacemit_pm_domain *pd = to_spacemit_pd(domain);
-+	struct spacemit_pmu *pmu = pd->pmu;
-+	const struct spacemit_pm_domain_param *p = pd->param;
-+	unsigned int val;
-+	int ret = 0;
-+
-+	if (!p->use_hw) {
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, BIT(p->bit_sleep1));
-+		fsleep(20);
-+
-+		val = BIT(p->bit_sleep2) | BIT(p->bit_sleep1);
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(20);
-+
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, BIT(p->bit_isolation));
-+		fsleep(15);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       (val & BIT(p->bit_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	} else {
-+		val = BIT(p->bit_auto_pwr_on) | BIT(p->bit_hw_mode);
-+		regmap_set_bits(pmu->regmap, p->reg_pwr_ctrl, val);
-+		fsleep(300);
-+
-+		ret = regmap_read_poll_timeout(pmu->regmap,
-+					       APMU_POWER_STATUS_REG,
-+					       val,
-+					       (val & BIT(p->bit_hw_pwr_stat)),
-+					       5,
-+					       APMU_POWER_TIMEOUT_US);
-+	}
-+
-+	if (ret)
-+		dev_err(&domain->dev, "failed to power on domain %s: %d\n",
-+			p->name, ret);
-+
-+	return ret;
-+}
-+
-+static bool spacemit_pm_is_off_state(struct spacemit_pmu *pmu,
-+				     struct spacemit_pm_domain *pd)
-+{
-+	const struct spacemit_pm_domain_param *p = pd->param;
-+	u32 reg = 0, bit;
-+
-+	regmap_read(pmu->regmap, APMU_POWER_STATUS_REG, &reg);
-+
-+	bit = p->use_hw ? BIT(p->bit_hw_pwr_stat) : BIT(p->bit_pwr_stat);
-+
-+	return !(reg & bit);
-+}
-+
-+static int spacemit_pm_add_one_domain(struct spacemit_pmu *pmu, int id,
-+				      const struct spacemit_pm_domain_param *param)
-+{
-+	struct spacemit_pm_domain *pd;
-+	int ret;
-+
-+	pd = devm_kzalloc(pmu->dev, sizeof(*pd), GFP_KERNEL);
-+	if (!pd)
-+		return -ENOMEM;
-+
-+	pd->param           = param;
-+	pd->pmu             = pmu;
-+	pd->genpd.name      = param->name;
-+	pd->genpd.flags     = param->flags;
-+	pd->genpd.power_off = spacemit_pd_power_off;
-+	pd->genpd.power_on  = spacemit_pd_power_on;
-+
-+	ret = pm_genpd_init(&pd->genpd, NULL, spacemit_pm_is_off_state(pmu, pd));
-+	if (ret)
-+		return ret;
-+
-+	pmu->domains[id] = &pd->genpd;
-+
-+	return 0;
-+}
-+
-+static void spacemit_pm_domain_cleanup(struct spacemit_pmu *pmu)
-+{
-+	struct spacemit_pm_domain *pd;
-+	int i, ret;
-+
-+	for (i = 0; i < pmu->genpd_data.num_domains; i++) {
-+		if (!pmu->domains[i])
-+			continue;
-+
-+		pd = to_spacemit_pd(pmu->domains[i]);
-+		ret = pm_genpd_remove(pmu->domains[i]);
-+		if (ret)
-+			dev_err(pmu->dev, "failed to remove domain %s: %d - state may be inconsistent\n",
-+				pd->param->name, ret);
-+	}
-+}
-+
-+static int spacemit_pm_domain_probe(struct auxiliary_device *adev,
-+				    const struct auxiliary_device_id *id)
-+{
-+	struct spacemit_ccu_adev *spdev = to_spacemit_ccu_adev(adev);
-+	const struct spacemit_pm_domain_param *p;
-+	const struct spacemit_pm_aux_data *data;
-+	struct device *dev = &adev->dev;
-+	struct spacemit_pmu *pmu;
-+	int err, i;
-+
-+	data = (const struct spacemit_pm_aux_data *)id->driver_data;
-+
-+	pmu = devm_kzalloc(dev,
-+			   struct_size(pmu, domains, data->num_domains),
-+			   GFP_KERNEL);
-+	if (!pmu)
-+		return -ENOMEM;
-+
-+	auxiliary_set_drvdata(adev, pmu);
-+
-+	pmu->dev = dev;
-+	pmu->regmap = spdev->regmap;
-+	pmu->genpd_data.num_domains = data->num_domains;
-+	pmu->genpd_data.domains     = pmu->domains;
-+
-+	for (i = 0; i < data->num_domains; i++) {
-+		p = &data->param[i];
-+		err = spacemit_pm_add_one_domain(pmu, i, p);
-+		if (err) {
-+			dev_err(dev, "failed to add domain %s: %d\n", p->name, err);
-+			goto err_out;
-+		}
-+	}
-+
-+	err = of_genpd_add_provider_onecell(dev->of_node, &pmu->genpd_data);
-+	if (err) {
-+		dev_err(dev, "failed to add provider: %d\n", err);
-+		goto err_out;
-+	}
-+
-+	return 0;
-+
-+err_out:
-+	spacemit_pm_domain_cleanup(pmu);
-+	return err;
-+}
-+
-+static void spacemit_pm_domain_remove(struct auxiliary_device *adev)
-+{
-+	struct spacemit_pmu *pmu = auxiliary_get_drvdata(adev);
-+	struct device *dev = &adev->dev;
-+
-+	of_genpd_del_provider(dev->of_node);
-+	spacemit_pm_domain_cleanup(pmu);
-+}
-+
-+static const struct spacemit_pm_domain_param k1_domain_params[] = {
-+	[K1_PMDOMAIN_VPU] = {
-+		.reg_pwr_ctrl		= 0xa8,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_pwr_stat		= 1,
-+		.bit_hw_pwr_stat	= 9,
-+		.name			= "vpu",
-+	},
-+	[K1_PMDOMAIN_GPU] = {
-+		.reg_pwr_ctrl		= 0xd0,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_pwr_stat		= 0,
-+		.name			= "gpu",
-+	},
-+	[K1_PMDOMAIN_LCD] = {
-+		.reg_pwr_ctrl		= 0x380,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 4,
-+		.bit_hw_pwr_stat	= 12,
-+		.use_hw			= true,
-+		.name			= "lcd",
-+	},
-+	[K1_PMDOMAIN_ISP] = {
-+		.reg_pwr_ctrl		= 0x37c,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 2,
-+		.bit_hw_pwr_stat	= 10,
-+		.name			= "isp",
-+	},
-+	[K1_PMDOMAIN_AUDIO] = {
-+		.reg_pwr_ctrl		= 0x378,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 3,
-+		.bit_hw_pwr_stat	= 11,
-+		.use_hw			= true,
-+		.name			= "audio",
-+	},
-+	[K1_PMDOMAIN_GNSS] = {
-+		.reg_pwr_ctrl		= 0x13c,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 6,
-+		.bit_hw_pwr_stat	= 14,
-+		.name			= "gnss",
-+	},
-+	[K1_PMDOMAIN_HDMI] = {
-+		.reg_pwr_ctrl		= 0x3f4,
-+		.bit_hw_mode		= 4,
-+		.bit_sleep2		= 3,
-+		.bit_sleep1		= 2,
-+		.bit_isolation		= 1,
-+		.bit_auto_pwr_on	= 0,
-+		.bit_pwr_stat		= 7,
-+		.bit_hw_pwr_stat	= 15,
-+		.use_hw			= true,
-+		.name			= "hdmi",
-+	},
-+};
-+
-+static const struct spacemit_pm_domain_param k3_domain_params[] = {
-+	[K3_PMDOMAIN_VPU] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 2,
-+		.bit_hw_pwr_stat	= 9,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0xa8,
-+		.name			= "vpu",
-+	},
-+	[K3_PMDOMAIN_GPU] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 0,
-+		.bit_hw_pwr_stat	= 8,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0xd0,
-+		.name			= "gpu",
-+	},
-+	[K3_PMDOMAIN_AUDIO] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 3,
-+		.reg_pwr_ctrl		= 0x378,
-+		.flags			= GENPD_FLAG_ALWAYS_ON,
-+		.name			= "audio",
-+	},
-+	[K3_PMDOMAIN_LCD0] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 4,
-+		.bit_hw_pwr_stat	= 12,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0x380,
-+		.name			= "lcd0",
-+	},
-+	[K3_PMDOMAIN_LCD1] = {
-+		.bit_auto_pwr_on	= 0,
-+		.bit_isolation		= 1,
-+		.bit_sleep1		= 2,
-+		.bit_sleep2		= 3,
-+		.bit_hw_mode		= 4,
-+		.bit_pwr_stat		= 5,
-+		.bit_hw_pwr_stat	= 15,
-+		.use_hw			= true,
-+		.reg_pwr_ctrl		= 0x3f4,
-+		.name			= "lcd1",
-+	},
-+};
-+
-+static const struct spacemit_pm_aux_data k1_of_data = {
-+	.num_domains	= ARRAY_SIZE(k1_domain_params),
-+	.param		= k1_domain_params,
-+};
-+
-+static const struct spacemit_pm_aux_data k3_of_data = {
-+	.num_domains	= ARRAY_SIZE(k3_domain_params),
-+	.param		= k3_domain_params,
-+};
-+
-+static const struct auxiliary_device_id spacemit_pm_domain_ids[] = {
-+	{
-+		.name = "spacemit_ccu.k1-apmu-pmdomain",
-+		.driver_data = (kernel_ulong_t)&k1_of_data,
-+	},
-+	{
-+		.name = "spacemit_ccu.k3-apmu-pmdomain",
-+		.driver_data = (kernel_ulong_t)&k3_of_data,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, spacemit_pm_domain_ids);
-+
-+static struct auxiliary_driver spacemit_pm_domain_driver = {
-+	.probe          = spacemit_pm_domain_probe,
-+	.remove         = spacemit_pm_domain_remove,
-+	.id_table       = spacemit_pm_domain_ids,
-+};
-+module_auxiliary_driver(spacemit_pm_domain_driver);
-+
-+MODULE_DESCRIPTION("SpacemiT Generic Power Domains driver");
-+MODULE_LICENSE("GPL");
-
--- 
-2.56.0
+Best regards,
+--  
+Yixun Lan <dlan@kernel.org>
 
 
 _______________________________________________
