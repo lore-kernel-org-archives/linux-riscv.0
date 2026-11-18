@@ -2,106 +2,157 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0D1A606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 18:59:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01DD5606A31C
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 20:10:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DlcA1vWj;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cFAZBz4p
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kywsQJtb;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZPXpFQzU;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=e3rH5ta5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QhvobYpDdJtctqiNdCc/1rQ3F3+hC2EOVnfsJZlwuOw=; b=DlcA1vWjLi9JbIdxfwTbQfG5jX
-	/1EqSkV6QTr5uaLvVx2vSnnwNvRGdo0/6ovVzby4Gve1r/n5uqZ7hW+F9vDFYhzSXNfRVkxbeCE21
-	YSqNDcfE0FW3+CkoI8aNB1HM7h/t8ax8+Fx8LUANClIa9bL7OuOwrgMVvsa+w+kFJvywLJw/sidcq
-	bFFE9FqEfEk0834f+VmYwfgzq81Q2RQZ8B66Wy5HofA3RldMi1wwaQAQWCRuWiLM4FJLZFl17RAjD
-	YCLhlOGQphUDZY+dHRkleszZjBxLUPuktVOWVyzGD4QyhRSE05tP8mgRwWuUUcNPlB6HrQIlr5vGK
-	2//7XqrA==;
+	bh=uvnWx96XKfflxZT6open6RdmgUfXTi8tG4co0YO92kg=; b=kywsQJtbznAWi9J1JYuDb6QeKP
+	xBvo07fv5s86/5zUopA+D9ph1YMtv3SBQ6INWXAVfoScZn9EWqlexStruoyu+P9wKC+tvznBmiHzo
+	ku8nmeB0lmA44AaaftGJnomHOdyr2FxemYDUr+itxZBqwiYHTWh7o2UXAs+6CMjkx4f75mKAmJN2y
+	exfNDMetmfjxwXG3RjoL5glxcAiHZZJKIqXQwV5Zq+OHqvbRoUWwNS8s+S7nWK9g86/2KoiFqYub8
+	nbkmKAtU8WVGKftK08tm1uP39J9cPJlhF0HyAvagpwxuLQy1ALrHBVHvXuMbdXyPSO9BnSxyyDpu2
+	puggn+5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTksl-0000000A38q-1hen;
-	Wed, 18 Nov 2026 18:59:47 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1xTlyj-0000000ABoO-0u1n;
+	Wed, 18 Nov 2026 20:10:01 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTksi-0000000A37I-2e33
+	id 1xTlyg-0000000ABm4-3wNz
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 18:59:46 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso20960645e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 10:59:43 -0800 (PST)
+	Wed, 18 Nov 2026 20:10:00 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIJN1XB059846
+	for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 20:09:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Yelw5l1vTgIT3KQe49PZmxknXqCh77sINouzym+k2+4=; b=ZPXpFQzUH6AbsOlY
+	tF+ixoIdQ0jj1ae9RM7RCJctNoMbRbIbkMVris6T9wG50ovBmYKYEXHpBN8fVsZN
+	B+hlLh1IKIylfzWhm069dLbohnT5QEkpRn/qgJP3A9cK6SQGxVDk4docSmvQgmFS
+	gr8o1vTmh0hl3gwg7hmFk/7LjZnJcScYD6A0u13mf8wGY0V9bsaGY7RUV2opoDG2
+	5qa8lXB54PX7bMhiQZ61HVmDa0vDI8jqXk8aTDUD3Lr5MHCTiWCDLbQF9VuVMZuj
+	NBTRTVKCXtI9u6oLZabbjJNzUI7COsbnFQ1e4d+c4CDlPwuUkDU0gqrN3nXDozug
+	mE1tTQ==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1fgg11dw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 20:09:57 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-94970ad532bso238451185a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 12:09:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795028382; x=1795633182; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=BZqKXVZqiOGdZEu0WGQ7on18pEUQ1o2hqL4+MiKX9BY=;
-        b=cFAZBz4pYYMye00qkzWKjgINeezacXCCWdAPFMZE94xtLdzNjpjSh9TMbecCjWxNDn
-         2o7KGAblkr9mc4WMU06HOKcC93/1oc/fwE13bS7kWqXwkXHZbFsVRdED/wt5SvuaAaEX
-         7gi5QrDhFsMn0bsEsfk1fX8IloMM3qemUzMi4ji6Nb8FCANWE3vQieIyqAquXRiolTb/
-         iAV3wA2AWaqPSWm29M71hpjUsVJOsxf0fRJV0QNBPDn4PziHczJj5Qvp26LArDwykYfp
-         3tx3OCvSCeybTqUFaEXxZ5P3VN8nHDJUjTJ6K7bTnSl7mP5N0ArNQDlLp5yYiIJJKIfq
-         pUUw==
+        d=oss.qualcomm.com; s=google; t=1795032597; x=1795637397; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Yelw5l1vTgIT3KQe49PZmxknXqCh77sINouzym+k2+4=;
+        b=e3rH5ta5DD5f9M6739qq7ulQxZMSBrxBtB88w3b9yrpTtO0KPc/iephPiq6Tfk6NUA
+         Z9ZHbpnrsKs9RIV2pRW0zlZ0c5vv4cgtInuC7K4pbz0aRsySbhq7BsvwQ823W5ffor6I
+         xjcYvo/kBV0mKjjxAg2cOpl8MB8EdDOU0Jzib6Nc2vVGQL5ZthZEO0te9CZLqFDQqY6A
+         4swk3Tak03vJ90k6jc5RxSdvoTVOJAu3xZgqCbJ06vvWPtAcSHSd9PmrpYVH6vxuhAt+
+         JCKZ03GdhCUkbB1b/F6pCHLQUlT8FFUgV2jFjIKq1CE1aud/eVksmllTIpm3kzPzocJ1
+         gcfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795028382; x=1795633182;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=BZqKXVZqiOGdZEu0WGQ7on18pEUQ1o2hqL4+MiKX9BY=;
-        b=i9q1b0m5B5agJQmvTJTobsU4vU0DACbeusSvePE4XP2rpiiKoUX0JgOll2IaLZAAB4
-         XSxxZy+jegZyp4ZX09YkI6VftatBwht9kPbWku2aUhpgCTHwmBS0fX0awPkBLXgHMQj6
-         1DWWn+9I11GQcVHv7uYDhSkDHoBW/1FVenjLpGpapVGqwhiLNnSRlnKH0E23LAwEDgUQ
-         unuMZ9ZsGACcXrq43jZW0nCUNdcgsCEehVWZFSPUq0bFNkHI1laY/Ijl2lV9rX2pTrcR
-         4Nsffa+HQjdudEDPZ8O4Vg+YVI9agE1v24HaefLBKYgV86PWdgKBExKmL/H03mP2ceV2
-         z8Tg==
-X-Forwarded-Encrypted: i=1; AL+hErEJlRucNK/9iOTkzZ4SZmjOWF6iOO6cClIWKpO+RwRdMP9uSqyLZofDdku+lkHNjVN9Xj7k/Lj7s7TQhg==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9/4IzxO5x5L+q+0UqvkFvXHl6Wc97c+b4EIgyRK1T9fXgkCRDj
-	W8pLUCLyV/1RBUTbGZNrRBIqBfCuHz+p44X9QyALAB8zyC8TlSJarN+7
-X-Gm-Gg: AYBFou01QJR5rZGElez9duHJqoBh0CQiqHlQezRNYAj1tHh46jdrwjNeL5ai1Mg1MkE
-	mgwCwZD205kuoCeJJNkYYQpWP/fa28NBTSZXc2TGr+FXYfvA405ximNp+/kYBTiLcE9EhADBYbN
-	pmae2roRmc+DiPPeI2jy3VpMWclr85s7hg43sJSh6A63B00An7Ml8eEyhrAT2dTrHiiL+ptkOaJ
-	Lvu6bOudRJeHsqVKVf/LYBZvwGbWkw9mbafqn0AkXP7Jo3W883CM6re5vhnxyyYzQvuA2y1+xVL
-	kvOQBDV67DVC9r4u68Ea/Aq8/sr8lG5hWhmp5+KIRUNzryVTZqZDJv+xrAxrHNU26Fj+NF73YHt
-	Lfgc3TzGlzXV4qF05KJg8kGk/UZcgUgDYPhSoJ95uZ0zwuAUEYTFEYgTl18dAMwR1ZedsTjWjmK
-	uFVPT5yXuIy888T1CZ0ojrtpQCIljstjkfqnhimuHzKBRH9hPyigt7xZBoxondlLBk6NmOaYV/f
-	d2/wfVBuOSLHpv+qcQHgDxv2rAw5KNbYeI1ZhfqdaNCt6pBYOPM4ilC4Ud/QlgZWkMzaH0lvxJH
-	CSGPygOcY5U3N57Bkc2pSbSqx6XeLC/7SGkrUGSiuBCpQHRF/8gY9cZlqWYmWTNYznR1Wtg=
-X-Received: by 2002:a05:600c:46c7:b0:4bb:76f6:d23a with SMTP id 5b1f17b1804b1-4bb7da45409mr75914615e9.21.1795028381836;
-        Wed, 18 Nov 2026 10:59:41 -0800 (PST)
-Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.234.80])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d4e670dsm95966965e9.1.2026.11.18.10.59.39
+        d=1e100.net; s=20260707; t=1795032597; x=1795637397;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Yelw5l1vTgIT3KQe49PZmxknXqCh77sINouzym+k2+4=;
+        b=UZoRkCqJqeDBkJJsnXkQFBkgX/OM48MXoevoSTgzriPIMTRfjAKvEU/QSgR+7lBjcL
+         jIY75BacntXX22p0UwVSKeVuKpxAWvH6QJ01loF7RLFmD8xFSLZkwh2hV6dMGPlXRnZl
+         4/dqIGeRdx77tInd1JAKZMcu09PWVW/r/Kh+yr0NVQZgKXP+ZgOsolNlZHMQ4pCmlWxS
+         f8bibqjTXiiiM5CBTgZOk0rHLHy66cN8asC9Y0BXt+Ubg3AcRxesNElkx3ucbtOE5AR1
+         4XVc0llRtlW4rG4unBbei++1+p3ac+e9jogyss0vr2l0OcxGDnqC6oBKvpgfp/c7L+2s
+         2lcw==
+X-Forwarded-Encrypted: i=1; AL+hErHvzUDeyBxZlMG2Xf0JCUj5UQhDDOwZ4/deP34sUfj28QDus4Lajdps0UF8oJZRztun8DfsAFtMPmDZEA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8LTJirUVO7I4CIq0DuptHA9l3/xdkpgIKf7YQOJUqwPMaJvsoT
+	RIEEqwTOU/fueB7uP7vf5Yu3k/TDlMplWJQWPVLRJ5gI6Yt18zllli29QpZBY4aWaTVxUY2JkUE
+	F4SCnPE/TPo6sMtME3L2PBneI7jTq1Go4+5zgBhoJBcsmkvwWxVsJEvr6Kq4KFUL8WgWMurU=
+X-Gm-Gg: AYBFou3YgeeTyURPNS38w+5UHkeyMVxkXIACbzIWyZorBvDFc5eaxy9CxcWWuWfE3F1
+	dE7QVthReA7xs6Mux3SiVD/jaCBEBvr8gmkjlf3ozzKXNBA0ezlwTq/9tGHzvW4E9w2rAxsWfsV
+	1WtChoZtbJdx+5FpjcSv1WoDRW2DmRyeg+6B9gCK4c0sysfNrZ7g/AnF9jVN7TOH8L0mj/hABez
+	j0UGseSXOZtOVOWBsTKLX/Yo19+kJv/3aKQCUHxpB8b5B4mqFbDdhRx+MzvO1mK4olzWrmd7WGT
+	mp6xCyE88zuSdAPJZ8r4rZWOTUz7F3Kw/PhYuJ7HNesmKHKqAtB13UKWhY8cQqYufVfM4ukOvuF
+	cpEAtJlX7GmlwzPOz5Tbqr6ZZNU8NU3ao2Fz5YIj5qTJArZrnra07sy4BBqBmcrfi7yW3S2fnqE
+	bUtYZExJeO7tlZeQ==
+X-Received: by 2002:a05:620a:808c:b0:943:b019:f011 with SMTP id af79cd13be357-9499965c44cmr677403285a.28.1795032596744;
+        Wed, 18 Nov 2026 12:09:56 -0800 (PST)
+X-Received: by 2002:a05:620a:808c:b0:943:b019:f011 with SMTP id af79cd13be357-9499965c44cmr677395085a.28.1795032596062;
+        Wed, 18 Nov 2026 12:09:56 -0800 (PST)
+Received: from localhost (ip-62-245-98-165.bb.vodafone.cz. [62.245.98.165])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656b1cfdfsm6840078f8f.47.2026.11.18.12.09.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 10:59:41 -0800 (PST)
-From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Wed, 18 Nov 2026 19:59:01 +0100
-Subject: [PATCH v2] riscv: dts: spacemit: k1: add PowerVR GPU device node
+        Wed, 18 Nov 2026 12:09:55 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Message-Id: <20261118-orangepi-gpu-v2-1-f68676f844eb@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/1WMwQrDIBAFfyXsuZZVq7Q95T9KDhKNWWhi0FZag
- v9e462XBzPwZofkIrkE926H6DIlCmsFcepgnM3qHSNbGQQKjRcuWYiH3Yj57c1Q2Ku8Wa1QT1A
- vW3QTfVruMVSeKb1C/LZ65odtIY5c/YcyZ8hQKq2N5nWx94uh53kMCwyllB/fEJ7+qAAAAA==
-X-Change-ID: 20260413-orangepi-gpu-02d839d6506f
-To: Alessio Belle <alessio.belle@imgtec.com>, 
- Luigi Santivetti <luigi.santivetti@imgtec.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- Iker Pedrosa <ikerpedrosam@gmail.com>
-X-Mailer: b4 0.14.3
+Mime-Version: 1.0
+Date: Wed, 18 Nov 2026 21:09:53 +0100
+Message-Id: <DMYLY5JOE18Z.2CQQGB4INJ4RH@oss.qualcomm.com>
+Subject: Re: [PATCH] riscv: cfi: parse riscv_nousercfi before
+ riscv_fill_hwcap()
+Cc: <linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-riscv@lists.infradead.org>, "Conor Dooley" <conor@kernel.org>,
+        "Charlie Jenkins" <thecharlesjenkins@gmail.com>,
+        "Andy Chiu"
+ <tchiu@tenstorrent.com>,
+        "Anup Patel" <anup@brainfault.org>, <kvm-riscv@lists.infradead.org>
+To: "Guodong Xu" <guodong.xu@oss.qualcomm.com>,
+        "Jonathan Corbet"
+ <corbet@lwn.net>,
+        "Shuah Khan" <skhan@linuxfoundation.org>,
+        "Randy Dunlap"
+ <rdunlap@infradead.org>,
+        "Paul Walmsley" <pjw@kernel.org>,
+        "Palmer Dabbelt"
+ <palmer@dabbelt.com>,
+        "Albert Ou" <aou@eecs.berkeley.edu>,
+        "Alexandre
+ Ghiti" <alex@ghiti.fr>,
+        "Deepak Gupta" <debug@rivosinc.com>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?=
+ <radim.krcmar@oss.qualcomm.com>
+References: <20261108-nousercfi-early-param-v1-1-ea22d3a60683@oss.qualcomm.com>
+In-Reply-To: <20261108-nousercfi-early-param-v1-1-ea22d3a60683@oss.qualcomm.com>
+X-Proofpoint-GUID: xMWMIkoC1_sRqiXlAFcadIgtvMB8KTwq
+X-Proofpoint-ORIG-GUID: xMWMIkoC1_sRqiXlAFcadIgtvMB8KTwq
+X-Authority-Analysis: v=2.4 cv=fOSsTpae c=1 sm=1 tr=0 ts=6afe0615 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=Sz50MssrUYSuVvM2sb41rg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M51BFTxLslgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=_3qaHc-GLK8r7rxdq84A:9 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA3NyBTYWx0ZWRfXy8BCyiDnp8PZ
+ XKA/cRaRPGsV0kxrH+qpjwlI8oYXC2p5rNhyp0Kp2JoxEaWA2vBLXj9o9vCTNHPvzpAuMmuPszM
+ 0rxkmgvKz7Ije4H3KbFMYBfpfjUgu+o=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA3NyBTYWx0ZWRfX67CFJsJYMLT/
+ LUYxkTqz+AXQg3LC9cOMB6p1FPOdztdNXKPaLdjHjCtyVJpiqG0NEEFWB11VrxZ0N7ZF+coGX27
+ h8H6/7/vpTsEkzVHnH/GenfKLgFnyp+d29oAvDc+XZloSTZf/qyAV/Lmecm+H6jYe3JW4n3pIEP
+ gO9nsuyp+49cI/emGdz9HKr8sfd7iRfLA0aI0SfW1VO5sE/MyMJ/InkfV6A6xvw3ge/5Bu1oeC4
+ Z+0eslgrJ/DI8nKVVhHYCdnbtvw8ahgL14O2hpQxhoAgQD7ytMMs2axNzf3NU15PNC8Hxb5KbaB
+ 9IAnRZ0UQrGghjUvrZUQQ/5UHf2xA/Tdcknf26Z5KJM5FT8NuFb/SyKhAD2EOZe3GczblWFa5S/
+ Q/6WhE2aaM8AAk6PY7n3lNSAmMq0FijC1rEJ6zpt+kkUqY3o4YuCA8Z9Gdp1XBNIWixcPwhx+j7
+ 1P9TeWKRSA6hIDcHg+g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_06,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 spamscore=0 adultscore=0 impostorscore=0 bulkscore=0
+ malwarescore=0 suspectscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_105944_722565_20EF806A 
-X-CRM114-Status: GOOD (  11.80  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261118_120959_105082_2DBA6706 
+X-CRM114-Status: GOOD (  12.53  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,95 +165,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add PowerVR Rogue GPU device node for SpacemiT K1 SoC.
+2026-11-08T04:42:01-05:00, Guodong Xu <guodong.xu@oss.qualcomm.com>:
+> ISA bitmaps don't honour riscv_nousercfi because the ISA bitmaps are
+> composed during setup_arch(), while riscv_nousercfi is a __setup()
+> parameter, and those are parsed from start_kernel() after setup_arch()
+> has returned.
+>
+> As a consequence, the riscv_nousercfi test in riscv_cfilp_validate() and
+> riscv_cfiss_validate() always sees zero, and Zicfilp and Zicfiss stay in
+> the ISA bitmaps even when user CFI is disabled on the kernel command
+> line.
 
-The GPU is integrated within the SoC and enabled by default.
+(I thought that was the intention.)
 
-Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
----
-Add PowerVR Rogue GPU (BXE-2-32) device tree node for SpacemiT K1 SoC.
+riscv_nousercfi definintely should disable the hwprobe reporting of
+those features (my series did that), and prevent their enablement in
+user-mode.
 
-This series depends on:
-- Yixun Lan's power domain series [1], which provides the genpd-based
-  GPU power domain driver required for proper power sequencing.
-- Baihui Liang's dt-bindings patch [2], which adds the spacemit,k1-gpu
-  compatible string to the img,powervr-rogue binding.
+Why disable Zicfilp and Zicfiss in the ISA bitmaps by setting nousercfi,
+though?  Aren't the validate functions just misusing riscv_nousercfi
+instead of defining a clear detection mechanism?
 
-The GPU firmware is not yet available upstream. A copy can be found
-at [3].
+I think the ISA bitmaps should consider whether Linux has the
+extensions, which with standard SBI means a successfuly executed FWFT
+set/get.
 
-With this series applied on top of [1] and [2], the full GPU bring-up
-path works end-to-end on hardware:
-- Power domain: GPU power island on/off via APMU
-- Clock: GPU clock enabled/gated through CCU
-- Reset: GPU reset line deasserted
-- Firmware: PowerVR RISC-V firmware loads and signals ready
-- DMA: dma-ranges correctly maps CPU-to-GPU physical addresses
-- DRM: kernel exposes /dev/dri/card0 and /dev/dri/renderD128
-- IRQ: GPU interrupt registered, firmware watchdog running
+Linux can then use the ISA bitmap to decide whether to use CFI for
+kernel code, allow it in KVM guests, report it as available hardware
+feature, or allow it in user mode.
 
-Userspace rendering requires Mesa's PowerVR Vulkan driver
-(imagination-experimental).
+nousercfi seems like it should only restrict use of CFI in user mode.
 
-[1] https://lore.kernel.org/linux-riscv/20261008-04-k3-pm-support-v2-0-6f778a53dd2d@kernel.org/
-[2] https://lore.kernel.org/linux-riscv/20261015-spacemit-gpu-binding-v1-1-a7a23c7e7788@linux.spacemit.com/
-[3] https://gitlab.freedesktop.org/imagination/linux-firmware/-/blob/powervr/powervr/rogue_36.29.52.182_v1.fw
----
-Changes in v2:
-- Removed board-specific enablement (GPU now enabled by default in SoC)
-- Simplified commit message as per maintainer feedback
-- Dropped redundant status = "disabled" from GPU node
-- Link to v1: https://lore.kernel.org/r/20261015-orangepi-gpu-v1-0-03566a615660@gmail.com
----
- arch/riscv/boot/dts/spacemit/k1.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 3fabfd34114b..7f2573d869ca 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -5,6 +5,7 @@
- 
- #include <dt-bindings/clock/spacemit,k1-syscon.h>
- #include <dt-bindings/phy/phy.h>
-+#include <dt-bindings/power/spacemit,k1-power.h>
- 
- #include "k1-pdma.h"
- 
-@@ -1119,6 +1120,16 @@ multimedia-bus {
- 			#size-cells = <2>;
- 			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
- 				     <0x0 0x80000000 0x1 0x00000000 0x3 0x80000000>;
-+
-+			gpu: gpu@cac00000 {
-+				compatible = "spacemit,k1-gpu", "img,img-bxe-2-32", "img,img-rogue";
-+				reg = <0x0 0xcac00000 0x0 0x80000>;
-+				interrupts = <75>;
-+				clocks = <&syscon_apmu CLK_GPU>;
-+				clock-names = "core";
-+				resets = <&syscon_apmu RESET_GPU>;
-+				power-domains = <&syscon_apmu K1_PMDOMAIN_GPU>;
-+			};
- 		};
- 
- 		network-bus {
-
----
-base-commit: be95fa81c04dd67616faaa2872babb9ac39d4251
-change-id: 20260413-orangepi-gpu-02d839d6506f
-
-Best regards,
--- 
-Iker Pedrosa <ikerpedrosam@gmail.com>
-
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
