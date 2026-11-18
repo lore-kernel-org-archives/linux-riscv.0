@@ -2,98 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23CD7606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 05:40:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04707606A325
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 05:48:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fjR3EgTA;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vc7fkX9i
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hPqHVXFE;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=ZCJ16S+p
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=2ejoY3uRkdlw/ruekOqSz1ezqt+9sTLImLf41L7XZFw=; b=fjR3EgTA11fHjl/Cv3fiSbgiMv
-	ONTlb2drrHrjvLRizSznXUHdwt67Wm/+QbIBQfOXzItD1+NLzWZAgvkJIMpNnIzbyz1qgXNwWDTHT
-	6ul3uZF3bZSEV8Oj6Xoq4yanBf1BzyKuv5xi3KjyCDp3ROkP9y2celam+vZPsgfHYxT6x1ZGHw99N
-	yTnQaMit0Q2tIqXttWt5ia/xZnCE71FrxXbzquQH6tiHKpAh/XJLUio2xv0hgrxGKwbiiki1dtkSq
-	UMXp62Hs7unurMG+wSc3PppPfONGdqfPjk22fif8tNlL3Y88KhztlQGtHPxM6J/iGHKMf9kICX4IF
-	Y09sjj+A==;
+	bh=XZgbXBZZuD4W/S/3MbRt/4kGnTr4dLHWSgxC1uii5dM=; b=hPqHVXFEfDdfrDaTBgErPn7Lzi
+	XjGWFGjgtFx6AUztXzh/sRGFGU0FkF+VBZVbzqaaUcDuG6jDzqBNINPZz+3IZt3yKdinsBo9N8Dwo
+	ZcjQYJ7Em4YiZ2Era/H5x013JiFR/Q04HL23Ktj2Y/Z5KjYg9CiiEcB3jT2mErBALVNTlbrJ4qcJa
+	jBXWlvaLoHiJzsISCvbXHyX2DR+5JXSNGiYXr0eXIefL4SAzFmZbKVSzL0iSXZUJtmV6Ab4K4CI6k
+	8i0Xrm3qMy48iPxNwa6crUI1V9hMe3s3/rhyj23v+9z80KQq+Rz7VNq9ELjQgxLo9xmNO4wUSQ9Tu
+	3+6rIPNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTYOX-00000007l8Z-1W5m;
-	Wed, 18 Nov 2026 05:39:45 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1xTYWi-00000007lWo-0cMa;
+	Wed, 18 Nov 2026 05:48:12 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTYOU-00000007l8B-0Wnb
+	id 1xTYWe-00000007lVq-0cvX
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 05:39:43 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8b600fae14dso277869b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Nov 2026 21:39:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794980381; x=1795585181; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OnTUX3RjpiKuBl0z2oMbfZLXj9pzVhSggONPVZAXlX4=;
-        b=vc7fkX9iG1qERyU3fGe0WIkrWeN7tyVKXANXTwamKR47dCdrHS5rqjlIgUW4UXNBQ4
-         xgVGf/KEqN9o5coXRpaVwT5tqP91cbhYBlFT9OM40h1xITwNMJHg65p2TPYBKshBu0RP
-         ZiiNts7V5KCKdHic+sHguwfX+gZAgYhSJCNZmN5U3t63gs4P0E8aiivC1ze53iioAae9
-         4n/xGEAUCtIvszaN26iRj/AMP0fPE3Oyur030+B2hAlR2xDRZ0G/VKXIZR/cfKo0q0ja
-         1qWm+tJSTlyZer7Th6uWIUR6Nsk9m2UXvnB3z2QMed98oFaN7hjii6oCvZyWr91tlqTI
-         BHAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794980381; x=1795585181;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OnTUX3RjpiKuBl0z2oMbfZLXj9pzVhSggONPVZAXlX4=;
-        b=KOy9ArBDZ4Mb1pkkhdQ3Mgx+uTmEUfFODhM3xFgK4jRm1cG/Z2tl9KMLy7jOIeFvAf
-         HpGzdH6pNCgRzxr4NIopUnrCVe6m7AnHCIv9KrmB+mSexhNIIUCum8A/BdD1oA/XcnMP
-         n5kCt90amD/04v/ErJ9xEXFgjj/LKr9CTLhg9DJeFWEA2OjjNDeTsS60alAoxt2I23aL
-         FOlsm17W+4civnjTrAbLIt4nI8cAIpJujeNhX61VQO8LYRZtwbcVZE0Mz1Gf/JcDfDGY
-         metzNLlAINvD8FHuP4ytp7NSJz0dSz4134b3Af7ZdLxjHOgap9IL7GWI0P4HwK0fcXnI
-         6ckA==
-X-Forwarded-Encrypted: i=1; AL+hErFVBkjRSB1cE9zP0kbhwr85Hti2NOZ+CwODZDEuiIwPxH6INHiXys/xc9mcr2rOl+xGhchcoTui4GEzdA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8tVUfH6Jt7IjFG5gdUhIMB3kNDIX/la6fRjkbpuDuEtd6QOyz1
-	sbkihOltuIVm8cmmXU7VKmTMXpsjAhSxebeA12klwMO8hYEd41FNznAl
-X-Gm-Gg: AYBFou0EFC7ZPVE9QFGb/a2SSoBoWGZJ/FHtTsgVCbuAS3isifY/Qfeib2IUMNAOv+G
-	ZFJv4PJCuDg4dHaKwaUJPEfD6zcSx1k1eyoJSLwMrHXxIEXn3JsbdLJfa+2wc6MHPROR24wTDbr
-	miowtOP1udJhFVN3ogPwl8RP9sjLEEVeab8N30YG0A91pfE/qSCWrRgKlGVZY/rgjui7zwp59vs
-	ywP5RmBa7SnMVAjgA4N+ak0y0B25gllb5DHc8+tupkRkaRHhVycBD2Ow7G1TpjiHwSbWbQJgpKY
-	QH66whlqHXIkZRsn0Y5e2m5MQnprt9WJQzsSjtB+Hou839DKY14hGPuNpX+77qYt9esRylO33cH
-	S5UFbdktbMa5q4EGiXar8z+896eMXi99nSqjD7ebgFoWyQy5fiPGmrXjWYBRb+POZos3XYu3ZuC
-	nyBr953ZJzadd+ITfq0a6kLUi4c0r7bSDOQOGqLh0lRmC4C2pTUxgwEB2JA3Gf4ondskErzJl3G
-	0eNbpR/wAvQ0VzobozsXFpQs2IfF4LZ5I81Pj1U/jvhdmO02T5S3O+KRiwNle6VlGCaB/y9hAUv
-	6gsBFuZgjm97hqjPcECKWhHVPGVCEASfa4JxQ284s2AUygTC
-X-Received: by 2002:a05:6a20:430d:b0:3e1:9071:acdd with SMTP id adf61e73a8af0-3fe976e2b70mr1561308637.35.1794980380746;
-        Tue, 17 Nov 2026 21:39:40 -0800 (PST)
-Received: from hj.. ([163.239.22.29])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde3c4a314dsm503249a12.22.2026.11.17.21.39.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 21:39:40 -0800 (PST)
-From: Hyunjung Ko <hj351016@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Oleg Nesterov <oleg@redhat.com>,
-	Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Hyunjung Ko <hj351016@gmail.com>
-Subject: [PATCH] riscv: ptrace: Initialize cregs before copyin in compat_riscv_gpr_set()
-Date: Wed, 18 Nov 2026 14:39:26 +0900
-Message-ID: <20261118053926.845109-1-hj351016@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 18 Nov 2026 05:48:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1794980868;
+	bh=3Ql1Gr7XMzmIYBbEO+a9ghZlVqPmLxdm3zP1UNICVgI=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=ZCJ16S+pRKus4/MhUuggytURC9+Oy87x/0tUm7jmxCA82pieK2ZUEenMnIbBmbkq3
+	 hyLWRAOi8cGUhpwOeSbGMKgbpaoi5AW02jrBpk3v+uKxMxzrsqvFBksbcZUICRtMvJ
+	 vzd8D48c30npOfzXbSuxs0bU5U7umt6oQN5L0XBQ=
+X-QQ-mid: esmtpgz11t1794980867td74787de
+X-QQ-Originating-IP: WqBZLnoXOwmHGTghcgp5ZEgWINbdmL0mzbXNLz00OgM=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 18 Nov 2026 13:47:44 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 13421804356627132485
+EX-QQ-RecipientCnt: 16
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+Mime-Version: 1.0
+Date: Wed, 18 Nov 2026 05:47:43 +0000
+Message-Id: <DMY3M0ZQ168B.2V9AQM1FXCHY6@linux.spacemit.com>
+Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Daniel Lezcano"
+ <daniel.lezcano@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Yixun Lan" <dlan@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>
+Subject: Re: [PATCH v2 2/5] clocksource/drivers/spacemit: Add K1 timer
+ support
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Philipp Zabel" <p.zabel@pengutronix.de>
+In-Reply-To: <8b5be415e255b5387099d9f8a9b8f5f05d4cb038.camel@pengutronix.de>
+References: <20261117-spacemit-soc-timer-v2-0-9264d0ea7755@linux.spacemit.com> <20261117-spacemit-soc-timer-v2-2-9264d0ea7755@linux.spacemit.com> <8b5be415e255b5387099d9f8a9b8f5f05d4cb038.camel@pengutronix.de>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OYpbVsTx4C81k6RhXicVSquGdMhCcixoLt6YOvj7Cv+KZrK6oOMg23T4
+	UFsSreF82J1hoqhkEoW0UxjPrkjPQQ/DRJQ7/DAQ80y3OgoCHGowW/lorBG+DgrvPEODNdh
+	Q4H/j5h8DIeZikQ4+liZCnghL52Wi50wcTrPjLaYiAV+WcPBFUuEDvPDFwBm/pq7e2C5ZCt
+	HfLKZBwpMH313XipgtfSvv2S+eSZjx8sRVKEj7r1wyVll/RkrCkFVppKPGgU3aADWhact1I
+	6VcZO+Wmh/oTEVVxM8jyMMS+1DH4Ty3aJKIO4n4vpcjKcPGwVGBMLGtg+YNt3CJD9vMHbvY
+	H0ymnnIuJyKc19K90yQQpp8T1tdJlFsBPIRvh+cexKjZaxbvKaJov3p1tZTHmrxmoMBPPk1
+	bExk77hPpuCQBEcCGxOF6d/07T6wlxEDv7ThSAokiqAtWfBls0R71t8ee+V2tijdDPbjbcX
+	bsRb2nVltPxELnRYgTzZJOsSxgmqaMDCzRDb9CcGWoftDNVrr46kji1v90KBi0hDYSgIykW
+	Z7Ft2dHfZakh5faZAG421rVsIZjCw+aWXzXkoqHizwFbJd18VZz8YIA3AnB0H5DnEqm8yS6
+	JntgQC3uik49AiEK8qQ2T243zFJrUaSEM/LxQG7CcwRy+Kc/+9Zyk4n2kzuxFKMJ4CJzdaG
+	sxzZyhPAjG/m3npuPYAzatEtnFINcFYiVAyW1ivxM5AGXBbugtOyRdzQaIfxYBlegREwkrP
+	0JhU/sGyStCEG7RhO+Z40NSaxr4qo9OgwxC/CcLmPgHjq3NzvSwnH2ZNhGHnSE4m+5KzlCs
+	dsUE8HuRRBw/RaoY/PE5h24izDIukknP2aZjr1pWQCI0/F4qjjddoHls3kfW8VBnAVodIJx
+	d2Vlu1ezFHqGx+HF187b1kAGprPeXBGUh/WnuXMieYCEDhSjXgD9PC3Ij9vvq3Z+Q8s7yZi
+	9fikNyG5tJN9U3ATmLaOh95Ln3r85Qq+NgNJLR3vQJMhnKeDpkZ8/Nn+qhaw8r+9hijTqWa
+	YicTLCNBsZwfIBFZyeQ0nqBz1ckMamBYtF5vi69UFymRlt3YZ+VRl7R738NMNuZU98h558X
+	A==
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261117_213942_221678_12D487C7 
-X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-CacheID: sfid-20261117_214809_315578_6821E232 
+X-CRM114-Status: UNSURE (   6.10  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +98,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6831474018671263829=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-user_regset_copyin() only copies `count` bytes, so a PTRACE_SETREGSET
-request with a short (or zero) iov_len leaves the rest of the on-stack
-cregs uninitialized. cregs_to_regs() then copies all of it into the
-tracee's pt_regs, where the tracer can read it back with
-PTRACE_GETREGSET.
+--===============6831474018671263829==
+Content-Type: multipart/signed;
+ boundary=cf9fb9b6f5c1d24682a98b33195572b11c62bd4410fa3cbe45ce94883370;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
 
-Fill cregs from the current register state first, so that a partial
-write only updates the registers it covers, as riscv_gpr_set() does.
+--cf9fb9b6f5c1d24682a98b33195572b11c62bd4410fa3cbe45ce94883370
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Fixes: 4608c159594f ("riscv: compat: ptrace: Add compat_arch_ptrace implement")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
----
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index a005574..32227b7 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -584,6 +584,8 @@ static int compat_riscv_gpr_set(struct task_struct *target,
- 	int ret;
- 	struct compat_user_regs_struct cregs;
- 
-+	regs_to_cregs(&cregs, task_pt_regs(target));
-+
- 	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &cregs, 0, -1);
- 	if (!ret)
- 		cregs_to_regs(&cregs, task_pt_regs(target));
+On Tue, 17 Nov 2026 10:52:27 +0100, Philipp Zabel wrote:
+> > +	depends on OF && COMMON_CLK && RESET_CONTROLLER && HAS_IOMEM
+>
+> Drop the unnecessary RESET_CONTROLLER dependency, the reset controller
+> API has stubs for consumers.
+Will drop it in v3, thanks.
+
+--=20
+Troy Mitchell
+
+--cf9fb9b6f5c1d24682a98b33195572b11c62bd4410fa3cbe45ce94883370
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCav07/yEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC+lUQEAthB6oPUi2jXt
+IqbHKSVLLDvTw/RU7hb22TAJ38TsUmcBAMLwBrw6KEtlygOnqJaK3gXV/J5oro6Q
+qQd0Uc3YEowE
+=qCKP
+-----END PGP SIGNATURE-----
+
+--cf9fb9b6f5c1d24682a98b33195572b11c62bd4410fa3cbe45ce94883370--
+
+
+--===============6831474018671263829==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6831474018671263829==--
+
