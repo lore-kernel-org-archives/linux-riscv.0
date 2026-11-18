@@ -2,65 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 109E2606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 06:34:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D86F606A31C
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 06:50:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kJPUh80c;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E3CqjKIz
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=alLmI1wr;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XAcUmROL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=B9O+jKm+B9Ujovr8pnIWzhMXizONIyx6DKxrFJcPU2w=; b=kJPUh80cAKRoG6uOprGqc5xkXq
-	utCfOp6n0BKcSz1EhQkdwpeHMVsu+lvJENetEez2xo63GnA0Sj3Firk0s7yoNh3d4Q0it5ZELl2Y2
-	5mkFJs2A2gIZHPd36FGI2nFMnt/jJc9Ka6Vsir8wJPtZif6wtoFuhIDL8emQM5dyqsDVuabri51kC
-	i3NQrcEtc4S18eO3HNyN6XQho90HdrDciFIGsIgr/n7bXbPZgNrDtRM0EPW0ZfzMJ+dI3NxocTyc9
-	P1K8mAbECw7pSTpnIHu1x5LriJEBi6My5PxM+bYvgCfD+2CJi7zm7fpXAj/s5E1gHCF/MDryXg+hC
-	Pe+4e3Dw==;
+	bh=7QhvMrz1cmugr4n3e8peZu4nbL1xjqBaswLFWRG1u7U=; b=alLmI1wryoH1imZZ6NTQOMAQiT
+	gv6XMOTRJQRn/vBA66lI8Q3r3QJYFM8NV0alH21ylfKD8NGBYT6L1U9t5CeqyRnrPFz6q8fINwjCF
+	7iRF3zjQNvwltXaB3SKTqYDY/p+WATjvCFlnrvvpr+pG0Ap+13lBKKCQfw+fe6WBRT8dO9xYVgunu
+	+jAKIkEtU9dpLFphkBfRjoyL2h45B6qKkYue0f7WjXgLIHMFZ+fh8tOeDF1GANZhinTrjhNtAuDcU
+	PHYsISLoCBodBM7KFPJfazv2ldCD1/zLvuv1yPDyzojTwWYa86RJ0E2PLMk+NYTIo+BmGclkulRfP
+	KmONbJKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTZFU-00000007ufh-0nfG;
-	Wed, 18 Nov 2026 06:34:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xTZV4-00000007wEn-0yru;
+	Wed, 18 Nov 2026 06:50:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTZFT-00000007ufQ-0KGk
-	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 06:34:27 +0000
+	id 1xTZV2-00000007wEb-2KOc;
+	Wed, 18 Nov 2026 06:50:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A937D44F19;
-	Wed, 18 Nov 2026 06:34:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AEEE1F000C8;
-	Wed, 18 Nov 2026 06:34:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9634361297;
+	Wed, 18 Nov 2026 06:50:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A075C1F000C4;
+	Wed, 18 Nov 2026 06:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794983666;
-	bh=2fdla1NYjjCieel0GDgyV2h5zcu99JPKuhUzM+in2nI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E3CqjKIz0iYatvK2Lmib4agpv8+7BNEEwdvY5jjKdnRn+vKgGa/P/jB2QQzQobRZY
-	 sk0NHrJWfxHUdPi1N2vdcZZXq6GakntsC1Uxk1N+zQsYIHoz9FmSNdvLlRWlaCVoWP
-	 TmCz4lq7ZPlwDt1jgzI8ubci12UNc2SkwuKmS5r6v4IvH9skvfJ3wx41C0tVF4aV3F
-	 X6vYOYo/SRFFxDUtfL6fMYFeV0vzhq+oif3UFMHxjJBt38QfjO2gPzNLe7LbhEGL4w
-	 IjW3+dlL3MsMNEXFT7BPrm8q2MKPem3pR4yeuotPmzmCjmCOdno6lHdsf7zoHi5B/8
-	 gPleBnCF0merQ==
-Date: Wed, 18 Nov 2026 06:34:24 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Sandie Cao <sandie.cao@deepcomputing.io>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/3] Enable USB and SD for Deepcomputing FML13V05 board
-Message-ID: <20261118063424-GKA155714@kernel.org>
-References: <20261117054324.1048767-1-sandie.cao@deepcomputing.io>
+	s=k20260515; t=1794984631;
+	bh=NaMgfsBXkwIEOSzL6UoZggx97YSqPQt9Uq2nZusRujM=;
+	h=Date:Cc:Subject:From:To:References:In-Reply-To;
+	b=XAcUmROLtQExiCuSuAsW8ooxm9bwT/FvPpx3bSbrOec6BPLEvr59ut8GEZVgzMbYD
+	 eIBoD1xGzpIaJDj27VJPE6JZ079jolaqzUcWK0RxhaLxm9cA5ObCiXTkETA3PR5KSN
+	 bi/cp1c3gc1Irg3TPWqai8eVUvyBKfy/5oe+BXviJE22VzjMjNCkd5QuagOcpbKEGV
+	 Pi3W5XR5t59OAPqf3RuQ56Wh7Tu6/oB+t5y1ikCYCBrmssUlyDVF+27xLndGE+Nf0d
+	 T4VOKbI688J6JuONXT5wXJixogqqqC1hrZ+YUwLHYH/ZEh9Tak+ytQvqDdkzoVIS1A
+	 PP6Ee8aqRGcYw==
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261117054324.1048767-1-sandie.cao@deepcomputing.io>
+Mime-Version: 1.0
+Date: Wed, 18 Nov 2026 06:50:26 +0000
+Message-Id: <DMY4Y1HIP3H1.9THJE8OIYQ6P@kernel.org>
+Cc: "Palmer Dabbelt" <palmer@rivosinc.com>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <spacemit@lists.linux.dev>, <stable@vger.kernel.org>, "linux-riscv"
+ <linux-riscv-bounces@lists.infradead.org>, "Troy Mitchell"
+ <troy@kernel.org>
+Subject: Re: [PATCH] riscv: cpu: Fix incorrect cached machine IDs on
+ secondary harts
+From: "Troy Mitchell" <troy@kernel.org>
+To: "Peixin Xie" <peixin.xie@linux.spacemit.com>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan"
+ <dlan@kernel.org>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Guo
+ Ren" <guoren@kernel.org>, "Conor Dooley" <conor.dooley@microchip.com>,
+ "Charlie Jenkins" <thecharlesjenkins@gmail.com>
+X-Mailer: aerc 0.21.0-reader-ipc4
+References: <20261118-riscv-marchid-fix-v1-1-6d677fcd5461@linux.spacemit.com>
+In-Reply-To: <20261118-riscv-marchid-fix-v1-1-6d677fcd5461@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,8 +73,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6774777885912381911=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -80,20 +82,61 @@ X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 13:43 Tue 17 Nov     , Sandie Cao wrote:
-> This series updates Deepcomputing FML13V05 Device Tree: Add P1 PMIC 
-> regulator tree, add USB controller and USB phy, Enable SD card.
-> 
-> This series is rebased on next-20261116.
-> 
-For the series, with
+--===============6774777885912381911==
+Content-Type: multipart/signed;
+ boundary=4c0efea937e1a3ca1ee31edaede7a53a9813de01b0dda297014c9e69db09;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
 
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+--4c0efea937e1a3ca1ee31edaede7a53a9813de01b0dda297014c9e69db09
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
--- 
-Yixun Lan (dlan)
+On Wed Nov 18, 2026 at 3:04 AM GMT, Peixin Xie wrote:
+> During early ISA-string parsing, the boot hart stores its mvendorid
+> and marchid in riscv_cpuinfo. This happens before setup_per_cpu_areas(),
+> which copies the static per-CPU data to each CPU's allocated area.
+>
+> When riscv_cpuinfo_starting() runs on the other harts, the copied IDs
+> are already nonzero, so it skips reading their own IDs. As a result,
+> secondary harts can retain the boot hart's IDs.
+>
+> Read mvendorid and marchid unconditionally on each hart, as already
+> done for mimpid.
+>
+> Fixes: e482eab4d1eb ("riscv: cpufeature: Fix thead vector hwcap removal")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Peixin Xie <peixin.xie@linux.spacemit.com>
+Reviewed-by: Troy Mitchell <troy@kernel.org>
+
+
+--=20
+Troy Mitchell
+
+
+--4c0efea937e1a3ca1ee31edaede7a53a9813de01b0dda297014c9e69db09
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIYEABYKAC4WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCav1KshAcdHJveUBrZXJu
+ZWwub3JnAAoJEJgJ74D5MzQv7GAA/30aDkdLRN86mR9b/Nj9+OAU5xj5aQwTCpNj
+3MBw49/MAQDO9DEA+xmj89XF48oLFjy0QGlaYBlgJw5taJe1lD4fBw==
+=zLIP
+-----END PGP SIGNATURE-----
+
+--4c0efea937e1a3ca1ee31edaede7a53a9813de01b0dda297014c9e69db09--
+
+
+--===============6774777885912381911==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6774777885912381911==--
+
