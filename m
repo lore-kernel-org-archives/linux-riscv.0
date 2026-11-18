@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12DCA606A31C
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 00:25:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01905606A32A
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 00:36:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tZlSo1mL;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RcbYZgYK
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dK1ooas5;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WHXDdl/0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,48 +14,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=U9hFnCbnbZz1EBNN8R0gTEIZBqTXpRpP78Z11O7Lk78=; b=tZlSo1mLzM9jcnmWWJODirw+46
-	WvhE9va0wCjbh6NViotuliYp700wPOPvNPkCR7Vqp6S3B9kqEFyVXkT3L46MKQAuafmgPzLG3kDiC
-	Iw1PKkidev4NODbyAKc46vQ8mnNiqDx29Hyc8DgdtEAdgK6kXVqcRvhBTI4FpLQcosMT+w/3qtlYE
-	PeJbW00GxgWFsp1rN8rxgK9e58BLHvbnw8+NMtJROENUYHoHv01sXXbS/ibCsSEInOnElHH9IVklK
-	rPlVNDdEfmfg5RGeEQ4SCsd77M9Yg+bx7AyNDTHI5NsvBAQ/+/6P407oMAg9Wm0rkbFdRhnjauiHl
-	+49GLVdw==;
+	bh=eL4pB8Ubi0BpHxhpYg0rveE5EPL1oIz2a0zLI89l+Fc=; b=dK1ooas55tru3hkd2UWt7DXY27
+	oRW7aBt1gblxfonU0ShmdaPAn1Q5GzxF0sbX8AFfFSFYul6G3QcLkmmUAdbTU2LFF89m35yVSQwnb
+	6J4J8kCMUpyPRjyZE/cfTAYerX5ltFhHpHpnHbnkK++Rquo1SrP4DpGf1QVe2NVsw1sCuFhcdA0VF
+	AZKWqd7V8bKf8nwYhKPYhgDNz1octIENP5tOfDslwKQTqvgIo2c5ff6Fl1p9hZIoJOzUUjFtwjQCC
+	YEgMEZe6ogzn3iFD8EjBJc9shCxya1W1yh8+i/ftRnSfFdJmOQwAUnbxUH7NstLthwms67Xyy5AUV
+	ogwqLRlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTTUV-00000007Les-42ZD;
-	Wed, 18 Nov 2026 00:25:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xTTet-00000007N08-1mSI;
+	Wed, 18 Nov 2026 00:36:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTTUU-00000007LeG-0FgU;
-	Wed, 18 Nov 2026 00:25:34 +0000
+	id 1xTTes-00000007MzY-01Lk;
+	Wed, 18 Nov 2026 00:36:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2F80C61D41;
-	Wed, 18 Nov 2026 00:25:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 112E31F000C4;
-	Wed, 18 Nov 2026 00:25:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 93AE8459CC;
+	Wed, 18 Nov 2026 00:36:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C80A1F000C9;
+	Wed, 18 Nov 2026 00:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794961532;
-	bh=0FtVx+bdZ2ArSXP0mcBKd/WQHCmPoQ5KtqvMi55F/xs=;
+	s=k20260515; t=1794962177;
+	bh=r+p9CWsvki4gFWoEf4phi7R1PRk80mGP3t1GcsR85fk=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=RcbYZgYKuT8rtNBavT9z0RMeM4rv0wQkI8zvWHGBOBvEBOgztWdMgNcwrojSs3pWx
-	 HRRaFKWgBtsPJfe0t/DO4Bbcp04o4fMI9CXSTEo+D7alzjW73Kmofjb+seANrtRMXg
-	 PbXFyPiP+fZj/bQNK3A3AMBPlvGQE2r2QDwBeOp0kkL2YEgx+WSPQZyx+ZCwm1Fctn
-	 xkVDBtaBfAt5+4g9ucbO/tXTR3RX0McYZgbPwcNcNfrQ58eFBavf1XIYebevnXW4/K
-	 A7jlS6YsGDl3fqMDvPR+spnQ2RThSzCEcsf2Oa0e/rpWh4VVy7jnhNwQN27f2d3G/9
-	 4l3d+Yv1MXXkg==
-Date: Tue, 17 Nov 2026 17:25:27 -0700 (MST)
+	b=WHXDdl/0EiLouLi+MGg08FvcqvqZP4js9AonYgqIzmzUe3K/XuplULWC+xJEwPygQ
+	 QvifdtnAJEtyI6bcM9i72IshrE2dTnaDjFtXILMkioUxqh+f45QAshi8Z3DjjBsS3o
+	 /pgvgpWi03BU4s0zfUOfHdvD0jWrMamvbKv7JcqCWcyu6vSEijFi+GZqVomEz78pDf
+	 AwqF33in7XSuZ3WuM3378SNDogiZPh/C5JYmA5NqvB01j+9o/WBuWB0AXyidZTYGOc
+	 8cx6E9Gnz+1UJyi2z6K1EMYCF+yHZX5pPbCDgzuZIGnN6blT2SXTSoq+KdCmVRYWu2
+	 34ueIPw6CLNFA==
+Date: Tue, 17 Nov 2026 17:36:15 -0700 (MST)
 From: Paul Walmsley <pjw@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-cc: Pasha Tatashin <pasha.tatashin@soleen.com>, 
-    Chen Pei <cp0613@linux.alibaba.com>, pjw@kernel.org, palmer@dabbelt.com, 
-    alex@ghiti.fr, pratyush@kernel.org, graf@amazon.com, shuah@kernel.org, 
-    guoren@kernel.org, linux-riscv@lists.infradead.org, 
+To: Chen Pei <cp0613@linux.alibaba.com>, rppt@kernel.org
+cc: pjw@kernel.org, palmer@dabbelt.com, alex@ghiti.fr, 
+    pasha.tatashin@soleen.com, pratyush@kernel.org, graf@amazon.com, 
+    shuah@kernel.org, guoren@kernel.org, linux-riscv@lists.infradead.org, 
     linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
     linux-kselftest@vger.kernel.org, kexec@lists.infradead.org
-Subject: Re: [PATCH v3 2/4] riscv: Add support for kexec handover (KHO)
-In-Reply-To: <avLi0_mYXatBWmpL@kernel.org>
-Message-ID: <6c377596-479e-439a-f68c-5d61fe40824c@kernel.org>
-References: <20261106071459.2003-1-cp0613@linux.alibaba.com> <20261106071459.2003-3-cp0613@linux.alibaba.com> <179415145358.358073.165272378597657083.b4-review@b4> <avLi0_mYXatBWmpL@kernel.org>
+Subject: Re: [PATCH v3 1/4] riscv: Call early_ioremap_setup() before parsing
+ the DTB
+In-Reply-To: <20261106071459.2003-2-cp0613@linux.alibaba.com>
+Message-ID: <68812baf-206e-4916-faa6-78f8e7fa4433@kernel.org>
+References: <20261106071459.2003-1-cp0613@linux.alibaba.com> <20261106071459.2003-2-cp0613@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -77,28 +77,28 @@ X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Mike,
+Hi Mike and Chen Pei,
 
-On Tue, 10 Nov 2026, Mike Rapoport wrote:
+On Fri, 6 Nov 2026, Chen Pei wrote:
 
-> On Sun, Nov 08, 2026 at 10:24:13AM -0500, Pasha Tatashin wrote:
+> parse_dtb() can reach early_memremap(), whose return value is composed
+> from the slot table that early_ioremap_setup() fills in - and on RISC-V
+> that setup ran after the scan, so the mapping came back NULL. The DT
+> based kexec handover parsing is the first caller to hit this:
+> kho_populate() cannot map the handover FDT and the handover is dropped.
 
-> > Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com> 
-> > 
-> > But pre-reqs. should be applied prior taking this series:
-> > 
-> > 1. https://lore.kernel.org/all/20261023054518.3258350-1-gthelen@google.com
-> 
-> I'm planning to send it to Linus this week.
-> 
-> > 2. https://lore.kernel.org/all/20261104-kho-bootmem-sizing-v2-0-b0d1a834780f@kernel.org
-> 
-> This is easy if we take it via liveupdate tree :) 
-> 
-> @ricsv folks, how do you prefer to play it?
+This makes sense, but ...
 
-Sure, if you want to take it, that's fine.  I'll send acks for the two 
-arch/riscv patches.
+> Run early_ioremap_setup() before parse_dtb(), as arm64 and x86 already
+> do.
+
+... this statement isn't right, since neither ARM64 nor x86 have a 
+parse_dtb() function.  Better just to say that early_ioremap_setup() needs 
+to run before DT parsing.
+
+With that fixed, then 
+
+Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
 
 
 - Paul
