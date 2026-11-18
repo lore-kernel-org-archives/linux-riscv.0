@@ -2,52 +2,46 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D97B5606A881
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 08:58:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82B18606A335
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 08:58:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QuAisLhX;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=W3KJI4dt
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z4dKBAGK;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=lNTTVwdl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:References:Date:Mime-Version
-	:Message-Id:To:In-Reply-To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=pEd0nh0ODdpBgXQvfC3M/J4ArNEz0wXRfv0XiwlnwQQ=; b=QuAisLhX+DNKFdyUfwyptS0GWE
-	zCMvhdfCMr+Vy9YNXDgGt+7iRf5N/3qlSYDLrE55wARyRF0AFWdEWk19mBu5C2u78xFHBseOX7uvJ
-	BJji8j4YERMAzuBI+inN6Dow+zGEnOYJUTgSOJzf4pQPZOa38YEtI00VaPPGWKxWR6B4UagtHaMlg
-	7crkFOhYjb9hUllw3syR7DqaZqm/3FjMWi4r/IurN0Lbz+uJikNh++G5yTgDkAgikRmh74ZdulrMm
-	Vd0IdtYkmuK9NZtnYauk4x17t58VbtHVnFmkPulfvpx1zWUtXIT2VNuqHoFB8PW+OICrMZsG8+Wh9
-	820jj2lg==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Mime-Version:Date:
+	Message-Id:Cc:In-Reply-To:Subject:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
+	bh=t4yCtIMQFnzYnM0Av1+npB+kyIQd8omOEl4GJfr4foM=; b=Z4dKBAGKKtUTqo6J5McOqu8YBs
+	6dDMfJtZkGpFOqb8RqGWY4L1fRXnOU7eSvCTSSEOVWGUbqqPvMrL+IPo9La/ItMmlkifcvM37PizU
+	gEWFHvc7tK+0f1FToKXajU8opCAZilbULMbwewWyAzzzv5kXzknc3g26ISIxtXHn7/flmVqJkNgI7
+	gGr+uEDbFKZqkX0lgG8wxp6+VGxKdoqx+fKQ9t/2o+TWoSdYs/7WnRyjamQHefTF7H6HUAC8MzwV4
+	7NpkI0D+lrGSjfP8YgPCBbe5Yn3o4DjJ17an6OZjWCos2X1jWewkifDhC3C4Z3pwIF7ylNZyJDO6E
+	el7bZqng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTbUY-00000008Fcm-27nJ;
+	id 1xTbUY-00000008Fch-1BmQ;
 	Wed, 18 Nov 2026 08:58:10 +0000
 Received: from va-2-56.ptr.blmpb.com ([209.127.231.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTbUS-00000008FaT-0JBW
+	id 1xTbUR-00000008Fa3-3c2G
 	for linux-riscv@lists.infradead.org;
 	Wed, 18 Nov 2026 08:58:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794992279;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794992276;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=mejuaNi7Gw6EMtifS+cvih2W/toAxrfb+yYMr1OlBcE=;
- b=W3KJI4dt12NsUYzCAdgeohCA9vyFB/YXik/TdOlMOKiDjf8JfaoMKoM3YmvgJQY2JAJUSg
- brJ3Es/WE+/2mUQn45fWVcWpGLaNIGzw9qZ7QAPTx9tws8qanIBS8YChikDOzMLQkNWpir
- 5qri5Q6bZuRGhSP8fJhOr9dsAtuJDpJhoJCDR56+nHyEo/efXbpUA/MLnpq9ZhFGcNTERL
- hA7BpGwynA5ZIQa5TlZN39Q7rVgzTeTmMVdRZOpdUm/jCs09vSSrOMV/xrH0+zMhXNB1LP
- rMqFM+EqJlX6br28FCmHvYfOwDOq8CyQ+2/v4t+3crzN3VtsEOnzr4IV9FnyDg==
+ bh=S4+nY5S4u49URlEXcMNdkTuO3X5mh5b+AFVZYGcYQ60=;
+ b=lNTTVwdlBx8X0fhtS9f9tRj/W006HpT2WDGvrAE4IaSa9g1pEJWMTD50M+2rnaUFJcRY/+
+ UkPZdZe0dCp7u6yFTqMN0FZ9nlCIseutsqC8lOQ8IovkssEZZU1fdUp/P3kBCLtmwaTB1G
+ nhkZAqC9B9fD7mFt5Aw1gsaCyr6sst379q9frXHP/fUId9RyepZ0IlH8osRt1H9HOOwKPL
+ a3AZ32LHNTxfid0tiQmrMS2uIwAcMze/0otcMUJ9kXThUn/dT+kTRdp+paqXgvqm7SdBuv
+ 3K4qkwReRhfbQ4ja5R2fuEA9gQjH2ZYDkAgq9bKjH+UU1fyxa15QcSqdR92wQg==
 From: "Wang Yang" <yang.wang@deepcomputing.io>
+Subject: [PATCH 1/9] dt-bindings: bus: Add SpacemiT K3 eSPI controller
 In-Reply-To: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
-To: "Yixun Lan" <dlan@kernel.org>, "Benson Leung" <bleung@chromium.org>
-Message-Id: <20261118085742.1817536-3-yang.wang@deepcomputing.io>
-X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Date: Wed, 18 Nov 2026 16:57:35 +0800
-References: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
-X-Mailer: git-send-email 2.43.0
 Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
 	"Tzung-Bi Shih" <tzungbi@kernel.org>, 
 	"Guenter Roeck" <groeck@chromium.org>, "Rob Herring" <robh@kernel.org>, 
@@ -58,13 +52,19 @@ Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
 	"Sandie Cao" <sandie.cao@deepcomputing.io>, <devicetree@vger.kernel.org>, 
 	<chrome-platform@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
 	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 2/9] dt-bindings: embedded-controller: Add SpacemiT K3 EC window
-X-Lms-Return-Path: <lba+26afd6895+e1274b+lists.infradead.org+yang.wang@deepcomputing.io>
-Received: from ubuntu.. ([183.23.101.74]) by smtp.feishu.cn with ESMTPS; Wed, 18 Nov 2026 16:57:56 +0800
+Message-Id: <20261118085742.1817536-2-yang.wang@deepcomputing.io>
 X-Original-From: Wang Yang <yang.wang@deepcomputing.io>
+Date: Wed, 18 Nov 2026 16:57:34 +0800
+X-Archived-By: <archiver.kernel.org>
+Mime-Version: 1.0
+References: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
+X-Mailer: git-send-email 2.43.0
+To: "Yixun Lan" <dlan@kernel.org>, "Benson Leung" <bleung@chromium.org>
+X-Lms-Return-Path: <lba+26afd6892+b44bdd+lists.infradead.org+yang.wang@deepcomputing.io>
+Received: from ubuntu.. ([183.23.101.74]) by smtp.feishu.cn with ESMTPS; Wed, 18 Nov 2026 16:57:53 +0800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_005804_191615_6A5F2D6A 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20261118_005803_980512_8A4C54F3 
+X-CRM114-Status: GOOD (  10.48  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,95 +86,175 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Describe the K3-specific non-linear peripheral window in a vendor
-binding. Reuse the existing EC keyboard schema and keep the Google EC
-binding unchanged. Point the vendor controller child schema at this
-binding.
+Describe the K3 eSPI controller and its peripheral memory translation
+window, clocks, resets and link configuration. The EC uses this memory
+window rather than the ordinary SPI transfer interface.
+
+The controller implementation is carried as a separate prerequisite so
+that the hardware vendor can review it independently.
+
+Prepared with Codex assistance from the existing DC-linux EC support.
 
 Signed-off-by: Wang Yang <yang.wang@deepcomputing.io>
 ---
- .../bindings/bus/spacemit,k3-espi.yaml        |  2 +-
- .../spacemit,k3-cros-ec.yaml                  | 58 +++++++++++++++++++
- 2 files changed, 59 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/devicetree/bindings/embedded-controller/spacemit,k3-cros-ec.yaml
+ .../bindings/bus/spacemit,k3-espi.yaml        | 146 ++++++++++++++++++
+ 1 file changed, 146 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/bus/spacemit,k3-espi.yaml
 
 diff --git a/Documentation/devicetree/bindings/bus/spacemit,k3-espi.yaml b/Documentation/devicetree/bindings/bus/spacemit,k3-espi.yaml
-index 30985ee0a..545cc2609 100644
---- a/Documentation/devicetree/bindings/bus/spacemit,k3-espi.yaml
-+++ b/Documentation/devicetree/bindings/bus/spacemit,k3-espi.yaml
-@@ -112,7 +112,7 @@ properties:
- 
- patternProperties:
-   '^ec@[0-9a-f]+$':
--    $ref: /schemas/embedded-controller/google,cros-ec.yaml#
-+    $ref: /schemas/embedded-controller/spacemit,k3-cros-ec.yaml#
- 
- required:
-   - compatible
-diff --git a/Documentation/devicetree/bindings/embedded-controller/spacemit,k3-cros-ec.yaml b/Documentation/devicetree/bindings/embedded-controller/spacemit,k3-cros-ec.yaml
 new file mode 100644
-index 000000000..971e7b32d
+index 000000000..30985ee0a
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/embedded-controller/spacemit,k3-cros-ec.yaml
-@@ -0,0 +1,58 @@
++++ b/Documentation/devicetree/bindings/bus/spacemit,k3-espi.yaml
+@@ -0,0 +1,146 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/embedded-controller/spacemit,k3-cros-ec.yaml#
++$id: http://devicetree.org/schemas/bus/spacemit,k3-espi.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: ChromeOS EC on the SpacemiT K3 peripheral window
++title: SpacemiT K3 eSPI controller
 +
 +maintainers:
-+  - Wang Yang <yang.wang@deepcomputing.io>
++  - Yixun Lan <dlan@kernel.org>
 +
 +description: |
-+  The embedded controller implements ChromeOS EC host commands through the
-+  memory-mapped peripheral window of the SpacemiT K3 eSPI controller. The
-+  window uses a non-linear LPC register layout. Offset 0x00 provides host
-+  command writes and status reads; offset 0x01 provides host data/results.
-+  Protocol v2 arguments and parameters are at 0x10 and 0x18, protocol v3
-+  packets at 0x100, and the EC memory map at 0x200. This programming interface
-+  is distinct from an EC connected to an ordinary SPI controller.
++  The K3 eSPI controller connects the application processor to an embedded
++  controller. Child registers are accessed through a peripheral shared-memory
++  window, translated by ranges. The controller manages clocks, resets and
++  channel negotiation, including link recovery after an EC reboot.
 +
 +properties:
 +  compatible:
-+    const: spacemit,k3-cros-ec
++    const: spacemit,k3-espi
 +
 +  reg:
 +    maxItems: 1
-+    description: EC peripheral memory window, at least 0x300 bytes.
 +
-+  interrupts:
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 1
++
++  ranges:
 +    maxItems: 1
 +
-+  wakeup-source: true
++  clocks:
++    items:
++      - description: Serial clock source
++      - description: Serial clock
++      - description: Bus clock
 +
-+  keyboard-controller:
-+    $ref: /schemas/input/google,cros-ec-keyb.yaml#
++  clock-names:
++    items:
++      - const: sclk_src
++      - const: sclk
++      - const: mclk
++
++  resets:
++    items:
++      - description: Bus reset
++      - description: Serial clock reset
++
++  pr-mem-base0:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: First peripheral memory translation base.
++
++  pr-mem-base1:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: Second peripheral memory translation base.
++
++  operating-frequency:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: Requested link clock frequency in MHz.
++    enum: [20, 25, 33, 50, 66]
++    default: 20
++
++  io-mode:
++    $ref: /schemas/types.yaml#/definitions/string
++    description: Requested number of eSPI data lines.
++    enum: [single, dual, quad]
++    default: single
++
++  alert-mode:
++    $ref: /schemas/types.yaml#/definitions/string
++    description: Use the shared IO1 line or the dedicated alert pin.
++    enum: [io1, pin]
++    default: io1
++
++  alert-type:
++    $ref: /schemas/types.yaml#/definitions/string
++    description: Electrical mode of the dedicated alert pin.
++    enum: [open-drain, push-pull]
++    default: open-drain
++
++  watchdog-timeout:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: Controller watchdog counter value.
++    maximum: 65535
++    default: 65535
++
++  crc-enable:
++    type: boolean
++    description: Enable link CRC checking.
++
++  auto-gating-enable:
++    type: boolean
++    description: Enable automatic controller clock gating.
++
++  peripheral-channel-enable:
++    type: boolean
++    description: Enable the peripheral channel.
++
++  vwire-channel-enable:
++    type: boolean
++    description: Enable the virtual-wire channel.
++
++  oob-channel-enable:
++    type: boolean
++    description: Enable the out-of-band channel.
++
++  flash-channel-enable:
++    type: boolean
++    description: Enable the flash access channel.
++
++patternProperties:
++  '^ec@[0-9a-f]+$':
++    $ref: /schemas/embedded-controller/google,cros-ec.yaml#
 +
 +required:
 +  - compatible
 +  - reg
-+  - interrupts
++  - '#address-cells'
++  - '#size-cells'
++  - ranges
++  - clocks
++  - clock-names
++  - resets
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/clock/spacemit,k3-clocks.h>
++    #include <dt-bindings/reset/spacemit,k3-resets.h>
 +
-+    bus {
++    espi@cac8c000 {
++        compatible = "spacemit,k3-espi";
++        reg = <0xcac8c000 0x1000>;
 +        #address-cells = <1>;
 +        #size-cells = <1>;
-+
-+        ec@0 {
-+            compatible = "spacemit,k3-cros-ec";
-+            reg = <0x0 0x1000>;
-+            interrupt-parent = <&gpio>;
-+            interrupts = <1 11 IRQ_TYPE_EDGE_RISING>;
-+        };
++        ranges = <0 0x84000000 0x1000>;
++        clocks = <&syscon_apmu CLK_APMU_ESPI_SCLK_SRC>,
++                 <&syscon_apmu CLK_APMU_ESPI_SCLK>,
++                 <&syscon_apmu CLK_APMU_ESPI_MCLK>;
++        clock-names = "sclk_src", "sclk", "mclk";
++        resets = <&syscon_apmu RESET_APMU_ESPI_MCLK>,
++                 <&syscon_apmu RESET_APMU_ESPI_SCLK>;
 +    };
+
+base-commit: 749a4de370409464cf8501ec5b2451df45c84eb4
 -- 
 2.43.0
 
