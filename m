@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4CD6606A331
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 13:48:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05E96606A31C
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 13:48:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tNguGUQG;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ofH73MpR
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4WNaLFjd;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OLsIdH5H
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,63 +14,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=X78HbY9iOrjcO6fEqzSVlxi4BSE0JLdc+x7wQuGK+lk=; b=tNguGUQGTiZQOptutBy0Z+OpeQ
-	obxnO6dz4LoWo7RvPu3BDEr8/C0K4Fiss6fg1ggqPsV8ssMYzxtOJ5sBqYM8jgK6kAedcgw+au5iN
-	L70LaWNHRuC8bOeTSXdyFdKWK7gZ2HydJnqWCCwN1CCa3FrfQJtE6YwGDgWG7I7i5XR9oVoTltHY6
-	v34ipkc7pNbniI4FVMwj1etE9hsivM8W/o5lX2nRUFBTxO+jD+iDdxZQ1fKigKEiUWY0RGinSTfWz
-	i9IvQR6MjQk2g50sr7H+EKI8SOehItM/PkPO1O8810HkTv737eGtjaan8CT1nBpsMwlifKAS4Z8ZP
-	nX/nsBEA==;
+	bh=mPmYZxVNaBN80MC6pyQNwOBF5AGeqbijakMLhIOrhlw=; b=4WNaLFjd8WynE+pi4C91z/rs2U
+	b9IwbcGAcFDgUqbVF2kpD4emqkSGShp1pY30Wv8XXMSEooT/gMrwI3rfh4T4KIDLkn9bMzXPT7Aox
+	4wAjfdDlYc+VTgVZRl/TgzfTds6EHFllsaAsg3BMZeMCAzTGwCEe7YOqHR6+CdF5ff2vSs37fR0If
+	U6SfgsebrOydjw5e7NQYYhSeq4uYJ6uekbmTeauKvBgzUS+kDb94acxxQyCgt00LPSizumtF6fKBw
+	evTnjl04NFLWWrSslNaw2ARLPKNkBCYlacUUOtnwFfp/NLYjrGARIB7Sd96rHPwuI/1wbVT7bYnCc
+	+PTSX8RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTg13-00000008zl1-0P40;
-	Wed, 18 Nov 2026 13:48:01 +0000
-Received: from mail-wr1-x446.google.com ([2a00:1450:4864:20::446])
+	id 1xTg17-00000008zoZ-1Bh3;
+	Wed, 18 Nov 2026 13:48:06 +0000
+Received: from mail-wr1-x445.google.com ([2a00:1450:4864:20::445])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTg0z-00000008zh9-3PA5
+	id 1xTg13-00000008zke-4AQW
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 13:47:59 +0000
-Received: by mail-wr1-x446.google.com with SMTP id ffacd0b85a97d-48c6a1d4034so650715f8f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 05:47:56 -0800 (PST)
+	Wed, 18 Nov 2026 13:48:03 +0000
+Received: by mail-wr1-x445.google.com with SMTP id ffacd0b85a97d-499ca65ae87so503887f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 05:48:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795009675; x=1795614475; darn=lists.infradead.org;
+        d=google.com; s=20260707; t=1795009680; x=1795614480; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ReEzbagpHcp/fcY0hMd4fNtM6diXxUaPoUO44vW/qBI=;
-        b=ofH73MpRcyeS3NZvhQ8ptqnVu+meFFtOHV+C4RytUeY98wFljqTN7McvwPC/VOofra
-         sKT6e039Hc8C98VIff/F1pkr/cn66PQOAy9irXarCfv+BI1VFoktK12HsZUueVeSP6Gp
-         fUHwj1K5Oop8zhSJvXjC6bEE+OdQD5+Ettzv4bSgXEMjGKcnh63D4D5lCDMk6IkNJiwh
-         asPnkwjryHURS6cgArJs7+V4AAV3/Ps+MZzA14Oq329v4ZmZZ8CRx9lyb0K9PFEz0M1v
-         Q8ZwtlSxJLR6xZaCuwjvBT73LvmKSpXhdTO2ZAja7nV+dEU2nQ/VRGHtiSJoN4tgbfi4
-         uANA==
+        bh=YBVvUekf13M+I2J4OXSpne5JBm6BNzst3m7Bc2T2IGo=;
+        b=OLsIdH5HEfk1Rs/M29PEX57vAGOXaBzDq5CA2N5GBxsnioNf8CDfBrP33uUQGKr6s1
+         xgndligPGR+n5rKqEEx3WxTNyzmYgRMkpforAv6MOsqPsuQJ8H5jTUD6PPRt8oCbub9X
+         mW20xlurPxCKx6GAlc9ms2VCVJsLcW7s24DDxC1k2xU6IU3gis4vZyPt5X7i+XZvd8ph
+         Zs//ICZZwyGjHBaCdn4t+GHfHTE5ew77JEYQ3QyoTaEXCBHnVsiYuN/2IMg+WsarJuPy
+         E+bMg2fQOA15QuQL9mznZ/l9Z4L3yp0WWUl+s9miOP/6d2Ywx4Yaw4hLrfIuTontjjPP
+         nuHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009675; x=1795614475;
+        d=1e100.net; s=20260707; t=1795009680; x=1795614480;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ReEzbagpHcp/fcY0hMd4fNtM6diXxUaPoUO44vW/qBI=;
-        b=xlnUnY5j1KXlOiLytTscmPbM+z7K8Ou4ueOLPBqJWQllRA/+lCytTRAApPsK4SfwlS
-         imEozby53Dp6SSyaJTolKeK2iR4YLOwFJApx8BAu8jtpTcsSq497/vw+w94Qek+xTzYu
-         zB8Z4+quF8ScF+lH90U2LOvhHJftQRfLVuGWC4KdZ5NoJW/oUH+RHzZCEDY5h3EWBVMr
-         ezP+2H5mhEJlssRp6xCD/has+83Z90JU3YikynVs9tsV4WpgLYps/tiYrdsb+UYoUEY8
-         bRSjJWtocH8Bw77BGw7ine1Ws8wA4wYzBQj/RfUXsV+DHsJz51TWkeiHJkkav36gyNH/
-         HhjA==
-X-Forwarded-Encrypted: i=1; AL+hErHwD7IS8jQpOOz2K+hhlOIHM0iqsH6+ON/b5eHb1p1XCt5WKYxUQ+V8pY8fOjMbOvAB3p0kG3VsCweKEg==@lists.infradead.org
-X-Gm-Message-State: APuU4Z84IVGfPDewwjWgdCxn+VHSB1b5xeqRCa3XvNGVfKa1cD47hTgj
-	Ira0ADXpSvMqYE653JZKZwLXRLyvE/pQlPJs3FMHB5fuOYJRNvfXIN8/zAro5O9X5dPGe1VKGuJ
-	0Eu7Z38tRt5m47d1uxg==
-X-Received: from wmbgz3.prod.google.com ([2002:a05:600c:8883:b0:4a1:811f:6de2])
+        bh=YBVvUekf13M+I2J4OXSpne5JBm6BNzst3m7Bc2T2IGo=;
+        b=A9LqmHfTCILGr2lfaOHJSifTiNAF1Fpjqzhw4tnsJpSe883SUQACqdOiJBLtyHXaaY
+         mxfZrMYhmSgvaJJPZ9JqnHs8OI37Z9me4tm/VgRNr5Q5v/ThF9044T0uiY3Jc1+fPMnb
+         zaYsGesw1/CA2xcsCT9o0jKtOBpn3RcvBr/9mZlIdEOnhgzR7f9CIhQRmipViW7HE+ei
+         kaZO7EedUYREBPw8p3DWjFZdhOc4bSM0Bhye/9RYe5U5f/6gDuHt6FrjhqcJlKKqONO7
+         1B10pIZvUM7gXo4pkFpKwybIaCboEprwkwe+M8bY4WbHTlFsziU1oErLjhnvr6cYpdJv
+         J3MQ==
+X-Forwarded-Encrypted: i=1; AL+hErHCOreFFe9tS2uYCVxYRZel2gIXGUlBKBr2iCR4kDholDhc7EgHUcfISIAv8uomQK2vX10gXarpoN5CLg==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8YjEPQUUsqfXPB8pQihEXpEeWYVvYHDhZW637+dZlgRDPZpy62
+	idkUQ/epU0qCibHSlC8XOkNPAOE06ahKAPuVoySwkmhSDoQHipY3QhtL9L1izmt+062WQxplLk/
+	Qvvan1X/MHXY7bBVD7A==
+X-Received: from wrvt10.prod.google.com ([2002:a5d:534a:0:b0:49d:572:f312])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4f56:b0:4b7:6c16:7b43 with SMTP id 5b1f17b1804b1-4bb7da12aa6mr55502915e9.10.1795009674222;
- Wed, 18 Nov 2026 05:47:54 -0800 (PST)
-Date: Wed, 18 Nov 2026 13:47:53 +0000
-In-Reply-To: <20261013-clk-type-state-v6-4-a5e9977b3509@collabora.com>
+ 2002:a5d:5f91:0:b0:49b:b94c:e8e8 with SMTP id ffacd0b85a97d-4a37294840dmr12837911f8f.8.1795009679054;
+ Wed, 18 Nov 2026 05:47:59 -0800 (PST)
+Date: Wed, 18 Nov 2026 13:47:58 +0000
+In-Reply-To: <20261013-clk-type-state-v6-6-a5e9977b3509@collabora.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
-References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com> <20261013-clk-type-state-v6-4-a5e9977b3509@collabora.com>
+References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com> <20261013-clk-type-state-v6-6-a5e9977b3509@collabora.com>
 X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118134753.658399-1-aliceryhl@google.com>
-Subject: Re: [PATCH v6 4/7] rust: clk: add guards for scoped prepare and enable
+Message-ID: <20261118134758.658847-1-aliceryhl@google.com>
+Subject: Re: [PATCH v6 6/7] rust: clk: add `ExclusiveClk`
 From: Alice Ryhl <aliceryhl@google.com>
 To: Daniel Almeida <daniel.almeida@collabora.com>
 Cc: Alice Ryhl <aliceryhl@google.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -90,8 +90,8 @@ Cc: Alice Ryhl <aliceryhl@google.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
 	Boris Brezillon <boris.brezillon@collabora.com>, 
 	"=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>, Maurice Hieronymus <mhi@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_054758_104176_035143BC 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20261118_054802_064595_FD1A43B8 
+X-CRM114-Status: GOOD (  14.89  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,26 +113,71 @@ X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 13, 2026 at 02:07:43PM -0300, Daniel Almeida wrote:
-> The state transitions consume the Clk, so a driver that keeps a
-> Clk<Prepared> in its data cannot enable it for a short section without
-> moving it out and back in. A clock handle also holds at most one count
-> of clk_prepare() and one of clk_enable().
->
-> Add EnabledGuard, PreparedGuard and PrepareEnabledGuard, returned by
-> Clk::enable_guard(), Clk::prepare_guard() and
-> Clk::prepare_enable_guard(). Each guard borrows the Clk, takes its count
-> when it is created and releases it when it is dropped. It dereferences
-> to the clock in the higher state, so a function that takes a
-> &Clk<Enabled> also accepts an EnabledGuard. Several guards may borrow the
-> same Clk, and the borrow keeps the Clk from being dropped or moved to
-> another state while a guard is alive.
->
-> There are no users yet.
->
-> Suggested-by: Alexandre Courbot <acourbot@nvidia.com>
-> Suggested-by: Gary Guo <gary@garyguo.net>
-> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
+On Tue, Oct 13, 2026 at 02:07:45PM -0300, Daniel Almeida wrote:
+> +    impl<T: ClkState> ExclusiveClk<T> {
+> +        /// Takes exclusive control over the rate of `clk`.
+> +        ///
+> +        /// No other consumer of the clock may change its rate until the
+> +        /// returned [`ExclusiveClk`] is dropped or [`ExclusiveClk::into_inner`]
+> +        /// is called. This may sleep.
+> +        ///
+> +        /// Equivalent to the kernel's [`clk_rate_exclusive_get`] API.
+> +        ///
+> +        /// [`clk_rate_exclusive_get`]:
+> +        /// https://docs.kernel.org/core-api/kernel-api.html#c.clk_rate_exclusive_get
+> +        #[inline]
+> +        pub fn new(clk: Clk<T>) -> Result<Self> {
+> +            // SAFETY: By the type invariants of `Clk`, `clk.as_raw()` is a valid
+> +            // argument for `clk_rate_exclusive_get()`.
+> +            to_result(unsafe { bindings::clk_rate_exclusive_get(clk.as_raw()) })?;
+> +
+> +            // INVARIANT: `clk_rate_exclusive_get()` succeeded, and the matching
+> +            // `clk_rate_exclusive_put()` is called when the `ExclusiveClk` is
+> +            // dropped or consumed by `into_inner()`.
+> +            Ok(Self(clk))
+> +        }
+> +
+> +        /// Releases the exclusive control over the rate and returns the [`Clk`].
+> +        ///
+> +        /// Equivalent to the kernel's [`clk_rate_exclusive_put`] API.
+> +        ///
+> +        /// [`clk_rate_exclusive_put`]:
+> +        /// https://docs.kernel.org/core-api/kernel-api.html#c.clk_rate_exclusive_put
+> +        #[inline]
+> +        pub fn into_inner(self) -> Clk<T> {
+> +            let this = ManuallyDrop::new(self);
+> +
+> +            // SAFETY: By the type invariants, `clk_rate_exclusive_get()` was
+> +            // called on `this.0` and not yet balanced, so this balances it.
+> +            unsafe { bindings::clk_rate_exclusive_put(this.0.as_raw()) };
+> +
+> +            // SAFETY: `this` is wrapped in `ManuallyDrop`, so the `Clk` is moved
+> +            // out exactly once and the `Drop` of `ExclusiveClk` does not run.
+> +            unsafe { ptr::read(&this.0) }
+> +        }
+> +    }
+> +
+> +    impl<T: ClkState> Deref for ExclusiveClk<T> {
+> +        type Target = Clk<T>;
+> +
+> +        #[inline]
+> +        fn deref(&self) -> &Clk<T> {
+> +            &self.0
+> +        }
+> +    }
+> +
+> +    impl<T: ClkState> Drop for ExclusiveClk<T> {
+> +        #[inline]
+> +        fn drop(&mut self) {
+> +            // SAFETY: By the type invariants, `clk_rate_exclusive_get()` was
+> +            // called on `self.0` and not yet balanced, so this balances it.
+> +            unsafe { bindings::clk_rate_exclusive_put(self.0.as_raw()) };
+> +        }
+> +    }
+>  }
+
+Only new() states that it may sleep, but into_inner() and drop() may also
+sleep. This may be worth stating.
 
 Reviewed-by: Alice Ryhl <aliceryhl@google.com>
 
