@@ -2,105 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DC4A60A2611
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 10:50:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D0C3606A31C
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 10:53:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0Xza2dq6;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pkoM+po5
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M4qr8mnm;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=WHse8gfk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=2LI/WCxK5+ifkCWiGzD5ncM9eI3YN0pGeIeezsRMZTE=; b=0Xza2dq63ndzRCCHTukgEm04Cl
-	Ly3w367tflOfCvgeOTHPg6cXjCpy/GxI/7ETzJek9YrBj/wtIaoKpn0mMjeyK4JFh0raGbraFsbDA
-	2ezVZfs+e3uUNfEgaKVWXfzpLgYk0G4Ye6mpb0h+p3jxvdd0pVxj1T4+BjZ5xWp/KXOFWxPHsohQB
-	pleK980K4o/3w/yQY0OFXCeKrJ5kkDiqbkOFCtl7uWDS6m2BvhY5IhRgJm+rU5gdqQ6wZ8RqfZKRp
-	+Ij+hMTIY1whsy84NS/KaWOApb9NtGSDGGlFGIozeS8Xx6f/9MNVp8UY8Ji2Z1dXizmvhOGf93gIM
-	s0T3ftgw==;
+	bh=3XlpQMLUSyRQZFvUi6xDEKbpZxSmcnKss9rik6ap+U0=; b=M4qr8mnm+NJNLApILSngBIIcqK
+	6okAUjzZIFzihoe+iDpGIYoAuTE0I5DxoZ/GlCbpQ1GKpYSGH6LdmW8lQRj6O0GegkTMeutUxj0Jz
+	rTpR7wOyiMHbuy6amGwdI2gE3nQQEUEIQ5DdEcGbgG33tinOSQBYJzuC6UTOmSkeZ6UAijjFBYsjo
+	0EaaMZqE7o7C0TQOpo44UnKj2kvPFzSlaYC0TUi+LAnT89izRX2xOlur4YGgJ6IqGlIdlKQRVKxwu
+	q6tn1A5v0oOtdb8mVmJETgXjJBdr7TePsy6KZrI8b66U+JLCfKrpxq5i4nHPSjL5eagjgkwmskAR4
+	uGGRZAXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTdEx-00000008cOm-3Aho;
-	Wed, 18 Nov 2026 10:50:11 +0000
-Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTdEv-00000008cNl-2qnz
+	id 1xTdI5-00000008ddF-1MMO;
+	Wed, 18 Nov 2026 10:53:25 +0000
+Received: from zg8tndyumtaxlji0oc4xnzya.icoremail.net ([46.101.248.176])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xTdI1-00000008da8-3h8X
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 10:50:11 +0000
-Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-38318d69173so199645eec.0
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 02:50:09 -0800 (PST)
+	Wed, 18 Nov 2026 10:53:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794999009; x=1795603809; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pcrm3vnLSGimQb5rCI5RJTtZbp3UKYK7ig1rjNTiXnM=;
-        b=pkoM+po5eSR55h6WJqZinsOU5+MSabSjC7nC5YecgWvUQW333HbPE/unLMi6X0dPC3
-         2G39xCK4+c9gSO4dArFlgV0Twm3s+EWocDLr8M6Kz5mB0LRzd2ISxIsYpmEdtkPVDmLS
-         0OvJTqZbIYtcwykPt7vejtjxneykfgnmuwLBmlTJTYmrY0jtZMvyv86DnJjZYGUp4QMI
-         BerTq31s2jwQYSPrS1cpHOrrW1Z8IEUeRPit8mQvbBn99FmkRra4jHTjyitrMBs6ofNR
-         xCukpNLUuXn2BxLnMdcJswRKElcxKXtcmVZ4BUbLCpkXFevEbbLuuUsHsmOMIicqNNFm
-         ddpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794999009; x=1795603809;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pcrm3vnLSGimQb5rCI5RJTtZbp3UKYK7ig1rjNTiXnM=;
-        b=EmqTwE+L3Pxb0nx042hsGxYtaKXaS/i9mIA2w9Vlw7X3JVTGAfEbDTPK6L2fy4owuI
-         4hDR+uevP243125DowwSjaiJ33Ae8BqoeYF6tBn9D+5Q+r0ORRAsYbf6ltPyl3s71JKu
-         GQfGJKZkyaBe6EmFJLfVLb4IbOWK7UKbhMcS5M34JYa0hN32PoBLwN4GqgSrxiLFrVoQ
-         kABCmOn20i1D7VCvtWz4qe9vpH42nkzjXLzqTNV0dIHOTEOA/5XxbV2W238u1AJpJC38
-         Kv2ZwGgxc0p0tjbcZa9OspUQkE33/wEbtSm7Hd2ARhhNSU+ew85HklPkm30WHomn08bH
-         iG5g==
-X-Forwarded-Encrypted: i=1; AL+hErEv4ftmAdTgKFmuxkQ+AQWMbsj8IZqVjx59i+9pX79hNPgPRdXqfa7QQYcupanpLv81w0rXJfUmwIrcIw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9eARdDScaoDzn5FeDAqcP1mvjRJ4CGvQWiYhpR++WHrg9VwdkR
-	g7Vq5kq7NsfTmhUngguMSsuUeiCpKqRLfvZ6Fj3DMmrIl7mtMOlK/elaM43Z7g==
-X-Gm-Gg: AZFdTZfKKlM/Z2M0AWKnSNnhwvmJH5Mv5ywnwvtvLC1GdXdm1/bxdUordzporJBV0p2
-	qio9i5cnL8Ha0cq1IEf0Bu+sWbfjdxrfkYlSnSM48gCLifwcdj7UjZK6Yruq4gciaFJB8/3z7Dn
-	cUIGBzoHiLZscT1+dVj8kGEVmIDBEgMvBeT66OfhwDo9kC+cVsJ5zThG2NkV9p0bWmCv/JCJQ2B
-	umwlZXfqpfHrDMPlGIZNLZm8v8yLQJxI9WNnRDgCcPzy3cXlimoG1jWB2SZVioCmW7myktLkPBT
-	aTk4YhLy8GGO84lGVbcU/YVAqDNzg0WeISnTqReFYxPYYu5q3Xe1tAWpePwOsUcJjCkc5urOk7m
-	6LNuXrI3b87gwKUKxw+KkOIsylQQlictNwf/s3tdiKWwpWncS2X8gUDMoPRBp24hI80sATOV7pD
-	GHvhjXELRet/KVm5MnCEnXcXWbv5PmWjYZTVQGTFU3jl+SlTR9TgCJ55vO9VByA1bp9rApgB4AY
-	ikequ7JYwS1f6aShQTDpvrazNdqSVGJ52bOTrrwbrBTjyLgEaSS3pKYM0RTbp1w1pPv4h0AU0Ra
-	MJmZVMgkJDxY+8Agl8aaM1QPkdKPG+rU
-X-Received: by 2002:a05:693c:2113:b0:37a:a9db:6bd2 with SMTP id 5a478bee46e88-3828026960bmr2342283eec.11.1794999008833;
-        Wed, 18 Nov 2026 02:50:08 -0800 (PST)
-Received: from archl-rock5b ([45.112.0.182])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a45260a8sm11729913eec.3.2026.11.18.02.50.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:50:08 -0800 (PST)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
-	=?UTF-8?q?Radim=20Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list),
-	linux-i2c@vger.kernel.org (open list:I2C SUBSYSTEM HOST DRIVERS),
-	linux-pm@vger.kernel.org (open list:SYSTEM RESET/SHUTDOWN DRIVERS),
-	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
-Subject: [PATCH v2 3/3] power: reset: Remove SpacemiT P1 reboot driver
-Date: Wed, 18 Nov 2026 16:19:15 +0530
-Message-ID: <20261118104935.1716-3-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118104935.1716-1-linux.amoon@gmail.com>
-References: <20261118104935.1716-1-linux.amoon@gmail.com>
+	d=eswincomputing.com; s=dkim; h=Received:Date:From:To:Cc:Subject:
+	In-Reply-To:References:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Message-ID; bh=jyUdO8NArwox8upk55rTXcu8YDiH0SVJfXRR
+	WHshHVw=; b=WHse8gfkle6IdY/Ue+IlJrE4Wwkd96ifEaMm3Cq7kFcsLmKnOTrC
+	sa9NW2qjgWKQKpP2t4wFlykoveBu56AvzNwsFJjow/ss3t6Lh6XEVmbUtjpJdP/f
+	H20eBMFv5/5tcJC4KZ14X51HSGkpfIMiJ12Q5nZxF31QTCxpYlKeJlo=
+Received: from yuanxiaofeng$eswincomputing.com ( [10.12.96.78] ) by
+ ajax-webmail-app2 (Coremail) ; Wed, 18 Nov 2026 18:52:56 +0800 (GMT+08:00)
+Date: Wed, 18 Nov 2026 18:52:56 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?6KKB5pmT5bOw?= <yuanxiaofeng@eswincomputing.com>
+To: "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>
+Cc: "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+	"Albert Ou" <aou@eecs.berkeley.edu>,
+	"Alexandre Ghiti" <alex@ghiti.fr>,
+	"Masami Hiramatsu" <mhiramat@kernel.org>,
+	"Oleg Nesterov" <oleg@redhat.com>,
+	"Peter Zijlstra" <peterz@infradead.org>,
+	"Guo Ren" <guoren@kernel.org>, "Pekka Enberg" <penberg@kernel.org>,
+	=?UTF-8?Q?Patrick_St=C3=A4hlin?= <me@packi.ch>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	"Palmer Dabbelt" <palmerdabbelt@google.com>,
+	Sashiko <sashiko-bot@kernel.org>, "Nam Cao" <namcao@linutronix.de>
+Subject: Re: [PATCH v4 0/3] riscv: probes: reject probes inside an LR/SC
+ sequence
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <20261115-probes-in-lrsc-v4-0-48b9b036bd1d@mobileye.com>
+References: <20261115-probes-in-lrsc-v4-0-48b9b036bd1d@mobileye.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Message-ID: <178ccbf1.a40.1a1ee49cebb.Coremail.yuanxiaofeng@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TQJkCgA38xyIg_1qkSAAAA--.107W
+X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgEPE2r8gi
+	4dYAAAsY
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWDJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_025009_734130_E5ABF1CF 
-X-CRM114-Status: GOOD (  18.38  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261118_025322_301473_6E5C75F4 
+X-CRM114-Status: GOOD (  26.25  )
+X-Spam-Score: -2.4 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,174 +85,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The SpacemiT P1 reboot driver uses I2C-backed regmap operations to
-request system shutdown and restart through the PMIC.
-
-The system-off handlers run in atomic context, where regmap operations
-may sleep. This can trigger invalid wait context and
-scheduling-while-atomic warnings during shutdown or restart.
-
-On SpacemiT K1 platforms, system poweroff and restart are handled by
-OpenSBI through the SBI System Reset (SRST) extension. The Linux PMIC
-reboot driver duplicates this firmware functionality and is no longer
-needed.
-
-Remove the driver along with its Kconfig and Makefile entries.
-The P1 MFD driver and its other functionality remain unaffected.
-
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Aurelien Jarno <aurelien@aurel32.net>
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-New patch
----
- drivers/power/reset/Kconfig              |  9 ---
- drivers/power/reset/Makefile             |  1 -
- drivers/power/reset/spacemit-p1-reboot.c | 87 ------------------------
- 3 files changed, 97 deletions(-)
- delete mode 100644 drivers/power/reset/spacemit-p1-reboot.c
-
-diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-index bce996bbef28..9e997d58fcc6 100644
---- a/drivers/power/reset/Kconfig
-+++ b/drivers/power/reset/Kconfig
-@@ -295,15 +295,6 @@ config POWER_RESET_KEYSTONE
- 	help
- 	  Reboot support for the KEYSTONE SoCs.
- 
--config POWER_RESET_SPACEMIT_P1
--	tristate "SpacemiT P1 poweroff and reset driver"
--	depends on ARCH_SPACEMIT || COMPILE_TEST
--	depends on MFD_SPACEMIT_P1
--	default MFD_SPACEMIT_P1
--	help
--	  This driver supports power-off and reset operations for the SpacemiT
--	  P1 PMIC.
--
- config POWER_RESET_SYSCON
- 	bool "Generic SYSCON regmap reset driver"
- 	depends on OF
-diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
-index e31cab4ba78e..2d5bdd1584cc 100644
---- a/drivers/power/reset/Makefile
-+++ b/drivers/power/reset/Makefile
-@@ -25,7 +25,6 @@ obj-$(CONFIG_POWER_RESET_LTC2952) += ltc2952-poweroff.o
- obj-$(CONFIG_POWER_RESET_QNAP) += qnap-poweroff.o
- obj-$(CONFIG_POWER_RESET_REGULATOR) += regulator-poweroff.o
- obj-$(CONFIG_POWER_RESET_RESTART) += restart-poweroff.o
--obj-$(CONFIG_POWER_RESET_SPACEMIT_P1) += spacemit-p1-reboot.o
- obj-$(CONFIG_POWER_RESET_ST) += st-poweroff.o
- obj-$(CONFIG_POWER_RESET_TH1520_AON) += th1520-aon-reboot.o
- obj-$(CONFIG_POWER_RESET_TORADEX_EC) += tdx-ec-poweroff.o
-diff --git a/drivers/power/reset/spacemit-p1-reboot.c b/drivers/power/reset/spacemit-p1-reboot.c
-deleted file mode 100644
-index c0454b547718..000000000000
---- a/drivers/power/reset/spacemit-p1-reboot.c
-+++ /dev/null
-@@ -1,87 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--/*
-- * Copyright (C) 2025 by Aurelien Jarno
-- */
--
--#include <linux/bits.h>
--#include <linux/platform_device.h>
--#include <linux/regmap.h>
--#include <linux/reboot.h>
--
--/* Power Control Register 2 */
--#define PWR_CTRL2		0x7e
--#define PWR_CTRL2_SHUTDOWN	BIT(2)	/* Shutdown request */
--#define PWR_CTRL2_RST		BIT(1)	/* Reset request */
--
--static int spacemit_p1_pwroff_handler(struct sys_off_data *data)
--{
--	struct regmap *regmap = data->cb_data;
--	int ret;
--
--	/* Put the PMIC into shutdown state */
--	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_SHUTDOWN);
--	if (ret) {
--		dev_err(data->dev, "shutdown failed: %d\n", ret);
--		return notifier_from_errno(ret);
--	}
--
--	return NOTIFY_DONE;
--}
--
--static int spacemit_p1_restart_handler(struct sys_off_data *data)
--{
--	struct regmap *regmap = data->cb_data;
--	int ret;
--
--	/* Put the PMIC into reset state */
--	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_RST);
--	if (ret) {
--		dev_err(data->dev, "restart failed: %d\n", ret);
--		return notifier_from_errno(ret);
--	}
--
--	return NOTIFY_DONE;
--}
--
--static int spacemit_p1_reboot_probe(struct platform_device *pdev)
--{
--	struct device *dev = &pdev->dev;
--	struct regmap *regmap;
--	int ret;
--
--	regmap = dev_get_regmap(dev->parent, NULL);
--	if (!regmap)
--		return -ENODEV;
--
--	ret = devm_register_power_off_handler(dev, &spacemit_p1_pwroff_handler,
--					      regmap);
--	if (ret)
--		return dev_err_probe(dev, ret,
--				     "Failed to register power off handler\n");
--
--	ret = devm_register_restart_handler(dev, spacemit_p1_restart_handler,
--					    regmap);
--	if (ret)
--		return dev_err_probe(dev, ret,
--				     "Failed to register restart handler\n");
--
--	return 0;
--}
--
--static const struct platform_device_id spacemit_p1_reboot_id_table[] = {
--	{ .name = "spacemit-p1-reboot" },
--	{ /* sentinel */ }
--};
--MODULE_DEVICE_TABLE(platform, spacemit_p1_reboot_id_table);
--
--static struct platform_driver spacemit_p1_reboot_driver = {
--	.driver = {
--		.name = "spacemit-p1-reboot",
--	},
--	.probe = spacemit_p1_reboot_probe,
--	.id_table = spacemit_p1_reboot_id_table,
--};
--module_platform_driver(spacemit_p1_reboot_driver);
--
--MODULE_DESCRIPTION("SpacemiT P1 reboot/poweroff driver");
--MODULE_LICENSE("GPL");
--- 
-2.56.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+4oCLSGkgVmxhZGltaXIsIE5hbSwgTWFzYW1pLAoKCgoKVGhhbmtzIGZvciBkcml2aW5nIHRoaXMu
+IE5hbe+8jE1hc2FtaSBhbmQgSSB3b3JrZWQgb24gdGhlIHNhbWUgcHJvYmxlbSBpbsKgCmFuIGVh
+cmxpZXIgc2VyaWVzIFsxXSwgd2hpY2ggTmFtIHJldmlld2VkIG92ZXIgc2V2ZXJhbCByZXZpc2lv
+bnMgYW5kIE1hc2FtacKgCmFja2VkIG9uIHRoZSBkZXRlY3Rpb24gc2lkZS4gVmxhZGltaXIsIHlv
+dXIgZm9yd2FyZCBzY2FuIGFsc28gY292ZXJzIHVwcm9iZXPCoAphbmQgZG9lcyBub3Qgc3VmZmVy
+IGZyb20gdGhlIGxvbmUtbHIgZmFsc2UgcmVqZWN0aW9uIHRoYXQgb3VyIHdpbmRvdy1iYXNlZCBj
+aGVjayBoYWQswqAKc28geW91ciBhcHByb2FjaCBpcyB0aGUgYmV0dGVyIGJhc2U7IEkgd291bGQg
+cmF0aGVyIGNvbnRpbnVlIHRoZSBmaXggb24gdG9wIG9mCnlvdXIgc2VyaWVzIHRoYW4gcHVzaCBv
+dXJzLgoKCgoKRm9yIHdoYXQgaXQgaXMgd29ydGgsIEkgYXBwbGllZCB0aGUgdjQgcHJvYmUgbG9n
+aWMgYW5kIHRoZSAzLzMgdGVzdCB0byBhCmNsZWFuIHRyZWUgYW5kIHRoZSBrcHJvYmVzIEtVbml0
+IHBhc3NlcyAocGFzczoyIGZhaWw6MCksIHNvIHRoaXMgaXMgbm90CmFib3V0IGJyZWFrYWdlIC0t
+IGp1c3QgYSBmZXcgdGhpbmdzIGZyb20gb3VyIGV4cGVyaWVuY2UgdGhhdCBtYXkgYmUgd29ydGgK
+YWxpZ25pbmcuCgoKCgoxKSBXaW5kb3cgc2l6ZQoKCgoKwqAgwqBTcGVjIDEzLjMgZGVmaW5lcyB0
+aGUgY29uc3RyYWluZWQgTFIvU0MgbG9vcCBhcyB0aGUgTFIvU0Mgc2VxdWVuY2UgcGx1cwrCoCDC
+oHRoZSBjb2RlIHRvIHJldHJ5IGl0LCBhdCBtb3N0IDE2IGluc3RydWN0aW9ucyBpbiB0b3RhbC4g
+VGhhdCBsZWF2ZXMgYXQKwqAgwqBtb3N0IDE0IGluc3RydWN0aW9ucyBiZXR3ZWVuIHRoZSBsciBh
+bmQgdGhlIHNjIChmZXdlciBvbmNlIHRoZSByZXRyeQrCoCDCoGJyYW5jaCBpcyBjb3VudGVkKS4g
+UklTQ1ZfTFJTQ19NQVhfQk9EWT0xNiBpcyBsYXJnZXIgdGhhbiB0aGF0OyBjb3VsZCB3ZQrCoCDC
+oGFsaWduIHRoZSBib3VuZCB3aXRoIHRoZSBzcGVjPyBXZSBoYWQgYW4gb2ZmLWJ5LW9uZSByb3Vu
+ZCBvbiB0aGlzIHdpdGggTmFtCsKgIMKgaW4gb3VyIHNlcmllcy4KCgoKCjIpIFRlc3Qgc3RydWN0
+dXJlCgoKCgrCoCDCoEFtb25nIE5hbSdzIGNvbW1lbnRzIG9uIG91cnMgd2FzIHRoZSAiY291cGxl
+ZCIgb2Zmc2V0c1tdICsgcmVqZWN0W10gdGFibGU7CsKgIMKgdGhlIHNlcGFyYXRlIGFsbG93ZWRb
+XS9yZWplY3RlZFtdIGFycmF5cyB5b3UgYWRvcHRlZCBjYW1lIG91dCBvZiB0aGF0CsKgIMKgZGlz
+Y3Vzc2lvbi4KCgoKCsKgIMKgVGhyZWUgc21hbGxlciB0aGluZ3M6CgoKCgrCoCDCoC0gS1VOSVRf
+RVhQRUNUX0xUKHJldCwgMCkgYWxzbyBhY2NlcHRzIC1FSUxTRVEgKG9yIGFueSBvdGhlciBuZWdh
+dGl2ZQrCoCDCoCDCoGVycm9yKSwgc28gaXQgY2FuIHBhc3MgZXZlbiB3aGVuIHRoZSBMUi9TQyBy
+ZWplY3Rpb24gZGlkIG5vdCBoYXBwZW4uCsKgIMKgIMKgLUVJTlZBTCB3b3VsZCBwaW4gdGhlIHNw
+ZWNpZmljIHJlYXNvbi4KwqAgwqAtIFRoZXJlIGlzIG5vIGFsbG93LWRpcmVjdGlvbiBib3VuZGFy
+eSwgc28gYSB3aW5kb3cgdGhhdCBpcyB0b28gd2lkZQrCoCDCoCDCoHdvdWxkIHN0aWxsIHBhc3Mu
+IEEgY2FzZSBqdXN0IG91dHNpZGUgdGhlIChzcGVjLWNvcnJlY3QpIHdpbmRvdywKwqAgwqAgwqBl
+eHBlY3RlZCB0byBiZSBhY2NlcHRlZCwgd291bGQgcGluIHRoZSBib3VuZCBmcm9tIGJvdGggc2lk
+ZXMuCsKgIMKgLSBUaGUgbWF4LWxlbmd0aCBjYXNlIGlzIGxyICsgMTYgbm9wcyArIHNjLCB3aGlj
+aCBpcyBuZWl0aGVyIGEgbG9vcCBub3IKwqAgwqAgwqB3aXRoaW4gdGhlIDE2LWluc3RydWN0aW9u
+IHNwZWMgYm91bmQuIEEgcmVhbCBsb29wIChsciArIDEzIGluc3RydWN0aW9ucwrCoCDCoCDCoCsg
+c2MgKyByZXRyeSBicmFuY2gpIHdvdWxkIHRlc3Qgd2hhdCB0aGUgc3BlYyBhY3R1YWxseSBjb25z
+dHJhaW5zLgoKCgoKMykgRGVjb2RlIE9PQiByZWFkIChwYXRjaCAxLzMpCgoKCgrCoCDCoFdlIGFs
+c28gc2VudCBhIHN0YW5kYWxvbmUgZml4IGZvciB0aGlzIGVhcmxpZXIgWzJdLiBZb3VyIG9uZS1s
+aW5lCsKgIMKgJnAtPm9wY29kZSBjaGFuZ2UgaXMgZXF1aXZhbGVudCBhbmQgc21hbGxlciwgc28g
+cGxlYXNlIGdvIHdpdGggeW91cnMuCgoKCgpXZSBhcmUgc3RpbGwgbGVhcm5pbmcgYW5kIGhhdmUg
+Y2VydGFpbmx5IG1pc3NlZCB0aGluZ3MgaGVyZS4gTmFtLCBNYXNhbWkgLQpzaW5jZSB5b3UgYm90
+aCByZXZpZXdlZCBvdXIgZWFybGllciBzZXJpZXMsIHdvdWxkIHlvdSBtaW5kIHRha2luZyBhIGxv
+b2sgYXQKdGhpcyBvbmUgdG9vPwoKCgoKWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4
+LXJpc2N2LzIwMjYxMDE5MTM0MTIxLjE3NjMtMS15dWFueGlhb2ZlbmdAZXN3aW5jb21wdXRpbmcu
+Y29tLwpbMl0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyNjEwMjExMDAw
+NTguMzIyLTEteXVhbnhpYW9mZW5nQGVzd2luY29tcHV0aW5nLmNvbS8KCgoKClRoYW5rcywKWGlh
+b2ZlbmcKCgoKCj4gLS0tLS3ljp/lp4vpgq7ku7YtLS0tLQo+IOWPkeS7tuS6ujogIlZsYWRpbWly
+IEtvbmRyYXRpZXYiIDx2bGFkaW1pci5rb25kcmF0aWV2QG1vYmlsZXllLmNvbT4KPiDlj5HpgIHm
+l7bpl7Q6MjAyNi0xMS0xNSAyMDozNzozMiAo5pif5pyf5pelKQo+IOaUtuS7tuS6ujogIlBhdWwg
+V2FsbXNsZXkiIDxwandAa2VybmVsLm9yZz4sICJQYWxtZXIgRGFiYmVsdCIgPHBhbG1lckBkYWJi
+ZWx0LmNvbT4sICJBbGJlcnQgT3UiIDxhb3VAZWVjcy5iZXJrZWxleS5lZHU+LCAiQWxleGFuZHJl
+IEdoaXRpIiA8YWxleEBnaGl0aS5mcj4sICJNYXNhbWkgSGlyYW1hdHN1IiA8bWhpcmFtYXRAa2Vy
+bmVsLm9yZz4sICJPbGVnIE5lc3Rlcm92IiA8b2xlZ0ByZWRoYXQuY29tPiwgIlBldGVyIFppamxz
+dHJhIiA8cGV0ZXJ6QGluZnJhZGVhZC5vcmc+LCAiR3VvIFJlbiIgPGd1b3JlbkBrZXJuZWwub3Jn
+PiwgIlBla2thIEVuYmVyZyIgPHBlbmJlcmdAa2VybmVsLm9yZz4sICJQYXRyaWNrIFN0w6RobGlu
+IiA8bWVAcGFja2kuY2g+Cj4g5oqE6YCBOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+LCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBsaW51eC10cmFjZS1rZXJuZWxAdmdlci5r
+ZXJuZWwub3JnLCAiUGFsbWVyIERhYmJlbHQiIDxwYWxtZXJkYWJiZWx0QGdvb2dsZS5jb20+LCAi
+VmxhZGltaXIgS29uZHJhdGlldiIgPHZsYWRpbWlyLmtvbmRyYXRpZXZAbW9iaWxleWUuY29tPiwg
+U2FzaGlrbyA8c2FzaGlrby1ib3RAa2VybmVsLm9yZz4sICJYaWFvZmVuZyBZdWFuIiA8eXVhbnhp
+YW9mZW5nQGVzd2luY29tcHV0aW5nLmNvbT4KPiDkuLvpopg6IFtQQVRDSCB2NCAwLzNdIHJpc2N2
+OiBwcm9iZXM6IHJlamVjdCBwcm9iZXMgaW5zaWRlIGFuIExSL1NDIHNlcXVlbmNlCj4gCj4gUGF0
+Y2ggMSBmaXhlcyBwYWdlIGZhdWx0IHJlcG9ydGVkIGJ5IHNhc2hpa28tYm90QGtlcm5lbC5vcmcg
+dGhhdAo+IGV4aXN0ZWQgYmVmb3JlIHRoaXMgcGF0Y2ggc2VyaWVzCj4gCj4gUGF0Y2ggMiByZWpl
+Y3RzIHByb2JlcyBpbnNpZGUgdGhlIExSL1NDIHNlcXVlbmNlLiBUaGlzIGNvbW1pdCB3YXMKPiBp
+bml0aWFsbHkgc3VibWl0dGVkIGFzIHBhdGNoIDEgb2YgdGhlIHNlcmllcyBbMV0uCj4gRGV0YWNo
+aW5nIGl0IGZyb20gdGhhdCBzZXJpZXMgYmVjYXVzZSBpdCBpcyBub3QgZGVwZW5kaW5nIG9uIG90
+aGVyIHN0dWZmLgo+IAo+IFBhdGNoIDMgYWRkcyBLVW5pdCB0ZXN0LCBzdWdnZXN0ZWQgYnkKPiBY
+aWFvZmVuZyBZdWFuIDx5dWFueGlhb2ZlbmdAZXN3aW5jb21wdXRpbmcuY29tPiBpbiBbMl0KPiAK
+PiBbMV0gaHR0cHM6Ly9wYXRjaC5tc2dpZC5saW5rLzIwMjYxMTEwLWxyc2Mtb25seS12Ni0wLWJh
+ZmMzY2MwZmNhZUBtb2JpbGV5ZS5jb20KPiBbMl0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGlu
+dXgtcmlzY3YvMjAyNjEwMTkxMzQxMjEuMTc2My0zLXl1YW54aWFvZmVuZ0Blc3dpbmNvbXB1dGlu
+Zy5jb20vCj4gCj4gLS0tCj4gQ2hhbmdlcyBpbiB2NDoKPiAtIEFkZCBLVW5pdCB0ZXN0IGFzIHN1
+Z2dlc3RlZCBieSBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4sIGJhc2VkIG9uCj4gICB3b3Jr
+IGJ5IFhpYW9mZW5nIFl1YW4gPHl1YW54aWFvZmVuZ0Blc3dpbmNvbXB1dGluZy5jb20+Cj4gLSBT
+Y2FuIGZvciBTQyB1cCB0byBtYXhpbXVtIHBvc3NpYmxlIHNlcXVlbmNlIGxlbmd0aC4gU1BVIGRv
+ZXMgbm90IGtub3cKPiAgIGFib3V0IHN5bWJvbHMsIGl0IGlzIG5vdCBjb3JyZWN0IHRvIHN0b3Ag
+c2Nhbm5pbmcgYXQgdGhlIGVuZCBvZgo+ICAgc3ltYm9sLiBHbG9iYWxseSB2aXNpYmxlIHN5bWJv
+bCBwbGFjZWQgd2l0aGluIExSL1NDIHNlcXVlbmNlIHNob3VsZAo+ICAgbm90IHR1cm4gcHJvYmUg
+d2l0aGluIHRoZSBzZXF1ZW5jZSBpbnRvIGFjY2VwdGFibGUuCj4gLSBMaW5rIHRvIHYzOiBodHRw
+czovL3BhdGNoLm1zZ2lkLmxpbmsvMjAyNjExMTItcHJvYmVzLWluLWxyc2MtdjMtMC1hOTUwODk4
+NTJhMTdAbW9iaWxleWUuY29tCj4gCj4gQ2hhbmdlcyBpbiB2MzoKPiAtIEZpeCBsci9zYyBsb29w
+IGRldGVjdGlvbiBsb2dpYyBmb3IgbHIgYXQgcHJvYmUgcG9zaXRpb24KPiAtIEFkZCAiRml4ZXMi
+IHRyYWlsZXJzIGFzIHN1Z2dlc3RlZCBieSBzYXNoaWtvLWJvdEBrZXJuZWwub3JnCj4gLSBMaW5r
+IHRvIHYyOiBodHRwczovL3BhdGNoLm1zZ2lkLmxpbmsvMjAyNjExMTEtcHJvYmVzLWluLWxyc2Mt
+djItMC1iMjUyNWI3ZTFlOGVAbW9iaWxleWUuY29tCj4gCj4gQ2hhbmdlcyBpbiB2MjoKPiAtIEFs
+bG93IGtwcm9iZSBvbiB0aGUgTFIgaXRzZWxmIHVubGVzcyBpdCBpcyBwYXJ0IG9mIHRoZSBMUi9T
+QyBsb29wLgo+IC0gRml4IGVycm9yIChyZXBvcnRlZCBieSBzYXNoaWtvLWJvdEBrZXJuZWwub3Jn
+KSB3aGVyZQo+ICAgYXJjaF9wcmVwYXJlX2twcm9iZSgpIHJldHVybnMgLUVJTFNFUSBmb3IgTFIv
+U0MgcHJvYmVzLgo+ICAgTWFrZSBjb2RlcyByZXR1cm5lZCBieSBhcmNoX2NoZWNrX2twcm9iZSB0
+byBpbmRpY2F0ZSAtRUlOVkFMCj4gICBpZiBwcm9iZSBmYWxscyB3aXRoaW4gdGhlIExSL1NDIGxv
+b3AsIGNvbnNpc3RlbnQgd2l0aCB0aGUgY2FzZSB3aGVuCj4gICBJTlNOX1JFSkVDVEVEIHJldHVy
+bmVkIGJ5IHJpc2N2X3Byb2JlX2RlY29kZV9pbnNuCj4gLSBhZGQgcGF0Y2ggZml4aW5nIG91dC1v
+Zi1ib3VuZHMgcmVhZCBpbiByaXNjdl9wcm9iZV9kZWNvZGVfaW5zbigpCj4gICByZXBvcnRlZCBi
+eSBzYXNoaWtvLWJvdEBrZXJuZWwub3JnIChhcyBwYXRjaCAxKQo+IC0gTGluayB0byB2MTogaHR0
+cHM6Ly9wYXRjaC5tc2dpZC5saW5rLzIwMjYxMTExLXByb2Jlcy1pbi1scnNjLXYxLTEtNGY5OWRk
+ZWE1ZjY4QG1vYmlsZXllLmNvbQo+IAo+IFRvOiBQYXVsIFdhbG1zbGV5IDxwandAa2VybmVsLm9y
+Zz4KPiBUbzogUGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4KPiBUbzogQWxiZXJ0
+IE91IDxhb3VAZWVjcy5iZXJrZWxleS5lZHU+Cj4gVG86IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBn
+aGl0aS5mcj4KPiBUbzogTWFzYW1pIEhpcmFtYXRzdSA8bWhpcmFtYXRAa2VybmVsLm9yZz4KPiBU
+bzogT2xlZyBOZXN0ZXJvdiA8b2xlZ0ByZWRoYXQuY29tPgo+IFRvOiBQZXRlciBaaWpsc3RyYSA8
+cGV0ZXJ6QGluZnJhZGVhZC5vcmc+Cj4gVG86IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+
+IFRvOiBQZWtrYSBFbmJlcmcgPHBlbmJlcmdAa2VybmVsLm9yZz4KPiBUbzogUGF0cmljayBTdMOk
+aGxpbiA8bWVAcGFja2kuY2g+Cj4gQ2M6IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+PiBDYzogbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwo+IENjOiBsaW51eC10cmFjZS1rZXJu
+ZWxAdmdlci5rZXJuZWwub3JnCj4gQ2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJkYWJiZWx0QGdv
+b2dsZS5jb20+Cj4gU2lnbmVkLW9mZi1ieTogVmxhZGltaXIgS29uZHJhdGlldiA8dmxhZGltaXIu
+a29uZHJhdGlldkBtb2JpbGV5ZS5jb20+Cj4gCj4gLS0tCj4gVmxhZGltaXIgS29uZHJhdGlldiAo
+Myk6Cj4gICAgICAgcmlzY3Y6IGtwcm9iZXM6IGZpeCBvdXQtb2YtYm91bmRzIHJlYWQgaW4gcmlz
+Y3ZfcHJvYmVfZGVjb2RlX2luc24KPiAgICAgICByaXNjdjogcHJvYmVzOiByZWplY3QgcHJvYmVz
+IGluc2lkZSBhbiBMUi9TQyBzZXF1ZW5jZQo+ICAgICAgIHJpc2N2OiBrcHJvYmVzOiBhZGQgS1Vu
+aXQgdGVzdCBmb3IgTFIvU0Mgc2VxdWVuY2UgcmVqZWN0aW9uCj4gCj4gIGFyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vaW5zbi5oICAgICAgICAgICAgICAgICAgICAgIHwgMjggKysrKysrKwo+ICBhcmNo
+L3Jpc2N2L2tlcm5lbC9wcm9iZXMvZGVjb2RlLWluc24uYyAgICAgICAgICAgICB8IDkxICsrKysr
+KysrKysrKysrKysrKysrKysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2RlY29kZS1pbnNu
+LmggICAgICAgICAgICAgfCAgNyArKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jl
+cy5jICAgICAgICAgICAgICAgICB8IDI4ICsrKysrLS0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvcHJv
+YmVzL3Vwcm9iZXMuYyAgICAgICAgICAgICAgICAgfCAzMSArKysrKysrKwo+ICBhcmNoL3Jpc2N2
+L2tlcm5lbC90ZXN0cy9rcHJvYmVzL3Rlc3Qta3Byb2Jlcy1hc20uUyB8IDU4ICsrKysrKysrKysr
+KysrCj4gIGFyY2gvcmlzY3Yva2VybmVsL3Rlc3RzL2twcm9iZXMvdGVzdC1rcHJvYmVzLmMgICAg
+IHwgMzIgKysrKysrKysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvdGVzdHMva3Byb2Jlcy90ZXN0LWtw
+cm9iZXMuaCAgICAgfCAgNiArKwo+ICA4IGZpbGVzIGNoYW5nZWQsIDI3NCBpbnNlcnRpb25zKCsp
+LCA3IGRlbGV0aW9ucygtKQo+IC0tLQo+IGJhc2UtY29tbWl0OiBjMDNjMWExNDUwN2RmYWY4Yjg1
+NmMyNjA4ZjlhYzIxNjAyMWZjMjIyCj4gY2hhbmdlLWlkOiAyMDI2MTExMS1wcm9iZXMtaW4tbHJz
+Yy00Y2NkZTZjYmY0MzYKPiAKPiBCZXN0IHJlZ2FyZHMsCj4gLS0gIAo+IFZsYWRpbWlyIEtvbmRy
+YXRpZXYgPHZsYWRpbWlyLmtvbmRyYXRpZXZAbW9iaWxleWUuY29tPgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
