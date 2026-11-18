@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18E47606A320
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 11:30:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AF10606A320
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 11:33:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iPtQTKbU;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qb9quO/l
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DZ1nE/NL;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jpnUBSjK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,86 +14,83 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nNXV51uJJ38OpGdwQ9vya690VWPgUL+gdIJbKhr7StM=; b=iPtQTKbUmz5KLjxju8PqLh+wxU
-	TJdF/mDqJAMfBEyW4q/UNxexwf64H+58EoUoMSmmifoVFySmAd7zrtbwJTFu2T3zz5CkETgB5c4v2
-	cwOO5ugEMXywNsXm9Pnp4PRyd3PU66L5BlXepy3JFbC4GeYuDtSXyYSnnM/FeR488GvAftqmsvZuo
-	PJtzynlOK/rt08c3nZ4toq7mi+kSaLFWPT6MgghL+RUai05ze5fhcFj+F+x66roMat1Oe0sC0FNXl
-	KJB+4uxPr3pLYlYFrJbWQSwTvD8W72nQG4RwI0Mv7m1pDA3qbaelIYbYYF2vzEoWrEiI7uNsdwHT6
-	OPXB9rPQ==;
+	bh=n+zrgnjnvzWyTSvFM69sxY8cpjwF2Th4sh2oWoSyCSo=; b=DZ1nE/NLAOrhNYEXzABqgJgI52
+	pH6o5OQc+hhBlZ9NaeDnr3hhltPL1D4LEeV3uHLu+IdByY6qctx4eQpQmD/YbNzd/yb2DrT+LFBt0
+	ttO7C+RCapulgvnQyhY9T8lyqvIoO96nl5dCBY4Q5ujuftsn39ni3CQ0aoZjrmBWEWOgJvVDVJQfz
+	+IBPgDuT/zka/XogTbPEcTRpQYAUy4Wh59dJX+dNYPBMlzyWgl4H7Y3/bEAuGxU7p0gPTTsamF2rD
+	OoTsF4Ht8jLKTphZ/hiSDMHYWlMFjChBGmYatd55ShyUfU8KCqa8tFaU7BQfarbnCBAjwoByZ0kmJ
+	eqhMS1iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTdrV-00000008i5j-3jYJ;
-	Wed, 18 Nov 2026 11:30:01 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1xTdum-00000008ipj-0xgt;
+	Wed, 18 Nov 2026 11:33:24 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTdrT-00000008i4j-0o9B
+	id 1xTduj-00000008ip3-1b4k
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 11:30:00 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3acb11973c3so659783a91.3
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 03:29:58 -0800 (PST)
+	Wed, 18 Nov 2026 11:33:22 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cddee4abc57so281809a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Nov 2026 03:33:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795001398; x=1795606198; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1795001600; x=1795606400; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=CKJXXPGigrKiCn6BqmrO398ZNmnv1y4ivGMlHte/o0E=;
-        b=qb9quO/lwAwrKXBouZX2izU01rayifcGl/3GQ26lBj+aurJEzfcg00wBAUD1xRu87b
-         MIb/rN4OtSGl98AtF7CV1l7JWat+rEY17lYzdyWBdvcvg8IXCVY5qEnYCwMhaimq0buD
-         p3XvAWavSXZzDWkjZyNdx2FYwavCQqDuws8JOOXStHrWmKm1Skc2CX7FM3oXX5u2XGuy
-         Cns4uRz1AQ2iuPhqSzd1X4KYS2Zk1jV2ArRv1OufNzO3bWe5AlP7tkA16qeRC2QlJTjg
-         VpHOT9hfo9nHvkk/jD7XmbH1dUkjoW2t1uw6BhNkp33NTl9Ykg7ukElsNFsMBAamDiJk
-         5CHQ==
+        bh=7UG0JPbjn6aH3NrcP1EtB4S7cbz2TK8S8J6WbkM9l3c=;
+        b=jpnUBSjKNd89GdZBGDEnFB4EJztZd4veMNh5MYPZWgTAhiSCt4uq/VoaIGSKOOQLmb
+         c/VsvUoBbT+OfjaqH4xwV22+/d3jZ7D3qnd9PGsSuKaa8esy0M1P2tnF3bkT8xjdeib3
+         RjW/I21ZVS7S1VbBse3hWUn6jBipu0lh4x5Sw2yLb+8UqfRdN7Q1bdaOiUsF5JF4bXeI
+         M+l2TGp/40JN5Z0HejzowwHa1V1FryEQt7YyoJrqM5kiC/UtcjuDTOPj9n+KM+5otlJQ
+         R1xiXz492tT4IBjCQ6mmc3cbxBP3uJIRqV+ZFxvXzuLGRBrvPKv8daFH91Ki8p0hNlXb
+         k7fA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001398; x=1795606198;
+        d=1e100.net; s=20260707; t=1795001600; x=1795606400;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=CKJXXPGigrKiCn6BqmrO398ZNmnv1y4ivGMlHte/o0E=;
-        b=zoVFrAJEdyF055l5KbtvIKaal5kYzt+eQLBakfvZV9fFD0odpKK+W+RdtrgqbfNv9B
-         9mWX00+0CXxqkzvNvAlvc4w3QvHqMEF6eG7toTILoDJZRVgEplVhJp+a7mDHWXE1lUdE
-         jM+QaKVEP99KfsQV9lgoncgjCvdgUwW97f27nx8bgA0F+6qTIh5omxz1xL5Nli1/DgUz
-         MjgHe/+wPplUrSlewZHdOeOpFpaa4yP6L9SFzJTAO/2Hl6x/NThZpPmNzPgCm/VZ/uAG
-         gb2X/xJY6G+622iRbG1nBjAa3jtBuNe9YvUH5gHi/rPx3oamT/0v4irO6jTW0B8ZJ4Da
-         +3VA==
-X-Forwarded-Encrypted: i=1; AL+hErE+Xas7+ktyBKMl8YKUUpgmyvRozs1r5UWihM0oztm46cMnZH/EL7aX4t6XiSMv9l1iB4MGhnJsBJRnQQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9CMLckR/XZbSta6wanii81j/DG5jYz0NCNraVHchjnWEWN0kwp
-	RewTe3y92RTKkilNW3jCT5gU5/G3C07FnchBr+avwQ2v5eIwW3F6Gysk
-X-Gm-Gg: AZFdTZd6swcvBAtln4JdTQaftL25SiKFt11NINVb8WaFUzm0q1+fBVGAcn0yz33GOhO
-	zKAclYg14imm8dNZlvTnQ4iDDe27K7AIWamBrWObO8t5wvY19iGjkbVltkpkEYq9TMp9SrZ7l5Q
-	VaozKpWlDVkdOpNCD6OTpbojhKoBJJtYlCxmDrQvtbRL9WLksfBH/55yuj/+QcbLXb996aMBtbG
-	7xu+AT9haWIL/GM1BzHGa32YMOjPcT4rYZ/GTyZ0tWtoE4ortUzcr3lnOFgExImqEw2oBolKbCn
-	QS79VMwAIs3jncrIH7W3nupPD7CbNOBpSlg0TOwhxGlSAGM8+mld+r+gLJV6MOlyQcNVz1+4nqm
-	QLzygMzSop4dm/5crg7bhmtzCaMFpyHew8ODQQpkjAdTWFh6tjSjM9Rl9lGK0xRo7Sy+aKwEAEd
-	QGXcSl/qC0Dou0TN2ASRrDzOxFE1xjrZmn8wpFmZi4MkEw2USnBE0TmhMbs3hpdcD525s296N5P
-	TpjDgMToFJS476Tlhn1AQZ+wkUzXo/j99OqNmftRlvWBs4B3TIfb8fg3dl3q29VsigpBPVz1IE1
-	UNCctpNNvkQiY+tsT0HeMbTs6dg=
-X-Received: by 2002:a17:90b:1a8d:b0:3b3:c4dd:5437 with SMTP id 98e67ed59e1d1-3b3d06415fdmr2730809a91.5.1795001397974;
-        Wed, 18 Nov 2026 03:29:57 -0800 (PST)
+        bh=7UG0JPbjn6aH3NrcP1EtB4S7cbz2TK8S8J6WbkM9l3c=;
+        b=il+05iLAEb0Jsgm1l/R0aLmhukByJNDOotLKD+/P2TkIiaKPOnVPr9c1wPXCK0Ty3m
+         WxyAmMZj+gqJ+D3z6zir3BvkTmQy5qs93aSTo+YiUCUmEUsvgRPEZlmm7sy7UoFQ1a7a
+         4h9URptgHBPdePxNAUeT1A6KOUqgAcad3+FYrYklmcL2JVsnzTku0kogsTbHOpgLNTf5
+         2Oye6Pz4D+Y2y2oPZ0R5ajlrcvlnGaCEiFmOf990OnT9EO8fbl9AOypqS2G7Ru264kHf
+         +PdEORlNlVKxNoGLn2O5VrcqkecN52rfb3CM3eLEtUqKHV9z9sb00rEp3xO/xiiXIOiz
+         Laug==
+X-Forwarded-Encrypted: i=1; AL+hErFgMGzBVuFbkLNRjdZCE6RUQzqtut5sn+TZWxSCBqhr9NgCqMDRgY00bTcddvGcyn8iACO65gNi26Y/Qw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9j/PlTMJaeUTzkolduJaDfWOkAkrK1FCZCXanDRfm1vxanfIxu
+	pX8k3ep93EFo7kb05juyQelZ9ABYHlHb1P955DauTbecJ8jrvwOTnerC
+X-Gm-Gg: AZFdTZeiB4OiHdHSeF5/YEZcSzsvs92sHg5biwBNE1jnjKMPyxcdNDaudj2dNC6+c4P
+	oeza/Tdyk0rBgOv7adlvd96bFbnlf4dI8OYRFJbe6PHPRrNNo5YAextpb3nrifKJIeuNO1CHjUf
+	ifHJ5A3pHSelvM3sKa0+KYYsYXWuYcrAv8ksq8cdQat9l/zfyXoHCTVkL+Qs72tGl3wyT+ANnrD
+	nCXkb+FeGXw1jNojImDjtHt0xbMehzphAQmLgJc3TAAEQfMq3XJMzoGkLnppon471IeOn95eGXz
+	RJX5T9bbD9p3jK8KTGesRaSVgKGjCK32pSpVIi04wGsd7qr3HLxleNm4eWUVCOtoi5sxzQongrl
+	1A8F3rHEJTxpFhqrV0/HcN4WTPLF1nZ/mTbjfhhMnrf4jt5P8TfwGTv5NF8J5jqHUn9ucmdWJ+Q
+	dpSnEon+7833oUxJKDHBgFeYjQuIbCjrJJ1i6pVmrsx7dcPSmGZqnVb+005bbs1WB320cFHqRCg
+	N0KTuxko9+U6laWF/gQGtI8dlH8hFzT+3joczEboMnBM1GBYoi/74Gdv0LIzeVYBPwrPqUJySM3
+	Tt355HeWGFAk1Xwv7DoHiK0t7YJauTFP4spQxfcbQRzTVaUK
+X-Received: by 2002:a17:90b:52c8:b0:3ad:6090:a189 with SMTP id 98e67ed59e1d1-3b3d07a545bmr2675748a91.45.1795001599893;
+        Wed, 18 Nov 2026 03:33:19 -0800 (PST)
 Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d143d69csm3960221a91.1.2026.11.18.03.29.57
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1c03e04sm3923274a91.15.2026.11.18.03.33.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:29:57 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:29:27 +0800
+        Wed, 18 Nov 2026 03:33:19 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:32:50 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Peixin Xie <peixin.xie@linux.spacemit.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>, Guo Ren <guoren@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Charlie Jenkins <thecharlesjenkins@gmail.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH] riscv: cpu: Fix incorrect cached machine IDs on
- secondary harts
-Message-ID: <av2L1MlTWoYI74eu@inochi.infowork>
-References: <20261118-riscv-marchid-fix-v1-1-6d677fcd5461@linux.spacemit.com>
+To: Chen-Yu Yeh <chenyou910331@gmail.com>, 
+	AnnanLiu <annan.liu.xdu@outlook.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>, Chen Wang <chen.wang@linux.dev>, 
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>, sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] riscv: dts: sophgo: add watchdog dt node for CV1800
+Message-ID: <av2McZf10FiOKDcZ@inochi.infowork>
+References: <DM6PR20MB2316366FC9ADCBC7B6E9C289AB7A2@DM6PR20MB2316.namprd20.prod.outlook.com>
+ <20261113124748.339778-1-chenyou910331@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261118-riscv-marchid-fix-v1-1-6d677fcd5461@linux.spacemit.com>
+In-Reply-To: <20261113124748.339778-1-chenyou910331@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_032959_239206_B4E19A42 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20261118_033321_423759_C99080D0 
+X-CRM114-Status: GOOD (  24.88  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,71 +104,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 18, 2026 at 11:04:33AM +0800, Peixin Xie wrote:
-> During early ISA-string parsing, the boot hart stores its mvendorid
-> and marchid in riscv_cpuinfo. This happens before setup_per_cpu_areas(),
-> which copies the static per-CPU data to each CPU's allocated area.
+On Fri, Nov 13, 2026 at 08:47:47PM +0800, Chen-Yu Yeh wrote:
+> On Thu, Jan 25, 2024 at 05:46:40PM +0800, AnnanLiu wrote:
+> > Add the watchdog device tree node to cv1800 SoC.
 > 
-> When riscv_cpuinfo_starting() runs on the other harts, the copied IDs
-> are already nonzero, so it skips reading their own IDs. As a result,
-> secondary harts can retain the boot hart's IDs.
+> Hi Annan, Inochi,
 > 
-> Read mvendorid and marchid unconditionally on each hart, as already
-> done for mimpid.
+> This patch was sent before the clock driver was merged, and I could not
+> find a newer version on the lists. Mainline and the sophgo for-next
+> branch still have no watchdog node for CV18XX/SG200X.
 > 
-> Fixes: e482eab4d1eb ("riscv: cpufeature: Fix thead vector hwcap removal")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Peixin Xie <peixin.xie@linux.spacemit.com>
-> ---
->  arch/riscv/kernel/cpu.c | 12 ++++--------
->  1 file changed, 4 insertions(+), 8 deletions(-)
+> Annan, are you still working on this? If not, I would like to pick it
+> up, with credit to your patch.
 > 
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index af84b97af3a1..64c0c83eff76 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -197,16 +197,12 @@ static int riscv_cpuinfo_starting(unsigned int cpu)
->  	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
->  
->  #if IS_ENABLED(CONFIG_RISCV_SBI)
-> -	if (!ci->mvendorid)
-> -		ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
-> -	if (!ci->marchid)
-> -		ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
-> +	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
-> +	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
->  	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
->  #elif IS_ENABLED(CONFIG_RISCV_M_MODE)
-> -	if (!ci->mvendorid)
-> -		ci->mvendorid = csr_read(CSR_MVENDORID);
-> -	if (!ci->marchid)
-> -		ci->marchid = csr_read(CSR_MARCHID);
-> +	ci->mvendorid = csr_read(CSR_MVENDORID);
-> +	ci->marchid = csr_read(CSR_MARCHID);
->  	ci->mimpid = csr_read(CSR_MIMPID);
->  #else
->  	ci->mvendorid = 0;
+> Inochi, before I start, is this plan fine?
 > 
-> ---
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-> change-id: 20261118-riscv-marchid-fix-3ea3672d1e0e
+>  - Put the node in cv180x.dtsi and leave it enabled, since it does not
+>    depend on the board.
+>  - Use the clock controller instead of the stub clock. In the TRM clock
+>    table, CLK_APB_WDT is the only clock for WDT0-2, fed by xtal without
+>    a divider. The counter clock is selected by reg_wdt_clk_sel in
+>    top_wdt_ctrl (top syscon, offset 0x1a8, xtal by default). Only the
+>    RTC domain watchdog has a separate clk_wdt, in rtcsys_clk_en.
+>    Should the node use <&clk CLK_APB_WDT> alone, or &osc as tclk and
+>    CLK_APB_WDT as pclk?
+>  - Keep the reset (RST_WDT) and the interrupt from this patch. The
+>    vendor DT has the same interrupt (58) but no interrupt-parent for
+>    it, and the TRM interrupt table names 58 "WatchDog1", so I will
+>    check it with the pretimeout test.
+>  - Test on a Milk-V Duo 256M (SG2002): timeout reset, pretimeout
+>    interrupt and restart.
 > 
-> Best regards,
-> --  
-> Peixin Xie <peixin.xie@linux.spacemit.com>
-> 
+> Regards,
+> Chen-Yu
 
-LGTM.
+If you want to take this patch, you need to add all watchdog device
+instead of the only one for RISC-V. There are three watchdog devices
+for A53/C906 0/C906 1. IIRC only one can take effect at the same
+time.
 
-Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
