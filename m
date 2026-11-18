@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA8BE60A5BEB
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 16:24:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51CB9606A334
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2026 16:24:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CAaxh+0f;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=OnwXKkhx
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jGBRffMn;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=lz6/PzzP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,52 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QA/luDFuUYzXB5DRGXlX5xbu4wiV6i9ywbs6THLtFjE=; b=CAaxh+0fbUYHVCj4IfLSWJZt+H
-	nXJkEcn1MxRfPbgQv+/qO06UtDotWtbX0gglXpE/EXWmJhBvRVXIIdp/knw2YIa/SD0x8OkQii33S
-	WunN1Oy2c91PYNHdOWvzvqwfz/l81xL06MXW15nNzfZtny2UYsPhG2lKZ304iySw+3yg42j/7TH1a
-	ZX/rtzlXcjkG7SrIs72N7yD45bRsa/QzSVCeJJK6s7QvKLe66Gx1bPrJvQM/xJgYpAFoUM/k+CMAC
-	YN5XY5sTsZUqTA20Nkytr5IxkKM2biO/mLdRvSF2X57Uj8guJXTpAWJ/NvgDp8Q680TfFpVAgUfkG
-	RmTDigmQ==;
+	bh=B2kOQZgojZ1S3PYN/VljyJzL/ojlkR/mtZ00xjx+C34=; b=jGBRffMnU8hbCXqI7+kwmHNYxq
+	8Udz1DaIpxv7dNJ3Qhgs5iFeP5llxPmQSY9rQm9Fv0kMeeuv6eTkCgJ1mjNIiwfo5AiqNVDQwgM3C
+	45k5FeU4QKfIn/Ke4c1qtKhH0e9/R/VEOF8Fw55ToZVdVgoxBqStM2VtqFADjiNtRYfvyGFz7rd8n
+	qrxr0VoNJbRM/puc7sM+uBoUBh1EVgbLwLtcV0eQYA0o3FoGVYJZZbQawqhpOkvTLXFPuDc1Ay9Y4
+	mQdYXZFqPknBpsnCzEtj4PndCOm8khTtxuNcSHOOG6qo4olGVDoTRxoSdEPSFLxe3leMYCWlJzAPF
+	UyfRnL0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTiSP-00000009Scx-2BqD;
-	Wed, 18 Nov 2026 16:24:25 +0000
+	id 1xTiST-00000009Sex-25sx;
+	Wed, 18 Nov 2026 16:24:29 +0000
 Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTiSD-00000009SWi-03UC
+	id 1xTiSH-00000009SYq-091d
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Nov 2026 16:24:22 +0000
+	Wed, 18 Nov 2026 16:24:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1795019053; x=1826555053;
+  t=1795019057; x=1826555057;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=SKXT6RSUFkwioTiiM3a3wYtu411WIrfRehlIIhPMF7Y=;
-  b=OnwXKkhx+l3cd4DxESheA+Nh24fZhyxkjgvpqbDTJcwp536ZR2yZT+SY
-   TkH9rQmtByzBZrrFaBd7zNB+y2RtfjubmNRErPKdv1CGN1u5GccT9UPGz
-   L31okc469AvsrlTklcYWI3nmH+0pyOutO/zEmwFuB03nB+NbvC5WKNLzj
-   hqPT/xILlqhy/VLx0Y84u5lP4jNZfq4ZAW1pKlajAhZjWkdqxO/UMhOCV
-   4Fspj+EzJK3J2ogT4VxbP+gEqA52QhPmyME93fsSLtYEzk4Ubin1PYBbe
-   jZ0ezqrY34oQHaVr33Wsho1rDCaAVJnGreF4hpzQ0J+fHP/Hyc0Z0CNml
+  bh=f4l4UEm/mrbUezxJAL9dfH/maMLZVctdQGXwsByoKX0=;
+  b=lz6/PzzP6OPJF/Z3a/q+xK+YGBgNwU5ZerkamnxiArCchEYh/R8fUvJO
+   LWHp94x+5PaOzq6MWdvMuemyJ0RV1nP8sIZ16+GOaJtmGUHn8j93z31EF
+   D1H15FnciFvFIH4gL0oTwtFAV71aKZMQIMjGnPARHyjvN4XAy3w5BK/oV
+   pjXe1CmO7tpUuex/0G3gDWQmvPS1P+y67hf0N9OhGmRzE2gbVic2yblzX
+   iR8wgXw1BEm/k79l83nlGpLVaRxOgqFZwacMtplOp8vhjys6DIArQ8RI7
+   b3cjf4nMwaMLmyGsyHirV1yhFrTtK+isr0sUCZlOd7G5R8sflCP2T8PtW
    g==;
-X-CSE-ConnectionGUID: Yw/ltHEJRrygCHWi3lgHsg==
-X-CSE-MsgGUID: q6xibXGoQh+TgnIX0zrK5g==
+X-CSE-ConnectionGUID: qnDv+BfHQgCZGgphH5xyRw==
+X-CSE-MsgGUID: XCeOaEUlQ8OsqZ9rkaZojw==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
-  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 18:24:11 +0200
-X-CSE-ConnectionGUID: cEi3bevQQXOjuOQLygAE3Q==
-X-CSE-MsgGUID: UX+rdF26TEGwJ/SWFbwsCg==
+Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
+  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 18:24:15 +0200
+X-CSE-ConnectionGUID: b2M2PZVoTS6e+msyh/iLpA==
+X-CSE-MsgGUID: x5y30ScKTtai8TFDxLfczw==
 Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
-  by ces02_data.me-corp.lan with SMTP; 18 Nov 2026 18:32:26 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 18 Nov 2026 18:24:10 +0200
+  by ces01_data.me-corp.lan with SMTP; 18 Nov 2026 18:32:35 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 18 Nov 2026 18:24:13 +0200
 From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Wed, 18 Nov 2026 18:23:58 +0200
-Subject: [PATCH v7 2/6] riscv: accept the atomic extensions this kernel was
- built with
+Date: Wed, 18 Nov 2026 18:24:01 +0200
+Subject: [PATCH v7 5/6] riscv: hwprobe: update the vDSO data after the
+ boot-time speed probes
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261118-lrsc-only-v7-2-602dcf4c1921@mobileye.com>
+Message-Id: <20261118-lrsc-only-v7-5-602dcf4c1921@mobileye.com>
 References: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
 In-Reply-To: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -104,8 +104,8 @@ Cc: Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
  Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_082413_499149_834A62C2 
-X-CRM114-Status: GOOD (  22.94  )
+X-CRM114-CacheID: sfid-20261118_082417_406772_46A7BF81 
+X-CRM114-Status: GOOD (  18.82  )
 X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,126 +126,112 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-riscv_early_of_processor_hartid() rejects a hart unless its
-riscv,isa-extensions property contains "a". A hart that lists "zaamo"
-and "zalrsc" instead of "a" is rejected, and so is one that lists only
-"zalrsc", even when the kernel was built to use only LR/SC.
+init_hwprobe_vdso_data() fills the vDSO copy of the hwprobe answers at
+arch_initcall_sync. The misaligned access speed probes run later, at
+fs_initcall_sync, so the vDSO keeps RISCV_HWPROBE_MISALIGNED_*_UNKNOWN
+for RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF and _VECTOR_PERF, and
+every hwprobe() call that the vDSO answers itself, which is the common
+"all CPUs" case, returns UNKNOWN where the syscall would return the
+measured value.
 
-Accept "a" as before. Without it, require "zalrsc", which every kernel
-uses for cmpxchg, and "zaamo" when RISCV_ISA_ZAAMO is enabled. The
-default build therefore needs "a", or "zaamo" together with "zalrsc";
-a kernel built without Zaamo needs only "zalrsc".
+This was handled by filling the vDSO data lazily on the first syscall,
+which commit 7e14e42edfaa ("Revert "riscv: hwprobe: Fix stale vDSO
+data for late-initialized keys at boot"") removed once the probes
+became synchronous; the ordering between the two initcalls was left
+as it was.
 
-The legacy "riscv,isa" fallback keeps its rv{32,64}ima check.
+Split the filling out of the initcall into
+riscv_hwprobe_update_vdso_data() and call it again at the end of
+check_unaligned_access_all_cpus(). That still runs before
+rootfs_initcall() enables usermode helpers, so no userspace can read
+the vDSO data before it is complete.
 
-Once such a hart can boot, hwprobe must stop telling userspace that
-the base behaviour is IMA regardless of the hardware: report
-RISCV_HWPROBE_BASE_BEHAVIOR_IMA only when every selected hart has A.
-A hart with Zalrsc alone still shows what it has through
-RISCV_HWPROBE_EXT_ZALRSC in RISCV_HWPROBE_KEY_IMA_EXT_0.
-
+Fixes: 7e14e42edfaa ("Revert "riscv: hwprobe: Fix stale vDSO data for late-initialized keys at boot"")
 Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 ---
- Documentation/arch/riscv/hwprobe.rst |  4 +++-
- arch/riscv/kernel/cpu.c              | 23 ++++++++++++++++++++---
- arch/riscv/kernel/sys_hwprobe.c      | 23 ++++++++++++++++++-----
- 3 files changed, 41 insertions(+), 9 deletions(-)
+ arch/riscv/include/asm/hwprobe.h           |  6 ++++++
+ arch/riscv/kernel/sys_hwprobe.c            | 16 +++++++++++-----
+ arch/riscv/kernel/unaligned_access_speed.c |  8 +++++---
+ 3 files changed, 22 insertions(+), 8 deletions(-)
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index bb1e0cbab36f..63d7ef028bf8 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -61,7 +61,9 @@ The following keys are defined:
-   * :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`: Support for rv32ima or
-     rv64ima, as defined by version 2.2 of the user ISA and version 1.10 of the
-     privileged ISA, with the following known exceptions (more exceptions may be
--    added, but only if it can be demonstrated that the user ABI is not broken):
-+    added, but only if it can be demonstrated that the user ABI is not broken).
-+    This bit is clear on a hart that implements Zalrsc without Zaamo; such a
-+    hart lists its atomic support in :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0`.
- 
-     * The ``fence.i`` instruction cannot be directly executed by userspace
-       programs (it may still be executed in userspace via a
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 3dbc8cc557dd..9ba0d49c87bc 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -82,12 +82,29 @@ int __init riscv_early_of_processor_hartid(struct device_node *node, unsigned lo
- 		return -ENODEV;
- 
- 	if (of_property_match_string(node, "riscv,isa-extensions", "i") < 0 ||
--	    of_property_match_string(node, "riscv,isa-extensions", "m") < 0 ||
--	    of_property_match_string(node, "riscv,isa-extensions", "a") < 0) {
--		pr_warn("CPU with hartid=%lu does not support ima", *hart);
-+	    of_property_match_string(node, "riscv,isa-extensions", "m") < 0) {
-+		pr_warn("CPU with hartid=%lu does not support im", *hart);
- 		return -ENODEV;
- 	}
- 
-+	/*
-+	 * Require the atomic extensions this kernel was built with. "a"
-+	 * covers both; otherwise LR/SC is always needed and AMO is needed
-+	 * when the kernel uses it.
-+	 */
-+	if (of_property_match_string(node, "riscv,isa-extensions", "a") < 0) {
-+		if (of_property_match_string(node, "riscv,isa-extensions", "zalrsc") < 0) {
-+			pr_warn("CPU with hartid=%lu does not support zalrsc", *hart);
-+			return -ENODEV;
-+		}
-+
-+		if (IS_ENABLED(CONFIG_RISCV_ISA_ZAAMO) &&
-+		    of_property_match_string(node, "riscv,isa-extensions", "zaamo") < 0) {
-+			pr_warn("CPU with hartid=%lu does not support zaamo", *hart);
-+			return -ENODEV;
-+		}
-+	}
-+
- 	return 0;
- 
- old_interface:
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 7818e1d32622..52c4c2085d0a 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -213,6 +213,18 @@ static void hwprobe_isa_ext1(struct riscv_hwprobe *pair,
- 	pair->value &= ~missing;
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 9b04377c0f98..1cc83cecbc05 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -43,4 +43,10 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
+ 	return pair->value == other_pair->value;
  }
  
-+static bool hwprobe_all_cpus_have(const struct cpumask *cpus, unsigned long ext)
-+{
-+	int cpu;
++#ifdef CONFIG_MMU
++void riscv_hwprobe_update_vdso_data(void);
++#else
++static inline void riscv_hwprobe_update_vdso_data(void) {}
++#endif
 +
-+	for_each_cpu(cpu, cpus) {
-+		if (!__riscv_isa_extension_available(hart_isa[cpu].isa, ext))
-+			return false;
-+	}
-+
-+	return true;
+ #endif
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index 52c4c2085d0a..2c64a13c5155 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -534,17 +534,18 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+ 
+ #ifdef CONFIG_MMU
+ 
+-static int __init init_hwprobe_vdso_data(void)
++/*
++ * Fill the vDSO data with the answers for the "all CPUs" case, to save a
++ * syscall in the common case. Called once the ISA is known, and again by
++ * the boot-time probes whose results feed some of the keys.
++ */
++void __init riscv_hwprobe_update_vdso_data(void)
+ {
+ 	struct vdso_arch_data *avd = vdso_k_arch_data;
+ 	u64 id_bitsmash = 0;
+ 	struct riscv_hwprobe pair;
+ 	int key;
+ 
+-	/*
+-	 * Initialize vDSO data with the answers for the "all CPUs" case, to
+-	 * save a syscall in the common case.
+-	 */
+ 	for (key = 0; key <= RISCV_HWPROBE_MAX_KEY; key++) {
+ 		pair.key = key;
+ 		hwprobe_one_pair(&pair, cpu_online_mask);
+@@ -568,6 +569,11 @@ static int __init init_hwprobe_vdso_data(void)
+ 	 * vDSO should defer to the kernel for exotic cpu masks.
+ 	 */
+ 	avd->homogeneous_cpus = id_bitsmash != 0 && id_bitsmash != -1;
 +}
 +
- static bool hwprobe_ext0_has(const struct cpumask *cpus, u64 ext)
- {
- 	struct riscv_hwprobe pair;
-@@ -306,13 +318,14 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 		hwprobe_arch_id(pair, cpus);
- 		break;
- 	/*
--	 * The kernel already assumes that the base single-letter ISA
--	 * extensions are supported on all harts, and only supports the
--	 * IMA base, so just cheat a bit here and tell that to
--	 * userspace.
-+	 * The kernel requires I and M on every hart, so IMA holds when
-+	 * every selected hart has A as well. A hart that lists only
-+	 * Zalrsc boots on a kernel built without Zaamo, but it has no
-+	 * AMO instructions and must not be reported as IMA.
- 	 */
- 	case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
--		pair->value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
-+		if (hwprobe_all_cpus_have(cpus, RISCV_ISA_EXT_A))
-+			pair->value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA;
- 		break;
++static int __init init_hwprobe_vdso_data(void)
++{
++	riscv_hwprobe_update_vdso_data();
+ 	return 0;
+ }
  
- 	case RISCV_HWPROBE_KEY_IMA_EXT_0:
+diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+index 67f1a0371659..3a6f85e3f94c 100644
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -393,13 +393,15 @@ static int __init check_unaligned_access_all_cpus(void)
+ 	modify_unaligned_access_branches(cpu_online_mask);
+ 	cpus_read_unlock();
+ 
++	/* The vDSO was filled before the probes ran; give it the results. */
++	riscv_hwprobe_update_vdso_data();
++
+ 	return 0;
+ }
+ 
+ /*
+  * Run after clocksource_done_booting() so measure_cycles() uses a stable
+- * clocksource, but before rootfs_initcall() enables usermode helpers. Those
+- * helpers can reach hwprobe and populate the vDSO cache, so async hwprobe
+- * probes must be registered first.
++ * clocksource, but before rootfs_initcall() enables usermode helpers, which
++ * can reach hwprobe and must see the results in the vDSO data.
+  */
+ fs_initcall_sync(check_unaligned_access_all_cpus);
 
 -- 
 2.43.0
