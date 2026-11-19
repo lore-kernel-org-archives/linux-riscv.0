@@ -2,75 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C220606A320
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 05:02:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E30C606A320
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 06:17:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xahbh6gP;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=I8VeSSrv
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ORwZz7su;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I4RsFvpp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=wjRkGDg0BUUycum5ZfAJAPzKC5wETSiIHB2ppY3Ae44=; b=Xahbh6gPU/hvEBTl5PShNF+0zx
-	5o7l+L3W8j3BjxaEghzqPYkRNDoHL4nF7eh7X+Gpg04aZblbQRK6vlsaqGj7bmz1mLtsEpwf4yDvN
-	X9PKT0VpAw37il/CtA36BY7Jyk/GAmouPXi84BKi1ysmYG/48MKfJ6hNqHCyFJdm/sXFQfYN/Bdvc
-	HvYJCIdni7lU3hhCYa0jHA5OckgQXDHnHsciVKvJyYr0P+ZOtDJF5HVePIIyq53v+tdTyRWMZkzfJ
-	XDs9/DHDApmjjwtbKizBKHTBYkTBVwKkVHJOGJx5NC7BgyFhKk9Qz8OSTD2i7lTBkiDJgdFzHDsgW
-	EmwsSQpg==;
+	bh=fPlHwk6bz5sm73pqiSqfZ4NMCEytNLnZluXxxwbtKrI=; b=ORwZz7sue6Jn6yTdVz7Ld5ARV9
+	THwmq5hWsTzA9y7TsuXktTByoQXX3kTObjjdwntAerdV3PoNqIXWjuH6B7cT79mIvDTjMFQGck3l/
+	zTa2F9x5FdEUI/DoHG7f9BfxDFexOGdPouHUekSgtqZW+Qujkwo42SdMhXxZ19aGqRzkX1vUFAAur
+	czowUlrJqZiY+Cep21b08vu4JdujviJ3ZE3U8E9mTFWUHPQ2bxaaV7RyG0Q/P239zLeV4ZuhNZcI2
+	Sj9Rn/xfDOojjWBYljDBSfW6kvPeelWDqwggxlandTgh13iVlWvBI0t5Nfwx0cbau2bYJMj1s/2En
+	OdGEYWlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTuHv-0000000Ar4O-2w2U;
-	Thu, 19 Nov 2026 05:02:23 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1xTvSY-0000000AyFj-09l9;
+	Thu, 19 Nov 2026 06:17:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTuHn-0000000Ar38-380c
-	for linux-riscv@lists.infradead.org;
-	Thu, 19 Nov 2026 05:02:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=gM
-	Hu40HPB2BKy7MquzF3lmOkVTKUayEImgeIr9c7qLA=; b=I8VeSSrv/NomH3j4d7
-	hc20yi8TVjYVNmVTJlakLrWEcPlrdgNAwMR3umALxhMMwYNRsm/RzwWCjgbRBOes
-	yM+Tp8n62ujI5NGAH65LnisjHUUIE6iHStSyShEKT7Wj9LsjvnPyTSCistxGR5jP
-	j2stBUFYbIhHpbTqMf7DctoAw=
-Received: from 5219-2604 (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3_1CEgv5qfDulIg--.27439S2;
-	Thu, 19 Nov 2026 13:00:55 +0800 (CST)
-From: Xionggui Chen <evers_chen@163.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Xionggui Chen <chenxionggui@lanxincomputing.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Muchun Song <muchun.song@linux.dev>,
-	"Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.dev>,
-	Nam Cao <namcao@linutronix.de>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: mm: Disable GCOV instrumentation in set_satp_mode()
-Date: Thu, 19 Nov 2026 05:00:41 +0000
-Message-ID: <20261119050049.174124-1-evers_chen@163.com>
-X-Mailer: git-send-email 2.53.0
+	id 1xTvSV-0000000AyEj-2pWp;
+	Thu, 19 Nov 2026 06:17:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 42FC861F63;
+	Thu, 19 Nov 2026 06:17:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D6BC1F000C5;
+	Thu, 19 Nov 2026 06:17:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795069042;
+	bh=RCALj7r6ipQ65VvrYt8UYoxBLY7ziLYM55JY1qfnc/M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=I4RsFvpp42re8uGBqIQQaz0PqGBIw37xPLwUslFEUgkmtfZ+L4DJ5tF9O6rwFB/pv
+	 oTwcMalP+8YPREtTdZ/mO/uTE4CmQs2HCIVDtU9aDm0/l6ErDkOsAtNCDy3Owc2dfw
+	 NhTWj7mEPGBVVIEkqz/SNG4/lnaJ1Ckq1d9I080njZAAP4lOXWETkMzicnDdMGwSZa
+	 IuzwpjwfJJm/EsTZ1ALj7RxDfmTdqZwGJkhENJAdmNDATjggpuNt1CBYTdf69f4D4y
+	 gn7NwSaO9QjgPGJeNtc+ljTmnnsG4TxH+MTkTbIp9qZ3L4/OYHNVJr062yUMTDzgJT
+	 te95/HcZEQPRQ==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Thu, 19 Nov 2026 08:16:57 +0200
+Subject: [PATCH 1/2] MAINTAINERS: add kernel/Kconfig.kexec to KEXEC
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wD3_1CEgv5qfDulIg--.27439S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Aw1fXFy7GF1DuFWDWFy5twb_yoW8CFWxpF
-	WrCan3G3yUXrykKFn7Cry8XrW7J3Z5KrW3CrWDt34kWw4qyFyrta1ayw1Yv34DWrWxZa4r
-	WayYgry3uFWDA3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uq38OUUUUU=
-X-CM-SenderInfo: xhyh22pbfkv0i6rwjhhfrp/xtbC6wccJmr+goc2rQAA3c
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261118_210216_284480_3912EDBD 
-X-CRM114-Status: GOOD (  10.54  )
-X-Spam-Score: -2.1 (--)
+Message-Id: <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
+References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
+In-Reply-To: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
+To: Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Baoquan He <baoquan.he@linux.dev>, Borislav Petkov <bp@alien8.de>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, 
+ Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Pasha Tatashin <pasha.tatashin@soleen.com>, Paul Walmsley <pjw@kernel.org>, 
+ Pratyush Yadav <pratyush@kernel.org>, Rich Felker <dalias@libc.org>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Thomas Gleixner <tglx@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Will Deacon <will@kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+ x86@kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ Cong Wang <cwang@multikernel.io>, Mark Rutland <mark.rutland@arm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Mike Rapoport <rppt@kernel.org>, 
+ Nicholas Piggin <npiggin@gmail.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+ Shrikanth Hegde <sshegde@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, 
+ kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linux-sh@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ loongarch@lists.linux.dev
+X-Mailer: b4 0.16.1-dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +99,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Xionggui Chen <chenxionggui@lanxincomputing.com>
+kernel/Kconfig.kexec is not matched by the KEXEC entry, so
+get_maintainer.pl does not report kexec maintainers for changes in that
+file.
 
-When CONFIG_GCOV_PROFILE_ALL is enabled, GCC instruments
-set_satp_mode() with GCOV counter updates.
+Add it to the KEXEC entry.
 
-The function temporarily enables an identity mapping to probe
-supported SATP modes. GCOV instrumentation may access counters
-outside this temporary mapping while SATP is enabled, causing
-a Store/AMO page fault during early boot.
-
-On QEMU virt with Linux 7.4.0-rc1, the fault occurs immediately
-after writing satp. The faulting instruction is an amoadd.d
-updating a GCOV counter in set_satp_mode().
-
-Mark set_satp_mode() with __no_profile to prevent GCOV counter
-accesses during SATP probing, while preserving GCOV coverage
-for the other functions in init.c.
-
-Without this change, QEMU fails during early boot. With this
-change, the kernel reaches root filesystem mounting.
-
-The fix was also verified on RISC-V hardware with Linux 7.2.0.
-
-Signed-off-by: Xionggui Chen <chenxionggui@lanxincomputing.com>
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/riscv/mm/init.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 070ee69eabb3..f1c778a82157 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -833,8 +833,11 @@ static bool __init is_vaddr_valid(unsigned long va)
-  * The maximum SATP mode is limited by both the command line and the "mmu-type"
-  * property in the device tree, since some platforms may hang if an unsupported
-  * SATP mode is attempted.
-+ *
-+ * GCOV instrumentation must be disabled because the temporary identity
-+ * mapping does not cover GCOV counters while probing SATP modes.
-  */
--static __init void set_satp_mode(uintptr_t dtb_pa)
-+static __init __no_profile void set_satp_mode(uintptr_t dtb_pa)
- {
- 	u64 identity_satp, hw_satp;
- 	uintptr_t set_satp_mode_pmd = ((unsigned long)set_satp_mode) & PMD_MASK;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d738990161bd0..c61a1f0ad330e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14782,6 +14782,7 @@ W:	http://kernel.org/pub/linux/utils/kernel/kexec/
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux.git
+ F:	include/linux/kexec.h
+ F:	include/uapi/linux/kexec.h
++F:	kernel/Kconfig.kexec
+ F:	kernel/kexec*
+ 
+ KEXEC HANDOVER (KHO)
+
 -- 
 2.53.0
 
