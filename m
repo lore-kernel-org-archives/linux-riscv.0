@@ -2,55 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E30C606A320
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 06:17:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E1FB606A320
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 06:17:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ORwZz7su;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I4RsFvpp
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=V2mgvzQw;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QPur/Mce
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=fPlHwk6bz5sm73pqiSqfZ4NMCEytNLnZluXxxwbtKrI=; b=ORwZz7sue6Jn6yTdVz7Ld5ARV9
-	THwmq5hWsTzA9y7TsuXktTByoQXX3kTObjjdwntAerdV3PoNqIXWjuH6B7cT79mIvDTjMFQGck3l/
-	zTa2F9x5FdEUI/DoHG7f9BfxDFexOGdPouHUekSgtqZW+Qujkwo42SdMhXxZ19aGqRzkX1vUFAAur
-	czowUlrJqZiY+Cep21b08vu4JdujviJ3ZE3U8E9mTFWUHPQ2bxaaV7RyG0Q/P239zLeV4ZuhNZcI2
-	Sj9Rn/xfDOojjWBYljDBSfW6kvPeelWDqwggxlandTgh13iVlWvBI0t5Nfwx0cbau2bYJMj1s/2En
-	OdGEYWlA==;
+	bh=E1kHMU4uRDWayY0XJd351OUE0MTrn4acFZR4BI52hHo=; b=V2mgvzQwqqiTJJbJlDgH2h0834
+	a5jz8qQ1GaC7Pa7yU0oPNdjW49AjA41lLK5616GdD+Sg+ow2VIzJyUAjcAJQaDfnzZ/4aRV2nbNIn
+	0bb5yHADteOgHljuZQw3wgAREPAdZLhf7W2zmL2+ORok2rbmGbbVzI67MdhB62DPL3cTPQB6o1Zw/
+	D05izIpLL6XWmg2jdHlRTljngG+ZjqyNsR4VqbkyntKLln+psYXfwTwPplsTBy6Fcgt2x2PBX5d2G
+	m5HQpYwQqxhdOnkW4Sa4a7hg9aUpaGQEOadAyUdM/65wu7iiEZiWc9BBz7WKwipUIsgl0Oj2okY19
+	FFci+K3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTvSY-0000000AyFj-09l9;
-	Thu, 19 Nov 2026 06:17:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xTvSL-0000000AyCc-2ype;
+	Thu, 19 Nov 2026 06:17:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTvSV-0000000AyEj-2pWp;
-	Thu, 19 Nov 2026 06:17:24 +0000
+	id 1xTvSJ-0000000AyCF-3MRD;
+	Thu, 19 Nov 2026 06:17:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42FC861F63;
-	Thu, 19 Nov 2026 06:17:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D6BC1F000C5;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3342B43CA0;
 	Thu, 19 Nov 2026 06:17:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4CBD1F000C4;
+	Thu, 19 Nov 2026 06:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795069042;
-	bh=RCALj7r6ipQ65VvrYt8UYoxBLY7ziLYM55JY1qfnc/M=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=I4RsFvpp42re8uGBqIQQaz0PqGBIw37xPLwUslFEUgkmtfZ+L4DJ5tF9O6rwFB/pv
-	 oTwcMalP+8YPREtTdZ/mO/uTE4CmQs2HCIVDtU9aDm0/l6ErDkOsAtNCDy3Owc2dfw
-	 NhTWj7mEPGBVVIEkqz/SNG4/lnaJ1Ckq1d9I080njZAAP4lOXWETkMzicnDdMGwSZa
-	 IuzwpjwfJJm/EsTZ1ALj7RxDfmTdqZwGJkhENJAdmNDATjggpuNt1CBYTdf69f4D4y
-	 gn7NwSaO9QjgPGJeNtc+ljTmnnsG4TxH+MTkTbIp9qZ3L4/OYHNVJr062yUMTDzgJT
-	 te95/HcZEQPRQ==
+	s=k20260515; t=1795069031;
+	bh=jAZ3SnNAJjB6kTaL5eHDhSogy8KQgK6+JZEcWaMgZsQ=;
+	h=From:Subject:Date:To:Cc;
+	b=QPur/Mced9X4RWzkGAt/MsAw+bqXt6yVON5lBH/7OyoiOaTbtzFItUhDCUIBWDdre
+	 ZGouoE1rykai0wUQlOVqCf0GlA7TrbLaI2Mqs8gYX/JQ9Oo2Wv4yYD/dlpAaTFIAXX
+	 7IftOiVoRagY/2JtvK8msJVyzyhR0zNeTTJ24nH7TIsTApifHRXe0eKDJ6rYh/TTub
+	 jmzTR3ax1PmxnZG5lGOM7weBavns02NIAauS40hYqQBCpuwRdocLfEJkR7ay2DzFMT
+	 sD7YpoQ9CvRkXi7y5T0RyOjL3xyq6FU+Kn1gekCcdzIt/umGs5YWm5g7jWFh3p4MWR
+	 YpdheBZ8DOQsw==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 19 Nov 2026 08:16:57 +0200
-Subject: [PATCH 1/2] MAINTAINERS: add kernel/Kconfig.kexec to KEXEC
+Subject: [PATCH 0/2] arch, kexec: declare kexec and crash capabilities in
+ Kconfig.kexec
+Date: Thu, 19 Nov 2026 08:16:56 +0200
+Message-Id: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
-References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
-In-Reply-To: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMSw7CMAwFr1J5TURTlfK5CmKRGDcxiKSyC6pU9
+ e4ksJynN7OCkjApXJoVhD6snFMBu2sAo0uBDN8LQ9d2g7X2bJxgNE/MaeRg/BF7b1s84WGAokx
+ CIy+/3PX2Z337B+FcG/XhnZLx4hLGOmXhwGn/cjqTwLZ9AUFdywKQAAAA
+X-Change-ID: 20261119-arch-kconfig-b7c4b10c8c56
 To: Albert Ou <aou@eecs.berkeley.edu>, 
  Alexander Gordeev <agordeev@linux.ibm.com>, 
  Andrew Morton <akpm@linux-foundation.org>, 
@@ -99,40 +102,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-kernel/Kconfig.kexec is not matched by the KEXEC entry, so
-get_maintainer.pl does not report kexec maintainers for changes in that
-file.
+The intention is to take it via kexec tree.
 
-Add it to the KEXEC entry.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+Mike Rapoport (Microsoft) (2):
+      MAINTAINERS: add kernel/Kconfig.kexec to KEXEC
+      arch, kexec: declare kexec and crash capabilities in Kconfig.kexec
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d738990161bd0..c61a1f0ad330e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14782,6 +14782,7 @@ W:	http://kernel.org/pub/linux/utils/kernel/kexec/
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux.git
- F:	include/linux/kexec.h
- F:	include/uapi/linux/kexec.h
-+F:	kernel/Kconfig.kexec
- F:	kernel/kexec*
- 
- KEXEC HANDOVER (KHO)
+ MAINTAINERS            |  1 +
+ arch/arm/Kconfig       | 12 +++---------
+ arch/arm64/Kconfig     | 36 +++++++++---------------------------
+ arch/loongarch/Kconfig | 20 +++++---------------
+ arch/m68k/Kconfig      |  4 +---
+ arch/mips/Kconfig      | 12 +++---------
+ arch/parisc/Kconfig    |  8 ++------
+ arch/powerpc/Kconfig   | 30 +++++++-----------------------
+ arch/riscv/Kconfig     | 28 +++++++---------------------
+ arch/s390/Kconfig      | 28 ++++++----------------------
+ arch/sh/Kconfig        | 16 ++++------------
+ arch/x86/Kconfig       | 48 ++++++++++++------------------------------------
+ kernel/Kconfig.kexec   | 42 ++++++++++++++++++++++++++++++++++++++++++
+ 13 files changed, 102 insertions(+), 183 deletions(-)
+---
+base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
+change-id: 20261119-arch-kconfig-b7c4b10c8c56
 
--- 
-2.53.0
+--
+Sincerely yours,
+Mike.
 
 
 _______________________________________________
