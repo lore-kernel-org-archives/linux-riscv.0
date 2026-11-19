@@ -2,86 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D2FB606A320
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 13:05:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBC43606AA54
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 13:28:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0Giz3xGh
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FO7oduO7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=gXLoL+H4xePPB15K9QdXOEdQiZ+m70XvKwSAjZ1lssc=; b=0Giz3xGhBrg5CDAOZg7xn5a7/p
-	w0TCgKEONQv5X4ijej5z9Zu6lOSSzH18AvwTIE5piOv1L1pqkdOLs6ZR/XtzYFeeizdG1nsUnnAOm
-	5y4hXVMOy2I7lCUmuYBvw2NAHEGfuFbpFbGo+qoeVXaPvjHCQ7hikZsnLe4wqM4btYIKAWaOEgs0m
-	EswumLVAS0gNkXNX8CwsAXMqqLhdqJZU40hHnMSbHwaqzv4nQ1WzV6pVhvuyp7mt2wYMAV5lf4VTj
-	6HK/X88gc9lyqFicOrFZJzBqknIPzJC10CUFVUUn02v2yrWk3PzxIrqMN0dK2Xvdyd4Eqd4tFOfr+
-	+2OWecUQ==;
+	bh=l5eabTuckBv1o/oh4eg4J7ASFK9DdPwxXv1RhBj+1wU=; b=FO7oduO7rcex8BXSQltaqvuoic
+	ZzCxk9qVcxbcWqAG71rPtkKEM7im0M9vb3fQ1LUXAjdMt/7vJHUyRMqpSYF+MeNfhGeWyfRu86r6v
+	Q2N8H8rW/ElERxvbokffXJIAjg4psE4T2ybx4ZvXSuURMEyJLE3g+84YlF+lzSjmDPG0LLboWcnC7
+	cmZO2OLqkHbD38wG5tU/aMkM4n6blSUESP+5f1LSUh5oerIKgCXRARKfo3i2wI2PuNCPYQH3/6W1a
+	PUmrpeMNho+6pC/1KI1ZO9ceFdlGvAPs1+HI5pkQOCg+JXJWhtrHZfuxtZhWZaTpycahBwxkVg4+u
+	TNltZPjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU1pG-0000000ByrQ-1JpA;
-	Thu, 19 Nov 2026 13:05:19 +0000
-Received: from smtpbgsg1.qq.com ([54.254.200.92])
+	id 1xU2BV-0000000C2Qp-49d5;
+	Thu, 19 Nov 2026 13:28:17 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.35])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU1p9-0000000ByiO-2zX8
-	for linux-riscv@lists.infradead.org;
-	Thu, 19 Nov 2026 13:05:17 +0000
-X-QQ-mid: zesmtpsz2t1795093462td71789a8
-X-QQ-Originating-IP: cR3TjEg74wmWMTs1ARy7U2n+xVQze2SG4pmLd9lYPZY=
-Received: from LAPTOP-H63V2Q11 ( [36.110.52.2])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 19 Nov 2026 21:04:09 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15795927322090036901
-EX-QQ-RecipientCnt: 14
-From: Zhouqi Jiang <luojia@rustsbi.com>
-To: linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Dongliang Mu <dzm91@hust.edu.cn>,
-	Anup Patel <anup@brainfault.org>,
-	Andrew Davis <afd@ti.com>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	linux-api@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Alejandro Colomar <alx@kernel.org>,
-	contact@rustsbi.com
-Subject: [RFC PATCH RESEND] riscv: sbi: expose firmware identity in sysfs
-Date: Thu, 19 Nov 2026 21:03:56 +0800
-Message-ID: <A039A2DE1DF8F274+20261119130356.1537-1-luojia@rustsbi.com>
-X-Mailer: git-send-email 2.53.0.windows.2
+	id 1xU2BO-0000000C2Iy-0HWh;
+	Thu, 19 Nov 2026 13:28:16 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jVfRN2K35z8Xrrb;
+	Thu, 19 Nov 2026 21:28:00 +0800 (CST)
+Received: from szxlzmapp02.zte.com.cn ([10.5.231.79])
+	by mse-fl1.zte.com.cn with SMTP id 6AJDRqkO086401;
+	Thu, 19 Nov 2026 21:27:52 +0800 (+08)
+	(envelope-from gong.shuai@sanechips.com.cn)
+Received: from ubuntu-35-gs (unknown [10.230.214.35])
+	by smtp (Zmail) with SMTP;
+	Thu, 19 Nov 2026 21:27:55 +0800
+X-Zmail-TransId: 3e816afef95a02f-564b4
+X-Zmail-LocalSMTP: 1
+X-Zmail-RealSender: gong.shuai@sanechips.com.cn
+From: Gong Shuai <gong.shuai@sanechips.com.cn>
+To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        iommu@lists.linux.dev
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Tomasz Jeznach <tomasz.jeznach@linux.dev>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        Fangyu Yu <fangyu.yu@linux.alibaba.com>,
+        Tan Chi <tanchi25@mails.ucas.ac.cn>, Wu Fei <wu.fei9@sanechips.com.cn>,
+        Zhao Qingye <zhao.qingye@sanechips.com.cn>,
+        Gong Shuai <gong.shuai@sanechips.com.cn>
+Subject: [RFC PATCH v3 04/10] iommu/riscv: Add vIOMMU object support
+Date: Thu, 19 Nov 2026 21:27:38 +0800
+Message-ID: <20261119132744.396426-5-gong.shuai@sanechips.com.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
+References: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:rustsbi.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: M21ph8MgUKJrRs0VPR0RJSWzCHn7d7WZmBf+NsoC39Jf2TiNgGPM2QVB
-	him+MJsDcaoscwu34lvSb6uKQq8yl6C42N7GNW1Ec0dQKBVpd+RLaQS8kqLi8O2RdwhfJ+v
-	8KJUMks2ZRDAoKmYL0L9RKEeUSYoEt/lIhmEbifymYTwmxhQP346vfqa/lVyRiDWtNOGQ09
-	i9ac4Qukltekvm4n2Fv5Pp2A3suAzbdmMy8XQgkER/xZWvVOhhC1nlFF68JXgtRKY6v1l/X
-	fX99n7MlweQAjjDQGyJLw5X6GDjliTx3IS4Eyy9ezG1EmJdqcRa8ee/BFbl8AXfaQi1HIwK
-	UyNnDCSo3cEQmla+f38GdvcxgXRFcI/h7dOCThbTUHutIcO/HaUtCFy/9fxmJ6YyK5wgfRi
-	9XCK4e2yAklcA+gGiMR21wBvTBryhS3oN0lAGa0kb/X2NQjR0gk/EE668kJCqlQz25hqBCn
-	ROQeHo0HPHpk3/3tvBu3G8jb9ALJFx4PkF5KNFJ4T/G5AOenpFrEPZNEmR7DPDRRx+5cy7b
-	H9JXwUCJVUh+ayWfAk4WyLYvj6u6VRYWkl2RMDGc8guu55Eaqd5hu7tC/AZfZauTILeOx3v
-	e6IJZJcWi+sexQCcuhf5oIySazc1Ue82l6sifKB/JEKXDiTAULFTTM6CGxJPyDK/pKYpqkb
-	yoUEplItVTEBr9UEb/ao9o27cDpbHxLGOHAGH3VanS+fuGiXDViFi3zIfKicDYbQHO5dVdd
-	tbchzmTpdItx0+o93VB4OY4VGcahFgbnWwL2yFA12KEpkCK1Y9qaFhRKqBizqXgMSEsUWjN
-	Yqo/9O4ucZxa/zx6QVMUCea8jJl/S/7UaDiH+/w8ojpf3gHh4wh8rD+YUDD/E0A7iigRG2+
-	hb1ayfhkl0euZmKYEYAvDHNglSIapYAYvPvbuEZXZtw1bh/CLXBk+1S2kjhnRjt4VS4xt3B
-	asOZSMI/AbFNQdbZYoZ5HVuw5L+Rk31ccSMm7tjEVecHJuOjA2rdigE1IxWN2yMbw6vjRBS
-	gRdjL6NiaMQG9Pg7oGAyJ5UHjOlmb0VYiumkalEJqnfYploroY5Q3C2zQUQeRu5rWP7Y17L
-	7vuTHZrmPoGSz93LHy3CMc=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
+X-MAIL: mse-fl1.zte.com.cn 6AJDRqkO086401
+X-TLS: YES
+X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Thu, 19 Nov 2026 21:28:00 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AFEF960.000/4jVfRN2K35z8Xrrb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261119_050512_415200_617EA782 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20261119_052810_437746_FBD75B3D 
+X-CRM114-Status: GOOD (  15.03  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,196 +93,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Linux queries the SBI specification and implementation identity during
-boot. It caches the specification version, but discards the
-implementation ID and version after logging them. Userspace therefore
-has no structured interface for this immutable firmware metadata.
+From: Wu Fei <wu.fei9@sanechips.com.cn>
 
-Cache the implementation ID and version and expose the available values
-as read-only attributes under /sys/firmware/sbi:
+Allow iommufd to allocate a RISC-V vIOMMU when the physical IOMMU
+supports both translation stages.
 
-  spec_version
-  impl_id
-  impl_version
+Nested translation needs to associate guest-owned stage 1 contexts
+with a host-owned stage 2 parent domain. A vIOMMU provides this
+association and owns a dedicated GSCID so that guest PSCIDs cannot
+alias address spaces belonging to another vIOMMU.
 
-SBI v0.1 systems expose only spec_version because the implementation
-fields were introduced by the SBI Base extension in v0.2.
-
-This gives tools such as lssbi a native source for basic SBI identity
-information and starts moving those queries away from out-of-tree
-kernel modules.
-
-Codex was prompted to research lssbi's out-of-tree SBI probe and design
-a minimal in-kernel replacement. It assisted with the sysfs interface,
-implementation, ABI documentation, changelog, and QEMU test setup. The
-result was built with a RISC-V defconfig and boot-tested under QEMU
-virt with:
-
-  OpenSBI v1.3
-  RustSBI v0.4.1
-
-Assisted-by: Codex:GPT-5
-Signed-off-by: Zhouqi Jiang <luojia@rustsbi.com>
+Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
+Co-developed-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
 ---
- Documentation/ABI/testing/sysfs-firmware-sbi | 30 ++++++++++
- MAINTAINERS                                  |  1 +
- arch/riscv/kernel/sbi.c                      | 62 +++++++++++++++++++-
- 3 files changed, 92 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/ABI/testing/sysfs-firmware-sbi
+ drivers/iommu/riscv/iommu.c | 77 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 77 insertions(+)
 
-diff --git a/Documentation/ABI/testing/sysfs-firmware-sbi b/Documentation/ABI/testing/sysfs-firmware-sbi
-new file mode 100644
-index 000000000000..516f9e6cee79
---- /dev/null
-+++ b/Documentation/ABI/testing/sysfs-firmware-sbi
-@@ -0,0 +1,30 @@
-+What:		/sys/firmware/sbi/spec_version
-+Date:		August 2026
-+Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
-+Description:
-+		The SBI specification version available to Linux, formatted as two
-+		unsigned decimal integers separated by a period and followed by a
-+		newline. For example, SBI v0.2 is represented as "0.2".
-+Users:		lssbi
-+
-+What:		/sys/firmware/sbi/impl_id
-+Date:		August 2026
-+Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
-+Description:
-+		The SBI implementation ID, formatted as lowercase hexadecimal with
-+		a 0x prefix, no leading zero padding, and a trailing newline. For
-+		example, OpenSBI is represented as "0x1". The ID is assigned by the
-+		SBI specification. This attribute is present only when SBI v0.2 or
-+		later is available.
-+Users:		lssbi
-+
-+What:		/sys/firmware/sbi/impl_version
-+Date:		August 2026
-+Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
-+Description:
-+		The SBI implementation version, formatted as lowercase hexadecimal
-+		with a 0x prefix, no leading zero padding, and a trailing newline.
-+		Its encoding is specific to the SBI implementation identified by
-+		impl_id. This attribute is present only when SBI v0.2 or
-+		later is available.
-+Users:		lssbi
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0b42e898f4d8..707afa1af1a0 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23494,6 +23494,7 @@ Q:	https://patchwork.kernel.org/project/linux-riscv/list/
- C:	irc://irc.libera.chat/riscv
- P:	Documentation/arch/riscv/patch-acceptance.rst
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
-+F:	Documentation/ABI/testing/sysfs-firmware-sbi
- F:	arch/riscv/
- N:	riscv
- K:	riscv
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index c443337056ab..945a6d8d4f3e 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/bits.h>
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index f6e92b086c12..f2305b953f71 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -19,6 +19,7 @@
+ #include <linux/dma-map-ops.h>
  #include <linux/init.h>
-+#include <linux/kobject.h>
- #include <linux/mm.h>
- #include <linux/pm.h>
- #include <linux/reboot.h>
-@@ -18,6 +19,9 @@
- unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
- EXPORT_SYMBOL(sbi_spec_version);
+ #include <linux/iommu.h>
++#include <linux/iommufd.h>
+ #include <linux/iopoll.h>
+ #include <linux/kernel.h>
+ #include <linux/pci.h>
+@@ -856,6 +857,7 @@ struct riscv_iommu_domain {
+ 	spinlock_t lock;		/* protect bonds list updates. */
+ 	int pscid;
+ 	int gscid;
++	bool nest_parent;
+ };
+ PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
  
-+static unsigned long sbi_impl_id __ro_after_init;
-+static unsigned long sbi_impl_version __ro_after_init;
-+
- static void (*__sbi_set_timer)(uint64_t stime) __ro_after_init;
- static void (*__sbi_send_ipi)(unsigned int cpu) __ro_after_init;
- static int (*__sbi_rfence)(int fid, const struct cpumask *cpu_mask,
-@@ -659,8 +663,10 @@ void __init sbi_init(void)
- 		sbi_major_version(), sbi_minor_version());
- 
- 	if (!sbi_spec_is_0_1()) {
-+		sbi_impl_id = sbi_get_firmware_id();
-+		sbi_impl_version = sbi_get_firmware_version();
- 		pr_info("SBI implementation ID=0x%lx Version=0x%lx\n",
--			sbi_get_firmware_id(), sbi_get_firmware_version());
-+			sbi_impl_id, sbi_impl_version);
- 		if (sbi_probe_extension(SBI_EXT_TIME)) {
- 			__sbi_set_timer = __sbi_set_timer_v02;
- 			pr_info("SBI TIME extension detected\n");
-@@ -707,3 +713,57 @@ void __init sbi_init(void)
- 	if (!srst_power_off)
- 		sbi_set_power_off();
+@@ -1342,6 +1344,20 @@ static bool riscv_iommu_iohgatp_supported(struct riscv_iommu_device *iommu,
+ 	return false;
  }
-+
-+static ssize_t spec_version_show(struct kobject *kobj,
-+				 struct kobj_attribute *attr, char *buf)
+ 
++static bool riscv_iommu_supports_s1(struct riscv_iommu_device *iommu)
 +{
-+	return sysfs_emit(buf, "%lu.%lu\n",
-+			  sbi_major_version(), sbi_minor_version());
++	return (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57) ||
++		(iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48) ||
++		(iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39);
 +}
 +
-+static ssize_t impl_id_show(struct kobject *kobj,
-+			    struct kobj_attribute *attr, char *buf)
++static bool riscv_iommu_supports_s2(struct riscv_iommu_device *iommu)
 +{
-+	return sysfs_emit(buf, "0x%lx\n", sbi_impl_id);
++	return (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57X4) ||
++		(iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48X4) ||
++		(iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39X4);
 +}
 +
-+static ssize_t impl_version_show(struct kobject *kobj,
-+				 struct kobj_attribute *attr, char *buf)
+ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ 					    struct device *dev,
+ 					    struct iommu_domain *old)
+@@ -1466,6 +1482,8 @@ static int riscv_iommu_init_domain_s2(struct device *dev,
+ 	if (domain->gscid < 0)
+ 		return -ENOMEM;
+ 
++	domain->nest_parent = !!(flags & IOMMU_HWPT_ALLOC_NEST_PARENT);
++
+ 	/* AMO_HWAD is checked by iommufd via IOMMU_CAP_DIRTY_TRACKING */
+ 	if (flags & IOMMU_HWPT_ALLOC_DIRTY_TRACKING)
+ 		domain->domain.dirty_ops = &riscv_iommu_dirty_ops;
+@@ -1662,6 +1680,63 @@ static void riscv_iommu_release_device(struct device *dev)
+ 	kfree_rcu_mightsleep(info);
+ }
+ 
++struct riscv_viommu {
++	struct iommufd_viommu core;
++	struct riscv_iommu_device *iommu;
++	struct riscv_iommu_domain *s2_parent;
++	int gscid;
++};
++
++static void riscv_viommu_destroy(struct iommufd_viommu *viommu)
 +{
-+	return sysfs_emit(buf, "0x%lx\n", sbi_impl_version);
++	struct riscv_viommu *rv_viommu =
++		container_of(viommu, struct riscv_viommu, core);
++	/*
++	 * All devices are detached and iodir_update() has flushed this
++	 * GSCID, so the ID can be recycled here.
++	 */
++	ida_free(&riscv_iommu_gscids, rv_viommu->gscid);
 +}
 +
-+static struct kobj_attribute spec_version_attr = __ATTR_RO(spec_version);
-+static struct kobj_attribute impl_id_attr = __ATTR_RO(impl_id);
-+static struct kobj_attribute impl_version_attr = __ATTR_RO(impl_version);
++static const struct iommufd_viommu_ops riscv_viommu_ops = {
++	.destroy = riscv_viommu_destroy,
++};
 +
-+static umode_t sbi_attr_is_visible(struct kobject *kobj,
-+				   struct attribute *attr, int n)
++static size_t riscv_iommu_get_viommu_size(struct device *dev,
++					  enum iommu_viommu_type viommu_type)
 +{
-+	if (sbi_spec_is_0_1() && attr != &spec_version_attr.attr)
++	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
++
++	if (viommu_type != IOMMU_VIOMMU_TYPE_RISCV)
 +		return 0;
 +
-+	return attr->mode;
++	if (!riscv_iommu_supports_s1(iommu) || !riscv_iommu_supports_s2(iommu))
++		return 0;
++
++	return VIOMMU_STRUCT_SIZE(struct riscv_viommu, core);
 +}
 +
-+static struct attribute *sbi_attrs[] = {
-+	&spec_version_attr.attr,
-+	&impl_id_attr.attr,
-+	&impl_version_attr.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group sbi_attr_group = {
-+	.name = "sbi",
-+	.is_visible = sbi_attr_is_visible,
-+	.attrs = sbi_attrs,
-+};
-+
-+static int __init sbi_sysfs_init(void)
++static int riscv_viommu_init(struct iommufd_viommu *viommu,
++			     struct iommu_domain *parent_domain,
++			     const struct iommu_user_data *user_data)
 +{
-+	if (!firmware_kobj)
-+		return -ENOMEM;
++	struct riscv_viommu *rv_viommu = container_of(viommu, struct riscv_viommu, core);
++	struct riscv_iommu_device *iommu =
++		container_of(viommu->iommu_dev, struct riscv_iommu_device, iommu);
++	struct riscv_iommu_domain *s2_parent = iommu_domain_to_riscv(parent_domain);
 +
-+	return sysfs_create_group(firmware_kobj, &sbi_attr_group);
++	rv_viommu->gscid = ida_alloc_range(&riscv_iommu_gscids, 1,
++					   RISCV_IOMMU_MAX_GSCID, GFP_KERNEL);
++	if (rv_viommu->gscid < 0)
++		return rv_viommu->gscid;
++
++	rv_viommu->iommu = iommu;
++	rv_viommu->s2_parent = s2_parent;
++	viommu->ops = &riscv_viommu_ops;
++
++	return 0;
 +}
-+subsys_initcall(sbi_sysfs_init);
-
-base-commit: 1b78070aaef63512688aebfbc82365ef9d6660f1
++
+ static const struct iommu_ops riscv_iommu_ops = {
+ 	.of_xlate = riscv_iommu_of_xlate,
+ 	.capable = riscv_iommu_capable,
+@@ -1669,6 +1744,8 @@ static const struct iommu_ops riscv_iommu_ops = {
+ 	.blocked_domain = &riscv_iommu_blocking_domain,
+ 	.release_domain = &riscv_iommu_blocking_domain,
+ 	.domain_alloc_paging_flags = riscv_iommu_domain_alloc_paging_flags,
++	.get_viommu_size = riscv_iommu_get_viommu_size,
++	.viommu_init = riscv_viommu_init,
+ 	.device_group = riscv_iommu_device_group,
+ 	.probe_device = riscv_iommu_probe_device,
+ 	.release_device	= riscv_iommu_release_device,
 -- 
-2.43.0
-
+2.53.0
 
 
 _______________________________________________
