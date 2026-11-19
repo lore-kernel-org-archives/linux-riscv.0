@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06F34606A33A
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 12:09:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC53C606A320
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 12:10:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ukYjBRFd;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=FaUvzOF6
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ypr4BeAg;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=fzZiLmxN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,66 +14,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aI0Yw7Hvvsy2d0Idx2vhV1FOyDnsrqNm7gzzDnc/5ts=; b=ukYjBRFdU6YwxthRdQkkDI1dJe
-	2B+UnOTQSfrhbl4LTdfuXYOMA6bEIU/37qLS8eHkeZLbvsVQEfMutYHTqi4wGEQKPeNfsDj3QeGF2
-	0KrOJgLmb2olA6Rl5+PfjO2dm4i39imSQ93FDnj+PsjYgf2FkYnyfkG6VUw+Ylgb/lv0uaV/8AdO8
-	4dH9wx5daumbtUVeah6ltjzNXmb8tMCi83+ft7vnAWkQYi0TxP2Brsfgf/0mbdUVaHgaD9V5kZ3sn
-	UHgJFlJ1pDWqyRqqAZbMvLloKNkT4ifJ1ijCnw0b9p0MPF/5wqgUnU7SfbQJev2n7qXTvp1NhUZM5
-	DyHUOHMw==;
+	bh=j/jPpwLhjWdcrCOteBHkVDQa6JxosY4q4q1jQ57Fjh0=; b=ypr4BeAg8Jz+Q1lhlBtU4ZVyVy
+	5+deikoz/9TOOwDQ7ril3ZUQDDlmwPLg+vXVPIPll0419F+iBceQ+fXXiYjk0oLTVw+mC3edQ3vQf
+	YEgq0wOmRY+FcjlZqaF/egoKjnQE9Xm2YODyTFHeil+GJC/hWpWdvcRBA9ZbgYCticmz5Ii9eo1gY
+	7wrYDk9yOo+pyhCsY+f3r15UdGg0W80LJBCiZcCLyugSQ/HOSUqZmap3tnq1/gVl3oSJD6Y2BE/Ox
+	mumPRMrqXBfidnChuo2sVPUkzSEByBYPoCOop1vtKGlFwyZKknz/3VfAuRTOAp9AGWCNR18xsmW9z
+	Z2MbrDmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU0xS-0000000Bn47-290X;
-	Thu, 19 Nov 2026 12:09:42 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
+	id 1xU0xd-0000000BnAt-35BM;
+	Thu, 19 Nov 2026 12:09:53 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU0xQ-0000000Bn28-01fJ
+	id 1xU0xb-0000000Bn92-3bDF
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Nov 2026 12:09:41 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-38431138772so1026623eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Nov 2026 04:09:39 -0800 (PST)
+	Thu, 19 Nov 2026 12:09:53 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-14394530ec6so3300182c88.1
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Nov 2026 04:09:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1795090179; x=1795694979; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1795090191; x=1795694991; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IMQKgMzK5koXpzwpAGfuvI2X9uFekTM0Brh0o9wzQHI=;
-        b=FaUvzOF6X5Nj+FqppPmuC/KC1vNBhglLVsVqINWq1hIlrmwOlj/5iL7fcWF154mwSl
-         uTf2swiORAiuUFvf6DL2UctYaNmzao7eZpjFA6b6deN/La0MQ8gYmwJTTq+igGYlatgP
-         7IYWbISpSDOlaSuo7ptp6JgtJZpT8BBm6qGokX8DkoV8ZgjjVERdpkLtx/9gC7QSfWoo
-         DlIUQ9DzHU/mJRYtaFB4k2aao8NJQCE/Om2JkUkG7sIWEkCPR6886bUt5RAksX44nZF9
-         aMOqYCvahb2ayh8zJy7T5DsuJHZWQ7FYtbbFmRwMXk8PkBa6HT8Cy9z6OVLpoErLrFAn
-         lRvQ==
+        bh=AcX7Wqr/NNBAMKWd7VnVp8UuB/cxD1Kkn3PfU1E+a6g=;
+        b=fzZiLmxNeAkKXJlUCe8iuUA0tKWw1r8bHlHrkDS5hlRFvEqhkcQmMY4wGDaqOhfIEF
+         z46Su+wUQ++Az3jnaXH9zmrvIgUkfcuHCUUslaildZX6X6pqr1nulVtcyxxCDqUerQfy
+         zeyiYx//jGsbOqasYfghmBIBceM1aXGFxISsjsMOxRq6GzFLuSxwIiWRyzyC5cGstQc3
+         o+nsOxRSsx9hMPDDA7MxlJ6OqAOsGGEtb/9K/1Pbq+VhnNs/6+02j2NmHry/2NyVaW2G
+         t2EQOX004fhUn9SQveOabm/caeq/dafx1RraH1tNHcEjKi0TraE65zUkIeuSUEypBdHO
+         Yf7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795090179; x=1795694979;
+        d=1e100.net; s=20260707; t=1795090191; x=1795694991;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IMQKgMzK5koXpzwpAGfuvI2X9uFekTM0Brh0o9wzQHI=;
-        b=nuBKMyudJmKO+XDRi3H5ij4BFvAMdJsb3JbDUhd5TFJoGBK7XcOLfSDg7yELGjOSKX
-         mavElXKiZnhInKELBB7CGpdN3gSKtjQtVKFY+RIf2NsiGV+TbCoWEArXk4uZ7j4RaGUS
-         OZxWY/d+aePadqKE8zYrtoYqG9yCEDVMH5EnaHkRFFfJ6RxQEAVInR7mcpPqEDHk/npZ
-         3nM649PxE0ZqDu9Nlq8Y10CBT9QSWKrm1vXCc+1eTxghShh22ADO0xQ6PXybjD1v7AMM
-         dWjn0K84f5f6X96On9+cQCm0SpvPDqL3rhqa/Y3sA8Ms4AfkFzct/d54HJk8ctg7bXxi
-         Pq7g==
-X-Forwarded-Encrypted: i=1; AL+hErEarV80TVPTSgvdvQrpe7jV9QrJL82kZVuhWg6FTy6JaxVIN9lwvpmQ94emPRVguM/JVGtpfr3uWhztTw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/UBARGZxmVzYAgQPoOUSPMj5Ad2ApyZpR2UYTdB8y7n3wGNqYh
-	EdX6ubv5tJxAgs0blPSXsDq10KUS1P3lsdkNOPzyhTSZ7WLnv111avxaKCwS8AcK6mM=
-X-Gm-Gg: AZFdTZfBPmQRnNzu2f30q1cCnFlINq9CyXsSdXhL2eULAlspczC/rPp5/pueg10/BaS
-	MVTmaAOK0nuP9Su9yyf/er64KNNITGPr2NmjuaaTgJQY+3Uw+z9XknYiDP74nx2yZ8b4ttMOc/k
-	DghA04QeN90zUWuyXCaSVNhQSBI+pWDiZNXJFWokxlyvvlvbXDEj560MFbab6YDqBiAgiGeIc8R
-	BXRScV5mH7D5uJ4P2VgLMyJOKgXNgiOeXFNpu8VOW3NR4e+Q+4JOSNy/zA3PhgJPVvr+uZz7sCN
-	80qMlaiubMrtnSAc5wmbyEXgTAkx+HQfdLd07VgBKspkoPlrfumu5yTgyUQATGlJHPI9eB7l3bM
-	MMOlgopzCsJaFXQ7+YB0AX9OwtDwB+YtMBByKWBMDV8uk5BA4cxOLQJ5u+T5yZl0gLf+loBM5FL
-	LKlYvaL7wq7C0zE/IjFqymCQze8Os1VMSNTKNrJR3sWm6W7ABUF8BXCt6T7L7p+Xdbc2DIHfvJb
-	/Y1UdYm8ymhZ+sfAViF12gplg2d7DvsWK2GVBRQBbwfSClJI674t+qFFts/n3j/qYxC6MfbCVNa
-	ItGCikIJeawo1SXHu2tUY9W5I7V4DyXIMtFpfToigGf6CNgh6i7+GRJrdCZp/tewUjW/XhuWq1t
-	8JfU4iG8=
-X-Received: by 2002:a05:7300:b594:b0:381:5fe2:8008 with SMTP id 5a478bee46e88-38281eebbb1mr6614536eec.39.1795090179031;
-        Thu, 19 Nov 2026 04:09:39 -0800 (PST)
+        bh=AcX7Wqr/NNBAMKWd7VnVp8UuB/cxD1Kkn3PfU1E+a6g=;
+        b=b8avXb5C9l/vypJEi+rgwx/GklSUBVQh0aISIfr/S54BW4paURt1lVk22NHg1rZNM/
+         oSCGuzSqcygrbNN6OitB9+7kGFkh/WBnHaNJJqPQ2VtTylqqZUK7TVfpKdoJ/sfQYKjb
+         tyWV1BqOo8yX2kh4DeNNVMJIoJcNFZ+QfKnSuHsLIhKSlCaSjbpe5mWdZ2R26ZyZw793
+         BiUn2Fu6ptCSFoAcqIE3xpSTifpcGMdhQtfRm4NyGyZLnzxe7UOVVJSisc7tk4obF/qb
+         76oY2/fAHqXVjKa8lxFG1pBwfboJrebM33FdDYXrSAMjtGVryXFoI9b8ucAwegbcw0dK
+         nzJQ==
+X-Forwarded-Encrypted: i=1; AL+hErELzU66hYmTnml+0m+/vEOBIxaUmJQ84FaLh+spc9/JTJq3o+eYIF8OfOUbuNb+tWHk4udxm7Cdx5KCvw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8YmbSeE9lUIh9hmxxdwhHYJvSiiPnRCMVi47+GY2UeJQvHpfwe
+	lgzBmBehvDWryPTB/8OlEc8Op0U+/OW/iP7qS2x8mCjuj2Kl/LFDgxAMZ679yE5QYFQ=
+X-Gm-Gg: AZFdTZfIo71s4qYsU3Xtj02wR73/Olfipz6ZEWbmoYIFD52JYlsUnYGX+S9NqHrICUO
+	X/QZ9pb3IYeynxg7Ae9ePoO0nZxRAm3s0OFvfUIOIQziMgDnc3W/z/ggdOXDhbhy2jIyseg5lkP
+	SFxHW+P/iU/EEqagto+EBCkLEDVWrso0NrgSf5kywiWIkbAkBUXwUKyQasH/r2t8uhMPaobrVei
+	GRj6ibb72WxNkqzFWDxM+WFfPaQ+nuQB3n0Igal4vpp6wNgE5A0+hyWiijdTj9YDi7HPApG7afX
+	Z6Jcvjl1DPlJuihVe/udB3tOAqbJOWRVAMf66kcim/LwfZ0Rtr71rdUNMNw0L6FqwiD0/Bz+vLa
+	Pn+uvAlAE4E+7p3SZ38FFTVT3O+qXSriolmxXZfTIlrzMTBLiteTdnnOc61IDZ6cuHNjXsngCT3
+	GdcN6mQ1KR1vxzEX4HkH+kcPfyF926K4kHMTnneq0bbvHfTkeYMC1BaJDyjipJh58pBYpeE6gTp
+	4OoUWKVwQ4zFX1vo3D3GBrmNCdlo2wSBBcJcaFY6rvX8u/lYXNb9p/7HOFToIUCJBaf2UtJYRy6
+	qFQIMl2IJ13UUTFw4P+EBnseYdrPZI6fYJrkPeghp7/iSEyH5ONFuWaGgj97lcd/poXdm6FcLW1
+	s5sTPPJU=
+X-Received: by 2002:a05:7300:8288:b0:384:6487:b155 with SMTP id 5a478bee46e88-3846487bba9mr1500897eec.29.1795090190796;
+        Thu, 19 Nov 2026 04:09:50 -0800 (PST)
 Received: from FJ7FR2JRQ3.bytedance.net ([186.240.245.239])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7bc05cfsm17604650eec.26.2026.11.19.04.09.27
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7bc05cfsm17604650eec.26.2026.11.19.04.09.39
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 19 Nov 2026 04:09:38 -0800 (PST)
+        Thu, 19 Nov 2026 04:09:50 -0800 (PST)
 From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -108,17 +108,17 @@ Cc: clement.leger@linux.dev,
 	linux-doc@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	zhangzhanpeng.jasper@bytedance.com
-Subject: [PATCH v13 05/11] riscv: mm: avoid enabling interrupts for nofault page faults
-Date: Thu, 19 Nov 2026 20:08:29 +0800
-Message-ID: <20261119120824.13969-18-zhangzhanpeng.jasper@bytedance.com>
+Subject: [PATCH v13 06/11] riscv: enable NMI-safe lockdep irqflags tracking
+Date: Thu, 19 Nov 2026 20:08:30 +0800
+Message-ID: <20261119120824.13969-19-zhangzhanpeng.jasper@bytedance.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20261119120824.13969-13-zhangzhanpeng.jasper@bytedance.com>
 References: <20261119120824.13969-13-zhangzhanpeng.jasper@bytedance.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261119_040940_050212_58F14E45 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20261119_040951_898038_B8D7EC5A 
+X-CRM114-Status: GOOD (  12.79  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -139,92 +139,70 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-RISC-V enables interrupts in handle_page_fault() before checking whether
-the fault occurred with fault handling disabled. A nofault access from an
-atomic context can therefore run tracepoints and open an interrupt window
-before reaching the exception-table fixup.
+An SSE handler runs with interrupts masked, but can interrupt code whose
+lockdep hardirq state is enabled. Bare nmi_enter()/nmi_exit() do not
+update that state. Consequently, lockdep_assert_irqs_disabled() in the
+perf overflow path can report a warning despite interrupts being masked.
 
-Handle an exception-table entry before entering the generic fault path when
-fault handling is disabled. Also keep interrupts disabled until such a
-fault has been resolved.
-
-On 32-bit RISC-V the vmalloc mapping must still be synchronised into the
-current page table before that fixup runs: otherwise a nofault access to a
-not-yet-synced vmalloc address would take the exception-table fixup and
-fail spuriously instead of being resolved. Order the vmalloc
-synchronisation ahead of the nofault fixup. That synchronisation only
-copies an already-established kernel mapping, takes no locks and waits for
-no I/O, so it is safe in the nofault path; if the mapping does not exist it
-falls through to the existing no_context() error handling. This early
-return skips the page-fault tracepoints, as before.
-
-This makes RISC-V consistent with the expectation that an in-atomic
-nofault access does not enter the normal fault-handling path. It also
-removes one source of re-entry when perf sampling is delivered through an
-SBI Supervisor Software Event (SSE).
+Select TRACE_IRQFLAGS_NMI_SUPPORT so lockdep can update its hardirq state
+inside an NMI. Pair this with irqentry_nmi_enter()/irqentry_nmi_exit() in
+the SSE wrapper: these helpers save the previous tracked state, mark
+interrupts disabled on entry and restore the tracked state on exit.
+Selecting the configuration option alone does not perform those updates.
+This follows the entry helpers used by the other RISC-V NMI-like traps.
 
 Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
 ---
- arch/riscv/mm/fault.c | 32 ++++++++++++++++++++++++--------
- 1 file changed, 24 insertions(+), 8 deletions(-)
+ arch/riscv/Kconfig          | 1 +
+ arch/riscv/kernel/sbi_sse.c | 7 ++++---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 04ed6f8acae4..3934248f7a27 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -294,19 +294,23 @@ void handle_page_fault(struct pt_regs *regs)
- 	if (kprobe_page_fault(regs, cause))
- 		return;
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d2db8f40c616..5501c02a07eb 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -225,6 +225,7 @@ config RISCV
+ 	select SYSCTL_EXCEPTION_TRACE
+ 	select THREAD_INFO_IN_TASK
+ 	select TRACE_IRQFLAGS_SUPPORT
++	select TRACE_IRQFLAGS_NMI_SUPPORT
+ 	select UACCESS_MEMCPY if !MMU
+ 	select VDSO_DATASTORE if MMU
+ 	select VDSO_GETRANDOM if MMU && 64BIT
+diff --git a/arch/riscv/kernel/sbi_sse.c b/arch/riscv/kernel/sbi_sse.c
+index 032fcc07abcf..59e47a39589d 100644
+--- a/arch/riscv/kernel/sbi_sse.c
++++ b/arch/riscv/kernel/sbi_sse.c
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2025 Rivos Inc.
+  */
+-#include <linux/nmi.h>
++#include <linux/entry-common.h>
+ #include <linux/sched.h>
+ #include <linux/scs.h>
+ #include <linux/bitfield.h>
+@@ -36,9 +36,10 @@ void noinstr do_sse(struct sse_event_arch_data *arch_evt,
+ {
+ 	struct riscv_sse_interrupted_context context = { regs, hstatus };
+ 	struct riscv_sse_interrupted_context *previous;
++	irqentry_state_t state;
+ 	struct sbiret sret;
  
--	if (user_mode(regs))
--		trace_page_fault_user(addr, regs, cause);
--	else
--		trace_page_fault_kernel(addr, regs, cause);
--
- 	/*
- 	 * Fault-in kernel-space virtual memory on-demand.
- 	 * The 'reference' page table is init_mm.pgd.
- 	 *
-+	 * This only synchronises an already-established kernel vmalloc mapping
-+	 * into the current page table; it neither allocates memory nor waits for
-+	 * I/O, so it is safe in the nofault path. It must run before the
-+	 * exception-table fixup below: otherwise a nofault access to a
-+	 * not-yet-synced vmalloc address would take the fixup and fail
-+	 * spuriously instead of being resolved. If the mapping does not exist,
-+	 * vmalloc_fault() falls through to no_context() error handling.
-+	 *
- 	 * NOTE! We MUST NOT take any locks for this case. We may
- 	 * be in an interrupt or a critical region, and should
- 	 * only copy the information from the master page table,
--	 * nothing more.
-+	 * nothing more. This path returns early and therefore skips the
-+	 * trace_page_fault_*() tracepoints below.
- 	 */
- 	if ((!IS_ENABLED(CONFIG_MMU) || !IS_ENABLED(CONFIG_64BIT)) &&
- 	    unlikely(addr >= VMALLOC_START && addr < VMALLOC_END)) {
-@@ -314,8 +318,20 @@ void handle_page_fault(struct pt_regs *regs)
- 		return;
- 	}
+-	nmi_enter();
++	state = irqentry_nmi_enter(regs);
+ 	instrumentation_begin();
  
--	/* Enable interrupts if they were enabled in the parent context. */
--	if (!regs_irqs_disabled(regs))
-+	/*
-+	 * Nofault accesses must be resolved through the exception table before
-+	 * entering the generic fault path or enabling interrupts.
-+	 */
-+	if (unlikely(faulthandler_disabled()) && fixup_exception(regs))
-+		return;
-+
-+	if (user_mode(regs))
-+		trace_page_fault_user(addr, regs, cause);
-+	else
-+		trace_page_fault_kernel(addr, regs, cause);
-+
-+	/* Do not open an interrupt window before a nofault fixup completes. */
-+	if (!regs_irqs_disabled(regs) && !faulthandler_disabled())
- 		local_irq_enable();
+ 	/* Retrieve missing GPRs from SBI */
+@@ -84,7 +85,7 @@ void noinstr do_sse(struct sse_event_arch_data *arch_evt,
  
- 	/*
+ out:
+ 	instrumentation_end();
+-	nmi_exit();
++	irqentry_nmi_exit(regs, state);
+ }
+ 
+ static void *alloc_to_stack_pointer(void *alloc)
 -- 
 2.50.1 (Apple Git-155)
 
