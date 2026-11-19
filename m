@@ -2,75 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58949606A33D
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 13:46:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FB3F606E86E
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 13:50:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nt6JhdjU;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BFFu1MCk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mHOhLCdz;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XPqVjGWH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SMh3djfNp31t8EKsYhop5MHvKaOSQkP8VwxCUVvSwKM=; b=nt6JhdjUi26tplsc/jAXvH2QeX
-	E7hwlYkprJ0Q0gMqzS5veO4K96DVMRxdYk63S6bQ3qH60NHXPqBcS+AMfV8Q5Trc27HnPKgny8gTD
-	cKIFz9CRLkBvmhbnVkT9UPolC3YKeJe3FJCbnsSQ80bcLbW+XYhYJ8IpgCj+QbZ4490o98R22CleT
-	r0h2oeUPmwo+kSL+NHBOFnNnaQVGudFDc/AwmMRrl7Y5dtK9liQjN0l1i80Mfl3LEFwLB8InxbdK4
-	B+EB0wMuSMD6hwMc7PsG7n6uHTVEcLFiiGi/6PlAJJQopKf81IysFwyE0InB0Gpk+Ei4DMSM4f+um
-	axZRmzEQ==;
+	bh=8MDJUmrEiTOty5i/TeAkjxHL8DwhYjKQuV1zrt/yGmY=; b=mHOhLCdznuy1FYtaxUpUUO9MBE
+	GqZ5UEmgVJhbZZkHokzFckZCQnv0l/ezkFpknyy8HTCiebxmwN9jvEB90XyJTXKXxBWwD0ias4TWf
+	Y3Zk4SqyZaHjEwhW/Bs7tER7b6HA2Upe2GQAepkxjcaib0/nQeTeuGm2oX4Sf+5t5e/IpEWHkEQIP
+	kkjttz0p5OwNtiLVZW23XVJvd20ckKl1azqYaA+fabP3NFGr3stxvhgnoB64WNQHZi4tU6rvPN3FJ
+	GHdAva3okyD0RxMH0plAKH+Pb9T2XwvTaLTb/vV+sm1uJJnkxJUan+l37Pb6qBi3g0bBTU78jNVXl
+	Id65TqRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU2TS-0000000C7HX-0ozQ;
-	Thu, 19 Nov 2026 13:46:50 +0000
-Received: from out-105.mta1.migadu.com ([95.215.58.105] helo=mta1.migadu.com)
+	id 1xU2Wf-0000000C7jA-3D1r;
+	Thu, 19 Nov 2026 13:50:09 +0000
+Received: from out-45.mta1.migadu.com ([95.215.58.45] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU2TP-0000000C7GW-0fG1
+	id 1xU2Wc-0000000C7i4-1B1y
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Nov 2026 13:46:48 +0000
+	Thu, 19 Nov 2026 13:50:07 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=++jxRWVPeWHHNOse9hUX9VVHA8pC7zSS/WWi8a/OqNw=;
+DKIM-Signature: a=rsa-sha256; bh=+aZWzXaOnWazBZdRZqNBkG1WS4ZSuBwHsa7ZQ3CC1Aw=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795096004; v=1; x=1795700804;
- b=BFFu1MCkYDNvS1QBOd5lfM7XsW1mMv06+SULHYpVMq7qtH+10lOdRlpTXISGV6TiSnMuBcFc
- skn6vs9IegdwLkYMZuuYzEpnRnLF9NLyjRQnhIp78mxyGtNgCkxdl38pbXyb4fbcbk6/wca4zUS
- e9MVHuQ3frEjO2yzdIuht1cM=
+ t=1795096204; v=1; x=1795701004;
+ b=XPqVjGWHGrOnqkQp0gMob0gDixPWXXVQ+MKg8Om7wQnbuX0/+h8w28kTJNqmLfbTDBPvEQfI
+ bUzG9c8d2SdCxKzNwX1drgzjrtDH28uojfuenOriEyjlVfpFXivDJgPUpRnNHrG9YvBoo+/wL6E
+ gup0E5kl/69C9WTB7uJ2W3XA=
 X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 799fbb2e29e87772;
-	Thu, 19 Nov 2026 13:46:44 +0000
-X-Mizu-Trace-ID: 799fbb2e29e87772
+Received: by smtp.migadu.com with ESMTPS id 1dd83dad7dfadc2b;
+	Thu, 19 Nov 2026 13:50:02 +0000
+X-Mizu-Trace-ID: 1dd83dad7dfadc2b
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <69a099c3-082e-43b8-82f5-122d32df5eff@linux.dev>
-Date: Thu, 19 Nov 2026 14:46:39 +0100
+Date: Thu, 19 Nov 2026 14:49:25 +0100
+From: Andrew Jones <andrew.jones@linux.dev>
+To: "Bingyu.Xian" <shanbeeyoo@gmail.com>
+Cc: anup@brainfault.org, atish.patra@linux.dev, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	zhouquan@iscas.ac.cn, linux-kselftest@vger.kernel.org, shuah@kernel.org, 
+	pbonzini@redhat.com, seanjc@google.com
+Subject: Re: [PATCH] KVM: selftests: riscv: Test the SBI STA shared memory
+ lifecycle
+Message-ID: <av77j8rN593sxIDh@orel>
+References: <20261115085457.889873-1-shanbeeyoo@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 06/11] riscv: enable NMI-safe lockdep irqflags
- tracking
-To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- himanshu.chauhan@oss.qualcomm.com, conor@kernel.org,
- anup.patel@oss.qualcomm.com
-Cc: cuiyunhui@bytedance.com, atish.patra@linux.dev, peterz@infradead.org,
- mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org,
- will@kernel.org, tglx@kernel.org, corbet@lwn.net, rdunlap@infradead.org,
- shuah@kernel.org, yuanzhu@bytedance.com, yang.susheng@zte.com.cn,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20261119120824.13969-13-zhangzhanpeng.jasper@bytedance.com>
- <20261119120824.13969-19-zhangzhanpeng.jasper@bytedance.com>
-Content-Language: en-US
-From: Clement Leger <clement.leger@linux.dev>
-In-Reply-To: <20261119120824.13969-19-zhangzhanpeng.jasper@bytedance.com>
+Content-Disposition: inline
+In-Reply-To: <20261115085457.889873-1-shanbeeyoo@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261119_054647_432350_75C86D82 
-X-CRM114-Status: GOOD (  18.32  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261119_055006_473333_52D4D9A0 
+X-CRM114-Status: GOOD (  29.48  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,63 +71,262 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-CgpPbiAxMS8xOS8yNiAxMzowOCwgWmhhbnBlbmcgWmhhbmcgd3JvdGU6Cj4gQW4gU1NFIGhhbmRs
-ZXIgcnVucyB3aXRoIGludGVycnVwdHMgbWFza2VkLCBidXQgY2FuIGludGVycnVwdCBjb2RlIHdo
-b3NlCj4gbG9ja2RlcCBoYXJkaXJxIHN0YXRlIGlzIGVuYWJsZWQuIEJhcmUgbm1pX2VudGVyKCkv
-bm1pX2V4aXQoKSBkbyBub3QKPiB1cGRhdGUgdGhhdCBzdGF0ZS4gQ29uc2VxdWVudGx5LCBsb2Nr
-ZGVwX2Fzc2VydF9pcnFzX2Rpc2FibGVkKCkgaW4gdGhlCj4gcGVyZiBvdmVyZmxvdyBwYXRoIGNh
-biByZXBvcnQgYSB3YXJuaW5nIGRlc3BpdGUgaW50ZXJydXB0cyBiZWluZyBtYXNrZWQuCj4gCj4g
-U2VsZWN0IFRSQUNFX0lSUUZMQUdTX05NSV9TVVBQT1JUIHNvIGxvY2tkZXAgY2FuIHVwZGF0ZSBp
-dHMgaGFyZGlycSBzdGF0ZQo+IGluc2lkZSBhbiBOTUkuIFBhaXIgdGhpcyB3aXRoIGlycWVudHJ5
-X25taV9lbnRlcigpL2lycWVudHJ5X25taV9leGl0KCkgaW4KPiB0aGUgU1NFIHdyYXBwZXI6IHRo
-ZXNlIGhlbHBlcnMgc2F2ZSB0aGUgcHJldmlvdXMgdHJhY2tlZCBzdGF0ZSwgbWFyawo+IGludGVy
-cnVwdHMgZGlzYWJsZWQgb24gZW50cnkgYW5kIHJlc3RvcmUgdGhlIHRyYWNrZWQgc3RhdGUgb24g
-ZXhpdC4KPiBTZWxlY3RpbmcgdGhlIGNvbmZpZ3VyYXRpb24gb3B0aW9uIGFsb25lIGRvZXMgbm90
-IHBlcmZvcm0gdGhvc2UgdXBkYXRlcy4KPiBUaGlzIGZvbGxvd3MgdGhlIGVudHJ5IGhlbHBlcnMg
-dXNlZCBieSB0aGUgb3RoZXIgUklTQy1WIE5NSS1saWtlIHRyYXBzLgo+IAo+IFNpZ25lZC1vZmYt
-Ynk6IFpoYW5wZW5nIFpoYW5nIDx6aGFuZ3poYW5wZW5nLmphc3BlckBieXRlZGFuY2UuY29tPgo+
-IC0tLQo+ICAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgIHwgMSArCj4gICBhcmNoL3Jpc2N2
-L2tlcm5lbC9zYmlfc3NlLmMgfCA3ICsrKystLS0KPiAgIDIgZmlsZXMgY2hhbmdlZCwgNSBpbnNl
-cnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tj
-b25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBpbmRleCBkMmRiOGY0MGM2MTYuLjU1MDFjMDJh
-MDdlYiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiArKysgYi9hcmNoL3Jpc2N2
-L0tjb25maWcKPiBAQCAtMjI1LDYgKzIyNSw3IEBAIGNvbmZpZyBSSVNDVgo+ICAgCXNlbGVjdCBT
-WVNDVExfRVhDRVBUSU9OX1RSQUNFCj4gICAJc2VsZWN0IFRIUkVBRF9JTkZPX0lOX1RBU0sKPiAg
-IAlzZWxlY3QgVFJBQ0VfSVJRRkxBR1NfU1VQUE9SVAo+ICsJc2VsZWN0IFRSQUNFX0lSUUZMQUdT
-X05NSV9TVVBQT1JUCj4gICAJc2VsZWN0IFVBQ0NFU1NfTUVNQ1BZIGlmICFNTVUKPiAgIAlzZWxl
-Y3QgVkRTT19EQVRBU1RPUkUgaWYgTU1VCj4gICAJc2VsZWN0IFZEU09fR0VUUkFORE9NIGlmIE1N
-VSAmJiA2NEJJVAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zYmlfc3NlLmMgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9zYmlfc3NlLmMKPiBpbmRleCAwMzJmY2MwN2FiY2YuLjU5ZTQ3YTM5
-NTg5ZCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zYmlfc3NlLmMKPiArKysgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9zYmlfc3NlLmMKPiBAQCAtMiw3ICsyLDcgQEAKPiAgIC8qCj4gICAg
-KiBDb3B5cmlnaHQgKEMpIDIwMjUgUml2b3MgSW5jLgo+ICAgICovCj4gLSNpbmNsdWRlIDxsaW51
-eC9ubWkuaD4KPiArI2luY2x1ZGUgPGxpbnV4L2VudHJ5LWNvbW1vbi5oPgo+ICAgI2luY2x1ZGUg
-PGxpbnV4L3NjaGVkLmg+Cj4gICAjaW5jbHVkZSA8bGludXgvc2NzLmg+Cj4gICAjaW5jbHVkZSA8
-bGludXgvYml0ZmllbGQuaD4KPiBAQCAtMzYsOSArMzYsMTAgQEAgdm9pZCBub2luc3RyIGRvX3Nz
-ZShzdHJ1Y3Qgc3NlX2V2ZW50X2FyY2hfZGF0YSAqYXJjaF9ldnQsCj4gICB7Cj4gICAJc3RydWN0
-IHJpc2N2X3NzZV9pbnRlcnJ1cHRlZF9jb250ZXh0IGNvbnRleHQgPSB7IHJlZ3MsIGhzdGF0dXMg
-fTsKPiAgIAlzdHJ1Y3QgcmlzY3Zfc3NlX2ludGVycnVwdGVkX2NvbnRleHQgKnByZXZpb3VzOwo+
-ICsJaXJxZW50cnlfc3RhdGVfdCBzdGF0ZTsKPiAgIAlzdHJ1Y3Qgc2JpcmV0IHNyZXQ7Cj4gICAK
-PiAtCW5taV9lbnRlcigpOwo+ICsJc3RhdGUgPSBpcnFlbnRyeV9ubWlfZW50ZXIocmVncyk7Cj4g
-ICAJaW5zdHJ1bWVudGF0aW9uX2JlZ2luKCk7Cj4gICAKPiAgIAkvKiBSZXRyaWV2ZSBtaXNzaW5n
-IEdQUnMgZnJvbSBTQkkgKi8KPiBAQCAtODQsNyArODUsNyBAQCB2b2lkIG5vaW5zdHIgZG9fc3Nl
-KHN0cnVjdCBzc2VfZXZlbnRfYXJjaF9kYXRhICphcmNoX2V2dCwKPiAgIAo+ICAgb3V0Ogo+ICAg
-CWluc3RydW1lbnRhdGlvbl9lbmQoKTsKPiAtCW5taV9leGl0KCk7Cj4gKwlpcnFlbnRyeV9ubWlf
-ZXhpdChyZWdzLCBzdGF0ZSk7Cj4gICB9Cj4gICAKPiAgIHN0YXRpYyB2b2lkICphbGxvY190b19z
-dGFja19wb2ludGVyKHZvaWQgKmFsbG9jKQoKSGkgWmhhbnBlbmcsCgpOb3Qgc3VyZSBpZiBpdCB3
-YXMgYWxyZWFkeSBzdWdnZXN0ZWQgYnV0IEkgd291bGQgZm9sZCB0aGF0IGluIHRoZSBjb21taXQg
-CmFkZGluZyBTU0UgaXRzZWxmLgoKVGhhbmtzLAoKQ2zDqW1lbnQKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sun, Nov 15, 2026 at 04:54:57PM +0800, Bingyu.Xian wrote:
+> The RISC-V steal-time test checks the UAPI alignment constraints and
+> compares stolen time with the host run delay. It does not exercise
+> changes to the shared page after accounting has been enabled.
+> 
+> Extend the existing test to check that disabling STA stops shared-page
+> updates and that reconfiguring it leaves the old shared page unchanged.
+> Place the second STA structure at the end of another page and verify
+> that updates mark the appropriate page dirty.
+> 
+> Discard the second backing page with MADV_DONTNEED and check that a
+> subsequent KVM_RUN resumes STA updates on the replacement page and
+> marks it dirty. Read the replacement page before KVM_RUN so that a
+> stale write into the old backing page cannot satisfy the assertions.
+> 
+> Keep these checks in steal_time instead of adding another test binary.
+> The test does not depend on a gfn-to-pfn cache implementation.
+> 
+> Assisted-by: YuanSheng: deepseek-v4-pro
+> Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> Signed-off-by: bingyu.xian <shanbeenyoo@gmail.com>
+> ---
+> Tested with a freshly built RISC-V kernel and KVM module from the base
+> commit below, running as a QEMU TCG guest with H extension enabled:
+>   - steal_time: 4 lifecycle checks and the existing 4 vCPU cases pass
+>   - CONFIG_DEBUG_ATOMIC_SLEEP=y and CONFIG_PROVE_LOCKING=y
+>   - no kernel diagnostics observed
+>   - x86 steal_time build also passes (not run)
+> 
+> This exercises baseline STA behavior and does not depend on an STA
+> caching implementation. The lifecycle checks also apply cleanly to
+> riscv_kvm_next at 633b3931a87438282d6454646ff40c669a6896cb.
+> 
+> Test logs (verbatim excerpt from the 2026-11-15 QEMU run):
+>   STA_LIFECYCLE_KERNEL=7.4.0-rc2-sta-lifecycle+
+>   Random seed: 0x35d6f94c
+>   TAP version 13
+>   1..8
+>   ok 1 STA shared page updates and is marked dirty
+>   ok 2 STA disable stops shared page updates
+>   ok 3 STA reconfiguration updates only the new page
+>   ok 4 STA updates recover after backing page invalidation
+
+I'm having trouble understanding what real world scenario these tests are
+trying to model. VM migration?
+
+>   # VCPU0: total-stolen-time=3269800 test-stolen-time=3269800
+>   VCPU0:
+>       sequence:  6
+>       flags:     0
+>       steal:     3269800
+>       preempted: 0
+>       pad:      00000000000000000000000000000000000000000000000
+>   ok 5 vcpu0
+>   # VCPU1: total-stolen-time=898700 test-stolen-time=898700 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
+>   VCPU1:
+>       sequence:  4
+>       flags:     0
+>       steal:     898700
+>       preempted: 0
+>       pad:      00000000000000000000000000000000000000000000000
+>   ok 6 vcpu1
+>   # VCPU2: total-stolen-time=654000 test-stolen-time=654000 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
+>   VCPU2:
+>       sequence:  4
+>       flags:     0
+>       steal:     654000
+>       preempted: 0
+>       pad:      00000000000000000000000000000000000000000000000
+>   ok 7 vcpu2
+>   # VCPU3: total-stolen-time=800700 test-stolen-time=800700 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
+>   VCPU3:
+>       sequence:  4
+>       flags:     0
+>       steal:     800700
+>       preempted: 0
+>       pad:      00000000000000000000000000000000000000000000000
+>   ok 8 vcpu3
+>   # Totals: pass:8 fail:0 xfail:0 xpass:0 skip:0 error:0
+>   STA_LIFECYCLE_STATUS=0
+>   STA_LIFECYCLE_PASS
+> 
+>  tools/testing/selftests/kvm/steal_time.c | 113 +++++++++++++++++++++++
+>  1 file changed, 113 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+> index 82b94a82d..059f7fa60 100644
+> --- a/tools/testing/selftests/kvm/steal_time.c
+> +++ b/tools/testing/selftests/kvm/steal_time.c
+> @@ -8,6 +8,7 @@
+>  #include <time.h>
+>  #include <sched.h>
+>  #include <pthread.h>
+> +#include <sys/mman.h>
+>  #include <linux/kernel.h>
+>  #include <asm/kvm.h>
+>  #ifdef __riscv
+> @@ -329,6 +330,111 @@ static void steal_time_dump(struct kvm_vm *vm, u32 vcpu_idx)
+>  	pr_info("\n");
+>  }
+>  
+> +static gpa_t lifecycle_second_gpa;
+> +
+> +static void sta_lifecycle_guest(void)
+> +{
+> +	sta_set_shmem(ST_GPA_BASE, 0);
+> +	GUEST_SYNC(0);
+> +	/* The first update takes place on the next KVM_RUN. */
+> +	GUEST_SYNC(1);
+> +
+> +	sta_set_shmem(INVALID_GPA, 0);
+> +	GUEST_SYNC(2);
+> +	GUEST_SYNC(3);
+> +
+> +	sta_set_shmem(lifecycle_second_gpa, 0);
+> +	GUEST_SYNC(4);
+> +	GUEST_SYNC(5);
+> +
+> +	/* Userspace discards the second backing page before resuming us. */
+> +	GUEST_SYNC(6);
+> +	sta_set_shmem(INVALID_GPA, 0);
+> +	GUEST_DONE();
+> +}
+> +
+> +static void sta_lifecycle_run(struct kvm_vcpu *vcpu, unsigned int stage)
+> +{
+> +	struct ucall uc;
+> +
+> +	vcpu_run(vcpu);
+> +	switch (get_ucall(vcpu, &uc)) {
+> +	case UCALL_SYNC:
+> +		TEST_ASSERT_EQ(uc.args[1], stage);
+> +		break;
+> +	case UCALL_DONE:
+> +		TEST_ASSERT_EQ(stage, 7);
+> +		break;
+> +	case UCALL_ABORT:
+> +		REPORT_GUEST_ASSERT(uc);
+> +	default:
+> +		TEST_FAIL("Unexpected STA lifecycle exit at stage %u", stage);
+> +	}
+> +}
+> +
+> +static void check_sta_page(struct sta_struct *st)
+> +{
+> +	TEST_ASSERT(st->sequence && !(st->sequence & 1),
+> +		    "Expected a completed STA update, sequence=%u", st->sequence);
+> +	TEST_ASSERT_EQ(st->flags, 0);
+> +	TEST_ASSERT_EQ(st->preempted, 0);
+> +}
+> +
+> +static void check_sta_lifecycle(void)
+> +{
+> +	struct sta_struct snapshot, *first, *second;
+> +	struct kvm_vcpu *vcpu;
+> +	struct kvm_vm *vm;
+> +	unsigned long dirty = 0;
+> +	void *second_page;
+> +
+> +	vm = vm_create_with_one_vcpu(&vcpu, sta_lifecycle_guest);
+> +	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
+> +				    1, 2, KVM_MEM_LOG_DIRTY_PAGES);
+> +	/* Also exercise an STA structure ending exactly at a page boundary. */
+> +	WRITE_AND_SYNC_TO_GUEST(vm, lifecycle_second_gpa,
+> +				ST_GPA_BASE + 2 * vm->page_size - sizeof(struct sta_struct));
+> +	first = addr_gpa2hva(vm, ST_GPA_BASE);
+> +	second = addr_gpa2hva(vm, lifecycle_second_gpa);
+> +	second_page = addr_gpa2hva(vm, ST_GPA_BASE + vm->page_size);
+> +
+> +	sta_lifecycle_run(vcpu, 0);
+> +	sta_lifecycle_run(vcpu, 1);
+> +	check_sta_page(first);
+> +	kvm_vm_get_dirty_log(vm, 1, &dirty);
+> +	TEST_ASSERT(dirty & BIT(0), "STA update did not dirty the first page");
+> +	ksft_test_result_pass("STA shared page updates and is marked dirty\n");
+> +
+> +	sta_lifecycle_run(vcpu, 2);
+> +	snapshot = *first;
+> +	sta_lifecycle_run(vcpu, 3);
+> +	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
+> +		    "Disabled STA shared page was modified");
+> +	ksft_test_result_pass("STA disable stops shared page updates\n");
+> +
+> +	sta_lifecycle_run(vcpu, 4);
+> +	sta_lifecycle_run(vcpu, 5);
+> +	check_sta_page(second);
+> +	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
+> +		    "Old STA shared page was modified after reconfiguration");
+> +	dirty = 0;
+> +	kvm_vm_get_dirty_log(vm, 1, &dirty);
+> +	TEST_ASSERT(dirty & BIT(1), "STA update did not dirty the new page");
+> +	ksft_test_result_pass("STA reconfiguration updates only the new page\n");
+> +
+> +	TEST_ASSERT_EQ(madvise(second_page, vm->page_size, MADV_DONTNEED), 0);
+> +	TEST_ASSERT_EQ(second->sequence, 0);
+> +	sta_lifecycle_run(vcpu, 6);
+> +	check_sta_page(second);
+> +	dirty = 0;
+> +	kvm_vm_get_dirty_log(vm, 1, &dirty);
+> +	TEST_ASSERT(dirty & BIT(1), "Recovered STA update did not dirty the page");
+> +	ksft_test_result_pass("STA updates recover after backing page invalidation\n");
+> +
+> +	sta_lifecycle_run(vcpu, 7);
+> +	kvm_vm_free(vm);
+> +}
+> +
+>  static void check_steal_time_uapi(void)
+>  {
+>  	struct kvm_vm *vm;
+> @@ -535,9 +641,16 @@ int main(int ac, char **av)
+>  
+>  	ksft_print_header();
+>  	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
+> +#ifdef __riscv
+> +	ksft_set_plan(NR_VCPUS + 4);
+> +#else
+>  	ksft_set_plan(NR_VCPUS);
+> +#endif
+>  
+>  	check_steal_time_uapi();
+> +#ifdef __riscv
+> +	check_sta_lifecycle();
+> +#endif
+
+The #ifdefs aren't nice. Again, what are the tests trying to prove? And
+why wouldn't the other architectures need the same coverage?
+
+Thanks,
+drew
+
+>  
+>  	/* Run test on each VCPU */
+>  	for (i = 0; i < NR_VCPUS; ++i) {
+> 
+> base-commit: 23c62304dde29abe92013d85910d03a77dada35d
+> -- 
+> 2.34.1
+> 
+> 
+> -- 
+> kvm-riscv mailing list
+> kvm-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/kvm-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
