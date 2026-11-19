@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FA77606AA56
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 13:28:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 215EE606AA42
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2026 13:28:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mu5VXHmo
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y4EX7XIW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,34 +13,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xaO8o7k19gY+EjZ9As0DI0zph1VG7PeBwHndoYcbCT4=; b=mu5VXHmolhFobF0xue6hvQSdhn
-	ViRtAKxkOkwNInK0hVoF4mxPUn72tL3IoqzlsvYEaBHLwR7+mxzCMSjWCJxD/IUjVoy2HvIVGnqsi
-	jC8yNGpoihxHmQZwEVe1VQUu7AzakZO1u8xlzLPrFZt6o9+m1wNeMQ4C7Y94dD7dtok7SOQI9Tl7n
-	lIi8nth3TXseJVej4AN1jlb1UhdWpmK5BvoqLEOcP9CeUHmUO9iCDG3T0jyG3NYJ9Mt13Eq1g3FTa
-	lemCdsabG4Spj2hz9aArgywfwItr2yZtY5s2uLDG6hYCzkZyBmtHi5AmcA6D+tFSI6iTyjDd6v6A+
-	YGxe6csA==;
+	bh=adQ+ulWmP7BIbQNEHhcWhwVyxco5VERgGUiGyoE4uxA=; b=Y4EX7XIWptoP9c2ukf71zDYymf
+	qnbUanUudCH4VmNrCnitLNuJC4UGXO5c09ToFwokgAYrjf3cdYrCK4j1QG91IU4jwS654+8UJm/td
+	DQx/psIG+QtfOdU4QlOxFbQd5nQXqVVIHsxtL5QnW6h0r71HBifJVYW6uLgtBO2lAkwEj+FJ7WTwo
+	hh1HQYD0kN1LtBYTBHxttWm7VQIPjm5sBVd2vcpPbEYi/JSw/tpbaS/I90Rs1UdBBMUXeorbznSa8
+	Mutug/DgjyAXnQ93CrwFNeYvbw1iK+fzPuNoqkaPDK2h0ZcDkaoOQG/Cvo5tWoMT87oQDAztZeWT9
+	BaFe4msg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU2Ba-0000000C2XK-1RU3;
-	Thu, 19 Nov 2026 13:28:22 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.34])
+	id 1xU2Bi-0000000C2h9-31cF;
+	Thu, 19 Nov 2026 13:28:30 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU2BT-0000000C2Ix-0pWh;
-	Thu, 19 Nov 2026 13:28:17 +0000
+	id 1xU2BX-0000000C2Qd-2WLd;
+	Thu, 19 Nov 2026 13:28:21 +0000
 Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jVfRJ41Mwz4yjjD;
-	Thu, 19 Nov 2026 21:27:56 +0800 (CST)
-Received: from szxl2zmapp06.zte.com.cn ([10.1.32.108])
-	by mse-fl1.zte.com.cn with SMTP id 6AJDRoIs086380;
-	Thu, 19 Nov 2026 21:27:50 +0800 (+08)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4jVfRK1ktVz52SG3;
+	Thu, 19 Nov 2026 21:27:57 +0800 (CST)
+Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
+	by mse-fl1.zte.com.cn with SMTP id 6AJDRsH9086413;
+	Thu, 19 Nov 2026 21:27:54 +0800 (+08)
 	(envelope-from gong.shuai@sanechips.com.cn)
 Received: from ubuntu-35-gs (unknown [10.230.214.35])
 	by smtp (Zmail) with SMTP;
-	Thu, 19 Nov 2026 21:27:54 +0800
-X-Zmail-TransId: 3e816afef95902f-5649a
+	Thu, 19 Nov 2026 21:27:58 +0800
+X-Zmail-TransId: 3e816afef95d02f-56508
 X-Zmail-LocalSMTP: 1
 X-Zmail-RealSender: gong.shuai@sanechips.com.cn
 From: Gong Shuai <gong.shuai@sanechips.com.cn>
@@ -61,26 +61,26 @@ Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
         Tan Chi <tanchi25@mails.ucas.ac.cn>, Wu Fei <wu.fei9@sanechips.com.cn>,
         Zhao Qingye <zhao.qingye@sanechips.com.cn>,
         Gong Shuai <gong.shuai@sanechips.com.cn>
-Subject: [RFC PATCH v3 03/10] iommufd: Add RISC-V IOMMU cache invalidation data type
-Date: Thu, 19 Nov 2026 21:27:37 +0800
-Message-ID: <20261119132744.396426-4-gong.shuai@sanechips.com.cn>
+Subject: [RFC PATCH v3 07/10] iommufd: Add RISC-V IOMMU hardware info type
+Date: Thu, 19 Nov 2026 21:27:41 +0800
+Message-ID: <20261119132744.396426-8-gong.shuai@sanechips.com.cn>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
 References: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-MAIL: mse-fl1.zte.com.cn 6AJDRoIs086380
+X-MAIL: mse-fl1.zte.com.cn 6AJDRsH9086413
 X-TLS: YES
 X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Thu, 19 Nov 2026 21:27:56 +0800
+X-SOURCE-IP: 10.5.228.132 unknown Thu, 19 Nov 2026 21:27:57 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AFEF95C.001/4jVfRJ41Mwz4yjjD
+X-Fangmail-MID-QID: 6AFEF95D.000/4jVfRK1ktVz52SG3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261119_052815_449557_FA1DF7E3 
-X-CRM114-Status: GOOD (  12.49  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261119_052819_865891_F90DE283 
+X-CRM114-Status: GOOD (  12.13  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,72 +102,66 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Wu Fei <wu.fei9@sanechips.com.cn>
 
-Add IOMMU_VIOMMU_INVALIDATE_DATA_RISCV and
-struct iommu_viommu_riscv_invalidate to carry RISC-V IOTINVAL
-commands from user space. Define the command payload in the uAPI
-instead of relying on the driver internal struct
-riscv_iommu_command.
-
-The vIOMMU cache invalidation support added later uses this format
-to forward guest IOTINVAL commands to the physical IOMMU.
+A VMM needs the physical IOMMU capabilities to decide which features
+it can expose to a guest. Define IOMMU_HW_INFO_TYPE_RISCV and struct
+iommu_hw_info_riscv so IOMMU_GET_HW_INFO can return the RISC-V
+capabilities register.
 
 Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
-Co-developed-by: Gong Shuai <gong.shuai@sanechips.com.cn>
 Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
 ---
- include/uapi/linux/iommufd.h | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ include/uapi/linux/iommufd.h | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
 diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-index 809f4d44c0b0..fee63e6cbb7a 100644
+index fee63e6cbb7a..adc7f30b2b18 100644
 --- a/include/uapi/linux/iommufd.h
 +++ b/include/uapi/linux/iommufd.h
-@@ -926,10 +926,12 @@ struct iommu_hwpt_get_dirty_bitmap {
-  *                                        Data Type
-  * @IOMMU_HWPT_INVALIDATE_DATA_VTD_S1: Invalidation data for VTD_S1
-  * @IOMMU_VIOMMU_INVALIDATE_DATA_ARM_SMMUV3: Invalidation data for ARM SMMUv3
-+ * @IOMMU_VIOMMU_INVALIDATE_DATA_RISCV: Invalidation data for RISC-V IOMMU
-  */
- enum iommu_hwpt_invalidate_data_type {
- 	IOMMU_HWPT_INVALIDATE_DATA_VTD_S1 = 0,
- 	IOMMU_VIOMMU_INVALIDATE_DATA_ARM_SMMUV3 = 1,
-+	IOMMU_VIOMMU_INVALIDATE_DATA_RISCV = 2,
- };
- 
- /**
-@@ -992,6 +994,32 @@ struct iommu_viommu_arm_smmuv3_invalidate {
- 	__aligned_le64 cmd[2];
+@@ -733,6 +733,28 @@ struct iommu_hw_info_amd {
+ 	__aligned_u64 efr2;
  };
  
 +/**
-+ * struct iommu_viommu_riscv_invalidate - RISC-V IOMMU cache invalidation
-+ *         (IOMMU_VIOMMU_INVALIDATE_DATA_RISCV)
-+ * @cmd: 128-bit cache invalidation command that runs in the IOMMU command
-+ *       queue, in the format defined by the "IOMMU Page-table cache
-+ *       invalidation" section of the RISC-V IOMMU specification. Must be
-+ *       little-endian.
++ * struct iommu_hw_info_riscv - RISC-V IOMMU device info
++ *                              (IOMMU_HW_INFO_TYPE_RISCV)
 + *
-+ * Supported command list only when passing in a vIOMMU via @hwpt_id:
-+ *     IOTINVAL.VMA
++ * @capabilities: Value of the RISC-V IOMMU capabilities register, defined
++ *                in "IOMMU capabilities (capabilities)" of the RISC-V
++ *                IOMMU Architecture Specification. The value is reported
++ *                raw by the hardware.
 + *
-+ * The kernel overwrites GV and GSCID before issuing the command:
-+ *     GV = 1 and GSCID = the GSCID assigned to the vIOMMU
-+ *     PSCV and PSCID are taken unchanged from @cmd; When PSCV=1, PSCID
-+ *     must identify a stage-1 address space of this vIOMMU and match the
-+ *     PSCID installed in its vDC. When PSCV=0, PSCID is ignored.
++ * The VMM is responsible to determine the appropriate fields to be
++ * exposed to the VM since certain features are not currently supported
++ * by the kernel for nested domains. Current list of supported fields:
++ * - capabilities[Sv39, Sv48, Sv57, END, AMO_HWAD]
 + *
-+ * All other reserved bits must be 0.
-+ *
-+ * -EIO will be returned if the command is not supported, -EINVAL if it is
-+ * malformed.
++ * This list may expand in the future. It is important that VMMs do not
++ * expose bits outside the list to the VM, to allow for compatibility
++ * with future kernels.
 + */
-+struct iommu_viommu_riscv_invalidate {
-+	__aligned_le64 cmd[2];
++struct iommu_hw_info_riscv {
++	__aligned_u64 capabilities;
 +};
 +
  /**
-  * struct iommu_hwpt_invalidate - ioctl(IOMMU_HWPT_INVALIDATE)
-  * @size: sizeof(struct iommu_hwpt_invalidate)
+  * enum iommu_hw_info_type - IOMMU Hardware Info Types
+  * @IOMMU_HW_INFO_TYPE_NONE: Output by the drivers that do not report hardware
+@@ -743,6 +765,7 @@ struct iommu_hw_info_amd {
+  * @IOMMU_HW_INFO_TYPE_TEGRA241_CMDQV: NVIDIA Tegra241 CMDQV (extension for ARM
+  *                                     SMMUv3) info type
+  * @IOMMU_HW_INFO_TYPE_AMD: AMD IOMMU info type
++ * @IOMMU_HW_INFO_TYPE_RISCV: RISC-V IOMMU info type
+  */
+ enum iommu_hw_info_type {
+ 	IOMMU_HW_INFO_TYPE_NONE = 0,
+@@ -751,6 +774,7 @@ enum iommu_hw_info_type {
+ 	IOMMU_HW_INFO_TYPE_ARM_SMMUV3 = 2,
+ 	IOMMU_HW_INFO_TYPE_TEGRA241_CMDQV = 3,
+ 	IOMMU_HW_INFO_TYPE_AMD = 4,
++	IOMMU_HW_INFO_TYPE_RISCV = 5,
+ };
+ 
+ /**
 -- 
 2.53.0
 
