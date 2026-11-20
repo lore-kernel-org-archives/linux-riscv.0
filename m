@@ -2,11 +2,12 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B64B606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57CD4606A337
 	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 17:53:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MC7cbJKi;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=bEYI5EwW
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M5TUkMaH;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=bZlYZrgt;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=NBfjb13j
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,46 +15,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=29xENJF3KGrujOhVIbDyIibY9HiSdA4fIynUY6SZ+JA=; b=MC7cbJKikvL/XGX7xX6RXAOsSJ
-	eGah+LdVq+Ja1aCYmzb1x0WTdkrL3cw4/R3o/Wf9NDNMNi6llBtuWimA/BM2IJCQ1ynb9lzQM8yL0
-	WTP8GGf7awZLXyT+z5XC2joDVWyTNO/lqQbmuUjEKxFZ5yOkmC1gW69cxNAc75nG8S6luBRfS0Z8X
-	bY0/orI0rRO/0uT890CwQfCAiaaD1Rh2/8gymapTDlpPLuts1rALXg/1DuxrPU9BaclG+UK7DA92v
-	W6JI77Ee9PPQQLzeIhX5hrDJevSvM6BjxKu+TQQGDGCCfzFaeLxVRHr8pc0xTL3AblLT6fUr0abOt
-	II0g0DyQ==;
+	bh=AjpvR1misBod0r4IbYWgtO+XTulIpnz5JH5Zm4dbdCI=; b=M5TUkMaHkjhYju1w3KdUHtF7Cd
+	ocmgajmFXaTSJvpcIZ2LdtzWzUNPvzuGffStHwdXE39kdY6n3xBOs8JbEDxaKamDaxgH9kfQ7CYvi
+	A7bJ27wdHXIIBY//64Q6OXu7Bp0AZmatLqBNtuhgyMmupbk9IB3bJ9xo7PCGIa7Ei6tMTVi8RwvOJ
+	wBvUcqDHYrShkaRv5GRmEGic66Zg9rpeKGN/glqrj3UN2yxEJI6n8Lj2RDkCkXMy9sVmSw0HZFOqH
+	7xendzs1xngFpDvirnHFTPz0IWCHZhXijFki3jHKO7fvBlQUtaGZRsNykSAg61uZSiNRP5M2+MmlI
+	A1hBywZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUSnI-0000000FnQJ-1Kxp;
-	Fri, 20 Nov 2026 17:53:07 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1xUSnM-0000000FnSu-0KNs;
+	Fri, 20 Nov 2026 17:53:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUSme-0000000Fn7A-0otp;
-	Fri, 20 Nov 2026 17:52:44 +0000
+	id 1xUSmq-0000000FnFV-2Ibo;
+	Fri, 20 Nov 2026 17:52:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=FFXq79dT+fk3w3JE9kPi1vOCjtxN7RIp01dx8RKsFuQ=; b=bZlYZrgtAitfz/FPBXA7HnXmA+
+	dPQ1sKVPc6/D9fJ24RxUbokRGRJ/hxsHJLKowy45hx1U/5mb/plUrln82wYEAEtL+XRg5xhUW4O1p
+	WFW7HpWQrdFXYwGnwuHPsvEKJJW1TuYcqcWt75CxyXvgxfCA/8eOYWdN9VfOYA2ifmFLsnA9z5sQG
+	bt//FbU+cM6gRozDR1N/mmwY6igUerrWRYRW855iOX2YG/uBHPm+ipJtw+qDVVoj+oPAC+ksoAqwP
+	W+jmfRinsuri6JgZcqFEvt+lhErx1nZlEIub5cATIaz4omthUsmNiNM/tHvKMSrmhA3pvOiDxU2Rv
+	O8sHQkJQ==;
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUSmn-000000011xu-3rco;
+	Fri, 20 Nov 2026 17:52:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UNWA+3Jla7BwiX8DSjgogRYnNNuywf+5KzJ0CimKYnekEZtkUNFv0ea9wKuOIT0iHo9OvSK1IMGl4zlUUkz7/TLoyoy0wPhakt2KIMm/6fs5EgRGbRlP2fmVA/5wMGIX0VTx16v8wJzGfWJorZ+qDsw9vk1uuH0U7h7jI4BGP0RBcdskbyxoYZeN+1tiyLooq9OpINNiygazsuxh0/nhdLOUko/eLpYsr8T3wWvmEM9yJZ7fyyR1bvTXjzABMEB0W0eKB2BMgW81D5nk1VZvm+VheIARSuUvY6x8SA5XFR7zGF9lHvqO2Jev1JNJyfTeY5NTHsiCIRoyTGoNMb6w4g==
+ b=RiBBcX2cqbzI63m7xMaNQmWxzcRERuSU28+oLSZT54doRjNk0exeQ7UXr5hkoR1u9E0lBHEp4nxiYn2y5rfXJ/vV+dP9lmF3Soa0RpWq7QCZBP8hZIwLv2z4Xa7tgYIZtB27kTUESgi5OyE0A2n2a6hnJmNDjHYIUV2+EGT6ZmjINP8Lz6vv6kXbkcJp4VlbliB2a4mV7zOTa42Z9mzBW92+ue0A+lVtRProiSVvmXiK+9JCYuI7+hFB/CXt/sJnexuPDJ0M80kCbssLhmZrxe7AzGsiffqjJRCSVPqKzHd0eXrGsUPWQTdLPkbLPS0NL50WuDetdz3F4zTMMFkRzQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N5DrrFP3GY0rn0msucravho/pzUgwwp1zcKHDpuhFDw=;
- b=wYKUJqvzQmjVg345ECRZQM1hx33N9aQ+07JCmH28WtHVWUgKO1i76/kJEgzR/wIIIGnJXIrpMr5OX7vmPzcIPG1poQTDZUjgn9Jp20bTAINi4rzfAUApbe6L7VrmdfxkQrfEIkosK8YnD2o0AwMumsvYDPlLGiRaK4rAvdwZUfRhr4ftsA9iUDTr43XYT/vm0k6EqZgbrPlZOkBfa9hsQbRk61yvFho3SUrl1eHSsu/aMedOMzLJlzE3ngq0M+wu2dZ4wkRoqzWOZskJWHYHih+fzdb+ZL44qu9eMAacGn2elbnzhPajKKF4L8YwEH066Icp+tjZIXOhXiH5RboDjw==
+ bh=FFXq79dT+fk3w3JE9kPi1vOCjtxN7RIp01dx8RKsFuQ=;
+ b=UyckazTDE1d1VkIcoycUMQ2yyOa6tDUGCpYlTFgXbf7sYu7L2oczeLPXCgJ/3sv1BA4FMAdFg2I7r3FsKscY2TCAw7+Px9PYa+T/JykyJPWGCSvx9n50OhALm9WevogEEjcVFKN62wgJb02YTkks9fKpgUt+HedZyP5AkvLoh0KSA3YOrp5fgwnbyJxpTiCP02MfZ/gGNCktvTvwuqD7MaC0ORPW+IE02jxnXxccodjW8pbcf1o0+G4An8pzK4WCGcBmU2+Qb0NlBWzVPLs9S2yD9RcTU9AWxnzfGbgO9ITb9biLD0W1BveAQTbTvG2vqWtBXiLgxnqK5zI9JO3TDg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N5DrrFP3GY0rn0msucravho/pzUgwwp1zcKHDpuhFDw=;
- b=bEYI5EwWtqvt5SwMfThVf2V10tDD/4YXSRG8RNF7ZkjS+Mh4Elt+1qcVBa3ZyF4ZiwZ1AFVOb2hOgL3R3O+DbWH6eOuNXWUi0rDwkk9niHzVzxXyQeg/9ToVMod1xaUrjR8zkYtvRpByppiinbJeOoYB+/qHNty6cOXtXfg+kqsH+h9Z0lHDuorq4oDOFJT8uJJCiYHeXZ1ACbEMcOg4SYTAkheQNkclQJw3cZPmHdhgPulwhnUZcJ9Y+PBBnVOKbjGzF2qykgnJJX7GsKN2tXaMUpt28DqtPMhxEOTw07Jep0iN3Tw7p94KdUOrpLIOkaQ0JbeBFkGshoc4fYvvaQ==
+ bh=FFXq79dT+fk3w3JE9kPi1vOCjtxN7RIp01dx8RKsFuQ=;
+ b=NBfjb13jTAy3t7baUWRT1mrXPdKZp4m6t7u7O6tCslHV4TNLGcSSyB3eQ+J6f4Dac17pZsj/LmJ8UaOv9vaU34AQH7ckBDgpOjsxHIu1ArmV/sJnS4GSsVtgsh3D8TqZ58P5MqQ27zsAI4WZbZ+g63pCNHjTZ6+TsMG1cfQyQvJ+ae5VhHZV864HBk06CKY8zU1S19hbcETPSkajkZK193U6HvJnWP9mHiFONDQ0dR0lEQatBNBikGvQ2AglYgrFcncBMXHLCjewx/4R83Raz+gTfNRD8XYA3/XxOf5NNlSkMxZzwMtCYMFb2ibhKPLounFX8YP0AQhddMcne3klsQ==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12) by IA1PR12MB6329.namprd12.prod.outlook.com
  (2603:10b6:208:3e5::19) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 17:52:07 +0000
+ 2026 17:52:10 +0000
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 17:52:07 +0000
+ 17:52:10 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alexandre Ghiti <alex@ghiti.fr>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -81,69 +96,69 @@ Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
 	patches@lists.linux.dev,
 	=?utf-8?q?Piotr_Kr=C3=B3l?= <piotr.krol@3mdeb.com>,
 	Ross Philipson <ross.philipson@gmail.com>
-Subject: [PATCH v3 02/11] efi/libstub: Use free_addr/size as the arg to handle_kernel_image
-Date: Fri, 20 Nov 2026 13:51:55 -0400
-Message-ID: <2-v3-22d1a1eb7d2e+17de-arm64_drtm_jgg@nvidia.com>
+Subject: [PATCH v3 08/11] arm64: drtm: Add drtm_entry point to head.S
+Date: Fri, 20 Nov 2026 13:52:01 -0400
+Message-ID: <8-v3-22d1a1eb7d2e+17de-arm64_drtm_jgg@nvidia.com>
 In-Reply-To: <0-v3-22d1a1eb7d2e+17de-arm64_drtm_jgg@nvidia.com>
 References: 
-X-ClientProxiedBy: IA1P220CA0002.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:461::8) To CHBPR12MB731189.namprd12.prod.outlook.com
+X-ClientProxiedBy: BLAP220CA0004.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:208:32c::9) To CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA1PR12MB6329:EE_
-X-MS-Office365-Filtering-Correlation-Id: e1be3501-8468-4412-51a7-08df472efdda
+X-MS-Office365-Filtering-Correlation-Id: 926d9b36-11ff-463a-9844-08df472efe21
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|18002099003|6133799003|22082099003|261009223027099003|11063799006|261022115727099003|56012099006|921020|261026135527099003|261102123227099003|261028144727099003|261026140227099003|261021133027099003|261026121527099003|261022113327099003|261021121427099003|261021123027099003|261022105027099003|261022075727099003|261026130827099003|261021130227099003|261021135927099003|10067099003;
-X-Microsoft-Antispam-Message-Info: vZUxI33gdgPXs/cprGmgMR5E3GvjiUsJOoyv7BhrO2aWyWz7PyPltnU6IIrkV2uzYs1sYRQNy+iIWyYTFRitSVIdVeNn7vavtTs5VFkTUTePuyunkM46VJ1fm0juk2zpInCvHt3GHzwpDFTBR6J+Ysb4e0s8vXYpPu0ZyanslitMFRRAv37qpKPQmzcUoYvQhVJUht1JqOGcBq2ys4eoelwR8MZvMQzBYjkQ1pxFxv1M89sSgcLO+wnXtH57ITCmPbsobrEPH5j4T1CKIT6BMepvfS7fqK0e7qPUIqrOjU4UNqgkNSgICyoxBLrx7WyygAfMa+Npi7QH1FZ1G5wTTTCnO+nuSj/CPvKxCKdN1tsz5gk8J6VyUb7zUJO9RFSMsFUof0ihHdz/y+1kFG2A9zJ00KWz0dvXnZ/aGcgEso/CQEUhzYsnnZdyFnYqTtrsudgCCnu4AH8lULj19+hwwGZ/KlHeQOjDJomAnNdH+vgnzb4JlVB/I8vC2fJsTOhTdMLllFjBvNkXRgt5EJAakpMmik4DVVklQgISRZP8ERdC9IOxeQnzW3a+iiKbpZ927zrfXVIVJCtj9evCx4EEVm8v1mA1uQpZPW4lshhpb57IPRP3Z8wjCmkiDefpAJZcM7gkk/g5ElliQ0M6swx8ZT5NNfk2tsrEs3WyYWCTxcuHDEc9Y3MNRuzzVqjKG+VdNw2X/OUh0NW//YGzQr1zNQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(18002099003)(6133799003)(22082099003)(261009223027099003)(11063799006)(261022115727099003)(56012099006)(921020)(261026135527099003)(261102123227099003)(261028144727099003)(261026140227099003)(261021133027099003)(261026121527099003)(261022113327099003)(261021121427099003)(261021123027099003)(261022105027099003)(261022075727099003)(261026130827099003)(261021130227099003)(261021135927099003)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|18002099003|6133799003|22082099003|261009223027099003|3023799007|11063799006|260925021911599003|261022115727099003|260925022911599003|260925021311599003|56012099006|921020|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261022113327099003|261021121427099003|261022105027099003|261022075727099003|10067099003;
+X-Microsoft-Antispam-Message-Info: Fz3jObtsxHj8ZzLWoUSurKBW9Jb3VC0sEiJCKBDlzwTntBIdunsf5s3lizRV/8Mu/4swogL4CCvDiRm6+8Fz8jc5IYfpzfs2mAeGsn1T/b4vZXhvByKyI+Lk7LN+krkBuAcUFZnJT/Wz6DNaBWkKHxUEnEbOn7qPEs0lGW8QoJnlily6M7kXnGOS6vwZlHUxyiwEdzOtjL5HLIwY0oM537i2LxcZmmADF+ZO6XT998210B3iKldAnJF96tVBBSeQKCXGxoIDgAJGCDEzxNfocnM97E0ARSA536c704umEUqXpTYye9m5DhyclyXO0EQMYnLfBZiwOoRMyFvBLtdFO4lT3zs8KNlZGIGYW8oWGNHERqCVyHSs4eehrd+3gcW+I1pbFtZRUSX+yJQmHDZbj5DXq6UifKgbXMLzY8K6sgRz3RSLaUNKQNiv9QcMPZ1rnf2hF65mBEwovzsiDc0A714o28UqDaYX65AjR16fUPIm093nfhn2amFsFY/nyYTi+hUamt2Gq4GKhFVXEPrChNW9HII/AgIjQBOOFbWaniRlzbcO8n8Ik7/o/1IhU5W+4/JyLku3SDqvax7oixUAIIF6DUha59JhEp4tdyiPXouAbXA3LrWQc49c3sqe8IsrKJAXd00iZjLnpE8xnIoidCcAO61r85U5xH/xn+r21mgHBKkEaRbg0h1vcHZnaa6qqnGf4H/AZSmfzm1H2Qhrjg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(18002099003)(6133799003)(22082099003)(261009223027099003)(3023799007)(11063799006)(260925021911599003)(261022115727099003)(260925022911599003)(260925021311599003)(56012099006)(921020)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261022113327099003)(261021121427099003)(261022105027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KBhRIqwEtqvfcyn97uHMOarNSYCfPI2vnJZHNbbkil/5wnZW/T2Z15czMXE+?=
- =?us-ascii?Q?4oTd1Ul1t/5mmudMwUD4sYREJVSTwwn985JKOjKaMU0bOaOslROdMn6lwec/?=
- =?us-ascii?Q?djfMXTOMTJR82C50h7ClMuV6YMfyy4O1O/LR2TiT4FlqIZX2jBQ0bIjJ0Ztg?=
- =?us-ascii?Q?zIgGBMeWmGkReYzT3X6Fcr+H3XhfFl9rE8aMQe5tUvwjqeIMPOUwCAqUOHni?=
- =?us-ascii?Q?dV5cHjPBxkbdiVGO7F1PCnIbjLioMAhD/Az40DYArapiwiTlcakTnAtJoe56?=
- =?us-ascii?Q?hpZLxJ5/DoPJqM8T4e8GD5FIX5/MYq94+7+FtGpDSCkXCWjvhX+1Y6EE/j87?=
- =?us-ascii?Q?HF5ZWPbnuyouiSkHUGctkb+SJSpVbH3k7zFUiHCxjxbj6CXt2jcpN7SgCO1E?=
- =?us-ascii?Q?zx7kBQoi8vL9xpKX1L3T5Lwqccy5bzGi8zIyBT21E1MiblCWAZVPjW9VrlMV?=
- =?us-ascii?Q?z7gsY3d5ImaTpaUqN1+98ULcZLIuHrqT3ovQojM7LNvbjPGjzzVDR3xfdkAo?=
- =?us-ascii?Q?KyuGrpN+f+h0wo33W2E0QGYtNObBARSJvmj9XO9vxlTRnjkjkpp+zbXb4rCo?=
- =?us-ascii?Q?c+hptdUYrTNxOj/Z1xWqj606EemBtOH2W1sFRR+yiboa4aG0Bw/jbAnbmthm?=
- =?us-ascii?Q?Jg4To+mXp5COG/BDO9c5T4vu3dngyWcWkQePrKMacJI3A//mS513vHGqcdSM?=
- =?us-ascii?Q?iuXkYrHPap72HS2pMxEX/JKEV24Y9aJE02azLaox/m2cC/qJg5kZ3+WNoa7h?=
- =?us-ascii?Q?zSbtEEBYbnpDx0ZG8/UsbKLScy0mhSC+jn4N6fO+OaNEH/SuFTQJgkg8csx1?=
- =?us-ascii?Q?06qeIGpUJ4/JNb9N1dRlc8dCZJLOgelC6Z5FR70pJbw4joDLbzVOAy3jVB9F?=
- =?us-ascii?Q?JfyZBGeUDD67wKGmybEqdFYPnlZEIlGCbTxKmo7aM6nxcsohrHu073aGIX4R?=
- =?us-ascii?Q?BF5VvIZb+vhtfSqIg0EYZ7B59RykzKOaWsgJNlYaG3F3kXcZ80jwDQ06YjHX?=
- =?us-ascii?Q?6/rlHA1OoYjHj1QhSqp3FCACKgk2U6Zu786sfaikALnyMqM8kn+PLN8sNZuY?=
- =?us-ascii?Q?IOgS2H+6k4gG+785mmY4e63zrr6+UdkZVUDIzpwx/5mNfQ97Q7JYAQRTfufK?=
- =?us-ascii?Q?m1zwlTgaPn1bb4Ackyo3BCts0h0/B0tNCntlcqfplsxQjA7wtgFpMv/CgV2M?=
- =?us-ascii?Q?7ClfXiRaxqCY9gz1L94vzcZhMLKUawFloLYSn8HMyaOPjodf/J75R4aMw09/?=
- =?us-ascii?Q?MvV7/qbmN4mxTxjqi5tkJDdf3Pek5q+TH2GVIXX2jwIDYlwVh+OI6610MvOI?=
- =?us-ascii?Q?BfcU+herMRzf7Y+lbmsHiyfMBsfaPlnSQhAyJxrbbW++o25A/u5YQffR2JDv?=
- =?us-ascii?Q?1Fjsys6wufLZCnfZ7/kaZldp6tuCp/5XsuFjEMvKi4lwnXWZv/WW4ADuf0eL?=
- =?us-ascii?Q?8Qxzh6hoUo6TGA5vjWF92tKe/UqfQW3Eutx+DXA3nN6W7PCdIszdb2GiIeGR?=
- =?us-ascii?Q?tiXK+fNpz+i+7ebs4IUPUoq6DmqZBc4LNK+FoXN8qmY9Si3qneGFgi+P5TY9?=
- =?us-ascii?Q?4USF5oBQAAVaXD2Q4uZsLa0f9diyiKqNxewso14ll35mTiuT+1d171gG6TvQ?=
- =?us-ascii?Q?TIiad47tvBwSAMsFz5h+ts708B2mgJmo5cMy/M5hOsWolb/KAluirB9HdCoJ?=
- =?us-ascii?Q?d7URBmY+/yuK4X/r8xYaDS/mrjhlaspyc7yUb55BaB/ZcKTD?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LrNAkOIFRomYdRq7+j4pasQL8zhIGbxPd8c9VvyC//DQDGPKXda/i81ayeAs?=
+ =?us-ascii?Q?Ld4pTWlH/l/p8PvvvlHsB493jjao/7FoTWHOXPcwrXc7SAd5DWfiyTsbJCZO?=
+ =?us-ascii?Q?KFYCQ45FK5gAgqan++GtZVNofWunUkzvvDsDbvQuB2plnkv8qYzIr40Z+d9A?=
+ =?us-ascii?Q?bgXoJuO4dux6vocQADqOIqs2FpNd5BlKp6ndEey1NfWJM0Sl6MPMJr0I0mIj?=
+ =?us-ascii?Q?Uab+Pou7QTj1dLpSJ1N6JsQc9MAxkbGgD45mGJOJze7pwDUt+YRFfWxM1F1v?=
+ =?us-ascii?Q?aaOq+Awhb+524hEKrbL6KJHurXdI1cms/ZkT/UmAz/wCDJ8tSz8NtwblduF9?=
+ =?us-ascii?Q?WyuaOCbpMQ3eVNK/6yXXnizw5LVjtblaWRIUM+MA93uqL5SUp5GUaLacjBFf?=
+ =?us-ascii?Q?17NEg5zmEhpUtzMGPmfBcDVRYxvssLXJzK1QUl7f0jTBX4plJs+a0ZWYYyVO?=
+ =?us-ascii?Q?gfhozipY0Ewo1GNnXTBh4gdYC6TONgVwPPziYpIBTnd0V8vJwyz0Ldu6ba7f?=
+ =?us-ascii?Q?42I1Hnj7sbg1KouRfh6IOuX4ypogEqO4oXdK6nmYedkmOo726dXP1+8P6U5x?=
+ =?us-ascii?Q?W+CKdgZMLV7XgNmr5UJFhtH9VmtKY7k+RZkrWFAieHjKRKO3GyqTJArmmbnD?=
+ =?us-ascii?Q?TqdicNFtjJ0uW9iK46KcqB27kRYuQGZeoqTXUFzcIsd6IzdXvmzJ7JswqI6e?=
+ =?us-ascii?Q?EFz3qt0GXxVcjfUuW5Q7tob/a35avWbUSz+YV6Qv7/YrIbp/daY1kcY1PRA3?=
+ =?us-ascii?Q?w+o+/HBeDc3JTUQwJZ6IqBAJQpLYCo2H+AuCZWj4+kPxN6K2//4lhzYLrZ0B?=
+ =?us-ascii?Q?pywLJ4zCEcAVIafZY4mPtzCTW7rV55zYE9yIIWlYmhSbtEQ4aIwYbmWZ5HNl?=
+ =?us-ascii?Q?makixyrH6w9JRjbviTTRSXnxEwN9XCmJJgAIkSW2kgOxWt3oben1rCUggY/T?=
+ =?us-ascii?Q?jF1M5Rc52Ut69EjdagIPTPYZYMZa0VGs3negdLtVJZNfqCfSjMKdbua+vD99?=
+ =?us-ascii?Q?Fn8IA6Oz7cf378NAM/PIpUtChlVRFhVT/AlvmR1bPF+HtXA43WUPifHmmcIl?=
+ =?us-ascii?Q?jWNK44k7Dw2lcTRUEiP2g1KcVncXdAv3XlzeRSnPOmh6xvTt1WJb2AZT/9Rc?=
+ =?us-ascii?Q?JyRae+JK7kcxYMBa7IPe/7EHXUVqe3/IG/WhYRXTP5rkeQuiPgyPmClSV98l?=
+ =?us-ascii?Q?DedKHcQKadB5CNwzRsBjCaY/g3eh9B4Dap0dhEohjtOItrotO/HRUuntekM9?=
+ =?us-ascii?Q?ZmBnoOqfCt5Vx/NBpCoSQ4h6r4Bz5ISa3P5r1crSOwhDMZNHJ0MfvjgrC3WV?=
+ =?us-ascii?Q?uhBBvHwhoYICCoMVMsi+XJaB5R5wG2TDZPxgxNnatSJW4WBVjH2lozCtVRzk?=
+ =?us-ascii?Q?S9yRM5Um5k9kX3TYY81enHb7rg0gmBHpHhMyxZIDUm6yxS9ZwfYzri1SELJU?=
+ =?us-ascii?Q?JCzgL+lbLvKeQzRRzl/fP9oQsBwKYVf7s1ZrTvzAH/zPrBPFbwYucqOwq9UL?=
+ =?us-ascii?Q?xpvqIHUsXv9N/m8f5dIw7+gybFvgZ4Ks3Hxdq8VdH5J7nRpRWm3pnUQzNI8/?=
+ =?us-ascii?Q?fvFF7N35X/IoudsPK850k4SJJnsAmKdaJrG8H/9TBC6yD4YR8nq8YvRlgLxG?=
+ =?us-ascii?Q?Ufy52tmwHbf/6WP3D0Y9dRIN01nxmy3SkywVjpQlxJDNZLGJ/I6u8PJZh/EL?=
+ =?us-ascii?Q?qydnWmOxN4d2Y32lrYqu/X5CfLdFojrav3SSZg0h/ffxXy8B?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1be3501-8468-4412-51a7-08df472efdda
+X-MS-Exchange-CrossTenant-Network-Message-Id: 926d9b36-11ff-463a-9844-08df472efe21
 X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 17:52:06.5321
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 17:52:07.0581
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: t8hIUdYsuzHhv5l0UEOX7r/xu8j5Ao42UjiG1lDLaydNh4+yEG0SVXCC136LJ5m0
+X-MS-Exchange-CrossTenant-UserPrincipalName: fE7bgKuLA2V+AKMk1QiPRBsBHIQBWB3/pjTdyC30w/an1C+D4Nst5fyEFnJuQK9v
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6329
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261120_095225_030913_923DDD9E 
-X-CRM114-Status: GOOD (  15.09  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261120_175233_872993_9BFF9197 
+X-CRM114-Status: GOOD (  20.37  )
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,313 +178,280 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The only use for these values is to trigger a memory free if the boot is
-aborted by efi_pe_entry(), make it clear through the call chain.
+The DRTM launch defined by DEN0113 cannot use primary_entry because the
+spec defines a different launch protocol. drtm_entry is a small trampoline
+that validates the DRTM provided data matches the location expected from
+the link layout, acquires the DTB through an EFI stub writable handoff
+struct and then jumps to primary_entry.
 
-This cleanly allows them to be used to describe something that is not the
-image in the next patch.
+Add  drivers/firmware/drtm/arm64.c, as later patches and series will need more
+kernel side functions.
 
-Reorganize efi_kaslr_relocate_kernel() with a efi_kaslr_copy_kernel()
-helper as clang isn't able to grok the original control flow once
-image_addr is only set by allocation.
+Passing the fdt address like this will require security hardening in
+future series.
 
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- drivers/firmware/efi/libstub/arm32-stub.c     |  8 +-
- drivers/firmware/efi/libstub/arm64-stub.c     |  6 +-
- drivers/firmware/efi/libstub/efi-stub-entry.c |  8 +-
- drivers/firmware/efi/libstub/efistub.h        |  8 +-
- drivers/firmware/efi/libstub/kaslr.c          | 88 +++++++++++--------
- drivers/firmware/efi/libstub/loongarch-stub.c | 10 +--
- drivers/firmware/efi/libstub/riscv-stub.c     |  6 +-
- 7 files changed, 73 insertions(+), 61 deletions(-)
+ arch/arm64/include/asm/drtm.h             | 20 ++++++
+ arch/arm64/kernel/head.S                  | 83 +++++++++++++++++++++++
+ arch/arm64/kernel/vmlinux.lds.S           |  6 ++
+ drivers/firmware/Makefile                 |  1 +
+ drivers/firmware/drtm/Makefile            |  2 +
+ drivers/firmware/drtm/arm64.c             | 10 +++
+ drivers/firmware/efi/libstub/efistub.h    | 14 ++++
+ drivers/firmware/efi/libstub/image_info.S |  2 +
+ 8 files changed, 138 insertions(+)
+ create mode 100644 drivers/firmware/drtm/Makefile
+ create mode 100644 drivers/firmware/drtm/arm64.c
 
-diff --git a/drivers/firmware/efi/libstub/arm32-stub.c b/drivers/firmware/efi/libstub/arm32-stub.c
-index 89e48ac0b7cbbe..b4c843e7f6b8fd 100644
---- a/drivers/firmware/efi/libstub/arm32-stub.c
-+++ b/drivers/firmware/efi/libstub/arm32-stub.c
-@@ -125,8 +125,8 @@ extern u32 zimage_magic_table[] asm("_table_start");
+diff --git a/arch/arm64/include/asm/drtm.h b/arch/arm64/include/asm/drtm.h
+index 34201bc092bcc6..e74328808466c0 100644
+--- a/arch/arm64/include/asm/drtm.h
++++ b/arch/arm64/include/asm/drtm.h
+@@ -176,6 +176,10 @@
+ #define ARM_DRTM_ALREADY_CLOSED			-11
+ #define ARM_DRTM_TPM_ERROR			-12
  
- struct efi_image_info efistub_image_info = {};
++/* Offsets in struct arm64_drtm_handoff */
++#define ARM64_DRTM_HANDOFF_FDT_ADDR_OFFSET	0
++#define ARM64_DRTM_HANDOFF_ENABLED_OFFSET	8
++
+ #ifndef __ASSEMBLY__
  
--efi_status_t handle_kernel_image(unsigned long *image_addr,
--				 unsigned long *image_size,
-+efi_status_t handle_kernel_image(unsigned long *free_addr,
-+				 unsigned long *free_size,
- 				 efi_loaded_image_t *image,
- 				 efi_handle_t image_handle,
- 				 const struct efi_image_info **image_info)
-@@ -173,8 +173,8 @@ efi_status_t handle_kernel_image(unsigned long *image_addr,
- 	efi_free(kernel_base - alloc_base, alloc_base);	/* no-op if 0 */
- 	efi_free(alloc_base + margin - kernel_base, kernel_base + alloc_size);
- 
--	*image_addr = kernel_base;
--	*image_size = alloc_size;
-+	*free_addr = kernel_base;
-+	*free_size = alloc_size;
- 
- 	return EFI_SUCCESS;
- }
-diff --git a/drivers/firmware/efi/libstub/arm64-stub.c b/drivers/firmware/efi/libstub/arm64-stub.c
-index 351fcb4493e19b..e0adc4de0beac3 100644
---- a/drivers/firmware/efi/libstub/arm64-stub.c
-+++ b/drivers/firmware/efi/libstub/arm64-stub.c
-@@ -13,8 +13,8 @@
- 
- #include "efistub.h"
- 
--efi_status_t handle_kernel_image(unsigned long *image_addr,
--				 unsigned long *image_size,
-+efi_status_t handle_kernel_image(unsigned long *free_addr,
-+				 unsigned long *free_size,
- 				 efi_loaded_image_t *image,
- 				 efi_handle_t image_handle,
- 				 const struct efi_image_info **image_info)
-@@ -30,7 +30,7 @@ efi_status_t handle_kernel_image(unsigned long *image_addr,
- 		efi_err("FIRMWARE BUG: kernel image not aligned on %dk boundary\n",
- 			SEGMENT_ALIGN >> 10);
- 
--	return efi_kaslr_relocate_kernel(image_addr, image_size, image_info,
-+	return efi_kaslr_relocate_kernel(free_addr, free_size, image_info,
- 					 efi_kaslr_get_phys_seed(image_handle));
+ #include <linux/bitfield.h>
+@@ -301,5 +305,21 @@ static inline s64 arm_drtm_enable_secure_interrupts(void)
+ 	return res.a0;
  }
  
-diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
-index fd272d07737371..7febed273c8c08 100644
---- a/drivers/firmware/efi/libstub/efi-stub-entry.c
-+++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
-@@ -21,8 +21,8 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
- 	const struct efi_image_info *image_info = &efistub_image_info;
- 	efi_loaded_image_t *image;
- 	efi_status_t status;
--	unsigned long image_addr;
--	unsigned long image_size = 0;
-+	unsigned long free_addr;
-+	unsigned long free_size = 0;
++/*
++ * Since we cannot pass a parameter through the launch to drtm_entry any
++ * additional data is written by the stub here.
++ */
++struct arm64_drtm_handoff {
++	__le64 fdt_addr;
++	u8 drtm_enabled;
++};
++
++static_assert(offsetof(struct arm64_drtm_handoff, fdt_addr) ==
++	      ARM64_DRTM_HANDOFF_FDT_ADDR_OFFSET);
++static_assert(offsetof(struct arm64_drtm_handoff, drtm_enabled) ==
++	      ARM64_DRTM_HANDOFF_ENABLED_OFFSET);
++
++extern struct arm64_drtm_handoff drtm_handoff;
++
+ #endif /* !__ASSEMBLY__ */
+ #endif /* __ASM_DRTM_H */
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index d6ba3c0af81190..dbc8a7cc0938f4 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -21,6 +21,7 @@
+ #include <asm/asm-offsets.h>
+ #include <asm/cache.h>
+ #include <asm/cputype.h>
++#include <asm/drtm.h>
+ #include <asm/el2_setup.h>
+ #include <asm/elf.h>
+ #include <asm/image.h>
+@@ -35,6 +36,7 @@
+ #include <asm/stacktrace/frame.h>
+ #include <asm/thread_info.h>
+ #include <asm/virt.h>
++#include <uapi/linux/psci.h>
  
- 	WRITE_ONCE(efi_system_table, systab);
+ #include "efi-header.S"
  
-@@ -53,7 +53,7 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
+@@ -131,6 +133,87 @@ SYM_CODE_START(primary_entry)
+ SYM_CODE_END(primary_entry)
  
- 	efi_info("Booting Linux Kernel...\n");
- 
--	status = handle_kernel_image(&image_addr, &image_size,
-+	status = handle_kernel_image(&free_addr, &free_size,
- 				     image, handle, &image_info);
- 	if (status != EFI_SUCCESS) {
- 		efi_err("Failed to relocate kernel\n");
-@@ -62,7 +62,7 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
- 
- 	status = efi_stub_common(handle, image, image_info, cmdline_ptr);
- 
--	efi_free(image_size, image_addr);
-+	efi_free(free_size, free_addr);
- 
- 	return status;
- }
+ 	__INIT
++#ifdef CONFIG_ARM64_DRTM
++/*
++ * Entry point used by a DRTM launch. Verify that information provided by the
++ * EFI stub matches expectations. We rely on an untrusted-write/trusted-verify
++ * approach so this doesn't have to deal with writing to cache-off memory. Per
++ * DEN0113 R45380, the launch supplies:
++ *
++ *   x0 = physical base of the DLME region
++ *   x1 = offset of thee DLME Data, which is several tables written by
++ *        the launch to pass trusted information to the post launch kernel
++ *
++ * These values must match the link layout in vmlinux.lds.S or the launch is
++ * invalid. The EFI stub will get them from the efi_image_info and pass them
++ * into arm_drtm_parameters.
++ *
++ * DEN0113 R45450-R45470 specify the remaining entry state as the PSCI CPU_ON
++ * initial state: AArch64 at the highest Non-secure EL, little-endian, with the
++ * MMU and D-cache disabled and Non-secure asynchronous/debug exceptions
++ * masked.
++ *
++ * Per DEN0113 R45220 the launch cleans and invalidates the whole "DLME region"
++ * which is everything from _text till past __drtm_dlme_start before
++ * it measures the image. Thus the handoff data written into the region by the
++ * EFI stub is safely readable here with the MMU off.
++ */
++SYM_CODE_START(drtm_entry)
++	/* Verify that x0 is the runtime physical address of _text */
++	adr_l	x2, _text
++	cmp	x0, x2
++	b.ne	.Ldrtm_bad_entry
++
++	/* x0 + x1 must be the runtime physical start of the DLME data */
++	add	x3, x0, x1
++	adr_l	x4, __drtm_dlme_start
++	cmp	x3, x4
++	b.ne	.Ldrtm_bad_entry
++
++	/* Stub must set drtm_enabled */
++	adr_l	x4, drtm_handoff
++	ldrb	w2, [x4, #ARM64_DRTM_HANDOFF_ENABLED_OFFSET]
++	cbz	x2, .Ldrtm_bad_entry
++
++	/* primary_entry(handoff->fdt_addr, 0, 0, 0) */
++	ldr	x0, [x4, #ARM64_DRTM_HANDOFF_FDT_ADDR_OFFSET]
++	mov	x1, xzr
++	mov	x2, xzr
++	mov	x3, xzr
++	b	primary_entry
++
++	/*
++	 * Can't continue, launch is corrupted, spec says the DLME can call
++	 * SET_ERROR which should forward the error to the next boot for
++	 * display.
++	 */
++.Ldrtm_bad_entry:
++	ldr	w0, =ARM_DRTM_SMC_SET_ERROR
++	mov	x1, #ARM_DRTM_MAKE_ERROR(ARM_DRTM_ERROR_PHASE_DLME,
++					 ARM_DRTM_ERROR_ID_VENDOR, 0)
++	mov	x2, xzr
++	mov	x3, xzr
++	mov	x4, xzr
++	mov	x5, xzr
++	mov	x6, xzr
++	mov	x7, xzr
++	smc	#0
++	/* Cold-reset the machine as required after reporting a DLME error */
++	ldr	w0, =PSCI_0_2_FN_SYSTEM_RESET
++	mov	x1, xzr
++	mov	x2, xzr
++	mov	x3, xzr
++	mov	x4, xzr
++	mov	x5, xzr
++	mov	x6, xzr
++	mov	x7, xzr
++	smc	#0
++	/* FW is really broken, just hang. */
++1:	wfe
++	b	1b
++SYM_CODE_END(drtm_entry)
++#endif
++
+ SYM_CODE_START_LOCAL(record_mmu_state)
+ 	mrs	x19, CurrentEL
+ 	cmp	x19, #CurrentEL_EL2
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index f4e9fd90cd1b12..a68881189f2313 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -380,6 +380,8 @@ SECTIONS
+ 	 *   DLME Region Address = _text's PA ie the start of Image
+ 	 *   DLME Region Size = DLME Data Offset + "Minimum Size of DLME data"
+ 	 *   DLME Image Start Offset = __drtm_measured_start - _text
++	 *   DLME Entry Point Offset = drtm_entry - __drtm_measured_start
++	 *                             (in .init.text)
+ 	 *   DLME Image Size = __drtm_measured_end - __drtm_measured_start
+ 	 *   DLME Data Offset = __drtm_dlme_start - _text
+ 	 *   Normal World DCE region address = PA of __drtm_dlme_start +
+@@ -466,6 +468,10 @@ ASSERT(__hyp_idmap_text_end - __hyp_idmap_text_start <= PAGE_SIZE,
+ 	"HYP init code too big")
+ ASSERT(__idmap_text_end - (__idmap_text_start & ~(SZ_4K - 1)) <= SZ_4K,
+ 	"ID map text too big or misaligned")
++#ifdef CONFIG_ARM64_DRTM
++ASSERT(drtm_entry >= __drtm_measured_start && drtm_entry < __drtm_measured_end,
++	"DRTM entry is outside the measured image")
++#endif
+ #ifdef CONFIG_HIBERNATION
+ ASSERT(__hibernate_exit_text_end - __hibernate_exit_text_start <= SZ_4K,
+        "Hibernate exit text is bigger than 4 KiB")
+diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+index 50b3383131522d..7f74fd1bf75bda 100644
+--- a/drivers/firmware/Makefile
++++ b/drivers/firmware/Makefile
+@@ -30,6 +30,7 @@ obj-y				+= arm_rmm/
+ obj-y				+= arm_scmi/
+ obj-y				+= broadcom/
+ obj-y				+= cirrus/
++obj-y				+= drtm/
+ obj-y				+= meson/
+ obj-y				+= microchip/
+ obj-$(CONFIG_COREBOOT_FIRMWARE)	+= coreboot/
+diff --git a/drivers/firmware/drtm/Makefile b/drivers/firmware/drtm/Makefile
+new file mode 100644
+index 00000000000000..658798bfd17801
+--- /dev/null
++++ b/drivers/firmware/drtm/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_ARM64_DRTM) += arm64.o
+diff --git a/drivers/firmware/drtm/arm64.c b/drivers/firmware/drtm/arm64.c
+new file mode 100644
+index 00000000000000..bf736ceb7f0368
+--- /dev/null
++++ b/drivers/firmware/drtm/arm64.c
+@@ -0,0 +1,10 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES
++ *
++ * Support functions for ARM DEN 0113 "DRTM Architecture for Arm"
++ */
++#include <linux/efi.h>
++
++#include <asm/drtm.h>
++
++struct arm64_drtm_handoff drtm_handoff __efi_data_handoff;
 diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
-index 80b9558f9f689a..e404f29693c51c 100644
+index 154d2aefe6505f..386d65a3943af7 100644
 --- a/drivers/firmware/efi/libstub/efistub.h
 +++ b/drivers/firmware/efi/libstub/efistub.h
-@@ -1187,8 +1187,8 @@ struct efi_image_info {
-  * must be reserved. On failure it is required to free all
-  * all allocations it has made.
-  */
--efi_status_t handle_kernel_image(unsigned long *image_addr,
--				 unsigned long *image_size,
-+efi_status_t handle_kernel_image(unsigned long *free_addr,
-+				 unsigned long *free_size,
- 				 efi_loaded_image_t *image,
- 				 efi_handle_t image_handle,
- 				 const struct efi_image_info **image_info);
-@@ -1331,8 +1331,8 @@ const u8 *__efi_get_smbios_string(const struct efi_smbios_record *record,
+@@ -1182,6 +1182,8 @@ struct efi_image_info {
+ #ifdef CONFIG_ARM64_DRTM
+ 	s32	__drtm_measured_start_offset;
+ 	s32	__drtm_measured_end_offset;
++	s32	drtm_entry_offset;
++	s32	drtm_handoff_offset;
+ #endif
+ };
  
- efi_status_t efi_remap_image(unsigned long image_base, unsigned alloc_size,
- 			     unsigned long code_size);
--efi_status_t efi_kaslr_relocate_kernel(unsigned long *image_addr,
--				       unsigned long *alloc_size,
-+efi_status_t efi_kaslr_relocate_kernel(unsigned long *free_addr,
-+				       unsigned long *free_size,
- 				       const struct efi_image_info **image_info,
- 				       u32 phys_seed);
- u32 efi_kaslr_get_phys_seed(efi_handle_t image_handle);
-diff --git a/drivers/firmware/efi/libstub/kaslr.c b/drivers/firmware/efi/libstub/kaslr.c
-index 7cf68a6123946a..2f1f3e19583def 100644
---- a/drivers/firmware/efi/libstub/kaslr.c
-+++ b/drivers/firmware/efi/libstub/kaslr.c
-@@ -80,10 +80,30 @@ static bool check_image_region(u64 base, u64 size)
- 	return false;
+@@ -1241,6 +1243,18 @@ efistub_drtm_measured_size(const struct efi_image_info *image_info)
+ 	return image_info->__drtm_measured_end_offset -
+ 	       image_info->__drtm_measured_start_offset;
  }
- 
-+static void efi_kaslr_copy_kernel(unsigned long image_addr,
-+				  unsigned long *free_addr,
-+				  unsigned long *free_size,
-+				  const struct efi_image_info **image_info)
++
++static inline unsigned long
++efistub_drtm_entry_offset(const struct efi_image_info *image_info)
 +{
-+	unsigned long kernel_base	= efistub_kernel_base(*image_info);
-+	unsigned long kernel_size	= efistub_kernel_size(*image_info);
-+	unsigned long kernel_codesize	= efistub_kernel_codesize(*image_info);
-+	unsigned long kernel_memsize	= efistub_kernel_memsize(*image_info);
-+
-+	memcpy((void *)image_addr, (void *)kernel_base, kernel_size);
-+	*free_addr = image_addr;
-+	*free_size = kernel_memsize;
-+
-+	efi_icache_sync(image_addr, image_addr + kernel_codesize);
-+	efi_remap_image(image_addr, kernel_memsize, kernel_codesize);
-+
-+	*(unsigned long *)image_info += image_addr - kernel_base;
++	return image_info->drtm_entry_offset - image_info->_text_offset;
 +}
 +
- /**
-  * efi_kaslr_relocate_kernel() - Relocate the kernel (random if KASLR enabled)
-- * @image_addr:		Pointer to variable carrying the image base address
-- * @alloc_size:		Pointer to variable carrying the allocated size
-+ * @free_addr:		Pointer to variable carrying the address to free
-+ * @free_size:		Pointer to variable carrying the size to free
-  * @image_info:		Pointer to struct efi_image_info pointer
-  * @phys_seed:		Random seed used for the relocation
-  *
-@@ -93,16 +113,15 @@ static bool check_image_region(u64 base, u64 size)
-  *
-  * Return:	status code, EFI_SUCCESS if relocation is successful
-  */
--efi_status_t efi_kaslr_relocate_kernel(unsigned long *image_addr,
--				       unsigned long *alloc_size,
-+efi_status_t efi_kaslr_relocate_kernel(unsigned long *free_addr,
-+				       unsigned long *free_size,
- 				       const struct efi_image_info **image_info,
- 				       u32 phys_seed)
- {
- 	unsigned long kernel_base	= efistub_kernel_base(*image_info);
--	unsigned long kernel_size	= efistub_kernel_size(*image_info);
--	unsigned long kernel_codesize	= efistub_kernel_codesize(*image_info);
- 	unsigned long kernel_memsize	= efistub_kernel_memsize(*image_info);
- 	u64 min_kimg_align		= efi_get_kimg_min_align();
-+	unsigned long image_addr;
- 	efi_status_t status;
++static inline void *
++efistub_drtm_handoff(const struct efi_image_info *image_info)
++{
++	return offset_to_ptr(&image_info->drtm_handoff_offset);
++}
+ #endif
  
- 	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE) && phys_seed != 0) {
-@@ -111,43 +130,36 @@ efi_status_t efi_kaslr_relocate_kernel(unsigned long *image_addr,
- 		 * locate the kernel at a randomized offset in physical memory.
- 		 */
- 		status = efi_random_alloc(kernel_memsize, min_kimg_align,
--					  image_addr, phys_seed,
-+					  &image_addr, phys_seed,
- 					  EFI_LOADER_CODE, 0, EFI_ALLOC_LIMIT);
--		if (status != EFI_SUCCESS)
--			efi_warn("efi_random_alloc() failed: 0x%lx\n", status);
--	} else {
--		status = EFI_OUT_OF_RESOURCES;
--	}
--
--	if (status != EFI_SUCCESS) {
--		if (!check_image_region(kernel_base, kernel_memsize)) {
--			efi_err("FIRMWARE BUG: Image BSS overlaps adjacent EFI memory region\n");
--		} else if (IS_ALIGNED(kernel_base, min_kimg_align) &&
--			   (kernel_base + kernel_memsize) < EFI_ALLOC_LIMIT) {
--			/*
--			 * Just execute from wherever we were loaded by the
--			 * UEFI PE/COFF loader if the placement is suitable.
--			 */
-+		if (status == EFI_SUCCESS) {
-+			efi_kaslr_copy_kernel(image_addr, free_addr, free_size,
-+					      image_info);
- 			return EFI_SUCCESS;
- 		}
--
--		status = efi_allocate_pages_aligned(kernel_memsize, image_addr,
--						    ULONG_MAX, min_kimg_align,
--						    EFI_LOADER_CODE);
--
--		if (status != EFI_SUCCESS) {
--			efi_err("Failed to relocate kernel\n");
--			return status;
--		}
-+		efi_warn("efi_random_alloc() failed: 0x%lx\n", status);
- 	}
- 
--	memcpy((void *)*image_addr, (void *)kernel_base, kernel_size);
--	*alloc_size = kernel_memsize;
-+	/* Try to use the image in place */
-+	if (!check_image_region(kernel_base, kernel_memsize)) {
-+		efi_err("FIRMWARE BUG: Image BSS overlaps adjacent EFI memory region\n");
-+	} else if (IS_ALIGNED(kernel_base, min_kimg_align) &&
-+		   (kernel_base + kernel_memsize) < EFI_ALLOC_LIMIT) {
-+		/*
-+		 * Just execute from wherever we were loaded by the UEFI PE/COFF
-+		 * loader if the placement is suitable.
-+		 */
-+		return EFI_SUCCESS;
-+	}
- 
--	efi_icache_sync(*image_addr, *image_addr + kernel_codesize);
--	efi_remap_image(*image_addr, kernel_memsize, kernel_codesize);
-+	status = efi_allocate_pages_aligned(kernel_memsize, &image_addr,
-+					    ULONG_MAX, min_kimg_align,
-+					    EFI_LOADER_CODE);
-+	if (status != EFI_SUCCESS) {
-+		efi_err("Failed to relocate kernel\n");
-+		return status;
-+	}
- 
--	*(unsigned long *)image_info += *image_addr - kernel_base;
--
--	return status;
-+	efi_kaslr_copy_kernel(image_addr, free_addr, free_size, image_info);
-+	return EFI_SUCCESS;
- }
-diff --git a/drivers/firmware/efi/libstub/loongarch-stub.c b/drivers/firmware/efi/libstub/loongarch-stub.c
-index df6749643bb8bd..d8886b9c74099d 100644
---- a/drivers/firmware/efi/libstub/loongarch-stub.c
-+++ b/drivers/firmware/efi/libstub/loongarch-stub.c
-@@ -89,8 +89,8 @@ efi_status_t efi_relocate_kernel(unsigned long *image_addr,
- 	return status;
- }
- 
--efi_status_t handle_kernel_image(unsigned long *image_addr,
--				 unsigned long *image_size,
-+efi_status_t handle_kernel_image(unsigned long *free_addr,
-+				 unsigned long *free_size,
- 				 efi_loaded_image_t *image,
- 				 efi_handle_t image_handle,
- 				 const struct efi_image_info **image_info)
-@@ -105,9 +105,9 @@ efi_status_t handle_kernel_image(unsigned long *image_addr,
- 	status = efi_relocate_kernel(&kernel_addr, kernel_fsize, kernel_asize,
- 		     EFI_KIMG_PREFERRED_ADDRESS, efi_get_kimg_min_align(), 0x0);
- 
--	*image_addr = kernel_addr;
--	*image_size = kernel_asize;
-+	*free_addr = kernel_addr;
-+	*free_size = kernel_asize;
- 
--	*(unsigned long *)image_info += *image_addr - (unsigned long)image->image_base;
-+	*(unsigned long *)image_info += kernel_addr - (unsigned long)image->image_base;
- 	return status;
- }
-diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-index 8cd0cd9b00486c..45a345c1701ffa 100644
---- a/drivers/firmware/efi/libstub/riscv-stub.c
-+++ b/drivers/firmware/efi/libstub/riscv-stub.c
-@@ -10,15 +10,15 @@
- 
- #include "efistub.h"
- 
--efi_status_t handle_kernel_image(unsigned long *image_addr,
--				 unsigned long *image_size,
-+efi_status_t handle_kernel_image(unsigned long *free_addr,
-+				 unsigned long *free_size,
- 				 efi_loaded_image_t *image,
- 				 efi_handle_t image_handle,
- 				 const struct efi_image_info **image_info)
- {
- 	efi_status_t status;
- 
--	status = efi_kaslr_relocate_kernel(image_addr, image_size, image_info,
-+	status = efi_kaslr_relocate_kernel(free_addr, free_size, image_info,
- 					   efi_kaslr_get_phys_seed(image_handle));
- 	if (status != EFI_SUCCESS)
- 		efi_err("Failed to relocate kernel\n");
+ efi_status_t efi_boot_kernel(void *handle, efi_loaded_image_t *image,
+diff --git a/drivers/firmware/efi/libstub/image_info.S b/drivers/firmware/efi/libstub/image_info.S
+index 065bbfdf8fabad..adf82ad083b354 100644
+--- a/drivers/firmware/efi/libstub/image_info.S
++++ b/drivers/firmware/efi/libstub/image_info.S
+@@ -21,4 +21,6 @@ __efistub_efistub_image_info:
+ #ifdef CONFIG_EFI_STUB_DRTM
+ 	.long	__drtm_measured_start - 0b
+ 	.long	__drtm_measured_end - 0b
++	.long	drtm_entry - 0b
++	.long	drtm_handoff - .
+ #endif
 -- 
 2.43.0
 
