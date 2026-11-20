@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22E63606A69D
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 23:34:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D319606A69C
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 23:53:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VcAPEKOP;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VgPZKB/F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=onS/lbQB;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i0ktJ/Vw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=tCd8G6IAABAyHqqb95Ih8UiunmWHpJBbZz8c6+w3K0w=; b=VcAPEKOPq4MXTHl0p9Xf1mUv8P
-	fV6aZLIjZVzyI3Np9zk8CbHD6jV+HAMhBQrhCx1kw6DvqFsRkUqBHPPO9zo+PqDYam0DBoz351JFa
-	HArMGlyYkEsRYt3h74Y3ZaBX7IVtS3WRZ204CsVxznIr9qiaJxb+nWskg56LamMb7FxH1EtcxTrJi
-	rczzMUHk7gb0ziLOPer318VAE82aak9KF5tdGonLn0F8fENge1CT4lWR5GgOQHSrrc29AS6kbHEbm
-	JkhC7MLmA+5caRrdINA5svXjY9JuMoaF65Id298nAAbo8n04sVYzHNwWLgn88IF61pg22XDhoRWvd
-	ikq2Fkiw==;
+	bh=2LXoFPQmp4kk9amap8rYoaS1M4O0z9ZKtqplxZA8ziM=; b=onS/lbQBAz7HDFCQdkpO93drOk
+	Ck3gqbaWvTB3p2fzP91wgym/90+V6gnHbA+ez6crFjIEGyxLUFZxC4GHznVOqtNp9bvvr3JZsp4e7
+	40F+YnHGItuEc15rtEMgjKHgK9/+aDyfU2Ov9p3UmeDsAPpbbs7X1CZbzN43y8JwvAcGj9y8wBIQy
+	wqTD6C8QjBKaIuMPZoSzdsrWeXoesHyzKZ/AFENqFwPolxxeTV6EHkDxrJk3crLTtJjB2XdwAV5sq
+	oDHP2jBJ6hJFewOWBTcn0oFBsGgIUuoIVKnEfgzZ5ZNTCe4AHg1KDF846NCV19++DPS4J2Hb+Uf/a
+	8f3e4r6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUY7p-0000000GQG0-03MU;
-	Fri, 20 Nov 2026 23:34:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xUYQD-0000000GSKz-22f8;
+	Fri, 20 Nov 2026 23:53:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUY7l-0000000GQFL-23Ly
+	id 1xUYQ9-0000000GSKn-0atO
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Nov 2026 23:34:34 +0000
+	Fri, 20 Nov 2026 23:53:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB38240185;
-	Fri, 20 Nov 2026 23:34:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FA221F000D4;
-	Fri, 20 Nov 2026 23:34:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E12861126;
+	Fri, 20 Nov 2026 23:53:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 642B51F000C6;
+	Fri, 20 Nov 2026 23:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795217672;
-	bh=jSVkms071gBFhS0ZEXeIERho5bLbtUl4WQoLD2P05l8=;
+	s=k20260515; t=1795218811;
+	bh=GtYIm+rWOI2WR3mNBXOj58UxSxdzyvXp4UZh6Gfd/i4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VgPZKB/FSgIyhPRU6BJYdxGdGWMbuTB1hYp8WeiDLcp7OqO7xtBLeAWRf0yiArqL1
-	 yRmCt4VQ9hNrcQ8cJGcmDLApMT56qKBGzgV3HSE/ALZvkJfpYxQpNtlGG66lU0gHf0
-	 T/DnImfPtOY+vW0qgVOARu43s01XRcGkLKL/pjWFzC9nEaWsFA2KZv0OftdLoMhkOu
-	 kG2HsjJqwxPkE4/6X5hb2juou9TKL67jsUTjTxpPiM5lQhdKtc0ZcrUySuhuQdFk7M
-	 R/mRtk9CmTlXzLmuT/FLb0jDiAPtT1RG+uw1ygFAH1Ph9cXS+fDVECujNZA2jzukGu
-	 0aVQC8o8vSyGg==
-Date: Fri, 20 Nov 2026 15:34:30 -0800
+	b=i0ktJ/Vwel/HRt+z7HIvQtAFgN47Ptjdc8ml1p450ILd372E5nWUqjKOfydgYqOES
+	 rbjvLR1JS5+v1MJvWqf85KkjpEMzqmFKEto0Wj3uueyhM0Pr1ACfYxGTHqSrBFdM5D
+	 ysQ2hPLdU0Fcsr8cjOBnMr7KPMCKJPVMYnhh2EpOMsZl4scMWWCGMoUZlDDTMZ3Xvf
+	 Qo0qOYyctZp9JVuUG9cr/WNgd9pk0X8ctQtvMJ8W56byRwulu42OktYA6kdWjMkc4X
+	 lVtzQsX3FpxheFSS1r80E3IPribh4poKqCBncqIYBskgvZZx11iPdmro6cO1C4xE8c
+	 cCRzp0+Ink/ZA==
+Date: Fri, 20 Nov 2026 15:53:30 -0800
 From: Drew Fustini <fustini@kernel.org>
 To: Thomas Gerner <thomas.gerner@muenchen-mail.de>
 Cc: Marcel Holtmann <marcel@holtmann.org>,
@@ -57,15 +57,15 @@ Cc: Marcel Holtmann <marcel@holtmann.org>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] riscv: dts: thead: Enable bluetooth on
+Subject: Re: [PATCH v2 1/2] Bluetooth: btbcm: disable read tx power for
  BeagleV-Ahead
-Message-ID: <awDZBiX1VoSkO6F3@x1>
+Message-ID: <awDdetFNaeuxKkbp@x1>
 References: <20261020132604.90708-1-thomas.gerner@muenchen-mail.de>
- <20261020132604.90708-3-thomas.gerner@muenchen-mail.de>
+ <20261020132604.90708-2-thomas.gerner@muenchen-mail.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261020132604.90708-3-thomas.gerner@muenchen-mail.de>
+In-Reply-To: <20261020132604.90708-2-thomas.gerner@muenchen-mail.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,154 +85,77 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 03:26:04PM +0200, Thomas Gerner wrote:
-> On the BeagleV-Ahead the bluetooth module of the Ampak AP6203BM is
-> identified by the btbcm driver as BCM4362A2. The module is connected by
-> UART4, several gpio pins and an I2S interface. The I2S is currently not
-> used as there is currently no driver.
+On Tue, Oct 20, 2026 at 03:26:03PM +0200, Thomas Gerner wrote:
+> The bluetooth module of the Ampak AP6203BM is identified by the btbcm
+> driver as BCM4362A2.
+> 
+> The firmware of the bluetooth module on the BeagleV-Ahead reports a
+> capability of reading LE tx power. However reading fails. To get
+> bluetooth working it is necessary to disable reading of LE tx power on
+> the BeagleV-Ahead board. The disable is implemented in a similar way as
+> for several Apple boards but uses the board compatible identification
+> from the DTB as there is no DMI.
+
+Thanks for sending this patch. Do you know if this is a problem on any
+other boards with the AP6203BM?
+
+Also, is there an error message for the failed read?
+
 > 
 > Signed-off-by: Thomas Gerner <thomas.gerner@muenchen-mail.de>
 > ---
-> Changes in v2:
-> 	- use default pinctrl definition for bluetooth in and out pins
-
-Thanks for sending v2. Sorry for the delay in review.
-
-> 	
->  .../boot/dts/thead/th1520-beaglev-ahead.dts   | 85 +++++++++++++++++++
->  1 file changed, 85 insertions(+)
+> No changes in v2
 > 
-> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> index e16484a47653..7161a9d4c61f 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> @@ -76,6 +76,23 @@ led-5 {
->  		};
->  	};
->  
-> +	reg_vbat_1v8: regulator-vbat-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-name = "vbat-1v8";
-> +	};
-> +
-> +	reg_vbat_3v3: regulator-vbat-3v3 {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
-
-enable-active-high has no effect without a gpio.
-
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-name = "vbat-3v3";
-> +	};
-
-Nothing can switch these two rails so regulator-always-on describes them
-better than regulator-boot-on.
-
-> +
->  	hdmi-connector {
->  		compatible = "hdmi-connector";
->  		type = "d";
-> @@ -152,6 +169,28 @@ led-pins {
->  };
->  
->  &padctrl0_apsys {
-> +	bluetooth_pins: bluetooth-0 {
-> +		in-pins {
-> +			bias-disable;
-> +			drive-strength = <1>;
-> +			function = "gpio";
-> +			input-enable;
-> +			input-schmitt-enable;
-> +			pins = "GPIO2_30";
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		out-pins {
-> +			bias-disable;
-> +			drive-strength = <3>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			pins = "SDIO1_DETN",	/* GPIO2_29 */
-> +			       "SDIO1_WPRTN";	/* GPIO2_28 */
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +
->  	gmac0_pins: gmac0-0 {
->  		tx-pins {
->  			pins = "GMAC0_TX_CLK",
-> @@ -268,6 +307,30 @@ reg-on-pins {
->  	};
->  };
->  
-> +&padctrl1_apsys {
-> +	uart4_pins: uart4-0 {
-> +		rx-pins {
-> +			bias-disable;
-> +			drive-strength = <1>;
-> +			function = "uart";
-> +			input-enable;
-> +			pins = "UART4_RXD", "UART4_CTSN";
-> +			input-schmitt-enable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		tx-pins {
-> +			bias-disable;
-> +			drive-strength = <3>;
-> +			function = "uart";
-> +			input-disable;
-> +			pins = "UART4_TXD", "UART4_RTSN";
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +};
-> +
->  &sdio0 {
->  	bus-width = <4>;
->  	max-frequency = <198000000>;
-> @@ -314,3 +377,25 @@ &uart0 {
->  	pinctrl-0 = <&uart0_pins>;
->  	status = "okay";
->  };
-> +
-> +&uart4 {
-> +	pinctrl-0 = <&uart4_pins>;
-> +	pinctrl-names = "default";
-> +	uart-has-rtscts;
-> +
-> +	status = "okay";
-> +
-> +	bluetooth {
-> +		compatible = "brcm,bcm4329-bt";
-> +		device-wakeup-gpios = <&gpio2 29 GPIO_ACTIVE_HIGH>;
-> +		interrupt-parent = <&gpio2>;
-> +		interrupts = <30 IRQ_TYPE_EDGE_RISING>;
-> +		interrupt-names = "host-wakeup";
-> +		max-speed = <921600>;
-> +		pinctrl-0 = <&bluetooth_pins>;
-> +		pinctrl-names = "default";
-> +		shutdown-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>; 	/* BT-REG-ON */
-
-This triggers checkpatch:
-
-WARNING: please, no space before tabs
-#230: FILE: arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts:397:
-+^I^Ishutdown-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>; ^I/* BT-REG-ON */$
-
-> +		vbat-supply = <&reg_vbat_3v3>;
-> +		vddio-supply = <&reg_vbat_1v8>;
-> +	};
-> +};
-> -- 
-> 2.53.0
+>  drivers/bluetooth/btbcm.c | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
 > 
+> diff --git a/drivers/bluetooth/btbcm.c b/drivers/bluetooth/btbcm.c
+> index 463d59890bef..2d02cc1863d0 100644
+> --- a/drivers/bluetooth/btbcm.c
+> +++ b/drivers/bluetooth/btbcm.c
+[..]
+> -static const char *btbcm_get_board_name(struct device *dev)
+> +static const char *btbcm_get_board_name(struct hci_dev *hdev)
+>  {
+>  #ifdef CONFIG_OF
+>  	struct device_node *root __free(device_node) = of_find_node_by_path("/");
+>  	char *board_type;
+>  	const char *tmp;
+> +	const char **s;
+>  
+>  	if (!root)
+>  		return NULL;
+> @@ -550,8 +556,15 @@ static const char *btbcm_get_board_name(struct device *dev)
+>  	if (of_property_read_string_index(root, "compatible", 0, &tmp))
+>  		return NULL;
+>  
+> +	/* disable broken Read LE Min/Max Tx Power on first board found in list */
+> +	for (s = board_broken_read_transmit_power; *s; s++)
+> +		if (!strcmp(tmp, *s)) {
+> +			hci_set_quirk(hdev, HCI_QUIRK_BROKEN_READ_TRANSMIT_POWER);
+> +			break;
+> +		}
+
+It seems that btbcm_get_board_name() only looks up the board name for
+the firmware file so I think it could be unexpected to set a quirk here.
+Maybe this would work better?
+
+  static const char * const board_broken_read_transmit_power[] = {
+          "beagle,beaglev-ahead",
+          NULL
+  };
+ 
+  [..]
+
+  if (dmi_first_match(disable_broken_read_transmit_power))
+          hci_set_quirk(hdev, HCI_QUIRK_BROKEN_READ_TRANSMIT_POWER);
+
+  if (of_machine_compatible_match(board_broken_read_transmit_power))
+          hci_set_quirk(hdev, HCI_QUIRK_BROKEN_READ_TRANSMIT_POWER);
+
+
+However, I am not very familiar with Bluetooth drivers so I am hoping
+Marcel or Luiz can comment too.
 
 Thanks,
 Drew
