@@ -2,93 +2,130 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC0B1606A33E
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 19:24:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8052D606A338
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 21:32:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hV3JhqYe;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=O96Vy4qJ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=11gGBlIO;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JyAb+PES
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ii7/j8A5imdknKt8YJKpBmZZdlBzq//GhbT9pksOscY=; b=hV3JhqYemZJL9YDTMbrV1FioGL
-	OOC7y8bApPJK7l1kOd7NgEY+eTHjsMugGWisgYWeZZYUv2+LSZA28mb1TnAXq09rAMUvtXReYr1vG
-	v4/WDzzd6hEZJRkIh3ftwOavnJ/U2WJnWcGuxkFSU0EpCLBHtRWRS+OKdmpMW01xi8IvAsAQj4N6U
-	VfoRhm/iaHXfobMV9IvWt9EiLdbtves4MKoYy5MI6wuD0WV1nJxMZ5W2lxCBTB4ER6Reg0AArxY1T
-	u9Yl6tmAPXfxY8GYZv0/QwC5LHpdd0Ef8otHozscRszpzzgJMXD2+QVQslRco5mIM4Spg2kOMtN+b
-	Y4pou+eA==;
+	bh=wTE71LRXEeNUhM2btnvOY7R+7VQDmZrzYTI4ib3mOJw=; b=11gGBlIOYgfHtxaolTOOIsoPtW
+	lNDLWD1gZvh+r2h2D0HyZqMDK/TFv2qXmWfobilkEGJi5NcHqOLzw4GiKupdvHRxWv3CmOwd1CjbK
+	B3OLuuPtza8hSoveKTBzyRnFJCcNlMJqiB/vXaQ+qCD6CxicJmNxzlnsAystCsiLriRca6Th9JgZY
+	kuZpyz2XIv6/7JYddMXPKuOH4loW0IQdfsbhsefexqEL9/VYzzgApw04Mj6dx+6nk44oc5pxBCKlk
+	rJTnsF2Z8iKvIxhIeSwzZdIriAi6RDru14D3uK/3wOqI2eJ4D0Ih01qHHPxywLFQSLjwusEwHVMDV
+	3uPqsiCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUUDR-0000000G4mo-1vo9;
-	Fri, 20 Nov 2026 19:24:09 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1xUWCx-0000000GJPs-1CY3;
+	Fri, 20 Nov 2026 21:31:47 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUUD6-0000000G4fy-3bCG;
-	Fri, 20 Nov 2026 19:23:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795202629; x=1826738629;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=A1NiJp6d9VgMIwxcRAsooN0LZHNBFTQODfOi8K94dGo=;
-  b=O96Vy4qJo8dWPMlDYdEKQqxyBSv0NdPIbYfs+Iy4ch4eRb2wSi7yPbCf
-   zPqMedjDILlwgmGTsoVmSaONdyMiz0PwjLL9S7TFQKK57Cj5xSDMwPPgK
-   2NW2Q4MxlhynIiKg8RAqoxf2nfEdvxNG/1fXWIMzs3DLMZg9iYmtAlFoy
-   5METQrQdcW+jzSIylDHVxlFzWevgIr6tPLEVkXlFZMPCGWQXUF6oSU+5W
-   7kJepAOektCeWykxsD/iSP9TXN0I7aO4XKTFU2iUvFMjlV6fmWFPlrX1s
-   W1+KL+4l6K4RuYio4VvhJdM6FzWvwCmNFZV8EzXQ92H9bPWCr0X67EGOt
-   w==;
-X-CSE-ConnectionGUID: RZ8Mn8gASNOIjry+BwvXIQ==
-X-CSE-MsgGUID: E2+7hgd8TIOZY8KHWTpAXA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3971348"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="3971348"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 11:23:46 -0800
-X-CSE-ConnectionGUID: IcMig1jkS+a4yth9PVQCqQ==
-X-CSE-MsgGUID: +iLoEhuvQbKE8PRygMOlvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10991760"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 20 Nov 2026 11:23:40 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xUUCu-00000001IN5-05op;
-	Fri, 20 Nov 2026 19:23:36 +0000
-Date: Sat, 21 Nov 2026 03:23:03 +0800
-From: kernel test robot <lkp@intel.com>
-To: Vikram Singh <vikram.singh3@oss.qualcomm.com>, peterz@infradead.org,
-	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, atishp@rivosinc.com, anup.patel@oss.qualcomm.com,
-	will@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, beeman@rivosinc.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Vikram Singh <vikram.singh3@oss.qualcomm.com>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
-	Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>,
-	Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v5 5/7] riscv: pmu: Add driver for Control Transfer
- Records Ext
-Message-ID: <202611210338.qHaMzDp7-lkp@intel.com>
-References: <20261118095053.3871267-6-vikram.singh3@oss.qualcomm.com>
+	id 1xUWCp-0000000GJPK-3iwZ
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Nov 2026 21:31:45 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-3adfb744fa6so1226521fa.2
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Nov 2026 13:31:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795210297; cv=none;
+        d=google.com; s=arc-20260327;
+        b=PtINDydfVZ8m+aL6MH63BsOs5lgkBjAz7RFxdeInYRISEVkLd2MNmb5+u7c7stATCJ
+         ZDMEl5QS3rRSm8GM2xKa+ld8n4Y8Dn/uOdJ+lugGP3dnM0Q4H8ZMwp+hcjk+B42m35Xz
+         D8MIQKFlFX/sCvBM2bj2tPiOUhu5hEvfj+do/Ppx5zsyJtn2OvpNgDVRWX4zZFgGneKl
+         +mHn5HRhVq1/JsXjYAnZscKVPArr9S574vYEOf1wDcKk62AhxsQRYsOn1EdAVoRbWIcV
+         yBNqorCTh+OfRziXM2fGwVO9qk/YhKYPvqv85M8Th0UjEpVzBflKUik1+kCIB3X9hENN
+         dlwQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=26y+of0VW/d3qa/IzkivZULa62OBHde+4TVDHu/Ebbs=;
+        fh=o3nudNmIrELhQY7BNPRZRc1OKyYOZLDI0NBr7b7tleQ=;
+        b=q4Z69CaJuvE8wvLpyC1bV2HR4T0DM5wBlaxmXqWdz1BguYS9Ad5gnonhWgk8GHZ1LK
+         4emsSB0XuItvoYbnrIDyGKFMs+sFGupB+4d1BWEwTrFYNgIzAtkbfGSXMiuaixFc2Rl3
+         ez57IuZgyihgclXwfL659rUums0GEsEr+OjCUb29bUpVisqAOohzRLah2V46AuwLi1Pd
+         A5SBrcyhmj6ledEYCwXrtNAa+tdcIfuZw17Q03I1P89F/koKTwKVUaXuT7TjEsu7U+B+
+         2SYWCVDTgFkm1Tx71X8UhPNMN03ZXHlYAd0/35a853emayR/moSOu01c9gTprCiyZf7H
+         6Rgw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795210297; x=1795815097; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=26y+of0VW/d3qa/IzkivZULa62OBHde+4TVDHu/Ebbs=;
+        b=JyAb+PESY0sFuhsecx1KMqTrNWZmOsWm9ker2DP6YaRZvlAb4mm+dYM9c0HdLxr2yi
+         K64498s8Uj5Z43MiL9037DP+GblhaQsEHhRz1di6l23PKtywb6+dFN+7sJkT3i/qQUv7
+         LwN/DpzYt4tvbD3ARiYhspbqAMrSiYMRX2dqIXlySqmRn/AMv4Ni9imCNAlLyKFdlN64
+         J53p0SjQGypPsIKOPjNPtWYIL5H+ubGeKDGCSgk4wui4nhjsvCib+h3UUgyn7OOeAaDK
+         AVFB/l4x/ZqIwzit7yZuYSG9JG0y/JVfm7vu9NhR/WY4WC9g/8a67NOXYGxdlbem7vAg
+         nzIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795210297; x=1795815097;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=26y+of0VW/d3qa/IzkivZULa62OBHde+4TVDHu/Ebbs=;
+        b=Df4UVJlLca02h8TPfWK6NpbCoctO2L5yBoxTuF6i1e6RZLprMUDq2E1AOXNaaSD6SF
+         y6PUmkHZpj7b8cLjwubra3gePhZdsqTbIWtgyFy/uVdEGWxObjcSeWdNhZj+QaR/J4tm
+         1dVqupFBUIiQ1ZJHF1Te4thBqW/WuP8ucqgd1X97Z92sAYFlAEwJSjKasdKe24XRwJQY
+         5ibd98OSwhRQueP038OZgrmbP6rOUVxmD14N3mMnyBI2nOKGejwxjRTJ7rhvXktM/kwm
+         101Wx+3dNoh7eY61LiyJlaZO+fNturyRg1VGB3c6m/VHkfyiL6X8qiDNJOLCgjiDfbzd
+         J+eQ==
+X-Forwarded-Encrypted: i=1; AL+hErGRiV1WOcRn03h0CZFgxNZLIsDoLysaes0qK/hzs/io6nmvxKFf9Q2dRhFJR5gLV2ErmVseTuxIZ7b0+A==@lists.infradead.org
+X-Gm-Message-State: APuU4Z88svImqtSUFYVukvpXj3+iGU7kl2bU6NIfP0C6TrxjOpIwPpD8
+	5YjN6d+d55umquWP4GrReOA7ymdpbe21WHAPBb6bk/vlW3vOkttQyRC2L1ik8Cj11kkyJ2OYSXw
+	BVLUSimsABcx+ON7tQrt2wwdkyevC1bo=
+X-Gm-Gg: AZFdTZf/kzbGw6sb3g70eDDLNNsgiLOWvTUWav4LtyhocyQX1u1Lh1FlFwG1nR1P+1A
+	6H0R/TzkWSWx2XOmPeBfoQE3/mau22r0E/Pz/8rG3Z3rlzl3pUT449QJTFPK3dLywVVRn+7ddtF
+	+m85ZTvmqqfR+0qT3JSqfxtNa/mafJS6ELoDXVijXNKu6rf5h5Ypiw8Mwx2tT70u9shsqXQ3myW
+	zXkCBkx0cuguTnLrZCDyrvWS48B4YTrAiw90lwqM3kqhDHsDrirWSWsRZfoGmpWoB+4cLvLvqrp
+	1lwhSUc8PG5PAgk588T7EzMc+sdghrQSWhQowFEHBSTqLQwMx/hzgtsWIln41cJu4gxVkAMceOX
+	6vv1HXZ+wcP5TfcSakgaP+NDPoAuUlFPiA5jwE1e9kIsZUuy5BQ79ALEEXxfob+6E7AcapZz3YH
+	ahvLwz8CKFwdBKg3ntBwqkEjobTIBKWdWkfkYBjj6uVjkZMStF3N927AfiVc+XfpjO6BqYmut3M
+	CMOWd2Pdv4zJwo+hKi0qBLUoXiWczMl9FQsX1lhYoTu6vLpeHOkgeUki+0A3oFt5TRf9F45
+X-Received: by 2002:a05:6512:1320:b0:5bf:cf6d:ef1 with SMTP id
+ 2adb3069b0e04-5c1bc5767fdmr1687437e87.0.1795210296624; Fri, 20 Nov 2026
+ 13:31:36 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261118095053.3871267-6-vikram.singh3@oss.qualcomm.com>
+References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com>
+ <1a1cb87df11.2c57f9fa237371.844135553238709982@collabora.com> <179519331840.3795820.8047048832159165355.b4-reply@b4>
+In-Reply-To: <179519331840.3795820.8047048832159165355.b4-reply@b4>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Fri, 20 Nov 2026 22:31:25 +0100
+X-Gm-Features: Aa3M54o4i_zALBjbkgtOxZes0dCWZ4jiHPCTwn8GOTMZ7mrp5N06gIycRXOv0PA
+Message-ID: <CANiq72nOKrAtct_eb7tjc9JFFpOQrN0=5bOyOZo1p4C+4U5bsw@mail.gmail.com>
+Subject: Re: [PATCH v6 0/7] Clk improvements
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Michal Wilczynski <m.wilczynski@samsung.com>, 
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Trevor Gross <tmgross@umich.edu>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, linux-pm <linux-pm@vger.kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, linux-pwm <linux-pwm@vger.kernel.org>, 
+	linux-clk <linux-clk@vger.kernel.org>, rust-for-linux <rust-for-linux@vger.kernel.org>, 
+	Boris Brezillon <boris.brezillon@collabora.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+	Maurice Hieronymus <mhi@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261120_112353_868197_46C87FF5 
-X-CRM114-Status: GOOD (  12.47  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261120_133142_419372_80AD387C 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,125 +135,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Vikram,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on peterz-queue/sched/core]
-[also build test ERROR on perf-tools-next/perf-tools-next perf-tools/perf-tools robh/for-next linus/master v7.4-rc3 next-20261116]
-[cannot apply to tip/perf/core acme/perf/core]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Vikram-Singh/perf-Increase-the-maximum-number-of-branches-remove_loops-can-process/20261118-152047
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git sched/core
-patch link:    https://lore.kernel.org/r/20261118095053.3871267-6-vikram.singh3%40oss.qualcomm.com
-patch subject: [PATCH v5 5/7] riscv: pmu: Add driver for Control Transfer Records Ext
-config: riscv-allmodconfig (https://download.01.org/0day-ci/archive/20261121/202611210338.qHaMzDp7-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 67ab6538dff0ed2593b90166214d93e992c74905)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611210338.qHaMzDp7-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611210338.qHaMzDp7-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> arch/riscv/mm/tlbflush.c:76:3: error: call to undeclared function 'sbi_remote_sfence_vma_asid'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      76 |                 sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
-         |                 ^
-   arch/riscv/mm/tlbflush.c:76:3: note: did you mean 'sbi_remote_fence_i'?
-   arch/riscv/include/asm/sbi.h:756:19: note: 'sbi_remote_fence_i' declared here
-     756 | static inline int sbi_remote_fence_i(const struct cpumask *cpu_mask) { return -1; }
-         |                   ^
-   arch/riscv/mm/tlbflush.c:112:3: error: call to undeclared function 'sbi_remote_sfence_vma_asid'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     112 |                 sbi_remote_sfence_vma_asid(cmask, start, size, asid);
-         |                 ^
-   2 errors generated.
---
->> arch/riscv/errata/andes/errata.c:30:16: error: variable has incomplete type 'struct sbiret'
-      30 |         struct sbiret ret;
-         |                       ^
-   arch/riscv/errata/andes/errata.c:30:9: note: forward declaration of 'struct sbiret'
-      30 |         struct sbiret ret;
-         |                ^
->> arch/riscv/errata/andes/errata.c:36:8: error: call to undeclared function 'sbi_ecall'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      36 |         ret = sbi_ecall(ANDES_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
-         |               ^
-   2 errors generated.
---
->> drivers/acpi/riscv/cpuidle.c:73:14: error: use of undeclared identifier 'SBI_HSM_SUSP_NON_RET_BIT'
-      73 |         if (state & SBI_HSM_SUSP_NON_RET_BIT)
-         |                     ^~~~~~~~~~~~~~~~~~~~~~~~
-   1 error generated.
---
->> drivers/acpi/riscv/cppc.c:31:16: error: field has incomplete type 'struct sbiret'
-      31 |         struct sbiret ret;
-         |                       ^
-   drivers/acpi/riscv/cppc.c:31:9: note: forward declaration of 'struct sbiret'
-      31 |         struct sbiret ret;
-         |                ^
->> drivers/acpi/riscv/cppc.c:38:6: error: use of undeclared identifier 'sbi_spec_version'
-      38 |         if (sbi_spec_version >= sbi_mk_version(2, 0) &&
-         |             ^~~~~~~~~~~~~~~~
->> drivers/acpi/riscv/cppc.c:38:26: error: call to undeclared function 'sbi_mk_version'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      38 |         if (sbi_spec_version >= sbi_mk_version(2, 0) &&
-         |                                 ^
->> drivers/acpi/riscv/cppc.c:39:6: error: call to undeclared function 'sbi_probe_extension'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      39 |             sbi_probe_extension(SBI_EXT_CPPC) > 0) {
-         |             ^
->> drivers/acpi/riscv/cppc.c:53:14: error: call to undeclared function 'sbi_ecall'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      53 |         data->ret = sbi_ecall(SBI_EXT_CPPC, SBI_CPPC_READ,
-         |                     ^
-   drivers/acpi/riscv/cppc.c:61:14: error: call to undeclared function 'sbi_ecall'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      61 |         data->ret = sbi_ecall(SBI_EXT_CPPC, SBI_CPPC_WRITE,
-         |                     ^
->> drivers/acpi/riscv/cppc.c:115:11: error: call to undeclared function 'sbi_err_map_linux_errno'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     115 |                         return sbi_err_map_linux_errno(data.ret.error);
-         |                                ^
-   drivers/acpi/riscv/cppc.c:156:29: error: call to undeclared function 'sbi_err_map_linux_errno'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     156 |                 return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
-         |                                           ^
-   8 errors generated.
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for ERRATA_ANDES
-   Depends on [n]: RISCV_SBI [=n]
-   Selected by [y]:
-   - ARCH_ANDES [=y] && MMU [=y]
-
-
-vim +/sbi_remote_sfence_vma_asid +76 arch/riscv/mm/tlbflush.c
-
-18d2199d81054f Anup Patel        2023-03-28  70  
-95594cb40c6e01 Christoph Hellwig 2019-08-21  71  void flush_tlb_all(void)
-95594cb40c6e01 Christoph Hellwig 2019-08-21  72  {
-9546f00410ed88 Samuel Holland    2024-03-26  73  	if (num_online_cpus() < 2)
-9546f00410ed88 Samuel Holland    2024-03-26  74  		local_flush_tlb_all();
-9546f00410ed88 Samuel Holland    2024-03-26  75  	else if (riscv_use_sbi_for_rfence())
-9d4e8d5fa7dbbb Alexandre Ghiti   2023-10-30 @76  		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
-dc892fb443224d Samuel Holland    2024-03-26  77  	else
-dc892fb443224d Samuel Holland    2024-03-26  78  		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
-95594cb40c6e01 Christoph Hellwig 2019-08-21  79  }
-95594cb40c6e01 Christoph Hellwig 2019-08-21  80  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMjAsIDIwMjYgYXQgNTo0OeKAr1BNIEplcm9tZSBCcnVuZXQgPGpicnVuZXRA
+YmF5bGlicmUuY29tPiB3cm90ZToKPgo+IEkgd2FzIHdvbmRlcmluZyBob3cgdGhlIHJ1c3QgZm9s
+a3MgZXhwZWN0IHRoZXNlIGNoYW5nZXMgdG8gYmUgaGFuZGxlZCBzaW5jZSB0aGV5Cj4gdG91Y2gg
+dGhlIHJ1c3QvIGRpci4gU2hvdWxkIHRoZSBjbG9jayBjaGFuZ2VzIGdvIHRocm91Z2ggdGhlIGNs
+b2NrIHRyZWUgb3IgdGhlCj4gcnVzdCBvbmUgPyBpdCBpcyBmaW5lIHdpdGggbWUgZWl0aGVyIHdh
+eS4KClRoZSBjbG9jayB0cmVlIHdvdWxkIGJlIGlkZWFsLCBpLmUuIGEgbG90IG9mIHN1YmZvbGRl
+cnMgb2YgYHJ1c3QvYApiZWxvbmcgdG8gZGlmZmVyZW50IHN1YnN5c3RlbXMgKHRoZSBmaWxlIGlz
+IGFscmVhZHkgdW5kZXIgIkNPTU1PTiBDTEsKRlJBTUVXT1JLIiBpbiBgTUFJTlRBSU5FUlNgKS4g
+VGhlICJ0cmVld2lkZSIgUnVzdCB0cmVlIGNhbiBhY3QgYXMgYQpmYWxsYmFjayB0cmVlIGZvciBm
+aWxlcyB0cmFja2VkIGVsc2V3aGVyZSBpZiBuZWVkZWQsIGJ1dCBpdCBpcyBtZWFudAp0byBiZSBl
+eGNlcHRpb25hbC4KCihUaGUgZmlsZXMgd2lsbCBiZSBhYmxlIHRvIG1vdmUgdG8gZS5nLiBgZHJp
+dmVycy9jbGsvYCBldmVudHVhbGx5LAp3aGVuIHdlIGxpZnQgdGhlIGxpbWl0YXRpb25zIG9mIHRo
+ZSBidWlsZCBzeXN0ZW0gcmVnYXJkaW5nIHRoYXQuKQoKSSBob3BlIHRoYXQgY2xhcmlmaWVzIQoK
+Q2hlZXJzLApNaWd1ZWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
