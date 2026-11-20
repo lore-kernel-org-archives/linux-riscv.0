@@ -2,82 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37566606A337
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 07:09:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94FD5606A320
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 08:50:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ILCCqHrL;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=NH4yi1OH
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pdHAgLnM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SZS5iIz/+2PWuk7JpgXMaONdR/pPdeo3/HUMfewt130=; b=ILCCqHrLzKU65yEGnLh7440OJF
-	+A9nDtaE38EJdNL+VJ+zXejPeHPzrFT+Bvb72SkCwmIpHvbs7sUQI3CjDn6l7l5gB820SQqdi1/kW
-	sobymlJ1d3lmOpLvOhSCuApyK6AnJSAzo9mdjGB+WBnaEF4IKAodmopPGUzKfuiLWLuA88DMe0vDi
-	HnWaeYnMic7xXNo6Ns2F77zgMkFKgDK8lZEGleB14qXt/+4gZUIbja0bzLMYkW9yB4vunPp9XZDj7
-	YqE98lU/MVD6Xorgangqm6xCupATM7W1Soz9GCI/hptFNDolc1fHtpnQjpH+cN8Wgc0hvbT6x9AI9
-	AFO14mog==;
+	bh=16ZL6GQ5/o2v771I97+bWZRl7FOIMWTK8MmXeWik7Mw=; b=pdHAgLnMC6G8gZYHr0XgdsPgGo
+	d8eRq+VsM26/bX1/0TUe9FWPdUn2WzUe5zquufPkChEOUI72I3qkK18OX4MHQuXUzhThiwn5jTTy0
+	3WsHIhlYi2/WmthOWWvpCevbdNo9gWrNr2ZPbxODwYIzC1NE0l356e0vhbFU2He2F1aEfd91E9ER/
+	YaXSRxOxWzkAQijQLXfm4opZk2OSBgVmfB5J+Wwg0LmjAnhJKSHoeuWFzRsmX7A/RUuQbvPznq2ZN
+	78T2oLmaPhgNNT+jbw+lXONk++ajp+Eu8EuAD2q3ptVQpHxQD/lSghOek1v4wExhh0dP5r5dbfFff
+	vstXAJaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUIkH-0000000ECij-0mEI;
-	Fri, 20 Nov 2026 07:09:17 +0000
-Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUIk9-0000000ECi1-3K7L
+	id 1xUKKG-0000000EOV5-1MFC;
+	Fri, 20 Nov 2026 08:50:32 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUKK9-0000000EOS4-1w36
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Nov 2026 07:09:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=eswincomputing.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=1g00Z6gc0j
-	KWEBH3y928a6aryx0kBD5/KzHExqvR7e8=; b=NH4yi1OHYvolZYXR9tvk8yyp1b
-	fh6TxNUWWBjeuZJiYLr2snd3whPmec+THRo7kr6LiZvKlRWA06zh6WWV2mZQbfyG
-	FdhyVZmmymOD+d9+lKnaA8x5cBRyD8MYy99ik07UZa4xcntz6U8Wc1Hw+C48BSl/
-	NO9EUD3L4L2LYIltI=
-Received: from E0002472LT.eswin.cn (unknown [10.64.96.163])
-	by app1 (Coremail) with SMTP id TAJkCgCXhuUB8v9q1FQAAA--.2533S2;
-	Fri, 20 Nov 2026 15:08:51 +0800 (CST)
-From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v3] riscv: kprobes: free insn slot in arch_remove_kprobe() to avoid memory leak
-Date: Fri, 20 Nov 2026 15:08:49 +0800
-Message-Id: <20261120070849.1239-1-yuanxiaofeng@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
+	Fri, 20 Nov 2026 08:50:31 +0000
+Received: from [127.0.0.2] (unknown [123.116.51.226])
+	by APP-03 (Coremail) with SMTP id rQCowACHkpPFCQBrNdxnAQ--.12681S2;
+	Fri, 20 Nov 2026 16:50:15 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Fri, 20 Nov 2026 16:47:44 +0800
+Subject: [PATCH] mailmap: Update Vivian Wang's email address
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: TAJkCgCXhuUB8v9q1FQAAA--.2533S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Aw4UXr4DXry3AF1rCFWruFg_yoW8WF4fpF
-	s8uwn8G3yrXa1fG347Aw4kW34FyayrW3y2grW8A343Xw15Jr15Xw4Ig3yUXrn8Kr98Kr1a
-	vF90vFWFqrW7Aa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv0b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r1q6r43
-	MxkIecxEwVCm-wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c
-	02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_
-	GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
-	CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
-	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU5
-	6yI5UUUUU==
-X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgERE2r-JS8i1gAAsq
+Message-Id: <20261120-update-email-v1-1-b7e080827c7c@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2N2wrCMBAFfyXss5EkXir9lVIhSbe6YtqaSxFC/
+ t1ofRyYMydDQE8YoGUZPK4UaJ4qyB0De9fTDTkNlUEJdZZSCZ6WQUfk6DQ9uWnEAS9WnUYroE4
+ WjyO9f7mu3zgk80Abv42/4fGV6k/cNDA6ILezcxRbtjb7I/dWXnOBvpQPDL3BPJ8AAAA=
+X-Change-ID: 20261120-update-email-b703e8c25fc0
+To: linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>
+Cc: Vivian Wang <dram+linux@dram.page>
+X-Mailer: b4 0.15.2
+X-CM-TRANSID: rQCowACHkpPFCQBrNdxnAQ--.12681S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtF1kZF1UtryxJw4fGFWfZrb_yoWDtrg_K3
+	WrtrykurWkAFn8KrnxXFs3Cr1F93s7tr1jgwn8Jr9xZFy3KFn3CrWkCFWa9a4DXrykWr9r
+	Gr1avFZYvFn3ZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb2kYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUAVWUtwCF
+	04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r
+	18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vI
+	r41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr
+	1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvE
+	x4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8mXdUUUUUU==
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261119_230910_208841_23C2551A 
-X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-CacheID: sfid-20261120_005026_242680_566B1236 
+X-CRM114-Status: UNSURE (   4.38  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.8 (--)
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,49 +86,34 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When a kprobe is removed, arch_remove_kprobe() does not free the
-instruction slot allocated by arch_prepare_kprobe(). This causes
-a memory leak every time a kprobe is unregistered.
+I am leaving ISCAS in December of 2026. Redirect future mail to my
+personal address.
 
-Other architectures such as arm64, x86, and powerpc all free the
-slot in their arch_remove_kprobe() implementations. Add the
-missing free_insn_slot() call for RISC-V.
-
-Registered and unregistered a kprobe on kernel_clone in a loop
-inside a QEMU (RISC-V virt) guest: before the fix the number of
-kprobe_insn_page entries in /proc/kallsyms grew by one every 512
-iterations (each insn-slot page holds 512 eight-byte slots), and
-after the fix it stays at 1.
-
-Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
-Cc: stable@vger.kernel.org
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-Signed-off-by: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 ---
-Changes in v3:
- - Add Fixes tag and Cc stable (Masami Hiramatsu).
- - Add Reviewed-by from Masami Hiramatsu. No code change.
+ .mailmap | 1 +
+ 1 file changed, 1 insertion(+)
 
- arch/riscv/kernel/probes/kprobes.c | 4 ++++
- 1 file changed, 4 insertions(+)
+diff --git a/.mailmap b/.mailmap
+index 0d05be949eff..1e518c12123c 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -993,6 +993,7 @@ Viresh Kumar <vireshk@kernel.org> <viresh.linux@gmail.com>
+ Viresh Kumar <viresh.kumar@linaro.org> <viresh.kumar@linaro.com>
+ Vishnu Dasa <vishnu.dasa@broadcom.com> <vdasa@vmware.com>
+ Vivek Aknurwar <quic_viveka@quicinc.com> <viveka@codeaurora.org>
++Vivian Wang <dram+linux@dram.page> <wangruikang@iscas.ac.cn>
+ Vivien Didelot <vivien.didelot@gmail.com> <vivien.didelot@savoirfairelinux.com>
+ Vlad Dogaru <ddvlad@gmail.com> <vlad.dogaru@intel.com>
+ Vladimir Davydov <vdavydov.dev@gmail.com> <vdavydov@parallels.com>
 
-diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-index 9e2afabf9..a76eab297 100644
---- a/arch/riscv/kernel/probes/kprobes.c
-+++ b/arch/riscv/kernel/probes/kprobes.c
-@@ -128,6 +128,10 @@ void __kprobes arch_disarm_kprobe(struct kprobe *p)
- 
- void __kprobes arch_remove_kprobe(struct kprobe *p)
- {
-+	if (p->ainsn.api.insn) {
-+		free_insn_slot(p->ainsn.api.insn, 0);
-+		p->ainsn.api.insn = NULL;
-+	}
- }
- 
- static void __kprobes save_previous_kprobe(struct kprobe_ctlblk *kcb)
--- 
-2.34.1
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261120-update-email-b703e8c25fc0
+
+Best regards,
+--  
+Vivian "dramforever" Wang
 
 
 _______________________________________________
