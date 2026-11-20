@@ -2,12 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9181460A262D
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 17:54:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA7C6606E774
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 17:55:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0LLYPLHx;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=lTIusk9q;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=kOBhQ2SR
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mHwSR8or;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=RFO0C3vQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -15,60 +14,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=I3spQodnKPnsgc6uoR57vSQfnfxoguwdQwL43cpAbTI=; b=0LLYPLHxTda/FVlrjsEqEOPSnp
-	LVdYA+b1K5r9O72ryh3TsGVchOHHTiCMcLlX6dwd5u7mvvlGcu3mX9ZMLK9l2CVCv2bhVdrxh9uEi
-	1IbQmpnpaxnGuGDFHK4jQkMgPtOnN+BCtdJ+T+ClYFhEVMUjW3I2iEofGHvEpJMU4eioOepoBB47t
-	rFdSp5n8vkue3RwhA3J2qURXfwZnPHjZKUoU9DKYvP8ocXY0nMCFmmIklVT553dn0VEjJnlGBecCX
-	VcTduUXV3m8zQZbbEG0D52DLZgAXX3eFBRWS69ZqFNzCG1C0ZTD9ACbhNhGXh+LJ7nDJoAHFZJsxq
-	v6NnKD7Q==;
+	bh=4KRawIBVsBcSr6icHHOVmxzTPoOq5of5EY5YTvCYVGI=; b=mHwSR8orekvIWlb2HPESnyAduF
+	QkKNSkUzZ6l5zo+w6aRobLbaxV+32a42mXG7Xy3NcUQrCC7QdywoVkD6Qd/XIwsPrvU/NudKdkcTp
+	UIFLvGR3vvnplLIEXpFRN9GUwuvM4QGPHLQ58QBw0M0rlXmEQYOKQtUwcs5xdeRJxZK7UNM7gsEHl
+	m6BGYR1/DvgBLNcXhlM7EHtD6SjzfgbsaJCuO5BhMQ4O1+FpaVAA+QODbQRJRzOr8Il9++tHNnGkP
+	YUJLQDHfH1kEkmeIp+949HiL8dOOau7Y5JHpUWqmPHtJVtxjK83wDO60ykgCZ2US6CvLLloSHRjKE
+	rGKgUH+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUSon-0000000FoPs-06qM;
-	Fri, 20 Nov 2026 17:54:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xUSpB-0000000Fom1-3zSK;
+	Fri, 20 Nov 2026 17:55:01 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUSnD-0000000FnLx-2M7R;
-	Fri, 20 Nov 2026 17:53:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=bJgceeAEU8DOiQscuYE+6z+PhVwT3hYvgvXE/iZIG2g=; b=lTIusk9qlPR8+ymcayBfJ2tdBm
-	5A4+t3r3B383TlUnHONSM69YfN+lBoYQor3gO545RqGM+U4pXFuw/ClX1cW8jCWc7Vu9VJJGMRGBB
-	zQGRRoT616WUWnCBteWYyXuREDtB04WJvJkBABgoyHsMdhNfTBgygG9sXnVuyF31iP2zxB79Q5K+C
-	2YQhZNWPeE26aqiKxSD2jshRhahEI6w5kHRu0nNZW7M/yQTofEaYWLPSatziCHdhF5z/+9eNgjYdq
-	fxdW0gKuMFWJXTXXeu2B1rhSQTZxm2RSie69kRYPDjzqr/5dXMiRol5XGygjcta60ewVoQ+RO2oxC
-	fSZl9IAw==;
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUSn6-000000011xu-46kF;
-	Fri, 20 Nov 2026 17:52:58 +0000
+	id 1xUSn1-0000000Fn7A-3cNe;
+	Fri, 20 Nov 2026 17:53:30 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B2n7cS8Hb6f0oBMZkV+c3rRDP//MH1frjqIjUqAE4rRfwRUptyTjb+1gPtFpIs5R5xD0zGyl3bPGg+dgTLiABVQGLl6nlYQxgA1bFFc+s/R8snlJWnS6Vgzmkjtij1WFWpMdVAcQTYFHja3fx1/77wvWekk3nSHQFDdICMspE3w3CJOVKJ4wJBGPvN40VEiv/ixSzQ7n78nfKJEY9bYYfOedMakgUz42oyUwU0tGDbF0iA3pSJbDAeZi33RbIj/1i/LUQ1WQtPMvo53yqLQ0bLcOlz2wdfUg8EgM80HKVP/MzkrH9oZ+isXPrHLUNvYJqt7DSez3kLUZGWipyTIkfA==
+ b=wQySA+qlyT4MjN1TNgQtqyxOhPXWtqU7WI7onhj/2aPKsBVcBMQB3LYfddmwd/vLP9yTeneXOgE2/0ybGTQmHVZQJuSutl/KB0q6E/5bOdQZvEyVk01B+3BxrIhUUexU6n8pzK2TTmRXzTvyznTHsKM6B31bdSwwAps/+zPIo1tb48oCKBDuY3WebUGP33TF3562bVvY/ILplCuasSd3VDutlyJYwk9wKRPdeCKygSMhzh5Je6mWcUpI2ELfPnDvpHZU11dRnQ2/2V6Wfio1qbudkOSBqvAzFBcPiQ6FCdIQTwuGyjMKiG07nHtgMeIydDCB8FiZNlmUMTE/s1RC7Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bJgceeAEU8DOiQscuYE+6z+PhVwT3hYvgvXE/iZIG2g=;
- b=QWUe4CEEdVIpOHvJ063BO72B82qe4diHgGn51R0KawSPO+Z+k5w5B+Lw9f/3uhHm2Qb6/JMhaEEDoqYpYTgz8gL6XvNex3jXhr4jhHsVEhNdxagcAGfjjwRxiFkQNWwVJeb2FxindrJP+wYd193oJh0Okic4MyF0m69FIIwAIy801u6hT4IQ/kEx2No7eE08lWxg1/HkkX/VDxb5dm3OlA2mNjsa/TFrfkBYnMG9doKhU+K07vBRhfpUJtIMJYv+7FIkiZ/Iy4XEKFkut49pPrACNT348i1hoJ635Af2p+rNA4tOWQUfymK2I2n74HYk4G1xhdLooREP7kM+GsYXOw==
+ bh=FAPTTXKUz+0O/TqZ4vjLdHytqGfRBpIZI/ZDDRs8aC8=;
+ b=cxvn1gzBZc8KpofFRCnYZlTz83Q/7SG4isV4WBbHbGItmvnB4dBUnP1hViG7v2kHWfl1Dqx/voZ391b/+Mvn8vAlysu6RTCh6iCMPLFNzUXM8+RJNx1qPTPtw+dl/4Bz/8kCujWFSC1xSPC/LtKVppSkeiVa3sLW4ddKO+T5+k2aiAYcmPTSIDI8ZGjiZ1vYaZOV8oo9HPY3L1MtKBLcDDkkuOEwjTNJVJ3zeN1hKlKsdQpz4qTdfToO7TxMahVxqx4RKx9c7howD39UwNp9YcATxUj5CrblARyyPLmrk1BEcz818BYQNRy/QpmK/bH5TAjrZRFoam+F6qqVWWNgyg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bJgceeAEU8DOiQscuYE+6z+PhVwT3hYvgvXE/iZIG2g=;
- b=kOBhQ2SR/xFSWCaV2FkWdy0ZjGTmEzSzCN/2frpYY8ahg6TlG1pbhHrCHIkrvy5jBg6cj6Cw0ML+v2pCz70z7x8tfq8NBwl+bAlbJu1RJTnr4Tjqueqne0+0wIs3JlOhWjtJNSxV0tRCdxW6taUNuUyCkLcgmbygPiWcxPcU1sgQIbpwbXj75XyIimy3lrflqs0if1rPGrvfTk/c3Z9H3rU382g7koPPIoJr2RpvX9z0NqeYFc5PokaiskhKqjyuuYX7lMIvdJbRaCoMY0fQzUYDbENGie0Se1GAn13yObNF/+BtHA5TlL76EbEUIlTPEL8tycOcLm+zs2ic7H6C6Q==
+ bh=FAPTTXKUz+0O/TqZ4vjLdHytqGfRBpIZI/ZDDRs8aC8=;
+ b=RFO0C3vQd+DdKT68I4ky3cQqYuFZoIBCzIfVBmKKETHugc2R7brrbwNvvM047VsVeoP4D3zb7Rp3B63j8hxvQaBBttBOdIR7WaI+PqSXasS0tWh+IqDI6IZ+vCuZGEHg8tt/VqTwH9u49/1lhAIUNpM3LkligFsgyiowFMxDVIO+F1y456deUjPR5JpxN0NiHjbSkS2i3pw8v7X3iFLuVryWLlK9j0qPrzkommdT5ZMSQ2oZ9fTAxo+NYiDd0Sjxg3FHEAwEcyGbR1KXiKJfHFI1FdG7W4k2GYfwTSvcpEzzYOYvxLVEqkPShxleqb7Pns357LgLqMALzx4F1gt2lQ==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12) by IA1PR12MB6329.namprd12.prod.outlook.com
  (2603:10b6:208:3e5::19) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 17:52:14 +0000
+ 2026 17:52:13 +0000
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 17:52:14 +0000
+ 17:52:13 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alexandre Ghiti <alex@ghiti.fr>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -96,69 +81,69 @@ Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
 	patches@lists.linux.dev,
 	=?utf-8?q?Piotr_Kr=C3=B3l?= <piotr.krol@3mdeb.com>,
 	Ross Philipson <ross.philipson@gmail.com>
-Subject: [PATCH v3 11/11] efi/arm64: Implement ARM64 DRTM in the stub
-Date: Fri, 20 Nov 2026 13:52:04 -0400
-Message-ID: <11-v3-22d1a1eb7d2e+17de-arm64_drtm_jgg@nvidia.com>
+Subject: [PATCH v3 03/11] efi/libstub: Have efi_kaslr_relocate_kernel() handle extra_size
+Date: Fri, 20 Nov 2026 13:51:56 -0400
+Message-ID: <3-v3-22d1a1eb7d2e+17de-arm64_drtm_jgg@nvidia.com>
 In-Reply-To: <0-v3-22d1a1eb7d2e+17de-arm64_drtm_jgg@nvidia.com>
 References: 
-X-ClientProxiedBy: MN2PR11CA0004.namprd11.prod.outlook.com
- (2603:10b6:208:23b::9) To CHBPR12MB731189.namprd12.prod.outlook.com
+X-ClientProxiedBy: BLAP220CA0029.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:208:32c::34) To CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA1PR12MB6329:EE_
-X-MS-Office365-Filtering-Correlation-Id: b4360adc-e37c-43bc-ca40-08df472eff9b
+X-MS-Office365-Filtering-Correlation-Id: 7811cfb9-70cd-410b-1917-08df472efeb3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|18002099003|6133799003|22082099003|261009223027099003|3023799007|11063799006|5023799004|260925021911599003|261022115727099003|260925022911599003|260925021311599003|56012099006|921020|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261022113327099003|261021121427099003|261021123027099003|261022105027099003|261022075727099003|10067099003;
-X-Microsoft-Antispam-Message-Info: nHST0hkd9vbmekvJprJ32HpG6AUlwdxxQSW42dL7lzbS3OkY0q+7RjHL5SG4ILfKf86TQGcSWeBSSKsj4VwnZXs3JS/jFsq5QY1xOtSRYHvaxoOTQ2yTsZeP5Q3DZfOJB6kJhGBSHNy4ebhzhMtWf3KS6wk/4jgvTNxePAf4r001b3xA1itnnQapSfP14KNfn4/yxbkYAP0844PcWy+KPIR3Qw1Ho0cMUQHhR+QFTVo6Uay7TWjTq9WKcEpgDeOeito1RFo94Qxez0GrX+b5BKRyEM0ZOrkB/ZO9qBBUMlpq7g9HMODjCxRc/5+JysZDOuLHFL/9rbQUOI4GkAlXmUYBsjwselbbzTHFvAPbCHRF9mg6anTXDzdce7uEEWx03CvbOfHHBMplDGFTYav3D/2OZlCYZQ07fsc4CcEdbvXGX799Bze9sLOi2j8Xn+86wUtdVsvqCVIOGwdEPVWelNDK1FVLJVKDZmSQcnH7V4aL6PoWQDyBZ9Q3Gdpkii20w+EjqjXoiwFjdON5vFBMSsjebZUXUrs81T5uz4R8BRyOcLUYqdSXs4LacKerw/TdGMKbMdwzi0+zPK95hS5jEuPbHVMf6ex6OX8Sy3VbIDRhfRJa+3HRqK196sNfNXKZIKFV3bTnOi0cyeoYO8spvYQPXFkK1TLdepU35TaYUaBtcEJV/BwTVj6RkpRmwM5VtNWDGvhZL7J5s0o17oXvGw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(18002099003)(6133799003)(22082099003)(261009223027099003)(3023799007)(11063799006)(5023799004)(260925021911599003)(261022115727099003)(260925022911599003)(260925021311599003)(56012099006)(921020)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261022113327099003)(261021121427099003)(261021123027099003)(261022105027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|18002099003|6133799003|22082099003|261009223027099003|11063799006|5023799004|261022115727099003|56012099006|921020|261026135527099003|261102123227099003|261028144727099003|261026140227099003|261021133027099003|261026121527099003|261022113327099003|261021121427099003|261021123027099003|261022105027099003|261022075727099003|261026130827099003|261021130227099003|261021135927099003|10067099003;
+X-Microsoft-Antispam-Message-Info: ZyBiNzP+m2npuiwnjZBBLXqcQnVE9m9RJZcZ+QMX874kklaEXmti7eyKW9jfT6Hcq2oIExjRd+vkPYZoBiEBgQvQ1ABMak93xPln6R95mt4KN/CfVsqvFrWvGyjcOaM+JkaH5E4Q9OfiDsZQ6KhgG5sk0yRFoHlt1Re11jbo7awi3vSc5DueH8MiLrNYnCH1XVaXZ7Y9ol2mMfxASI2jkdh6UIu3UkvPkMyTiIkJjPxBgApIIWyOcXbX3ctHHKxHVe6W4GvncGFX7L3e+tfzLlcFLWWHFqpWyiGirFlSZfVD1KnjoxTL3D91OFK+gEqiFSnrHf/jsXuGAW50Zs/fcvJ3tCaYMsgSOUGIcFUG1JVao68WhuCK2/1N1ivVZ2rSNB5th0cRbjbKHZ0m8ruktnTrR8MrHvNXbbJRmf7munIybDC4UYcmTJ2py/ZJmdwvJTBdHVncXJyjsfi6wJcWzNNh1/vzfao5grcEB8Ea3A+3Z3qFQiJv4G+wl4VshDRK0i+kXh0xuguuk20dPF9Vlx4SsCGjnRov6OZk7eiIq+npf0+s99fkfpN7SBa2BLExhVuBuvJfQJk7G9ds1S5k+ioiZkkUU6ba5xqiqnai84X2X9hun37YkF4mGGjC9bAxKJfVY0ImyKC0TlQqCSV9/8ui/NWSZP2DSsRPB1OB03W40k4Hee3qGTdaiLLCWNqVxkYaDbekmwuLn7fSmxEqYA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(18002099003)(6133799003)(22082099003)(261009223027099003)(11063799006)(5023799004)(261022115727099003)(56012099006)(921020)(261026135527099003)(261102123227099003)(261028144727099003)(261026140227099003)(261021133027099003)(261026121527099003)(261022113327099003)(261021121427099003)(261021123027099003)(261022105027099003)(261022075727099003)(261026130827099003)(261021130227099003)(261021135927099003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?w+d9ZckjaaSxiHzwXh8nKzYJWBi0/I+mwff4FevrXiKFagUqJIG3/LMTWSqV?=
- =?us-ascii?Q?syE9Btp4hLa9NwRrrbKihtK1PEsKoR8knNGj2xNaknaOa6c5yBVi+mCHEGJ0?=
- =?us-ascii?Q?220BTkaivbdIKsff1FnwIClUTjVWD8MXNG+D8VrUeco1tjMzwbcZ2n8oj5Ag?=
- =?us-ascii?Q?qDSfFNVjU1wBvqh5Z5Lv/iJSgyLQGJ8c8ZDh9JPbr2t+o6azI+RY1HkMngVW?=
- =?us-ascii?Q?BTIdK2c+P8ihlUATASm4IxvbNUXUYlMZQFqCd+oltjcl+t829orB2MhUK8yV?=
- =?us-ascii?Q?lfC/rdgp1b2eUQ2uFFM3OrwkJjrGUAoJSDDDge6eHliiCMHn8gWJ0uwUoatV?=
- =?us-ascii?Q?yAnm2+puBtAXvsCZPyPE2VvTpVONZ8ZtljO/uGWqnE+jh8gsBHiBtpRBZFLK?=
- =?us-ascii?Q?FAs8VVgRLUCR6oBIIMkJOx0J4Zlj8LhYS/E0vU5YeoR0Pk4wIBWMhbezaOnf?=
- =?us-ascii?Q?nSHkbu3dPe7I6RK3/Wa1SzUco53YKw24ZN3sGikKEwUH3va1Pt3wzir05Z2j?=
- =?us-ascii?Q?eePKY7+vZUIe5WQdyHdPkIKTuaYOrBPhavkYlQPpCFpp+mYgS6t5JT20grH6?=
- =?us-ascii?Q?Sd3ZXSdf9TfN4vLzPcibvUns7569Z7cZHMgpBj5Dc/TaICeJb5puvJ+bUocw?=
- =?us-ascii?Q?daTLrr2sXhQJpyepJlsIbHjUcWgvB8jB4+O8kY7xyTnvHGXt+G8c9Q8X8NaQ?=
- =?us-ascii?Q?9oxd2yKDSGoTatCYjcNfDK+yNuH6ks3s/3wfWWbEtWryG6D+jHzeHBw2y3uR?=
- =?us-ascii?Q?MxdF1XaZGV0yo8Il6Kxa4Hcozhh8e8jYaZ/6vLlQ+xrh59n2N5F2QHtxnVpW?=
- =?us-ascii?Q?FHRR7NNXYBJwrf869uUkVfQm8DvkEAmbOeGtqmqfk6wwTMs2AuX8MykIscoz?=
- =?us-ascii?Q?ZF2fLW7riczPnIC2eMGWUwwTl2A4lEmfWxA2zY3zuMgIKCzKe1cQOiUkstZt?=
- =?us-ascii?Q?KMAlYIEeWdIhhB2APpZnFIXxjrhXwKKQ3dxFqSBRHH1ctFeQkkK7oLVopnZz?=
- =?us-ascii?Q?jse5hvosNxotAGumklNalhP4KO/ju+mjop3TYordMftHRQjKNqdcKf9SqFFW?=
- =?us-ascii?Q?iz3tyXpKcPNEgaJkzNvRaGONhWUCX54QlayfchvHnjjFpGeA9Wvfd58WJAOh?=
- =?us-ascii?Q?glGWTtvvtpO2HhDDFx+F3V1urHZeAq9MYqO0UtPE3fgjOlI5FzIYdm/6JMrz?=
- =?us-ascii?Q?K7mqj19/ASNPkY9w6/06q+1VPIr2bZbgNplTvt974tq0o3D5hWLcBxdNG8Bn?=
- =?us-ascii?Q?03B7ttdUAdgDZVgjyK4nxp1y5pFHxwKzUsTQayIRhhXzhfigPYCh/u8iR/23?=
- =?us-ascii?Q?geOJrCpJ3uv+HwoynC6KuYaEAen09LJRvgHWbtJTq0HV2Dg0iIQdPduffdUw?=
- =?us-ascii?Q?Tc9eiKV1rT7rFuHXauCurAea/Xs/WrPHjT0hBra+XPaSM14bWs5JTrjlXo03?=
- =?us-ascii?Q?jlRg2nEsTSbGGYMPamxXlacgJjx0Nq2i/PC3+2N3Q65XOknAjS/v51zA7crc?=
- =?us-ascii?Q?Yup1I7NCtlHDq4f8a7MockHUGdtFKpooYgrOXlPa0XNcH9Y+WKHw7/UuGmVZ?=
- =?us-ascii?Q?roARIdVBg076KpmGlhDEm9S3qJXkwz3Cl8r5jomvbfsV1V51hnY1z2OiDGrN?=
- =?us-ascii?Q?gghTJ37jGgZuBeIeEsiOcN14kPR06o4dfQHGnc5A0DNjfgfY3Fe8/Flroihc?=
- =?us-ascii?Q?C7dMrC6IujQOVFGGd0kyt4t7dtaOlTw0/1pu+K154mGBnv2M?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PNUKdKw+K3972jG4HUAGCjQMMgS1LUYyBbEwJFpfA8+Yb3s4UyUhj3mqEyhZ?=
+ =?us-ascii?Q?0mV8IDMheYOeywc9h97f05P/r2aOINn4s/1WoKtL391PHnZahFnJuTvlVZCr?=
+ =?us-ascii?Q?3fvY5vvOnhmmnZmDfaphvZyZlRN5Tfxt14fxJDt20GayLzHBgfMtkCqkyTkd?=
+ =?us-ascii?Q?/skry78eiRGHuZVVqHqaX4k4d0kheDybNYHziDTNUsNVe9+iqMBDBCGi0fFa?=
+ =?us-ascii?Q?0rrv3MLMQBK1HbhcqbvARskh6niKWEHMGBQBUhNV8GfFI8OuytrJ0ofsXmJP?=
+ =?us-ascii?Q?Sih2UMuugForVM3Y+r/xx+uEEabvAiSvB4arkGEJg3psSUN3Q0wjqwIsRUFl?=
+ =?us-ascii?Q?MiQKiH4+9Sg66PFsRCfsU4JH0jrKqUSkb7b8+iUpHvmAQ/m1yyZgmzmCgpqQ?=
+ =?us-ascii?Q?Fv6szj6cTguZW1oZGmN4RO1DTS9uV8pympXV7HFrS0ICFNh72FPQezaToXNG?=
+ =?us-ascii?Q?PwFj4CHgZDF1mO3zXTOMyCX5cFFfhKwoTdsunPFAU8U8ZW+GHDaYOpysEgU7?=
+ =?us-ascii?Q?RPIXYJveAH9mLDQfDS8kYTgDttpicdnsFZNqo9Qzo/CR3Z8+lykZLbSierfM?=
+ =?us-ascii?Q?+TmPy3+Lg+z4GNAhA2jdU+QJ7DZfGI1NDSU+2Gjd7RCjqcZXH1nwNBo5q1gE?=
+ =?us-ascii?Q?onGl4eEmOUGEITWiXLEea1jpIxSgIaGQpX9ckD9/HiEgH27ic7QEnIFR+QXU?=
+ =?us-ascii?Q?ICoC6MzYCpAI/W3Mwnn2g7kz3pzBxNrq7VYMDIdDUP/jn8jAqxSgc4Y9/Nh+?=
+ =?us-ascii?Q?RFCWwiS0IJ/mZw1vjRuwESRLOtTLPk89Ox+xvtFcUDA8+T+4x63bNnZL3vK1?=
+ =?us-ascii?Q?GN/BdGN+OiMksuNZNojMDF/ydbR7OcxZnR2Af3zuTD+KPV39yYE8+gaC9e2/?=
+ =?us-ascii?Q?tPuN5t7x0+4NEnW+4MDaV03WC13KYlHLyfjWqQt1BiuCdmKytQnXhG4SWbjO?=
+ =?us-ascii?Q?LpX26kY0c98oHFzANwcNwo7J8njv9I9sr4mYFFJZIR9LuFYnbw5Ul9KSK1g+?=
+ =?us-ascii?Q?ADJJ6nu0eIvRilto+O0E3/eGi6Uzu78mBG8rdxFdeUozV+xI7Zj1iEuq5cP5?=
+ =?us-ascii?Q?grys34M2uLh8CW+cDjhf9qjfe+bIYdt7XTbt0cc6rNimJG+xtISRpfJmuMit?=
+ =?us-ascii?Q?AKDp4jdqrfZh285keqrWKV/HPstffvUT+3LUnKeQFUis4NM715Bt61TPm1wf?=
+ =?us-ascii?Q?4/mi6hjHfJgnOfAIbE7VzZeOglEBOPnFrtEvowOfjeBnpUViQOoNJrUFHmGr?=
+ =?us-ascii?Q?B21QwwvvDWroKQwpyMo32TnPZ55t6DhhK8DYHr/YFMVZfSsvhHRMkOPxFv3v?=
+ =?us-ascii?Q?g0F3hoYxgq1Vn5ocGwTzbcPxQub1ot2jbqpMKne5OR62xnmgrpyjVx9meSFv?=
+ =?us-ascii?Q?cZMmxK3VIVWfE+wjarE7pWCvJ4iIuq6M6fmcVvLV6T9aZHhj1tWEMvv44N6Y?=
+ =?us-ascii?Q?X+TpZ7v5r0ISQXN5RbipS3GBKzUIxirDVagHexs51psQMmfYqNJVkIoEHcU7?=
+ =?us-ascii?Q?e90tEMWBkkKWCKa5h59djMSL64/2thY+QvwtzkMXOmzr80ap+P9W9Bw32aEr?=
+ =?us-ascii?Q?knZzkeLKYtIBmi3OlLlULBvj2nIrYftYJTFmFoxc3ERVX8/xKZK9CI1wzq+C?=
+ =?us-ascii?Q?46ljg9JQ1Frjtaz56s/G0yxSwu97wtAmbyPZeZ1p8SlHUYVGgDfBQGQSnHQR?=
+ =?us-ascii?Q?RiNuf03O8zUvUY3UThUyW3IRVg2xBQdym7oJzXq3SagR25T5?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b4360adc-e37c-43bc-ca40-08df472eff9b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7811cfb9-70cd-410b-1917-08df472efeb3
 X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 17:52:09.4809
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 17:52:08.1098
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qwXSyfu6xFFQRaLexyz0Urtj2VGndZhGuYCy673lB/AxPJqTUx14tQdEyysL4CWz
+X-MS-Exchange-CrossTenant-UserPrincipalName: JWICvMnbVG4t9kufQ6j/o0SYZ13cEEIJ+6xlnV5M9cOmXdkYSg2heA7ZB4/fr3tJ
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6329
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261120_175252_944610_D6118720 
-X-CRM114-Status: GOOD (  23.95  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261120_095248_106186_D1DECAED 
+X-CRM114-Status: GOOD (  16.21  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,477 +163,159 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Provide an implementation of the CONFIG_EFI_STUB_DRTM protocol for ARM64
-DEN0113 >= v1.1.
+extra_size is additional memory required that must be immediately after
+the image.
 
-First, it queries the FW for support and collects all the
-information. This is needed to compute the extra_size, which comes
-from FW reporting how much memory it needs during the launch for the
-DLME Data and DCE-owned data. The generic stub ensures there is
-trailing memory after Image for this.
+There are three possibilities here, each a little different:
+- relocating for kaslr, just request extra_size like the zboot flow does
+  when allocating the random placement from EFI
+- in place, attempt to allocate from EFI precisely after Image to
+  confirm nothing weird is there, failing that
+- like any other error with the in place EFI location allocate
+  non-randomly with extra_size included
 
-Then the DRTM_PARAMETERS launch structure is computed using the
-offsets in the efi_info.
-
-Finally, the stub does ExitBootServices and calls the actual launch.
-
-The feature discovery process is deliberately fairly verbose to help
-debug any FW weirdness in the field. Enable it with efi=debug
-
-It looks something like:
-
- EFI stub: DRTM: interface version 1.4
- EFI stub: DEBUG: DRTM: TPM algorithm 0xc, TPM hashing unavailable, PCR schemas 0x1
- EFI stub: DEBUG: DRTM: minimum DLME data 73728 bytes, Normal-world DCE 0 bytes
- EFI stub: Decompressing Linux Kernel...
- EFI stub: Generating empty DTB
- EFI stub: Exiting boot services...
- EFI stub: DEBUG: DRTM: will launch, selected launch features 0x0
- [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x000f0510]
-
-Eventually the launch'd kernel is going to require built in crypto
-libraries that match what the FW is using so it can validate some of the
-information left behind during early boot. Refuse to launch if these are
-not built in and build in the most common ones from the ARM64_DRTM
-kconfig.
+Adjust things to use a kernel_allocsize which is >= the memsize computed
+from the image_info.
 
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- arch/arm64/Kconfig                        |  16 +
- drivers/firmware/efi/libstub/Makefile     |   2 +-
- drivers/firmware/efi/libstub/arm64-drtm.c | 383 ++++++++++++++++++++++
- 3 files changed, 400 insertions(+), 1 deletion(-)
- create mode 100644 drivers/firmware/efi/libstub/arm64-drtm.c
+ drivers/firmware/efi/libstub/kaslr.c | 77 ++++++++++++++++++++++------
+ 1 file changed, 61 insertions(+), 16 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 9b08b2457a555f..412fc29f4e1cf0 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2622,6 +2622,22 @@ config EFI
- 	  allow the kernel to be booted as an EFI application. This
- 	  is only useful on systems that have UEFI firmware.
+diff --git a/drivers/firmware/efi/libstub/kaslr.c b/drivers/firmware/efi/libstub/kaslr.c
+index 2f1f3e19583def..f50c36a2fd635e 100644
+--- a/drivers/firmware/efi/libstub/kaslr.c
++++ b/drivers/firmware/efi/libstub/kaslr.c
+@@ -80,7 +80,44 @@ static bool check_image_region(u64 base, u64 size)
+ 	return false;
+ }
  
-+config ARM64_DRTM
-+	bool "Arm Dynamic Root of Trust for Measurement support"
-+	depends on EFI
-+	select CRYPTO
-+	select CRYPTO_SHA256
-+	select CRYPTO_SHA512
-+	select EFI_STUB_DRTM
-+	help
-+	  Support launching Linux as a Dynamically Launched Measured
-+	  Environment (DLME) using Arm's DEN0113 DRTM specification. Requires
-+	  booting through the EFI stub. The drtm= kernel command line option
-+	  enables or disables the launch at boot.
-+
-+	  If unsure, say N. This option is EXPERIMENTAL and does not yet provide
-+	  security.
-+
- config COMPRESSED_INSTALL
- 	bool "Install compressed image by default"
- 	help
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index 2ae86429315e0e..125159d8136f33 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -85,7 +85,7 @@ lib-$(CONFIG_EFI_GENERIC_STUB)	+= efi-stub.o string.o intrinsics.o systable.o \
- 
- lib-$(CONFIG_ARM)		+= arm32-stub.o
- lib-$(CONFIG_ARM64)		+= kaslr.o arm64.o arm64-stub.o smbios.o
--lib-$(CONFIG_ARM64_DRTM)	+= arm64-smcc.o
-+lib-$(CONFIG_ARM64_DRTM)	+= arm64-smcc.o arm64-drtm.o
- lib-$(CONFIG_X86)		+= x86-stub.o smbios.o
- lib-$(CONFIG_X86_64)		+= x86-5lvl.o
- lib-$(CONFIG_RISCV)		+= kaslr.o riscv.o riscv-stub.o
-diff --git a/drivers/firmware/efi/libstub/arm64-drtm.c b/drivers/firmware/efi/libstub/arm64-drtm.c
-new file mode 100644
-index 00000000000000..73f1ce38394d51
---- /dev/null
-+++ b/drivers/firmware/efi/libstub/arm64-drtm.c
-@@ -0,0 +1,383 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES
-+ *
-+ * EFI Stub implementation for ARM DEN 0113 "DRTM Architecture for Arm"
-+ *
-+ * This code runs on the untrusted side of the boot in the EFI stub. Nothing it
-+ * does should impact the integrity of the post-launch world and it does not
-+ * need to take special security precautions.
-+ */
-+#include <linux/bitfield.h>
-+#include <linux/efi.h>
-+#include <linux/kconfig.h>
-+#include <linux/overflow.h>
-+#include <linux/tpm_command.h>
-+
-+#include <asm/cputype.h>
-+#include <asm/drtm.h>
-+
-+#include "efistub.h"
-+#include "arm64-stub.h"
-+
-+struct efi_drtm_config {
-+	u32 launch_features;
-+	unsigned long dlme_data_size;
-+	unsigned long nw_dce_size;
-+	struct arm_drtm_parameters *params_addr;
-+	struct arm64_drtm_handoff *handoff;
-+};
-+static struct efi_drtm_config drtm_cfg;
-+
-+static bool efi_drtm_query_feature(u64 feature, u64 *value)
-+{
-+	s64 status;
-+
-+	status = arm_drtm_query_feature(feature, value);
-+	if (status < 1) {
-+		efi_err("DRTM: feature %llx query failed (x0=%lld)\n", feature,
-+			status);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
 +/*
-+ * For the kernel to boot it must have the matching hash algorithm built in to
-+ * be able to validate the TCB hashes. Assume the TPM hash algorithm is the one
-+ * that TCB_HASH_TABLE will be using.
++ * The PE loader owns only kernel_memsize of the image.  Try to own the
++ * requested tail separately at the exact adjacent address instead of
++ * relocating the complete region.
 + */
-+static bool efi_drtm_hash_algorithm_supported(u16 algorithm)
++static efi_status_t allocate_image_tail(unsigned long image_addr,
++					unsigned long kernel_memsize,
++					unsigned long extra_size,
++					unsigned long *free_addr,
++					unsigned long *free_size)
 +{
-+	switch (algorithm) {
-+	case TPM_ALG_SHA256:
-+		return IS_BUILTIN(CONFIG_CRYPTO_SHA256);
-+	case TPM_ALG_SHA384:
-+	case TPM_ALG_SHA512:
-+		return IS_BUILTIN(CONFIG_CRYPTO_SHA512);
-+	default:
-+		return false;
-+	}
-+}
-+
-+static bool efi_drtm_probe_tpm(void)
-+{
-+	u16 algorithm;
-+	u8 schemas;
-+	u64 value;
-+
-+	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_TPM, &value))
-+		return false;
-+	algorithm = FIELD_GET(ARM_DRTM_TPM_ALG_MASK, value);
-+	schemas = FIELD_GET(ARM_DRTM_PCR_SCHEMA_MASK, value);
-+
-+	if (!efi_drtm_hash_algorithm_supported(algorithm)) {
-+		efi_err("DRTM: firmware hash algorithm 0x%x is unavailable (feature 0x%llx)\n",
-+			algorithm, value);
-+		return false;
-+	}
-+
-+	if (!(schemas & BIT(ARM_DRTM_PCR_SCHEMA_DEFAULT))) {
-+		efi_err("DRTM: default PCR schema is unavailable (feature 0x%llx)\n",
-+			value);
-+		return false;
-+	}
-+
-+	efi_debug("DRTM: TPM algorithm 0x%x, TPM hashing %s, PCR schemas 0x%x\n",
-+		  algorithm,
-+		  value & ARM_DRTM_TPM_HASHING ? "available" : "unavailable",
-+		  schemas);
-+	return true;
-+}
-+
-+static bool efi_drtm_probe_memory(void)
-+{
-+	u64 value;
-+
-+	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_MIN_MEMORY, &value))
-+		return false;
-+
-+	drtm_cfg.dlme_data_size =
-+		FIELD_GET(ARM_DRTM_DLME_DATA_PAGES_MASK, value) *
-+		ARM_DRTM_PAGE_SIZE;
-+	drtm_cfg.nw_dce_size = FIELD_GET(ARM_DRTM_NW_DCE_PAGES_MASK, value) *
-+			       ARM_DRTM_PAGE_SIZE;
-+
-+	efi_debug("DRTM: minimum DLME data %lu bytes, Normal-world DCE %lu bytes\n",
-+		  drtm_cfg.dlme_data_size, drtm_cfg.nw_dce_size);
-+	return true;
-+}
-+
-+static bool efi_drtm_probe_dma(void)
-+{
-+	u64 value;
-+
-+	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_DMA_PROTECTION, &value))
-+		return false;
-+
-+	if (!(FIELD_GET(ARM_DRTM_DMA_PROTECTION_MASK, value) &
-+	      BIT(ARM_DRTM_DMA_PROTECTION_COMPLETE))) {
-+		efi_err("DRTM: complete DMA protection is unavailable (feature 0x%llx)\n",
-+			value);
-+		return false;
-+	}
-+	return true;
-+}
-+
-+/* Sanity check nothing has gone wrong */
-+static bool efi_drtm_probe_boot_pe(void)
-+{
-+	u64 current_pe = read_cpuid_mpidr() & MPIDR_HWID_BITMASK;
-+	u64 boot_pe;
-+
-+	if (!efi_drtm_query_feature(ARM_DRTM_FEATURE_BOOT_PE, &boot_pe))
-+		return false;
-+
-+	if ((boot_pe & MPIDR_HWID_BITMASK) != current_pe) {
-+		efi_err("DRTM: boot PE 0x%llx does not match current PE 0x%llx\n",
-+			boot_pe, current_pe);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static void efi_drtm_report_previous_error(void)
-+{
-+	s64 error_code;
-+	s64 status;
-+
-+	status = arm_drtm_query_function(ARM_DRTM_SMC_GET_ERROR);
-+	if (status != ARM_DRTM_SUCCESS) {
-+		efi_debug("DRTM: GET_ERROR is unavailable (x0=%lld)\n", status);
-+		return;
-+	}
-+
-+	status = arm_drtm_get_error(&error_code);
-+	if (status != ARM_DRTM_SUCCESS) {
-+		efi_warn("DRTM: failed to read previous error (x0=%lld)\n",
-+			 status);
-+		return;
-+	}
-+
-+	if (error_code) {
-+		efi_warn("DRTM: firmware reports previous launch error 0x%llx\n",
-+			 error_code);
-+		if (efi_drtm_policy != EFI_DRTM_ENFORCE)
-+			efi_drtm_policy = EFI_DRTM_OFF;
-+	}
-+}
-+
-+static efi_status_t efi_drtm_failure(void)
-+{
-+	if (efi_drtm_policy == EFI_DRTM_AUTO) {
-+		efi_warn("DRTM: preparation failed, continuing without DRTM\n");
-+		efi_drtm_policy = EFI_DRTM_OFF;
-+		return EFI_SUCCESS;
-+	}
-+
-+	efi_err("DRTM: enforced preparation failed\n");
-+	return EFI_UNSUPPORTED;
-+}
-+
-+efi_status_t efi_drtm_prepare(void)
-+{
-+	s64 feature_status;
-+	u16 major, minor;
-+	s32 status;
-+
-+	if (efi_drtm_policy == EFI_DRTM_OFF)
-+		return EFI_SUCCESS;
-+
-+	if (!efi_arm64_smccc_1_1())
-+		return efi_drtm_failure();
++	efi_physical_addr_t tail_addr;
++	efi_status_t status;
 +
 +	/*
-+	 * v1.4B section 3.2.1 "DRTM_VERSION usage" explains that a new major
-+	 * ABI version may "Change behavior of existing functions". Verify the
-+	 * major version before calling anything so we don't trigger unknown
-+	 * behavior.
++	 * Since we intend to use efi_free() for reserve_addr it should be
++	 * aligned to the higher alignment since efi_free() includes rounding.
++	 * For ARM64 the kernel image is already aligned up to EFI_ALLOC_ALIGN
++	 * by the linker.
 +	 */
-+	status = arm_drtm_version(&major, &minor);
-+	if (status != ARM_DRTM_SUCCESS) {
-+		efi_err("DRTM: failed to read interface version (x0=%d)\n",
-+			status);
-+		return efi_drtm_failure();
-+	}
-+	if (major != ARM_DRTM_VERSION_MAJOR) {
-+		efi_err("DRTM: unsupported interface version %u.%u\n", major,
-+			minor);
-+		return efi_drtm_failure();
-+	}
-+	efi_info("DRTM: interface version %u.%u\n", major, minor);
++	tail_addr = image_addr + kernel_memsize;
++	if (!IS_ALIGNED(tail_addr, EFI_ALLOC_ALIGN))
++		return EFI_OUT_OF_RESOURCES;
 +
-+	efi_drtm_report_previous_error();
-+	if (efi_drtm_policy == EFI_DRTM_OFF)
-+		return EFI_SUCCESS;
++	extra_size = round_up(extra_size, EFI_ALLOC_ALIGN);
++	status = efi_bs_call(allocate_pages, EFI_ALLOCATE_ADDRESS,
++			     EFI_LOADER_CODE, extra_size / EFI_PAGE_SIZE,
++			     &tail_addr);
++	if (status != EFI_SUCCESS)
++		return status;
 +
-+	feature_status = arm_drtm_query_function(ARM_DRTM_SMC_DYNAMIC_LAUNCH);
-+	if (feature_status != ARM_DRTM_SUCCESS) {
-+		efi_err("DRTM: dynamic launch is unavailable (x0=%lld)\n",
-+			feature_status);
-+		return efi_drtm_failure();
-+	}
-+
-+	if (!efi_drtm_probe_tpm() || !efi_drtm_probe_memory() ||
-+	    !efi_drtm_probe_dma() || !efi_drtm_probe_boot_pe())
-+		return efi_drtm_failure();
-+
-+	drtm_cfg.launch_features =
-+		ARM_DRTM_LAUNCH_HASH_FIRMWARE |
-+		FIELD_PREP(ARM_DRTM_LAUNCH_PCR_SCHEMA_MASK,
-+			   ARM_DRTM_PCR_SCHEMA_DEFAULT) |
-+		FIELD_PREP(ARM_DRTM_LAUNCH_DMA_PROTECTION_MASK,
-+			   ARM_DRTM_DMA_PROTECTION_COMPLETE) |
-+		ARM_DRTM_LAUNCH_NO_AUTH | ARM_DRTM_LAUNCH_KEEP_SECURE_IRQS;
-+
++	*free_addr = tail_addr;
++	*free_size = extra_size;
 +	return EFI_SUCCESS;
 +}
 +
-+unsigned long efi_drtm_get_extra_size(void)
-+{
-+	/*
-+	 * See arch/arm64/kernel/vmlinux.lds.S for the DRTM Memory layout.
-+	 *
-+	 * v1.4B Table 6 "Return values for DRTM features", feature 0x2 reports
-+	 * both minimum sizes in 4 KiB pages.
-+	 *
-+	 * The linker places the DLME data at the 4 KiB-aligned end of the
-+	 * static Image as required by R314030 in Table 13 "DLME region
-+	 * requirements".
-+	 *
-+	 * The DLME region must include all of that data (R45200 in Table 30
-+	 * "DCE requirements for the DLME"), and an optional Normal-world DCE
-+	 * follows it at another 4 KiB-aligned address as required by R312080 in
-+	 * Table 10 "DRTM_PARAMETERS requirements".
-+	 *
-+	 * A final page holds the 4 KiB-aligned DRTM_PARAMETERS required by
-+	 * R312010 in the same table. Only the first area is part of the DLME
-+	 * region.
-+	 */
-+	if (efi_drtm_policy == EFI_DRTM_OFF)
-+		return 0;
-+	return drtm_cfg.dlme_data_size + drtm_cfg.nw_dce_size +
-+	       ARM_DRTM_PAGE_SIZE;
-+}
-+
-+efi_status_t efi_drtm_prepare_launch(const struct efi_image_info *image_info,
-+				     unsigned long fdt_addr)
-+{
-+	struct arm64_drtm_handoff *handoff =
-+		efistub_drtm_handoff(image_info);
-+	struct arm_drtm_parameters *params;
-+	unsigned long measured_offset;
-+	unsigned long measured_size;
-+	unsigned long image_base;
-+	unsigned long image_size;
-+	unsigned long dlme_start;
-+	unsigned long dlme_end;
-+	unsigned long dce_end;
-+	unsigned long entry;
-+
-+	if (efi_drtm_policy == EFI_DRTM_OFF)
-+		return EFI_SUCCESS;
-+
-+	image_base = efistub_kernel_base(image_info);
-+	image_size = efistub_kernel_memsize(image_info);
-+	measured_offset = efistub_drtm_measured_offset(image_info);
-+	measured_size = efistub_drtm_measured_size(image_info);
-+	entry = efistub_drtm_entry_offset(image_info);
-+	dlme_start = image_base + image_size;
-+	dlme_end = dlme_start + drtm_cfg.dlme_data_size;
-+	dce_end = dlme_end + drtm_cfg.nw_dce_size;
-+
-+	/* Quick checks something didn't go wrong during image construction */
-+	if (entry < measured_offset ||
-+	    entry - measured_offset >= measured_size ||
-+	    !IS_ALIGNED(image_base, ARM_DRTM_PAGE_SIZE) ||
-+	    !IS_ALIGNED(image_size, ARM_DRTM_PAGE_SIZE) ||
-+	    !IS_ALIGNED(measured_offset, ARM_DRTM_PAGE_SIZE) ||
-+	    !IS_ALIGNED(dlme_start, ARM_DRTM_PAGE_SIZE) ||
-+	    !IS_ALIGNED(dlme_end, ARM_DRTM_PAGE_SIZE) ||
-+	    !IS_ALIGNED(dce_end, ARM_DRTM_PAGE_SIZE)) {
-+		efi_err("DRTM: final Image layout is invalid\n");
-+		return efi_drtm_failure();
-+	}
-+
-+	/*
-+	 * For robustness zero all the trailing space at the end of the
-+	 * alocation. This contains the DRTM_PARAMETERS structure too, so
-+	 * must be done before filling it.
-+	 */
-+	memset((void *)dlme_start, 0, efi_drtm_get_extra_size());
-+	params = (void *)dce_end;
-+	params->revision = cpu_to_le16(1);
-+	/* PCR authorities, image authentication and secure IRQ disable need v2. */
-+	if (drtm_cfg.launch_features &
-+	    (ARM_DRTM_LAUNCH_PCR_SCHEMA_MASK | ARM_DRTM_LAUNCH_AUTH |
-+	     ARM_DRTM_LAUNCH_DISABLE_SECURE_IRQS))
-+		params->revision = cpu_to_le16(2);
-+	params->launch_features = cpu_to_le32(drtm_cfg.launch_features);
-+	params->dlme_region_address = cpu_to_le64(image_base);
-+	params->dlme_region_size = cpu_to_le64(dlme_end - image_base);
-+	params->dlme_image_start = cpu_to_le64(measured_offset);
-+	params->dlme_entry_point_offset = cpu_to_le64(entry - measured_offset);
-+	params->dlme_image_size = cpu_to_le64(measured_size);
-+	params->dlme_data_offset = cpu_to_le64(image_size);
-+	if (drtm_cfg.nw_dce_size) {
-+		params->nw_dce_region_address = cpu_to_le64(dlme_end);
-+		params->nw_dce_region_size = cpu_to_le64(drtm_cfg.nw_dce_size);
-+	}
-+
-+	/*
-+	 * The DLME Data contains its own size in a trusted header, so the
-+	 * handoff doesn't need to include extra_size. The DCE Data is only
-+	 * temporary so the kernel also does not need to know about it.
-+	 */
-+	handoff->fdt_addr = cpu_to_le64(fdt_addr);
-+	handoff->drtm_enabled = 1;
-+
-+	efi_debug("DRTM: will launch, selected launch features 0x%x\n",
-+		  drtm_cfg.launch_features);
-+
-+	drtm_cfg.params_addr = params;
-+	drtm_cfg.handoff = handoff;
-+	return EFI_SUCCESS;
-+}
-+
-+static void efi_drtm_fallback(void)
-+{
-+	drtm_cfg.handoff->drtm_enabled = 0;
-+}
-+
-+void efi_drtm_launch(void)
-+{
-+	if (efi_drtm_policy == EFI_DRTM_OFF)
-+		return;
-+
-+	/*
-+	 * No cache maintenance is required before the launch. v1.4B R42130 in
-+	 * Table 22 "DCE preamble requirements" requires the DRTM_PARAMETERS to
-+	 * be accessible as Normal Write-Back Cacheable, Inner Shareable memory,
-+	 * so the DCE reads them coherently with the writes made above.  R45220
-+	 * in Table 30 "DCE requirements for the DLME" then has the DCE clean
-+	 * and invalidate the whole DLME region to the Point of Coherency before
-+	 * it measures the DLME image, which covers both the Image itself and
-+	 * the handoff struct placed in the DLME region. Thus once we jump into
-+	 * the kernel with MMU and caches off the CPU will see everything the
-+	 * stub wrote.
-+	 */
-+	arm_drtm_dynamic_launch(drtm_cfg.params_addr);
-+
-+	/*
-+	 * v1.4B section 3.4 "DRTM_DYNAMIC_LAUNCH" says it returns from
-+	 * DYNAMIC_LAUNCH only on error. Boot services and their diagnostics are
-+	 * no longer available, so hang.
-+	 */
-+	if (efi_drtm_policy == EFI_DRTM_ENFORCE) {
-+		for (;;)
-+			asm volatile("wfe");
-+	}
-+
-+	efi_drtm_fallback();
-+}
+ static void efi_kaslr_copy_kernel(unsigned long image_addr,
++				  unsigned long kernel_allocsize,
+ 				  unsigned long *free_addr,
+ 				  unsigned long *free_size,
+ 				  const struct efi_image_info **image_info)
+@@ -88,14 +125,13 @@ static void efi_kaslr_copy_kernel(unsigned long image_addr,
+ 	unsigned long kernel_base	= efistub_kernel_base(*image_info);
+ 	unsigned long kernel_size	= efistub_kernel_size(*image_info);
+ 	unsigned long kernel_codesize	= efistub_kernel_codesize(*image_info);
+-	unsigned long kernel_memsize	= efistub_kernel_memsize(*image_info);
+ 
+ 	memcpy((void *)image_addr, (void *)kernel_base, kernel_size);
+ 	*free_addr = image_addr;
+-	*free_size = kernel_memsize;
++	*free_size = kernel_allocsize;
+ 
+ 	efi_icache_sync(image_addr, image_addr + kernel_codesize);
+-	efi_remap_image(image_addr, kernel_memsize, kernel_codesize);
++	efi_remap_image(image_addr, kernel_allocsize, kernel_codesize);
+ 
+ 	*(unsigned long *)image_info += image_addr - kernel_base;
+ }
+@@ -119,7 +155,9 @@ efi_status_t efi_kaslr_relocate_kernel(unsigned long *free_addr,
+ 				       u32 phys_seed)
+ {
+ 	unsigned long kernel_base	= efistub_kernel_base(*image_info);
+-	unsigned long kernel_memsize	= efistub_kernel_memsize(*image_info);
++	unsigned long extra_size	= efi_drtm_get_extra_size();
++	unsigned long kernel_allocsize	= efistub_kernel_memsize(*image_info) +
++					  extra_size;
+ 	u64 min_kimg_align		= efi_get_kimg_min_align();
+ 	unsigned long image_addr;
+ 	efi_status_t status;
+@@ -129,30 +167,36 @@ efi_status_t efi_kaslr_relocate_kernel(unsigned long *free_addr,
+ 		 * If KASLR is enabled, and we have some randomness available,
+ 		 * locate the kernel at a randomized offset in physical memory.
+ 		 */
+-		status = efi_random_alloc(kernel_memsize, min_kimg_align,
++		status = efi_random_alloc(kernel_allocsize, min_kimg_align,
+ 					  &image_addr, phys_seed,
+ 					  EFI_LOADER_CODE, 0, EFI_ALLOC_LIMIT);
+ 		if (status == EFI_SUCCESS) {
+-			efi_kaslr_copy_kernel(image_addr, free_addr, free_size,
+-					      image_info);
++			efi_kaslr_copy_kernel(image_addr, kernel_allocsize,
++					      free_addr, free_size, image_info);
+ 			return EFI_SUCCESS;
+ 		}
+ 		efi_warn("efi_random_alloc() failed: 0x%lx\n", status);
+ 	}
+ 
+ 	/* Try to use the image in place */
+-	if (!check_image_region(kernel_base, kernel_memsize)) {
++	if (!check_image_region(kernel_base, kernel_allocsize)) {
+ 		efi_err("FIRMWARE BUG: Image BSS overlaps adjacent EFI memory region\n");
+ 	} else if (IS_ALIGNED(kernel_base, min_kimg_align) &&
+-		   (kernel_base + kernel_memsize) < EFI_ALLOC_LIMIT) {
+-		/*
+-		 * Just execute from wherever we were loaded by the UEFI PE/COFF
+-		 * loader if the placement is suitable.
+-		 */
+-		return EFI_SUCCESS;
++		   (kernel_base + kernel_allocsize) < EFI_ALLOC_LIMIT) {
++		if (!extra_size) {
++			/*
++			 * Just execute from wherever we were loaded by the UEFI
++			 * PE/COFF loader if the placement is suitable.
++			 */
++			return EFI_SUCCESS;
++		}
++		status = allocate_image_tail(kernel_base, kernel_allocsize,
++					     extra_size, free_addr, free_size);
++		if (status == EFI_SUCCESS)
++			return EFI_SUCCESS;
+ 	}
+ 
+-	status = efi_allocate_pages_aligned(kernel_memsize, &image_addr,
++	status = efi_allocate_pages_aligned(kernel_allocsize, &image_addr,
+ 					    ULONG_MAX, min_kimg_align,
+ 					    EFI_LOADER_CODE);
+ 	if (status != EFI_SUCCESS) {
+@@ -160,6 +204,7 @@ efi_status_t efi_kaslr_relocate_kernel(unsigned long *free_addr,
+ 		return status;
+ 	}
+ 
+-	efi_kaslr_copy_kernel(image_addr, free_addr, free_size, image_info);
++	efi_kaslr_copy_kernel(image_addr, kernel_allocsize, free_addr,
++			      free_size, image_info);
+ 	return EFI_SUCCESS;
+ }
 -- 
 2.43.0
 
