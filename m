@@ -2,148 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA7C6606E774
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 17:55:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE47A60A2615
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 18:00:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mHwSR8or;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=RFO0C3vQ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4QGY/HM8;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P5mkqwGq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4KRawIBVsBcSr6icHHOVmxzTPoOq5of5EY5YTvCYVGI=; b=mHwSR8orekvIWlb2HPESnyAduF
-	QkKNSkUzZ6l5zo+w6aRobLbaxV+32a42mXG7Xy3NcUQrCC7QdywoVkD6Qd/XIwsPrvU/NudKdkcTp
-	UIFLvGR3vvnplLIEXpFRN9GUwuvM4QGPHLQ58QBw0M0rlXmEQYOKQtUwcs5xdeRJxZK7UNM7gsEHl
-	m6BGYR1/DvgBLNcXhlM7EHtD6SjzfgbsaJCuO5BhMQ4O1+FpaVAA+QODbQRJRzOr8Il9++tHNnGkP
-	YUJLQDHfH1kEkmeIp+949HiL8dOOau7Y5JHpUWqmPHtJVtxjK83wDO60ykgCZ2US6CvLLloSHRjKE
-	rGKgUH+Q==;
+	bh=YdaoucUYEiIVDGnsTvrzb5xb17coCwLTy77ba8xb9q8=; b=4QGY/HM8GluH13QugyXR0+Xw1c
+	4Ddhd3Txkmb3Z8lyIkYghbC6GCh9IZQYOkocHebKDrBe3lG63oKLdvD5js+FSe+5O+qn+PM2kJc+O
+	9d+eNGiZFw0P3O7tboqOsQL0MGoJBVSrcwR97ULAo1vCVwEIlEZlJyG9OKpboFh6rQ14Z5igSJvgB
+	Zs+BvY4cWUeoMULDNIWPWkMD5SvqQ3nScZNS0nxonAlajiJ3Twm0kgN4qJU2O+enb1FU0q5WDA1v1
+	Fur2wjV22GmdzvWphIHTbSqPpkIMsjDqnqeZ2/HyW1USF0gkAdV1J1KtQZvTb48mwV94SeViBzA5t
+	qGkPvxJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUSpB-0000000Fom1-3zSK;
-	Fri, 20 Nov 2026 17:55:01 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1xUSug-0000000FqP0-1zzX;
+	Fri, 20 Nov 2026 18:00:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUSn1-0000000Fn7A-3cNe;
-	Fri, 20 Nov 2026 17:53:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wQySA+qlyT4MjN1TNgQtqyxOhPXWtqU7WI7onhj/2aPKsBVcBMQB3LYfddmwd/vLP9yTeneXOgE2/0ybGTQmHVZQJuSutl/KB0q6E/5bOdQZvEyVk01B+3BxrIhUUexU6n8pzK2TTmRXzTvyznTHsKM6B31bdSwwAps/+zPIo1tb48oCKBDuY3WebUGP33TF3562bVvY/ILplCuasSd3VDutlyJYwk9wKRPdeCKygSMhzh5Je6mWcUpI2ELfPnDvpHZU11dRnQ2/2V6Wfio1qbudkOSBqvAzFBcPiQ6FCdIQTwuGyjMKiG07nHtgMeIydDCB8FiZNlmUMTE/s1RC7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FAPTTXKUz+0O/TqZ4vjLdHytqGfRBpIZI/ZDDRs8aC8=;
- b=cxvn1gzBZc8KpofFRCnYZlTz83Q/7SG4isV4WBbHbGItmvnB4dBUnP1hViG7v2kHWfl1Dqx/voZ391b/+Mvn8vAlysu6RTCh6iCMPLFNzUXM8+RJNx1qPTPtw+dl/4Bz/8kCujWFSC1xSPC/LtKVppSkeiVa3sLW4ddKO+T5+k2aiAYcmPTSIDI8ZGjiZ1vYaZOV8oo9HPY3L1MtKBLcDDkkuOEwjTNJVJ3zeN1hKlKsdQpz4qTdfToO7TxMahVxqx4RKx9c7howD39UwNp9YcATxUj5CrblARyyPLmrk1BEcz818BYQNRy/QpmK/bH5TAjrZRFoam+F6qqVWWNgyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FAPTTXKUz+0O/TqZ4vjLdHytqGfRBpIZI/ZDDRs8aC8=;
- b=RFO0C3vQd+DdKT68I4ky3cQqYuFZoIBCzIfVBmKKETHugc2R7brrbwNvvM047VsVeoP4D3zb7Rp3B63j8hxvQaBBttBOdIR7WaI+PqSXasS0tWh+IqDI6IZ+vCuZGEHg8tt/VqTwH9u49/1lhAIUNpM3LkligFsgyiowFMxDVIO+F1y456deUjPR5JpxN0NiHjbSkS2i3pw8v7X3iFLuVryWLlK9j0qPrzkommdT5ZMSQ2oZ9fTAxo+NYiDd0Sjxg3FHEAwEcyGbR1KXiKJfHFI1FdG7W4k2GYfwTSvcpEzzYOYvxLVEqkPShxleqb7Pns357LgLqMALzx4F1gt2lQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by IA1PR12MB6329.namprd12.prod.outlook.com
- (2603:10b6:208:3e5::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 17:52:13 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 17:52:13 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev,
-	Mark Rutland <mark.rutland@arm.com>,
-	Bill Wendling <morbo@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-integrity@vger.kernel.org,
-	patches@lists.linux.dev,
-	=?utf-8?q?Piotr_Kr=C3=B3l?= <piotr.krol@3mdeb.com>,
-	Ross Philipson <ross.philipson@gmail.com>
-Subject: [PATCH v3 03/11] efi/libstub: Have efi_kaslr_relocate_kernel() handle extra_size
-Date: Fri, 20 Nov 2026 13:51:56 -0400
-Message-ID: <3-v3-22d1a1eb7d2e+17de-arm64_drtm_jgg@nvidia.com>
-In-Reply-To: <0-v3-22d1a1eb7d2e+17de-arm64_drtm_jgg@nvidia.com>
-References: 
-X-ClientProxiedBy: BLAP220CA0029.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:32c::34) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	id 1xUSuf-0000000FqOf-1w5K;
+	Fri, 20 Nov 2026 18:00:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D1621440D4;
+	Fri, 20 Nov 2026 18:00:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF2F61F000E6;
+	Fri, 20 Nov 2026 18:00:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795197640;
+	bh=aWDQDm7LuQie9jvzV6uB014UdAyJXJaIz6fRdlyOS1c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=P5mkqwGqab+KQfWEfEH4mmcGEw6tOW3qm6uvmVNmNnR+GzzxXVkIdUySNuc32vLc0
+	 q31FmpssPWpu0Q0701/2KM+kgiJvkQeROnbFBI/6oZ0XIWMdH/TRqoJRA56olYaWYW
+	 6sckacjB2oiIkTR6cFalvpY3OG8+9vBEABBa8mPfnBQDyQFQb9GpyeuXO6/H4Hsxc7
+	 r057Siz8DIpUlqoO1uqHmWLR0dPkKtgaXHxx+DiDE/T/jrcn+qbpB4oejbh4rAIM+X
+	 nfVNM38HAe0awFXGnv2Hk87AJ60ZrMYfMBsoNpwPtGgOEBEkecr7rs5EqAM+rI876q
+	 Z24xn6pr9lUSQ==
+Date: Fri, 20 Nov 2026 18:00:29 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: Re: [PATCH v7 00/19] drm: starfive: jh7110: Enable display subsystem
+Message-ID: <20261120-lagged-aorta-a5799cab633a@spud>
+References: <CGME20261106135849eucas1p242718d72fa1f38e31477210fd9ee30bc@eucas1p2.samsung.com>
+ <20261106-jh7110-clean-send-v7-0-68f7ea9913db@samsung.com>
+ <d21992c9-9e60-4613-b7cd-8e324d214a48@samsung.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA1PR12MB6329:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7811cfb9-70cd-410b-1917-08df472efeb3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|18002099003|6133799003|22082099003|261009223027099003|11063799006|5023799004|261022115727099003|56012099006|921020|261026135527099003|261102123227099003|261028144727099003|261026140227099003|261021133027099003|261026121527099003|261022113327099003|261021121427099003|261021123027099003|261022105027099003|261022075727099003|261026130827099003|261021130227099003|261021135927099003|10067099003;
-X-Microsoft-Antispam-Message-Info: ZyBiNzP+m2npuiwnjZBBLXqcQnVE9m9RJZcZ+QMX874kklaEXmti7eyKW9jfT6Hcq2oIExjRd+vkPYZoBiEBgQvQ1ABMak93xPln6R95mt4KN/CfVsqvFrWvGyjcOaM+JkaH5E4Q9OfiDsZQ6KhgG5sk0yRFoHlt1Re11jbo7awi3vSc5DueH8MiLrNYnCH1XVaXZ7Y9ol2mMfxASI2jkdh6UIu3UkvPkMyTiIkJjPxBgApIIWyOcXbX3ctHHKxHVe6W4GvncGFX7L3e+tfzLlcFLWWHFqpWyiGirFlSZfVD1KnjoxTL3D91OFK+gEqiFSnrHf/jsXuGAW50Zs/fcvJ3tCaYMsgSOUGIcFUG1JVao68WhuCK2/1N1ivVZ2rSNB5th0cRbjbKHZ0m8ruktnTrR8MrHvNXbbJRmf7munIybDC4UYcmTJ2py/ZJmdwvJTBdHVncXJyjsfi6wJcWzNNh1/vzfao5grcEB8Ea3A+3Z3qFQiJv4G+wl4VshDRK0i+kXh0xuguuk20dPF9Vlx4SsCGjnRov6OZk7eiIq+npf0+s99fkfpN7SBa2BLExhVuBuvJfQJk7G9ds1S5k+ioiZkkUU6ba5xqiqnai84X2X9hun37YkF4mGGjC9bAxKJfVY0ImyKC0TlQqCSV9/8ui/NWSZP2DSsRPB1OB03W40k4Hee3qGTdaiLLCWNqVxkYaDbekmwuLn7fSmxEqYA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(18002099003)(6133799003)(22082099003)(261009223027099003)(11063799006)(5023799004)(261022115727099003)(56012099006)(921020)(261026135527099003)(261102123227099003)(261028144727099003)(261026140227099003)(261021133027099003)(261026121527099003)(261022113327099003)(261021121427099003)(261021123027099003)(261022105027099003)(261022075727099003)(261026130827099003)(261021130227099003)(261021135927099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PNUKdKw+K3972jG4HUAGCjQMMgS1LUYyBbEwJFpfA8+Yb3s4UyUhj3mqEyhZ?=
- =?us-ascii?Q?0mV8IDMheYOeywc9h97f05P/r2aOINn4s/1WoKtL391PHnZahFnJuTvlVZCr?=
- =?us-ascii?Q?3fvY5vvOnhmmnZmDfaphvZyZlRN5Tfxt14fxJDt20GayLzHBgfMtkCqkyTkd?=
- =?us-ascii?Q?/skry78eiRGHuZVVqHqaX4k4d0kheDybNYHziDTNUsNVe9+iqMBDBCGi0fFa?=
- =?us-ascii?Q?0rrv3MLMQBK1HbhcqbvARskh6niKWEHMGBQBUhNV8GfFI8OuytrJ0ofsXmJP?=
- =?us-ascii?Q?Sih2UMuugForVM3Y+r/xx+uEEabvAiSvB4arkGEJg3psSUN3Q0wjqwIsRUFl?=
- =?us-ascii?Q?MiQKiH4+9Sg66PFsRCfsU4JH0jrKqUSkb7b8+iUpHvmAQ/m1yyZgmzmCgpqQ?=
- =?us-ascii?Q?Fv6szj6cTguZW1oZGmN4RO1DTS9uV8pympXV7HFrS0ICFNh72FPQezaToXNG?=
- =?us-ascii?Q?PwFj4CHgZDF1mO3zXTOMyCX5cFFfhKwoTdsunPFAU8U8ZW+GHDaYOpysEgU7?=
- =?us-ascii?Q?RPIXYJveAH9mLDQfDS8kYTgDttpicdnsFZNqo9Qzo/CR3Z8+lykZLbSierfM?=
- =?us-ascii?Q?+TmPy3+Lg+z4GNAhA2jdU+QJ7DZfGI1NDSU+2Gjd7RCjqcZXH1nwNBo5q1gE?=
- =?us-ascii?Q?onGl4eEmOUGEITWiXLEea1jpIxSgIaGQpX9ckD9/HiEgH27ic7QEnIFR+QXU?=
- =?us-ascii?Q?ICoC6MzYCpAI/W3Mwnn2g7kz3pzBxNrq7VYMDIdDUP/jn8jAqxSgc4Y9/Nh+?=
- =?us-ascii?Q?RFCWwiS0IJ/mZw1vjRuwESRLOtTLPk89Ox+xvtFcUDA8+T+4x63bNnZL3vK1?=
- =?us-ascii?Q?GN/BdGN+OiMksuNZNojMDF/ydbR7OcxZnR2Af3zuTD+KPV39yYE8+gaC9e2/?=
- =?us-ascii?Q?tPuN5t7x0+4NEnW+4MDaV03WC13KYlHLyfjWqQt1BiuCdmKytQnXhG4SWbjO?=
- =?us-ascii?Q?LpX26kY0c98oHFzANwcNwo7J8njv9I9sr4mYFFJZIR9LuFYnbw5Ul9KSK1g+?=
- =?us-ascii?Q?ADJJ6nu0eIvRilto+O0E3/eGi6Uzu78mBG8rdxFdeUozV+xI7Zj1iEuq5cP5?=
- =?us-ascii?Q?grys34M2uLh8CW+cDjhf9qjfe+bIYdt7XTbt0cc6rNimJG+xtISRpfJmuMit?=
- =?us-ascii?Q?AKDp4jdqrfZh285keqrWKV/HPstffvUT+3LUnKeQFUis4NM715Bt61TPm1wf?=
- =?us-ascii?Q?4/mi6hjHfJgnOfAIbE7VzZeOglEBOPnFrtEvowOfjeBnpUViQOoNJrUFHmGr?=
- =?us-ascii?Q?B21QwwvvDWroKQwpyMo32TnPZ55t6DhhK8DYHr/YFMVZfSsvhHRMkOPxFv3v?=
- =?us-ascii?Q?g0F3hoYxgq1Vn5ocGwTzbcPxQub1ot2jbqpMKne5OR62xnmgrpyjVx9meSFv?=
- =?us-ascii?Q?cZMmxK3VIVWfE+wjarE7pWCvJ4iIuq6M6fmcVvLV6T9aZHhj1tWEMvv44N6Y?=
- =?us-ascii?Q?X+TpZ7v5r0ISQXN5RbipS3GBKzUIxirDVagHexs51psQMmfYqNJVkIoEHcU7?=
- =?us-ascii?Q?e90tEMWBkkKWCKa5h59djMSL64/2thY+QvwtzkMXOmzr80ap+P9W9Bw32aEr?=
- =?us-ascii?Q?knZzkeLKYtIBmi3OlLlULBvj2nIrYftYJTFmFoxc3ERVX8/xKZK9CI1wzq+C?=
- =?us-ascii?Q?46ljg9JQ1Frjtaz56s/G0yxSwu97wtAmbyPZeZ1p8SlHUYVGgDfBQGQSnHQR?=
- =?us-ascii?Q?RiNuf03O8zUvUY3UThUyW3IRVg2xBQdym7oJzXq3SagR25T5?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7811cfb9-70cd-410b-1917-08df472efeb3
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 17:52:08.1098
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JWICvMnbVG4t9kufQ6j/o0SYZ13cEEIJ+6xlnV5M9cOmXdkYSg2heA7ZB4/fr3tJ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6329
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261120_095248_106186_D1DECAED 
-X-CRM114-Status: GOOD (  16.21  )
-X-Spam-Score: -2.1 (--)
+In-Reply-To: <d21992c9-9e60-4613-b7cd-8e324d214a48@samsung.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,174 +63,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Heiko Stuebner <heiko@sntech.de>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, Joshua Peisach <jpeisach@ubuntu.com>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, William Qiu <william.qiu@starfivetech.com>, linux-riscv@lists.infradead.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>, David Airlie <airlied@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Dominique Belhachemi <db@domibel.de>, Robert Foss <rfoss@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Manivannan Sadhasivam <mani@kernel.org>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Hal Feng <hal.feng@starfivetech.com>, Maud Spierings <maud_spierings@murena.io>, linux-rockchip@lists.infradead.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Marek Szyprowski <m.szyprowski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jonas Karlman <jonas@kwiboo.se>, Graham Markall <hello@big-grey.co.uk>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Xingyu Wu <xingyu.wu@starfivetech.com>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>, Paul Walmsley <pjw@kernel.org>, linux-arm-kernel@lists.infradead.org, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Neil Armstrong <neil.armstrong@linaro.org>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Sandy Huang <hjc@rock-chips.com>, OOHehir <oo.hehir@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Zimmermann <tzimmermann@suse.de>, Byron Stanoszek <gandalf@winds.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Yakir Yang <kuankuan.y@gmail.com>
+Content-Type: multipart/mixed; boundary="===============6062548641382530127=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-extra_size is additional memory required that must be immediately after
-the image.
+--===============6062548641382530127==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9Y3BF9tXWb3jCBuR"
+Content-Disposition: inline
 
-There are three possibilities here, each a little different:
-- relocating for kaslr, just request extra_size like the zboot flow does
-  when allocating the random placement from EFI
-- in place, attempt to allocate from EFI precisely after Image to
-  confirm nothing weird is there, failing that
-- like any other error with the in place EFI location allocate
-  non-randomly with extra_size included
+--9Y3BF9tXWb3jCBuR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Adjust things to use a kernel_allocsize which is >= the memsize computed
-from the image_info.
+On Fri, Nov 20, 2026 at 03:02:35PM +0100, Michal Wilczynski wrote:
+> On 11/6/26 14:58, Michal Wilczynski wrote:
+> > This series enables the display subsystem on the StarFive JH7110.
+> >=20
+> > Merging: the series splits by subsystem, there is no build dependency
+> > between the blocks, and each block lands in the tree that already owns
+> > those files:
+> >=20
+> >   drm-misc                     1-3, 6, 8-14, 17
+> >     drivers/gpu/drm/bridge/, include/drm/bridge/ and the display
+> >     bindings. Patches 1 and 2 are inno-hdmi fixes with Fixes: tags;
+> >     they apply to Rockchip as much as to StarFive and are independent
+> >     of the rest, so they can go on their own.
+> >=20
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/firmware/efi/libstub/kaslr.c | 77 ++++++++++++++++++++++------
- 1 file changed, 61 insertions(+), 16 deletions(-)
+> >   Conor's tree                 4, 5, 7, 15-16, 18
+> >     drivers/soc/starfive/, together with
+> >     the bindings for its two drivers (patches 4 and 7, under
+> >     bindings/display/starfive/) and the vout-syscon compatible in
+> >     bindings/soc/starfive/ (STARFIVE SOC DRIVERS), and
+> >     arch/riscv/boot/dts/starfive/ (STARFIVE DEVICETREES).
 
-diff --git a/drivers/firmware/efi/libstub/kaslr.c b/drivers/firmware/efi/libstub/kaslr.c
-index 2f1f3e19583def..f50c36a2fd635e 100644
---- a/drivers/firmware/efi/libstub/kaslr.c
-+++ b/drivers/firmware/efi/libstub/kaslr.c
-@@ -80,7 +80,44 @@ static bool check_image_region(u64 base, u64 size)
- 	return false;
- }
- 
-+/*
-+ * The PE loader owns only kernel_memsize of the image.  Try to own the
-+ * requested tail separately at the exact adjacent address instead of
-+ * relocating the complete region.
-+ */
-+static efi_status_t allocate_image_tail(unsigned long image_addr,
-+					unsigned long kernel_memsize,
-+					unsigned long extra_size,
-+					unsigned long *free_addr,
-+					unsigned long *free_size)
-+{
-+	efi_physical_addr_t tail_addr;
-+	efi_status_t status;
-+
-+	/*
-+	 * Since we intend to use efi_free() for reserve_addr it should be
-+	 * aligned to the higher alignment since efi_free() includes rounding.
-+	 * For ARM64 the kernel image is already aligned up to EFI_ALLOC_ALIGN
-+	 * by the linker.
-+	 */
-+	tail_addr = image_addr + kernel_memsize;
-+	if (!IS_ALIGNED(tail_addr, EFI_ALLOC_ALIGN))
-+		return EFI_OUT_OF_RESOURCES;
-+
-+	extra_size = round_up(extra_size, EFI_ALLOC_ALIGN);
-+	status = efi_bs_call(allocate_pages, EFI_ALLOCATE_ADDRESS,
-+			     EFI_LOADER_CODE, extra_size / EFI_PAGE_SIZE,
-+			     &tail_addr);
-+	if (status != EFI_SUCCESS)
-+		return status;
-+
-+	*free_addr = tail_addr;
-+	*free_size = extra_size;
-+	return EFI_SUCCESS;
-+}
-+
- static void efi_kaslr_copy_kernel(unsigned long image_addr,
-+				  unsigned long kernel_allocsize,
- 				  unsigned long *free_addr,
- 				  unsigned long *free_size,
- 				  const struct efi_image_info **image_info)
-@@ -88,14 +125,13 @@ static void efi_kaslr_copy_kernel(unsigned long image_addr,
- 	unsigned long kernel_base	= efistub_kernel_base(*image_info);
- 	unsigned long kernel_size	= efistub_kernel_size(*image_info);
- 	unsigned long kernel_codesize	= efistub_kernel_codesize(*image_info);
--	unsigned long kernel_memsize	= efistub_kernel_memsize(*image_info);
- 
- 	memcpy((void *)image_addr, (void *)kernel_base, kernel_size);
- 	*free_addr = image_addr;
--	*free_size = kernel_memsize;
-+	*free_size = kernel_allocsize;
- 
- 	efi_icache_sync(image_addr, image_addr + kernel_codesize);
--	efi_remap_image(image_addr, kernel_memsize, kernel_codesize);
-+	efi_remap_image(image_addr, kernel_allocsize, kernel_codesize);
- 
- 	*(unsigned long *)image_info += image_addr - kernel_base;
- }
-@@ -119,7 +155,9 @@ efi_status_t efi_kaslr_relocate_kernel(unsigned long *free_addr,
- 				       u32 phys_seed)
- {
- 	unsigned long kernel_base	= efistub_kernel_base(*image_info);
--	unsigned long kernel_memsize	= efistub_kernel_memsize(*image_info);
-+	unsigned long extra_size	= efi_drtm_get_extra_size();
-+	unsigned long kernel_allocsize	= efistub_kernel_memsize(*image_info) +
-+					  extra_size;
- 	u64 min_kimg_align		= efi_get_kimg_min_align();
- 	unsigned long image_addr;
- 	efi_status_t status;
-@@ -129,30 +167,36 @@ efi_status_t efi_kaslr_relocate_kernel(unsigned long *free_addr,
- 		 * If KASLR is enabled, and we have some randomness available,
- 		 * locate the kernel at a randomized offset in physical memory.
- 		 */
--		status = efi_random_alloc(kernel_memsize, min_kimg_align,
-+		status = efi_random_alloc(kernel_allocsize, min_kimg_align,
- 					  &image_addr, phys_seed,
- 					  EFI_LOADER_CODE, 0, EFI_ALLOC_LIMIT);
- 		if (status == EFI_SUCCESS) {
--			efi_kaslr_copy_kernel(image_addr, free_addr, free_size,
--					      image_info);
-+			efi_kaslr_copy_kernel(image_addr, kernel_allocsize,
-+					      free_addr, free_size, image_info);
- 			return EFI_SUCCESS;
- 		}
- 		efi_warn("efi_random_alloc() failed: 0x%lx\n", status);
- 	}
- 
- 	/* Try to use the image in place */
--	if (!check_image_region(kernel_base, kernel_memsize)) {
-+	if (!check_image_region(kernel_base, kernel_allocsize)) {
- 		efi_err("FIRMWARE BUG: Image BSS overlaps adjacent EFI memory region\n");
- 	} else if (IS_ALIGNED(kernel_base, min_kimg_align) &&
--		   (kernel_base + kernel_memsize) < EFI_ALLOC_LIMIT) {
--		/*
--		 * Just execute from wherever we were loaded by the UEFI PE/COFF
--		 * loader if the placement is suitable.
--		 */
--		return EFI_SUCCESS;
-+		   (kernel_base + kernel_allocsize) < EFI_ALLOC_LIMIT) {
-+		if (!extra_size) {
-+			/*
-+			 * Just execute from wherever we were loaded by the UEFI
-+			 * PE/COFF loader if the placement is suitable.
-+			 */
-+			return EFI_SUCCESS;
-+		}
-+		status = allocate_image_tail(kernel_base, kernel_allocsize,
-+					     extra_size, free_addr, free_size);
-+		if (status == EFI_SUCCESS)
-+			return EFI_SUCCESS;
- 	}
- 
--	status = efi_allocate_pages_aligned(kernel_memsize, &image_addr,
-+	status = efi_allocate_pages_aligned(kernel_allocsize, &image_addr,
- 					    ULONG_MAX, min_kimg_align,
- 					    EFI_LOADER_CODE);
- 	if (status != EFI_SUCCESS) {
-@@ -160,6 +204,7 @@ efi_status_t efi_kaslr_relocate_kernel(unsigned long *free_addr,
- 		return status;
- 	}
- 
--	efi_kaslr_copy_kernel(image_addr, free_addr, free_size, image_info);
-+	efi_kaslr_copy_kernel(image_addr, kernel_allocsize, free_addr,
-+			      free_size, image_info);
- 	return EFI_SUCCESS;
- }
--- 
-2.43.0
+Other than for the dts patch,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
+I don't want to take the display binding because I won't have the child
+nodes, and I won't take the driver without the binding for it. At then
+at that point, the remaining trivial binding and driver may as well go
+with the rest of the code.
+
+Please resubmit the dts patch to me individually when the rest of this
+has been applied.
+
+>=20
+> Gentle ping on this series. It depends on the Innosilicon HDMI PHY
+> series [1], but only for dt_binding_check/dtbs_check (the PHY binding
+> is referenced from the jh7110-hdmi-subsystem binding) and at runtime.
+> Everything else builds and can be reviewed independently.
+>=20
+> Any comments on the DRM bridge / inno-hdmi parts would be much
+> appreciated.
+
+--9Y3BF9tXWb3jCBuR
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawCKvQAKCRB4tDGHoIJi
+0qj8AP0ZaeGM0TZcGSFuopE9ZeecanF/1QUS00H2PGlontmwXQEA3BQeYKyiBSs4
+lx/sKFxuXkEXlgn/ah1AzWlf0uWxDQg=
+=XGjQ
+-----END PGP SIGNATURE-----
+
+--9Y3BF9tXWb3jCBuR--
+
+
+--===============6062548641382530127==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6062548641382530127==--
+
