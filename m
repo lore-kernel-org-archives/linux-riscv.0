@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A44D7606A325
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 14:03:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDC35606A320
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 14:07:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IwPlzIqg
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QznTXKX1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DcerM+8RuUvqHnXNF+u0k3H1+bJs51RQ2e6F/4OiF24=; b=IwPlzIqgd+P/UIAbaS5dXO7z6C
-	v/8PrzpqrtxhzKWvF5m3yaX2SqB3vLqZz7xWyJQPM6sniv5/X7T6yHdeUf3arTFW44BkWzlUR1zwR
-	PxYOZNa5xvFktWESEs6LS1tmIALJjhIXgtsJ5cgyKORy3ZfriQRdkpqHAAdf+OHEW5syO9iWO3vhq
-	du0UJd5jUpJ0hEbIijbUlrtZgdWNjKXtbI5wQjOrI73Q2TDOD+IVFdFrd7wZna/eu44C8sZ2Hht0v
-	9Hm5jYVN5U/fYVXDNhN3dPRMBkUkSYnglnJqUKSZZjjctIZM152uFmNIGAxRd++DENW50vnpVi+lv
-	qfY1W1TQ==;
+	bh=nZ+fl4GTsB7rK6mTd8ws7msjmIy7u69aExHWjJ46q6c=; b=QznTXKX1KedOqEBe0cz4PsPbBV
+	CaEMGdckwfEcICJI7QOSq5FNin3VvLFeXpHHNkDzHDDs1aMxVComp0Wx1VIXCtsjGLzUQQvqm0GI7
+	1LSvx31yN2p8ZxqevuogyOMFtoPmb61n6p2id7LveDjHwiQigFq5Xzu6Ssg9q7+1QiNvwcmexWeAz
+	gWvIYvo0qj8YX7hDhzaKX+nl0+oIF+yArqz51AjgJamVDTIz+loZX7l+vlLUn0lfIvzksbYBE3PVy
+	He7SdtHrUFF9drShp8iJxi6rDJIf453L9PZWfLGYIesXGLxu/4uuXIvUEbrdXz92MtU11jtKSErTa
+	l2yAKfBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUPD1-0000000FD5z-1nSw;
-	Fri, 20 Nov 2026 14:03:23 +0000
-Received: from smtpbgsg1.qq.com ([54.254.200.92])
+	id 1xUPHH-0000000FDTA-0D05;
+	Fri, 20 Nov 2026 14:07:47 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUPCv-0000000FD0Y-3f5z
+	id 1xUPH9-0000000FDSk-3Olu
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Nov 2026 14:03:21 +0000
-X-QQ-mid: zesmtpsz3t1795183332tc79d3492
-X-QQ-Originating-IP: 8MUBfue/CSK9C6Ko0L4h+J8TmiUajD4AQmf5ZXhtkkM=
+	Fri, 20 Nov 2026 14:07:45 +0000
+X-QQ-mid: zesmtpsz5t1795183587t5e1ea204
+X-QQ-Originating-IP: Suueltk2ejW08uvMajlx+AId6WW+hxY2z+cJdixf2pY=
 Received: from LAPTOP-H63V2Q11 ( [36.110.52.2])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 20 Nov 2026 22:00:22 +0800 (CST)
+	id ; Fri, 20 Nov 2026 22:06:23 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 2838506993678247511
+X-BIZMAIL-ID: 16130469025861869900
 EX-QQ-RecipientCnt: 15
 From: Zhouqi Jiang <luojia@rustsbi.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org,
+To: linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -53,37 +53,35 @@ Cc: linux-riscv@lists.infradead.org,
 	Vivian Wang <wangruikang@iscas.ac.cn>,
 	Alejandro Colomar <alx@kernel.org>,
 	contact@rustsbi.com
-Subject: Re: [RFC PATCH RESEND] riscv: sbi: expose firmware identity in sysfs
-Date: Fri, 20 Nov 2026 22:00:09 +0800
-Message-ID: <8E061F1E54130DAD+20261120140009.755-2-luojia@rustsbi.com>
+Subject: [PATCH v2] riscv: sbi: expose firmware identity in sysfs
+Date: Fri, 20 Nov 2026 22:05:58 +0800
+Message-ID: <8AA327A849404B45+20261120140557.776-2-luojia@rustsbi.com>
 X-Mailer: git-send-email 2.53.0.windows.2
-In-Reply-To: <20261119-zoning-appeasing-71d648cfc78c@spud>
-References: <A039A2DE1DF8F274+20261119130356.1537-1-luojia@rustsbi.com> <20261119-borough-flap-6481c20b3013@spud> <20261119-zoning-appeasing-71d648cfc78c@spud>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpsz:rustsbi.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: M1JP5WkaVWo/JK7CrDexK/3T8UnQlC1pSI58Tb3okSZJQgbGxVklkUHn
-	gfeAgIPei0jw38cTyzzz1YuX2v+h+ZpEG0gVHwqFN1EphgnsUM2UOgOPpTPVlUxLD/J90b6
-	3lE37/G5fMwUNLECqgNqfzpT10BqNmoJ9xHJbiNLpDGYm0vmFrQW5CPJli+i0En933/Zo2E
-	lkY8e6Fu/XN2kYg1j43ytZZJ+ihkdf1wzQSaXlnCuZRquwjRTEvsGmpFX/QtosJTccd6Cur
-	QLhnXGsGoBGbdpSK1jtI/wk/pQjhICYreVYnKhGgT2I36GIHst6//5Kd/hhAWzb6NSv70xu
-	wxw3cKdkUHEwcrlsnlO3J71bO8hZcOFRDdmW+RAUwnP5LVVAASbAPA9Yw9IZpaH15zN0tQ8
-	rhkfeAXHvNU6FP5AU2uU268SJI3J7269Cv4raZ1Zw0ea9j5SrWXNhXTjsL9oePYByDEckE3
-	TyNhYaEIxGSQgPHj2E7L/0O80a80X5EChqDBwI/f289Sv667uvss8DIIHddxxTD7meqvw42
-	/qSMJmxd/GuFFfqOPPFJgq4Ke9hwps6bkw5Yw2eyJ4yLtS1IkyXqDxttiD2WlZEg2lnmuTF
-	vqRX0T8OQllxzhxFO/lls7KK73WAZ3ciAtuBdEXU8l8pHHvDcjZcVUIeg/kWdGB2LpVYb+T
-	Cxco3o44IZ42Ofukoe4Wq4jMgbQKamppqyZUuIb6k1cqkzZ6RNItVtX9LItS5kYivm1ZsNe
-	uu/PFKjmSFUNBxz6nTSeqXmkUJz3vkMbxUzG5CR0H8onxUcez0Vax/d9hnjokhP1CTKDcc4
-	wyAQXG/5J5kW4PSZ2PKMkm9mb9u3qBPbKik6jj3y35zk45V2MHSsvTzLPVgz+IO5B7RdSb8
-	1CAKzjU0LAP3KSaqdm5mdNmHKjLj34n4unA7XJa5+8zOJrQ7xV7lIuVbfBbXxQzTKtGn8kx
-	bgf1i6mUwMonvCmxanbdXyPWsGyhNv6vkxVpPZ+kWqh9fdS2ukJPSaYq2KVN1eSyD7FM=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-XMAILINFO: M4K5nIxZYv59/6EhryRLMXjr2dRVc5qRkusdMysni4BIshNeP3fqpgbe
+	I0jRSJrjh35o5jFfDtiJ/H4bXuLH8xqK6z95XvZbxcZgjuGdGlxkdfHIzOVHe19HbmedgQ2
+	770krGixGqJLLJobB5OfNnXsg3WPbWsi1el9R+QRHywXPhxJY4MN4sQkALXZSlX7/G/A1Hp
+	FEWAEK7DXmmpk7/jQvCaJvAHOXTyYEXFjXfJFf+xts77l9/3vpWpu7EIKhbndBiQ9RQF81r
+	BASihpVZ7Tdl3g9C9500xlcX26/RFi24GlqQ1phj8lulhLR4IaVBTrH6xE5U82eNbLUb5ey
+	M9q0HZgTv5q9eUZ+fk2b02PnbHnK9UJ+mmT+19pcIhkatHlSPbuzEIiM2Zh+9agwhQbMIXj
+	taVoeBfF2lIbljQrqUcRsmXMBojS/4IzKY2WiM7U8taACzkP/s9+HChcljeAKnLYI0qfZ0P
+	Hw8cBhkeoPtBEzpVlXpmyYeynRs346DiE90hliwVhL15THxiMwcAftYJ/cvy8LI91MSHwZ4
+	LclXQ3dg9MddyPkRdyie6nY3hn5IIbHueT8cZLkAT4zjfwe/PpY+QOnGuJbhRAqtbExftvm
+	Fzx036kR7rp8wZjl6LuU6rWWAx2UoUoOlPipPuDS+PNyvt2yUQ+BZMNrQzQhlVIUWM1lOFp
+	MPPONyVz1kqg0osa9d0RsJ84/VBUb9soUdFTzycjzAqrTiogOK4kIRIF2rzbYufrskZrdjF
+	ihQS1Gc6dL7cBczW3nstUQSooEDBMH1+83MaTuNR+Qedk2vfKOvdqfAeWAFqTlbUZ/XEoOj
+	uB4QXpm+zzi4Gh5ssKpB50fkSjF0od/lY+cLrHF8uxV5Lrzk6AcQMxy91pNdafSp+w0HBy1
+	py61acsVPVgulZU5kM+GPkFiBlbal38gs1xCMoAdYwY5W7lRVD2ItIwy1WDezqIaqwRNuxf
+	2mJhsvUPkRfkTte8XaqVGoSRfvJquhMgou/EGyCqO7GjIHgg07CgsgQXYhgwjxI4Dpbnvul
+	wM8NE4Yg9rARnW3uB6iddfifJHHlyjHvbteCHPJI+Ds4/Zf0Zp
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261120_060318_433706_65F9229C 
-X-CRM114-Status: UNSURE (   5.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261120_060741_540183_B80FB3E8 
+X-CRM114-Status: GOOD (  18.95  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,29 +95,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Conor,
+Linux queries the SBI specification and implementation identity during
+boot. It caches the specification version, but discards the
+implementation ID and version after logging them. Userspace therefore
+has no structured interface for this immutable firmware metadata.
 
-Thanks for the review and for testing this on PolarFire HSS.
+Cache the implementation ID and version and expose the available values
+as read-only attributes under /sys/firmware/sbi:
 
-> FYI, these tags are now deprecated.
+  spec_version
+  impl_id
+  impl_version
 
-I'll drop the tag in v2.
+SBI v0.1 systems expose only spec_version because the implementation
+fields were introduced by the SBI Base extension in v0.2.
 
-> Should this actually be printed as a decimal?
+Format impl_id as unsigned decimal to match the SBI implementation ID
+table. Expose the implementation-specific version encoding in
+hexadecimal.
 
-Yes, I'll use unsigned decimal for impl_id in sysfs to match the SBI
-implementation ID table and update the ABI documentation. I'll keep
-impl_version in hex because its encoding is implementation-specific.
+This gives tools such as lssbi a native source for basic SBI identity
+information and starts moving those queries away from out-of-tree
+kernel modules.
 
-Thanks,
-Zhouqi
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Zhouqi Jiang <luojia@rustsbi.com>
+---
+Changes in v2:
+- Use unsigned decimal for impl_id and update the ABI documentation.
+
+The RFC was built with a RISC-V defconfig and boot-tested on QEMU virt
+with OpenSBI v1.3 and RustSBI v0.4.1. Conor tested it on PolarFire HSS.
+
+RFC resend: https://lore.kernel.org/r/A039A2DE1DF8F274+20261119130356.1537-1-luojia@rustsbi.com
+
+ Documentation/ABI/testing/sysfs-firmware-sbi | 29 +++++++++++++
+ MAINTAINERS                                  |  1 +
+ arch/riscv/kernel/sbi.c                      | 62 +++++++++++++++++++++++++++-
+ 3 files changed, 91 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-sbi
+
+diff --git a/Documentation/ABI/testing/sysfs-firmware-sbi b/Documentation/ABI/testing/sysfs-firmware-sbi
+new file mode 100644
+index 000000000000..ade66f3608ac
+--- /dev/null
++++ b/Documentation/ABI/testing/sysfs-firmware-sbi
+@@ -0,0 +1,29 @@
++What:		/sys/firmware/sbi/spec_version
++Date:		August 2026
++Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
++Description:
++		The SBI specification version available to Linux, formatted as two
++		unsigned decimal integers separated by a period and followed by a
++		newline. For example, SBI v0.2 is represented as "0.2".
++Users:		lssbi
++
++What:		/sys/firmware/sbi/impl_id
++Date:		August 2026
++Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
++Description:
++		The SBI implementation ID, formatted as an unsigned decimal
++		integer followed by a newline. For example, OpenSBI is
++		represented as "1". The ID is assigned by the SBI specification.
++		This attribute is present only when SBI v0.2 or later is available.
++Users:		lssbi
++
++What:		/sys/firmware/sbi/impl_version
++Date:		August 2026
++Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
++Description:
++		The SBI implementation version, formatted as lowercase hexadecimal
++		with a 0x prefix, no leading zero padding, and a trailing newline.
++		Its encoding is specific to the SBI implementation identified by
++		impl_id. This attribute is present only when SBI v0.2 or
++		later is available.
++Users:		lssbi
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0b42e898f4d8..707afa1af1a0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23494,6 +23494,7 @@ Q:	https://patchwork.kernel.org/project/linux-riscv/list/
+ C:	irc://irc.libera.chat/riscv
+ P:	Documentation/arch/riscv/patch-acceptance.rst
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
++F:	Documentation/ABI/testing/sysfs-firmware-sbi
+ F:	arch/riscv/
+ N:	riscv
+ K:	riscv
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index c443337056ab..cb3b87f1bfdc 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/bits.h>
+ #include <linux/init.h>
++#include <linux/kobject.h>
+ #include <linux/mm.h>
+ #include <linux/pm.h>
+ #include <linux/reboot.h>
+@@ -18,6 +19,9 @@
+ unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
+ EXPORT_SYMBOL(sbi_spec_version);
+ 
++static unsigned long sbi_impl_id __ro_after_init;
++static unsigned long sbi_impl_version __ro_after_init;
++
+ static void (*__sbi_set_timer)(uint64_t stime) __ro_after_init;
+ static void (*__sbi_send_ipi)(unsigned int cpu) __ro_after_init;
+ static int (*__sbi_rfence)(int fid, const struct cpumask *cpu_mask,
+@@ -659,8 +663,10 @@ void __init sbi_init(void)
+ 		sbi_major_version(), sbi_minor_version());
+ 
+ 	if (!sbi_spec_is_0_1()) {
++		sbi_impl_id = sbi_get_firmware_id();
++		sbi_impl_version = sbi_get_firmware_version();
+ 		pr_info("SBI implementation ID=0x%lx Version=0x%lx\n",
+-			sbi_get_firmware_id(), sbi_get_firmware_version());
++			sbi_impl_id, sbi_impl_version);
+ 		if (sbi_probe_extension(SBI_EXT_TIME)) {
+ 			__sbi_set_timer = __sbi_set_timer_v02;
+ 			pr_info("SBI TIME extension detected\n");
+@@ -707,3 +713,57 @@ void __init sbi_init(void)
+ 	if (!srst_power_off)
+ 		sbi_set_power_off();
+ }
++
++static ssize_t spec_version_show(struct kobject *kobj,
++				 struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "%lu.%lu\n",
++			  sbi_major_version(), sbi_minor_version());
++}
++
++static ssize_t impl_id_show(struct kobject *kobj,
++			    struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "%lu\n", sbi_impl_id);
++}
++
++static ssize_t impl_version_show(struct kobject *kobj,
++				 struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "0x%lx\n", sbi_impl_version);
++}
++
++static struct kobj_attribute spec_version_attr = __ATTR_RO(spec_version);
++static struct kobj_attribute impl_id_attr = __ATTR_RO(impl_id);
++static struct kobj_attribute impl_version_attr = __ATTR_RO(impl_version);
++
++static umode_t sbi_attr_is_visible(struct kobject *kobj,
++				   struct attribute *attr, int n)
++{
++	if (sbi_spec_is_0_1() && attr != &spec_version_attr.attr)
++		return 0;
++
++	return attr->mode;
++}
++
++static struct attribute *sbi_attrs[] = {
++	&spec_version_attr.attr,
++	&impl_id_attr.attr,
++	&impl_version_attr.attr,
++	NULL,
++};
++
++static const struct attribute_group sbi_attr_group = {
++	.name = "sbi",
++	.is_visible = sbi_attr_is_visible,
++	.attrs = sbi_attrs,
++};
++
++static int __init sbi_sysfs_init(void)
++{
++	if (!firmware_kobj)
++		return -ENOMEM;
++
++	return sysfs_create_group(firmware_kobj, &sbi_attr_group);
++}
++subsys_initcall(sbi_sysfs_init);
+
+base-commit: 1b78070aaef63512688aebfbc82365ef9d6660f1
 
 _______________________________________________
 linux-riscv mailing list
