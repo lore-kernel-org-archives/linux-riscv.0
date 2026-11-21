@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49AAB606A32A
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 10:38:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44B30606A320
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 10:38:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4n8b//WO;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dpyHBnf7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2NW6S8Ff;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dykeEpYc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,72 +14,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=yioP77NCQ7OY2iNNM9UWJfTyGi/f1P2ll6pnz+ZDSQA=; b=4n8b//WOYNL+lVbYLkNxEQsNCr
-	BKLmyupdbklCuSnosfGqE1I/dUFg6TqPu7+o/DMfi8R8xLilYGG4Bpmfso0K324SBjjYQ/vw/oJHs
-	7HKVRpVQCgzw5K/VOYHBmh0SrqFMS6tdFXOk1bhoCz3ncHor+7bYpRPKonWlkGwTuiF1hlJhopNwH
-	6rAg83LlZ0EB76x5UxJXHJQZ6uOK8LWDNmzfGYsnWP8hohQp4FtfZKkzyFJR92ldGnE8HaEatwbPO
-	mXy5nvJCdHMNisa1HJG9zK5vsOTuespY6OFWKfcT0mLSia7Hh23fa0/dgBti0/DJl6RvphzSEJUgs
-	5I4HWCAQ==;
+	bh=/Y6RXrwaKTl7TmbMCCxycdiV9S7GncNdLzkPasGfpwM=; b=2NW6S8FfYxEfYYaoKGHhDhR84H
+	J/uIPbsSv8qisGmUwMM8q4fR6QBKiXKtDk7vs1XSWc4jqUglUglnJeCIQtEEUxyNS3+lG8RyOSPlV
+	CnBD2N1e/UKTN6BgVWFaJNcE+R1JldrYAfsUm5hLqAvCa5am2vHmf4AMzZ3aN7ny4taEqSu9U0jDP
+	SOxIANCPGTuF2sJNcRFIx4YwoEZZvw971/PuoOrBVP4w47FmQN28bj7zwTCvU2hXROrmD8o7buDEj
+	ZZbYALt00EzTqYtmeQuMXeaq4oxX+NehNFYnPgPL19EEAF0/tRiUT9URfHmBDZNlDYfSNMbqU8t27
+	o1pKvaRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUiU8-0000000H2iB-0w45;
+	id 1xUiU8-0000000H2iF-1IGw;
 	Sat, 21 Nov 2026 10:38:20 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUiU7-0000000H2ho-14Rq
+	id 1xUiU7-0000000H2ht-14V6
 	for linux-riscv@lists.infradead.org;
 	Sat, 21 Nov 2026 10:38:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9D89643EEE;
+	by sea.source.kernel.org (Postfix) with ESMTP id DB58C43CF3;
 	Sat, 21 Nov 2026 10:38:18 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1795257498;
-	b=GatvQPmaiOpF25DvV58ijjpjD6vJ0xx6gTrSnBKAceSPSTwI5R0RiT6jHDwaBAyCC0hx
-	 GryhqY1ku4YjKcHq4CCcULuz3Ek1dSFnddK+Q55tMeU2vh0437Y020zt6iasJ2AudoML8
-	 8kBw+uqGAJ82mxidoie3jToDqnHZduXOkF/ihL8vj3ThKt22zfFjmH2fPKH0s9K3+D3HB
-	 F1aDFFbXo6PgADrkQfprBgnO+9yPayQo4TJ1vdIVn7SuwcgRwnri/UbPULph/7Ufny91s
-	 Bpw4Few+gtzwpJb2KPCIVRNts0Brw8p3vIiXdeTTfvXIhbISIMJZrUZb7EKtTjUW17Q==
+	b=bxf6eHYjI/MJW0pI/cloCI7/ShxDTqBblypsvWxvHfgYe/v+lCIqU0CyooLR9vROiIs3
+	 9pnKl42WtM6YiVygldUvUjxk49L1r0ocV+r7Lt7nmgQF6u2Uuj/CC6OMCqHVzEzixkHBP
+	 mlOeSwa66Uw/6Z42VfaoDvncGe9XnrkGaHu68fEyqQLR1b2FmkHAoF65AqDM3ZLmmDJO3
+	 noKfOAi6GTlbdggOXe1K0+gWZhjW9Lnic0UJuWFoaLLhsiJHZ48RmblgQF9Odj+Dd69ng
+	 D//cR916LnQ5Xec3tdvWUnbPZlv/3TfmLRFhgWejM6EWPlhl9BFt3ZdS8K9EPTujDkw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1795257498;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=OG0c6l+y/8sOpyl1NqaqhQcf9W4FSCA1cHzu90CtLcs=;
-	b=PQdBLstlPWA2nh9JhY0lYtD3HraYGBve/LNoOzRChQpe+ZylkaPfteZBAfJpFO3046XS
-	 QQdKhBI4ut1s9g4z0uMFKkiwiT+opCqQu6D4I2UKuhxWR4HaD6eMgzKsreZ92n/aqXyHP
-	 q1+/K/j3xl5FCFUSOJ9wKl51bVT7w+p96wVKOa6UNk/jMnjQjn9hXZsMPyUpmWxsXs81s
-	 Clhkyo6IVWTGh9YkhJtgW3iQEXG2I2m8I0Xjat6hfpUgeP/dwYfC1hW1sLHg+vaQv/HwM
-	 dgL/aLz6gJyEq5mIC1O9KiMsolnNCLFPzfKHv89wdySduyFPmExNM97yfpc0PiE/vmQ==
+	bh=W/y323rtHI4A6G9EZ6Uz12b8FGYlp7r0b2dLPeWwIb8=;
+	b=kccpPT/vOWQu1Qa/OSmZ06BvbY3xsROUcwDn69sgNfoxFTsF3DhK/5YCvB3KTiwRNVse
+	 HdPWyK6FgAS+FgbTgLJ0fFv1onkMUCiGbs8sDluLXFny3EZxU2yajYvonRgQ3n+ZcyH91
+	 iFo+FQ14TfNija3G8r13ECKsf7fMXezzSnET2gntQp2Y/dObMUl6g+UakzF7aM7BNdprm
+	 rK/jes1SQXxf2Zs/qeYB0d/SB5w81DQktwPJihRS35JW28JxDAWQtJDEAh6vgdNpIpt6w
+	 TdUom2tmhYL8qKknL2MgYmfWr2G0hb+yFXhdJGn5Eid3cIkls1MYS2IgucwBFX90mdg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A0A121F000C6;
+	by smtp.kernel.org (Postfix) with ESMTPS id 9065C1F000C4;
 	Sat, 21 Nov 2026 10:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795257498;
-	bh=OG0c6l+y/8sOpyl1NqaqhQcf9W4FSCA1cHzu90CtLcs=;
+	bh=W/y323rtHI4A6G9EZ6Uz12b8FGYlp7r0b2dLPeWwIb8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=dpyHBnf7GVP/4dU7w/wMGIWaaD3YUoLa3+I62ISoBZjWvDW9JZKLEi+Eqzn42tmZZ
-	 i7BZzwQ4hnUIOfBj0AFYycfj1uV9IwYrp+VOpRokoNh0FElvo/dYt4wegxJi5imsYr
-	 VFdkiKYzPb0VQCJ/CU2bl8GkkbPrd6qYEGwIVCfUHgGpQq4n0WHwh4LDVS0fPrVaXp
-	 ZKJPqzL1b53LEqI67RgMEMO4JcQL02MV/JNZhJTnOWXqdxMZd28UHVOyFlVbXkPr48
-	 Pwdyk6T2tD0xlXKvoiVMlRvNmDBhqvu43un7/oFkHtT3R8KaAUi1D6AAd/Uho+Lkw+
-	 T+sWJUdUG4Q7g==
+	b=dykeEpYcROTO59DQEUAkvm+1W5L4T2W957LzpyD79COQ8FYmQvk2WAY1uQJCTDoq5
+	 Gu8jGvFqsK3pJHEh4oDGzv1CoHVAJIgRD+utEXQkgRFAPhjiiOImXakY5WS+x8nudX
+	 x8smwr8dz1lLYpcm0em4sVbZ/WJZ6hL7uCpkKh98jeENBELfRSDNIHlcTdqovUMeEQ
+	 Hw0uV4sB9ZOjJk6rXupSVAZlo43BE1klae57Rhq05LPVFkWUmptyo+mbUj8m+NDeGz
+	 VyZ6fSf9Q0Qw6Rm4AjHl1c+amIw5V56vvdEbRwGDTFlXzLsKonK9TVQTobA1epTRGo
+	 NINuzfwg6jsGQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 301264BBE7;
+	by lkml.kernel.org (Postfix) with ESMTP id 155EC4BBE3;
 	Sat, 21 Nov 2026 10:38:17 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Sat, 21 Nov 2026 18:38:08 +0800
-Subject: [PATCH 2/2] clk: sophgo: sg2042-clkgen: Keep gates of reserved
- devices enabled
+Date: Sat, 21 Nov 2026 18:38:07 +0800
+Subject: [PATCH 1/2] riscv: efi: Map runtime MMIO with device attributes
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261121-b4-sg2042-efi-rtc-v1-2-19898b8ad497@iscas.ac.cn>
+Message-Id: <20261121-b4-sg2042-efi-rtc-v1-1-19898b8ad497@iscas.ac.cn>
 References: <20261121-b4-sg2042-efi-rtc-v1-0-19898b8ad497@iscas.ac.cn>
 In-Reply-To: <20261121-b4-sg2042-efi-rtc-v1-0-19898b8ad497@iscas.ac.cn>
 To: Ard Biesheuvel <ardb@kernel.org>, 
@@ -95,11 +94,11 @@ Cc: Han Gao <rabenda.cn@gmail.com>, linux-efi@vger.kernel.org,
  linux-clk@vger.kernel.org, sophgo@lists.linux.dev, 
  Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795257496; l=2910;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795257496; l=1030;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=FkwMGNzzFP9SAcLoWWEAD8DpNa60dTDRuCtVoBpvCok=;
- b=q3erWT1fwlHrNACKyfuHpCkIL80XgAGDT0V7qQ9mS+QUbZiQmrTwvliwagyujW22SWx/sZF6H
- bwT8bv9x9O2AhcQ4V7L6UQij2B8Mnqdpeu0VWzecd1SoDkGktQ2wX4c
+ bh=AXs3CmUyHq0DbOalkM59cymNHEWwCflCrFagmnUXH40=;
+ b=+R7iok8HWxtWVdFYvjuL61Ut91D/mbpDWKM53jRhVd4qqn7/sjzLv+Snse+8aZgLqEHJOOeid
+ xXeqEtr/y3EDSWZSeiif9VMkcf+BUQn8NS0Qrt/IbRR23abw8rzSlfq
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -127,93 +126,37 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Han Gao <gaohan@iscas.ac.cn>
 
-On Milk-V Pioneer, firmware can own I2C0 to back the EFI RTC, with the
-node marked status = "reserved". I2C0 shares GATE_CLK_APB_I2C with the
-I2C controllers Linux uses. When those runtime-suspend, the gate is
-switched off under the firmware and GetTime() returns EFI_NOT_READY.
+EFI_MEMORY_MAPPED_IO regions are mapped with PAGE_KERNEL, so device
+registers end up mapped as normal memory.
 
-Walk the reserved children of /soc and match their clock references,
-as done in commit 6aa175476490 ("clk: renesas: cpg-mssr: Ignore all
-clocks assigned to non-Linux system"). Unlike that driver, use
-CLK_IS_CRITICAL rather than CLK_IGNORE_UNUSED: the gate is shared with
-devices Linux drives, and their runtime PM would still turn it off.
+On Milk-V Pioneer, GetTime() reads the clock controller registers and
+faults:
 
+  Oops - load access fault [#1]
+  Workqueue: efi_runtime efi_call_rts
+  status: 0000000200000120 badaddr: 0000007030012000 cause: 0000000000000005
+
+Use PAGE_KERNEL_IO for these regions.
+
+Fixes: b91540d52a08 ("RISC-V: Add EFI runtime services")
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- drivers/clk/sophgo/clk-sg2042-clkgen.c | 38 +++++++++++++++++++++++++++++++++-
- 1 file changed, 37 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/efi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/clk/sophgo/clk-sg2042-clkgen.c b/drivers/clk/sophgo/clk-sg2042-clkgen.c
-index 6abc2c973c49..414904965edf 100644
---- a/drivers/clk/sophgo/clk-sg2042-clkgen.c
-+++ b/drivers/clk/sophgo/clk-sg2042-clkgen.c
-@@ -11,6 +11,8 @@
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/of_clk.h>
- #include <linux/platform_device.h>
- #include <asm/div64.h>
+diff --git a/arch/riscv/kernel/efi.c b/arch/riscv/kernel/efi.c
+index 2d3cc57b4535..11e85d0ebc91 100644
+--- a/arch/riscv/kernel/efi.c
++++ b/arch/riscv/kernel/efi.c
+@@ -22,7 +22,7 @@ static __init pgprot_t efimem_to_pgprot_map(efi_memory_desc_t *md)
+ 	u32 type = md->type;
  
-@@ -840,6 +842,35 @@ static int sg2042_clk_register_divs(struct device *dev,
- 	return ret;
- }
+ 	if (type == EFI_MEMORY_MAPPED_IO)
+-		return PAGE_KERNEL;
++		return PAGE_KERNEL_IO;
  
-+static bool sg2042_clk_is_reserved(struct device_node *clkgen, unsigned int id)
-+{
-+	struct device_node *soc __free(device_node) = of_find_node_by_path("/soc");
-+	struct device_node *node;
-+
-+	for_each_reserved_child_of_node(soc, node) {
-+		unsigned int i, count = of_clk_get_parent_count(node);
-+
-+		for (i = 0; i < count; i++) {
-+			struct of_phandle_args clkspec;
-+			bool match;
-+
-+			if (of_parse_phandle_with_args(node, "clocks", "#clock-cells",
-+						       i, &clkspec))
-+				continue;
-+
-+			match = clkspec.np == clkgen && clkspec.args_count == 1 &&
-+				clkspec.args[0] == id;
-+			of_node_put(clkspec.np);
-+			if (match) {
-+				of_node_put(node);
-+				return true;
-+			}
-+		}
-+	}
-+
-+	return false;
-+}
-+
- static int sg2042_clk_register_gates(struct device *dev,
- 				     struct sg2042_clk_data *clk_data,
- 				     const struct sg2042_gate_clock gate_clks[],
-@@ -850,7 +881,12 @@ static int sg2042_clk_register_gates(struct device *dev,
- 	int i, ret = 0;
- 
- 	for (i = 0; i < num_gate_clks; i++) {
-+		unsigned long flags;
-+
- 		gate = &gate_clks[i];
-+		flags = gate->hw.init->flags;
-+		if (sg2042_clk_is_reserved(dev->of_node, gate->id))
-+			flags |= CLK_IS_CRITICAL;
- 		hw = __devm_clk_hw_register_gate
- 			(dev,
- 			 NULL,
-@@ -858,7 +894,7 @@ static int sg2042_clk_register_gates(struct device *dev,
- 			 NULL,
- 			 gate->hw.init->parent_hws[0],
- 			 NULL,
--			 gate->hw.init->flags,
-+			 flags,
- 			 clk_data->iobase + gate->offset_enable,
- 			 gate->bit_idx,
- 			 0,
+ 	/* R-- */
+ 	if ((attr & (EFI_MEMORY_XP | EFI_MEMORY_RO)) ==
 
 -- 
 2.55.0
