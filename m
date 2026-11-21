@@ -2,70 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D319606A69C
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Nov 2026 23:53:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3576606A337
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 06:16:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=onS/lbQB;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i0ktJ/Vw
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FVbVVLJ5;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=P+IsRQQd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=2LXoFPQmp4kk9amap8rYoaS1M4O0z9ZKtqplxZA8ziM=; b=onS/lbQBAz7HDFCQdkpO93drOk
-	Ck3gqbaWvTB3p2fzP91wgym/90+V6gnHbA+ez6crFjIEGyxLUFZxC4GHznVOqtNp9bvvr3JZsp4e7
-	40F+YnHGItuEc15rtEMgjKHgK9/+aDyfU2Ov9p3UmeDsAPpbbs7X1CZbzN43y8JwvAcGj9y8wBIQy
-	wqTD6C8QjBKaIuMPZoSzdsrWeXoesHyzKZ/AFENqFwPolxxeTV6EHkDxrJk3crLTtJjB2XdwAV5sq
-	oDHP2jBJ6hJFewOWBTcn0oFBsGgIUuoIVKnEfgzZ5ZNTCe4AHg1KDF846NCV19++DPS4J2Hb+Uf/a
-	8f3e4r6Q==;
+	bh=HL/wLgfMSb6tyyRY90lQwyF1xFIHZbVW0kFQ7oeVXpI=; b=FVbVVLJ5NH7fzi7vPAqDs2zRto
+	L0nK+vMXBcmNcAl9i3WiNn5p6XmtcP8FMlt7kwzDH83RWuvuYlhSJDFe4Uhre3Y0LmbAV5fxFoYW5
+	9w20nnJbcuRt4X2foLc6/F8FTmMWGERczI/3uytf8SUQXjH+XcNPKVkOhBLisIyPrUnOf3BuvHFnM
+	387t3gbwF0WhDdxVLXumh3QU6FrlGy7WvIiDMBUfvjO4V+2zswPw5Xyg5TapWv/I+eLm0wM4mz/6v
+	AFTzrohbw/EKuoCxjYmMDNEKnCJzZnOBKdeEatmPE5V8+FdL8ZV9rd5+8MhVQwMdqI8rNzmthDP7H
+	/r9SFwrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUYQD-0000000GSKz-22f8;
-	Fri, 20 Nov 2026 23:53:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xUeO8-0000000GmwS-3xRT;
+	Sat, 21 Nov 2026 06:15:52 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUYQ9-0000000GSKn-0atO
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Nov 2026 23:53:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E12861126;
-	Fri, 20 Nov 2026 23:53:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 642B51F000C6;
-	Fri, 20 Nov 2026 23:53:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795218811;
-	bh=GtYIm+rWOI2WR3mNBXOj58UxSxdzyvXp4UZh6Gfd/i4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i0ktJ/Vwel/HRt+z7HIvQtAFgN47Ptjdc8ml1p450ILd372E5nWUqjKOfydgYqOES
-	 rbjvLR1JS5+v1MJvWqf85KkjpEMzqmFKEto0Wj3uueyhM0Pr1ACfYxGTHqSrBFdM5D
-	 ysQ2hPLdU0Fcsr8cjOBnMr7KPMCKJPVMYnhh2EpOMsZl4scMWWCGMoUZlDDTMZ3Xvf
-	 Qo0qOYyctZp9JVuUG9cr/WNgd9pk0X8ctQtvMJ8W56byRwulu42OktYA6kdWjMkc4X
-	 lVtzQsX3FpxheFSS1r80E3IPribh4poKqCBncqIYBskgvZZx11iPdmro6cO1C4xE8c
-	 cCRzp0+Ink/ZA==
-Date: Fri, 20 Nov 2026 15:53:30 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Thomas Gerner <thomas.gerner@muenchen-mail.de>
-Cc: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] Bluetooth: btbcm: disable read tx power for
- BeagleV-Ahead
-Message-ID: <awDdetFNaeuxKkbp@x1>
-References: <20261020132604.90708-1-thomas.gerner@muenchen-mail.de>
- <20261020132604.90708-2-thomas.gerner@muenchen-mail.de>
+	id 1xUeO5-0000000Gmvi-0RA6;
+	Sat, 21 Nov 2026 06:15:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795241738; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=YShQ51CxPN05RyeAJpAM1rmHPAWCYeDv107+BzXh+IU=;
+	b=P+IsRQQd0chCnVD/8d8CMexNOPxH0TE1IA7ZmsemAf/sYtNU/GYmyAbGkUgZozcEbQ92yD8NosObkN4IlsrQh81lT1gwlmQTS+7SNnl9v77sf2P14X+3M+DFfTnpGdsD7LwYcMlryFiowl4R4L4Z51mzMtefjm29z2nbJ/WzdyY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R831e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=30;SR=0;TI=SMTPD_---0XF83hNL_1795241733;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XF83hNL_1795241733 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 21 Nov 2026 14:15:35 +0800
+From: fangyu.yu@linux.alibaba.com
+To: gsh517025@gmail.com
+Cc: alex@ghiti.fr,
+	andrew.jones@linux.dev,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	baolu.lu@linux.intel.com,
+	fangyu.yu@linux.alibaba.com,
+	gong.shuai@sanechips.com.cn,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	joerg.roedel@amd.com,
+	joro@8bytes.org,
+	jroedel@suse.de,
+	kevin.tian@intel.com,
+	kvm-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	nutty.liu@hotmail.com,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	skhawaja@google.com,
+	tanchi25@mails.ucas.ac.cn,
+	tomasz.jeznach@linux.dev,
+	vasant.hegde@amd.com,
+	will@kernel.org,
+	zong.li@sifive.com
+Subject: Re: [PATCH v7 05/10] iommu/riscv: support GSCID and GVMA invalidation command 
+Date: Sat, 21 Nov 2026 14:15:32 +0800
+Message-Id: <20261121061532.23534-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <23b033cb-1b98-48cf-a089-4e710dfe3e15@gmail.com>
+References: <23b033cb-1b98-48cf-a089-4e710dfe3e15@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261020132604.90708-2-thomas.gerner@muenchen-mail.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261120_221549_847959_A9B3A570 
+X-CRM114-Status: GOOD (  19.88  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +92,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 03:26:03PM +0200, Thomas Gerner wrote:
-> The bluetooth module of the Ampak AP6203BM is identified by the btbcm
-> driver as BCM4362A2.
-> 
-> The firmware of the bluetooth module on the BeagleV-Ahead reports a
-> capability of reading LE tx power. However reading fails. To get
-> bluetooth working it is necessary to disable reading of LE tx power on
-> the BeagleV-Ahead board. The disable is implemented in a similar way as
-> for several Apple boards but uses the board compatible identification
-> from the DTB as there is no DMI.
+>>>Hi Fangyu,
+>>>
+>>>> From: Zong Li <zong.li@sifive.com>
+>>>>
+>>>> This patch adds a ID Allocator for GSCID and a wrap for setting up
+>>>> GSCID in IOTLB invalidation command.
+>>>>
+>>>> Set up iohgatp to enable second stage table and flush stage-2 table if
+>>>> the GSCID is set.
+>>>>
+>>>> The GSCID of domain should be freed when release domain. GSCID will be
+>>>> allocated for parent domain in nested IOMMU process.
+>>>>
+>>>> Signed-off-by: Zong Li <zong.li@sifive.com>
+>>>> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>>>> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+>>>> ---
+>>>>  drivers/iommu/riscv/iommu-bits.h |  7 ++++
+>>>>  drivers/iommu/riscv/iommu.c      | 62 ++++++++++++++++++++++++++------
+>>>>  2 files changed, 58 insertions(+), 11 deletions(-)
+>>>>
+>>>> diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
+>>>> index f2ef9bd3cde9..65d1f2250011 100644
+>>>> --- a/drivers/iommu/riscv/iommu-bits.h
+>>>> +++ b/drivers/iommu/riscv/iommu-bits.h
+>>>> @@ -720,6 +720,13 @@ static inline void riscv_iommu_cmd_inval_vma(struct riscv_iommu_command *cmd)
+>>>>  	cmd->dword1 = 0;
+>>>>  }
+>>>>
+>>>> +static inline void riscv_iommu_cmd_inval_gvma(struct riscv_iommu_command *cmd)
+>>>> +{
+>>>> +	cmd->dword0 = FIELD_PREP(RISCV_IOMMU_CMD0_OPCODE, RISCV_IOMMU_CMD_IOTINVAL_OPCODE) |
+>>>> +		      FIELD_PREP(RISCV_IOMMU_CMD0_FUNC, RISCV_IOMMU_CMD_IOTINVAL_FUNC_GVMA);
+>>>> +	cmd->dword1 = 0;
+>>>> +}
+>>>> +
+>>>>  static inline void riscv_iommu_cmd_inval_set_addr(struct riscv_iommu_command *cmd,
+>>>>  						  u64 addr)
+>>>>  {
+>>>> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+>>>> index 918fce4aa8c4..5546dfcd976c 100644
+>>>> --- a/drivers/iommu/riscv/iommu.c
+>>>> +++ b/drivers/iommu/riscv/iommu.c
+>>>> @@ -49,6 +49,10 @@
+>>>>  static DEFINE_IDA(riscv_iommu_pscids);
+>>>>  #define RISCV_IOMMU_MAX_PSCID		(BIT(20) - 1)
+>>>>
+>>>> +/* IOMMU GSCID allocation namespace. */
+>>>> +static DEFINE_IDA(riscv_iommu_gscids);
+>>>> +#define RISCV_IOMMU_MAX_GSCID		(BIT(16) - 1)
+>>>> +
+>>>>  /* Device resource-managed allocations */
+>>>>  struct riscv_iommu_devres {
+>>>>  	void *addr;
+>>>> @@ -842,6 +846,7 @@ struct riscv_iommu_domain {
+>>>>  	struct list_head bonds;
+>>>>  	spinlock_t lock;		/* protect bonds list updates. */
+>>>>  	int pscid;
+>>>> +	int gscid;
+>>>>  };
+>>>>  PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
+>>>>
+>>>> @@ -1004,7 +1009,7 @@ static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
+>>>>  }
+>>>>
+>>>>  static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
+>>>> -					  int pscid,
+>>>> +					  int pscid, int gscid,
+>>>>  					  struct riscv_iommu_tlbi *tlbi)
+>>>>  {
+>>>>  	bool use_nl = tlbi->non_leaf &&
+>>>> @@ -1012,8 +1017,13 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
+>>>>  	struct riscv_iommu_command cmd;
+>>>>  	unsigned int i;
+>>>>
+>>>> -	riscv_iommu_cmd_inval_vma(&cmd);
+>>>> -	riscv_iommu_cmd_inval_set_pscid(&cmd, pscid);
+>>>> +	if (gscid) {
+>>>> +		riscv_iommu_cmd_inval_gvma(&cmd);
+>>>> +		riscv_iommu_cmd_inval_set_gscid(&cmd, gscid);
+>>>> +	} else {
+>>>> +		riscv_iommu_cmd_inval_vma(&cmd);
+>>>> +		riscv_iommu_cmd_inval_set_pscid(&cmd, pscid);
+>>>> +	}
+>>>
+>>>As I understand it, the same choice is needed in
+>>>riscv_iommu_bond_unlink().
+>>>
+>>>The missing GVMA command does not break anything today, because every
+>>>caller of bond_unlink() runs iodir_update() just before it, and that
+>>>already sends the GVMA for the old GSCID. But depending on that
+>>>ordering seems fragile, and the comment in bond_unlink(), "invalidate
+>>>all cached entries for domain's PSCID", is no longer true now that we
+>>>have S2 domains.
+>>>
+>>
+>> There is no functional issue with the current code, since
+>> iodir_update() already performs the required invalidation.
+>>
+>> That said, as this series adds S2 domain support,
+>> bond_unlink() should indeed be updated accordingly.
+>> Good catch.
+>
+>Hi Fangyu,
+>
+>I've included this code in patch 10 of the v3 nested series [1].
+>
 
-Thanks for sending this patch. Do you know if this is a problem on any
-other boards with the AP6203BM?
+Hi Shuai,
 
-Also, is there an error message for the failed read?
+Thanks for the pointer. If possible, I'd suggest keeping this
+change in the current patch rather than splitting it out --
+it makes the functionality look more complete, and splitting
+it into two patches seems a bit odd.
 
-> 
-> Signed-off-by: Thomas Gerner <thomas.gerner@muenchen-mail.de>
-> ---
-> No changes in v2
-> 
->  drivers/bluetooth/btbcm.c | 19 ++++++++++++++++---
->  1 file changed, 16 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/bluetooth/btbcm.c b/drivers/bluetooth/btbcm.c
-> index 463d59890bef..2d02cc1863d0 100644
-> --- a/drivers/bluetooth/btbcm.c
-> +++ b/drivers/bluetooth/btbcm.c
-[..]
-> -static const char *btbcm_get_board_name(struct device *dev)
-> +static const char *btbcm_get_board_name(struct hci_dev *hdev)
->  {
->  #ifdef CONFIG_OF
->  	struct device_node *root __free(device_node) = of_find_node_by_path("/");
->  	char *board_type;
->  	const char *tmp;
-> +	const char **s;
->  
->  	if (!root)
->  		return NULL;
-> @@ -550,8 +556,15 @@ static const char *btbcm_get_board_name(struct device *dev)
->  	if (of_property_read_string_index(root, "compatible", 0, &tmp))
->  		return NULL;
->  
-> +	/* disable broken Read LE Min/Max Tx Power on first board found in list */
-> +	for (s = board_broken_read_transmit_power; *s; s++)
-> +		if (!strcmp(tmp, *s)) {
-> +			hci_set_quirk(hdev, HCI_QUIRK_BROKEN_READ_TRANSMIT_POWER);
-> +			break;
-> +		}
+>BTW, if you have time, would you mind reviewing the nested series?
+>I'd greatly appreciate your help.
+>
 
-It seems that btbcm_get_board_name() only looks up the board name for
-the firmware file so I think it could be unexpected to set a quirk here.
-Maybe this would work better?
-
-  static const char * const board_broken_read_transmit_power[] = {
-          "beagle,beaglev-ahead",
-          NULL
-  };
- 
-  [..]
-
-  if (dmi_first_match(disable_broken_read_transmit_power))
-          hci_set_quirk(hdev, HCI_QUIRK_BROKEN_READ_TRANSMIT_POWER);
-
-  if (of_machine_compatible_match(board_broken_read_transmit_power))
-          hci_set_quirk(hdev, HCI_QUIRK_BROKEN_READ_TRANSMIT_POWER);
-
-
-However, I am not very familiar with Bluetooth drivers so I am hoping
-Marcel or Luiz can comment too.
+Regarding the nested series, it looks like a solid set of
+patches that already provides the basic nested IOMMU
+functionality. I'd be glad to help with the review and hope
+I can be of some help.
 
 Thanks,
-Drew
+Fangyu
+
+>[1] https://lore.kernel.org/linux-riscv/20261119132744.396426-11-gong.shuai@sanechips.com.cn/
+>
+>Thanks,
+>Shaui
+>
+>>
+>> Thanks,
+>> Fangyu
+>>
+>>>The change, if you think it is needed, fits better in the last patch,
+>>>"iommu/riscv: Add IOTINVAL.GVMA invalidations". I am replying here
+>>>only because the code is very similar.
+>>>
+>>>Thanks,
+>>>Shuai
+>>>
 
 _______________________________________________
 linux-riscv mailing list
