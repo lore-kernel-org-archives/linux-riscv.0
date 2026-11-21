@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 599D1606A330
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 12:24:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2663C606A320
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 12:38:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=r2NqksRw;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rQSz0yWH
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FGRkWxlN;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BVd7DUyo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,56 +14,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PLegPCNTwLgWaE2Pk05nHRRCMv0APqQS5IWHn/kAIek=; b=r2NqksRwPqPdPp71l89+/TO+Vo
-	GpOYG9IQSd3OfzXBYOIGR5hq9Nny7fnpiaDkTKxK4VcGRqPeHAATAil8Xa90C3Uzs/08VA9OXPinr
-	K0gTi3Hj0+Pf40ROMuJzfpY0n6VFyoOQEWMTYS+GddrR6vwkpzQTuZ9rUEVAk/4fPjiiSNICvn5uD
-	KVazvejHQ8u55Mmh7zRGFS9V82mhQ/gdCIfiOJT7cyvgPvMCi3LXlLth612TapM48ydlGDArvVD00
-	RTnT6cnuo3bGs6lUJUlcZzv2XRH+Q+Ho/bUjcCvgy70874JeBLPmW2PsfqqDQozOLIBT30rv5b710
-	Mf5k3Brg==;
+	bh=9Ig2uni9g9N2+Oa8qK03eW6F1/kOJ87If/h5zmVYAz4=; b=FGRkWxlNjCqxeEKOHL5KEtTB8W
+	KpGparoaufXRraD7XdtDIijcbzy+j8yOZiSAgAFyH0QLICLA2PFQuUjz0ci1UdqsuQI5gZ3Niv3Zb
+	EC6xEDZ5Y7PBESpLo7DYe10GMTo0KFkNgfhyTGPuMGHCO1f1QX+WvocWlHnxXHPSLbRgolJn2I/CF
+	MmVZO6MY/3HwjI77qGlILBA0bKhGZAZhkUMxHY7I0QwpkNTWZuWZehYXStTxys7T3jIG7KFqfN+fC
+	gGnsSCZp1g+5AtD6BOw2tBwoiImTiBRmzpFhBSwWc2m7VkhmbTmsG/IYNXv1ufjDjHXXCCtNMzdyS
+	bpeHiEBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUk8o-0000000H9jo-0iUD;
-	Sat, 21 Nov 2026 12:24:26 +0000
-Received: from out-76.mta1.migadu.com ([95.215.58.76] helo=mta1.migadu.com)
+	id 1xUkMA-0000000HBkc-130h;
+	Sat, 21 Nov 2026 12:38:14 +0000
+Received: from out-81.mta1.migadu.com ([95.215.58.81] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUk8l-0000000H9iV-1vYG
+	id 1xUkM5-0000000HBj6-2jgB
 	for linux-riscv@lists.infradead.org;
-	Sat, 21 Nov 2026 12:24:25 +0000
+	Sat, 21 Nov 2026 12:38:13 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=kGo36nDWG3R/lg7h5mo5U2JYd2ZrcZDPHK/RX0L5Sqg=;
+DKIM-Signature: a=rsa-sha256; bh=rRoUO1ekAv/EnBw/LqUWxSkU357wwykHVnVwqfZsCKg=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795263858; v=1; x=1795868658;
- b=rQSz0yWHSitaI5TMgyh9cLcZsijOZRJdEfSQ/SK1ppGtIJjX3TZrCslafhecHOIbdnl3Uq69
- HIR51w/UdxpAdRuue7H0sg6PTb1IVHA5ofoN5NpdQ7rkC/DOHkG+Q6GBw5UmuBd7pXM3rH0av6w
- +Fj2Ei3wfke+PG66Fw/BhC3s=
+ t=1795264687; v=1; x=1795869487;
+ b=BVd7DUyoNQtYHAc4AxDOU+64n2ZFVG7Y9IswXb9+GmiSj5osvIXrsMxxPTJYs7PUDcCsV5L7
+ jJL3bm9/PTutt5R29GggzbveN3rBIOYTNJUAEIIIxDAzfmGYxgzDqf1DSZ6WuUVth46xQ5ngwMk
+ nw83sHH+nTiiOQbBQDGuw4H0=
 X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 7318615b7222aebb;
-	Sat, 21 Nov 2026 12:24:18 +0000
-X-Mizu-Trace-ID: 7318615b7222aebb
+Received: by smtp.migadu.com with ESMTPS id 51c69ba41e2b6b86;
+	Sat, 21 Nov 2026 12:38:07 +0000
+X-Mizu-Trace-ID: 51c69ba41e2b6b86
 X-Migadu-Flow: FLOW_OUT
-Date: Sat, 21 Nov 2026 13:23:43 +0100
+Date: Sat, 21 Nov 2026 13:37:29 +0100
 From: Andrew Jones <andrew.jones@linux.dev>
-To: Koichiro Den <den@valinux.co.jp>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+To: Gong Shuai <gong.shuai@sanechips.com.cn>
+Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Bingyu Xian <shanbeeyoo@gmail.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] RISC-V: KVM: Batch user accesses when updating steal
- time
-Message-ID: <awGJaUFUmBOa4xfO@orel>
-References: <20261118062242.2914385-1-den@valinux.co.jp>
- <20261118062242.2914385-2-den@valinux.co.jp>
- <awB1hZGh3LYztjqL@orel>
- <awB6FpVOpZ9fhMt1@z790sl>
+	Tomasz Jeznach <tomasz.jeznach@linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>, 
+	Andrew Jones <andrew.jones@oss.qualcomm.com>, Fangyu Yu <fangyu.yu@linux.alibaba.com>, 
+	Tan Chi <tanchi25@mails.ucas.ac.cn>, Wu Fei <wu.fei9@sanechips.com.cn>, 
+	Zhao Qingye <zhao.qingye@sanechips.com.cn>
+Subject: Re: [RFC PATCH v3 05/10] iommu/riscv: Add nested domain allocation
+Message-ID: <awGP5H2JdjxW8WXG@orel>
+References: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
+ <20261119132744.396426-6-gong.shuai@sanechips.com.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <awB6FpVOpZ9fhMt1@z790sl>
+In-Reply-To: <20261119132744.396426-6-gong.shuai@sanechips.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261121_042423_914233_1460049E 
-X-CRM114-Status: GOOD (  23.71  )
+X-CRM114-CacheID: sfid-20261121_043810_033717_005F5C37 
+X-CRM114-Status: GOOD (  15.13  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,56 +81,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, Nov 21, 2026 at 02:20:17AM +0900, Koichiro Den wrote:
-> On Fri, Nov 20, 2026 at 05:40:29PM +0100, Andrew Jones wrote:
-> > On Wed, Nov 18, 2026 at 03:22:41PM +0900, Koichiro Den wrote:
-> > > Updating the SBI STA shared structure performs 2x get_user() + 3x
-> > > put_user() calls, each of which toggles sstatus.SUM.
-> > > 
-> > > Keep SUM enabled across all five accesses to the shared structure.
-> > > 
-> > > Note that write barriers are added to order the odd sequence store
-> > > before the steal-time update and the even sequence store after it.
+On Thu, Nov 19, 2026 at 09:27:39PM +0800, Gong Shuai wrote:
+> From: Wu Fei <wu.fei9@sanechips.com.cn>
 > 
-> Hi Andrew, thanks for the review.
+> A nested domain describes two-stage translation through guest and
+> host page tables. Iommufd exposes this domain as a nested hwpt.
 > 
-> > 
-> > The barrier additions should probably be posted separately with a Fixes
-> > tag.
+> User space needs to provide the guest stage 1 configuration when
+> allocating a nested hwpt. Validate the configuration before storing
+> it for use in a physical device context.
 > 
-> That's exactly what I wasn't sure about when I read the ISA spec.
-> It was unclear to me from the Zicsr ordering rules whether the SUM toggle in
-> the old code's get_user() and put_user() calls also order the stores to 'sequence'
-> and 'steal' as seen by another hart.
-> (I don't think they do, but I'm not 100% sure. It feels a bit like trying to
-> prove a negative, as I couldn't find a clear statement. I may have missed one
-> though. OTOH, the new code surely needs the barrier, so I included them.)
+> Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
+> Co-developed-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+> Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+> ---
+>  drivers/iommu/riscv/iommu.c | 153 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 153 insertions(+)
 > 
-> Do you read the spec as allowing another hart to observe those stores out of
-> order in the old code? If so, I agree the barriers can go in a separate patch.
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index f2305b953f71..4f8ce579ef08 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -1698,8 +1698,161 @@ static void riscv_viommu_destroy(struct iommufd_viommu *viommu)
+>  	ida_free(&riscv_iommu_gscids, rv_viommu->gscid);
+>  }
+>  
+> +struct riscv_iommu_nested_domain {
+> +	struct iommu_domain domain;
+> +	struct riscv_viommu *viommu;
+> +
+> +	u64 tc;
+> +	u64 ta;
+> +	u64 iosatp;
+> +};
+> +
+> +#define to_riscv_iommu_nested_domain(domain) \
+> +	container_of(domain, struct riscv_iommu_nested_domain, domain)
+> +
 
-Yes, we always needed the barriers since we need something to pair with
-the virt_rmb()'s in pv_time_steal_clock(). get/put_user weren't covering
-for that omission either because CSR accesses are weakly ordered.
-
-> 
-> > 
-> > > 
-> > > Signed-off-by: Koichiro Den <den@valinux.co.jp>
-> > > ---
-> > > To reviewers: please let me know if you'd prefer
-> > > scoped_user_rw_access() here.
-
-For scoped_ or not, whatever you think reads the best. I prefer scoped_
-when it makes sense, as it's harder to get wrong, but readability also
-matters.
+Please rename the macro parameter so it doesn't collide with the domain
+member name, otherwise macro expansion replaces the member name too.
 
 Thanks,
 drew
