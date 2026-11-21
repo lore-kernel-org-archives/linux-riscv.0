@@ -2,108 +2,134 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6A4F606A32A
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 14:49:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE09B606A320
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 14:59:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FQF2ps68;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XN4UNEce
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3ttnQ5oF;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=valinux.co.jp header.i=@valinux.co.jp header.a=rsa-sha256 header.s=selector1 header.b=MmyNSjg3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kXbZV+F1z/yHa2BfbR6YM701BZwzM32DEcG+iQ09I1o=; b=FQF2ps68SlxfYAP67D1hxs3fJb
-	HMKo6aR1jrrDmSxxSlgDsChjE7SsPPBi9D4fMf/g8lE6BJPaLIulrOazRvXFnwrfjaG06YdDSg2bo
-	72FX/YVREboNAuR+/GYE2Q95uzlcshXLGOqTk7nKoTkI9vKoHhMpzFCRUV9BE/bNvv4C8Xttxl0w3
-	5uCIP+U9NJVU7haqj+mwOb1C7ErbmI3e+jmYnnPLo4yx5y0VrAgl3CojVQJy2CaK1UH1UfNjV7xiK
-	Tw4OxMoL7rOp0S93NUavGWWjtP1qRWj5WlFY/Q4puuV/9Ozyx4ADIrXFtxuVOrOLqiy6VFmOOFz94
-	5hS92GGg==;
+	bh=nlJyBEQhZ/2qJoQk4h5ZxZr7xh1/vsuKZGn136sDxLg=; b=3ttnQ5oF6SsB/eOgsRAdLf4z3s
+	+Z3plvXDwSHJDn16mnynaYwuDQdW+miGSQPZ0v+FWWnvwPKCmG94oMWeRbVeKU8P6ZmLgBfPzkdQV
+	DqlJPyG+B3HEffUxIbJS6HrYILr5i8mcf3J2InHjTaMgkwwmBMEPuJS7qHoROk0uEIDhqbYUGF1Ae
+	jfzgqSWkruLc5tTyaUq030YsjW5ch9tZBHLSxZ4V0d8CqLj+Hgc8tIfb5SrcQLTJVafYN6tL5jyFE
+	zzYV4v/4+aUU6o83MNJIge3hLFu67HH+M6BSDYfMFy34bpCXo+3yVAhdXed8AUUpFkgpvHVfHgPon
+	pQhvmpFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUmOi-0000000HMUL-1szs;
-	Sat, 21 Nov 2026 14:49:00 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1xUmZ8-0000000HMnz-1x12;
+	Sat, 21 Nov 2026 14:59:46 +0000
+Received: from mail-japanwestazon11020100.outbound.protection.outlook.com ([52.101.228.100] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUmOf-0000000HMTG-3wjQ
-	for linux-riscv@lists.infradead.org;
-	Sat, 21 Nov 2026 14:48:59 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-8ca6a12efd9so123903b3a.1
-        for <linux-riscv@lists.infradead.org>; Sat, 21 Nov 2026 06:48:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795272536; x=1795877336; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EdCe+8kSe9PjEo1XndTkJdrgn2vsntTF1WvbXrRZYxs=;
-        b=XN4UNEceWJDRzKV+0+kmBV/Gp1AXdj4qu34agHqHt6LAINTKesbKFpZWBZiGfL6zoC
-         4dFu/yFwo1ROudryF2RLtBMVTt4JpZ7Pjr0mOzIrqabJHc8DRC7IsOjZq3kWw+0DKg5e
-         Ak2PeU1FeRoOEh5ssMDE2yZyIoVup67Qca9H/ubyzcMS2Qr4K6YvCdWqGeISyHVe1R3V
-         CG5JF91dzm6g+WLFzIwAPOPoz9r8igoXCWzUu/JD53iY2TeX7xVM1IHrZYUKdhpOyZfr
-         mPYoH9rIopclJ5B/nMGAerTQT9/rEhpP2nQWyNKdjJ2pkJn4LgCY11rUX4/crMAYxw/T
-         Tu4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795272536; x=1795877336;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EdCe+8kSe9PjEo1XndTkJdrgn2vsntTF1WvbXrRZYxs=;
-        b=ILgUlvylY1qeFOsq5qlnJ753JDVrML84xpl0VCmpaNZ+obuObG9TNPOWJSJbvIoGWl
-         eGqB3UxYkeWA+pMVv40V+gP2QAx6qKbHqPGwaQ8rbEVWymejQ6Z7MklYfFI8MaeKP4eH
-         mRRqX6Xhj74rUYH7YCdgVuLpOSdCYNhXQAAQb1MnBhJw4DYZESw/HC9+FzHmO3dVjsvv
-         cxD1Z5vGq+i/MwadlnKFM96NwdATvcghGemsZPUjcmmFnnPlsIIx+ucGQoA95ZibPPKC
-         d4dO3/az2si68FJbentcbCt+oSUrsGBtVxPER62V+4zNhpHecaBjLdW1MFhe6Ch/dgdX
-         1cNg==
-X-Forwarded-Encrypted: i=1; AL+hErHoqKxVy67sp9olJUUdeXQa67l3uGPALPYP0qCvgrsmA5LVNqR8zp1rIxsNBIevxTynDtSDhkyH+bSJlA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9VY06+8n6gcdIWBZrTut/++PQdXtSRhP1adwn440MB4/D0MHHB
-	ftIOwA6SPvRvQnEoqnbGb5ujlD/4IGHdEwveqtA86QupdYO1tVhQJNPE
-X-Gm-Gg: AZFdTZdMB56AcsAl4aeSRZYnbzhMBpqTRUgaOahXs1ke8HbnqPdWw99XeJkVBeL2aYE
-	iI7GmjTS8yPA9N+qGr2+x3fvYY0qGrgzJhQ1zM5LjlRShIPSP3sIQNgm3IOsuoUwYg2U2a8ypPK
-	x67mOFd6dH38WJO546/BbEAigYWyKKC4EDwRRBAnIV0T/Gf6ffYpQdejCVcHIMJOKGNcuGAGCK0
-	HXCxcTe2+4XSjb5UNUyxSQ2F9EoNLnThSD+4n4hRy4list7JTuX8wut0Ia6KkK9jtBnG00X0295
-	i/A3o0X0xg6KeD/Nb37a2ygf7Nm0WUttS79eR44cI0QZ5HiXbu4maxcDwPXJ6N8sXzH7tL7MGb6
-	uB0zqqrtseDRYgNJMtZulPKiTuKEynLApuXx2IJfAceERviE3px6MHAp9LxGDNUHQ2VV2hwIW4v
-	CdpXhDM5fCoruhYsXG/2G4KF2p1XBdsQbqL63Ppw1Q5hWMpQNsXcvw3xYzGkabrIhaFDlZqI3y7
-	tEmGg8b9fBa1qkmt1cWHzgrPLUEzadfev9z/adciGQ2oZyNJXOOzaPhY/I0mUvLJlPQLtxfTs3z
-	a2evFDcZcWHK4P+mfTdyfnYyaH2jlJDvW3h1NAm4fewOTt2TKgHDfqczdw==
-X-Received: by 2002:a05:6a20:244b:b0:3ed:bbab:9386 with SMTP id adf61e73a8af0-4014d35ab9cmr6017467637.42.1795272536129;
-        Sat, 21 Nov 2026 06:48:56 -0800 (PST)
-Received: from localhost ([2.27.148.107])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm3048343b3a.36.2026.11.21.06.48.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 06:48:55 -0800 (PST)
-From: Han Gao <rabenda.cn@gmail.com>
-To: "Ard Biesheuvel" <ardb@kernel.org>
-Cc: Han Gao <rabenda.cn@gmail.com>,
-	gaohan@iscas.ac.cn,
-	"Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
-	"Paul Walmsley" <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>,
-	"Albert Ou" <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>,
-	"Atish Patra" <atish.patra@linux.dev>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Brian Masney" <bmasney+clk@redhat.com>,
-	"Jerome Brunet" <jbrunet+clk@baylibre.com>,
-	"Chen Wang" <chen.wang@linux.dev>,
-	"Inochi Amaoto" <inochiama@gmail.com>,
-	linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	sophgo@lists.linux.dev
-Subject: Re: [PATCH 1/2] riscv: efi: Map runtime MMIO with device attributes
-Date: Sat, 21 Nov 2026 22:48:45 +0800
-Message-ID: <20261121144848.1277368-1-rabenda.cn@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <bb39f961-0589-4a3e-b649-888cf5edd3a1@app.fastmail.com>
-References: 
+	id 1xUmZ4-0000000HMnP-1Dus;
+	Sat, 21 Nov 2026 14:59:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P51rUx8cZa0p2i/KTSqtMsRMbp7p3LcqKgOnUTFYrOu0w+NCiBkcHnLEWd0flzxc0BAQs4cotGzWhL7EaDX2NcXifqs+IA8GtYUM0pmih6/aqHUkIHM+YKqgCYyndITu/F6pJiEWFTh3TAJtL+52mq4cbOFsNXevpKkJorVVDgwetceWcIQeKBRznZa9QADdHZeBSldx4zvIyYCiH0hti3uyVag8DWnRTOimBHVEXxfg30o5xuoszqZKcEV6rcrz9AVgZh8S6c1t8RC/jRFEQ5/8Icmt829k//Wm0xDkEvWSkiYZU4Eo+AgkvKbdn1+IvhbIkNJBU1VW5fyKQLXFhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QGLKBJGKJmG8wTC85yxU4LzEhwN+ufN/tKb6of50/Sw=;
+ b=tNe1BIKrtNDyQ5aHCrdRcxjnJ2OpZj9nBbdaRZSl51vSVJGOOLfyIDc2MprooBuOlaBIQSt5Kik4B/AqLzB8WYMH1o1BObBUcyDLzji4Q2KeE7e8NfDN4624QfXlSuB/Y2I7CY8rPnqDWRqBDVSb225YRG+oGhmF9XDdnO9PINOlaJq/yV3DJyoErffxZ4+hbzqE+S8sVlJNwaGrBcH6t/AHXnjd3t+HRWvHu4o/rEo0J2CMRS4ERR0HkzUZ/gt806z9iml4i6ogPg5+Ul8V09+H9y4pudBBeTce1UU8Pcy7WZ7u+ue6g61rcWnjKHzZmXTVTKxHcsVQdgQC0214lQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
+ header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QGLKBJGKJmG8wTC85yxU4LzEhwN+ufN/tKb6of50/Sw=;
+ b=MmyNSjg38Q/D58y7WL+pU5vz4iepRATldu8pOyshggzDQCTxTiN8LfybuirzZ6pcxZZ5xW7zmJfqs54fdfACcu5i5y8JcjRuwtqu5AkJqa9J9CN77mjZXALc3l/j78pNT7OGgeNyMDbk0jZsoGahKaQS9qvw90jgVgHxX77fbB8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=valinux.co.jp;
+Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:325::11)
+ by OSOP286MB4177.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:304::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sat, 21 Nov
+ 2026 14:59:35 +0000
+Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::cce5:2aa8:53f9:dba9]) by TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::cce5:2aa8:53f9:dba9%5]) with mapi id 15.21.0639.012; Sat, 21 Nov 2026
+ 14:59:35 +0000
+Date: Sat, 21 Nov 2026 23:59:33 +0900
+From: Koichiro Den <den@valinux.co.jp>
+To: Andrew Jones <andrew.jones@linux.dev>
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Bingyu Xian <shanbeeyoo@gmail.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] RISC-V: KVM: Batch user accesses when updating steal
+ time
+Message-ID: <awGevuQAuA349gO8@z790sl>
+References: <20261118062242.2914385-1-den@valinux.co.jp>
+ <20261118062242.2914385-2-den@valinux.co.jp>
+ <awB1hZGh3LYztjqL@orel>
+ <awB6FpVOpZ9fhMt1@z790sl>
+ <awGJaUFUmBOa4xfO@orel>
+Content-Disposition: inline
+In-Reply-To: <awGJaUFUmBOa4xfO@orel>
+X-ClientProxiedBy: TY4P301CA0070.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:36a::8) To TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:325::11)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY7P286MB6866:EE_|OSOP286MB4177:EE_
+X-MS-Office365-Filtering-Correlation-Id: a9e5fece-e322-4d03-9e15-08df47e00e3a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|10070799003|1800799024|366016|7416014|376014|261026121527099003|261026140227099003|261022105027099003|261022075727099003|261028144727099003|261021121427099003|10067099003|4143699003|56012099006|261102123227099003|261009223027099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: F4bPLYUZbCQ7oOkuKaj2CyYtv8lQUSbX9KTFgX9I/1fgLbVhu7J1jqfQBCaZMNjyYh7zumyFPpR7uIEJtV5SZyw59R0A6DvTB65pKEEXylcL8l08jLvfpwgydSTjQMAOgm9x6AEQAUvGadldRYqWakMU6LSWNO7LgQu1S4rke+HYcZgXIJl0m62FQidy16SFnfQVcFV/DhHwseT84bQaCVg05WVq9iCEskoCtDSGx8/rjTMwfrFTH1Lhyj7Gr9hIlNIUrw0uROS98SXan7SFg/nTC0eTEjXGnzBWfMMF5JC54RhIq8qRoDH5lK80f8gp+F6/XkbpVG3YbyuT6LiqhRQWvTfFJA1KmLkWsfviFCC0v5paQ7cuz066O+8JAVOEn0OMPCvtUBqHDud5d3rggG9jozB4K/P+5B0ogvvpI6nsNICru7uy45fqxzb69rhNV5WeNF/Dsl0I2s5ZlXEN3tD9PExbKwOq31BWGjgDD3kQ6Ey/MVLRizcrtGPMWTcJjJ/N1xHg0BKd+4FYtGF1qrLYLVGc6bDWmVLq4qZS2sWLyoCSgG1kQM6avUNEDJs473FU2X9AN2Fav1+q4XNrpjAOtxcykAstKEGcTkZmmRc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(1800799024)(366016)(7416014)(376014)(261026121527099003)(261026140227099003)(261022105027099003)(261022075727099003)(261028144727099003)(261021121427099003)(10067099003)(4143699003)(56012099006)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?okExQm1sYlTfvAD669SzVcQTKApY5A0HchtowQXKVGqz0wSKs1BE7b4Lz9C5?=
+ =?us-ascii?Q?H9CvPD7F3m+RCqfuCkHb8AG0w9/SIjbqzni/WgwhUlfOn9rWTRrVyaK20Udh?=
+ =?us-ascii?Q?Mvvq+TrolxMs7ufiEXDDGdI5JUjhLhrl9OIWg+BFlZvCitLXFZRmRneNQXE1?=
+ =?us-ascii?Q?NxzFo5BayoRerLvpL1h1/AYHMhaKYs8Xw8dizTw/mPlUOEbq+rVwsYmbkje7?=
+ =?us-ascii?Q?Ifc3gaRcbscDAS87MJr/qmexGfRuS00VFrtphECdDc79gCR5Iuo/pBYt5Cpv?=
+ =?us-ascii?Q?R5ZdkC4+g8UaaZzrx4CxqcE4gu3OyDl0FA6ZIcARijTCGuSPR2bK6Xt23rq1?=
+ =?us-ascii?Q?pV1yssjncjhVV6hKWQ2eYxafM/FDIobGDUavz/KcWI3PYqhpLuFFsrhlRdA+?=
+ =?us-ascii?Q?+1Zm5gz40Fkg7liVPo5+thcrXwgTIm18kj6ID8ltTNCOrBHBik27gP6KRxHH?=
+ =?us-ascii?Q?JbXmgmwywpzBT0Tow9CbWpM9K10ybWybnV8y4q+G8sjyzPkodP9iLTEOwSAh?=
+ =?us-ascii?Q?bnHSUWsmVqFLeYhNNOoTyE/0bTh06/1XLMK6ymordsa40P/iX6RwTuZlQZjv?=
+ =?us-ascii?Q?4Mqms7nJgwMTy3Of+lkAS9Qcd1JcKYZYtS9SHfR/d4IrtUXJZ11nhWWpu6qu?=
+ =?us-ascii?Q?Iw9eIN2sX4ME71ucJDv7Fhvct7Eafz621UW/dzWlanUtZsG9gZdyHeA1xyUC?=
+ =?us-ascii?Q?b/JA1HwTMHOIpapxNPDAswxcjzszVU+SuiZhPZ31CtguDtstf2Y0it2yrlz/?=
+ =?us-ascii?Q?ZG+MWNR21qPJkZ2FVrpFLkizcnvv8BVpsmRCvGoIo+umg+U2xy5jawjHsbh9?=
+ =?us-ascii?Q?C/sk4PS7RuC5m7OWTNjWFPeNkUSXCWz3JAgo6YhyiJWiPuk4wbINymPWbinO?=
+ =?us-ascii?Q?tNYIpWStMrFcu9GJ9smaOIDnsId0kpyjN1fK0E6RHCq6Hr3tiWjFwYDrwcGB?=
+ =?us-ascii?Q?NcEFp46F7yzRACY+ivq3O2AMhciA2a0/tZf7mQXCvrqBJm30j9DT7q7xTNvL?=
+ =?us-ascii?Q?N8FnsbutNSuP7SiOQ8wOm2HCLT9pk4ajvdEEdvLVaFkXBLOCVy8I8okxKOSV?=
+ =?us-ascii?Q?7IBbOa5Z7cpSu7kUWaTeuBUZCep+4J6RKGfZEOeSl6kC1/TV39vsG/0TcL1C?=
+ =?us-ascii?Q?eZZmSC8h1DBWidznEDqJTlVUGKetucQXqKeIIhbIP4jOH8tiFKytBajWo2nO?=
+ =?us-ascii?Q?8Fl+fvw7PORZQnnW0X/v/qRyb5r02Q2Wyod3ISgoMDXLtMBDGJiVV4nOYZTJ?=
+ =?us-ascii?Q?n2JiWYf7iZNioStkV7qikvQreVdQIihAGg2lYe0Sjpfe0gdYap/awlHWB++e?=
+ =?us-ascii?Q?ghD0n02n4qyBr+GUKA/0Tf+KsUJh/5aWD5vE3dr1H7Pg50tls4jASu8CGzCG?=
+ =?us-ascii?Q?fHV1gfWSkHwk5ImyVkttHi4pStxaiJIeXHwNbKaYYvfVqEps+XPqZi6QlpX4?=
+ =?us-ascii?Q?OMFL6x3zs6G3MNF5eKrUqrGNrRWpVlZDqlpJqWX3SWYOh52Nn6v5BAIXzsaL?=
+ =?us-ascii?Q?lVZnceuv2b2M0MGIh7XqszSuopt2R5rGUOxXHqJTjq09sPjdKyxdNRcMJaFd?=
+ =?us-ascii?Q?79DHGOL7mKlVhhMdLaD01Q7dMId+GNf4nZOCGDFAGA9JW2nAb7VFGaUrGcCe?=
+ =?us-ascii?Q?q6uAcNk5zXx1QYVP9cxFMaGTOacBjIUZWgXwRU0uj+jJZjfDpUcawda5sMtc?=
+ =?us-ascii?Q?aAiXYaWi6EtRTh1UdvslmmNhnxRqFMx6qeW5f8C1a0qjXtl3eC6EwtEF4HL6?=
+ =?us-ascii?Q?Fo/1IdMbtvPRqFJHgnv9GXWQvOWyGQiy/q5BfbXw0ATCZ6C65mty?=
+X-OriginatorOrg: valinux.co.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: a9e5fece-e322-4d03-9e15-08df47e00e3a
+X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 14:59:34.9569
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tnJSfFP8FcI7YLx/nscpPqGEgaswXKW8HaOslbnfswnK/5Lj7B+8dkk0fCJl89QqdkLs3BVmMu4U5j+ECINBDA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSOP286MB4177
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261121_064857_982332_6EDDBA3B 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20261121_065942_538483_D192EE7B 
+X-CRM114-Status: GOOD (  30.47  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,73 +143,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, 21 Nov 2026 13:42:20 +0100 "Ard Biesheuvel" <ardb@kernel.org> wrote:
-
-> 
-> 
-> On Sat, 21 Nov 2026, at 11:38, Han Gao via B4 Relay wrote:
-> > From: Han Gao <gaohan@iscas.ac.cn>
-> >
-> > EFI_MEMORY_MAPPED_IO regions are mapped with PAGE_KERNEL, so device
-> > registers end up mapped as normal memory.
-> >
-> > On Milk-V Pioneer, GetTime() reads the clock controller registers and
-> > faults:
-> >
-> >   Oops - load access fault [#1]
-> >   Workqueue: efi_runtime efi_call_rts
-> >   status: 0000000200000120 badaddr: 0000007030012000 cause: 0000000000000005
-> >
-> > Use PAGE_KERNEL_IO for these regions.
-> >
-> > Fixes: b91540d52a08 ("RISC-V: Add EFI runtime services")
-> > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> > ---
-> >  arch/riscv/kernel/efi.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> 
-> Acked-by: Ard Biesheuvel <ardb@kernel.org>
-> 
-> I can take this as a fix via the EFI tree if you like.
-
-Yes, please take it through the EFI tree. Thanks!
-
-> 
-> 
-> > diff --git a/arch/riscv/kernel/efi.c b/arch/riscv/kernel/efi.c
-> > index 2d3cc57b4535..11e85d0ebc91 100644
-> > --- a/arch/riscv/kernel/efi.c
-> > +++ b/arch/riscv/kernel/efi.c
-> > @@ -22,7 +22,7 @@ static __init pgprot_t 
-> > efimem_to_pgprot_map(efi_memory_desc_t *md)
-> >  	u32 type = md->type;
+On Sat, Nov 21, 2026 at 01:23:43PM +0100, Andrew Jones wrote:
+> On Sat, Nov 21, 2026 at 02:20:17AM +0900, Koichiro Den wrote:
+> > On Fri, Nov 20, 2026 at 05:40:29PM +0100, Andrew Jones wrote:
+> > > On Wed, Nov 18, 2026 at 03:22:41PM +0900, Koichiro Den wrote:
+> > > > Updating the SBI STA shared structure performs 2x get_user() + 3x
+> > > > put_user() calls, each of which toggles sstatus.SUM.
+> > > > 
+> > > > Keep SUM enabled across all five accesses to the shared structure.
+> > > > 
+> > > > Note that write barriers are added to order the odd sequence store
+> > > > before the steal-time update and the even sequence store after it.
 > > 
-> >  	if (type == EFI_MEMORY_MAPPED_IO)
-> > -		return PAGE_KERNEL;
-> > +		return PAGE_KERNEL_IO;
+> > Hi Andrew, thanks for the review.
 > > 
-> >  	/* R-- */
-> >  	if ((attr & (EFI_MEMORY_XP | EFI_MEMORY_RO)) ==
-> >
-> > -- 
-> > 2.55.0
+> > > 
+> > > The barrier additions should probably be posted separately with a Fixes
+> > > tag.
+> > 
+> > That's exactly what I wasn't sure about when I read the ISA spec.
+> > It was unclear to me from the Zicsr ordering rules whether the SUM toggle in
+> > the old code's get_user() and put_user() calls also order the stores to 'sequence'
+> > and 'steal' as seen by another hart.
+> > (I don't think they do, but I'm not 100% sure. It feels a bit like trying to
+> > prove a negative, as I couldn't find a clear statement. I may have missed one
+> > though. OTOH, the new code surely needs the barrier, so I included them.)
+> > 
+> > Do you read the spec as allowing another hart to observe those stores out of
+> > order in the old code? If so, I agree the barriers can go in a separate patch.
 > 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Yes, we always needed the barriers since we need something to pair with
+> the virt_rmb()'s in pv_time_steal_clock(). get/put_user weren't covering
+> for that omission either because CSR accesses are weakly ordered.
 
-Sent using hkml (https://github.com/sjp38/hackermail)
+Thanks. What I had in mind was the exception in [1] for a CSR access that
+"modifies the execution behavior of the instruction that performs the explicit
+memory access". I wondered whether toggling it between the stores in the old
+code also ordered them as seen by another hart. I agree we can't rely on that.
+
+I'll split the barriers out into the first patch of v2 and add a Fixes tag.
+
+[1] https://docs.riscv.org/reference/isa/v20260120/unpriv/zicsr.html#5-1-1-1-csr-access-ordering
+
+> 
+> > 
+> > > 
+> > > > 
+> > > > Signed-off-by: Koichiro Den <den@valinux.co.jp>
+> > > > ---
+> > > > To reviewers: please let me know if you'd prefer
+> > > > scoped_user_rw_access() here.
+> 
+> For scoped_ or not, whatever you think reads the best. I prefer scoped_
+> when it makes sense, as it's harder to get wrong, but readability also
+> matters.
+
+Makes sense. After polishing up the scoped_ version locally and looking at both
+side by side, I now agree the scoped_ version looks a bit cleaner. I'll use it
+in v2.
+
+Thanks for the review.
+
+Best regards,
+Koichiro Den
+
+> 
+> Thanks,
+> drew
 
 _______________________________________________
 linux-riscv mailing list
