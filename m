@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2C7E606A686
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 07:41:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F69A60A2623
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 07:41:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=akjOL/Bo;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoNvNfMH
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hCx/gCKr;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A+RFDYxG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,71 +14,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=dkPtzZ6cJvT2px7y8H0TJGMKitUByY4X8kiGUBhe6FQ=; b=akjOL/BowvuWYxpWSLjWV37bzj
-	dvpTYD75gSNbx5AiAJU0BqK/VOA2hiPqTTT3t2nIJkeMBKtMbiBnFkFy5sgJH9Pu7AVJqhufEHufa
-	qo9swcADrAeevrG+bdyX2VWby0tWEiCPNWj4jC5aigXYmCIVVPwDVrQH9hVdj0mFoOupw10QgiP3E
-	OHYtR8MEtMLF51p0/JOAFJ0XXr5M5BLwmIrWo8zEXVz8r8/O7K6bOK9KTMRBWBBeLXdBWuoyAM93A
-	mc3t1t3D/KzelP6vGQIS/tU60ASrSgQxyOquoILeauzeyq4BrWxdX6dc2FqeoxgDvknG6WCT8n4Lu
-	Hw9kUGkg==;
+	bh=/msLDLL29ZAfv9E3LWP/lwLBNLin1opznOInVt0gQE8=; b=hCx/gCKr+q9H5lAbS7NMzoP6p9
+	5HQJ3d/UKj2CSFEAtOOMEV5Wd1d41ZwOBE5NmuSOc12Vf7hqrGRDe++yYPJxQdI1uHwYXA/zDtEev
+	+08YiTGkqjQ2JQv63wFNm13YnYUi4Wdc19CbW9e0IrwGfQAUM9sdbpCc3iokYU6JIiha+W9Ysh1w1
+	AxxaTXgDRFBd0hr9LJ49RdSYK2X5v3itwXDM22tzm+WUqW3GCI687Dphu2SzQM5QCL8/063/L6Gew
+	ML7UOIJpjwHUR/IyMajX9JXgK57SckldwTx16SPPxPcfOGkMXGp92VNV2TtBJh4CA+aJUlUJLIzMo
+	tJY9se9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUfib-0000000Gr5j-19Ku;
+	id 1xUfic-0000000Gr7U-20fI;
 	Sat, 21 Nov 2026 07:41:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUfiV-0000000Gr25-2S5k;
+	id 1xUfiW-0000000Gr2S-28E9;
 	Sat, 21 Nov 2026 07:41:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A0EF611E3;
-	Sat, 21 Nov 2026 07:40:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 421B644762;
+	Sat, 21 Nov 2026 07:41:00 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795246858;
-	b=eoNU/iq1cYMgwQ2R2z0Ijfa+hepndE+nFqb0OIeApgBQDA/HAet+lYNZzh0IfRrOOyXn
-	 JG9sPNe14s1QcH/5CABQwl/yqhl+W6uLpJuQ2FI5FekGbJHY+os9OXiQ/9A2z15f1ppU1
-	 we67twVmP1dybT4imtrtlh6LJKZQUbgfBXEAiBYPR1rEO+nTLsRNvmLqsqaA5h7ngsMb+
-	 iC3pVXBmHdpJIEO7SAkQRSUx5jzOlonVhKVPztbpwwBS9jyH9HCb3yWyqXDyUcHBQOpV9
-	 dIixDca2+MG4bQ/TOyiqpM+aUPY31wxutWEaPYNBMX50kfw2EOO1C/RD0Vcv7AKJ+bQ==
+	t=1795246860;
+	b=xTmTV1e9JU8hg6am2tdW6yK3zYoR/T02K87Q9dxV46hX7rcVhjYgIFz/7/qhOs4ACQC2
+	 DC+7JAurKbKY1s6K51xvk7155sNmw0DHxdhrrGW+4KNOBPkVuc1QMBYUt/uRtfPZmZrFb
+	 tsV8SWcqkbeQz01X7/eHWPWnWrZasJeWx1tRM81y0o3XxWuMXPZZXlUz/jOzD130g0qKM
+	 1Ws+7UAToBojYCDFAIgmSymFhzOBBOtes76v1PRBuvPQyzTx2yAWHRS7FscQLSM8vcgda
+	 ZVs6RlegsWRFdYgP98zHYdqUEPMjGn2Lcqxix8IjMLSOR9fqnDL7evGkgKKQ8TJmQgQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795246858;
+	c=relaxed/relaxed; t=1795246860;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=xTal5ga/GuUlZ1OXm8uu1wgssnVvijP3/pLDN+JzAVQ=;
-	b=wOBXsbPfsTkFM+t6wsqMLZcwqzb12LLRLPn6LXWQO18II8RZvgHBUcmtBZaYU9buI/Jl
-	 gpdht1IwMaVMZcZjxvUNnAiQ7W6WQtqhRDH7TaTwsDZOWJn3gkHCl2ktZ8oikNnhmhy8H
-	 +6lEe37Ujx7h6EsVCG4QWnpi6OercMP2aWHErFXBWgqI+lVVZHuU1G2F7YlyM7clPpXjI
-	 ppKa8gGw3fZPARPmAuWkcWE4MH/VLfhccbYMDG7S06aqaueCKiNnh+4axoHAvYsdKZw2m
-	 cJiAhCnQrO6YK1+yzP7LPatfDYfM0ZyiPKZRaGRIOmSraHJn4or1x3G5g6jIRrSrYyA==
+	bh=dD3U3VJ0FLwjWCOccbxRQVK0W5Z5sFcV/hEtgh6x+kc=;
+	b=rY6gtoT/qcbVKg73UXWBouMpaYVZ0QK4sgFq6UB2D6xjWsieDzXK/oKKJN9+i+rJiGBJ
+	 tNWgwf5YYMqIpGVJ3Wm/og3kCFvoNyw/f2GKZM2F6IKDq82HbPfOefQs90fig38j6TT+F
+	 fK9rWlGGFcuw5J5ly07v1Z1b94aPkdf7P6IGCJzipIZwcQTEEORhetS0wduYBz6K6IUrw
+	 bZCTwI2g4tRsHHRVZQOjceL1etqLfIobIaxuiQtyO9q7D7vNvvWpqAwtEFC9W9e0N2PIh
+	 L/gyiX+9DrtXq7LBtGf8PZay/xLPe7/82gRUx9t8kTgNM2kKwVzdh+GhjC0SxHNlOVQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0F8CF1F000D3;
-	Sat, 21 Nov 2026 07:40:56 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id B38BC1F000C4;
+	Sat, 21 Nov 2026 07:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795246858;
-	bh=xTal5ga/GuUlZ1OXm8uu1wgssnVvijP3/pLDN+JzAVQ=;
+	s=k20260515; t=1795246860;
+	bh=dD3U3VJ0FLwjWCOccbxRQVK0W5Z5sFcV/hEtgh6x+kc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=LoNvNfMHWZTmBHF7WjtEkVrJGW2/aJ/IUsSd7qhwyxqEN+m1/ezl/lDH7XE94+0Fp
-	 qpwyVKocRSx78K7u79b7ALM8m18Sp0ssCDIEXbJYbqSxvWq3hHGZ7mxftXCpDspB/c
-	 CHW7wFqwWCX8WWXocjjCFNd8srxG1XF7K1gsd70uYm2KBRWer3KIiRvW27nKZu96XP
-	 LN7gD6tw4r4CXseZYWSD0vhoRfI5bgWV555XC2TOG4ZIeoJrjte7aS+IPTSEutaEDJ
-	 1qK32lIBnF5XjA1NBnNrYLt9+4M+ZGjHA+N4otK03Q3rTj+Im8vX0FyndXHVWCMjQm
-	 CT9N2GYQBvwig==
+	b=A+RFDYxGX6Ebv2IlkR0hX/qZByf2M9n2xbvI8JwZHs2KVIcU5GW5h4NikapeBwU97
+	 Q93iIjscaGTp7/kpNcw4h6j1w6kx6l+ml0+PVLgeePdaaj8O2JujeGy9g5wNmtDFpv
+	 MNuzfREW4cS7PgfkbIwc25CaDM2D3TNgBKP75PK/N4RwtbctzeZAXNxEnMIZoNDMKV
+	 vUKx3lf2m0iYgSXk55vrOB7kOJ+bZ3QwgqGNVhTMtCD3fe8eGVDHYxGcTycroPaj7c
+	 VfiqPJfONaat+DrkI/uZe88s1zN/CYF1+UbQCy/JIvlz2VArami1P8lFbxpuhXslWK
+	 EOVcjLwZ8iOPg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0394A4BB83;
-	Sat, 21 Nov 2026 07:40:52 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id C49864BB7C;
+	Sat, 21 Nov 2026 07:40:51 +0000 (UTC)
 From: Cody Kang via B4 Relay <devnull+codykang.hk.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 15:40:54 +0800
-Subject: [PATCH v3 15/17] riscv: dts: spacemit: k3-pico-itx: enable the
- DisplayPort output
+Date: Sat, 21 Nov 2026 15:40:52 +0800
+Subject: [PATCH v3 13/17] MAINTAINERS: add SpacemiT K3 display driver entry
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261121-k3-display-v3-15-ec419e8e96b8@gmail.com>
+Message-Id: <20261121-k3-display-v3-13-ec419e8e96b8@gmail.com>
 References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
 In-Reply-To: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -104,11 +103,11 @@ Cc: Cody Kang <codykang@vsit.ai>, dri-devel@lists.freedesktop.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795246844; l=2008;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795246844; l=1102;
  i=codykang.hk@gmail.com; s=codykang; h=from:subject:message-id;
- bh=MoqCFqqlUXTvshGeYEd8HbhhAB7iUB4488Rgem2ZH74=;
- b=AB0I96oNgFVfRozLOxYB2bk3Z8WxUwp8/VeoyxhlP6U/hW7FFRPg2UcHllruGl8ucRYfDzD5U
- IHiLflbIWRNDabyyChOBgNOaCVnYCHYptoRN3ZihzPh5WceQcqfTLJR
+ bh=oWc1H4pmsBmZYdMOwC23Iy029t50E36ETbDmNN8OobA=;
+ b=8phbJzxo2F4pIjhm7/H/IFSNkGvHl2q5ufpXX7AW27o0KGGChs8nwpGibEUdrtI+wZQxb3qKJ
+ BYJEc/LqD8hC2Xt/avWtv+biYLQ6rxBTDDwkAKF8qa/ovGe8SayHrBO
 X-Developer-Key: i=codykang.hk@gmail.com; a=ed25519;
  pk=Osn6/cs9Su/mHHw4P19cmVc3v2FMQfiWahjsN0vEkuk=
 X-Endpoint-Received: by B4 Relay for codykang.hk@gmail.com/codykang with
@@ -136,73 +135,43 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Cody Kang <codykang@vsit.ai>
 
-Pico-ITX brings the second DPU's output to a USB Type-C receptacle,
-as DisplayPort alternate mode. The mux and the PD controller in
-front of the receptacle are run by the on-board EC and the SoC only
-gets the HPD line back, so there is no connector node to link the
-output to. Enable that DPU and the DisplayPort controller it feeds.
+Cover the Saturn DPU, the Innosilicon DP/eDP controller, the DP PHY and
+their bindings.
 
 Signed-off-by: Cody Kang <codykang@vsit.ai>
 
 ---
 v3:
-- commit message: the output is the Type-C receptacle's DP alternate
-  mode, not a DisplayPort connector (Icenowy Zheng)
+- add Guodong Xu as maintainer
+- list Cody Kang with the vsit.ai address
 v2:
 - no change
 ---
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 11 +++++++++++
- arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 11 +++++++++++
- 2 files changed, 22 insertions(+)
+ MAINTAINERS | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index dda420900aa2c..da042d7c30328 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -6,6 +6,7 @@
- #include <dt-bindings/gpio/gpio.h>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 93abbb315065d..7bba82e8cc810 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -26364,6 +26364,17 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
+ F:	sound/soc/spacemit/k1_i2s.c
  
- #include "k3.dtsi"
-+#include "k3-display.dtsi"
- #include "k3-pinctrl.dtsi"
- 
- / {
-@@ -368,3 +369,13 @@ &usb3d {
- 	phy-names = "usb2-phy", "usb3-phy";
- 	status = "okay";
- };
++SPACEMIT K3 DISPLAY DRIVER
++M:	Cody Kang <codykang@vsit.ai>
++M:	Guodong Xu <docular.xu@gmail.com>
++L:	dri-devel@lists.freedesktop.org
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/display/spacemit/
++F:	Documentation/devicetree/bindings/phy/spacemit,k3-inno-dp-phy.yaml
++F:	drivers/gpu/drm/spacemit/
++F:	drivers/phy/spacemit/phy-k3-inno-dp.c
 +
-+&dpu1_crtc0 {
-+	status = "okay";
-+};
-+
-+&dp1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&dp1_1_cfg>;
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-index cb4f4f4e33aff..a3188ca0ceb36 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-@@ -11,6 +11,17 @@
- #define K3_GPIO(x)	(x / 32) (x % 32)
- 
- &pinctrl {
-+	/omit-if-no-ref/
-+	dp1_1_cfg: dp1-1-cfg {
-+		dp1-pins {
-+			pinmux = <K3_PADCONF(24, 6)>;	/* dp1 hpd */
-+
-+			bias-disable;
-+			drive-strength = <25>;
-+			power-source = <3300>;
-+		};
-+	};
-+
- 	gmac0_rgmii_0_cfg: gmac0-rgmii-0-cfg {
- 		gmac0-rgmii-0-pins {
- 			pinmux = <K3_PADCONF(0, 1)>,	/* gmac0_rxdv */
+ SPACEMIT RESET CONTROLLER DRIVER
+ M:	Guodong Xu <docular.xu@gmail.com>
+ L:	linux-riscv@lists.infradead.org
 
 -- 
 2.43.0
