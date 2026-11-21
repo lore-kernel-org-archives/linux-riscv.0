@@ -2,85 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44B30606A320
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 10:38:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58E21606A320
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2026 10:38:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2NW6S8Ff;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dykeEpYc
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z5EaAwe4;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kop1P+bj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/Y6RXrwaKTl7TmbMCCxycdiV9S7GncNdLzkPasGfpwM=; b=2NW6S8FfYxEfYYaoKGHhDhR84H
-	J/uIPbsSv8qisGmUwMM8q4fR6QBKiXKtDk7vs1XSWc4jqUglUglnJeCIQtEEUxyNS3+lG8RyOSPlV
-	CnBD2N1e/UKTN6BgVWFaJNcE+R1JldrYAfsUm5hLqAvCa5am2vHmf4AMzZ3aN7ny4taEqSu9U0jDP
-	SOxIANCPGTuF2sJNcRFIx4YwoEZZvw971/PuoOrBVP4w47FmQN28bj7zwTCvU2hXROrmD8o7buDEj
-	ZZbYALt00EzTqYtmeQuMXeaq4oxX+NehNFYnPgPL19EEAF0/tRiUT9URfHmBDZNlDYfSNMbqU8t27
-	o1pKvaRA==;
+	bh=65ed1QYCGONotsMa2PAONYGfGiqlNflEaHqt6hzvtoE=; b=Z5EaAwe41q6qBMotA6UYx+lYNZ
+	5XJTOScVPqxo4uvnVPGF77aZN2XhCD3b/aeMjLB4n29kVujcHzZEFPfm7T6O0qYCcUCW/e+9s/18f
+	LqX3OlibbxelNYABaBDW+S9lNYHNoi6vU/9A1GaUQkWCidPFpoNi01O4/LhpYRq11XQCyQAC/rJiT
+	s5Ac6ub+GfTgTx2stEUgQL8SvDGuFWT2mFvWZF3viDyfRXOLt5YmriywZ24O7DMv6BBoxXGWI7sF3
+	iMkngefzlPXs3gEtj4WBznN+EvKhAtCqEuArWiTbGiorNo/GE0Lwp51FYCGnJ+j7mPBgWYIqbr8X1
+	NdSOPk0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUiU8-0000000H2iF-1IGw;
+	id 1xUiU8-0000000H2i7-0Ubw;
 	Sat, 21 Nov 2026 10:38:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUiU7-0000000H2ht-14V6
+	id 1xUiU6-0000000H2hn-3OZE
 	for linux-riscv@lists.infradead.org;
-	Sat, 21 Nov 2026 10:38:19 +0000
+	Sat, 21 Nov 2026 10:38:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DB58C43CF3;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C18A42BAB;
 	Sat, 21 Nov 2026 10:38:18 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1795257498;
-	b=bxf6eHYjI/MJW0pI/cloCI7/ShxDTqBblypsvWxvHfgYe/v+lCIqU0CyooLR9vROiIs3
-	 9pnKl42WtM6YiVygldUvUjxk49L1r0ocV+r7Lt7nmgQF6u2Uuj/CC6OMCqHVzEzixkHBP
-	 mlOeSwa66Uw/6Z42VfaoDvncGe9XnrkGaHu68fEyqQLR1b2FmkHAoF65AqDM3ZLmmDJO3
-	 noKfOAi6GTlbdggOXe1K0+gWZhjW9Lnic0UJuWFoaLLhsiJHZ48RmblgQF9Odj+Dd69ng
-	 D//cR916LnQ5Xec3tdvWUnbPZlv/3TfmLRFhgWejM6EWPlhl9BFt3ZdS8K9EPTujDkw==
+	b=zSzrvqgiNHtOz5gtXa077U7MaFHVl4lh1Lh/Mi4xqpquPMrsz0XupNWGBHHck+cdecBW
+	 wSdinURyuZR0862A8LcaOBn8/9HEkSzARvqGxkpaeFyBzEHs6i8aKZO49wX2t588DR7WK
+	 xHZKUG5PTT6amXesY+CsngVQTYnec628eu3QGuVFPYIW4DXjuy5b1dihTAuys2kTHT71U
+	 ctXnBEOmey09OqbGRFMeKFi27/aeaGRQTZNsbYinLBboOOhC7TuRCpcqxbD4MrudocCku
+	 lmWfbl5ESAO/9JuvKwMv3lma0xU+Wkz11t4kZCiHtFa0np910DdH5LJ97hpTTzvijvg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1795257498;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=W/y323rtHI4A6G9EZ6Uz12b8FGYlp7r0b2dLPeWwIb8=;
-	b=kccpPT/vOWQu1Qa/OSmZ06BvbY3xsROUcwDn69sgNfoxFTsF3DhK/5YCvB3KTiwRNVse
-	 HdPWyK6FgAS+FgbTgLJ0fFv1onkMUCiGbs8sDluLXFny3EZxU2yajYvonRgQ3n+ZcyH91
-	 iFo+FQ14TfNija3G8r13ECKsf7fMXezzSnET2gntQp2Y/dObMUl6g+UakzF7aM7BNdprm
-	 rK/jes1SQXxf2Zs/qeYB0d/SB5w81DQktwPJihRS35JW28JxDAWQtJDEAh6vgdNpIpt6w
-	 TdUom2tmhYL8qKknL2MgYmfWr2G0hb+yFXhdJGn5Eid3cIkls1MYS2IgucwBFX90mdg==
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=WEuXb2RE8zSTJ0DUvVgVg41JYrBzTwV6rSqVaKBxb4I=;
+	b=QrhtKyGCWCww0KqHJzNErAauQdC6wJOeC+ZTsXigKBcggSmQm+kjdivYvrkIVlI3pjUx
+	 9AxcwenBB3y0tTRGQfb9A5r8cUvScZVRXNxa5DxTFWf9zou++1QTsdYSafZbolwZ3znB8
+	 0IJQ1JtvBpBOX0Rg9ljVuNjnVQftqG4hURlmVFYfOiFjPZyuz4j8+5E1eLBEMGSSErkiu
+	 LuXIKWiz/bbJ1Dp+337OGlOuDlhIvI34ROxWlx0/8w/iRFhHTpvaNu3ryEsMu6KDBGnoR
+	 QShlM24rfdiQv+XrRpCIr1dwDKRByM7AnI9H3qmG1kcY7Q7FK/6sBBGg7ogmt/32W5Q==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9065C1F000C4;
+	by smtp.kernel.org (Postfix) with ESMTPS id 906361F000C0;
 	Sat, 21 Nov 2026 10:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795257498;
-	bh=W/y323rtHI4A6G9EZ6Uz12b8FGYlp7r0b2dLPeWwIb8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=dykeEpYcROTO59DQEUAkvm+1W5L4T2W957LzpyD79COQ8FYmQvk2WAY1uQJCTDoq5
-	 Gu8jGvFqsK3pJHEh4oDGzv1CoHVAJIgRD+utEXQkgRFAPhjiiOImXakY5WS+x8nudX
-	 x8smwr8dz1lLYpcm0em4sVbZ/WJZ6hL7uCpkKh98jeENBELfRSDNIHlcTdqovUMeEQ
-	 Hw0uV4sB9ZOjJk6rXupSVAZlo43BE1klae57Rhq05LPVFkWUmptyo+mbUj8m+NDeGz
-	 VyZ6fSf9Q0Qw6Rm4AjHl1c+amIw5V56vvdEbRwGDTFlXzLsKonK9TVQTobA1epTRGo
-	 NINuzfwg6jsGQ==
+	bh=WEuXb2RE8zSTJ0DUvVgVg41JYrBzTwV6rSqVaKBxb4I=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=Kop1P+bjVy7M9sxkyQ8mtfKddSzXXWIlPQmdnKZtKXoWov5MGWZcnx7nWj5fEAd/+
+	 obHSPxMSv1iJ0Y5LgBglK4GpVKZ3uNMcaPnXXGKMNBnAGGGLo7cagOn4GsdW/U4bgy
+	 V4zHp0VEwbwogQR+0XcRVJNLb0p7rMkpP+gGlCb+jLgbyqO5MRR/HTnLi6OiO3XvW9
+	 wTWyoek4ZIOklPG7nBfe+GnsvWHYQwRJjvMyMiAZdZkNDmSirnib+eT11Nw1oPymeu
+	 P+owkKt+OftDXSk/KNs+KZW65Y7rCtVxzqM7CIXIB7qJbum2yps8txr8j59QewgEq1
+	 Q1EADrQV5jVBA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 155EC4BBE3;
-	Sat, 21 Nov 2026 10:38:17 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id E66CC4BBCB;
+	Sat, 21 Nov 2026 10:38:16 +0000 (UTC)
 From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Sat, 21 Nov 2026 18:38:07 +0800
-Subject: [PATCH 1/2] riscv: efi: Map runtime MMIO with device attributes
+Subject: [PATCH 0/2] riscv/clk: sophgo: Fix EFI RTC on Milk-V Pioneer
+Date: Sat, 21 Nov 2026 18:38:06 +0800
+Message-Id: <20261121-b4-sg2042-efi-rtc-v1-0-19898b8ad497@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261121-b4-sg2042-efi-rtc-v1-1-19898b8ad497@iscas.ac.cn>
-References: <20261121-b4-sg2042-efi-rtc-v1-0-19898b8ad497@iscas.ac.cn>
-In-Reply-To: <20261121-b4-sg2042-efi-rtc-v1-0-19898b8ad497@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMMQ6DMAyF4asgz7UUm9CBq1QdSDDUDGkV06oSy
+ t0JMH56ev8GJlnFoG82yPJT03eqoFsD8TWkWVDHamDHdyImDB5tZucZZVLMa0TxY8fMHbWDQP1
+ 9cl3+Z/PxvGzfsEhcjxCUsgNqcxa+dQAAAA==
+X-Change-ID: 20261121-b4-sg2042-efi-rtc-e4d5222513ae
 To: Ard Biesheuvel <ardb@kernel.org>, 
  Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
  Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -94,11 +96,11 @@ Cc: Han Gao <rabenda.cn@gmail.com>, linux-efi@vger.kernel.org,
  linux-clk@vger.kernel.org, sophgo@lists.linux.dev, 
  Han Gao <gaohan@iscas.ac.cn>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795257496; l=1030;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795257496; l=1142;
  i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=AXs3CmUyHq0DbOalkM59cymNHEWwCflCrFagmnUXH40=;
- b=+R7iok8HWxtWVdFYvjuL61Ut91D/mbpDWKM53jRhVd4qqn7/sjzLv+Snse+8aZgLqEHJOOeid
- xXeqEtr/y3EDSWZSeiif9VMkcf+BUQn8NS0Qrt/IbRR23abw8rzSlfq
+ bh=dT/cAMPkqhwiO+NmtZDAeUI+RgA0LLjV2VMwVQoEOVE=;
+ b=FC7ThTXl38Ss0fnSg/4mwqUL1JUFP/nRR5YZZ9Bk32T3DV7XgF8zFNlDBS/VV/IdQ2NT1jZvE
+ atOl+cn9WM9D1k1MLLRh6y5Gr2yM/TK/lvJwVM1CPf6X/Q5pk/UR3TE
 X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
  pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
 X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
@@ -124,42 +126,37 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Han Gao <gaohan@iscas.ac.cn>
+Pioneer firmware can take over the DS1307 on I2C0 and expose it through
+EFI runtime services, so Linux uses rtc-efi. I2C0 is then marked
+"reserved" in the device tree.
 
-EFI_MEMORY_MAPPED_IO regions are mapped with PAGE_KERNEL, so device
-registers end up mapped as normal memory.
+Two things break GetTime() in that setup:
 
-On Milk-V Pioneer, GetTime() reads the clock controller registers and
-faults:
+- RISC-V maps EFI runtime MMIO as normal memory, and firmware takes a
+  load access fault on the clock controller. Patch 1 maps it as I/O.
 
-  Oops - load access fault [#1]
-  Workqueue: efi_runtime efi_call_rts
-  status: 0000000200000120 badaddr: 0000007030012000 cause: 0000000000000005
+- I2C0 shares a clock gate with the other I2C controllers. Once Linux
+  runtime-suspends them, the gate goes off and GetTime() returns
+  EFI_NOT_READY. Patch 2 keeps gates used by reserved devices on.
 
-Use PAGE_KERNEL_IO for these regions.
+Tested on Milk-V Pioneer.
 
-Fixes: b91540d52a08 ("RISC-V: Add EFI runtime services")
 Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- arch/riscv/kernel/efi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Han Gao (2):
+      riscv: efi: Map runtime MMIO with device attributes
+      clk: sophgo: sg2042-clkgen: Keep gates of reserved devices enabled
 
-diff --git a/arch/riscv/kernel/efi.c b/arch/riscv/kernel/efi.c
-index 2d3cc57b4535..11e85d0ebc91 100644
---- a/arch/riscv/kernel/efi.c
-+++ b/arch/riscv/kernel/efi.c
-@@ -22,7 +22,7 @@ static __init pgprot_t efimem_to_pgprot_map(efi_memory_desc_t *md)
- 	u32 type = md->type;
- 
- 	if (type == EFI_MEMORY_MAPPED_IO)
--		return PAGE_KERNEL;
-+		return PAGE_KERNEL_IO;
- 
- 	/* R-- */
- 	if ((attr & (EFI_MEMORY_XP | EFI_MEMORY_RO)) ==
+ arch/riscv/kernel/efi.c                |  2 +-
+ drivers/clk/sophgo/clk-sg2042-clkgen.c | 38 +++++++++++++++++++++++++++++++++-
+ 2 files changed, 38 insertions(+), 2 deletions(-)
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20261121-b4-sg2042-efi-rtc-e4d5222513ae
 
--- 
-2.55.0
+Best regards,
+--  
+Han Gao <gaohan@iscas.ac.cn>
 
 
 
