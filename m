@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA3FD606A334
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Nov 2026 11:58:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 195DA606A320
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Nov 2026 11:59:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nUvPraIw;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YbGWDTbk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mmImANiZ;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lTGcvsZl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,35 +14,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=f5aMNjG1anIiZxGnl8cbeA1XK6ko2HaN1xKar6xO+Vk=; b=nUvPraIwsjHvOg0CS4bwDJ83/c
-	wDAWlW2HQbzEvM7Z7whAwOZQY7KUeWCSrC3tmLlRxJurkXxPwRUYkADU2VLQ8i4c1wp7tkHl1Q9l+
-	tyGMZWvwJo/G50ZF40brSEd6frVQo8O6aNEKujlgvLCK91dyonX2zH4B9JSHVVJanHOfPNLuvT30m
-	h3VyybdQ01N1FAQv+lm0ERN/byhLDBkrlkEcZ5FL1leHIUsHAsiK/fAFnSfdKtT04SmnrJkuiVt5p
-	rJKFVIfSaShyyyhDQq+U7I4F+ChlhPYU2tdp/RFeaWgcry7MYdpX4qjcvWEtsRhAAojDRaBBr0kK3
-	LPIP0HOg==;
+	bh=zg8Q9GVD3u3JcTGGmfuwwPWiyd26a2qBUUErP5EmDFw=; b=mmImANiZoGkM2fRhuJmK7yW//g
+	BE/YsxHz/hwiQ7sSlBG2STPJ/L8zBTvLPUTWSb8qWIyXiheHlRZPMOXERXgi0B5jEI5Ihfmkog9DJ
+	+ZlnmkPeE9OAVBtYbHdaY8ANVBzNJzWTo0fww+DPGYQa0r+IAw3JnE/ccRO53YkWrqKKIIoBTxv06
+	XV6ru/ztHUP0Gz4o+PFLt0XUvkNTHWuSoCzqWN5v2xPd+4qoq4olcvAVOzF9B5kLbR5aVkFBVUmIP
+	JEoxz/9MHo4SQ1gsTAVhgz5HnAprd2JbYZqHKcvq5sc7RfntgL0XljLx6IsmlZ+sQBIQp3QHZssF7
+	keoXxDGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xV6DM-000000013dt-1JAT;
-	Sun, 22 Nov 2026 11:58:36 +0000
-Received: from out-166.mta1.migadu.com ([2001:41d0:203:375::a6] helo=mta1.migadu.com)
+	id 1xV6Dc-000000013hH-2GNr;
+	Sun, 22 Nov 2026 11:58:54 +0000
+Received: from out-105.mta0.migadu.com ([2001:41d0:1004:224b::69] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xV6DI-000000013d8-328k
+	id 1xV6DX-000000013fG-2SME
 	for linux-riscv@lists.infradead.org;
-	Sun, 22 Nov 2026 11:58:35 +0000
+	Sun, 22 Nov 2026 11:58:50 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=GX6LAbg/e50bucZW+XNw4XX6G67RFU3kH3Pv9OsHvu0=;
+DKIM-Signature: a=rsa-sha256; bh=ryWXKdGt6pMawUrYdr9GJQTC4h6r7TQ0FZPjcUKLboQ=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795348709; v=1; x=1795953509;
- b=YbGWDTbkOCijWwbs3t5GPdmyVv24aG8wNGRrCs/EWCGkMHD9ExPWZNOo1M0yQIJrfzx6CWsi
- zJ1xryC8AJlrIOLB1MOx7AKos1sVB+Zg+dFrj9gWfN1oGv96Jm7Q2V8UwRPNiK8QEB1zL96mqwL
- svEtjP65v4bR7X0jdgo1HXjg=
+ t=1795348725; v=1; x=1795953525;
+ b=lTGcvsZl2sArPgA+ta3CyzG47TBmyuWxJBWLP2MkHV5ctRQuXNbPB36oC1DAUckSqkj9ih2U
+ jEHXxhZdwbb30nWZyTgHjm2ULCJ0B3dxwmld+4iPEW6WVJs/iUpC4X8tjzvlzmajETiuax4ePCm
+ r3nT4z9X93D3qH9i00jxAKXE=
 X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id e1cc464e81a4892c;
-	Sun, 22 Nov 2026 11:58:29 +0000
-X-Mizu-Trace-ID: e1cc464e81a4892c
+Received: by smtp.migadu.com with ESMTPS id 61aa96329a398c95;
+	Sun, 22 Nov 2026 11:58:45 +0000
+X-Mizu-Trace-ID: 61aa96329a398c95
 X-Migadu-Flow: FLOW_OUT
-Date: Sun, 22 Nov 2026 12:57:54 +0100
+Date: Sun, 22 Nov 2026 12:58:10 +0100
 From: Andrew Jones <andrew.jones@linux.dev>
 To: Koichiro Den <den@valinux.co.jp>
 Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
@@ -50,18 +50,19 @@ Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
 	Bingyu Xian <shanbeeyoo@gmail.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] RISC-V: KVM: Order writes to the SBI STA shared
- structure
-Message-ID: <awLYsnfgGQqNnL7q@orel>
+Subject: Re: [PATCH v2 2/3] RISC-V: KVM: Batch user accesses when updating
+ steal time
+Message-ID: <awLYx5ASZJLHDcpv@orel>
 References: <20261121173526.892344-1-den@valinux.co.jp>
- <20261121173526.892344-2-den@valinux.co.jp>
+ <20261121173526.892344-3-den@valinux.co.jp>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261121173526.892344-2-den@valinux.co.jp>
+In-Reply-To: <20261121173526.892344-3-den@valinux.co.jp>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261122_035833_936151_FFC68F3A 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20261122_035848_318866_BB13AF83 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,24 +83,28 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Nov 22, 2026 at 02:35:24AM +0900, Koichiro Den wrote:
-> The guest checks the sequence before and after reading steal time. If
-> the final even sequence becomes visible before the updated steal time,
-> the guest can accept a stale value. CSR accesses are weakly ordered;
-> toggling sstatus.SUM in get_user() and put_user() does not guarantee
-> that the guest observes those stores in order.
+On Sun, Nov 22, 2026 at 02:35:25AM +0900, Koichiro Den wrote:
+> Updating the SBI STA shared structure performs 2x get_user() + 3x
+> put_user() calls, each of which toggles sstatus.SUM.
 > 
-> Pair the read barriers in pv_time_steal_clock() with write barriers.
+> Keep SUM enabled across all five accesses to the shared structure.
 > 
-> Fixes: e9f12b5fff8a ("RISC-V: KVM: Implement SBI STA extension")
 > Signed-off-by: Koichiro Den <den@valinux.co.jp>
 > ---
 > Changes since v1:
->   - New patch. Split the write barriers out of v1 patch #1 into a
->     separate fix. (Andrew)
+>   - Drop might_fault(). (Andrew)
+>   - Use scoped_user_rw_access(). (Andrew)
+>   - Use le32_add_cpu() and le64_add_cpu() to avoid the extra temporaries.
 > 
->  arch/riscv/kvm/vcpu_sbi_sta.c | 5 +++++
->  1 file changed, 5 insertions(+)
+> Note:
+>   - I haven't carried over Andrew's Reviewed-by since the scoped_
+>     conversion reworks the fault paths. Would appreciate another look.
+>   - As in v1, I kept WARN_ON() for uaccess failures.
+> 
+> v1: https://lore.kernel.org/r/20261118062242.2914385-2-den@valinux.co.jp/
+> 
+>  arch/riscv/kvm/vcpu_sbi_sta.c | 60 +++++++++++++++++------------------
+>  1 file changed, 30 insertions(+), 30 deletions(-)
 >
 
 Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
