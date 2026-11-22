@@ -2,66 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E8C0606A31A
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Nov 2026 22:20:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DC60606A693
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Nov 2026 23:58:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oaqioyq9;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JMT/d/Ci
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=azJnIoyl;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=UWFs1r9X
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=VAO/SErBtNikPpM72SBOLnqdBLisPJeGAP6BvIHH6bo=; b=oaqioyq99GaWQ5pCXzp9WjyQaU
-	B3iYvc/D+KxmbrMQ2FN51cunf6VYjtINDt7KpImwq3VqWjBsoszr+WUhckSVIo4kEEDAhGMpaxQfb
-	zuY2mL0E7KXgJp4bQ1STfac1fV7enLriWranUiYAVpxTVh8wjsoLEX0siTMJZ2HyHca497P9JrDXJ
-	p8y2MApNH7dTXzSJiPFy1IHCOirIP50nMrzuwdboW3eY4b2uoP0hNM/SzRTlqubHf8U9yjKegWq5I
-	uyzMsbhfMGAzd6/a1gLpj4zliWb96RPZwp5G70aMcAD4iRcgnjv7n+N1NCttdAMYvAeazK9o/C4pj
-	8ZKzLvhQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Unsubscribe-Post:List-Owner;
+	bh=f3zWWsiFyVbhSOb+LwbuDHl9EaeipDcdpoHmq/SjGBg=; b=azJnIoylAYPFjLTeJBqleAD4ZG
+	t1vsiB8t6QRRGfD+Kh3Re/1U8icoK3pB7swpYwHJk/1DVuMM6C84JUpycjFX5R9N8n0b19bFVCJr7
+	/2Ofx/HJZg7uefhHxmsXUhFGVfsKrQNbzDIcikAf+wf0GWSvm5BZWwmjiZlA1hvjQUFW6c97DjE2E
+	VcokyodahgDvu/LxByjPMU2Kmu3irglW0GC70PLkilFAFYb+xhyPkeaX0zgJpLhD37HUiToBteAqg
+	U0lqG7Ds6wH1CFtKVURuKLaTSiEufBCOCTQowA/L9Dus0L63BkVsZ/+722quOMQsxZIUPw0zA5RL0
+	C3X12BIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVFux-00000001qGH-3J9H;
-	Sun, 22 Nov 2026 22:20:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xVHSC-00000001uKq-3OpK;
+	Sun, 22 Nov 2026 23:58:40 +0000
+Received: from mail-dl1-x1245.google.com ([2607:f8b0:4864:20::1245])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVFuv-00000001qFx-2uqY
+	id 1xVHS6-00000001uK2-40gz
 	for linux-riscv@lists.infradead.org;
-	Sun, 22 Nov 2026 22:20:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA86C60233;
-	Sun, 22 Nov 2026 22:20:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4648B1F000E6;
-	Sun, 22 Nov 2026 22:20:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795386012;
-	bh=58/xK+gJsTuXHUFqeudxRMchPbmP/WPyB8538K2N3XE=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=JMT/d/Cicr+Dp4nXiYaVvuVYlIbRpiP+RcMOdIA5mqXhDDQTBw8c+rehvOkWKZ/Pg
-	 2y46EZkCTGrhMKDHzKzKZfNbVAlUM/cYNZaAeb/RQQYk2pF8JkFxCETTgmDCo2p/28
-	 AOVFYCRwV1BkSf6TraAIEGQybtnaGN2/y0ifKQDj8xYBaqQyR4eTx6K9MIY2nSqKVP
-	 KG4fY6GAaam9t7CxCgG78WsSZFsvDH1lnEq0uc0jrxAtYffM0L1q4g6IughUhgdrRS
-	 xEFbh0e8MTV6yV+IqK5aNcnI2oU/mmxBu9qG0bzuOf/rX9mexaynjP1lBR7tBK6Mw7
-	 iOcNYe1+ic/Tg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A315392ED41;
-	Sun, 22 Nov 2026 22:20:12 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V updates for v7.4-rc4
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <1a74c335-ead7-bf62-b35b-d2afd06599ca@kernel.org>
-References: <1a74c335-ead7-bf62-b35b-d2afd06599ca@kernel.org>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <1a74c335-ead7-bf62-b35b-d2afd06599ca@kernel.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.4-rc4
-X-PR-Tracked-Commit-Id: fc91dacd0c2b4f9ca7e0ce30016f5aee6256cba5
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 2681617eb9317444247380298564f58142fc4ff8
-Message-Id: <179538601156.1569645.5378016366950557720.pr-tracker-bot@kernel.org>
-Date: Sun, 22 Nov 2026 22:20:11 +0000
-To: Paul Walmsley <pjw@kernel.org>
-Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	Sun, 22 Nov 2026 23:58:38 +0000
+Received: by mail-dl1-x1245.google.com with SMTP id a92af1059eb24-139b62317d0so74700c88.0
+        for <linux-riscv@lists.infradead.org>; Sun, 22 Nov 2026 15:58:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795391913; x=1795996713; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Dtc+fr/sr1dsNGUgfanyNVkvmYSADCII8gwg+poCDMI=;
+        b=UWFs1r9XD9V0I7N8uxvKo45GDk3RhBOU1iA5d8Mf8y4tWJ61tTM02iEO+CzPOzl/AI
+         dM62vJPoheMgRtn8G7KFp5iRHhLCLQaYwCbvlEb/erIjunbnJcZQx41lquf7dxR6JRuj
+         EGi24wuqPFUC3IFZRI42iSlFTAYLoI3DuVCkyqwwkPmiGb8m7cgGaA4nXCYbM6vwMa/V
+         Irv58n3Is02JudiCMcyi2hlZIXjTrol+6QiCidL/qf3U2y5EJ2ImCtjorpZASrfsk6dk
+         YQGHzDy3cl8HrZTOwevIWQfoNCyK+iOnYtOG78Y+eV6pg4TZNj3Qrz7H/5TcqkvyslxY
+         N+/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795391913; x=1795996713;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Dtc+fr/sr1dsNGUgfanyNVkvmYSADCII8gwg+poCDMI=;
+        b=ICv8CTbRzFTQT0RMCfnec9keB1YMRahYbRID8MM5FLqkfiA4FbaD7ZKKscPrbK8Es1
+         6NRX3U0wG5FVRISrmqvBhc7x7yIhJNtLADGviSxuKaoAuJFuif0z5N+2ytzzSBEN0y4G
+         BvYB5auO/s6YWj5znJljHRLDJxQBYIwvKvT/6FvV0h/rKEZ6ohEKI9fKv5izFvd/xgmx
+         N0ifcmo4EVSv/thHNArIR15pdBLSXE6DrA3LwvtYD9otYtv+xebC95w18rcBy7cTPQHn
+         fg7ibhSI6uvDj3hn8sRJtR13CXyHUAU7NHt6MkrdOcW2hUMcgN+H4yuNYE5R5CS/FD4g
+         hVaQ==
+X-Forwarded-Encrypted: i=1; AL+hErHzasV1w33zIoOC7AvsaY3FS6UdqtXiqcCiQoR/76QQ7LtkgD1QG1aCz4nJDZLoW3lxdJUgT3QlHJoPhA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+h0KLsKLm17KeIY/dQB5mika8H3do1oqkfBYGEapfUDd9ps45N
+	WruljxzzNJvkwPH0NnJODVezFxoKKGp9rfHZFLAMKz3kT6MF3YRf0pQkv6uwR44Fvj52rD+b1iD
+	l6YPonQnKYA==
+X-Received: from dldyq15-n1.prod.google.com ([2002:a05:701b:454f:10b0:1b5:1d0c:b35a])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:4513:10b0:1b5:56d8:d596
+ with SMTP id a92af1059eb24-1b556d8d6fdmr10404927c88.12.1795391912777; Sun, 22
+ Nov 2026 15:58:32 -0800 (PST)
+Date: Sun, 22 Nov 2026 15:57:46 -0800
+X-Archived-By: <archiver.kernel.org>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261122235757.3456048-1-irogers@google.com>
+Subject: [RFC PATCH v1 00/11] unwind: Minimal DWARF CFI stack unwinding for
+ x86, arm64, and riscv
+From: Ian Rogers <irogers@google.com>
+To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org
+Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org, 
+	mingo@redhat.com, tglx@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com, 
+	x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org, 
+	linux-perf-users@vger.kernel.org, mhiramat@kernel.org, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, bpf@vger.kernel.org, 
+	nathan@kernel.org, nsc@kernel.org, linux-kbuild@vger.kernel.org, 
+	ojeda@kernel.org, rust-for-linux@vger.kernel.org, ardb@kernel.org, 
+	linux-efi@vger.kernel.org, maz@kernel.org, oupton@kernel.org, 
+	kvmarm@lists.linux.dev, shuah@kernel.org, linux-kselftest@vger.kernel.org, 
+	indu.bhagat@oracle.com, jremus@linux.ibm.com, wnliu@google.com, 
+	dylanbhatch@google.com, Ian Rogers <irogers@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261122_155835_045708_8D859AB1 
+X-CRM114-Status: GOOD (  10.28  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,30 +99,582 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The pull request you sent on Sun, 22 Nov 2026 13:11:58 -0700 (MST):
+Overview
+========
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.4-rc4
+This RFC series introduces Minimal DWARF Call Frame Information (CFI)
+stack unwinding in the Linux kernel for both user-space deferred
+callchains (unwind_user / PERF_RECORD_CALLCHAIN_DEFERRED) and
+kernel-space stack traces (stacktrace.h / HAVE_RELIABLE_STACKTRACE)
+across x86-64, ARM64, and RISC-V, paired with an optional standalone C
+build-time .eh_frame minifier (scripts/min_eh_frame.c).
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/2681617eb9317444247380298564f58142fc4ff8
+It enables reliable stack unwinding across kernel and user-space
+binaries compiled with or without frame pointers (-fomit-frame-pointer),
+without introducing duplicate .sframe sections in user-space ELF files
+or requiring new compiler, assembler, or dynamic-loader formats.
 
-Thank you!
 
+Motivation
+==========
+
+1. Limitations of Frame-Pointer-Only Unwinding
+----------------------------------------------
+ - Ecosystem defaults: Many Linux distributions (e.g., Debian, RHEL,
+   Alpine), language toolchains, and prebuilt third-party shared
+   libraries compile with -fomit-frame-pointer by default. A single
+   frameless shared library in a call path breaks frame-pointer walks.
+ - Completeness and reliability: Even with -fno-omit-frame-pointer,
+   frame-pointer chains miss callers inside leaf functions, function
+   prologues/epilogues, and hand-written assembly routines (such as
+   libc string/math/crypto primitives), and cannot guarantee reliable
+   kernel stack traces across asynchronous boundaries without external
+   validation such as objtool.
+
+2. Drawbacks of SFrame (PT_GNU_SFRAME)
+--------------------------------------
+SFrame was proposed as a simplified out-of-band unwind format to avoid
+placing a full DWARF .eh_frame virtual machine in the kernel. In
+practice, introducing a second unwind format carries substantial costs:
+
+ - ~2x user-space unwind metadata bloat: User-space ELF executables and
+   shared libraries must already ship .eh_frame and .eh_frame_hdr
+   (PT_GNU_EH_FRAME) for C++ exceptions, Rust panics, pthread_cancel
+   forced unwinding, and _Unwind_Backtrace(). Because SFrame omits
+   callee-saved register locations, personality routines, and LSDA
+   pointers, it cannot replace .eh_frame. On binaries built with GNU
+   Binutils 2.47 (SFRAME_VERSION_3), .sframe is nearly the same size as
+   .eh_frame + .eh_frame_hdr combined (e.g., +123.9 KB atop 124.1 KB in
+   /bin/bash, and +164.5 KB atop 163.5 KB in aarch64-linux-gnu-gcc-15),
+   roughly doubling unwind table footprint on disk.
+ - Toolchain and architecture gaps: SFrame has gone through incompatible
+   binary format revisions (v1 -> v2 -> v3), lacks upstream Clang/LLVM
+   support, lacks RISC-V -mrelax linker-relaxation support in standard
+   binutils, and requires new build flags (-Wa,--gsframe) across the
+   entire user-space ecosystem before profiling benefits materialize.
+ - Expressiveness gaps and dropped FDEs: SFrame cannot represent
+   dynamically realigned DRAP stack frames (CFA = *(fp + off), e.g.,
+   64-byte aligned locals in mm/vmscan.c:shrink_lruvec()), and GNU as
+   --gsframe silently omits .sframe FDEs when hand-written assembly uses
+   non-standard CFI patterns (for example, warning "no SFrame FDE
+   emitted; FP without RA on stack" on ARM64's return_to_handler).
+
+3. Core Insight of Minimal DWARF CFI
+------------------------------------
+Historically, in-kernel DWARF .eh_frame unwinding was rejected for two
+reasons:
+
+ 1. Execution context (predating deferred stack traces): Earlier
+    proposals predated deferred user-space stack tracing for perf and
+    BPF (unwind_deferred / PERF_RECORD_CALLCHAIN_DEFERRED). When user
+    callchains could only be captured synchronously inside NMI/atomic
+    context under pagefault_disable(), the kernel could neither take
+    mmap_lock to locate PT_GNU_EH_FRAME VMAs nor fault in cold
+    .eh_frame pages (forcing perf --call-graph dwarf to copy 8-64 KB of
+    raw user stack per sample). Upstream's deferred task_work unwind
+    infrastructure now solves that faultability barrier for any
+    table-based user unwinder.
+ 2. Unrestricted DWARF state-machine complexity: Full DWARF permits
+    Turing-complete DW_OP_* expressions, arbitrary N-register tracking
+    arrays, DW_CFA_set_loc backward PC jumps, and DW_EH_PE_indirect
+    pointer dereferences.
+
+With deferred unwinding solving (1) for user space (while kernel
+.eh_frame tables remain pinned in RAM for NMI/atomic walks), (2) is
+solved if an in-kernel .eh_frame_hdr / .eh_frame interpreter restricts
+its state machine to the exact state model of SFrame -- tracking only
+CFA, Frame Pointer (FP), and Return Address (RA), plus link-register
+leaf state, ARM64 PAC-RET signing (0x2d), a 4-entry remember_state
+stack, and a fixed 3-byte pattern match for DRAP/sigreturn frames while
+decoding and discarding general callee-saved GPR spill opcodes:
+
+ - O(1) stack memory, zero heap allocations, zero locks in the core
+   interpreter, and strictly bounded single-pass execution;
+ - Smaller unwind metadata than SFrame by construction: SFrame stores
+   materialized table rows (re-emitting full CFA/FP/RA offsets on every
+   FRE, plus an explicit PC+0 entry FRE per function because there is no
+   shared CIE), whereas DWARF encodes delta-compressed bytecodes (6-bit
+   packed PC advances, alignment-scaled LEB128 deltas for only the rule
+   that changed, 1-byte remember/restore_state, and a single 20-24 B CIE
+   shared across ~70,000 FDEs). Once unneeded GPR spill ops are stripped,
+   minified DWARF is naturally smaller than SFrame;
+ - Immediate compatibility with existing unmodified Linux binaries and
+   libc.so.6 across x86 (64/32-bit), ARM64 (AArch64/AArch32), and
+   RISC-V (RV64/RV32) built with either GCC or Clang/LLVM;
+ - 100.00% FDE coverage across x86_64, arm64, and riscv vmlinux builds
+   (195,019 / 195,019 functions).
+
+(ARM64 already has in-tree precedent in arch/arm64/kernel/pi/patch-scs.c,
+which parses .eh_frame CIEs/FDEs in ~180 lines with zero allocations;
+this series preserves __pi___eh_frame_* so Dynamic Shadow Call Stack
+boot-time patching continues to work unchanged.)
+
+
+Benefits vs. Drawbacks and Trade-offs
+=====================================
+
+Benefits
+--------
+ 1. Zero duplicate user-space metadata: Reuses existing PT_GNU_EH_FRAME
+    tables already present in standard ELF binaries (~50% smaller total
+    unwind metadata than shipping both .eh_frame* and .sframe).
+ 2. Toolchain and ecosystem readiness: Works out of the box with GCC and
+    Clang/LLVM, C and Rust kernel code, RISC-V -mrelax linker
+    relaxation, x86 IA32 and ARM32/RV32 compat user binaries, and
+    existing distro root filesystems.
+ 3. Smaller kernel unwind tables: With build-time .eh_frame minification
+    (scripts/min_eh_frame.c), kernel .eh_frame tables are 18%-28%
+    smaller than SFrame v3 (.sframe) in .o objects and 26.5% smaller
+    than x86-64 ORC (~3.16 MB for .eh_frame + .eh_frame_hdr vs. ~4.30 MB
+    for .orc_unwind* on x86-64 vmlinux). On ARM64 vmlinux, even combined
+    minified .eh_frame + .eh_frame_hdr (2.72 MB) is smaller than linked
+    .sframe alone (2.80 MB).
+ 4. Full frame-shape coverage: Unwinds SP-based frames, VLA/alloca FP
+    frames, 64-byte DRAP stack-realigned frames, shrink-wrapped
+    prologues/epilogues, ARM64 PAC-RET frames, signal trampolines
+    (including SA_ONSTACK and interrupted leaf functions), and mixed
+    CFI + JIT frame-pointer stacks.
+
+Drawbacks and Limitations
+-------------------------
+ 1. Higher per-frame CPU cost than FP, ORC, or SFrame: Interpreting
+    linear FDE CFA bytecodes from function entry to target PC takes
+    ~47-51 ns/frame (~185-202 cycles) in the hardened C interpreter,
+    compared to ~1 ns/frame for frame pointers and ~19 ns/frame for
+    fixed-record SFrame/ORC lookups. This is negligible for crash/oops
+    dumps, /proc/<tid>/stack, livepatch transitions, and amortized
+    task_work user walks, though slightly costlier than ORC if kernel
+    callchains are sampled at very high PMU NMI frequencies.
+ 2. User-space CFI requires deferred task_work context (not NMI): Just
+    like user-space SFrame, user .eh_frame* sections live in cold,
+    demand-paged user VMAs that cannot be faulted in or VMA-resolved
+    under NMI/IRQ (pagefault_disable() / mmap_lock). Synchronous
+    perf_callchain_user() in NMI remains FP-only; user CFI runs via
+    PERF_RECORD_CALLCHAIN_DEFERRED on return to user space. If an NMI
+    fires mid-syscall before execve(), munmap()/dlclose(), or pending
+    signal delivery, exit-time user state can differ slightly from
+    NMI-time state. (Note: the kernel also must not auto-enable
+    defer_callchain behind unaware perf_event_open() callers, as doing
+    so alters the PERF_RECORD_SAMPLE ips[] ABI; defaulting belongs in
+    user-space tools/perf after probing kernel support.)
+ 3. Build-time minifier host pass and stripped GPR rules: Achieving
+    smaller-than-SFrame kernel .eh_frame sizes uses a fast host C pass
+    (scripts/min_eh_frame.c) on .o files until compilers offer an
+    optional -funwind-tables=minimal flag under -fno-exceptions. When
+    minification is enabled on vmlinux, PC/SP/FP backtraces in gdb/crash
+    work normally, but inspecting spilled callee-saved GPRs in outer
+    frames requires .debug_frame (or leaving CONFIG_UNWINDER_DWARF_CFI_MINIFY
+    disabled on debug builds).
+ 4. Reliance on compiler and assembly .cfi_* annotations: Unlike x86
+    objtool (which validates machine instructions directly), .eh_frame
+    (like .sframe) trusts compiler -fasynchronous-unwind-tables output
+    and manual .cfi_* annotations in hand-written .S routines. For this
+    reason, arch_stack_walk_reliable() on ARM64 and RISC-V continues to
+    conservatively reject stacks containing in-kernel asynchronous
+    exception pt_regs boundaries until asynchronous epilogue/.S CFI
+    auditing is established.
+ 5. Hard interpreter bounds: Pathological FDEs with > 4,096 bytes of
+    bytecode or DW_CFA_remember_state depth > 4 are rejected with
+    -EINVAL (falling back to FP in user space). Across all 195,019
+    vmlinux FDEs on x86-64, ARM64, and RISC-V, 0 FDEs hit the size bound
+    and the maximum observed remember_state depth is 1.
+
+
+Execution Contexts and Fallback Mechanics
+=========================================
+
+1. When Kernel-Space vs. User-Space CFI Can Run
+-----------------------------------------------
+  Context                        Kernel CFI   User CFI     Notes
+  -----------------------------  -----------  -----------  -------------------
+  PMU NMI (in_nmi())             Yes (direct) No (defer)   Pinned vmlinux/RCU
+                                                           mod tables vs. cold
+                                                           user VMAs
+  Hardirq / Softirq / BPF        Yes (direct) No (defer)   bpf_get_stack[id];
+                                                           user sync = FP-only
+  Return-to-user task_work       Yes          Yes (faults) mmap_read_lock then
+                                                           copy_from_user()
+  Cross-task /proc/<tid>/stack   Yes          No           current->mm only
+  Livepatch reliable walk        Yes (all 3)  N/A          Kernel-only API
+  Kernel threads / x86 VM86      Yes (kthd)   No           mm == NULL / 16-bit
+
+Whenever user-space CFI cannot run synchronously (for example,
+non-deferred perf_callchain_user() or atomic bpf_get_stack() /
+bpf_get_stackid() with BPF_F_USER_STACK in NMI, IRQ, or preempt-disabled
+context), the kernel falls back to the existing synchronous
+frame-pointer user stack walk (arch_stack_walk_user()) just as it does
+today. When deferred user unwinding is requested in NMI,
+unwind_deferred_request() takes ~10-20 ns and emits
+[PERF_CONTEXT_USER_DEFERRED, cookie]; even if dozens of PMU NMIs fire
+during a slow syscall, unwind_user_faultable() walks the user stack at
+most once on return to user space.
+
+2. Per-Frame User-Space Fallback (CFI -> FP -> CFI)
+---------------------------------------------------
+unwind_user_next() (kernel/unwind/user.c) evaluates each frame
+independently rather than locking an entire walk to one unwinder:
+
+ 1. Architectural signal trampoline hook (unwind_user_sigreturn()):
+    Checked first (bounded to UNWIND_USER_MAX_SIGNALS = 4 per walk so
+    SA_ONSTACK switches cannot loop). On ARM64 (__kernel_rt_sigreturn)
+    and RISC-V (__vdso_rt_sigreturn), where vDSO trampolines omit
+    .eh_frame register rules for libgcc compatibility, recovers pc, sp,
+    fp, and lr/ra (with ra_valid = true) from rt_sigframe. On x86-64,
+    .cfi_signal_frame ('S' augmentation) is handled directly by CFI.
+ 2. Minimal DWARF CFI (highest priority):
+    Resolves PT_GNU_EH_FRAME via a 4-slot per-walk VMA cache (or under
+    mmap_read_lock_killable(), dropped before copy_from_user()):
+     - Explicit bottom of stack (DW_CFA_undefined on RA, or RA == 0):
+       sets state->done = true and stops cleanly without FP fallback.
+     - Missing PT_GNU_EH_FRAME / FDE (-ENOENT, e.g. anonymous RX JIT
+       code) or unsupported bytecode (-EINVAL/-EFAULT): caches a
+       negative VMA entry when no PT_GNU_EH_FRAME exists, leaves
+       state->done = false, and falls through to FP for this frame.
+ 3. Frame pointer fallback: Steps out of the JIT/non-CFI frame via FP.
+ 4. Automatic return to CFI: On the next frame, unwind_user_next() tries
+    Minimal DWARF CFI first again, unwinding mixed stacks seamlessly as
+    CFI -> FP -> CFI -> FP -> CFI.
+
+
+Compatibility with Kernel Livepatching (HAVE_RELIABLE_STACKTRACE)
+=================================================================
+
+All three architectures support arch_stack_walk_reliable() for kernel
+livepatching under CONFIG_UNWINDER_DWARF_CFI, even when compiled with
+-fomit-frame-pointer:
+
+ - x86-64 (arch/x86/kernel/unwind_dwarf.c): Unwinds vmlinux and RCU
+   module .eh_frame tables, traverses %rsp-verified ENCODE_FRAME_POINTER
+   pt_regs frames across task/IRQ/exception stacks, recovers CFA-keyed
+   ftrace_graph and rethook return addresses, and sets state->error on
+   any missing or invalid FDE so arch_stack_walk_reliable() returns
+   -EINVAL rather than guessing.
+ - ARM64 (arch/arm64/kernel/stacktrace.c): Preserves ARM64's existing
+   HAVE_RELIABLE_STACKTRACE and HAVE_LIVEPATCH guarantees without frame
+   pointers. Normal sleeping tasks unwind via kunwind_next_cfi() down to
+   the SP-verified FRAME_META_TYPE_FINAL entry boundary. Every non-CFI
+   fallback (live x30 guess or AArch64 frame-record fallback for JITed
+   eBPF code) sets state->unreliable = true, and in-kernel exception
+   boundaries set KUNWIND_SOURCE_REGS_PC -- both of which are rejected
+   with -EINVAL by arch_reliable_kunwind_consume_entry().
+   Compared to out-of-tree ARM64 SFrame proposals, Minimal DWARF CFI
+   works with both Clang/LLVM and GCC today and achieves 100.00% FDE
+   coverage (including entry-ftrace.S's return_to_handler where GNU as
+   omits .sframe). Moreover, kunwind_next_cfi() already distinguishes
+   live LR (DWARF_CFI_RULE_SAME) vs. stack-saved LR
+   (DWARF_CFI_RULE_OFFSET) at regs->pc, so if asynchronous epilogue/.S
+   CFI is audited across ARM64 in the future, reliable traversal across
+   KUNWIND_SOURCE_REGS_PC requires no format changes.
+ - RISC-V (arch/riscv/kernel/stacktrace.c): Selects
+   HAVE_RELIABLE_STACKTRACE under CONFIG_UNWINDER_DWARF_CFI.
+   walk_stackframe_cfi(..., require_reliable = true) verifies every step
+   via .eh_frame CFI and SP-keyed ftrace_graph/rethook recovery while
+   rejecting handle_exception pt_regs frames and non-CFI fallbacks with
+   -EINVAL.
+
+
+Compatibility with User Space and Kernel Subsystems
+===================================================
+
+ - C++ exceptions, Rust panics, and pthread_cancel: 100% unchanged. The
+   kernel only reads PT_GNU_EH_FRAME in user ELF mappings, skipping
+   'zPLR' personality ('P') and LSDA ('L') augmentations and ignoring
+   callee-saved GPR opcodes. ARM64 and RISC-V vDSO sigreturn trampolines
+   are untouched so libgcc's instruction-matching fallback is preserved.
+ - Debugging (gdb, lldb, kdump/crash): User debugging is untouched.
+   Kernel backtraces (bt), .debug_line, and .debug_info work normally.
+ - Hardware security, sanitizers, and eBPF: Supports ARM64 PAC-RET + BTI
+   (-mbranch-protection=standard), ARM64 Dynamic Shadow Call Stack
+   (patch-scs.c), x86 Kernel IBT (objtool skips .eh_frame* relocations),
+   SW-tag KASAN (__hwasan_tag_mismatch .cfi_* annotations), Spectre v1 /
+   v1.1 nospec bounds clamping, and JITed eBPF programs (bpf_get_stack,
+   bpf_get_stackid).
+
+
+Worked Examples
+===============
+
+Example 1: Single-Function Encoding (Raw vs. Minified .eh_frame vs. SFrame)
+---------------------------------------------------------------------------
+For a 64-byte C function compiled with gcc -O2 -fomit-frame-pointer
+-fasynchronous-unwind-tables -Wa,--gsframe (3 GPR spills: r15, r14, rbx):
+
+  Raw .eh_frame (30 B FDE + 8 B .eh_frame_hdr entry = 38 B; 1 shared CIE):
+    42 0e 10 [8f 02]  # +2:  CFA=rsp+16, [r15 at cfa-16 -> ignored]
+    45 0e 18 [8e 03]  # +5:  CFA=rsp+24, [r14 at cfa-24 -> ignored]
+    44 0e 20 [83 04]  # +4:  CFA=rsp+32, [rbx at cfa-32 -> ignored]
+    47 0e 30          # +7:  CFA=rsp+48
+    66 0e 20 | 41 0e 18 | 42 0e 10 | 42 0e 08   # epilogue pops
+
+  Minified .eh_frame (24 B FDE + 8 B .eh_frame_hdr entry = 32 B):
+    42 0e 10 | 45 0e 18 | 44 0e 20 | 47 0e 30
+    66 0e 20 | 41 0e 18 | 42 0e 10 | 42 0e 08
+
+  SFrame v3 .sframe (27 B FREs + 5 B FRE hdr + 16 B FDE index = 48 B):
+    00 03 08 | 02 03 10 | 07 03 18 | 0b 03 20 | 12 03 30
+    38 03 20 | 39 03 18 | 3b 03 10 | 3d 03 08   # no shared CIE -> +PC=0 FRE
+
+Example 2: Kernel-Space Walk (eBPF + DRAP Module + kretprobe on ARM64)
+----------------------------------------------------------------------
+  [Context: JITed eBPF raw_tracepoint("sched_switch") calls bpf_get_stack()]
+
+  Frame 0: bpf_prog_<tag> (JITed eBPF text, no .eh_frame)
+    -> .eh_frame lookup: -ENOENT -> falls back to FP record [x29, x29+16]
+       (sets state->unreliable = true; allowed for non-reliable bpf walk)
+    -> Recovers caller PC in tracepoint hook, resumes CFI on Frame 1
+
+  Frame 1: __schedule (vmlinux .text, built with -fomit-frame-pointer)
+    -> Binary search __start_eh_frame_hdr at lookup_pc = pc - 4
+    -> Evaluates FDE (skips x19..x28 spills, toggles ra_signed on 0x2d):
+       row = { cfa = SP + 144, fp = *(CFA - 144), ra = *(CFA - 136), pac = 1 }
+    -> Reads saved x30, strips PAC via ptrauth_strip_kernel_insn_pac()
+
+  Frame 2: mod_unwind_drap [test_unwind_mod] (64B stack-realigned DRAP)
+    -> RCU lookup in mod->arch.dwarf_cfi_index matches 3-byte expression
+       [DW_OP_breg(fp), -40, DW_OP_deref] -> CFA = *(fp - 40)
+
+  Frame 3: mod_krp_inner [test_unwind_mod] (hijacked by kretprobe)
+    -> Stack RA == &__kretprobe_trampoline -> kunwind_recover_return_address()
+       matches entry SP == CFA on kretprobe shadow list -> restores real PC
+
+  Frame N: el0t_64_sync_handler (EL0 -> EL1 syscall boundary)
+    -> .eh_frame: -ENOENT -> SP-verified FRAME_META_TYPE_FINAL -> clean stop
+
+Example 3: User-Space Deferred Walk (Signal + SA_ONSTACK + Leaf + JIT)
+----------------------------------------------------------------------
+  [Step A -- In PMU NMI]:
+    unwind_deferred_request() emits [PERF_CONTEXT_USER_DEFERRED, cookie]
+    and queues TWA_NMI_CURRENT task_work (~15 ns).
+
+  [Step B -- Return to User Space (unwind_user_faultable())]:
+    Frame 0: nanosleep() in libc.so.6 (frameless leaf, topmost = true)
+      -> Caches libc PT_GNU_EH_FRAME (slot 0), drops mmap_read_lock
+      -> FDE at exact ip: CFA = SP + 0, RA = SAME -> consumes live LR
+         -> sigusr1_handler + 0x24; clears state->ra_valid = false
+
+    Frame 1: sigusr1_handler (on SA_ONSTACK sigaltstack)
+      -> Caches binary PT_GNU_EH_FRAME (slot 1); reads RA = vDSO sigreturn
+
+    Frame 2: [vdso] rt_sigreturn trampoline
+      -> unwind_user_sigreturn() reads uc_mcontext from rt_sigframe,
+         pivots SP back to main stack, restores ip = dso_leaf_tgkill + 8
+         and live LR (ra_valid = true, signal = true, nr_signals = 1)
+
+    Frame 3: dso_leaf_tgkill in libcleanup.so (interrupted frameless leaf)
+      -> signal == true -> exact ip lookup; RA = SAME consumes restored LR
+
+    Frame 4: c_dso_trigger in libcleanup.so ('zPLR' C++ CIE, frameless)
+      -> Skips personality/LSDA augmentation -> unwinds to jit_bridge
+
+    Frame 5: Anonymous PROT_READ|PROT_EXEC JIT stub (no ELF header, has FP)
+      -> Negative VMA cache hit (slot 3) -> CFI returns -ENOENT -> FP step
+
+    Frames 6..9: 64B DRAP -> alloca() VLA -> main -> _start
+      -> CFI resumes automatically after JIT frame; _start hits
+         DW_CFA_undefined on RA -> state->done = true (clean stop).
+
+
+Empirical Size and Latency Comparisons
+======================================
+
+1. Kernel Unwind Table Sizes (x86_64, arm64, riscv)
+---------------------------------------------------
+  Target               .text     ORC       .sframe   Min .eh    Min .eh+_hdr
+  -------------------  --------  --------  --------  ---------  ------------
+  x86_64 mm/vmscan.o    40.6 KB  14,240 B   7,840 B*   6,432 B       --
+  x86_64 ext4/inode.o   60.3 KB  12,980 B   7,486 B    5,840 B       --
+  x86_64 vmlinux       20.09 MB  ~4.30 MB     --      2.62 MB      3.16 MB
+  arm64 kernel/fork.o   18.5 KB     --      2,617 B    2,040 B     2,548 B
+  arm64 mm/vmscan.o     28.4 KB     --      2,423 B    1,744 B     2,136 B
+  arm64 vmlinux        17.64 MB     --      2.80 MB    2.19 MB      2.72 MB
+  riscv kernel/fork.o   19.8 KB     --        --       2,860 B     3,496 B
+  riscv mm/vmscan.o     35.3 KB     --        --       5,916 B     7,168 B
+  riscv vmlinux        11.49 MB     --        --       1.93 MB      2.35 MB
+  (* SFrame omits DRAP FDEs in x86_64 mm/vmscan.o and ARM64 entry-ftrace.S;
+     Minimal DWARF covers 100.00%: 69,958 x86 + 69,765 arm64 + 55,296 riscv.)
+
+2. User-Space ELF Unwind Metadata Sizes (GCC 15.2 / Binutils 2.47)
+------------------------------------------------------------------
+  Binary                    .text    Raw .eh*  Min .eh*  .sframe  .eh*+.sframe
+  ------------------------  -------  --------  --------  -------  ------------
+  4,038-fn benchmark (x86)   302 KB  162.4 KB  151.4 KB  137.4 K     299.8 KB
+  /bin/bash (Debian x86)     887 KB  124.1 KB  116.5 KB  123.9 K     248.0 KB
+  aarch64-linux-gnu-gcc-15   911 KB  163.5 KB     --     164.5 K     328.0 KB
+  libc.so.6 (x86-64)        1.47 MB  181.7 KB  171.3 KB    --          --
+  /usr/bin/python3 (x86-64) 3.39 MB  548.7 KB  512.5 KB    --          --
+
+3. Unwind Speed (17-Frame Mixed SP/VLA/Shrink-Wrap Walk, 4,038-FDE Binary)
+--------------------------------------------------------------------------
+  Unwinder Implementation                    17-Frame Walk  ns/Frame  Cyc/Frm
+  -----------------------------------------  -------------  --------  -------
+  Frame Pointer (-fno-omit-frame-pointer)          16.3 ns   0.96 ns    2.1 c
+  SFrame v3 (.sframe)                             321.3 ns  18.90 ns   74.7 c
+  Hardened kernel dwarf_cfi.c (Min .eh)           795.9 ns  46.82 ns  185.4 c
+  Hardened kernel dwarf_cfi.c (Raw .eh)           860.5 ns  50.62 ns  201.8 c
+  Full DWARF (libgcc _Unwind_Backtrace)         1,476.2 ns  86.83 ns  342.2 c
+
+
+Testing and Verification
+========================
+
+ - Static & style checks: 0 errors/warnings from scripts/checkpatch.pl,
+   scripts/kernel-doc -Werror -none, and scripts/spdxcheck.py across all
+   11 patches.
+ - Differential equivalence & fuzzing: 100.00% match across 905,231+
+   ASan+UBSan PC probes against reference DWARF evaluation across x86-64,
+   ARM64 (PAC-RET), and RISC-V (-mrelax), plus 500,000 ASan+UBSan fuzzer
+   iterations on kernel/unwind/dwarf_cfi.c and 5,000 mutated ELF .o
+   fuzzer iterations on scripts/min_eh_frame.c with 0 findings.
+ - Live multi-architecture QEMU testing (qemu-system-x86_64,
+   qemu-system-aarch64 -M virt -cpu max with PAC-RET + BTI, and
+   qemu-system-riscv64 -M virt -cpu rv64 with RVC):
+   Passed 7/7 KUnit tests, backtracetest, 10x module load/unload cycles
+   with DRAP + nested kretprobes/rethook + arch_stack_walk_reliable(),
+   50x cross-task /proc/<tid>/stack walks, JITed eBPF bpf_get_stack() +
+   bpf_get_stackid(), unwind_user_cfi kselftest (clobbered FP, VLA, DRAP,
+   shrink-wrap, anonymous RX JIT CFI->FP->CFI fallback), -m32 IA32 compat,
+   'zPLR' DSO + SA_ONSTACK SIGUSR1 rt_sigreturn across interrupted leaf
+   functions, and 4-thread hostile ELF VMA fault injection with 0 failures
+   and clean dmesg across all three architectures.
+
+
+Tool-Assistance Disclosure
+==========================
+
+Per Documentation/process/generated-content.rst and
+Documentation/process/coding-assistants.rst:
+
+ - Tool used: Gemini (AI coding assistant), used interactively across an
+   extended engineering session.
+ - Scope of assistance: Prototyping and refining the bounded DWARF CFA
+   interpreter, user-space PT_GNU_EH_FRAME VMA unwinder, build-time
+   scripts/min_eh_frame.c minifier, x86-64/ARM64/RISC-V kernel and
+   user-space unwinder integrations, KUnit/kselftest suites, differential
+   fuzzers, QEMU multi-arch test harnesses, and series documentation.
+
+Ian Rogers (11):
+  unwind: Add Minimal DWARF CFI bytecode interpreter and KUnit tests
+  unwind_user: Support Minimal DWARF CFI user-space unwinding
+  scripts, unwind: Add build-time .eh_frame minifier
+  objtool/ibt: Ignore .eh_frame relocations during ENDBR validation
+  x86/unwind: Add Minimal DWARF CFI kernel unwinder
+  arm64: unwind_user: Support Minimal DWARF CFI and FP user unwinding
+  arm64/unwind: Add Minimal DWARF CFI kernel unwinder
+  riscv: unwind_user: Support Minimal DWARF CFI and FP user unwinding
+  riscv/unwind: Add Minimal DWARF CFI kernel unwinder
+  selftests/perf_events: Add Minimal DWARF CFI deferred user unwind test
+  scripts: Add eh_frame_min.py .eh_frame coverage and size analyzer
+
+ arch/Kconfig                                  |   31 +
+ arch/arm64/Kconfig                            |    7 +-
+ arch/arm64/Kconfig.debug                      |   32 +
+ arch/arm64/Makefile                           |    5 +
+ arch/arm64/include/asm/ftrace.h               |   10 +-
+ arch/arm64/include/asm/module.h               |   16 +
+ arch/arm64/include/asm/module.lds.h           |    2 +-
+ arch/arm64/include/asm/perf_event.h           |   15 +
+ arch/arm64/include/asm/unwind_user.h          |  126 ++
+ arch/arm64/kernel/Makefile                    |    2 +
+ arch/arm64/kernel/efi-rt-wrapper.S            |   22 +
+ arch/arm64/kernel/entry-ftrace.S              |   35 +-
+ arch/arm64/kernel/entry.S                     |   22 +
+ arch/arm64/kernel/ftrace.c                    |   12 +-
+ arch/arm64/kernel/module.c                    |   17 +-
+ arch/arm64/kernel/probes/kprobes.c            |   14 +-
+ arch/arm64/kernel/signal.c                    |   54 +
+ arch/arm64/kernel/stacktrace.c                |  537 ++++-
+ arch/arm64/kernel/vmlinux.lds.S               |   21 +-
+ arch/arm64/kvm/hyp/nvhe/Makefile              |    1 +
+ arch/arm64/lib/kasan_sw_tags.S                |   16 +
+ arch/arm64/net/bpf_jit_comp.c                 |    9 +-
+ arch/arm64/net/bpf_timed_may_goto.S           |   19 +
+ arch/riscv/Kconfig                            |    7 +-
+ arch/riscv/Kconfig.debug                      |   16 +
+ arch/riscv/Makefile                           |   15 +-
+ arch/riscv/include/asm/module.h               |   22 +
+ arch/riscv/include/asm/perf_event.h           |   15 +
+ arch/riscv/include/asm/signal32.h             |    8 +
+ arch/riscv/include/asm/stacktrace.h           |   11 +
+ arch/riscv/include/asm/unwind_user.h          |   81 +
+ arch/riscv/kernel/Makefile                    |    4 +
+ arch/riscv/kernel/compat_signal.c             |   44 +
+ arch/riscv/kernel/entry.S                     |    2 +
+ arch/riscv/kernel/mcount-dyn.S                |    6 +-
+ arch/riscv/kernel/mcount.S                    |   34 +-
+ arch/riscv/kernel/module.c                    |    9 +
+ arch/riscv/kernel/probes/rethook.c            |   13 +-
+ arch/riscv/kernel/probes/rethook_trampoline.S |   30 +
+ arch/riscv/kernel/signal.c                    |   62 +
+ arch/riscv/kernel/stacktrace.c                |  732 ++++++-
+ arch/riscv/kernel/vmlinux.lds.S               |   13 +
+ arch/riscv/purgatory/Makefile                 |    3 +-
+ arch/x86/Kconfig                              |    3 +-
+ arch/x86/Kconfig.debug                        |   13 +
+ arch/x86/Makefile                             |    7 +
+ arch/x86/boot/startup/Makefile                |    1 +
+ arch/x86/entry/calling.h                      |   17 +
+ arch/x86/include/asm/dwarf2.h                 |    6 +-
+ arch/x86/include/asm/frame.h                  |   42 +-
+ arch/x86/include/asm/module.h                 |    5 +
+ arch/x86/include/asm/unwind.h                 |   15 +-
+ arch/x86/include/asm/unwind_user.h            |   47 +
+ arch/x86/kernel/Makefile                      |    4 +
+ arch/x86/kernel/ftrace_64.S                   |   44 +-
+ arch/x86/kernel/module.c                      |   11 +-
+ arch/x86/kernel/rethook.c                     |   92 +-
+ arch/x86/kernel/unwind_dwarf.c                |  663 ++++++
+ arch/x86/kernel/vmlinux.lds.S                 |   16 +
+ arch/x86/net/bpf_jit_comp.c                   |   12 +-
+ arch/x86/purgatory/Makefile                   |    1 +
+ drivers/firmware/efi/libstub/Makefile         |    7 +-
+ include/asm-generic/vmlinux.lds.h             |    5 +
+ include/linux/unwind_dwarf_cfi.h              |  174 ++
+ include/linux/unwind_user.h                   |   78 +
+ include/linux/unwind_user_types.h             |   92 +-
+ kernel/unwind/Makefile                        |   14 +-
+ kernel/unwind/dwarf_cfi.c                     | 1842 +++++++++++++++++
+ kernel/unwind/dwarf_cfi_kunit.c               |  625 ++++++
+ kernel/unwind/user.c                          |  155 +-
+ kernel/unwind/user_cfi.c                      |  378 ++++
+ rust/Makefile                                 |    4 +-
+ scripts/Makefile                              |    1 +
+ scripts/Makefile.build                        |   12 +-
+ scripts/Makefile.lib                          |   13 +-
+ scripts/Makefile.vmlinux_o                    |    8 +-
+ scripts/eh_frame_min.py                       |  938 +++++++++
+ scripts/min_eh_frame.c                        | 1719 +++++++++++++++
+ tools/objtool/check.c                         |    1 +
+ .../testing/selftests/perf_events/.gitignore  |    1 +
+ tools/testing/selftests/perf_events/Makefile  |    4 +-
+ .../selftests/perf_events/unwind_user_cfi.c   |  447 ++++
+ 82 files changed, 9551 insertions(+), 118 deletions(-)
+ create mode 100644 arch/arm64/include/asm/unwind_user.h
+ create mode 100644 arch/riscv/include/asm/unwind_user.h
+ create mode 100644 arch/x86/kernel/unwind_dwarf.c
+ create mode 100644 include/linux/unwind_dwarf_cfi.h
+ create mode 100644 kernel/unwind/dwarf_cfi.c
+ create mode 100644 kernel/unwind/dwarf_cfi_kunit.c
+ create mode 100644 kernel/unwind/user_cfi.c
+ create mode 100755 scripts/eh_frame_min.py
+ create mode 100644 scripts/min_eh_frame.c
+ create mode 100644 tools/testing/selftests/perf_events/unwind_user_cfi.c
+
+
+base-commit: 4843f6873f7c4835e62f2c73ba0fd538e57a2f22
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.56.1.750.gf70dc682cf-goog
+
 
 _______________________________________________
 linux-riscv mailing list
