@@ -2,124 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9964E606A320
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Nov 2026 16:18:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0308D606A337
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Nov 2026 16:30:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eN+1JboD;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=mORWcICL
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uPW2bwga;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ghF7CWUM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=swQei2tmi7blrXXu1sScBDx22kSLMGVQoa7hKX4Ufxo=; b=eN+1JboDkk65HoDe9SK8quT8G7
-	VcDcr2HeLP/KpEfRmATQO527VfnnqXXz7o6Y24AJGAUoWFdO1w01Ea8/z3ILxOpIvdBLnAakKccs4
-	5yBb+JrkAGBgHJgZDLdWFIzI/b/Y6q3i05RkVdZUJOs44XUwbLGv/GgA5RSQq5qjeq//27htdrQjj
-	9CFqu/rYBdWQgRDn1dwCqmdX2qOikYVubB4IU36fxwg0mO++EgBPI0DvsOq6GHB589Ii2B7W72hpa
-	89dftpSYaCmWzwB+WgJUtlx7UUx+YMEyupk4FtLNGV+mlGv5Ognd9q9ARA9kprMQ6A7xfsE4ixvTG
-	DD/vomaw==;
+	bh=9DRyJzfEMHeaq8GMrFsleZ42XVYD1V/7mj4AkPTGjL8=; b=uPW2bwgatJk4TZMzWAiaI0yrfv
+	P4glbuQlwiu0JWz+3npH5qFKXtb3Z5KsIaCy8Yw8XCBxmSjj/ebEjLBYTguB1hmgPg4n0dsQMS/wk
+	WUbHkOoYqiFvTZGuV6MAcPmSIar+PoEjOi3Pzd6/2QS7ZY4p//E24lv24R6JWiOgQdYJNBkjSmUSF
+	IEAzXyY84iCrNtG4Rkq248VjaJTeq7eiHVR/J+xfpwVTDh0a4SH2dBSiyWH+4qisw7gJ0NiblssM7
+	jVBFYeavVAKVcsrFxkwixum+7TtM8LQcEmccyWHw2ZBrszaC/m77AtOW4W36hOy2LsafHYQco0AhK
+	W96sviTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVAGs-00000001L52-1vzq;
-	Sun, 22 Nov 2026 16:18:30 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1xVASQ-00000001MOZ-2FFR;
+	Sun, 22 Nov 2026 16:30:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVAGo-00000001L4K-2JzH
-	for linux-riscv@lists.infradead.org;
-	Sun, 22 Nov 2026 16:18:29 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso31058765e9.0
-        for <linux-riscv@lists.infradead.org>; Sun, 22 Nov 2026 08:18:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795364304; x=1795969104; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8ZiEeOYhVKS03CHr35HdwHPjYPpUXJNlNyaUVNFPqXQ=;
-        b=mORWcICLLnFGT8PQ4pzwkcStiW4XU6FzKxwigWijSvXyqaWl+aKITJ1FpbJF0W6HXc
-         jAWS8JB30MoKr1X/Zi0RPy8JjtV36eCfJ01LiC0yeSS4E7khIU4xfkpQRAJUL3GCdlz2
-         gAOS9v1T/doayupfjpFTKcCKk6B0BC8ortrmGsUVg3SvSSYiKTRZiTMGt1fCvxjtDXya
-         utCHA/9llQoUEAsaOoY6DDYxZbkxLy5nyWz1EDGtImiiaACXrmz0mYCzqaj5lWUMjyS3
-         +TboO4ArOvnTwVXWLG2o21YNEhl/BUxUyTtm1NUgM5bRB1cmb/N2JGz/G7aaYoDeHoQS
-         ISvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795364304; x=1795969104;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8ZiEeOYhVKS03CHr35HdwHPjYPpUXJNlNyaUVNFPqXQ=;
-        b=ObfC86ubm4SwLMLKfD+7fk2um6VQ3dSXM6MZ1vufKi9wHW9IpP8GFwiNGo18+QXWZ/
-         CbTYHh2rxpoHEQqnbp1gsc2yQ0/Fi1pbe0Qksozc49zW9jxSU1LLV0Et7EeO6yodbFNx
-         b0KAwOqUdnvKrS84u3Y62WAGiLTcY6p8eshS5lcg18st35t+jjzXxs1Ans0zxcpNuXps
-         qztenQVSyk7wqt83kBNlDrb/9gKeVbPOihMVIyBt6BWGjaZRvtkQ7tP8niq7wpOiDvP1
-         3yCKiqw3S4/p1XhoKjfPr/YLrwwAuvKijSrWXOEsxz1Yk12o+3uFqDsvm8eFYzd8QLoV
-         PXAw==
-X-Forwarded-Encrypted: i=1; AL+hErGlvit76gZidEl8oISEFMP62QlnQALRt6+3ErKddu+8UwN6XlV/Ab34dR4u++5bRGOJjy4MWq7MNs0r8A==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+c/r5a2jqEeFjND+1B/T+/RpwDhXJiJNsjwv7mWwYhw0xYs5Qb
-	2UaHBQUgglmOGh44GVrHhFnbEYnCsDMa7naNFpakJnTcg0lPYA/u9L4THMgqwRWeQtM=
-X-Gm-Gg: AZFdTZetxrXwSLTbKBS5ln3KrSBatRiLbU7xsTDEnLUutUt/jnU/1t2gQtmlc5Xdhxg
-	7DXzCeB44fbKPl4Yb4eeaMEKtOkaO705vB9H2YkYDC8WaVvetFM1burBTDKfSUUvh5TviynnbDX
-	mTi17PtwXntUHXBgUW6WOXl9oeSwaObQQzVPIwRyopyiCYvejMYvZhYcgH1byLfMAY6YgM5kAkx
-	0zf+nnj/EclBrhdwH5kitUYGc/o5O+JV9wVFs4Ap/dMHRfB0opgYkUXBtdDwnyWb17RvV53lY1e
-	yIr12Z6bRl0GvHv7d+g6oIxPdZuLhAWbNCXbT5McGAxYGLVOQ8EFC/ub/8cmGKmzDC/6k8oKIlB
-	d4QIUk64tKitGkVr/sj69dXzQUGmwMycor6SuGsoXQu/u+cKChQSd1Mg/VwP74JCQN/Mwm0obSw
-	a3tX3Fr/9eHqR71hIcJZraBRB1fud/xTyUx2D7usTOg5BpUDL2futgVoZSfA4Z5reOfXe0ETm3d
-	L8ZEpcF5IXwZ3ZMi0yCEYtS80dmJqqHebHtTOfKR3fjePrRDctixrSkJbwjeUBT/6sjCoU9RUFw
-	Nj15minD7ogpBuJQsUXZGnupePbwD3QrKV0MqaIiqwWZsVdy
-X-Received: by 2002:a05:600c:e553:b0:4bb:9457:3c93 with SMTP id 5b1f17b1804b1-4bb94573c9amr46862925e9.2.1795364304705;
-        Sun, 22 Nov 2026 08:18:24 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm226037545e9.4.2026.11.22.08.18.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 08:18:24 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Guodong Xu <docular.xu@gmail.com>, Icenowy Zheng <uwu@icenowy.me>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Sarah Emery <sarah.emery@canonical.com>, 
- Ze Huang <ze.huang@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Cody Kang <codykang.hk@gmail.com>
-Cc: Cody Kang <codykang@vsit.ai>, dri-devel@lists.freedesktop.org, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-In-Reply-To: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
-References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
-Subject: Re: (subset) [PATCH v3 00/17] drm/spacemit: add SpacemiT K3
- display support
-Message-Id: <179536429642.2728475.2044119204203952258.b4-ty@b4>
-Date: Sun, 22 Nov 2026 17:18:16 +0100
+	id 1xVASN-00000001MNz-2j6q;
+	Sun, 22 Nov 2026 16:30:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0821341709;
+	Sun, 22 Nov 2026 16:30:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD7601F000C6;
+	Sun, 22 Nov 2026 16:30:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795365022;
+	bh=KzrVEQ03EK5eu+7tSDtmCyEtJgI25e3+3defglUPBK0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ghF7CWUMVugPxg90sHHKYEuZ3yfSWM233Kz7XPmsYFNoH8ePGcEbFvq+3tjJvwARM
+	 C31VtR89lcPiYAdWjzKHdq0uDAHG0vykVegt4OhFNQAnrE9uc50dm2/ucEFtc5H307
+	 z9ipHD7izlqUI7oLV3OzY3TPmA/V3FAinMcG70EnZV5PW+Nz27ECsoIn64+Qm3lyw9
+	 amEOLkCTcLr+6CNiqBmmK1pi+RiViiPRpGmeCK4JtyQb1BwsjhkhXR9GQzDryKfCTA
+	 74r2U3LJpqelptWe/c0EjDwCDfzMsxk2zPAFgvuXvS4X18hw1f6OC+2XCKwWbk4SkB
+	 aiusnbaFYdUvg==
+Date: Sun, 22 Nov 2026 18:30:15 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Bradley Morgan <bradley.morgan@linux.dev>
+Cc: fparola@amazon.de, akpm@linux-foundation.org, alex@ghiti.fr,
+	aou@eecs.berkeley.edu, baoquan.he@linux.dev,
+	kexec@lists.infradead.org, linux-riscv@lists.infradead.org,
+	nh-open-source@amazon.com, palmer@dabbelt.com,
+	pasha.tatashin@soleen.com, pjw@kernel.org, pratyush@kernel.org,
+	stable@vger.kernel.org, thunder.leizhen@huawei.com
+Subject: Re: [PATCH] crash: Fix crash memory reserve dead loop when low and
+ high limits match
+Message-ID: <awMYl7QyfPtbM-PC@kernel.org>
+References: <20261119093730.49471-1-fparola@amazon.de>
+ <CAEBC780-5EA0-425E-84DA-F16817BE884C@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=207; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=v3hfU9UHf+Kw6j8mPInDkRCmcdQcn/tFYuhWer9PVLA=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNnMouffLtac7bcg5TPvFslVKz/IiM43L2d2W3La8FzzF
- i6bCx9Xd5SyMIhxMciKKbLUcFeLv5PU+jJrus5tmDmsTCBDGLg4BWAim44zMmxxe2hesHqmrEzE
- C5a4iu+CTLL9sfqpvwrzRPpPFr2X/8XwPyhe6sxK569/On8WiM9u/vRjfl5c4ZyfsjXJvPYlub7
- z2QA=
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261122_081826_632138_8BCC62E1 
-X-CRM114-Status: UNSURE (   3.85  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+Content-Disposition: inline
+In-Reply-To: <CAEBC780-5EA0-425E-84DA-F16817BE884C@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,22 +73,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Applied to clk/linux.git (clk-spacemit), thanks!
+Hi,
 
-[06/17] clk: spacemit: k3: parent eDP/DP pixel clock to the PHY PLL
-        https://git.kernel.org/clk/linux/c/dd010f2b662d
+On Thu, Nov 19, 2026 at 04:07:41PM +0000, Bradley Morgan wrote:
+> On 19 November 2026 09:37:27 GMT, Federico Parola <fparola@amazon.de>
+> wrote:
+> >On arm64 with neither CONFIG_ZONE_DMA nor CONFIG_ZONE_DMA32,
+> >arm64_dma_phys_limit is PHYS_MASK + 1, so CRASH_ADDR_LOW_MAX equals
+> >CRASH_ADDR_HIGH_MAX. If the first crashkernel=size[KMG] attempt fails,
+> >reserve_crashkernel_generic() falls back to [CRASH_ADDR_LOW_MAX,
+> >CRASH_ADDR_HIGH_MAX), which is empty. That attempt fails too, and since
+> >search_end still equals CRASH_ADDR_LOW_MAX the fallback is taken again,
+> >forever. Boot stalls after the "Initmem setup" messages.
 
-Best regards,
---
-Jerome
+This is really hard to read :/
 
+> >
+> >The first attempt can fail on a kexec handover (KHO) boot, where early
+> >allocations are confined to the KHO scratch areas.
+> >
+> >Commit edb907a61333 ("crash: fix riscv64 crash memory reserve dead
+> >loop") fixed the same loop for crashkernel=size[KMG],high. Skip the
+
+How is this related?
+
+> >fallback to high memory when there is none, so the reservation fails
+> >with "cannot allocate crashkernel" and boot continues.
+> >
+> >Fixes: 0ab97169aa05 ("crash_core: add generic function to do reservation")
+> >CC: stable@vger.kernel.org
+
+Do you see this in field or it's what some sort of analysis shows?
+ 
+> Oki.
+> 
+> >Signed-off-by: Federico Parola <fparola@amazon.de>
+> >---
+> > kernel/crash_reserve.c | 6 ++++--
+> > 1 file changed, 4 insertions(+), 2 deletions(-)
+> >
+> >diff --git a/kernel/crash_reserve.c b/kernel/crash_reserve.c
+> >index eee37a11380ce..1417b429b45c6 100644
+> >--- a/kernel/crash_reserve.c
+> >+++ b/kernel/crash_reserve.c
+> >@@ -421,9 +421,11 @@ void __init reserve_crashkernel_generic(unsigned long long crash_size,
+> > 		/*
+> > 		 * For crashkernel=size[KMG], if the first attempt was for
+> > 		 * low memory, fall back to high memory, the minimum required
+> >-		 * low memory will be reserved later.
+> >+		 * low memory will be reserved later. There is no high memory to
+> >+		 * fall back to if CRASH_ADDR_LOW_MAX equals CRASH_ADDR_HIGH_MAX.
+> > 		 */
+> >-		if (!high && search_end == CRASH_ADDR_LOW_MAX) {
+> >+		if (!high && search_end == CRASH_ADDR_LOW_MAX &&
+> >+		    CRASH_ADDR_LOW_MAX < CRASH_ADDR_HIGH_MAX) {
+> 
+> Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
+> 
+> 
+> > 			search_end = CRASH_ADDR_HIGH_MAX;
+> > 			search_base = CRASH_ADDR_LOW_MAX;
+> > 			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> >
+> 
+> --- Thanks!
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
