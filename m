@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50C31606A31A
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 12:33:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2C2E606A33F
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 12:36:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aSr2Cc2y;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NjjMBlVp
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=htc8obKI;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k+wmWzfd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
@@ -14,72 +14,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bbnJYx+FlDOB9GA+RpEHuI4H6zh93cDXH6E+zEwHPAQ=; b=aSr2Cc2yxnbTG8jI6LAXAmtovn
-	19CBX0UqNcRKMLtOF4mx1hzEB4O7gFd1TFNBFuHKYjadT8WEW52SHKRgTEC5Ao9OAmGa+p9pACH4A
-	qww/akcjIMX9301my3QuI+CXp/qfUnEi7UD6ebwZScNNvmWutS2TKxAqgf2H+ZggwzFf1hSaSpFBc
-	pVlMchaKSdGLDKSeTuvaC0sdDIZn5UdN69R93Z1rdAWjv5Csyqbz1UET3jFaZ5SK0IhyPO2VcJWZ7
-	q1mMkUtMbnBCLG20cWH9jExvJgoCb92rzJwJKTCu92rBsWb3G0vybMhIfvN7O8PTEBK5IFmbrw4s6
-	7QRUeF7A==;
+	bh=VZi+4M+RcmAm2k9odr1GWvdFmEkbPbbJtcEm7mPLMAI=; b=htc8obKIkxBVZYN0uoDM/YXr+F
+	P72IZzAtJ9VVtF+vnwKLeh/7msbBfDTdUwMMBBA/nh7EHxrfimL+A66FNhSvQCWOvgFmkSN7IU5+Z
+	15RKW/m48YzgcPIoZqocwRoxUSEFVIkaCAtakL3foVEulzfFp8+oddgadrBGvxlqJwdarted4szrz
+	EtNb4ilhAHSIHWyhuALkkfGMHMGL0uBoZTV7s7VGXA5j36bHqKVTnp9Oo7qM/qClZzG1fMuXyEDKD
+	NCJeB1ScmbG4gT6gY5YhpABU67c0Jq07d/f8kmEoXLy+crk+KW29ZWQFW5+9A/AqFHhw27o6LBIlh
+	gyinW9YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVTEW-00000003N8K-3kQt;
-	Mon, 23 Nov 2026 12:33:20 +0000
-Received: from mail-pj2-x03.google.com ([2607:f8b0:4864:39::3])
+	id 1xVTHM-00000003O9G-0wgc;
+	Mon, 23 Nov 2026 12:36:17 +0000
+Received: from mail-pj2-x0a.google.com ([2607:f8b0:4864:39::a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVTES-00000003N6z-2fj4
+	id 1xVTHG-00000003O6G-2vJO
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Nov 2026 12:33:19 +0000
-Received: by mail-pj2-x03.google.com with SMTP id 98e67ed59e1d1-3b14c80b210so706413a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 04:33:15 -0800 (PST)
+	Mon, 23 Nov 2026 12:36:14 +0000
+Received: by mail-pj2-x0a.google.com with SMTP id 98e67ed59e1d1-3ae93a86008so1767074a91.0
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 04:36:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795437195; x=1796041995; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1795437370; x=1796042170; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from:references
          :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=Hn7QLnatls3YJLh9hvARkpylGvnCInTwrPxLQjvpHck=;
-        b=NjjMBlVp8UNMstdcW0Od9UJg4lxK96kWkGYtbXa5qj0ivKQywY4F9w8iIPDaVYoLQ6
-         eXZ9ENwAvgTKR4RW/4zRU0I1rZUS1rvO5kkMCjXilcMiTMCZyzsrCa3W2TnXSe1wXdvz
-         lVMJJ4wM0IpG7O33p6onUYqoT/5QP+VTeql6r59z+WAi+RNzR/rsDFt9xUkbN/pcF0wv
-         4aF6EODQzIcSyHja/CxF4rdiRZlr7gpZCg2iCfpN4LY/Kf0wR8P1w9TIeb1rsUF5dn9j
-         Yc0H9KJ0W8s54LEPA/RPj1lkHND8tConu+hSZva9rgl+ZMpZVTVez6hp5IU9uOHiSdLq
-         rVfw==
+        bh=U/uD1Gm/ThsK3UVlqQr4l1VJFGDwFXp2U6warxXaR1w=;
+        b=k+wmWzfd6bk/fo+FDHnKQH8zQ+05FFVtGfk+yGUQB3QsESW0ULcWYimqd0O4KafoNX
+         F9lQLEA5HnEFua9XOqI5VskuhuPG4o3fI5FRPeNFwMPS4FrIfdRY1Dri8Vtxvqr63Lal
+         nExnRx2fWQEQ9ng4/0e/p0EceVOysWr65zZC4CcP1jjOV1fP1X7M2XB+y8MIhlHE3iez
+         gHdl7+2E9gQOj6ihZqP/4/449eIMqdr6FtbR4NBthELS5uW2ptoB5rsHCIJu3lxbtJXq
+         d6ZYudkm46ouZkZcwwSkin1xTbu1Q5+NyWvHOsQPxgPwUPOrKXvc5fVUTmsyw2H1wg9Z
+         8mOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795437195; x=1796041995;
+        d=1e100.net; s=20260707; t=1795437370; x=1796042170;
         h=content-transfer-encoding:content-type:in-reply-to:from:references
          :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Hn7QLnatls3YJLh9hvARkpylGvnCInTwrPxLQjvpHck=;
-        b=l1yP1Aih64Z86K4TcxJ0UxrtH86ZwqyXCXjFBVa04UmjJXlbA5DAz04X4p6ZAjILlt
-         NWFcusf8sxqLLtBTAxCZUr1J4bpBHckrvc3h3qf67IwpK7KPhLavjaqc3F266q2b47jv
-         tdEUb0/b7Ly26dEaPjT6NTPyqZsyC6Pc5K9x9jMtX2ocmUGDaJjZYyRm3+tObt4O+oHm
-         o8aFEJ44OhODdzjr3R+zOJrrgWIlOHAPQprvlnp/j1XRV+Syc5t5quALXX5ooweXFjYS
-         DQtK/1sIRpqe5c7YULrq3THuKZiqr/NMV533JnpJX44e+/jLht1DDtM0R1sNjm8x0O0V
-         eGsQ==
-X-Forwarded-Encrypted: i=1; AL+hErGeIqT5e6hxITT4tYlTMThcEHpBIs49DrZUX/0bEtT78OWMKukmem9yItRZb/rKcL/Vwi0euAgPCI38ow==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9h2k0gSJKtMTxCnKKiGzcGM1qWHy9uZV3c8U0SNmiB0EIyt93D
-	aK3DD+pUCtA6+BjweEv3+NSlrgXvYq/h3R34v+Ic9yicatEdCz7EkIlD
-X-Gm-Gg: AZFdTZeOskz6hIpsXl5chawzYSfNmQ4urK08fMr3gqdAAHILa8Kpq86ma0cVU7bGwA4
-	HHrSQysvEfHHJTpH2/1hifqPEuBwExE2LthZoMJ4PdKrzcIStydrUo7bOKwwi1Ukj8bjjSVq3QZ
-	AAaPVOq6wldQPQ1n8jiqUGqYXxHpLd141B5nIbzb1IfzU0CUw4KU26+hoBbJi3DowGzWIS4wDFL
-	fgPoyAmUwRMtX2D6PI49Jkvl4nT/A1dQ8HA67YCd/Fkm6tzQikoBvXlmprQnfGSi3uJjNnWMwzC
-	7hnpAbypQMky71YjGAuqkFqFr8rBVVr4IUE3qjptCgVpU+DLOvylBWFVVYhD1haN/ljYbwXZY54
-	C0m8ZV3ChwMgwDzMmwuvBvhghn4R+TseSda0SQXXFz5i22CqvnvqTHSB9zpBymWXfIU0GEE/8KR
-	Q5B2+k9i5lty6fTDs+u09yDnZfZEnkCtwjI8mfiG3SXbnn8HsfIYGjBfQrpHjGSt58EZtHq/aNG
-	NeC35E8DpIrUpoS8HxOKFJgBQlzc8dhuw2R+tvlgJvV0gDVL4bE9EfqGxEG9mA+usJCXZDCYWQX
-	cW7/fckZsCKHRB519zkf/Fozlxhei4HiZ7U/pEa2qGaZXl3z
-X-Received: by 2002:a17:90b:268f:b0:3b3:afdc:2e5 with SMTP id 98e67ed59e1d1-3b41c9cf56bmr7964160a91.30.1795437195128;
-        Mon, 23 Nov 2026 04:33:15 -0800 (PST)
+        bh=U/uD1Gm/ThsK3UVlqQr4l1VJFGDwFXp2U6warxXaR1w=;
+        b=ge45IDilbsViHKQfeNOjaW237spUoVutqjRIZgbUsdv21RUDV1jeeyUq1q4K1rA/Hk
+         ZoO0Iw2b1HWUsNn/53jileyQcN1gdaNEaogRfBWlFa6RiJKefDujHK2D/X0D9ODz2z/M
+         iUgFN1MoR+Rtn/U0Sa2yXXnurPkI1l72PC3pprwXUMd5y/CnDUM+606RWqCmt29NCIki
+         ICUwfQq74T2aYD/JLKTroQT/av2vGd5+eH+Z9sLM6BI/skx7FhZCkM9SMHj3MugJHU9S
+         CFkQgZRBPEA+hjr5XYKwkt5arnhuwcgkZsy4poxN8U8pb0O3I/d7oIgLA8jaAzFpA52O
+         QxqQ==
+X-Forwarded-Encrypted: i=1; AL+hErGl53FDfRsKwISP1pQv13PqHOXyVIL9JYmhF9mCfhiPc5QF2IG/K+uO5fKtOsZVfTrGUt4wGgBDuXfH0Q==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+plkNYJbm14X5JuRhw2NPiPd1wtrtXGwlFbDHklMdlPptWX2pO
+	/kMjFlPAPuEjX38pigqgreRRJWDkeDS6VVfh+Z2TAjGqSGAkOG3IQ+Rh
+X-Gm-Gg: AZFdTZeGNvnCOWfLXyAR57GW9SoLgQ/leQUv79UPkC259ZP+tjXfnuUx/7z/J/C+HXr
+	JYSfMibjDdEZHXR/sRdCZ9Vp18rICLFfa4QC8qiuOdSvUuCJtFfGyqJE2ACzIqwotoPsnzCk0Ln
+	hrAB5SCcWx6nj5CjjnMK8bUV7LSm8e/0e+mmyH7dFildfrwP0kG0vI/DH0KR2YH4mqXmJ0xPjDv
+	VT4YIS5qhLCCvBH7Eu3szYc6OJE9eCnqVnB2jrwhPaVLLLf4IuXSGlYmvbhgzJfcfeeh9LDwlaN
+	wapIKHzkCzRw3DubFCLbBu6gJ34gAOYZ2fMF5qy/EsurIbBN/36iijCVjCYJLrTDs2DE8J+Y+nj
+	FkuT/Df5YEi5hWeVVSh6VF9TICDW3Le6JaouqbXiUliErTw9iY4stS2o736HMLB5YYKb1mjWAC2
+	q3gkjEr42va4sWgH9h7qHMopNsVE+ZCIXKrSzIndfYTRf7dqDWJHbBrsyRD414bAQhf0wY1k5Xz
+	KUjF0rT73wwFEWyMxf6iyV4F+0W1mXkrL6L2ZrDJNHuqa6xOJLZ9/UpL6DUHlBhVxVyBmj7DFFw
+	0LwGU1xt+WAoIWrk7vuLSWLkO+xsMoiSYJcxgRyZDdJyci4=
+X-Received: by 2002:a17:90b:3c07:b0:3ac:3588:b548 with SMTP id 98e67ed59e1d1-3b41c9b2529mr10221008a91.13.1795437369821;
+        Mon, 23 Nov 2026 04:36:09 -0800 (PST)
 Received: from [192.168.50.100] ([114.252.97.9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b217a5bsm7472471a91.0.2026.11.23.04.33.06
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b8733e6sm6119715a91.3.2026.11.23.04.36.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 04:33:14 -0800 (PST)
-Message-ID: <4ac66d3b-7343-4ff8-8ebe-d3bf9ab25da4@gmail.com>
-Date: Mon, 23 Nov 2026 20:33:04 +0800
+        Mon, 23 Nov 2026 04:36:09 -0800 (PST)
+Message-ID: <7225496f-222b-46f6-a609-89921d6572d7@gmail.com>
+Date: Mon, 23 Nov 2026 20:35:57 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 05/10] iommu/riscv: Add nested domain allocation
+Subject: Re: [RFC PATCH v3 09/10] iommu/riscv: Add
+ riscv_iommu_attach_dev_nested
 To: Andrew Jones <andrew.jones@linux.dev>,
  Gong Shuai <gong.shuai@sanechips.com.cn>
 Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
@@ -97,12 +98,13 @@ Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
  <tanchi25@mails.ucas.ac.cn>, Wu Fei <wu.fei9@sanechips.com.cn>,
  Zhao Qingye <zhao.qingye@sanechips.com.cn>
 References: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
- <20261119132744.396426-6-gong.shuai@sanechips.com.cn> <awGP5H2JdjxW8WXG@orel>
+ <20261119132744.396426-10-gong.shuai@sanechips.com.cn>
+ <awG5Q7pmntSme1A2@orel>
 From: Gong Shuai <gsh517025@gmail.com>
-In-Reply-To: <awGP5H2JdjxW8WXG@orel>
+In-Reply-To: <awG5Q7pmntSme1A2@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_043318_207659_01B247BD 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20261123_043613_546012_2F806A07 
+X-CRM114-Status: GOOD (  15.96  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,61 +118,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-2.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 Hi Andrew,
 
-On 11/21/2026 8:37 PM, Andrew Jones wrote:
-> On Thu, Nov 19, 2026 at 09:27:39PM +0800, Gong Shuai wrote:
->> From: Wu Fei <wu.fei9@sanechips.com.cn>
->> 
->> A nested domain describes two-stage translation through guest and
->> host page tables. Iommufd exposes this domain as a nested hwpt.
->> 
->> User space needs to provide the guest stage 1 configuration when
->> allocating a nested hwpt. Validate the configuration before storing
->> it for use in a physical device context.
->> 
->> Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
->> Co-developed-by: Gong Shuai <gong.shuai@sanechips.com.cn>
->> Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
->> ---
->>  drivers/iommu/riscv/iommu.c | 153 ++++++++++++++++++++++++++++++++++++
->>  1 file changed, 153 insertions(+)
->> 
->> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
->> index f2305b953f71..4f8ce579ef08 100644
->> --- a/drivers/iommu/riscv/iommu.c
->> +++ b/drivers/iommu/riscv/iommu.c
->> @@ -1698,8 +1698,161 @@ static void riscv_viommu_destroy(struct iommufd_viommu *viommu)
->>  	ida_free(&riscv_iommu_gscids, rv_viommu->gscid);
->>  }
->>  
->> +struct riscv_iommu_nested_domain {
->> +	struct iommu_domain domain;
->> +	struct riscv_viommu *viommu;
+On 11/21/2026 11:48 PM, Andrew Jones wrote:
+> On Thu, Nov 19, 2026 at 09:27:43PM +0800, Gong Shuai wrote:
+> ...
+>> +	if (riscv_iommu_bond_link(s2_parent, dev, nested_domain->viommu->gscid))
+>> +		return -ENOMEM;
 >> +
->> +	u64 tc;
->> +	u64 ta;
->> +	u64 iosatp;
->> +};
->> +
->> +#define to_riscv_iommu_nested_domain(domain) \
->> +	container_of(domain, struct riscv_iommu_nested_domain, domain)
+>> +	riscv_iommu_iodir_update(iommu, dev, &dc);
+>> +	riscv_iommu_bond_unlink(info->domain, dev);
+>> +	info->domain = s2_parent;
 >> +
 > 
-> Please rename the macro parameter so it doesn't collide with the domain
-> member name, otherwise macro expansion replaces the member name too.
+> When moving between the S2 parent and a nested domain on it, the parent
+> briefly has two bonds for dev. bond_link() puts the new bond after the
+> first bond with the same GSCID, which may come before dev's old bond,
+> and since it's then dev's first bond, bond_unlink() removes it. dev is
+> left bonded with its old GSCID, so its new GSCID misses invalidations
+> once no other device's bond has it.
 
-Thanks for catching this, silly mistake on my part:)
-I'll rename it in the next version.
+Thanks, you are right.
+
+> 
+> Passing the old domain to bond_unlink(), like I do in [1] for a
+> different reason, would let it remove the bond matching both dev and
+> old's GSCID.
+> 
+> [1] https://lore.kernel.org/all/20260928143113.49838-12-andrew.jones@oss.qualcomm.com/
+
+I'll use the old domain to resolve the old bond domain and its GSCID,
+pass the latter to bond_unlink() as old_gscid, and match both
+
+     bond->dev == dev && bond->gscid == old_gscid
+
+so that the old bond is removed rather than the newly added one.
 
 Best regards,
 Shuai
