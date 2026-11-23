@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDD9C606A689
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 14:48:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87268606A332
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 14:48:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y7jIfZpH;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HzYyMnEZ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hLVgOCtm;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CyhzciQp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
@@ -14,71 +14,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SlTDO/EFeAcTv6KSpw8E2P71UqrUlAqQLb0NVtR4F3Y=; b=Y7jIfZpHFmIi0tM4mD0pTnBv05
-	zlkTQrEGfPlP3Deu06+5EzjwqId/TI9UyCL8lrY2EH4E6iSrIy7H06jgIbtxZkiKEGtjz58FDHEmN
-	goAoZvArbJYiZ33dOM5zOcMnJaOMASwhoLucD1mjOyXVvVWfVhmOgVmDcJoSZsp7x46tQJh7iPAmO
-	FB4CVlFEMXk71DIAKFWWUGmrcQhis/tn7wMa1RA+UQ6KoWzSTeIMtTAMUqeeqyoUaAVRKxVTa3yb0
-	/9FEHczDs2Ca8/bCPP3Xjvay3slIcyHO2PlAiB458phSa0dPKzLkO8NvVJqnNTkf3FoZrbr2dlp/X
-	ODXsSsDw==;
+	bh=mDLTl/lBzsNXseK/as7SJwdyDFFcxaC8wCcS2E4Zbkk=; b=hLVgOCtmbSvnc84wOj41rVPwM3
+	5dcXud49xlQDXoMNGm5aI4gzDCqR5fvSZPe8EZqbNNO21a+MygdvitInyVkIGYBUxbmE8SWFYbP90
+	ey6rLMYRO6HuTbu4zxfLogr0Unu7dXUXEyNRsJdnCBBpLZtVgcBLUQtkts8A5pSrnnG5noykbUlI1
+	uT/E8zxC7VAXzp5LzptI5puawAe0QtzRpeDClY74rvG5jduKzslo2Z/rRe1+aHNgJ/Fa3xE1UjOq8
+	pBFFp+qhteXN5skmsm9fgjI1KDFNBQ+6ZVQ1HVwHCk+PC8MRfF3cB8RHBccH8NnMTKqrBsMq26l99
+	eRTS5zFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVVKq-00000003mvh-0DAn;
-	Mon, 23 Nov 2026 14:48:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xVVKp-00000003mus-1BMj;
+	Mon, 23 Nov 2026 14:47:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVVKl-00000003mqW-3mlx
+	id 1xVVKm-00000003mqY-0cd9
 	for linux-riscv@lists.infradead.org;
 	Mon, 23 Nov 2026 14:47:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B0C062223;
+	by sea.source.kernel.org (Postfix) with ESMTP id E196240623;
 	Mon, 23 Nov 2026 14:47:55 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1795445275;
-	b=auHe+Cd55RySlzKS1iuDzxgqM6jFrS+Iv3AvnkZR4D10cyoeJBqM4ZSmQacFSg29LPBR
-	 1u6n43SAd4+rS/DSlSYW7HcqzJwXhMZ+89dZ0cLFR1Ylo0k7ZrOFc2KNUd9QAX+I5o+o6
-	 p5bRDDL3+jVrQsiPEpQuwuilGedOQzq1jd9fgZDK08KsjOLX21PXRbujRW3S2xkDca2re
-	 6ZMuDVqTeGmQj1M5CwtUKYSxBj3Sp4miNJGcIxbdKs6DVTNzO4WAYybNPGl8fn12BPUP2
-	 3cqB8XmVLLFdS6qqHtyRUb3d0mE8e03sdk/azcSuWQZVbR3rArZ5jrl/Fa5Q+jsNFBw==
+	b=JG2AwbYDrjpoSjj/c5/jcQox+JW7zlunxX6TtOeKx+Ri1LhnZe79L31G38OS2fRcpwIE
+	 X8sH5aLfPhu11NbIdQZCVoxUFLF7jE//1jrFNH+GTDwWYzBTCEG87xdxLzsxzu3+2lXa6
+	 6dzdfjfiMT/hKUMXRV97ui93Lv+rXNlKay40hk8K7NEdNlyBNVpjkyb207XX+WNzQ6UI5
+	 hkfA8Pxlzbn1QILTutOlYVlNx0bpvD0PMYmrF+MKl51jV06ahHHAsf23DY5OWuHb3GGy/
+	 2zYJvXsw+vQKyFzRNVDB8OABDkT4KZWFVtYKEk7E/ahGWS3Tl+5iiq7qp6ykRmYzZSQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1795445275;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=tIxCTm1jnkogO0qe7ZkDy/eWucIvI1gk3nDIsM7jSRU=;
-	b=ZAN0ERIhDuxRTfN2+lOtcjTKAslavSzpyGR+gnIMzuRlcXLMmOI1lJioAL82sUoAoaQe
-	 j3yIEc6tF0q3ZXfkIBdYbbMAvHVdyldYe9H3FCLySkP9UW0GXFyKjYafzcPG3YiGnP8AQ
-	 4Y9sBGxCgaH2H745J7zpQnQage4zr+3vq+tn8yugNuCha85/Oeht99/mpBg5PiWxERB+c
-	 3ZLYMtbjGdXbuqRh6I0UaMzWSjazCdjVa+chGxeu41u1X0xG4yww4VXUzqKG62xZpXTne
-	 /MOXgQk+Y2tx0yqgmQF6Oa+/6J4aj+Z9BBLZIStduhmWDiAU+OEax4Y5YY5Y5MpNtBg==
+	bh=61UlToY13TvSwwcocKDYyejjoT9WGv3HL1erg4Usm28=;
+	b=OZ9qdQkqBXxFRw1kQ+d4IUP7EA6YLXWyxFU4L3rUmgEtzsy2/fyJ5KIQs5Mkv9QkCq3d
+	 /OfM6LdI7p4SOMQ4aHQpPtbRtSjl30RufZp9huCqBjwssHUrDe3Z2s6/wKAQp9fySb/zz
+	 2KsLJN+EOR3G6yErSDphlQ2qW/UrVssXLdHSNeXHMhgcDifUG+iQzNW4iOmmYyKgBum8I
+	 YSr/xFOyYl9uAuIGzwqGfBnMcvdN9fheLDWdNZ51dIwJEw67tgnndg3rAP+qiuJi0twDP
+	 piA7sz/qlA0hDLUN7Oj8cW5FEH9HCph9zkRTmg8M9lSDLGjsRuFlki+rPP7AFQzi/rg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 81F351F000F2;
+	by smtp.kernel.org (Postfix) with ESMTPS id BF5061F000E1;
 	Mon, 23 Nov 2026 14:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795445274;
-	bh=tIxCTm1jnkogO0qe7ZkDy/eWucIvI1gk3nDIsM7jSRU=;
+	s=k20260515; t=1795445275;
+	bh=61UlToY13TvSwwcocKDYyejjoT9WGv3HL1erg4Usm28=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=HzYyMnEZZp4wxZk8WhqOKgkmJVS4qvBM1Zm3HDtGHDaexbrlA8YSUYbVVSeTeKFJd
-	 09gThI3pBBSZLHsoZgyudSxYUGrevaplq6eaRIY75TfCwJWpPjd9IP2vfEYjlf4vPT
-	 RsOcOQlOaFkX0rbwSO+6SW48WtTG3vZK31VAOQdW7YOGvIFruW4GxTIDA279b9uwLz
-	 sDbNuvWvgGD8Wb+WezgTRTydplix6oz+3s8xFo49dBr+FtZDZb17Vdopit+Z55HL9M
-	 gzYPJ8URc6u6yhNocq3MPN2hOFTkyQ6gk5hPH+gpHFHjZg3uWlIcp4fsx6P+8ZIYKh
-	 4JN9OVD5jcv+Q==
+	b=CyhzciQpVB8aUf63BmEf3fwKNbPmF2St6WXmfCv2EMl5zaZKRjJyHUA4wBIy2UAB2
+	 QPGx6005FwM/mDVCfchdhMEP1hhK1dHyGuRqx3DtSneqHc786mYW6g+3e6FesYW12V
+	 +G+8xe299QBZN3oA9T76NZs5Inlvens1QSQZNmzFwAeMhiMOOu30uQ4dtasSwDyg7N
+	 UzMxlpkJ4mebXA8fmZ1mA8xW1F5nxPCoz5cwoKbQwKx7Og0rUcdwoIpjuC6QgSdSRQ
+	 YzYTahksS0rJrpeQPecZo2UNnDg3ISlPEQnjXoYeNFxmv5MGk2Zh1ZqbowFVAkpTNd
+	 YcrTJvxWNPM8w==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8AB6D4C50B;
+	by lkml.kernel.org (Postfix) with ESMTP id DDC8E4C517;
 	Mon, 23 Nov 2026 14:47:24 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Mon, 23 Nov 2026 15:47:00 +0100
-Subject: [PATCH v4 5/8] dt-bindings: timer: Add MIPS P8700 ACLINT MTIMER
+Date: Mon, 23 Nov 2026 15:47:03 +0100
+Subject: [PATCH v4 8/8] riscv: defconfig: Enable MIPS SoCs
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261123-p8700-dts-v4-5-60bb7bf8a7a1@htecgroup.com>
+Message-Id: <20261123-p8700-dts-v4-8-60bb7bf8a7a1@htecgroup.com>
 References: <20261123-p8700-dts-v4-0-60bb7bf8a7a1@htecgroup.com>
 In-Reply-To: <20261123-p8700-dts-v4-0-60bb7bf8a7a1@htecgroup.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -98,11 +98,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795445243; l=2574;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795445243; l=702;
  i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=NmIYyLj+gJ6O//Yk7OxU878XkPBa6KujS6dDK+sOfuA=;
- b=6tO0rnD8M6h/dLvtbjq9aI4b8ZLzGanSZtXqjUUylzUmZHCWb2ogO/5WB2t5zHb2pdn5Hiuqj
- 4ZAs2yGcdCkCWXK+5ByYjc8RposbTs5FsmbaqiyD0il36gbEdarnD/z
+ bh=466tDeyPbrAH0ZZbXJHUmWZAi2oQm3IXvaEsJZHNtNU=;
+ b=QbJYoDvcuW6rTMceYF+5oDzqORpAQ4g2v6P2iVuhB6hDlCo5rUvgeFenzg/A7wBqX4SgHuwJF
+ wI87ry8uZsiC0Ks+ptcdfYOeK7zDZnUfEL7uMktB21Y/VoHrOgsHhdd
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
@@ -130,89 +130,26 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
-Document the MIPS P8700 ACLINT MTIMER.
-Extend support for both mtimecmp and mtime registers
-within the ACLINT MTIMER, identified via reg-names.
-
-When both registers are present, the order is fixed to
-mtime first and mtimecmp second because both OpenSBI
-and U-Boot expect this behavior of the riscv,aclint-mtimer compatible.
+Build the MIPS P8700 Boston dtb by default.
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 ---
- .../bindings/timer/thead,c900-aclint-mtimer.yaml   | 39 ++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
-index cf7c82e980f674afcf59fc726742dc4f49c1a820..e74816c171d9e9b3417806c531969085d260977a 100644
---- a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
-+++ b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
-@@ -21,13 +21,19 @@ properties:
-           - enum:
-               - anlogic,dr1v90-aclint-mtimer
-           - const: nuclei,ux900-aclint-mtimer
-+      - const: mips,p8700-aclint-mtimer
- 
-   reg:
-+    minItems: 1
-     items:
-+      - description: MTIME Registers, or MTIMECMP Registers if only one
-+          region is present
-       - description: MTIMECMP Registers
- 
-   reg-names:
-+    minItems: 1
-     items:
-+      - enum: [ mtime, mtimecmp ]
-       - const: mtimecmp
- 
-   interrupts-extended:
-@@ -42,6 +48,28 @@ required:
-   - reg-names
-   - interrupts-extended
- 
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mips,p8700-aclint-mtimer
-+    then:
-+      properties:
-+        reg:
-+          minItems: 2
-+        reg-names:
-+          items:
-+            - const: mtime
-+            - const: mtimecmp
-+    else:
-+      properties:
-+        reg:
-+          maxItems: 1
-+        reg-names:
-+          items:
-+            - const: mtimecmp
-+
- examples:
-   - |
-     timer@ac000000 {
-@@ -53,4 +81,15 @@ examples:
-       reg = <0xac000000 0x00010000>;
-       reg-names = "mtimecmp";
-     };
-+
-+  - |
-+    timer@16108050 {
-+        compatible = "mips,p8700-aclint-mtimer";
-+        reg = <0x16108050 0x8>, <0x16154000 0x7ff8>;
-+        reg-names = "mtime", "mtimecmp";
-+        interrupts-extended = <&cpu1intc 7>,
-+                              <&cpu2intc 7>,
-+                              <&cpu3intc 7>,
-+                              <&cpu4intc 7>;
-+    };
- ...
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 04ae305d5511bb0760247f50d4b69b1e3a00527b..1b0b5346603934058d8348ddb3aa9d7616af999c 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -26,6 +26,7 @@ CONFIG_ARCH_ANDES=y
+ CONFIG_ARCH_ANLOGIC=y
+ CONFIG_ARCH_ESWIN=y
+ CONFIG_ARCH_MICROCHIP=y
++CONFIG_ARCH_MIPS=y
+ CONFIG_ARCH_SIFIVE=y
+ CONFIG_ARCH_SOPHGO=y
+ CONFIG_ARCH_SPACEMIT=y
 
 -- 
 2.43.0
