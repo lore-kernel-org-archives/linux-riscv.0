@@ -2,120 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD1EB606A698
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 18:42:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 737AA606A31A
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 18:45:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yjD/aFuj;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xo+zNHCz
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gY1pIWHl;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bapmArYo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
+	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=1Dl+OCpPcD/7+9hpRzpuyc7w2SDVhHCz0FvS7yWty1c=; b=yjD/aFujN9bvaWL0I+oPbW/oHz
-	MgaLw0GCa7oDXwYE0jwhjI/3AXYZmqKC749WBFgExwiSU/yKnttsivM+kVQ5/fchbwJfMl+0hr40z
-	nmw4dhQQderuZPMsP679aafXDXwbwEA48K0FCuZjvaVSnCIg7Ala1o2lTU6WSCm0PJN4z6tVT9+7E
-	NPmtci0YHGj/+RByOj9XhUOP6CSEAE1unKZqWszF5Y8NECndDjpsHwYVadtAphMDMQ7Sv267CSLnv
-	fFcc5RF8nfzic1bfPvwt9XvvEK7eJ/TCmfILCP3xmZn5S9G4MOnfznRxYKWbydoxT1Rzo0ItYv5xT
-	4WPz3/5A==;
+	bh=lf9ajtsQdKZS0zBtkaVWoEbYU9S+7VnQhFa+ySs3e/k=; b=gY1pIWHlfvvRPzKJyv16koJVwF
+	KfNOJJ8ix5THyo82mvipI5zYM9UsdGFC9rEFZFp8qMTj4asjA+PD+RPsgdiAOu/s441PG/GFS5/p0
+	i7pJ8j1YQXyNTKhB8GnMCVy+qabAdBKTM4Zh3+VEIw1MDUqGOyzP/p+rnX4c7l+I3S8+nLBDK9rS4
+	ejU4MBq1ZlJUjv+TuDZ5vpQP6S55vEyMpwn9S4ocq71xe9m9k8mMEDhd2c8OcHkVlE2jE4vs6kI1C
+	Xv44FXwNSgn9r6GpU7w3X1DYdHCXyDDeEBEXoJ4WB0DLilrbxceB1A4Mwr26GeCoKQRit87TpjPHq
+	p3DHI9AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVYzH-00000004WOv-1KZM;
-	Mon, 23 Nov 2026 18:41:59 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1xVZ2e-00000004Z7C-40C1;
+	Mon, 23 Nov 2026 18:45:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVYz5-00000004WIz-1fNY
+	id 1xVZ2E-00000004Yt3-0Xgh
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Nov 2026 18:41:49 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3b40d23e1adso2595017a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 10:41:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795459306; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Je3N9ARtO2L0UBsPySoXDivpLMCX/3lph+33YlyacLX2J5Od2D+FQmhhOxCBZekHsc
-         ZQCGPTPJeuEmx8id9V1AGCHnd3nHu/TEFRrksvjdY+FiRt/FqKzLyNnMLYvWFbaTSsbq
-         ae5SC4F9grWCIEiA8U5LJ08zoAxNDKYrJUzk0Tc+tUdBp+xYldZov6TqTHa6yYfeKQ+V
-         93bwi6YUjfLVhytlTYZYamHMOXXpG1d9iY4OZPHtylrsWXZ/55D1m16mEgn7GKz+FDsd
-         3gmRLQQkIT7hsh9Mug0dDa9vxbljT2FrD2nGYvHmdfXtEOOpTGgpn6ZtKEhRgU+SQ4Pe
-         S6lA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=7KCCFV8c12xHGuVa12sa42pR/GvO+E15oZ8scml+fpM=;
-        fh=c2WvXEnPXgcP5R5mvgQ6ZsavGSQGMqZk6GePEQyH7t0=;
-        b=UUK066yxe+P/DSQtXS+KNeUHGeiMekRJ2khKdLqUPo4TImOKGCNcSMNy1eVveFARUD
-         yiP/biz335G+InuVHsfkhy++i1ihjPLgQ8M3qeJ7glOCOeJBZG+WsZBi+zIahUICBbR3
-         rVEVpdCDnznXQIX+l56nBzpwIcaK/Ocgae21rA1vwZJre4yWfWy5wATf/B1I0C7mlFay
-         jEYm0UqyIjcKBze97qX3waILbK6zJFLyoj6wCb4bO9/BZGN7mml3ERvSxePfJk+qBi3V
-         WmsCWkizlp0uS+T55s0uu7dUKcI6Vq9xhjJNgHEsnIJ+uqgUyJxBSANpn+v3JZTCbIWT
-         3DTw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795459306; x=1796064106; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7KCCFV8c12xHGuVa12sa42pR/GvO+E15oZ8scml+fpM=;
-        b=xo+zNHCz2v3P7ROhDu3p3w1MB1Jzd2bR8M0WoPaehQETdtIWUISkxZCJQvMXbXwoS+
-         MhlxV/9qSx/x7QsG8Ptr9Qu0bfKI24Uo+y9Iw3JBlu1oX5fW2xcMm0HNTuptDm25FImZ
-         PQnxCXVy0IKXYg8OjYTPCN0O4UXmH7lYju/qASAbKJ0J6tvu2U3ae+iDtqFKkFpQEMnP
-         DMXbXcQy4aNvw1vg5+QPAYnhQ/6FD00wb2nrPo1aP9oboieVEU+aglQnaV6WhsU22kXv
-         AS8q2o0Ggs6nQ8KvLczk6biR3ZOIB9n94MnqZZZCWQ/3HyT5+nKIuO7KEFT5pvt6HNEU
-         Y15A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795459306; x=1796064106;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7KCCFV8c12xHGuVa12sa42pR/GvO+E15oZ8scml+fpM=;
-        b=u6Qzedc3LL7nzzdru4VHQXI5a9p3qS4YSP2D6c2qp4NPgdbWzQnHIHxM0TRUWJiYGn
-         9kMRHYcYO5aJ9Vg0PbnTNwhTFNRg8ogZtSFgTsykGIa1RF7oNtCZKwsBRWRE2VVsJysK
-         Qx/10gC3WnToy2fPxmF2RnYURrIomtoNTYDLcpQJcrVOQr9MEwptENmBWASMT1eB+dD+
-         gvp2s9f+0DSGmuwReAoDVY5WhFkcJIJeQZK4ZbEup3dV18yoL+azr8/ahR3dvxTu4GOU
-         R6tyaqrs++PUT1WsaJhkp40nr8TGcs66q0MbZewBDStG3e6K+X1AoPhGPGI2aROw5VRl
-         ZRPA==
-X-Forwarded-Encrypted: i=1; AL+hErHPmOXA8GL0CSXA9+5gfPqgG9sVx2592SwLkfnY12bZazDkDBDKT+ubM2OsGwpv0VnPVzP7e62Qz8GBYA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9BMUOColN7Mr2frzsv4qnFPYno74429ASdRY/I7wyULnmzrqkm
-	e+XEAwbl77usxwO/ylj+VDvL2ov4kbW3BNjC4d4OuyBNnOOBkejhx4LTC5oxpwxS7zvVq7p3yBn
-	WnqEnh7B0Ukr5G53LDjlnZ7vc/Jf8GoE=
-X-Gm-Gg: AZFdTZcBigCADdQ3X2/CUmiyAy+6C+kYNqQVp68vZQkewqPn+n1I7sUxGq1dhr7N/2a
-	GioCw9aItEu+da7Q64nrGTjD+vmWdV8ZjyKqF1/6dEhLm8jUgVzMlAwwjeYp0IyM8wMlmxOp8ap
-	Lln0dIkXYiugpzvFGrOCty0l9uHPMZi6k5CytPtQR/raNaChp6xYN6E33MXDLXstTME1bjMCIjK
-	vH3ODLn/tPg6TVnXtwj+SnxUagZca/ZHPb1xGQXy0gmoBqAdkbV/TXY8z/cr5YiXLgxEEE2dYrf
-	U3dVzHTcF2TwIFI6GJbgMmMOWyPceVwbHzlCLMZOeXZWWOdK8b5mjTf96V17alpD/rpHOp5qIU+
-	RN9inM/bexPvI29ZsilSY8iV7234xYGrnC5Mv6w==
-X-Received: by 2002:a17:90b:17cd:b0:3ac:6fcf:91d2 with SMTP id
- 98e67ed59e1d1-3b41c8fe3d1mr11633543a91.19.1795459306227; Mon, 23 Nov 2026
- 10:41:46 -0800 (PST)
+	Mon, 23 Nov 2026 18:45:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9288762455;
+	Mon, 23 Nov 2026 18:45:01 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795459500;
+	b=N0P+TM4sQJUhwvthYW+pnmKcAUuVbPGDla1fYuzR9h9YB+0Cd/meA4Xu5E61nHDsKHnh
+	 iP/UGHWBXcWPGFtu24KXE3zsjGblZsz4aepUfllTsl9eGC6pYDPUlrZI/FXD9AzcM21Y6
+	 2sJNOLg/BGKr0md/IrExo8DlHwPsa0rcFsvIixP/VUW0C6eyXEpEOuCe6PRtlpI/hU/Xj
+	 +rCkabxGP+okHGi0dfYZX9JvhD4SO/kuVE7j1OIGh6XVu8eJA4ZbwJ3NYshQ0IRsVxbhZ
+	 ZlEWgVcvj6Pbww9jlhZ2J4SQsY3ETPyROYe0xp5vmXA1P+FJCxjG80BVrpugrUErDgw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795459500;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=2EyvKGJby7u96yUshyzbi6zLoTlKsi5MJp9yGQp9UFM=;
+	b=KacazgLQriLukGCnq/Zc7MUjBEEx4jmDgU8dIcEahBYmkgg05LW+IybpxD6crgrO2mJM
+	 Idta0qeZlZurctRBpd+f/KyJcq3L5NYqG0cWQtkh4iRLFcIdLn3mU54qUETr1Joi6z3RO
+	 f0fJHK7GFklFEibYhpXXQg5xjpEj24TwSQtAHGauTv1PDckDYwi1HD+i70glv/PXgb3cv
+	 wacyzYnxZnos0X0gpwlPlsVMX+Vn486J7F8ARN9jRoPPpInnJSeGIL2K5NGAV3NidxOOb
+	 ugVdJppdVlSOCtRdf/LE37tXojY3a24Tj5ZE0kj33e06TxlOy06D/JZ7RGOxqu6O8PQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id C66E31F000C0;
+	Mon, 23 Nov 2026 18:44:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795459500;
+	bh=2EyvKGJby7u96yUshyzbi6zLoTlKsi5MJp9yGQp9UFM=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=bapmArYoZVCd+0TZEovhtrRe8XtyorxEpB2OmP5LjC9MR4Io3TBd9Rqoj/JZ7COlg
+	 TVn9rrE6Nldpk7COU7pfnMi4pvZnBW06mpW0hPU1KjoKpPOsXzHw37+YR1nIiRU+vQ
+	 8RhLpDO+rDsRuh3gvaj2AgmFjwJrOqbNyXCsVBXE6W20TN/FMZpgHH0Wg2jzKRvMx6
+	 870LFIa/8qLhkEDRFHhdTfW63jRpHKOBS1guT5jl4t+YhcKsliTkyIAaT1nbg874KK
+	 6YfkjFuSOUY4aUMhcBJq39Hs3jKwBfvUFRZNDH1SFauKGLG7h5Svq8ArO7pVSopv88
+	 eqom/XzzkJ+Jw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 553294C5A7;
+	Mon, 23 Nov 2026 18:44:52 +0000 (UTC)
+From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
+Date: Tue, 24 Nov 2026 02:44:45 +0800
+Subject: [PATCH] riscv: vdso: Define BUILD_VDSO
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261118-orangepi-gpu-v2-1-f68676f844eb@gmail.com> <20261122184434.545341-1-frederic.mahe@cirad.fr>
-In-Reply-To: <20261122184434.545341-1-frederic.mahe@cirad.fr>
-From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Mon, 23 Nov 2026 19:41:00 +0100
-X-Gm-Features: Aa3M54rYymnQncJINmj7PXylw19m9Q_Z0b_H3MvffZyCzTJDH31b-Bzjr4MRK-U
-Message-ID: <CABdCQ=PnfXRd2=b6_yEN94RCRvPnWx-WFfHZDC+jhHv_UFZ1ZQ@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: dts: spacemit: k1: add PowerVR GPU device node
-To: =?UTF-8?B?RnLDqWTDqXJpYyBNYWjDqQ==?= <frederic.mahe@cirad.fr>
-Cc: Alessio Belle <alessio.belle@imgtec.com>, 
-	Luigi Santivetti <luigi.santivetti@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Yixun Lan <dlan@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
-	Baihui Liang <liangbaihui@linux.spacemit.com>, imagination@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_104147_465125_82644DEF 
-X-CRM114-Status: GOOD (  13.51  )
-X-Spam-Score: -2.1 (--)
+Message-Id: <20261124-riscv-vdso-build-vdso-v1-1-c52b0b3592dc@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAJyJBGsC/yWMQQqAIBAAvyJ7TkjJir4SHSzXWogMlyQI/57Ub
+ eYw8wBjJGQYxAMREzGFo4iqBCybPVaU5IqDrnWrlG5kJF6STI6DnC/a3Y/Wzb7rTWO98VDaM6K
+ n+/uOU84vR63LbmcAAAA=
+X-Change-ID: 20261124-riscv-vdso-build-vdso-adbf7854af5f
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org, 
+ Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795459491; l=1289;
+ i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
+ bh=dAS3hQxQuE0pYdjMaRRfsno7t7qwdj3jEoveU0f6oWg=;
+ b=YPNE9RlZxuADbrEQ9JR/ChY+NDusx5Ei/QLKFb9cujFmClqvAns64uITCNJZzvn7HsRzmfE6L
+ /PEZXb+MtO3AfClONlwsVevAQx7iL8yfowyl2z7/xMEydoxHkWkBNPB
+X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
+ pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
+X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
+ auth_id=1262
+X-Original-From: Han Gao <gaohan@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,35 +108,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: gaohan@iscas.ac.cn
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGkgRnLDqWTDqXJpYywKClRoYW5rcyBmb3IgdGVzdGluZyB0aGlzIG9uIHRoZSBCUEktRjMhCgo+
-IFR3byBub3RlczoKPgo+IC0gT24gdjcuNC1yYzEgdGhlIGRyaXZlciByZWZ1c2VzIHRoZSBHUFUg
-KCJVbmtub3duIEdQVSEgU2V0Cj4gICAnZXhwX2h3X3N1cHBvcnQnIHRvIGJ5cGFzcyB0aGlzIGNo
-ZWNrIik7IHdpdGgKPiAgIHBvd2VydnIuZXhwX2h3X3N1cHBvcnQ9MSBpdCB3b3JrcyBhcyBhYm92
-ZS4gSXMgYSBkcml2ZXIgcGF0Y2gKPiAgIGFkZGluZyB0aGUgSzEgR1BVIHBlbmRpbmcgc29tZXdo
-ZXJlPwoKWW91J3JlIHJpZ2h0LiBJIGZvcmdvdCB0byBtZW50aW9uIGluIHRoZSBjb3ZlciBsZXR0
-ZXIgdGhhdCBJIHdhcyBsb2FkaW5nCnRoZSBtb2R1bGUgd2l0aDoKc3VkbyBtb2Rwcm9iZSBwb3dl
-cnZyIGV4cF9od19zdXBwb3J0PTEKCkkgcGxhbiB0byBzZW5kIGEgc2VwYXJhdGUgcGF0Y2ggdG8g
-YWRkIEsxIEdQVSBzdXBwb3J0IGRpcmVjdGx5IGluCkltYWdpbmF0aW9uJ3MgZHJpdmVyLgoKPiAt
-IFRoZSBHUFUgbmV2ZXIgcnVudGltZS1zdXNwZW5kczogYWZ0ZXIgMTYwIHMgaWRsZSwKPiAgIHJ1
-bnRpbWVfc3VzcGVuZGVkX3RpbWUgaXMgc3RpbGwgMCBhbmQgdGhlIHBvd2VyIGRvbWFpbiBzdGF5
-cyBvbgo+ICAgKGF1dG9zdXNwZW5kIDUwIG1zKS4gVGhhdCBsb29rcyBsaWtlIHdoYXQgQmFpaHVp
-J3MgImRybS9pbWFnaW5hdGlvbjoKPiAgIHJlLWNoZWNrIGZpcm13YXJlIGlkbGUgc3RhdGUgYmVm
-b3JlIHJ1bnRpbWUgc3VzcGVuZCIgZml4ZXMuCgpJIGhhZG4ndCB0ZXN0ZWQgcnVudGltZSBzdXNw
-ZW5kIGZvciB0aGUgZHJpdmVyIGJlZm9yZSwgYnV0IGFmdGVyIHlvdQptZW50aW9uZWQgaXQgSSBn
-YXZlIGl0IGEgdHJ5IGFuZCBjYW4gY29uZmlybSBpdCBkb2Vzbid0IHdvcmsgcHJvcGVybHkuCkhv
-cGVmdWxseSBCYWlodWkncyBwYXRjaCBbMV0gd2lsbCBmaXggdGhpcyBpc3N1ZS4KClsxXSBodHRw
-czovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI2MTExMS1pbWctcG0tYXV0b3N1c3Bl
-bmQtdjItMS00Mjc2ODlmNmYyZjlAbGludXguc3BhY2VtaXQuY29tLwoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Han Gao <gaohan@iscas.ac.cn>
+
+Unlike arm64, powerpc and others, riscv does not define BUILD_VDSO
+for its vDSO build, so header checks on it never apply here.
+
+The T-Head WRITE_ONCE errata needs it to keep its alternative out of
+the vDSO. Otherwise booting with CONFIG_DEBUG_VIRTUAL=y hits
+VIRTUAL_BUG_ON() in vmalloc_to_page().
+
+Link: https://lore.kernel.org/linux-riscv/CAJF2gTQ+cOYfQX=JsK6T6Aij79FU9RGuyxAAouyL958z8ABqng@mail.gmail.com/
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+Tested with the WRITE_ONCE errata V6 in qemu -cpu thead-c906.
+---
+ arch/riscv/kernel/vdso/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index c023046a3fd75a95946babb96b3f9019ee2dec4a..b99645672634852df814e9d17c768bf82297079b 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -35,6 +35,7 @@ endif
+ 
+ ccflags-y := -fno-stack-protector
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
++ccflags-y += -DBUILD_VDSO
+ ccflags-y += -fno-builtin
+ ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
+ ccflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
+
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261124-riscv-vdso-build-vdso-adbf7854af5f
+
+Best regards,
+-- 
+Han Gao <gaohan@iscas.ac.cn>
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
