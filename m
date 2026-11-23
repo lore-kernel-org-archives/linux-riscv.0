@@ -2,143 +2,131 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F801606A31A
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 02:30:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FA4C606A32C
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 03:15:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=b0Dc8xZI
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NMuur1PB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=CMe+XSB6VnMcZxhLkluszw/nedZ3jJf6yuWpi6aReG0=; b=b0Dc8xZI8VljH+tV1gA+zQlLZz
-	+fhG8JbzICQmEtDTVz/htBwiVKHVZ8ZVL28GLBfpJFWFjlS91WNUjnEGAMxDKyP3MKVGxPbDx2DZl
-	P7Uvr9zielzfkxnvEswsLobluG86CGIsc34LcD71f6dw8NeD7iZfSdf9v7PZCmE+S+ZebmN8SM4Ji
-	XOwz2v6MWRztHL5S0iV4g0JqB8/0+acRNOtKL87pDDOLHDoYJPpfBOnhTMasKujdUSLcRYqeMmb2K
-	TyOzqhXq19ryavsyUCjcVkXFYuMCxogaHaGBmGoo8zsgjlRde563u8TTZ9ZwJaDAnlkm0mVG4P9Z7
-	8DDM0ixw==;
+	bh=sbr99STDBpFP2vGjIh3JLA7K4iTdByd9GBJokT2Yx28=; b=NMuur1PBN6Y/3kg6qU5pQOzGhW
+	rvsgh0CgN+ZsXhBGofci9DH9MhXd0BRb715L9ZJzpFz26h8WqVE7AbQZjNXaE2zy2nTXvhQfJrVc5
+	mI8Hx2s1raNYike4nTrjMjhFdid8c4oPkJQoWHHRW2lJgMFQqlmcYrBkJv/rQJOsuaK71kzoOwItD
+	2SURLd3xDZNouvkY8/2nR1Ih37cDfQVu93FpKKeVis3I58byCFGZpxxnv7yqcK+kH1NPqrnxqLy2Z
+	JxjHyzZ1BJGPHuWsdq7AvgVTC/pPH40xQgYSB2dutjjTezOeTUGZfsSQIxZ+k3sBn/QVGcPDeJlBg
+	bDhiaXtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVJoV-000000028Mn-3NcP;
-	Mon, 23 Nov 2026 02:29:55 +0000
-Received: from [2406:e500:4440:2::710] (helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1xVKWP-00000002Bjy-14In;
+	Mon, 23 Nov 2026 03:15:13 +0000
+Received: from mail-bjschn02on2072a.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::72a] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVJoT-000000028LQ-0eyj
+	id 1xVKWK-00000002BhE-39fc
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Nov 2026 02:29:51 +0000
+	Mon, 23 Nov 2026 03:15:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=JSW19GlKTaXlhZyjBESyCC82e+Z9BN3zoffQSzRODfLt0wT03eJQWU8B/Pvp8JLUpPwDQ5N7EqSfZoN82gfxMsebWwvFAGUH++6S6H9GWP5A4iEYLps7igymLXV6EO3Nd0CG+wbUcB9adKSK7xRGnzEccAbVZBGkFe8YvX011IMSGISyuHolnhSfgMXu6jdRz8++mSvjucdFOFenkGUhnCUMnxRx0ZeVTue1kgJtnoRw/AQkhSwCaOlyM4IWu0ah5Jl2nks7ei28eWv/XIXZ37qCqRG71pD5ALi4HWig4bjKBwMj6rkbbR2Er5dln27FP+zqZBaxYzgptWCbq4VEGQ==
+ b=OLmTjprBq/QmLizQ5pLGVtqed5O1pjMLs60HuXlaTCtnbocwRH9/S4bkHuHVpwVuOUEyHWAgP/19PY3OnA1PGfnow+76pZm2FJdvKuii2q83mkVnNibuvUZZEZxGOv8M8Ojr2hIh2Jv+hDgEKCcTmuHncHfK1uFSCA86ItfHV6W92ix8GtXFEVohoTW4kpgXNC5+504483AYaDbfEJ439cO/LC2IImgfrjOMVYR0h2fo11FIlcFL+4bm8myayMGsheJoIepjQoslnPvyrcfy+AitcPfe/XFSKfrcK5sJ86q7uyRTuvPw6efwy0FwyDWffgFdsjXU1h0qRjwqMiMorg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T7Ea8UbhPN0Dno6LPQF2R+dFWatd71Mn7WiRhWGl3FE=;
- b=CoebTQO8BhJXY8Ii+PHHNPvXWDyjT9SX8OCant9h35Azsk9+iXcwBOkmT7T0vVFMm8RN3yC+wo/qpOlgHEkWFruj/b8fKMv8U3pcXJ0J5wtbn6FX1gJ9+8tfdCRw3fXtcjsZeDW7D+frWLTHcwt+gV4JuRlJNdQP3X1zLRuOUytP5Xrby8gy/90ZPyqG8+MVMwOPd+3unvrX/0x5toVqpOHR43EpFAWgkQ/0unl0aXGbPB9iuEKZLt+4JZdS0RJtkfabX87uQxht4KcbR62PppXSlgC8UfTngMMnHdH4EgXSjjb7nbU8pbFyQt440b+q+6BiGv2bV8J4Zj+pPkIAfA==
+ bh=LbVDFVdfoZw0yv/mdmyIg+RS94OUUsv+WkS8iC0pIQo=;
+ b=eC3Yg1w2yavmwNa1cOHzdzsG9ggm+mSnwOBTSD1Jisa+nRxfBpZZjyXtK65Bxv/TrV4iUdGT5LtkCUgX3/3xaZtmz5a1KY3nBuZlykKac5eIugzkEPInoWhf0FmrToCqer8lp9F1Sjtgx7PI82xE7DgFH7dZWf3U0+njKJ8ZXJ7aH1FOIVpKxF+kTL7INXhinj+n5f7vSNtVOnnhk1yRyB5m2/D2UdGrMGBjapfuxqFDr5CqBxLkt+ZNW9VtSCDjHk8VicLqvPN6Ia2KcVj35W4WafjgQCgavao7fSS42L/Yj++TRDvtgqcIi5nmvg60a+mrRVPK5qrhVruRk0BDjg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1171.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:15::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.19; Mon, 23 Nov
- 2026 02:29:27 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%6])
- with mapi id 15.21.0615.017; Mon, 23 Nov 2026 02:29:27 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-CC: Brian Masney <bmasney@redhat.com>, Jerome Brunet
-	<jbrunet+clk@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, Hal Feng <hal.feng@starfivetech.com>
-Subject: Re: [PATCH v2 3/6] clk: starfive: jh71x0: Add generic CRG probe
- helper
-Thread-Topic: [PATCH v2 3/6] clk: starfive: jh71x0: Add generic CRG probe
- helper
-Thread-Index: AQHdd0RdMHcensPM2kK9n/gu2bk397c6QgUAgAC0XPA=
-Date: Mon, 23 Nov 2026 02:29:27 +0000
-Message-ID: <ZQ4PR01MB120278600373D94EA1F5E136F2452@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20261118100523.11395-1-changhuang.liang@starfivetech.com>
- <20261118100523.11395-4-changhuang.liang@starfivetech.com>
- <179536223421.2728475.4581137443338131034.b4-review@b4>
-In-Reply-To: <179536223421.2728475.4581137443338131034.b4-review@b4>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1171:EE_
-x-ms-office365-filtering-correlation-id: 5ac256b8-0bda-4562-64d7-08df490998ca
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|4143699003|6133799003|261009223027099003|22082099003|18002099003|10067099003|56012099006|261102123227099003|261022075727099003|261028144727099003|261022105027099003|261021121427099003|261022113327099003|261026121527099003|261026140227099003|38070700021;
-x-microsoft-antispam-message-info: 3PcF1rsw7vfmdOPLdUipWorCPeptSXoCrijIfRS/m9BOK7hZAenvyM6yOAzrjOzoG1lhZCsFfgIhi6wvjA6QvpW5Gek8apt5sb9PVd1VjVLZFZeSYgCmFv+3uR/YbAiA0eNc2ulAmmGOJ4dyf28bHtqwz1kNBbKBGwZghbZtBvYDFUx4hpj7dlHRP4VJpp4Agnbatte+i4JGVXJO/e+fwUD/k4UY7jg2HnRGWtdqFNJDv29q+edaggmorCnUlm8rXkNIPMNfZsXu/uWij1DVhtaYs5Sj9NWPLAkaC8EdVCOGtLoaSN+Yhwj2vzeV2bOTLC8gmQCIrHUz1ntxasCBjV90Ywp3XES0LOz9Yywlva7DNtpJWqNQcwztV05b2HHj9/XPIVhpj4DJ8afoB9dNX9eeJXyPM1m/QxOhzoVqe8qz+OeFDndxFwSDHDm3+a4p+nwMs/joc7O2aJ+kzDPbrSR/HezTKIQ1RV9PlG/O1XXB/ONnLDNNa/moz7YfSq6iI2alzQcEZREtt212O4z39bILxuW8eXlwLBW3SMzSRGSAPZTJ9WVXz2t3AP00g0LA
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(4143699003)(6133799003)(261009223027099003)(22082099003)(18002099003)(10067099003)(56012099006)(261102123227099003)(261022075727099003)(261028144727099003)(261022105027099003)(261021121427099003)(261022113327099003)(261026121527099003)(261026140227099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NE5yV1ZGSnB1Uzc5YnEzaDAwanNlaE1VM1lFMXV6NWJJZU82Z3kyUFd3ZERx?=
- =?utf-8?B?dWlpeURvRUFSQ1ZZd092VmtPeG9ydlFVOVpSdGVBTlgrN3M2VWxmeElyVnYy?=
- =?utf-8?B?NEtQU0luRTlhbVNLNDJ3Y1Z4VloxTTZ3Nisza2RvR2xHQW5kZkNaNlgzeStQ?=
- =?utf-8?B?bnB6WHJzRkxnWk9EOVhTK2ZQbmZmNmtxY0NTV0J4VWtDSW5Jd1NDWjUxWUNV?=
- =?utf-8?B?VG10dVY5RzNEWnFGNlZWMENCaEYxQXd2ZEt6T3lzYnpaSmNmRkdoMDMzOTJF?=
- =?utf-8?B?VDJIcUZZMWNkaFk0bTlLUFdEU3VxdldmVFR6RlB1Qk9sbDlGOG5TbFZ6U2F5?=
- =?utf-8?B?R29BUzU3ZDhvaTZwa2JpQmI3U0tBUi9lZ2lhUEI0eFdSNlFMWW1OWEFiSk12?=
- =?utf-8?B?Qkp2dW9nZWVqdHpFRytGekkrdTVadEFtYjlOelkrOHZid1dENU1Pc1hYVnlQ?=
- =?utf-8?B?cDhFSCtiT1JYakRJL2JkdWVBdXV2cHJpcWRxWXY4MTJpeHFROWxwZkxvcjJk?=
- =?utf-8?B?SmxNT2x4THczVnhiNjZpWXhnODRianplczNyc1QyeGlQWU5LRllRT09nTE5M?=
- =?utf-8?B?RjUxeTlCdHBoSkt5cTYzUHB6cWRuZDRyb1JUWGtzV2l5d0RLLzY3TUZkNSs4?=
- =?utf-8?B?NXE5cm1kbEFSdGZYeVNRbUJLU09XWHk0S1duWS8yNkNwWWJXU21abVdXaUls?=
- =?utf-8?B?VUNYNSs1QmRRNGFFMjZNZWNhMVRiU2tLUkF2LzI1Z1VkWTVtWEN1V3Uybkpp?=
- =?utf-8?B?SjdZWjlxWXlVY1hxSDk4elRDbHExSUhRNTFSSWNGVjArOWtXaE1LeGEzTDJX?=
- =?utf-8?B?cVhtOWNjNXh4RzhjSkdkUlhSL25wVGV5eUdLdVVDTnNGYzBocVJsaTdnWEVL?=
- =?utf-8?B?dytyMFBIS2syQVlCeEZleExITVV1THpjVEZjTXB0ME8wYS9YNCt1d0pOYk55?=
- =?utf-8?B?VUtxTSttQzZOU3I4ZFVCQmtlV1hPSFVuMEdEdGM5aVM1MlFMMktBcjlTU2Za?=
- =?utf-8?B?Vy9uSVBwUXNoRERiYTFxcUJTN1pKQklEdnJUelh1WHBsSzV0Z2NOSUFyWUJN?=
- =?utf-8?B?VmUxWTFZTXVaU1pGV3M1VStSeE1Mc2ROYm0yNW1ublgxUXJRRUoyQUdwN1ZZ?=
- =?utf-8?B?R1ovZVR4ZzFXTmxodHBGWWJEdW5YVnU0WXBOWlF0MnZjUUZ2dXJvRWp6ODJC?=
- =?utf-8?B?VnZpQUNFZHNJUW1CMjN2QmVwR0RzWk50YXpwOU1pR3lHd2RmUFNRa0pXQWtl?=
- =?utf-8?B?d09VN3JzcDd4ZHk3a1hORXQ1OVhlcWhoOGlPeVJBYi9FOSs0a0g0R05yUmxr?=
- =?utf-8?B?aEhZeGVpaUo3NVljMlNEanNTamszQ3hMQXRtOEZTUUpzMGo3enNHMG8vSTZu?=
- =?utf-8?B?czdpWFpkejRJY2lreDluYUJYMTJ1d0hpa0JuRCs5bVlDODhyT2lENDFVc2VW?=
- =?utf-8?B?S29wSlQwYVZHU21VNTdDNDA2NVNnZ21QMGYrdGRJTkpqRzNBenhDcjFzK3Rw?=
- =?utf-8?B?am5uLzhGamlERWppMllrSkttcUJGMFVhbzk3RTNmRkRZNXZzOURBZ0dueDJH?=
- =?utf-8?B?bERZek13ak9ySDV1VkpoTUxMVnRiK05UUDM3NUZJa0FHNUVTTnUwSDhuRHMv?=
- =?utf-8?B?dE5kSys0dkc2aktxZTZHMk9Ia3BoSTdaNldoYmVHU3JwTGpOSjI4dHMyVEZ4?=
- =?utf-8?B?eDJsU0JHUGVGYjRoQ01oL1hDa2Vzc1dONS84RDFIbDdBOFIzSWVyQUppR2FU?=
- =?utf-8?B?ZVYvYmNzL3FJTWRpL2VNNURPemFjcTI3UmFkRlBucWZHNjR4TUhIbzQzUUVX?=
- =?utf-8?B?M0QrQ253bnNNZ3ZaVTZEbkdYVDQvby9oNjJCUHh6VjBkYXZxZlozbUdqUWt0?=
- =?utf-8?B?V0tJeEpxYnJjY0lVeEdmSkYwOXlaZ3huSkVYemlwRDFEZjMrZkszcnhZYkY0?=
- =?utf-8?B?dVA0ZkRWZyt3diszY3E2aDkxM1g0bndwK1FBUmZiRVRJVVdMYVpjeXBGMFlo?=
- =?utf-8?B?MHM2bTZacnZvYXpqUWRHUHFHS1ludGNKRHFyK2syeXFDQXdXWUtYSzA4VDgz?=
- =?utf-8?B?OEFmU3RhYnkybzRtR21tRTVlYkYzZlhzQjIraU03aWxUY202UTJZSTFYU08y?=
- =?utf-8?B?VFFsKzhDYUtSWXEwcWNtS05vTW9EZHJRejlrcFEzaVFHeGhmMnEzU0RhbXdR?=
- =?utf-8?B?WUY4Wjg3clpPSForaUFsOW0xaFJnTmszRXFVMElpUDQrcEdMQ1FZTXJIVGhl?=
- =?utf-8?B?amRITXFiUkE1bEZmcEtTa01CR3JjcCsvR2twZUk1RFZDRGtGZWwrTk0rN0ha?=
- =?utf-8?B?ajJyTkFBSlN5TWhGQmJQcW5CM2pzalo1dHZKaEhXYUpqMzNmWFFpbWMwYlQ5?=
- =?utf-8?Q?fck62pCla+2fxobg=3D?=
+Received: from NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:7::10) by NT0PR01MB1040.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:d::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.19; Mon, 23 Nov
+ 2026 03:14:35 +0000
+Received: from NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+ ([fe80::be4a:d29e:5188:b37e]) by
+ NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn ([fe80::be4a:d29e:5188:b37e%6])
+ with mapi id 15.21.0615.017; Mon, 23 Nov 2026 03:14:35 +0000
+From: Hal Feng <hal.feng@starfivetech.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Maud Spierings <maud_spierings@hotmail.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v25 0/2] Add OpenCores PTC PWM support
+Date: Mon, 23 Nov 2026 11:14:26 +0800
+Message-ID: <20261123031428.20536-1-hal.feng@starfivetech.com>
+X-Mailer: git-send-email 2.43.2
+X-ClientProxiedBy: NT0PR01CA0021.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:c::9) To NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:7::10)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: NT0PR01MB1102:EE_|NT0PR01MB1040:EE_
+X-MS-Office365-Filtering-Correlation-Id: d058dae8-60ce-4bed-af75-08df490fe6bb
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|52116014|18002099003|261009223027099003|56012099006|261102123227099003|261028144727099003|261021123027099003|261022105027099003|261026121527099003|261022075727099003|261021121427099003|261026140227099003|38350700014|10067099003;
+X-Microsoft-Antispam-Message-Info: 2fMY0IOeLzsbaEv68FeuOdT57w+LZa0U1ZN9sjfEKYYZh1+W8sZVfB2lwuz6j6By9uadMXsU3bjlNBCCzkXXXM8XF/EDu52br4BZ+W1h9nAnXucdwTELFcP3kByGrBzi0uuk1oeEfDthz77xeK0ZTen7KpB5Ga9qRfhRhYc6jVYIt78Ro6hgOzv8kECXbB7EztVAKbYdTjbc3dFVsuT9V3dce617UfvsAqJDWByVbaBMLtplUejvIN4dCGwOvTZHoaiS5qjDgdu10b5FV+3JQWFFxaG/qhBBoPa/AyLwSW31qFUEe5L1D0Tg4yvTRxr1dZLbJelICRTtE/bJ9yLACinyz/N+QqDmw4QT/IlIw07pwGUu/kJb2Qb2rml6GMGMkUvwNDfXIKYMzsHsz/x6CLC/1f33WeG9WkW4RPJwfqtLBTJr/PS2tfKWogViucoicXGlG15xg9oM8094ZxWPqpih1K1k+oCJYw7+Qe6r73FwcRpj24VLsLp/NCz9L2IRzk3XLG1txgVZrSFaxKdymzAh/lxtMCrf8mfUYeaRJNY4NPFTz6KglkpnyCLEFH8w
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(52116014)(18002099003)(261009223027099003)(56012099006)(261102123227099003)(261028144727099003)(261021123027099003)(261022105027099003)(261026121527099003)(261022075727099003)(261021121427099003)(261026140227099003)(38350700014)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WvuTYYu1TrNG18u0rsex/oHhaHTzqfZ4sV7yawQ5CK29hHctl1VUgVC1UPvD?=
+ =?us-ascii?Q?udQiYAuHAwCwKMDFEwEmp6raKF2To0RPHsoDUyCBpZqYQjy41E9CbmysjtsV?=
+ =?us-ascii?Q?UFRkXyEdTpzFiv4T7chHCyXb+YjLtqBRLhptuTVPj0kycn5vZaKJpcbt2HJO?=
+ =?us-ascii?Q?AmmGdLFYpa9gTdiNTIddX6YQk8z7xg6bQt4jAlmULqlq0HnER/hZAxWcK3aT?=
+ =?us-ascii?Q?ii2N14W1EYByi/I99doRRd0J0+HTeYo01RVZU7OY1Yw+H1ggl0WLmtCg7vQj?=
+ =?us-ascii?Q?kGWlRLtkoebG6pMrtJRAJE6Ndt7uGjNVWvxb9dsPgEb7HLYHMNMzeMN1yWH7?=
+ =?us-ascii?Q?bZqhbuYngRO+AyXWz4cEQLt0KEIampKkWbh/Eg4xAxxxrgFJwnTLYDEcdg4B?=
+ =?us-ascii?Q?Y1KooJYavGBQtGVnzHnUEZuzhaRyk6vLqurMbuNqCoPi64FaBv3ts1q24EtW?=
+ =?us-ascii?Q?YTBT9Qbzn3lfyHr+4kOZ8rMUokvrWnihurDIPW1QyIAHyBNKxAv3sTvnuD0r?=
+ =?us-ascii?Q?1eS96k/xWbqcuIiUOLVQLXhXHMQQoKY9k+fHAsrw1yKswnwVEc/B8CcTWfzs?=
+ =?us-ascii?Q?s1OXcFR1NLAWKSCgOHzqtQj1ECzI7pOU9ndmpBMz612uBTLwUQVraw07ebFk?=
+ =?us-ascii?Q?OPndGaI49oA+VcniB1pKkovHnWG+0IiY4E9rkKYc43wkJLEvSd+NmGsLR0MX?=
+ =?us-ascii?Q?cMavPQS9WoGKyIllBKMyaNoV0D71LcymAE20p3VB5mgo58SfbYQhYxZNlA1d?=
+ =?us-ascii?Q?cnUhVdj8KS4QEz5F63D5K7s3i5QWGUidOiB8ywOTbZWEpL18ZdTA2Ks5ybt+?=
+ =?us-ascii?Q?NQxj40xDet8leMG7MnbNgimN+/0eNYQFTblHDlBGYTs1Hfq9c6ZNYr/wrNru?=
+ =?us-ascii?Q?T4uUFtKQxvYp/WakRp2BhCvEEI0qWzG34bLrJKsc8Mu7PtkShuxsuB/RZmyM?=
+ =?us-ascii?Q?Rawd2HmiuRW3jpd4e4jU279Pp3z1mC+CqcedENp80exEX/Tt4XHbFBu75/8b?=
+ =?us-ascii?Q?N7vgk5+BNG8JqwfzqnYHhZv4MaRJzha/+LeeWl4fhJ3n5QLhNLOIcOCoV7mr?=
+ =?us-ascii?Q?zzf2kKWxOMB/C4pCRP6CV30VwuLuPpRpEXuMo6l+zrVLeIXjSMufr+1Jqu/l?=
+ =?us-ascii?Q?QdUU9oqFnIwKpEhWYSDEo1wVv9SjFGartlJf11U/yryg5o27vhhybPJGeklU?=
+ =?us-ascii?Q?oZ08vwWQgUI9FWyefUV7+wvPLjRTsMjJjG6hiZaKhH8AGRRMyLM8KlT6pYXE?=
+ =?us-ascii?Q?HZoei0keGNP7jRWHq3JnTZgnEEK2NAS+iqvWX8QQF/nEYKIUE0l/G+DCSVCb?=
+ =?us-ascii?Q?0zWd5kTTLSBurE6Zg7uD4PjGXZxLYiZvd7+SWz+0lBWN96s+DCzubK6tJ+Y0?=
+ =?us-ascii?Q?eJSRkfch/ZgApXU80dNFnuryOIzJqgLBDFrIyHfZ3Cd5hZj2lgiFLb0hcHR9?=
+ =?us-ascii?Q?WgNciqOB27c9QhLwvmdN4AmMNUscFYWHxoRmH6fWnOP+9KOMGF1f91p9XUgm?=
+ =?us-ascii?Q?GdCUcOjNjjSHtHsDmVHiOG8dp8cxm1vlCu7nAcUn9rqna60IDM0ofNWy7UAU?=
+ =?us-ascii?Q?Jqzl8AznlsIuRvAmHxwzq+zT791tiv+Xi8lhLXBTELHciLS7BH1Rj4CPtDbD?=
+ =?us-ascii?Q?oop3SwiLlXQyBqnuxeVndTpxXxMTIytYeg/MYloUE8D4QCY8KgGbEyqZV4aS?=
+ =?us-ascii?Q?EHzeg8UY8+ea/MFX0p3xslsuYOWvb4PCkfHUhISXhAjgQhCD2/OLtYM8kqjG?=
+ =?us-ascii?Q?4dZRO8Z2HwKVlRDHMRpg/eDR8R9A3kQ=3D?=
 X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d058dae8-60ce-4bed-af75-08df490fe6bb
+X-MS-Exchange-CrossTenant-AuthSource: NT0PR01MB1102.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ac256b8-0bda-4562-64d7-08df490998ca
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 02:29:27.6645
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 03:14:35.6505
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: YYUALX8c0mlOGldkJn7uOuh8roJlXTDQljrg21bbLXZIv/G9fEGMH9JlwFbS1oXYrmqZr+dT7AN5mD0xjzZVn3KBag9bUyIPgmeVhkL9GW+ceNRS6+9DGVFRNbL7opYT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1171
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: u0QdWBdS7gtRskS35tcR1zXUOj/BnY6Md3O4H1kUoAIOuE0WOyoXPiMFyWCDCUKMNjy3orhVKQzk/6FTHv5bOaicEu8ZETcKXoDYjD3D3xY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NT0PR01MB1040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261122_182949_199791_E340B85D 
-X-CRM114-Status: GOOD (  13.61  )
-X-Spam-Score: -1.1 (-)
+X-CRM114-CacheID: sfid-20261122_191509_590603_A1769613 
+X-CRM114-Status: GOOD (  16.54  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,42 +139,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi, Jerome
+Add OpenCores PTC PWM driver which is used in StarFive
+JH7100/JH7110/JHB100 SoC.
 
-> > The StarFive JHB100 SoC has several clock and reset generators (CRGs)
-> > which share the same probe flow: map the registers, register all the
-> > clocks described by a table, add the clock provider and register the
-> > auxiliary reset device.
-> >
-> > Add jh71x0_crg_probe() together with struct jh71x0_crg_domain_info so
-> > that each CRG driver only needs to provide its clock table and reset
-> > auxiliary device name. The reset auxiliary device is registered with
-> > jh71x0_reset_controller_register().
-> >
-> > The clock table is made of struct jh71x0_crg_clk_data entries, where
-> > each parent is described by a struct jh71x0_parent_data: either the
-> > name of an external clock or the index of another clock of the CRG.
-> > This way the external clocks need no index of their own, and the
-> > number of clocks a CRG can provide is not limited by the width of a
-> > parent index. The existing JH71X0_GATE(), JH71X0__DIV(), ... macros
-> > can be used to fill the table.
-> >
-> > The JH7100 and JH7110 drivers keep their own probe functions and the
-> > index based struct jh71x0_clk_data for now.
-> 
-> I trust you'll follow up on this.
+I will maintain this pwm module in place of William.
 
-OK.
+Changes since v24:
+- Acquire clock rate exclusivity with devm_clk_rate_exclusive_get() before
+  caching the rate.
+- Read and validate the clock rate after enabling the clock.
 
-Best Regards,
-Changhuang
+Changes since v23:
+- Drop the Tested-by tag for the dt-bindings patch.
+
+Changes since v22:
+- Drop patch 2 since it is already merged.
+- Drop the starfive,jhb100-pwm compatible from the dt-bindings, as the pwm
+  module of JHB100 SoC differs slightly from the OpenCores PTC PWM module
+  in polarity handling. The support for JHB100 SoC will be added in a
+  separate patch.
+- Move the polarity check later in .apply().
+- Add comments for keeping the reference when the pwm is already enabled.
+- Rebase on linux-next.
+
+Changes since v21:
+- Allow non-zero duty cycles shorter than one clock tick to round down to
+  zero.
+- Drop the .free() callback to preserve the PWM hardware state after
+  pwm_put().
+- Update the comment.
+
+Changes since v20:
+- Fix 0% duty cycle support.
+
+Changes since v19:
+- Drop the oneOf construct in dt-bindings.
+- Address Sashiko AI review comments for the OpenCores PWM driver.
+  In ocores_pwm_apply(), handling disable requests first, then calculating
+  and validating period/duty for enable requests before taking a runtime
+  PM reference or touching the hardware registers.
+
+Changes since v18:
+- Address Sashiko AI review comments for the OpenCores PWM driver.
+- Fix runtime PM usage count handling on probe, error paths, PWM release
+  and driver teardown.
+- Reject period or duty cycle values below the hardware minimum.
+- Restore PWM registers across system sleep resume.
+- Return the real error from devm_pwmchip_alloc().
+- Preserve bootloader-configured PWM state during probe and keep runtime
+  PM active if the PWM is already enabled.
+- Use synchronous runtime PM put before possible teardown.
+
+Changes since v17:
+- Simplify the code. Make it more readable.
+- Restructure the driver to register the pwm chip for one pwm channel,
+  because each OpenCores PTC IP core only supports one PWM channel.
+  Drop starfive compatibles.
+  Add patches to fix the dt-bindings and device tree.
+- Support runtime pm and system sleep pm.
+- Disable the pwm module and reset the pwm counter before updating the
+  period and duty cycle.
+- Improve the descriptions.
+- Update the dt-bindings maintainer to Hal Feng.
+
+History:
+v24: https://lore.kernel.org/all/20261107031251.98972-1-hal.feng@starfivetech.com/
+v23: https://lore.kernel.org/all/20261014110429.52762-1-hal.feng@starfivetech.com/
+v22: https://lore.kernel.org/all/20260810030714.48100-1-hal.feng@starfivetech.com/
+v21: https://lore.kernel.org/all/20260701074442.7714-1-hal.feng@starfivetech.com/
+v20: https://lore.kernel.org/all/20260629063601.63917-1-hal.feng@starfivetech.com/
+v19: https://lore.kernel.org/all/20260615155759.129210-1-hal.feng@starfivetech.com/
+v18: https://lore.kernel.org/all/20260515054723.25024-1-hal.feng@starfivetech.com/
+v17: https://lore.kernel.org/all/20250106103540.10079-1-william.qiu@starfivetech.com/
+
+Hal Feng (2):
+  dt-bindings: pwm: opencores: Update compatibles, examples and
+    maintainers
+  pwm: Add OpenCores PTC PWM driver
+
+ .../bindings/pwm/opencores,pwm.yaml           |   5 +-
+ MAINTAINERS                                   |   6 +
+ drivers/pwm/Kconfig                           |  12 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-ocores.c                      | 305 ++++++++++++++++++
+ 5 files changed, 326 insertions(+), 3 deletions(-)
+ create mode 100644 drivers/pwm/pwm-ocores.c
+
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.43.2
+
 
 _______________________________________________
 linux-riscv mailing list
