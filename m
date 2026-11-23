@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FB1D606A326
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 19:16:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F080606A31F
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 19:20:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zKon7D2L;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=LKWG0xYA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xkc2xrU0;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=tN8ebCA8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,39 +14,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kUT/gfeE4OpgurGXbTzzbusDdF1dq64Bqj2KsYg9bPQ=; b=zKon7D2L3lvRTV5/+AX0J2ChWw
-	vWgI7+eyunjgZH9taIs2H08yDHPofiaUKKqgijY7HqdLCIIcMhf1VGpFmIOQsP7F1GMUDt/tiVP1C
-	Qz+zoBQqDOdp/sWppB5AQZylp9S8RggH6p+lhcJF9L+0OCdd8mG8KlJN8lJhPkR+LhGyaEoED+995
-	kXgSV9ofwoQ0PS8aFNTqu+DrUc3fNhaMmumZutY3Oyddpdvb2cBmjGWgZXgZDL7+yZDZ+UmMtdB+1
-	IpiRx9dXD1yqQkof4Q1XU4o7E4KVaYsv5enlKRDyZt0oYZW4tu4euDnzpgfG8kG5xILXxwGG39mfE
-	RVkU8XvQ==;
+	bh=StH7uKYulGfbCEcz/eiq347RLTxPBUegJLQKYLdueAQ=; b=xkc2xrU0NQwZ1n719gPXaksctS
+	JaOcAzz/Y2oTO0L1fSlX3XD7Fl/B8ypSMO/rKW9YAmtMqv+c7eKrz2v6Jpjrz0Dmcw6rdpkxrvsz8
+	dTtSor3ovlb+CXc55QS4XKAqJNAD4tpKBMumDFGrCMErWuju4FBbVTQfz5nrS4wxips5twvemsB54
+	KnGcF76Q08hK8cmoCfU4ZWlb5x6N/w1QzSNDevNIzz35yku9n+MD40yIbnHARc5O0wtq3+4LSPwdu
+	0wcHaYq6Yy/JJqhi8fYAEuOg0MXlfwD3pHVzP2058I+QLtZj5cgHGE2n511xCOp15eSEaXViU9ih+
+	WLZUGUdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVZWX-00000004dLS-2IlZ;
-	Mon, 23 Nov 2026 19:16:21 +0000
+	id 1xVZa3-00000004dvP-36Eg;
+	Mon, 23 Nov 2026 19:20:00 +0000
 Received: from outgoing2021.csail.mit.edu ([128.30.2.78])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVZWT-00000004dKX-2R5C;
-	Mon, 23 Nov 2026 19:16:19 +0000
+	id 1xVZZx-00000004duG-3d8T;
+	Mon, 23 Nov 2026 19:19:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=outgoing.csail.mit.edu; s=test20231205; h=In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=bht87HU90ydQuqNwMWxnyUlGx5v3MiB0Rcrd/VnWTho=; t=1795461377; x=1796325377; 
-	b=LKWG0xYAvifu27tUgnMFc3PsV/Prd9r5YGTuhrOe78/LT0r/W5Pa2EGCc+j+MClXOuc4s7kS7XQ
-	Ztcx2rGG+JqPvJjzwTCxFLrnIxunyiUZisfWOa1t9b25n0dYSdtEh7G8+cYcvwW5uSZhaJxJSxck8
-	L8uBIGR3/3yvNOjrUhj2S3oYnLS+ruyg4fKatCeW4fX1BfCJ3jM8/8Qw5taKvw5wMsslaY2eOl8ua
-	3eYAbyLZOOzQNs0Cy8MFCWdm7nmqFSzG9j/4EJaQR7lvRMGGdYeTE8uV98shlJzt6vqLbWzh01nFj
-	Xw9xXNta1iIDt81Kw+mx8pCiiKURuT2FXGhA==;
+	bh=YbFSS6dJsC7jMPW/wNXp8H44yQ2FcFRYnsa9hFAzYJM=; t=1795461593; x=1796325593; 
+	b=tN8ebCA8BqDSnGfzgOFOsB51fnDF8o6Fl1PZOVJ5NRRgIxbeslTp+J4vKurkSnHqzXhY5fmdLvd
+	V+d00ohm+53cd3wZ9UIHlhzo+61//YJmxcqGZAw7INP57LcK6kRvx6xVIPCkgWoYbkwqRZCbtwuWi
+	jpflW10eyXmkc3b6EzgEZsLVOX9c8JOLJk8ksOBdBVxL463u0nALHrlhY+wpkczzznN+PVPDEvR4U
+	AtnI4qGKBBjSrr0G2SjbWc+M19X7qGeH2XWQWWgkPgY2pmCo4/f7OJNFQuKcxC4GhF2EvQ7TyXtIZ
+	jFDw5YjrnHzpLc55B2p7Jape1byNGDp5DU1g==;
 Received: from [49.207.211.146] (helo=csail.mit.edu)
 	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <srivatsa@csail.mit.edu>)
-	id 1xVZVX-006Xqr-OR;
-	Mon, 23 Nov 2026 14:15:20 -0500
-Date: Tue, 24 Nov 2026 00:45:01 +0530
+	id 1xVZZR-006Yni-DK;
+	Mon, 23 Nov 2026 14:19:21 -0500
+Date: Tue, 24 Nov 2026 00:49:07 +0530
 From: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
 To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 Cc: Albert Ou <aou@eecs.berkeley.edu>,
@@ -87,17 +87,18 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>,
 	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH 1/2] MAINTAINERS: add kernel/Kconfig.kexec to KEXEC
-Message-ID: <awSQtauit5QObOPQ@csail.mit.edu>
+Subject: Re: [PATCH 2/2] arch, kexec: declare kexec and crash capabilities in
+ Kconfig.kexec
+Message-ID: <awSRq5Cn84BHelio@csail.mit.edu>
 References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
- <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
+ <20261119-arch-kconfig-v1-2-37c276fe4d26@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
+In-Reply-To: <20261119-arch-kconfig-v1-2-37c276fe4d26@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_111617_786978_E4D45E81 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20261123_111953_923148_43FF4C94 
+X-CRM114-Status: GOOD (  10.36  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,22 +119,26 @@ X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 19, 2026 at 08:16:57AM +0200, Mike Rapoport (Microsoft) wrote:
-> kernel/Kconfig.kexec is not matched by the KEXEC entry, so
-> get_maintainer.pl does not report kexec maintainers for changes in that
-> file.
+On Thu, Nov 19, 2026 at 08:16:58AM +0200, Mike Rapoport (Microsoft) wrote:
+> The options that let an architecture opt in to kexec and crash dump
+> features, like ARCH_SUPPORTS_KEXEC or ARCH_SUPPORTS_CRASH_DUMP, are
+> defined in each architecture's Kconfig as def_bool, and most of them are
+> copied over several architectures.
 > 
-> Add it to the KEXEC entry.
+> Declare these options once in kernel/Kconfig.kexec next to the options
+> that depend on them, similarly to how mm/Kconfig does it, and make the
+> architectures select them instead.
 > 
+> Selection conditions are preserved, so there is no functional change.
+> 
+> Acked-by: Baoquan He <baoquan.he@linux.dev>
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-Reviewed-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
+Reviewed each code movement for correctness and also reasoned through
+why the ARCH_SELECTS_* entries were left untouched in this series (as
+they don't yield any consolidation benefits towards Kconfig.kexec).
 
-In the spirit of finding any other misses in listing out relevant
-files under the kexec and crash entries in MAINTAINERS, I found a few
-other files that need to be added (unrelated to the Kconfig.kexec
-which is the focus of your current patchset). I'm planning to send
-a follow-up series to address that.
+Reviewed-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
 
 Regards,
 Srivatsa
