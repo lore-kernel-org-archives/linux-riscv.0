@@ -2,127 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26F25606A31F
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 14:17:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 677FF606A6B3
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 14:47:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PIv/uqPc;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=cPLj8Yt9;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=hC6LIkJb
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fpVAJrCw;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UeQWyCP8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=iYJrhVylA5e+NN38LfkqDeMQbrZHkEYFyB9ptY7XHWE=; b=PIv/uqPcqKQKHvRW1JlKtVsXEb
-	LzmNfHz7oJynb0Y6kQItI6xSoB5MbjfuDmwp+fiKr8pLCxym12R6a/5iPfZsNUcmDyernZcceaF+w
-	vlX9ccrKKbTYZXfGJjgWVWGlvN3iBwO7vFjQRHVWjfMiQcDnS/LYtQPWicfddL4mt66JSmuRAW4Si
-	rpzm+oeFq6KeT83z4vCgIFetABvMTN/fKqMCGeAbSQvG24SBfysURUuao9HHhZNEm3E7CFASfoNtb
-	5ajPuZeCQMDUEfglmGIs+bdcjdiDf6Fy9oDu+c79lrSMkxUBhk4zEyGXNsGkrmdxvNuN5gT09WGc8
-	hZZOlsAA==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=1EODZIVPaAfCdXoD7qT6wzn5cdYAz5kXV/cX6HHX9rI=; b=fpVAJrCwFd+aPNQRI4cf9Q5zGp
+	6l/38lSTMsMcl1CJewRh3fA6GSrLLo0K7HWER1zswN58yvb36bi6+RAt9od3NAlk224mKrOB2KpXW
+	YeFzi41i1lh/5CBAVEZBH7Dq8cHvZkxqTdHBMoPvOhwLkdbUH4PfmFJgvFD3iKurUZTiQd7v0p3E/
+	/guNS+jhM3eVDvuZuq0OkvHZuYGPn34VA1YlaRv9Yhilb9JmL5pUcTObD6+gA53i6yZan1aklWsV1
+	3KBJ9pbC0bhJLdyNskMaPLIm8hlbigUDwRf/+NwEp5+V54cLjDP517lidzzc8tlmffSzQQLih4DsH
+	/QEuCBJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVUr9-00000003hV4-1cpc;
-	Mon, 23 Nov 2026 14:17:19 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1xVVKd-00000003mky-2i89;
+	Mon, 23 Nov 2026 14:47:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVUr6-00000003hUO-3QNl
+	id 1xVVKa-00000003mk2-3bik
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Nov 2026 14:17:18 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id CA61AEC0B85
-	for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 09:17:15 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Mon, 23 Nov 2026 09:17:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795443431;
-	 x=1795529831; bh=BHJ91NJtNYQ6/J6+FaRGzznho5yPOY/r3tuo2Sshg1o=; b=
-	cPLj8Yt9KDzFT9oOBUn+/GuSsf5mynsPFU3peaGSzzjdcM3xPq2nCeDkNchhwU0y
-	agEnTSgyBbGQ/yirLqdAtbec6K/eMPAPx84L678ABrYcb+wpXySl2GHRp4LB9WLN
-	CFo2ebu58MUl9iNZ9Ieq9B5w0n8KUsPK5DwUz9m8y9EZ7/GezgGomuFh9mdki4r/
-	+BIiXtKtzOGG5D+kuw3mpodMWyr20zPfOAhpC9pxJqrf1XcU6K399GtXsEQMc/8R
-	39qj2UCf7kgamdATa+Pl6YH54Dj6cd0VQx4T8GjJ0eSyaIyzVoR7OVUL9GzpK8m7
-	+ruoO3v7zMRO6WezXgniMQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795443431; x=
-	1795529831; bh=BHJ91NJtNYQ6/J6+FaRGzznho5yPOY/r3tuo2Sshg1o=; b=h
-	C6LIkJbKj92f5S7k/JXfyeaid1Af9ZzNDUOfhQPFxJP9BRVK8CoFu3txAUBGFSdE
-	kDtEOIgPiZzvlCZbCv4YLx/KipUoHlpFtABBaFDzTO/Eo99zurKqUHK11ZRFH3nk
-	zrK7lUHYw/5sxSK66fxI2EBGUdhZg116RSbILC1OuB62zbnw2sD4sW3+a4PBWhw+
-	vIkMNp+LX1SFD5zMvRTmes4VjgpqWOOFse8Womzu4lb2d/5udJ8V95DWmA0O1EvJ
-	RGzmtn81sr/9oZLy7H3BztHTIli/UeDdJz4S0o8+2QlJ2kzB0w3ffJ58MILv/tOp
-	VBsPDLa1+OUIFoA4NwwtQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795443431; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc+;
-	s=fm2:rsa-sha256:LwjjlTmV5G2dH92B8tOhWU9vmH9bia9YDNoEh873KsNv2v4
-	bdcEcsWHYyK1lemzRq8sVCxC5odMqo7sCiYJ597XRvVX5TQ6JWXusFn+GehdYWba
-	5oh3yr2mZnTjud1mEL+R++hej/IVE0N5ubVzSA1e8O3xFxrga4PBlyocTm/dL/40
-	zljip0uRo+TFOBhLP8t5GAxWTHagit5kR2AoFzoFJQ2WsBB1bD0FlxLtdTvGXHuI
-	91AxzKZlZfBgIalrQf7BWAYCpaG3AG2vzlErmBqiWuhDhEeBPCVvF5PD5bbINBrq
-	dQmvbzTHpB5nukPeRe80GTGu2GTW5QCHCYK6BhA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:Sap56MIkcyZT8r4cYNPG+lEt8q7zj6cm/hR6DX/YHXU=:rDsMBjpfa65jK66igtyHf1M93PmlfJObl6/94lUiVSI=;
-X-ME-Sender: <xms:4koEa8b6jWHk9Km-gWsvkjXKBe9FOycLSAoQHdX1x28WgylltvrlXg>
-    <xme:4koEayN-2NZ5tuVMTv_F6M4wNcDyjmgtjmjdAzvHywIA7KHMufFQZrYw4q170T5Th
-    fPdBGfTNlodLlNUN9knmz7mxDJr9FP9Hc2uPOv3pg8T14AiyewMGhM>
-X-ME-Proxy-Cause: dmFkZTGFrwq2MF5SSuOMe3naqs9tbtMAmc3XEG2p+PrgD+xfiVSS77ldCceRFMgHOXXvSL
-    Ging+R6VT6K3yz4OUeCdmIETXjNj7XXI0r9Tg2543OHjiuaKhMh+yVJAoB6OkAWbwGP/U3
-    JowxnSxhNhDyTsBNjiM7LlqkLGWpphbuTeJ0WjErvJ9KhK0fJtLolaHFC6Kw2talXF2YGF
-    JN7yWyVcYnsY66wGn8uoBc1Op9fn/HtafFpC/Ha3Z7ng5ziTGTERGiQYQq5K4ZdS/5JuDE
-    HH1gfdWjYiM0bW96wZfgClnWGF2XIAu99qwAHGam6Iwuv/kahBWnYmwWVFrVPNzzZ/ahP5
-    U1UkBFU5ZxOctbFZFvYR87OCQ9D85IrFkHXF9AU7aFYWG6vLW8lI9uDg5E561v2/5hKHQA
-    sjQFn5A8NcDFUKKIz/Gj2N6XcZVOTlbQkDMhl7pFKmJR0nTwtc/ea8J3ozLffLR/0wUUbB
-    iamGkspUsbgem4niF9wBtKb8Aybdc10XaTbLUSATly8dgGeAoj4vWgf2FM9ltEDrHvDjNY
-    51emBC5k6bV+SyYpJacMFkokFxMkxKPk9r+T99bzSjJsfdRVRAC/r+2KM3FJJSK6C1f8wW
-    I+V82FhA+/RpOowStt3CO/53UAvaoCC1+Mr9HKqAkD73+MJL10fMk/SelFXQ
-X-ME-Proxy: <xmx:5UoEa7zTEzd5mDVuAJ0khzXfAhl-NnyAwD2CijXl1cunNEN88JhvqQ>
-    <xmx:5UoEa4LmzfnQ4K0KUaYuA7sCKQ4bXebQmmhpsTBdhtm50HSfa0pUZw>
-    <xmx:5UoEa9456MjeyYgj744opH-waU6skY_xuQzxaCDvT7bwukaslpL8Pw>
-    <xmx:5UoEa2xmieeiTKUZnDvuF-Yhydil8f6ZkK_qEXx5P2wofodg1yRZbQ>
-    <xmx:50oEa5l_6AC-8c6ZgGJR10cedMu4FgnH1XmeVBS7jPfPPs2PoWN-CFom>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 6EB4832A009C; Mon, 23 Nov 2026 09:17:06 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 23 Nov 2026 14:47:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E7C444D96;
+	Mon, 23 Nov 2026 14:47:44 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795445264;
+	b=xJUk6m6F/p/0NZ+HPseVKYwGMr+lBPAmuap+oetUr1PL3HH0/TQKiVQ+lXX+ihcRmp7W
+	 6/nePq+fNQHICWICU9/B9XT8gATOl5qDDAb9/tTPYeTXNq/EqeAnLVpOZGGLwjpVlQNwe
+	 OaevplQ8ddq21FowB+SflGs8CL53QOQ65lGeIAL0zlO3ET6w3pkbe7LZshZhZTKdV9Ty0
+	 JdpYUJAfalafI/oktO7xiKr/hN6/1FhrwUJcz0HuDR3scyJyywUm8fWFsQwmD3RQ0L3/w
+	 BfyO1nqltAVU5y/8v4Sx+86Kfus8Aq2A4wRwKtnkjMu/vlZSmfmPKcNAklx71sZUopg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795445264;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=WWM/XkHqroywPq1Y6qjpupk851Qi+MmSf1AGGFT1YEQ=;
+	b=APvkCm5JkwuQVSs1cffuf1tmETPxyzZeUkBmWvedD1lhs7zON+sy5wJYO/VASZXYebEs
+	 WjWsx8sIX/IVMLYFbrJHzQn9xlNDCOT1+qRLnEqrJfxsoz0XcE1ErHA+kSJ4hNvFVsr52
+	 +q61W0ZCPy7BChhUXJt0BNhXmFhREXIkiqYf2VqNJ3ZzgjMjYw3jlVw4Fqp5P803E0+fP
+	 FN6A478AXp4N46I5Eea4SBZ2YDqdxEtfmhbhe0mLRmK/+3Vrh7aILIu4RQH3pKRrSHPlZ
+	 rOKvmrJIhw17wRmg+FjoKs8W4QUR5lMHSPq22uCaZWIaPtXaR7Mic4y3fajk7+9n+5A==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id C26A11F00AD3;
+	Mon, 23 Nov 2026 14:47:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795445264;
+	bh=WWM/XkHqroywPq1Y6qjpupk851Qi+MmSf1AGGFT1YEQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=UeQWyCP8rFJGzlRDQhiUS7SkgEWxMtH0rqk657XLqvtaGuWMXVG3pyCuhpmKvPPUQ
+	 J692clGR//Vj18P8kDw9PiW3A6CtTwmbY7irjAr8FuAryKWa13nO5YmUGfraeHvGrU
+	 R69X2qwakEjlouDvdYR098gyUnZnWEarZcQAaP1k6PYFrRjKDeI+XOAIVVksuiSWWS
+	 C6FZ9eywxEk1LL59RHy+mpH+XE6rxVPnO34pQFV0da0f3cUuSHr1hovCVzGSAXceAs
+	 HT3b87tB+XmrNUzxxBeY3lW8VYMWDYZrYmsHS72po+bfVRw8VO7R0ARX+KdRMUq3XX
+	 r2zQptBgOxyWQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 530DA4C503;
+	Mon, 23 Nov 2026 14:47:24 +0000 (UTC)
+From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
+Date: Mon, 23 Nov 2026 15:46:58 +0100
+Subject: [PATCH v4 3/8] dt-bindings: interrupt-controller: Add MIPS P8700
+ APLIC
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-ThreadId: AMjdjL9dYp0J
-Date: Mon, 23 Nov 2026 15:16:41 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: "Kees Cook" <kees@kernel.org>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-alpha@vger.kernel.org, "Paul Walmsley" <pjw@kernel.org>,
- "Andy Chiu" <andybnac@gmail.com>, "Magnus Lindholm" <linmag7@gmail.com>
-Message-Id: <b7b8e8cd-d0ba-4e37-93f3-0fa209207124@app.fastmail.com>
-In-Reply-To: <20261123110111-6431e85f-39a4-427e-b545-2e7a590a6c19@linutronix.de>
-References: <20261123-at-vector-size-arch-v3-0-d342dae9e843@linutronix.de>
- <ec5359c1-c16e-4177-8dfa-2ae5ab8a874f@app.fastmail.com>
- <20261123110111-6431e85f-39a4-427e-b545-2e7a590a6c19@linutronix.de>
-Subject: Re: [PATCH v3 00/15] exec: Remove AT_VECTOR_SIZE_ARCH from UAPI
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_061717_224195_9EF0143A 
-X-CRM114-Status: GOOD (  17.21  )
-X-Spam-Score: -2.1 (--)
+Message-Id: <20261123-p8700-dts-v4-3-60bb7bf8a7a1@htecgroup.com>
+References: <20261123-p8700-dts-v4-0-60bb7bf8a7a1@htecgroup.com>
+In-Reply-To: <20261123-p8700-dts-v4-0-60bb7bf8a7a1@htecgroup.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, 
+ Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
+ Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Inochi Amaoto <inochiama@outlook.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, Joel Stanley <joel@jms.id.au>, 
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795445243; l=913;
+ i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
+ bh=nrrwazwcP9azGUHCUTNRCM9hJiAPuvFJXrmCXH0ud7s=;
+ b=zYfG/z7OXsCc1U/IubAYwOYWKyPHYTJJj6PlqO9VZgJ7XWRAs101FOzUpJl64727FDT8g7ScW
+ p55b8uA3ksmBlso/dzRq1Odwc/ipmhxQE6DhY8lbcUXyVUn/mog/5Bv
+X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
+ pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
+X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
+ with auth_id=476
+X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,38 +118,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: aleksa.paunovic@htecgroup.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gTW9uLCBOb3YgMjMsIDIwMjYsIGF0IDExOjAzLCBUaG9tYXMgV2Vpw59zY2h1aCB3cm90ZToK
-PiBPbiBNb24sIE5vdiAyMywgMjAyNiBhdCAxMDo0NDo0MEFNICswMTAwLCBBcm5kIEJlcmdtYW5u
-IHdyb3RlOgo+PiBPbiBNb24sIE5vdiAyMywgMjAyNiwgYXQgMTA6MzcsIFRob21hcyBXZWnDn3Nj
-aHVoIHdyb3RlOgo+PiA+IFRoZXJlIGlzIG5vdGhpbmcgdXNlcnNwYWNlIGNhbiBkbyB3aXRoIHRo
-aXMgdmFsdWUuIEluIHRoZSBrZXJuZWwgaXMKPj4gPiBhbHdheXMgY29tYmluZWQgd2l0aCBBVF9W
-RUNUT1JfU0laRV9CQVNFLCB3aGljaCBpcyBub3QgZXhwb3NlZCB0bwo+PiA+IHVzZXJzcGFjZSBh
-bmQgYWxzbyBjaGFuZ2VzIGZyb20gdGltZSB0byB0aW1lLgo+PiA+Cj4+ID4gTW92ZSB0aGUgc3lt
-Ym9sIHRvIGtlcm5lbC1pbnRlcm5hbCBoZWFkZXJzLgo+PiA+Cj4+ID4gTWVhbnQgdG8gYmUgYXBw
-bGllZCB0aHJvdWdoIHRoZSBhc20tZ2VuZXJpYyBvciBleGVjdmUgdHJlZS4KPj4gPiBUaGUgZGVm
-YXVsdCByZWNpcGllbnQgbGlzdCB3YXMgaHVnZS4gSSB0cmltbWVkIGl0IHRvIG9ubHkgdGhlCj4+
-ID4gYXJjaGl0ZWN0dXJlIGxpc3RzLgo+PiA+Cj4+ID4gU2lnbmVkLW9mZi1ieTogVGhvbWFzIFdl
-acOfc2NodWggPHRob21hcy53ZWlzc3NjaHVoQGxpbnV0cm9uaXguZGU+Cj4+IAo+PiBIaSBUaG9t
-YXMsCj4+IAo+PiBJJ20gaGFwcHkgdG8gdGFrZSB0aGlzIHRocm91Z2ggdGhlIGFzbS1nZW5lcmlj
-IHRyZWUuIEkndmUgYWxyZWFkeQo+PiBtYWRlIHN1cmUgaXQgYWxsIGFwcGxpZXMgYW5kIHRoZSBw
-YXRjaGVzIGxvb2sgZ29vZCB0byBtZS4gSSdkCj4+IHdhaXQgYSBmZXcgbW9yZSBkYXlzIGZvciBh
-ZGRpdGlvbmFsIEFjayBvciBhbnkgb3RoZXIgcmVwbGllcywKPj4gbGV0IG1lIGtub3cgb25jZSB5
-b3UgdGhpbmsgSSBzaG91bGQgYXBwbHkgdGhpcyB2ZXJzaW9uLgo+Cj4gVGhpcyB2MyBpcyBmdW5j
-dGlvbmFsbHkgaWRlbnRpY2FsIHRvIHYxIGFuZCB2MiB3aGljaCBoYXZlIGJlZW4gb24gdGhlCj4g
-bGlzdCBvZiBhIGxvbmcgdGltZS4gSSBhbSBub3Qgc3VyZSBob3cgbXVjaCBtb3JlIGZlZWRiYWNr
-IHdpbGwgY29tZS4KPiBJTU8gaXQgY2FuIGFscmVhZHkgYmUgYXBwbGllZCB0byBnYWluIG1vcmUg
-ZXhwb3N1cmUgaW4gLW5leHQuCgpGYWlyIGVub3VnaCwgcHVzaGVkIG91dCB0byB0aGUgYXNtLWdl
-bmVyaWMgdHJlZSBub3cuCgogICAgIEFybmQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+
+Document the aplic compatible for the MIPS P8700.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+---
+ Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+index 0718071444d29fbfa36283fc9666e8cecd6f77e7..2ab60031ac5d2379a361dfa2bb334796472cf039 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+@@ -27,6 +27,7 @@ properties:
+   compatible:
+     items:
+       - enum:
++          - mips,p8700-aplic
+           - qemu,aplic
+           - spacemit,k3-aplic
+       - const: riscv,aplic
+
+-- 
+2.43.0
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
