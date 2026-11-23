@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2821606A321
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 22:22:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF8C5606A31E
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 22:23:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KzncgUES;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=y5Qgq2rg
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tEBb6eOo;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=bD9D/dXj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,38 +14,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DeFA5cUCMDx6CGX8jDqoaTsUxhdEc6axcliZ8s+BZwI=; b=KzncgUESdCKSLZyRPu5Rmn+/n4
-	ckfQ9u5yzXDyA7Ib6ceYOg3mJY1X/xNoIe9MxLG/tVIz/kFEP6TS9V0ITV6QfFc22a+9w9yhGnTw1
-	4wDC+vU4HQ0hF9o8FaZS7Dmb/OpkznXGlYJk8BQK627SoQmBuq6286Sdl/62zqoBWl323jtH2XOIF
-	hqlldCDA77fFUkbk0NfmW1R3ehV51Bb3ipJkIDS8ZkDOw9Qdymvl0vDi1mecMNT7XdR3INn7TXmQU
-	Iue9ploqFTNlz/aM26afP3jY0TbRFo1ZqI+K/EDsNwUiO4WwmUUyF7ONbYpD9WtpDw84XNVKp+p1S
-	vbITIRDg==;
+	bh=vw7uFqlaxsHzhMsuopjIprxi4V5EuzCgF9l51B0NeUc=; b=tEBb6eOoYbHCgWC4+2iyXntdU2
+	uIRgGtfLYO7LDsibgOykq81FAezO0sRC+Ds+KSuTZe5eQ8XRQug5TuWIlM3e8SidoRhdv7jsJFh1f
+	hd2zLxy+/txkhlBfemS7oW3Qot8qrwVjTZju6XLWNm5elpqSXR1IVccWEiajZevcc2rPJx49OeqSB
+	UZaiBS4rbuzvj+cLeV8/zBjXmgYn+6EkQx5hztYgzG+FMCSV84InH/xTZUhHPnS9CjwcM0rru8oiH
+	JnxxiTbu2/URYaF5oVp3x38/cL/UZwdlChO8/ZAaIcdZHEYijkwuvMkoGe1mTR/3qVKteDBz1ALK6
+	lVuL8ZEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVcQ4-000000053yP-15f5;
-	Mon, 23 Nov 2026 22:21:52 +0000
+	id 1xVcRl-000000054CC-1t2z;
+	Mon, 23 Nov 2026 22:23:37 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVcQ1-000000053xz-3yhT
+	id 1xVcRi-000000054Ao-2RRJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Nov 2026 22:21:51 +0000
+	Mon, 23 Nov 2026 22:23:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=M/dPNEWQK09q7JbjfKH7MJ1mwiktjZdxAxMD410YALQ=; b=y5Qgq2rgrcm/D3WJARApnsHXJK
-	RJM0D9qlkJNg2cvotSj9SwbQDeud8fkEHEP89lRYc98kuvvruXkqlV5gDg2g02fkTnHq6lBjWXjEr
-	p6uUh/NBcRdw1yZDa5iCsO2c2p4+BcKyeP31XJbbGL5iVndPP3Wqn4GvWOmp0aTtuuiFWUugxMy4U
-	DJ+wFIyxhkRnvTWBYd2+tg/G3TNixu8qZBlXQ0R+ONLT5E2sv5RzY//5ibbLjonYRSVKs8rg3Sbry
-	oIejOzjkztwW8oY622OO9f/IA7+VjvTjBf3L/vB9/g1MPg+NElI/gjnMEMObCtVSm9kcsKcTfctT/
-	hNMzM6iw==;
+	bh=Vamf6qewNSAWnl7V8j1ewD5Z1Pgf95ZZp/ReDU0LPuc=; b=bD9D/dXjIpyZzr4c6I0jQ2QMQj
+	ehgl7iCDnWoNXSx0YhEvnJ5cJGCAeC9cTolz8PZuvoDvkCHiHjHUfx6ya/lKMc6sQ8vCxdemkkfDB
+	wvYTduI7EmGjMH0al98IhmI1mLwxlTfedk+C1UmToX0/jHnw1AId6wT5nWqthkp7YI5CZe2jOYvjF
+	z8K2vxzl4W1h1+ULTvWHTMN5+MdNWWQy+btnxEgU0Cs0oPHoIYdwTNMwiJjnfckE/nly/OOV6rn+9
+	U8U6dcr9vR5D2ftpSNONQP46crIDrAX1wzx/12EvyAcVySUKmrHa7TcbqkBbl2KIaXHNjczmurWlw
+	RWc75JOg==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1xVcPt-00000007bSR-3nqY;
-	Mon, 23 Nov 2026 23:21:41 +0100
-Date: Mon, 23 Nov 2026 23:21:39 +0100
+	id 1xVcRe-00000007bY0-3lpJ;
+	Mon, 23 Nov 2026 23:23:30 +0100
+Date: Mon, 23 Nov 2026 23:23:30 +0100
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: Anand Moon <linux.amoon@gmail.com>
 Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
@@ -59,9 +59,8 @@ Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>,
 	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
 	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v2 2/3] riscv: sbi: Register SRST handlers with firmware
- priority
-Message-ID: <awS8c3RFkv1D07dc@aurel32.net>
+Subject: Re: [PATCH v2 3/3] power: reset: Remove SpacemiT P1 reboot driver
+Message-ID: <awS84s2FVdzy3j4Y@aurel32.net>
 Mail-Followup-To: Anand Moon <linux.amoon@gmail.com>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
@@ -75,15 +74,15 @@ Mail-Followup-To: Anand Moon <linux.amoon@gmail.com>,
 	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
 	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
 References: <20261118104935.1716-1-linux.amoon@gmail.com>
- <20261118104935.1716-2-linux.amoon@gmail.com>
+ <20261118104935.1716-3-linux.amoon@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261118104935.1716-2-linux.amoon@gmail.com>
+In-Reply-To: <20261118104935.1716-3-linux.amoon@gmail.com>
 User-Agent: Mutt/2.4.1 (2026-07-04)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_142149_993662_D5498E5B 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20261123_142335_041267_B01798C3 
+X-CRM114-Status: GOOD (  18.64  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,114 +104,51 @@ X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Anand,
+
 On 2026-11-18 16:19, Anand Moon wrote:
-> The SBI System Reset (SRST) extension currently registers its poweroff
-> handler using register_platform_power_off(), which assigns it a lower
-> priority than the default PMIC poweroff handlers.
+> The SpacemiT P1 reboot driver uses I2C-backed regmap operations to
+> request system shutdown and restart through the PMIC.
 > 
-> On platforms where OpenSBI handles system poweroff, a PMIC handler may
-> run first and perform I2C-backed regmap operations in atomic context,
-> triggering invalid wait context and scheduling-while-atomic warnings.
+> The system-off handlers run in atomic context, where regmap operations
+> may sleep. This can trigger invalid wait context and
+> scheduling-while-atomic warnings during shutdown or restart.
 > 
-> Register both SBI SRST restart and poweroff handlers using
-> register_sys_off_handler() with SYS_OFF_PRIO_FIRMWARE. This gives firmware
-> handlers precedence over default-priority PMIC handlers and avoids
-> board-specific workarounds in individual PMIC drivers.
+> On SpacemiT K1 platforms, system poweroff and restart are handled by
+> OpenSBI through the SBI System Reset (SRST) extension. The Linux PMIC
+> reboot driver duplicates this firmware functionality and is no longer
+> needed.
 > 
-> Defer handler registration to a device initcall because sbi_init() runs
-> during early architecture initialization, before dynamic memory
-> allocation required by register_sys_off_handler() is available.
-> 
-> Preserve warm and cold reboot selection, retain the existing legacy
-> poweroff fallback, and report handler registration failures.
+> Remove the driver along with its Kconfig and Makefile entries.
+> The P1 MFD driver and its other functionality remain unaffected.
 > 
 > Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > Cc: Aurelien Jarno <aurelien@aurel32.net>
-> Suggested-by: Aurelien Jarno <aurelien@aurel32.net>
 > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 > ---
-> New patch:
->    Link: https://lore.kernel.org/all/20261110061429.2036-2-linux.amoon@gmail.com/
+> New patch
 > ---
->  arch/riscv/kernel/sbi.c | 43 +++++++++++++++++++++++++++++++----------
->  1 file changed, 33 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index af1ccea222f1..ab6e5bf25411 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -512,23 +512,50 @@ static void sbi_srst_reset(unsigned long type, unsigned long reason)
->  		__func__, type, reason);
->  }
->  
-> -static int sbi_srst_reboot(struct notifier_block *this,
-> -			   unsigned long mode, void *cmd)
-> +static int sbi_srst_reboot(struct sys_off_data *data)
->  {
-> -	sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
-> +	sbi_srst_reset((reboot_mode == REBOOT_WARM ||
-> +			reboot_mode == REBOOT_SOFT) ?
->  		       SBI_SRST_RESET_TYPE_WARM_REBOOT :
->  		       SBI_SRST_RESET_TYPE_COLD_REBOOT,
->  		       SBI_SRST_RESET_REASON_NONE);
-> +
->  	return NOTIFY_DONE;
->  }
->  
-> -static struct notifier_block sbi_srst_reboot_nb;
-> -
-> -static void sbi_srst_power_off(void)
-> +static int sbi_srst_power_off(struct sys_off_data *data)
->  {
->  	sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
->  		       SBI_SRST_RESET_REASON_NONE);
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static int __init sbi_srst_sys_off_init(void)
-> +{
-> +	struct sys_off_handler *handler;
-> +
-> +	if (sbi_spec_version < sbi_mk_version(0, 3) ||
-> +	    !sbi_probe_extension(SBI_EXT_SRST))
-> +		return 0;
-> +
-> +	handler = register_sys_off_handler(SYS_OFF_MODE_RESTART,
-> +					   SYS_OFF_PRIO_FIRMWARE,
-> +					   sbi_srst_reboot, NULL);
-> +	if (IS_ERR(handler))
-> +		pr_warn("Failed to register SBI SRST restart handler: %ld\n",
-> +			PTR_ERR(handler));
-> +
-> +	handler = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF,
-> +					   SYS_OFF_PRIO_FIRMWARE,
-> +					   sbi_srst_power_off, NULL);
-> +	if (IS_ERR(handler))
-> +		pr_warn("Failed to register SBI SRST poweroff handler: %ld\n",
-> +			PTR_ERR(handler));
-> +
-> +	return 0;
->  }
-> +device_initcall(sbi_srst_sys_off_init);
->  
->  /**
->   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
-> @@ -677,11 +704,7 @@ void __init sbi_init(void)
->  		if (sbi_spec_version >= sbi_mk_version(0, 3) &&
->  		    sbi_probe_extension(SBI_EXT_SRST)) {
->  			pr_info("SBI SRST extension detected\n");
-> -			register_platform_power_off(sbi_srst_power_off);
->  			srst_power_off = true;
-> -			sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
-> -			sbi_srst_reboot_nb.priority = 192;
-> -			register_restart_handler(&sbi_srst_reboot_nb);
->  		}
->  		if (sbi_spec_version >= sbi_mk_version(2, 0) &&
->  		    sbi_probe_extension(SBI_EXT_DBCN) > 0) {
+>  drivers/power/reset/Kconfig              |  9 ---
+>  drivers/power/reset/Makefile             |  1 -
+>  drivers/power/reset/spacemit-p1-reboot.c | 87 ------------------------
+>  3 files changed, 97 deletions(-)
+>  delete mode 100644 drivers/power/reset/spacemit-p1-reboot.c
 
-Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+The patch is correct, but you might also want to remove the 
+spacemit-p1-reboot entry from drivers/mfd/simple-mfd-i2c.c.
+
+Anyway, while I support removing this driver on the long term, it might 
+be a bit early to remove it. Indeed, while the driver is available in 
+OpenSBI 1.9, using this version requires either patch the vendor U-Boot 
+or using the upstream U-Boot which still has some limitations (thanks 
+for your efforts improving it).
+
+At the end with your patch 2, keeping this driver a bit longer doesn't 
+hurt, as it is only used as a fallback if the SBI SRST extension is not 
+available.
+
+Regards
+Aurelien
 
 -- 
 Aurelien Jarno                          GPG: 4096R/1DDD8C9B
