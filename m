@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F080606A31F
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 19:20:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15AAC606A31A
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 19:23:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xkc2xrU0;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=tN8ebCA8
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vkhZ2sP8;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bGGL9QIY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,92 +14,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=StH7uKYulGfbCEcz/eiq347RLTxPBUegJLQKYLdueAQ=; b=xkc2xrU0NQwZ1n719gPXaksctS
-	JaOcAzz/Y2oTO0L1fSlX3XD7Fl/B8ypSMO/rKW9YAmtMqv+c7eKrz2v6Jpjrz0Dmcw6rdpkxrvsz8
-	dTtSor3ovlb+CXc55QS4XKAqJNAD4tpKBMumDFGrCMErWuju4FBbVTQfz5nrS4wxips5twvemsB54
-	KnGcF76Q08hK8cmoCfU4ZWlb5x6N/w1QzSNDevNIzz35yku9n+MD40yIbnHARc5O0wtq3+4LSPwdu
-	0wcHaYq6Yy/JJqhi8fYAEuOg0MXlfwD3pHVzP2058I+QLtZj5cgHGE2n511xCOp15eSEaXViU9ih+
-	WLZUGUdA==;
+	bh=JKhnC4YMPWm7nj+9q4OBRFXtP6Z4UrkJqwYioPjVrsc=; b=vkhZ2sP8nLz1U5yzqTZwTfNMa6
+	AcVrw88aHv+2drC6Q3Y+hYKmVps/OgsjQysUMsNL0MJmROwEnEr6eERo32fZai0Wjqz+s9KKDC7Zo
+	1y291BFzi3sOxKCLd8u7uP5LLTBQwK7G3HORbhoORAj+tZjndBOZSNC3bQpAGaOfiaAD1lg70hgOw
+	Mwe20yIuqIdBvqxwd+LrPxTDKnrqQcrwzQm/D6rjxRQ+AuBJAN6vdX7FBoUMRbeUURrkqB2cnCoQP
+	meGMWnDWUlrXZDwL+20PuObPoEBdfLlt1MaPpROgD65r8OhFa9TKDkoqNSlsOq/7q87wQ0xwa5R9E
+	Ay95cs7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVZa3-00000004dvP-36Eg;
-	Mon, 23 Nov 2026 19:20:00 +0000
-Received: from outgoing2021.csail.mit.edu ([128.30.2.78])
+	id 1xVZd8-00000004eKA-21ZF;
+	Mon, 23 Nov 2026 19:23:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVZZx-00000004duG-3d8T;
-	Mon, 23 Nov 2026 19:19:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=outgoing.csail.mit.edu; s=test20231205; h=In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=YbFSS6dJsC7jMPW/wNXp8H44yQ2FcFRYnsa9hFAzYJM=; t=1795461593; x=1796325593; 
-	b=tN8ebCA8BqDSnGfzgOFOsB51fnDF8o6Fl1PZOVJ5NRRgIxbeslTp+J4vKurkSnHqzXhY5fmdLvd
-	V+d00ohm+53cd3wZ9UIHlhzo+61//YJmxcqGZAw7INP57LcK6kRvx6xVIPCkgWoYbkwqRZCbtwuWi
-	jpflW10eyXmkc3b6EzgEZsLVOX9c8JOLJk8ksOBdBVxL463u0nALHrlhY+wpkczzznN+PVPDEvR4U
-	AtnI4qGKBBjSrr0G2SjbWc+M19X7qGeH2XWQWWgkPgY2pmCo4/f7OJNFQuKcxC4GhF2EvQ7TyXtIZ
-	jFDw5YjrnHzpLc55B2p7Jape1byNGDp5DU1g==;
-Received: from [49.207.211.146] (helo=csail.mit.edu)
-	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <srivatsa@csail.mit.edu>)
-	id 1xVZZR-006Yni-DK;
-	Mon, 23 Nov 2026 14:19:21 -0500
-Date: Tue, 24 Nov 2026 00:49:07 +0530
-From: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <baoquan.he@linux.dev>, Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	id 1xVZd7-00000004eK4-0IWA
+	for linux-riscv@lists.infradead.org;
+	Mon, 23 Nov 2026 19:23:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 19E2861D2E;
+	Mon, 23 Nov 2026 19:23:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47B841F000C6;
+	Mon, 23 Nov 2026 19:23:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795461787;
+	bh=vmh/iP7xHvN6/jWDIjahoAwDiP8FDETBvYgddurQgVM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=bGGL9QIYbDXP+cP6gglzrRn109jATBGaVQPv0nF49vQOUrIrHfTxcEbBomCB5OTbS
+	 obUbpDZkwNGJPgJF55OPRASami7Sal8Ygsb0u2RVQLhScYTBsVzXz9jS7SG63mq/AC
+	 i/Z7vTUcyKegahKgAExNQEDfkAY4OpV7Ekh9Zx88n3f8PuKjt1sGREQSN19FIQee7l
+	 LSX7Mjy2FH8RKiMu/bU0XqIs7f9AHWQsykNsayOop9j/WIUnwu/mxVxf1I0weYBEcw
+	 kCR9PuPdkcZp6fKlBGrSKOiRr7VuLi/4L/gf/hucZVIZbKuDTsapjwqx6aNloiKuhG
+	 vOsLWuhB4jn8A==
+Date: Mon, 23 Nov 2026 11:23:06 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Thomas Gerner <thomas.gerner@muenchen-mail.de>
+Cc: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>, Rich Felker <dalias@libc.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>, x86@kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Cong Wang <cwang@multikernel.io>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	WANG Xuerui <kernel@xen0n.name>, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH 2/2] arch, kexec: declare kexec and crash capabilities in
- Kconfig.kexec
-Message-ID: <awSRq5Cn84BHelio@csail.mit.edu>
-References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
- <20261119-arch-kconfig-v1-2-37c276fe4d26@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] Bluetooth: btbcm: disable read tx power for
+ BeagleV-Ahead
+Message-ID: <awSSmjbjkoGNe-zm@thelio>
+References: <20261020132604.90708-1-thomas.gerner@muenchen-mail.de>
+ <20261020132604.90708-2-thomas.gerner@muenchen-mail.de>
+ <awDdetFNaeuxKkbp@x1>
+ <fbaa1ed3-6e59-430f-9ce5-26020591bceb@muenchen-mail.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261119-arch-kconfig-v1-2-37c276fe4d26@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_111953_923148_43FF4C94 
-X-CRM114-Status: GOOD (  10.36  )
-X-Spam-Score: -1.9 (-)
+In-Reply-To: <fbaa1ed3-6e59-430f-9ce5-26020591bceb@muenchen-mail.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +80,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 19, 2026 at 08:16:58AM +0200, Mike Rapoport (Microsoft) wrote:
-> The options that let an architecture opt in to kexec and crash dump
-> features, like ARCH_SUPPORTS_KEXEC or ARCH_SUPPORTS_CRASH_DUMP, are
-> defined in each architecture's Kconfig as def_bool, and most of them are
-> copied over several architectures.
+On Sat, Nov 21, 2026 at 11:50:31AM +0100, Thomas Gerner wrote:
+> Am 21.11.26 um 00:53 schrieb Drew Fustini:
+> > On Tue, Oct 20, 2026 at 03:26:03PM +0200, Thomas Gerner wrote:
+> > > The bluetooth module of the Ampak AP6203BM is identified by the btbcm
+> > > driver as BCM4362A2.
+> > > 
+> > > The firmware of the bluetooth module on the BeagleV-Ahead reports a
+> > > capability of reading LE tx power. However reading fails. To get
+> > > bluetooth working it is necessary to disable reading of LE tx power on
+> > > the BeagleV-Ahead board. The disable is implemented in a similar way as
+> > > for several Apple boards but uses the board compatible identification
+> > > from the DTB as there is no DMI.
+> > Thanks for sending this patch. Do you know if this is a problem on any
+> > other boards with the AP6203BM?
 > 
-> Declare these options once in kernel/Kconfig.kexec next to the options
-> that depend on them, similarly to how mm/Kconfig does it, and make the
-> architectures select them instead.
+> Unfortunately I don't know of other boards with the AP6203BM.
 > 
-> Selection conditions are preserved, so there is no functional change.
+> > Also, is there an error message for the failed read?
 > 
-> Acked-by: Baoquan He <baoquan.he@linux.dev>
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> 
+> Without the quirk I get this message:
+> 
+> Bluetooth: hci0: unexpected cc 0x204b length: 1 < 3
+> Bluetooth: hci0: Opcode 0x204b failed: -38
+> 
+> As a result the hci driver stops initializing and Bluetooth is not working.
 
-Reviewed each code movement for correctness and also reasoned through
-why the ARCH_SELECTS_* entries were left untouched in this series (as
-they don't yield any consolidation benefits towards Kconfig.kexec).
+I think it would be helpful to add those two lines to the commit
+message.
 
-Reviewed-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
-
-Regards,
-Srivatsa
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
