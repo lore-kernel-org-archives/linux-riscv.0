@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3A56606A31E
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 21:59:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2821606A321
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 22:22:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nkLUkpQq;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=Bzeb5ZAI
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KzncgUES;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=y5Qgq2rg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,61 +14,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/uA6cazhbmoS6vh8KpJ389CBWiZvL1XQfdRBHhDHIFE=; b=nkLUkpQqLX1jdfP2PRElct/mSf
-	IVR4+7llLzjbG+phojC/TO4FkWNbyC6AlvnKHXyBYYN0O+eJZsPtsHbaHtB+EUcuvF/CGsucYfDXB
-	7CAUNXH0QJlh+3mTAekWPPdEfJtSgdjtTmS/uW09aqStiGwU0cTLDEwahmTIK/M5NoNr92TRDVJXi
-	J4ZuS8cd0DbPFWmxNXlaKgq3nwUVhNPGTSIqbiDu0lB1cs5T2BynzAONz5QMvQ6W4OOHznQujCaUe
-	3fi59SoxxwRR6NPAeqR3SXqE4L61JqyXjgdhqCn6L4t1a2wfYEA1pZ2Hmtw+kw/nXAGN1nfvmgYrX
-	CrkHvczQ==;
+	bh=DeFA5cUCMDx6CGX8jDqoaTsUxhdEc6axcliZ8s+BZwI=; b=KzncgUESdCKSLZyRPu5Rmn+/n4
+	ckfQ9u5yzXDyA7Ib6ceYOg3mJY1X/xNoIe9MxLG/tVIz/kFEP6TS9V0ITV6QfFc22a+9w9yhGnTw1
+	4wDC+vU4HQ0hF9o8FaZS7Dmb/OpkznXGlYJk8BQK627SoQmBuq6286Sdl/62zqoBWl323jtH2XOIF
+	hqlldCDA77fFUkbk0NfmW1R3ehV51Bb3ipJkIDS8ZkDOw9Qdymvl0vDi1mecMNT7XdR3INn7TXmQU
+	Iue9ploqFTNlz/aM26afP3jY0TbRFo1ZqI+K/EDsNwUiO4WwmUUyF7ONbYpD9WtpDw84XNVKp+p1S
+	vbITIRDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVc3s-000000051v9-0BIw;
-	Mon, 23 Nov 2026 21:58:56 +0000
+	id 1xVcQ4-000000053yP-15f5;
+	Mon, 23 Nov 2026 22:21:52 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVc3g-000000051ty-082y
+	id 1xVcQ1-000000053xz-3yhT
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Nov 2026 21:58:50 +0000
+	Mon, 23 Nov 2026 22:21:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=HA56YBnBjS6ejjIegWe0iNjtvEk49TWfG37iY7fhSAs=; b=Bzeb5ZAI4Yqkb42m9BOTb1NStq
-	HTC5LTHOhHzE2ag7ZZ3wr7VPMM69K4crX6gYwDZfpq+IjhvuAQvHH+sdw20sBjnql8wX76QYFp6ys
-	1VwWvOUznFNLYc5811IAoJXjs6qH+Y2SzJmVPKCt6QnoftSwAuExGNiI8H3SsLyNPiZEJMpXH0s2E
-	5gPhFW5XNapDa2GpKtQzoKxyjr8B31KjBRMnNUEHq1oaotgPgKmxbnpjKcap4AqZJQp30iz+yRjmL
-	s7PK1Z3sw8Ng0GQatB78yyabk7eAKxTL8rHNAj56rqEaa20lFhyPR11+AaMIZNugGf/LnL64Z18Po
-	9mxwD+BQ==;
+	bh=M/dPNEWQK09q7JbjfKH7MJ1mwiktjZdxAxMD410YALQ=; b=y5Qgq2rgrcm/D3WJARApnsHXJK
+	RJM0D9qlkJNg2cvotSj9SwbQDeud8fkEHEP89lRYc98kuvvruXkqlV5gDg2g02fkTnHq6lBjWXjEr
+	p6uUh/NBcRdw1yZDa5iCsO2c2p4+BcKyeP31XJbbGL5iVndPP3Wqn4GvWOmp0aTtuuiFWUugxMy4U
+	DJ+wFIyxhkRnvTWBYd2+tg/G3TNixu8qZBlXQ0R+ONLT5E2sv5RzY//5ibbLjonYRSVKs8rg3Sbry
+	oIejOzjkztwW8oY622OO9f/IA7+VjvTjBf3L/vB9/g1MPg+NElI/gjnMEMObCtVSm9kcsKcTfctT/
+	hNMzM6iw==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1xVc3G-00000007ZxZ-09JF;
-	Mon, 23 Nov 2026 22:58:18 +0100
-Date: Mon, 23 Nov 2026 22:58:17 +0100
+	id 1xVcPt-00000007bSR-3nqY;
+	Mon, 23 Nov 2026 23:21:41 +0100
+Date: Mon, 23 Nov 2026 23:21:39 +0100
 From: Aurelien Jarno <aurelien@aurel32.net>
-To: Zixian Zeng <sycamoremoon376@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH v2 2/3] riscv: sbi: Register SRST handlers with firmware
+ priority
+Message-ID: <awS8c3RFkv1D07dc@aurel32.net>
+Mail-Followup-To: Anand Moon <linux.amoon@gmail.com>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH] riscv: dts: spacemit: k1: fix the EEPROM page size
-Message-ID: <awS2-clBenE1r1a1@aurel32.net>
-References: <20261123-fix-bpf3-eeprom-v1-1-df8cce6ef2b5@gmail.com>
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+References: <20261118104935.1716-1-linux.amoon@gmail.com>
+ <20261118104935.1716-2-linux.amoon@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261123-fix-bpf3-eeprom-v1-1-df8cce6ef2b5@gmail.com>
+In-Reply-To: <20261118104935.1716-2-linux.amoon@gmail.com>
 User-Agent: Mutt/2.4.1 (2026-07-04)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_135845_265913_9801570E 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20261123_142149_993662_D5498E5B 
+X-CRM114-Status: GOOD (  20.60  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,46 +97,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
-
-On 2026-11-23 12:41, Zixian Zeng wrote:
-> The bananapi-f3 carries an AT24C02 compatible EEPROM GT24C02B [1]:
-> 256 bytes with an 8-byte write page, which can be found in schematic[2].
-> The device tree declares pagesize = <16>, which does not match the
-> eeprom chip datasheet which declares pagesize 8 bytes.
-
-Oops, I am not sure how I got that wrong. Sorry about that.
-
-> EEPROM pagesize of k1-bananapi-cm6-io[3] and k1-orangepi-rv2[4] changed
-> together, based on the chip model shown in the schematic diagram.
-
-The k1-milkv-jupiter board is also affected with the same issue, despite 
-using a slightly different EEPROM (24C04).
-
-> The TLV EEPROM on this board holds the base MAC address and the MAC count,
-> so a corrupted write leaves both Ethernet ports without a MAC address,
-> which is how this was found.
+On 2026-11-18 16:19, Anand Moon wrote:
+> The SBI System Reset (SRST) extension currently registers its poweroff
+> handler using register_platform_power_off(), which assigns it a lower
+> priority than the default PMIC poweroff handlers.
 > 
-> Link: https://www.giantec-semi.com/uploads/20230414/GT24C02B.pdf [1]
-> Link: https://drive.google.com/file/d/19iLJ5xnCB_oK8VeQjkPGjzAn39WYyylv/view?usp=sharing [2]
-> Link: https://pan.baidu.com/s/13UTY_qM4gGuVxsZ9U7_Xpw?pwd=8888 [3]
-> Link: https://drive.google.com/drive/folders/1pcI_U0C3VJKTCg8A1zj08CwNbohnONSR?usp=sharing [4]
-> Fixes: bfce75e2345f ("riscv: dts: spacemit: add 24c02 eeprom on BPI-F3")
-> Fixes: 46a8c01700ac ("riscv: dts: spacemit: k1: Add Banana Pi BPI-CM6 IO board")
-> Fixes: ac436e6879f5 ("riscv: dts: spacemit: enable onboard eeprom for OrangePi")
-> Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
-
-Thanks for fixing that.
+> On platforms where OpenSBI handles system poweroff, a PMIC handler may
+> run first and perform I2C-backed regmap operations in atomic context,
+> triggering invalid wait context and scheduling-while-atomic warnings.
+> 
+> Register both SBI SRST restart and poweroff handlers using
+> register_sys_off_handler() with SYS_OFF_PRIO_FIRMWARE. This gives firmware
+> handlers precedence over default-priority PMIC handlers and avoids
+> board-specific workarounds in individual PMIC drivers.
+> 
+> Defer handler registration to a device initcall because sbi_init() runs
+> during early architecture initialization, before dynamic memory
+> allocation required by register_sys_off_handler() is available.
+> 
+> Preserve warm and cold reboot selection, retain the existing legacy
+> poweroff fallback, and report handler registration failures.
+> 
+> Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> Cc: Aurelien Jarno <aurelien@aurel32.net>
+> Suggested-by: Aurelien Jarno <aurelien@aurel32.net>
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+> New patch:
+>    Link: https://lore.kernel.org/all/20261110061429.2036-2-linux.amoon@gmail.com/
+> ---
+>  arch/riscv/kernel/sbi.c | 43 +++++++++++++++++++++++++++++++----------
+>  1 file changed, 33 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index af1ccea222f1..ab6e5bf25411 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -512,23 +512,50 @@ static void sbi_srst_reset(unsigned long type, unsigned long reason)
+>  		__func__, type, reason);
+>  }
+>  
+> -static int sbi_srst_reboot(struct notifier_block *this,
+> -			   unsigned long mode, void *cmd)
+> +static int sbi_srst_reboot(struct sys_off_data *data)
+>  {
+> -	sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
+> +	sbi_srst_reset((reboot_mode == REBOOT_WARM ||
+> +			reboot_mode == REBOOT_SOFT) ?
+>  		       SBI_SRST_RESET_TYPE_WARM_REBOOT :
+>  		       SBI_SRST_RESET_TYPE_COLD_REBOOT,
+>  		       SBI_SRST_RESET_REASON_NONE);
+> +
+>  	return NOTIFY_DONE;
+>  }
+>  
+> -static struct notifier_block sbi_srst_reboot_nb;
+> -
+> -static void sbi_srst_power_off(void)
+> +static int sbi_srst_power_off(struct sys_off_data *data)
+>  {
+>  	sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
+>  		       SBI_SRST_RESET_REASON_NONE);
+> +
+> +	return NOTIFY_DONE;
+> +}
+> +
+> +static int __init sbi_srst_sys_off_init(void)
+> +{
+> +	struct sys_off_handler *handler;
+> +
+> +	if (sbi_spec_version < sbi_mk_version(0, 3) ||
+> +	    !sbi_probe_extension(SBI_EXT_SRST))
+> +		return 0;
+> +
+> +	handler = register_sys_off_handler(SYS_OFF_MODE_RESTART,
+> +					   SYS_OFF_PRIO_FIRMWARE,
+> +					   sbi_srst_reboot, NULL);
+> +	if (IS_ERR(handler))
+> +		pr_warn("Failed to register SBI SRST restart handler: %ld\n",
+> +			PTR_ERR(handler));
+> +
+> +	handler = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF,
+> +					   SYS_OFF_PRIO_FIRMWARE,
+> +					   sbi_srst_power_off, NULL);
+> +	if (IS_ERR(handler))
+> +		pr_warn("Failed to register SBI SRST poweroff handler: %ld\n",
+> +			PTR_ERR(handler));
+> +
+> +	return 0;
+>  }
+> +device_initcall(sbi_srst_sys_off_init);
+>  
+>  /**
+>   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
+> @@ -677,11 +704,7 @@ void __init sbi_init(void)
+>  		if (sbi_spec_version >= sbi_mk_version(0, 3) &&
+>  		    sbi_probe_extension(SBI_EXT_SRST)) {
+>  			pr_info("SBI SRST extension detected\n");
+> -			register_platform_power_off(sbi_srst_power_off);
+>  			srst_power_off = true;
+> -			sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
+> -			sbi_srst_reboot_nb.priority = 192;
+> -			register_restart_handler(&sbi_srst_reboot_nb);
+>  		}
+>  		if (sbi_spec_version >= sbi_mk_version(2, 0) &&
+>  		    sbi_probe_extension(SBI_EXT_DBCN) > 0) {
 
 Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
+Tested-by: Aurelien Jarno <aurelien@aurel32.net>
 
 -- 
 Aurelien Jarno                          GPG: 4096R/1DDD8C9B
