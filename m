@@ -2,94 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72046606A686
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 23:10:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 955E2606A321
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 23:46:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Vlg373tf;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20260707.gappssmtp.com header.i=@dabbelt-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=arngu888
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0GiY2VxB;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JTCO8u41
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=46IVEtlK0F/0wnf8MqoArC8CFjvnbfD6RfY9VXdPSH8=; b=Vlg373tf0Bl7UUKps9hUzV3Wdb
-	kUEJ0XFDakw+h4y3cG+OmaYzQhOeXV51+1jIkocZgCIMFIKs1j6nOvRWSKM8+Dc1oDrSW53EAxFbU
-	CjDYMuN9jjOsmv/fQsziHEOyLRXe+YETPjufZTGtVGtta906s+opDq/+DnVrqyJYjFEMQrt32Up8z
-	Nkkh8xjbJPl2xD/ETNvd3WxG+578L4zfNoIBYIGAUhJYH3u/V5F4dHLL+wdJ0+6Io1EyXUcolVNhw
-	a8sAJhLW53x0liQQNPYSg7pJ2/Jlk1k6Zgn77fOjnsQ86XVPOEdMbxSHS/0oCm2AR/27Lj1PvH+It
-	Eb8ANxBg==;
+	bh=tyPzIMHNTFr07Jv4z+PDJkdicsgBgFPTCQU2YeWBc8c=; b=0GiY2VxB1h5vHZ8wwPhZb0AGLt
+	3B/dZCfb0zDRDDZb/uT4EpO405qNRJnJKfR94tJt800IMrPI1iMrbsjiRAvzwMFKiNPkLMrjZtmXX
+	vLivz+wW1p5V7lXk1/dK4hvS3aFG0ACmpdqm+NU8tCjnEOg4djApa/bvR4jwEjKJjKYSe7KeDCkcA
+	dGPHiiBm8AN4EBsQBD+cAvh0wPbb5e64/jvjm3rfJU4f4N0rL7+s0E9gPQaWOg17lLJHCOEU5C7y6
+	QjDB+3SZ2lvGT5ofvJl85IG3TmvmxtpaZHS0kRhZh9Yv5K+YMVOsDqfUuC8RRuTzM9MXIXwNkMqob
+	SiVlN0Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVdB1-000000058Dp-3pXo;
-	Mon, 23 Nov 2026 23:10:23 +0000
-Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
+	id 1xVdk3-00000005Cxr-2G5q;
+	Mon, 23 Nov 2026 23:46:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVdAl-00000005871-2Mra
+	id 1xVdk1-00000005CxR-3NhA
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Nov 2026 23:10:11 +0000
-Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-18818daa3e7so2279463c88.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 15:10:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20260707.gappssmtp.com; s=20260707; t=1795475406; x=1796080206; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:to
-         :from:cc:in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=omPzYJsyHFXBTWaYCXRuHKP+shwbFJ7ykCdiwHLxPZA=;
-        b=arngu888qdy+blQO89/oXe4WPD+OECuLIbbJf9koMw403mI1DHW9QrjucLol8eWAxn
-         tErgmj0BFS/COXRTRdfVm5+F9/nnDxUvxAyaS9UsgMTJAq2xLi4u/rJh6xpncejh6IsM
-         7+296Sv7nzxjIdHhz0pA9pNLGAbtmpROG9k/aJRvo/vojW0/OsJr3781mX3jY9NM3iJ1
-         4L4mP1FvKcp8BR0padGEcYqi5vhmA1H4Ibh/v2ryqm6x0s9mjxL4mu+2z81RsmtHRJxy
-         mdzh09u2knoDngwPyDI9HWa0DCrCHzXo9jLhVZ8ubjQ2QZFg8hYLwcvzCheVevs2oRGq
-         ITVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795475406; x=1796080206;
-        h=content-transfer-encoding:content-type:mime-version:message-id:to
-         :from:cc:in-reply-to:subject:date:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=omPzYJsyHFXBTWaYCXRuHKP+shwbFJ7ykCdiwHLxPZA=;
-        b=VkjC5enedJcFOTGP3TO6cs9oPWK1Xhef8v7k+p6mZb9nlQKNY3y2cAkjVWMwcu6fiT
-         utzUa5D04lg57aCjMhDpGK88poplfJT6ztB3jQ+hOW2zq/W8HpgoMwUXFXMDzuy6Uf1R
-         DxpHbZhmq6xRLnekIgtGhZ87P3kqPHFV0P9O27XriIMNIZaiSUucplq26SvjVTsSC8Ab
-         h1DBUvqCRlcWWhg9hShjh53HVV5lUA0S+BMSNOyfo0oIjkuSEhgwvzoq9tDgN+3mx6l1
-         7etbGzA/EC7Gxromq2ag+SxG0UisQax6K2iN7eGXQueTzwUFx89WTtGmCJn9sAJmYGhW
-         YqMQ==
-X-Forwarded-Encrypted: i=1; AL+hErGBR6bxFm8m+DpmjwMsryofq2Xws2WCluayk86h5WgnzUwBKPLh1S+xzgcarSpi8/mpYxM/KBJEa/HsHg==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+Hf2hwp1Uy2Rz/eo5JO3n1xue6x4cQjoCCVz0HZgop7i5zKD/A
-	RJflLL9IJP1qPnpdh8BxfSDsrHuNzNeJ7ChVPtV617gmYy3UYX2PbLJqlm097wApnGU=
-X-Gm-Gg: AZFdTZfx3avahMDB4LQLxgmak7kYcXlftiECXn34oR0hg12QXxH1/Mle4MqaHFPgXy9
-	A5rzO203PyHJ2EOkr6epJwRNExvE2oT3sLk0uPxs6GHTDXBmURldPb/ThYZWNOSL5FFYlzMNGlI
-	rCVBJ3zooIDitp3BCo4OafWebypaF8vST8HSxxQVlUiIzgBMCgf/khWar3N/lXtPv9DyGpI5lqF
-	Lxb/u2MBTLWhl2FB+nWCZ1NSY+OkQkN/THWVvAiZ0JPOx7ZekacVFLeybaDgJgB/Zm8d/aHo6GB
-	fiEwvfXJ/jnJCYhJamYaUlLis5wG5/a/EWi3FWN3tRRRwWBNzOSkXtv56sJeMeDcB0VJILQpxrT
-	TZza0MBE93pNYfFqW2PAoByjSs129rmVj9Uz7/I8L0fzpCnKgILzVkoapazBoP4kUKHYqKkD0/2
-	50w8RGK9Lrlu/Tm0H/FSJwcG4op/nWa7kMoTZnTwW32nbXY52TlmuXK98PN4kIMwS0NkZElJ4kp
-	Tco0He6RdcDn3X0gu43tPsGMkQj5xJeK3Lv7l7bkWIjk64677gUwVFT7vJM1oGygMAuDCX4/uUc
-	0LPkk2duJibSD/0qIe73bQrljSKiOTWz1HBVSa/K52QYGwzau2JumeQ+oZrH/FcAg2S0AXwJ9wc
-	7mIAW4gDfGdi5LrLvYKuY9lD2HIg=
-X-Received: by 2002:a05:7022:4181:b0:14a:a6dc:9cbf with SMTP id a92af1059eb24-1b5568abf0bmr18844780c88.4.1795475406085;
-        Mon, 23 Nov 2026 15:10:06 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm33422877c88.6.2026.11.23.15.10.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:10:05 -0800 (PST)
-Date: Mon, 23 Nov 2026 15:10:05 -0800 (PST)
-X-Google-Original-Date: Mon, 23 Nov 2026 15:09:50 PST (-0800)
-Subject: Re: [PATCH v4 04/19] efi/riscv: Rename __init_text_end to __inittext_end like other archs
-In-Reply-To: <20261118182105.1633603-25-ardb+git@google.com>
-CC: linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-  Ard Biesheuvel <ardb@kernel.org>, jgg@nvidia.com, pjw@kernel.org, aou@eecs.berkeley.edu, chenhuacai@kernel.org,
-  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: ardb+git@google.com
-Message-ID: <mhng-D54B7D56-AACE-456E-AF40-670E83DF8B47@Palmers-Mini.rwc.dabbelt.com>
+	Mon, 23 Nov 2026 23:46:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 46E4E423C9;
+	Mon, 23 Nov 2026 23:46:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B20F1F000C4;
+	Mon, 23 Nov 2026 23:46:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795477592;
+	bh=vP+ADNOiSpoNKhzRfreKdcuyfRb2mBj2cg+6BGIcmWA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JTCO8u41i5Bb63hP2HzKMLTu5crJT75CuGJBKjDW9CVzdAiH9b/q2NiyQXnq06ysN
+	 H+JC5kMU8GuxnJ13S18qOoAnHU+W0zg3nRvfMTddR1TdBCNVZ/Qg4n0rER/VhxFdm/
+	 HQf5Yhwa2mg7d6Og6Q/qFQ5aSPq7zLM59V6HaoPxRYHT+0IlngnLoDArP+WU78u6eX
+	 kt7gVcGOG9jlHpyo7ic1sxFDh6uSkWfAN4eYOLfVdl7fBy6XxoxPFnAnpYBoqbWDIL
+	 y14H4zJnW30ARhaWfLhc+B4cWyq62UHAQ/7OZrkMRb+dd6c/TnjmBr0M76L5mn36da
+	 I/UK0uuJKoQPQ==
+Date: Mon, 23 Nov 2026 15:46:31 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Thomas Gerner <thomas.gerner@muenchen-mail.de>
+Cc: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] riscv: dts: thead: Enable bluetooth on
+ BeagleV-Ahead
+Message-ID: <awTQV54SY8-p0rCx@thelio>
+References: <20261020132604.90708-1-thomas.gerner@muenchen-mail.de>
+ <20261020132604.90708-3-thomas.gerner@muenchen-mail.de>
+ <awDZBiX1VoSkO6F3@x1>
+ <a1b47af8-72bf-4f3e-9ece-e2ceeb97a682@muenchen-mail.de>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0 (MHng)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_151008_420610_171E8EE1 
-X-CRM114-Status: GOOD (  18.48  )
-X-Spam-Score: -1.9 (-)
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <a1b47af8-72bf-4f3e-9ece-e2ceeb97a682@muenchen-mail.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,8 +77,8 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -109,92 +87,75 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 18 Nov 2026 10:21:10 PST (-0800), ardb+git@google.com wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> Align RISC-V with arm64, LoongArch and x86, and drop the underscore
-> between 'init' and 'text' in the section markers. This allows the value
-> to be captured by generic EFI stub code that can be shared between all
-> those architectures.
->
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/riscv/include/asm/sections.h         | 2 +-
->  arch/riscv/kernel/image-vars.h            | 2 +-
->  arch/riscv/kernel/vmlinux.lds.S           | 4 ++--
->  drivers/firmware/efi/libstub/riscv-stub.c | 2 +-
->  4 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
-> index a393d5035c54..4a882a28f414 100644
-> --- a/arch/riscv/include/asm/sections.h
-> +++ b/arch/riscv/include/asm/sections.h
-> @@ -11,7 +11,7 @@
->  extern char _start[];
->  extern char _start_kernel[];
->  extern char __init_data_begin[], __init_data_end[];
-> -extern char __init_text_begin[], __init_text_end[];
-> +extern char __inittext_begin[], __inittext_end[];
->  extern char __alt_start[], __alt_end[];
->  extern char __exittext_begin[], __exittext_end[];
->
-> diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
-> index 7b44b94f1283..bf703eba3fa5 100644
-> --- a/arch/riscv/kernel/image-vars.h
-> +++ b/arch/riscv/kernel/image-vars.h
-> @@ -27,7 +27,7 @@ __efistub__start		= _start;
->  __efistub__start_kernel		= _start_kernel;
->  __efistub__end			= _end;
->  __efistub__edata		= _edata;
-> -__efistub___init_text_end	= __init_text_end;
-> +__efistub___inittext_end	= __inittext_end;
->  #if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
->  __efistub_sysfb_primary_display	= sysfb_primary_display;
->  #endif
-> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-> index 9849a3e4d102..0ec1b4b55e41 100644
-> --- a/arch/riscv/kernel/vmlinux.lds.S
-> +++ b/arch/riscv/kernel/vmlinux.lds.S
-> @@ -46,7 +46,7 @@ SECTIONS
->
->  	. = ALIGN(SECTION_ALIGN);
->  	__init_begin = .;
-> -	__init_text_begin = .;
-> +	__inittext_begin = .;
->  	.init.text : AT(ADDR(.init.text) - LOAD_OFFSET) ALIGN(SECTION_ALIGN) { \
->  		_sinittext = .;						\
->  		INIT_TEXT						\
-> @@ -72,12 +72,12 @@ SECTIONS
->  	}
->  	__exittext_end = .;
->
-> -	__init_text_end = .;
->  	. = ALIGN(SECTION_ALIGN);
->  #ifdef CONFIG_EFI
->  	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
->  	__pecoff_text_end = .;
->  #endif
-> +	__inittext_end = .;
->  	/* Start of init data section */
->  	__init_data_begin = .;
->  	INIT_DATA_SECTION(16)
-> diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-> index 725b634c5179..5cbc50a814e1 100644
-> --- a/drivers/firmware/efi/libstub/riscv-stub.c
-> +++ b/drivers/firmware/efi/libstub/riscv-stub.c
-> @@ -34,7 +34,7 @@ efi_status_t handle_kernel_image(unsigned long *image_addr,
->  	efi_status_t status;
->
->  	kernel_size = _edata - _start;
-> -	kernel_codesize = __init_text_end - _start;
-> +	kernel_codesize = __inittext_end - _start;
->  	kernel_memsize = kernel_size + (_end - _edata);
->  	*image_addr = (unsigned long)_start;
->  	*reserve_size = kernel_memsize;
+On Sat, Nov 21, 2026 at 12:09:29PM +0100, Thomas Gerner wrote:
+> Am 21.11.26 um 00:34 schrieb Drew Fustini:
+> > On Tue, Oct 20, 2026 at 03:26:04PM +0200, Thomas Gerner wrote:
+> > > On the BeagleV-Ahead the bluetooth module of the Ampak AP6203BM is
+> > > identified by the btbcm driver as BCM4362A2. The module is connected by
+> > > UART4, several gpio pins and an I2S interface. The I2S is currently not
+> > > used as there is currently no driver.
+> > > 
+> > > Signed-off-by: Thomas Gerner <thomas.gerner@muenchen-mail.de>
+> > > ---
+> > > Changes in v2:
+> > > 	- use default pinctrl definition for bluetooth in and out pins
+> > Thanks for sending v2. Sorry for the delay in review.
+> > 
+> > > 	
+> > >   .../boot/dts/thead/th1520-beaglev-ahead.dts   | 85 +++++++++++++++++++
+> > >   1 file changed, 85 insertions(+)
+> > > 
+> > > diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > index e16484a47653..7161a9d4c61f 100644
+> > > --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > @@ -76,6 +76,23 @@ led-5 {
+> > >   		};
+> > >   	};
+> > > +	reg_vbat_1v8: regulator-vbat-1v8 {
+> > > +		compatible = "regulator-fixed";
+> > > +		regulator-boot-on;
+> > > +		regulator-max-microvolt = <1800000>;
+> > > +		regulator-min-microvolt = <1800000>;
+> > > +		regulator-name = "vbat-1v8";
+> > > +	};
+> > > +
+> > > +	reg_vbat_3v3: regulator-vbat-3v3 {
+> > > +		compatible = "regulator-fixed";
+> > > +		enable-active-high;
+> > enable-active-high has no effect without a gpio.
+> > 
+> > > +		regulator-boot-on;
+> > > +		regulator-max-microvolt = <3300000>;
+> > > +		regulator-min-microvolt = <3300000>;
+> > > +		regulator-name = "vbat-3v3";
+> > > +	};
+> > Nothing can switch these two rails so regulator-always-on describes them
+> > better than regulator-boot-on.
+> 
+> 
+> I see. With the next version I will consider this. The regulator
+> definitions are here only to prevent the hci driver form printing a
+> message about missing regulator. Once we have the final regulators for
+> the AON subsystem we should check this definitions and replace them if
+> appropriate.
 
-Reviewed-by: Palmer Dabbelt <palmer@dabbelt.com>
-Acked-by: Palmer Dabbelt <palmer@dabbelt.com>
+I looked at the schematic. VBAT is fed from VDD_3V3 and VDDIO from
+DVDD18_AP, so I think the two regulators should be named after those
+nets, something like this:
+
+    reg_dvdd18_ap: regulator-dvdd18-ap {
+            [..]
+            regulator-name = "dvdd18_ap";
+    };
+
+    reg_vdd_3v3: regulator-vdd-3v3 {
+            [..]
+            regulator-name = "vdd_3v3";
+    };
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
