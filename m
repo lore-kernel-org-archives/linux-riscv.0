@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7022A606A331
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 12:09:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52277606A321
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2026 12:23:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Zl9yy3qv;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dk2QAjiR
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oj+wbzT3;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kvwxdh8s
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,64 +14,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=a61EtpMawzelDpA7AYkNIBqTZfFox7oykdNBCqUoZzs=; b=Zl9yy3qvA58Jvq1ZTu+BZ7mz79
-	fOLZ3K2bsHG1UZb9q1CGYETzj/XFPCtiihm1VqPNLlbMpSaLFtkrnH67RFj3rXQ64dkCenHoenypf
-	jeUOtUI0AxYPvHouw+TuRYo4ebNniNBOUUsIQlNGb//B30BsZ4Sjsn5SXYRx1x+1eakAsqMCbUtZO
-	LtV2Nw9PYBz/FMuhoTQwdmrq/+SXbMPyAXNp2RAKoRE0hg2s3mvty+U3xeZOkHxsVNSpWV+6EG2Ul
-	kNg/e3L4W7WRbyn6FWPsmfdnUSldAn4+21EPQf7fGmEIfyq6Uj5cvg5eVnVwv3MwIOYxNz+CNvdv7
-	glqjLeEQ==;
+	bh=hDdgnDIaXeCEYTUEtMVOx5Zw4jKjZkfBZrd7qbSGc2s=; b=oj+wbzT3iUIPJVo/5hBDFzk752
+	retyvCFQJ6ITUpxuG7ZvW1e8y3PAOAzGU4/nhuFQFDWhDlXEvt4TzorT62gCDbU1BXozsyMotom5y
+	GtTMLoevUBhau63uwx1q6ptMd3HhggwY+Keqoz5WrUJV6RnZvkhkU4BulQ4og1hV3qU0JVeQgTCTa
+	+LvRfKbqUUHuo1CBbLgB8NlZuAwJ2UaEwQ4rIyOI3gezCeRmxpZke1uo/ttj20/fbY7QoLErXxxPF
+	7MoialoR4o1dOOPvzhxlpogmvDANWv6ZtslXoLKzADb50Q/rQUYBVRHX3LFoymlGvUVMgpRPA6CuW
+	9Lnb3A1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVSrI-00000003Hw5-3qxX;
-	Mon, 23 Nov 2026 12:09:20 +0000
+	id 1xVT4S-00000003LBM-3ZxX;
+	Mon, 23 Nov 2026 12:22:56 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVSrB-00000003HsJ-49bp;
-	Mon, 23 Nov 2026 12:09:14 +0000
+	id 1xVT4R-00000003LB3-2fw0
+	for linux-riscv@lists.infradead.org;
+	Mon, 23 Nov 2026 12:22:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56A7D620B0;
-	Mon, 23 Nov 2026 12:09:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E82331F000CF;
-	Mon, 23 Nov 2026 12:09:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C303861FFA;
+	Mon, 23 Nov 2026 12:22:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE4371F000CF;
+	Mon, 23 Nov 2026 12:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795435752;
-	bh=jVlva3tLXdBvj0xTe4FKUpeZOW8lUXKWogIklw4JJwM=;
+	s=k20260515; t=1795436574;
+	bh=v3ZXJghUVjeMaPQn4cN/Z1xtE3USOoB0nytfsQJJ3Ak=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dk2QAjiRAqck4u5mgcf43nHan6L+gOBuX9pht3YrjJTiNTsU9Zp1iVx94SEsBM5wt
-	 ELbvLjdSGKZSLvTL6UAhw9MMMH247X6kI14+OIKt6kBsgbBn4NpNBKRA/AUnwdw9c4
-	 KzCpgReRLOEfXyzQPS0VRCbjaw+RiI62FG5hD9hu/9j0QXNRHDOcyTG5+IyDvN6Upo
-	 HwaP0VL+MyB1O8afnqzeAAPVyFPoOEPVJ6jEJV0BQKfFh1eSBp4ENpoLrrqJKsNU+i
-	 LJp++Z/x/IEO0zTGIZDswSK6OFFbSUlHCGOpQJug7tXCr3Z9UoNWU4g2L1du3qONWK
-	 Xw65fHkoW6bRQ==
-Date: Mon, 23 Nov 2026 17:39:08 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Dominique Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>,
-	Byron Stanoszek <gandalf@winds.org>, OOHehir <oo.hehir@gmail.com>
-Subject: Re: [PATCH v7 0/5] phy: Add the StarFive JH7110 Innosilicon HDMI PHY
-Message-ID: <awQs5JgFZko9rTo9@parshuram>
-References: <CGME20261106135504eucas1p14138c1ce829febb8bcd63c4de1f29ffb@eucas1p1.samsung.com>
- <20261106-jh7110-inno-hdmi-phy-v7-0-d49368303800@samsung.com>
- <b6dc6c36-9ce1-49dd-bae5-245d983610bc@samsung.com>
+	b=Kvwxdh8sZZLrNiRaGNJHAeTD3Nn3ZNFKQIiHbCC/WXsVrYVt6hgexABD/CmZTwBa5
+	 wbVxC8MBYw6g9XATXqYempsISAOwSRzi97d8ImxgSJj9meOIPAnC/BCnhOweR7GyHD
+	 LeZpnp1VFmRPOXz5P8L1bDlKfBSaG0bTn4diXDW94rhE098Xz5rc7cVALWk9+2m7BF
+	 Z0zlROQmJL8QMqZOVkcRX/ZEzhPyP8QcpLSoF0W6XFa7HBXabA8YiRSrGfJkECr/6q
+	 9aVkP/rztoF+1HsAAQ7WE+dn8CBws0VTdAxdvQeR5z2dNR8nX8fj0GBUmDcqNXN1hV
+	 nTb/wkqaWyOXg==
+Date: Mon, 23 Nov 2026 13:22:50 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+	Guodong Xu <docular.xu@gmail.com>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: spacemit: Add K3 CoM260 TQ
+Message-ID: <20261123-normal-girlish-jerboa-81a5bc@quoll>
+References: <20261117-k3-tq-dts-based-on-com260-v2-0-68b337bd8938@linux.spacemit.com>
+ <20261117-k3-tq-dts-based-on-com260-v2-1-68b337bd8938@linux.spacemit.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <b6dc6c36-9ce1-49dd-bae5-245d983610bc@samsung.com>
+In-Reply-To: <20261117-k3-tq-dts-based-on-com260-v2-1-68b337bd8938@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,23 +73,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 20-11-26, 14:43, Michal Wilczynski wrote:
-
-> Gentle ping on this series.
+On Tue, Nov 17, 2026 at 08:48:51AM +0000, Troy Mitchell wrote:
+> The K3 CoM260 TQ board combines a CoM260 module with the TQ carrier
+> board. Add its board compatible with the CoM260 module and K3 SoC
+> fallbacks.
 > 
-> Is there anything else needed from my side ?
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> ---
+>  Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Can you please resolve the shasiko issues reported
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
--- 
-~Vinod
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
