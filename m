@@ -2,73 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D490606A31E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 15:51:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 822FD606A6A6
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 15:54:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uQQGgnEZ;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=ciedm+7r
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CnkfaF9s;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=d5rg+lXs
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:References:To:In-Reply-To:Message-Id:
+	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=cSQrLn3PZoD/NJlet5/pXOlTFzzzWVVEZsw8uYFi1IA=; b=uQQGgnEZycG7ll/gTey0CaILSi
-	iumrhitvtCrN4rHM71DdFtAjaa92y09LOA0lVSnbD7jHBH3mkVHX3h/+OSsyvgKni6sdhyzBNR9cx
-	qt99z98Bb54uvbs9CIrCPORUzjNfzwn4AsSX8mMiHlFQX00+SZUoRpR7FNUdqmxMTT/eBCpfsjcvR
-	eatiR4KwdxXZZf7YAQ+ip5BV/xX8kTMzm+pudGuAZB/3Hd2QHXX1bc3TXz0WsVd7BoXHfG+ph8vcP
-	jojEz4GfhYXHx9e6iIWm3nOo7j+m6n22HMyjQay3ZZNERqjURcZBnqJRE9HUvIRPIXd3HVIP9DC11
-	oFpLIh/A==;
+	bh=VfVUxIKP9g3LDklj/TaOMpt5xXVIASlXqX2y4KTM2C4=; b=CnkfaF9sg/5ClmhH19a/zdAbYP
+	/zECobNNtfGIBre8zu/vTVpuOI3eQPw1MA8odDdCdpWT5vRGVhpyjYO2WMrjabvzkd3hlRcqRF/pj
+	snXUDUG9tVawZAlNAKZCXBaLFXwe7MjxvptcKXqgS5MnvBCNCEfQSe+voUYZkcAa9BdFscQjT89Xl
+	UvLKLkx5dHr8lahFjYBUIcQrNLm1aQyiq/DiJdubqcr8ZEW+b9Gno5wRSW6/KLCJ7XtDLomDuUEuU
+	4urnYZGYRv3qmTh7AaJgtcfKboyalLnL+N2kSwQ73WvNiswgp5hC/N+QyH2oQofLlfjw4hd5kqbaQ
+	4UJAbjbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVsnQ-00000006xsG-0p6z;
-	Tue, 24 Nov 2026 15:51:04 +0000
-Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
+	id 1xVsqO-00000006yEN-3LH7;
+	Tue, 24 Nov 2026 15:54:08 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVsnL-00000006xqd-3Z1g
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Nov 2026 15:51:02 +0000
-Received: from omf08.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay02.hostedemail.com (Postfix) with ESMTP id 8A3DB120A81;
-	Tue, 24 Nov 2026 15:50:55 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf08.hostedemail.com (Postfix) with ESMTPA id 0DECA20029;
-	Tue, 24 Nov 2026 15:50:52 +0000 (UTC)
-Date: Tue, 24 Nov 2026 10:50:47 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Sarah Emery <sarah.emery@canonical.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Shuah Khan <shuah@kernel.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, Hui Wang
- <hui.wang@canonical.com>
-Subject: Re: [PATCH v2] selftests/ftrace: Account for 8-byte aligned
- trace_marker_raw events
-Message-ID: <20261124105047.23c39b69@gandalf.local.home>
-In-Reply-To: <20261010234645.173550-1-sarah.emery@canonical.com>
-References: <20261010234645.173550-1-sarah.emery@canonical.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1xVsqL-00000006yD6-3fyX;
+	Tue, 24 Nov 2026 15:54:08 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261124155403euoutp02bf3e7449e6b5b16ad43cda284d650627~rBiejgEM00854408544euoutp02M;
+	Tue, 24 Nov 2026 15:54:03 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261124155403euoutp02bf3e7449e6b5b16ad43cda284d650627~rBiejgEM00854408544euoutp02M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795535643;
+	bh=4f+zvrzv0cMyD2yztqFamMRRVgagGMlkySBMVZX9z/E=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=d5rg+lXsnKaTCW5R1yhWvobj31lgoXYts/EwIes7YZJQpJUNk8z4ffxAStgTuscXL
+	 QC5SHdAGbf3D8CmsHOzzFxTpBV+XbV/fcE317LaPd4kmCd5P/ub6NxqB9BAKhOaAff
+	 1wSBfdYqHugs5ftl4AqsI88suuAwx2owRHm+NoGA=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261124155403eucas1p26cc9bf09dc326b2e48c3d2e7100b4ecf~rBieMDwEC2171821718eucas1p21;
+	Tue, 24 Nov 2026 15:54:03 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261124155401eusmtip1427157fa602b18d1d6e3d8439be22060~rBico6VEm0174001740eusmtip1O;
+	Tue, 24 Nov 2026 15:54:01 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Tue, 24 Nov 2026 16:52:38 +0100
+Subject: [PATCH v8 02/18] drm/bridge: inno-hdmi: Report hotplug through
+ drm_bridge_hpd_notify()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Rspamd-Server: rspamout01
-X-Rspamd-Queue-Id: 0DECA20029
-X-Stat-Signature: 6pjgmfyk6na7sr1sycakuaamwqz1gft4
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_SANE_2 autolearn=ham
-	autolearn_force=no version=4.0.1
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1+5ChBTssD8JBhJ43i6DVvb8POD/Y8N1Yg=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=8CqJm7M0yv4/2wYmOKC/zfDe65AOuxRbGrFH0p4VsnE=; b=ciedm+7rPzFY39V1r/cvvdx6q6owk4Jag/6O4PoItZZzFzqanHP688mg9Gb5Oh8DAIl5ElX9hAGtd4xvwVtuDV9KZjYwhlR7kx27PvdvmP+Hn1s0UF0bD6uKGSJDi7KdS/Byl5VkKUQjCCaIb7h9lirr4Xi7kjsIDto1Dd0T7k8=
-X-HE-Tag: 1795535452-708807
-X-HE-Meta: U2FsdGVkX18/ONp8OX8bgHDSKuPF05HxfDxMiVtEkw4nm9gPOmmhU+1iKHvaS7MctvvnPU3uz/UK5nWJqwcJ3J9XTxe4VJFueYHSl+dGf6OYjM0uGJcHMzMXz2fLevfyVLDzY3eUWc/c+tkBDKP7vbOCuuXDk2mPXb+UxfTUtFczlcipjLDwDyGWBDrv24U7KBE1+8VP7N9QqokLOns0rBqh01jYqa4AGlTX94+pdZA1S8G99unk9MdLJ2VNBeCs4CvZ7Jkf4E82ucy/WsGULzSJSVvrhoGycWVMWVOIa1xzklSxdH8U3SUz2pseyNEqiP4FborzvJO0mgIkcbU2kxPZwVTqgGHAXFDTaam9QYsZoEBiBFj96GhscrO30peOKpq/guBOaGT4XFlSjfn4Zg==
+Message-Id: <20261124-jh7110-clean-send-v8-2-de92635dd857@samsung.com>
+In-Reply-To: <20261124-jh7110-clean-send-v8-0-de92635dd857@samsung.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,  Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Robert Foss
+	<rfoss@kernel.org>,  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>,  Luca Ceresoli
+	<luca.ceresoli@bootlin.com>,  Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,  Philipp Zabel
+	<p.zabel@pengutronix.de>,  Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
+	<hal.feng@starfivetech.com>, Heiko Stuebner <heiko@sntech.de>,  Paul
+	Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
+	Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>,  David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Yakir Yang
+	<kuankuan.y@gmail.com>,  Dmitry Baryshkov
+	<dmitry.baryshkov@oss.qualcomm.com>,  Michal Wilczynski
+	<m.wilczynski@samsung.com>,  Conor Dooley <conor@kernel.org>, William Qiu
+	<william.qiu@starfivetech.com>,  Xingyu Wu <xingyu.wu@starfivetech.com>,
+	Sandy Huang <hjc@rock-chips.com>,  Manivannan Sadhasivam <mani@kernel.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3380;
+	i=m.wilczynski@samsung.com; h=from:subject:message-id;
+	bh=G48i70LdEO6nG/8tfCf1URPabbh9BzFXSIDuSZEq4sk=;
+	b=owGbwMvMwCGWumv6zndzRCIZT6slMWSzbhbdUqY+favzy60lggU1uX/6jVpSxM533Px/0Fj/5
+	8v1BfL1HaUsDGIcDLJiiixnN0YbSf5jeFp+/PEvmDmsTCBDGLg4BWAic8QY/gdui1xzf0JFTPVr
+	k7OJ71ov39bJPKYxVfRBn1TtRN3DE5czMnwvmpC/br2H4euDzx9UzOHJ+X71d+K/q501xf4yQiX
+	ro5kA
+X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
+	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
+X-CMS-MailID: 20261124155403eucas1p26cc9bf09dc326b2e48c3d2e7100b4ecf
+X-Msg-Generator: CA
+X-RootMTR: 20261124155403eucas1p26cc9bf09dc326b2e48c3d2e7100b4ecf
+X-EPHeader: CA
+X-CMS-RootMailID: 20261124155403eucas1p26cc9bf09dc326b2e48c3d2e7100b4ecf
+References: <20261124-jh7110-clean-send-v8-0-de92635dd857@samsung.com>
+	<CGME20261124155403eucas1p26cc9bf09dc326b2e48c3d2e7100b4ecf@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261124_075100_090888_E939C734 
-X-CRM114-Status: GOOD (  27.96  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261124_075406_216738_E5F5D610 
+X-CRM114-Status: GOOD (  18.24  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,85 +103,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Joshua Peisach <jpeisach@ubuntu.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>, Maud Spierings <maud_spierings@murena.io>, linux-rockchip@lists.infradead.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, linux-riscv@lists.infradead.org, Graham Markall <hello@big-grey.co.uk>, linux-arm-kernel@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, 11 Oct 2026 01:46:45 +0200
-Sarah Emery <sarah.emery@canonical.com> wrote:
+inno_hdmi_irq() passes hdmi->bridge.dev to drm_helper_hpd_irq_event(),
+which dereferences it in its first statement:
 
-> trace_marker_raw.tc expects the length of each raw event to be rounded
-> up to a multiple of 4 bytes. That is not the case when the ring buffer
-> forces 8-byte alignment of events (CONFIG_HAVE_64BIT_ALIGNED_ACCESS):
-> the id plus the data is rounded up to a multiple of 8 bytes instead, so
-> trace_pipe shows 8 * N + 4 items. This was seen on riscv64.
-> 
-> Make the test accept either rounding.
-> 
-> Fixes: 37f46601383a ("selftests/tracing: Add basic test for trace_marker_raw file")
-> Reported-by: Hui Wang <hui.wang@canonical.com>
-> Closes: https://lore.kernel.org/all/20260607072431.125633-3-hui.wang@canonical.com/
+	if (!dev->mode_config.poll_enabled)
 
-The Closes tag is for bug reports not previous version of patches.
+bridge.dev is assigned only by drm_bridge_attach(), but inno_hdmi_bind()
+unmutes the hotplug interrupt in inno_hdmi_init_hw() and installs the
+handler well before it attaches the bridge:
 
-Do you have the link to the email that shows riscv64 fails? That would be
-what you would add to the closes line.
+	inno_hdmi_init_hw(hdmi);		/* unmutes hotplug */
+	devm_request_threaded_irq(...);		/* handler goes live */
+	...
+	hdmi->bridge.ddc = inno_hdmi_i2c_adapter(hdmi);
+	devm_drm_bridge_add(dev, &hdmi->bridge);
+	drm_bridge_attach(...);			/* bridge.dev set here */
 
-> Signed-off-by: Sarah Emery <sarah.emery@canonical.com>
-> ---
-> Original v1 patch from Hui Wang was posted in June and only patch 1/2
-> was merged (commit c37e0a4b79a6).
-> This is a v2 for commit 2/2, addressing reviews.
-> 
-> Changes since v1:
->  - Drop kconfig_enabled() and the CONFIG_HAVE_64BIT_ALIGNED_ACCESS
->    lookup. The review of v1 objected that it depends on the kernel config
->    being readable from the test environment. The test now accepts the
->    4 and 8 byte roundings based on what trace_pipe prints.
->  - The expected length for the 8 byte case is unchanged (8 * N + 4).
->  - Rebase on 65f26d15f7db ("selftests/ftrace: Fix trace_marker_raw test
->    on 64K page kernels"), which changed how the test writes its events.
-> 
-> diff --git a/tools/testing/selftests/ftrace/test.d/00basic/trace_marker_raw.tc b/tools/testing/selftests/ftrace/test.d/00basic/trace_marker_raw.tc
-> index f985ff391463..dd2b94be0947 100644
-> --- a/tools/testing/selftests/ftrace/test.d/00basic/trace_marker_raw.tc
-> +++ b/tools/testing/selftests/ftrace/test.d/00basic/trace_marker_raw.tc
-> @@ -67,7 +67,8 @@ test_multiple_writes() {
->  	# add a little buffer
->  	echo stop > trace_marker
->  
-> -	# Check to make sure the number of entries is the id (rounded up by 4)
-> +	# Check to make sure the number of entries is the id (rounded up by 4,
-> +	# or by 8 on architectures forcing 8 byte alignment of ring buffer events)
->  	awk '/.*: # [0-9a-f]* / {
->  			print;
->  			cnt = -1;
-> @@ -77,9 +78,12 @@ test_multiple_writes() {
->  					i++;
->  					cnt = strtonum("0x" $i);
->  					num = NF - (i + 1);
-> -					# The number of items is always rounded up by 4
-> +					# The number of items is rounded up by 4
-> -					cnt2 = int((cnt + 3) / 4) * 4;
-> +					cnt4 = int((cnt + 3) / 4) * 4;
-> -					if (cnt2 != num) {
-> +					# With forced 8 byte alignment, the id (4 bytes) plus the data
-> +					# is rounded up to a multiple of 8, and the id is not counted
-> +					cnt8 = int((cnt + 3) / 8) * 8 + 4;
+The bridge is allocated by devm_drm_bridge_alloc(), which kzalloc()s it,
+so bridge.dev is NULL for all of that window, and a hotplug event
+arriving in it enters drm_helper_hpd_irq_event(NULL). Checking
+bridge.dev first would not be enough either: nothing orders that read
+against drm_bridge_detach() clearing it while the drm_device is torn
+down.
 
-Instead of doing both checks, it should check 4bytes first and then 8 if
-that fails. Although, it would be better if it knew it was running on an
-architecture that doesn't support 4 byte alignment.
+Before the conversion to a bridge the ordering was safe:
+inno_hdmi_register() called drmm_connector_hdmi_init(), which set
+connector.dev, before the interrupt was requested.
 
--- Steve
+The bridge already sets DRM_BRIDGE_OP_HPD, so report hotplug with
+drm_bridge_hpd_notify() instead. It only calls into the connector while
+the bridge connector has HPD enabled, under bridge->hpd_mutex, which
+covers both the window before attach and the teardown. That mutex is
+initialised by drm_bridge_add(), so request the interrupt after
+devm_drm_bridge_add(); devres then also frees the interrupt before it
+removes the bridge.
 
+Fixes: 969325a2597e ("drm/rockchip: inno-hdmi: Convert to drm bridge")
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ drivers/gpu/drm/bridge/inno-hdmi.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-> +					if (num != cnt4 && num != cnt8) {
->  						exit 1;
->  					}
->  					break;
+diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
+index 6534ad7b16a7c6dfb9718269821b4dd1cd7c5d54..48bb19d59314067343db2c1f3fa6be4d3f8dd1da 100644
+--- a/drivers/gpu/drm/bridge/inno-hdmi.c
++++ b/drivers/gpu/drm/bridge/inno-hdmi.c
+@@ -928,7 +928,8 @@ static irqreturn_t inno_hdmi_irq(int irq, void *dev_id)
+ {
+ 	struct inno_hdmi *hdmi = dev_id;
+ 
+-	drm_helper_hpd_irq_event(hdmi->bridge.dev);
++	drm_bridge_hpd_notify(&hdmi->bridge,
++			      inno_hdmi_bridge_detect(&hdmi->bridge, NULL));
+ 
+ 	return IRQ_HANDLED;
+ }
+@@ -1103,12 +1104,6 @@ struct inno_hdmi *inno_hdmi_bind(struct device *dev,
+ 	if (irq < 0)
+ 		return ERR_PTR(irq);
+ 
+-	ret = devm_request_threaded_irq(dev, irq, inno_hdmi_hardirq,
+-					inno_hdmi_irq, IRQF_SHARED,
+-					dev_name(dev), hdmi);
+-	if (ret)
+-		return ERR_PTR(ret);
+-
+ 	hdmi->bridge.driver_private = hdmi;
+ 	hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT |
+ 			   DRM_BRIDGE_OP_EDID |
+@@ -1128,6 +1123,16 @@ struct inno_hdmi *inno_hdmi_bind(struct device *dev,
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
++	/*
++	 * The hotplug handler takes the bridge's HPD mutex, which
++	 * drm_bridge_add() initialises, so request the interrupt only now.
++	 */
++	ret = devm_request_threaded_irq(dev, irq, inno_hdmi_hardirq,
++					inno_hdmi_irq, IRQF_SHARED,
++					dev_name(dev), hdmi);
++	if (ret)
++		return ERR_PTR(ret);
++
+ 	ret = drm_bridge_attach(encoder, &hdmi->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 	if (ret)
+ 		return ERR_PTR(ret);
+
+-- 
+2.34.1
 
 
 _______________________________________________
