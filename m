@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D97A606A31E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 03:33:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B921606A33D
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 03:34:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ChhrmvaE;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lr1aXTLR
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gzfCjjwf;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XWgi8/bd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,65 +14,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=w4OZ462LKZAkBK1il79pigQ+oHLFM5pf/TugYVumaKw=; b=ChhrmvaEeSyzTwT1z9ZGKlIFJ8
-	ji4/kK0oCbku73NVnDIWLtBdtp7HmQJetowIn3+iNi0YeK1RrwFYMh75ORpLU8EHrrmqP3s8HMgr6
-	RBCLcJkT+HVaw8um3sRVXkYpewJOLRRaKmH99Co+LTiWWwirrwcwNbVjwdj/JtkcIPurr88KpOzSs
-	1o5UIer4EJApQSc5c9KgPh5WY6MjSChEIjMSrj/zOGiT10vwudPF18v7jr8VKXi9T1+Oxbt7u+8jk
-	wh7lKV3ra3efWrw2GYd/6oyM8BJHbTvVuixns1uJ7kTFl85IE+WmqQjoeLq6R0jYx7En9+EY/5P5X
-	muxzvDJA==;
+	bh=MokofFenUCi1jv5Y6gw39tzusdeWIuA01GYl2FLkg7k=; b=gzfCjjwfm3ER2hNXQg5h2PUCPR
+	ifWVur6QGwSGnfGcS3oJVlJnfnsYDfy3BtTo4BQon7rxj4EA66GsAnCnzZCZWClmkGqtTTRnf/QIT
+	pamo64IyKkRT8HrLkHTcdmLwxapo24OGl7FCZSC/k9+qMz1jU65vmI8QJ6V+DOWwpyMNr66PKIAv9
+	v9s1f5ro72Fc03T0VM54/o9gG/DXhSfvq5ko6MYheI8s360jB6vNPbIdpMvLltWmkPKfixmL8M1fR
+	dERmwM6wqXDvhQdyEvO+Wv+/sBSJT5sT3dzJN2Zr7vfH0LB+2yk3kd9qaQt2H67YWRIZVJL7D+zo1
+	DmTy6lag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVhHw-00000005RnI-2b7G;
-	Tue, 24 Nov 2026 03:33:48 +0000
-Received: from mail-pj2-x03.google.com ([2607:f8b0:4864:39::3])
+	id 1xVhI1-00000005RqF-04ZO;
+	Tue, 24 Nov 2026 03:33:53 +0000
+Received: from mail-pj2-x05.google.com ([2607:f8b0:4864:39::5])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVhHq-00000005Rit-2xfy
+	id 1xVhHw-00000005RmS-0cQ3
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Nov 2026 03:33:44 +0000
-Received: by mail-pj2-x03.google.com with SMTP id 98e67ed59e1d1-3b14c80b210so913052a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 19:33:42 -0800 (PST)
+	Tue, 24 Nov 2026 03:33:49 +0000
+Received: by mail-pj2-x05.google.com with SMTP id d9443c01a7336-2f066a193bbso19825615ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 19:33:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795491222; x=1796096022; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1795491227; x=1796096027; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=lP3ch59NAPtwcIuspqlGBS3z7FlOBtLkp+myFltPlfI=;
-        b=Lr1aXTLRfgocSN8qvyLcPy5L5e6dsjpkMAcHew0WUg4KDsuesO2VebsbnTal0Rzitg
-         IrPXWEWoXE3aH+IZtm26Dvto9EWH4SdP4Rgim4wBBSTKWr5vPAmzVQbad4IAf6QmudI6
-         lnLGEK+ABndAA7NfYxwz8EO0YyoTYZccoJHK6qmDWm6YbSk41zyAJwW7ne4MLt0K7xS0
-         rvXBM3z/mTwV6s8+xJy+qUU0dGyxFb0tLVJUGllPN8Z5sh+opRvDqOf6C0mlaI/n1j1D
-         l5HEGhvLrI/uePkSQRv/y6jXlAitynY1a74fuW4IoYvHkSEKU9dRnSVbkI0bt4/8NXNy
-         JDWQ==
+        bh=+aG4MNfkbYBkCJSsJvADe/q3LoG/+w55119ipXSrHN0=;
+        b=XWgi8/bd3lV0+t/KHi165SM/Andcy1vne7iUDJn9LpnnRaUJEU/do1O87sznVP7zL9
+         /NeKTA1uYhArNpZ3uK1Q76zhKogv5E7U24lpJ/2bH7hyACm5cAAYdcx+Uhj+KjD4jWv/
+         t7n5EydtVN5auetE8qKzt2VV5aWDRdii47kxbpkqtHpHVGkxyk13k0DEglgup1vpwckd
+         wuoqdBia+lVyHshVIVrMVmcOtonwyTPYxjjJXGtNTjus/a9EnFwpzkn6nwg92ZclGXMx
+         1+QhxxTL058xBNkepCXQ+IhuuZ3dOWFzAQLh+I/OsDBvoWQ2s70Cy/Ww4gjhoGRn/E1L
+         GWDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795491222; x=1796096022;
+        d=1e100.net; s=20260707; t=1795491227; x=1796096027;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lP3ch59NAPtwcIuspqlGBS3z7FlOBtLkp+myFltPlfI=;
-        b=F6FWS61ZmCNLmkna5iW+7G0cnwEgN+UVsidQ4ov+d8mKq+1YxisIdqOispIPKFZghw
-         QAc0dbH1QLSAKXTlQ+Sj0l8I6zGTHbUJh+DJhFAg3do6AMqimfUAuCj2ashIfPVAjeoS
-         MCoNip5GI3icMB0IA3qs5KdUmF8m4/069LowIR9RfmclJyRkIstqkglEGmmjIKw2u5JQ
-         9uquIuPC0W5VM5LuJeF6Y04Aknxu6lkJ11Z8MOTkHtFUVjCrYeQrPCkWJTGV/Y7o7HUq
-         4Kt/DLMTi2ad0OYEoKQfbTa2YOZadKoskJV2QyfeyLksC29mz2jMzY/Awv9nOxiwBnow
-         UiVg==
-X-Forwarded-Encrypted: i=1; AL+hErH6VNxxOD9S+wzwmoxiLbSYh/nOfMXA8cnm4kz6dEeuyKp1e9PI3Y9wKc1o0nalagpTl7I4wjOWvZ5hgg==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+pD2Pn5EvQbCJM+DSzv303876+g/KUlrUKwXubaUavxkc/NQQq
-	KK/c+Hpryd+Y5xomn8on6c1IJb7440laKIAk+Y8WFYhZjVN3+Bhw+N+9
-X-Gm-Gg: AZFdTZdIHobXOtZRqjpgjjOJz73I5eMamxb9IpV2Gh1uKtIzZgUYS+qZrehrDZ4K3wL
-	1IHrHsG7XzzolSWLUczka10Fdzikr0bgew7jUXL65rrhNOGLKJ+QxBlN3pzsU9DGwq1eXAEcnTC
-	539qV7Zj4pH7sQ6iBq8QRXRmbMbwVM89DFxP/WqhVL7lTTqxAWFpDhlCYH3xLncqTxALHqvEGJL
-	eLtB/LDbdmHSoCyqVp4Pl3wwG5jofqhV0eRhViuoNFZWyJnAvsNRyJ/M1HRdH/X0PtjogHM5ei+
-	3hVKIG9w8SSsY2XKAEDib6A87BEC9z+Bjz0P/LoXSlljZbH7R4HuJ9oi2sr1d6XA95kGMOtraV6
-	UKCR6j0PqNFtFNTtSveeKBXES4a+MBfQAy8EAMHIHk7PmufMrdFHR6GqDZMBT6Y+Jc4yrJdq8Ow
-	Z9OptSm1aFIAumze2aRShwBeuHckyp+MD24S4LwxBZZ1Y8bja1e/6A9rZw2/7okLn2cAsfEH+Yx
-	pqzYTP18JYCvj/341oSeKduybMUd9n/P7Z1iJszvwnksbWmg1CzJwxbs1A9ejJBTAomneRfpXo6
-	7+B7cPo3bpVkeuzOGU9VQTC0bX4dbmg6aICsn1rZTw==
-X-Received: by 2002:a05:6a20:7489:b0:3f9:a6b6:e16b with SMTP id adf61e73a8af0-4014c94a618mr11685070637.21.1795491221907;
-        Mon, 23 Nov 2026 19:33:41 -0800 (PST)
+        bh=+aG4MNfkbYBkCJSsJvADe/q3LoG/+w55119ipXSrHN0=;
+        b=a/oUFW21nrZ2TWOHTQo1P3J8eCmHKCQr80RWi9/acQ/JI6mLTtT24BFE7d9VvKSRs3
+         0nocACfNDp+1Ma537DWlgvX39wNLDGFezWeRj2VQbzxX25rP9glF+Pb7NRvUWtqIBL85
+         QQS/UwF5XHm4+9yEj2zp7vDw0ZLdR0rvFXx0j4JkYs8zVSPYQwoznaChB2E7pX97SE9r
+         jQJjbSyzrr6eFMaCwckP6itCdx/XuSsh5mldnLkQQHDfdQ9vUM6FB2pPj61Peoampuny
+         +DOG1Y1dAVq5rJnp6Sl5N7dBMJkHXQWr5MvyfttSJ2TD1T8Vdr5kccWXtsRYWm+OZXkb
+         jpeg==
+X-Forwarded-Encrypted: i=1; AL+hErFZi3kLqfF4kt91nV9IdmRJv1KKA35fZt98pjS8bBw/zMXoBXAzxqB9DLkj15MSbAJus4tEh8gRyFKn6w==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/jAUiaH25t4Yuh9+CEq8lzYDqu7WI5Gd0Lt9BbQDOUKipVvZj3
+	IC720mbWL/2Cx0B13lbiY45/S2DoJfScEmWjD5G+QL7ph5PHitRc+Fdj
+X-Gm-Gg: AZFdTZfNwy932mIDuSjDgS1uN1PJHxnt9qyYEXy93C30slYgJKmsqauqCziR5xziDT2
+	JZHTeMllgbCJI3W+A/g0Ei1c9cKZyyzBFDG/5WkkHeg57Xa+60Uyrd+RW48QMEGpCw0fZxr4zmS
+	WyEuDktlqsOdnEa03wwIDMfQHUEPUgg60KisdgwM9N8BlA8Vkiw5q2EiYFHGyB+mkUB6y3ZRjhf
+	kkDAo2EkcSNJ1B5tYBEhinDAU0TUYiw4+SJmJWxSyKgOeAVwbydmsz96zlc/OLJkAZYHz29TPF1
+	9nXzgevXrvfjhL3oiS6asjBWO/KhhmMVBGFLyfqB46Ou+1uhqWlhYaWUvyIYHQKNPwXJdtyIpmL
+	0mCyddUXUkf8ktCn/Y/5Ae4wMpyHSMspH/oe62fKDeduY0h1VhZKH/DVXjwaGEcTtXfne/L0Ez+
+	U7oO8mdCrv7u31T5lbgov4f4HiuZAUQKB9hihzwk4JJjNtuaHj1RdKx/KmksO0Myu0cyyiJSQQJ
+	aIj4QQJJwTOpVUBrFqKZg633uapcwSGJZ9avEvDq6c6iF9hsF9Tltd9FcU0K0AANVjZh8Tmyjje
+	d0AqBssSXoYueEiKTa2mahTyHM1MFeZdr0Jo+uxogw==
+X-Received: by 2002:a05:6300:218b:b0:3f8:f0b1:e7c0 with SMTP id adf61e73a8af0-4014da5fc3emr12855841637.59.1795491227174;
+        Mon, 23 Nov 2026 19:33:47 -0800 (PST)
 Received: from q-Legion-Y7000-IRX9.. ([223.86.210.47])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bff6sm6495773b3a.3.2026.11.23.19.33.36
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bff6sm6495773b3a.3.2026.11.23.19.33.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 19:33:41 -0800 (PST)
+        Mon, 23 Nov 2026 19:33:46 -0800 (PST)
 From: Bingyu Xian <shanbeeyoo@gmail.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Sean Christopherson <seanjc@google.com>,
@@ -91,18 +91,17 @@ Cc: Shuah Khan <shuah@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/2] KVM: selftests: Fail explicitly when schedstat cannot be read
-Date: Tue, 24 Nov 2026 11:33:27 +0800
-Message-Id: <20261124033328.612894-2-shanbeeyoo@gmail.com>
+Subject: [PATCH v2 2/2] KVM: selftests: Test steal-time dirty logging and RISC-V STA transitions
+Date: Tue, 24 Nov 2026 11:33:28 +0800
+Message-Id: <20261124033328.612894-3-shanbeeyoo@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261124033328.612894-1-shanbeeyoo@gmail.com>
 References: <20261124033328.612894-1-shanbeeyoo@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_193342_766484_5F0A2B91 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261123_193348_212726_A782F90A 
+X-CRM114-Status: GOOD (  22.40  )
 X-Spam-Score: -0.1 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,43 +124,399 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-get_run_delay() currently passes a failed fopen() result directly to
-fscanf(), and substitutes MIN_RUN_DELAY_NS when parsing fails. Steal-time
-checks need real scheduling delay measurements, so neither dereferencing a
-null stream nor returning a fabricated constant is suitable; repeated parse
-failures also cause polling loops to spin indefinitely.
+KVM writes to a guest steal-time structure must be recorded in the guest
+RAM dirty log. Enable dirty logging on the shared-area memslot in the
+common per-vCPU test path, clear initialization dirty bits after the
+first run, and force runnable scheduling delay before checking that the
+subsequent accounting write marks the expected page dirty.
 
-Assert that opening /proc/<tid>/schedstat and parsing both fields succeed.
+On RISC-V, additionally exercise three SBI STA transitions: disabling an
+active shared area, re-enabling the same area, and replacing an active
+registration directly with a new area at the end of a second host page.
+Clear the dirty log after each transition, arrange runnable contention on
+the pinned CPU with a bounded monotonic timeout, and compare sequence and
+stolen time against a stopped-vCPU snapshot so valid zero-increment skips
+are permitted. After active replacement, verify that the old page remains
+both unchanged and clean.
+
+Use per-architecture hooks for protocol-specific lifecycle cases instead of
+adding #ifdefs in main(). These SBI enable/disable operations match those
+used by the Linux RISC-V guest CPU online and CPU-down callbacks, while the
+selftest exercises the SBI protocol directly rather than booting Linux.
+Drop the v1 MADV_DONTNEED check, which discarded guest page contents and
+did not model migration.
 
 Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
 Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 Signed-off-by: Bingyu Xian <shanbeeyoo@gmail.com>
 ---
- tools/testing/selftests/kvm/lib/test_util.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+Changes in v2:
+- Move accounting dirty-log checks into the common per-vCPU loop and
+  remove the added #ifdefs from main().
+- Test RISC-V disable, re-enable of the same area, and direct active
+  replacement separately; drop the v1 MADV_DONTNEED case.
+- Isolate registration dirty bits with kvm_vm_get_dirty_log() and arrange
+  bounded runnable contention instead of assuming unconditional updates.
+- Align the two-page region and boundary offset to getpagesize().
 
-diff --git a/tools/testing/selftests/kvm/lib/test_util.c b/tools/testing/selftests/kvm/lib/test_util.c
-index f5f7189f9..eccb03153 100644
---- a/tools/testing/selftests/kvm/lib/test_util.c
-+++ b/tools/testing/selftests/kvm/lib/test_util.c
-@@ -417,13 +417,14 @@ long get_run_delay(void)
- 	char path[64];
- 	long val[2];
- 	FILE *fp;
-+	int ret;
+ tools/testing/selftests/kvm/steal_time.c | 233 ++++++++++++++++++++---
+ 1 file changed, 206 insertions(+), 27 deletions(-)
+
+diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+index 82b94a82d..276eb03a6 100644
+--- a/tools/testing/selftests/kvm/steal_time.c
++++ b/tools/testing/selftests/kvm/steal_time.c
+@@ -8,6 +8,7 @@
+ #include <time.h>
+ #include <sched.h>
+ #include <pthread.h>
++#include <linux/bitmap.h>
+ #include <linux/kernel.h>
+ #include <asm/kvm.h>
+ #ifdef __riscv
+@@ -29,11 +30,17 @@ static u64 guest_stolen_time[NR_VCPUS];
  
- 	sprintf(path, "/proc/%ld/schedstat", (long)kvm_gettid());
- 	fp = fopen(path, "r");
--	/* Return MIN_RUN_DELAY_NS upon failure just to be safe */
--	if (fscanf(fp, "%ld %ld ", &val[0], &val[1]) < 2)
--		val[1] = MIN_RUN_DELAY_NS;
-+	TEST_ASSERT(fp, "Failed to open %s: %s", path, strerror(errno));
-+	ret = fscanf(fp, "%ld %ld ", &val[0], &val[1]);
- 	fclose(fp);
-+	TEST_ASSERT(ret == 2, "Failed to parse run delay from %s", path);
+ static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
+ 					   struct kvm_vcpu *vcpus[]);
++static long force_steal_time(void);
  
- 	return val[1];
+ #if defined(__x86_64__)
+ 
+ /* steal_time must have 64-byte alignment */
+ #define STEAL_TIME_SIZE		((sizeof(struct kvm_steal_time) + 63) & ~63)
++#define NR_LIFECYCLE_TESTS	0
++
++static void check_steal_time_lifecycle(void)
++{
++}
+ 
+ static void check_status(struct kvm_steal_time *st)
+ {
+@@ -115,6 +122,11 @@ static void check_steal_time_uapi(void)
+ 
+ /* PV_TIME_ST must have 64-byte alignment */
+ #define STEAL_TIME_SIZE		((sizeof(struct st_time) + 63) & ~63)
++#define NR_LIFECYCLE_TESTS	0
++
++static void check_steal_time_lifecycle(void)
++{
++}
+ 
+ #define SMCCC_ARCH_FEATURES	0x80000001
+ #define PV_TIME_FEATURES	0xc5000020
+@@ -239,6 +251,7 @@ static void check_steal_time_uapi(void)
+ 
+ /* SBI STA shmem must have 64-byte alignment */
+ #define STEAL_TIME_SIZE		((sizeof(struct sta_struct) + 63) & ~63)
++#define NR_LIFECYCLE_TESTS	3
+ 
+ static gpa_t st_gpa[NR_VCPUS];
+ 
+@@ -329,6 +342,129 @@ static void steal_time_dump(struct kvm_vm *vm, u32 vcpu_idx)
+ 	pr_info("\n");
  }
+ 
++static gpa_t lifecycle_second_gpa;
++
++static void sta_lifecycle_guest(void)
++{
++	sta_set_shmem(ST_GPA_BASE, 0);
++	GUEST_SYNC(0);
++	GUEST_SYNC(1);
++
++	sta_set_shmem(INVALID_GPA, 0);
++	GUEST_SYNC(2);
++	GUEST_SYNC(3);
++
++	/* Re-enable the same area, as the guest CPU online callback does. */
++	sta_set_shmem(ST_GPA_BASE, 0);
++	GUEST_SYNC(4);
++	GUEST_SYNC(5);
++
++	/* Replace the active registration without disabling it first. */
++	sta_set_shmem(lifecycle_second_gpa, 0);
++	GUEST_SYNC(6);
++	GUEST_SYNC(7);
++	sta_set_shmem(INVALID_GPA, 0);
++	GUEST_DONE();
++}
++
++static void sta_lifecycle_run(struct kvm_vcpu *vcpu, unsigned int stage)
++{
++	struct ucall uc;
++
++	vcpu_run(vcpu);
++	switch (get_ucall(vcpu, &uc)) {
++	case UCALL_SYNC:
++		TEST_ASSERT_EQ(uc.args[1], stage);
++		break;
++	case UCALL_DONE:
++		TEST_ASSERT_EQ(stage, 8);
++		break;
++	case UCALL_ABORT:
++		REPORT_GUEST_ASSERT(uc);
++	default:
++		TEST_FAIL("Unexpected STA lifecycle exit at stage %u", stage);
++	}
++}
++
++static void check_sta_page(struct sta_struct *st, struct sta_struct *before)
++{
++	TEST_ASSERT(st->sequence != before->sequence && !(st->sequence & 1),
++		    "Expected a completed STA update, sequence=%u", st->sequence);
++	TEST_ASSERT(st->steal > before->steal, "STA stolen time did not advance");
++	TEST_ASSERT_EQ(st->flags, 0);
++	TEST_ASSERT_EQ(st->preempted, 0);
++}
++
++static void check_steal_time_lifecycle(void)
++{
++	struct sta_struct snapshot, before, *first, *second;
++	size_t host_page_size = getpagesize();
++	unsigned long dirty = 0;
++	unsigned int gpages;
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++
++	vm = vm_create_with_one_vcpu(&vcpu, sta_lifecycle_guest);
++	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, 2 * host_page_size);
++	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
++				    1, gpages, KVM_MEM_LOG_DIRTY_PAGES);
++	/* Also exercise an STA structure ending at a host page boundary. */
++	WRITE_AND_SYNC_TO_GUEST(vm, lifecycle_second_gpa,
++				ST_GPA_BASE + 2 * host_page_size - sizeof(struct sta_struct));
++	first = addr_gpa2hva(vm, ST_GPA_BASE);
++	second = addr_gpa2hva(vm, lifecycle_second_gpa);
++
++	/* Establish active updates on the first page before testing disable. */
++	sta_lifecycle_run(vcpu, 0);
++	before = *first;
++	/* Registration writes zeroes and dirties the page independently. */
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	force_steal_time();
++	sta_lifecycle_run(vcpu, 1);
++	check_sta_page(first, &before);
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	TEST_ASSERT_EQ(dirty, BIT(0));
++
++	sta_lifecycle_run(vcpu, 2);
++	snapshot = *first;
++	/* Entry before the disable call may have updated the old area. */
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	force_steal_time();
++	sta_lifecycle_run(vcpu, 3);
++	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
++		    "Disabled STA shared page was modified");
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	TEST_ASSERT_EQ(dirty, 0);
++	ksft_test_result_pass("STA disable stops shared page updates\n");
++
++	sta_lifecycle_run(vcpu, 4);
++	before = *first;
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	force_steal_time();
++	sta_lifecycle_run(vcpu, 5);
++	check_sta_page(first, &before);
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	TEST_ASSERT_EQ(dirty, BIT(0));
++	ksft_test_result_pass("STA re-enable resumes shared page updates\n");
++
++	sta_lifecycle_run(vcpu, 6);
++	/* Snapshot after the last entry that could still update the old area. */
++	snapshot = *first;
++	before = *second;
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	force_steal_time();
++	sta_lifecycle_run(vcpu, 7);
++	check_sta_page(second, &before);
++	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
++		    "Old STA shared page was modified after replacement");
++	kvm_vm_get_dirty_log(vm, 1, &dirty);
++	TEST_ASSERT_EQ(dirty, BIT(1));
++	ksft_test_result_pass("STA active replacement updates only the new page\n");
++
++	sta_lifecycle_run(vcpu, 8);
++	kvm_vm_free(vm);
++}
++
+ static void check_steal_time_uapi(void)
+ {
+ 	struct kvm_vm *vm;
+@@ -368,8 +504,13 @@ static void check_steal_time_uapi(void)
+ 
+ /* steal_time must have 64-byte alignment */
+ #define STEAL_TIME_SIZE		((sizeof(struct kvm_steal_time) + 63) & ~63)
++#define NR_LIFECYCLE_TESTS	0
+ #define KVM_STEAL_PHYS_VALID	BIT_ULL(0)
+ 
++static void check_steal_time_lifecycle(void)
++{
++}
++
+ struct kvm_steal_time {
+ 	__u64 steal;
+ 	__u32 version;
+@@ -466,22 +607,58 @@ static void check_steal_time_uapi(void)
+ }
+ #endif
+ 
++struct steal_time_worker {
++	bool stop;
++	struct timespec deadline;
++};
++
+ static void *do_steal_time(void *arg)
+ {
+-	struct timespec ts, stop;
++	struct steal_time_worker *worker = arg;
++	struct timespec ts;
+ 
+-	clock_gettime(CLOCK_MONOTONIC, &ts);
+-	stop = timespec_add_ns(ts, MIN_RUN_DELAY_NS);
+-
+-	while (1) {
++	while (!READ_ONCE(worker->stop)) {
+ 		clock_gettime(CLOCK_MONOTONIC, &ts);
+-		if (timespec_to_ns(timespec_sub(ts, stop)) >= 0)
++		if (timespec_to_ns(timespec_sub(ts, worker->deadline)) >= 0)
+ 			break;
+ 	}
+ 
+ 	return NULL;
+ }
+ 
++/* The caller is pinned; its worker inherits the same CPU affinity. */
++static long force_steal_time(void)
++{
++	struct steal_time_worker worker = {};
++	struct timespec ts;
++	pthread_t thread;
++	cpu_set_t cpuset;
++	long start, delay;
++	int cpu = sched_getcpu();
++
++	clock_gettime(CLOCK_MONOTONIC, &ts);
++	worker.deadline = timespec_add_ns(ts, 5 * NSEC_PER_SEC);
++	start = get_run_delay();
++	kvm_pthread_create(&thread, NULL, do_steal_time, &worker);
++	kvm_pthread_getaffinity(thread, &cpuset);
++	TEST_ASSERT(CPU_COUNT(&cpuset) == 1 && CPU_ISSET(cpu, &cpuset),
++		    "Worker failed to inherit parent's CPU affinity");
++
++	do {
++		sched_yield();
++		delay = get_run_delay() - start;
++		clock_gettime(CLOCK_MONOTONIC, &ts);
++	} while (delay < MIN_RUN_DELAY_NS &&
++		 timespec_to_ns(timespec_sub(ts, worker.deadline)) < 0);
++
++	WRITE_ONCE(worker.stop, true);
++	kvm_pthread_join(thread, NULL);
++	TEST_ASSERT(delay >= MIN_RUN_DELAY_NS,
++		    "Timed out waiting for runnable delay: expected >= %lu ns, got %ld",
++		    MIN_RUN_DELAY_NS, delay);
++	return delay;
++}
++
+ static void run_vcpu(struct kvm_vcpu *vcpu)
+ {
+ 	struct ucall uc;
+@@ -509,7 +686,8 @@ static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
+ 	/* Create a VM and an identity mapped memslot for the steal time structure */
+ 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
+ 	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, STEAL_TIME_SIZE * nr_vcpus);
+-	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE, 1, gpages, 0);
++	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
++				    1, gpages, KVM_MEM_LOG_DIRTY_PAGES);
+ 	virt_map(vm, ST_GPA_BASE, ST_GPA_BASE, gpages);
+ 
+ 	return vm;
+@@ -518,26 +696,31 @@ static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
+ int main(int ac, char **av)
+ {
+ 	struct kvm_vcpu *vcpus[NR_VCPUS];
++	unsigned long *dirty_log;
++	unsigned int dirty_npages, page;
+ 	struct kvm_vm *vm;
+-	pthread_t thread;
+-	cpu_set_t cpuset;
+ 	long stolen_time;
+ 	long run_delay;
+ 	bool verbose;
+-	int i, cpu;
++	int i;
+ 
+ 	verbose = ac > 1 && (!strncmp(av[1], "-v", 3) || !strncmp(av[1], "--verbose", 10));
+ 
+ 	/* Set CPU affinity so we can force preemption of the VCPU */
+-	cpu = pin_self_to_any_cpu();
++	pin_self_to_any_cpu();
+ 
+ 	vm = vm_create_steal_time(NR_VCPUS, guest_code, vcpus);
+ 
+ 	ksft_print_header();
+ 	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
+-	ksft_set_plan(NR_VCPUS);
++	TEST_REQUIRE(!access("/proc/self/schedstat", R_OK));
++	ksft_set_plan(2 * NR_VCPUS + NR_LIFECYCLE_TESTS);
++	dirty_npages = memslot2region(vm, 1)->region.memory_size / getpagesize();
++	dirty_log = bitmap_zalloc(dirty_npages);
++	TEST_ASSERT(dirty_log, "Failed to allocate dirty log");
+ 
+ 	check_steal_time_uapi();
++	check_steal_time_lifecycle();
+ 
+ 	/* Run test on each VCPU */
+ 	for (i = 0; i < NR_VCPUS; ++i) {
+@@ -547,30 +730,24 @@ int main(int ac, char **av)
+ 
+ 		/* First VCPU run initializes steal-time */
+ 		run_vcpu(vcpus[i]);
++		/* Exclude initialization writes from the accounting dirty log. */
++		kvm_vm_get_dirty_log(vm, 1, dirty_log);
++		force_steal_time();
+ 
+ 		/* Second VCPU run, expect guest stolen time to be <= run_delay */
+ 		run_vcpu(vcpus[i]);
++		kvm_vm_get_dirty_log(vm, 1, dirty_log);
++		for (page = 0; page < dirty_npages; page++)
++			TEST_ASSERT_EQ(!!test_bit(page, dirty_log),
++				       page == i * STEAL_TIME_SIZE / getpagesize());
++		ksft_test_result_pass("vcpu%d shared page update is marked dirty\n", i);
+ 		stolen_time = SYNC_FROM_GUEST_AND_READ(vm, guest_stolen_time[i]);
+ 		run_delay = get_run_delay();
+ 		TEST_ASSERT(stolen_time <= run_delay,
+ 			    "Expected stolen time <= %ld, got %ld",
+ 			    run_delay, stolen_time);
+ 
+-		/* Steal time from the VCPU. The steal time thread has the same CPU affinity as the VCPUs. */
+-		run_delay = get_run_delay();
+-		kvm_pthread_create(&thread, NULL, do_steal_time, NULL);
+-		kvm_pthread_getaffinity(thread, &cpuset);
+-		TEST_ASSERT(CPU_COUNT(&cpuset) == 1 && CPU_ISSET(cpu, &cpuset),
+-			    "Worker failed to inherit parent's CPU affinity");
+-
+-		do
+-			sched_yield();
+-		while (get_run_delay() - run_delay < MIN_RUN_DELAY_NS);
+-		kvm_pthread_join(thread, NULL);
+-		run_delay = get_run_delay() - run_delay;
+-		TEST_ASSERT(run_delay >= MIN_RUN_DELAY_NS,
+-			    "Expected run_delay >= %ld, got %ld",
+-			    MIN_RUN_DELAY_NS, run_delay);
++		run_delay = force_steal_time();
+ 
+ 		/* Run VCPU again to confirm stolen time is consistent with run_delay */
+ 		run_vcpu(vcpus[i]);
+@@ -588,6 +765,8 @@ int main(int ac, char **av)
+ 		}
+ 		ksft_test_result_pass("vcpu%d\n", i);
+ 	}
++	free(dirty_log);
++	kvm_vm_free(vm);
+ 
+ 	/* Print results and exit() accordingly */
+ 	ksft_finished();
 -- 
 2.34.1
 
