@@ -2,71 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A5F8606A31E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 03:07:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71E5E606A322
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 03:32:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cPTHbTks;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q/oxsYCg
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MHdd7NRg;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XfNixK8z
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=byfQqGU9EfaF0ha0yWKABpA1Aki6Nxn4wwzXDtWmhKw=; b=cPTHbTks0vUYE27HnNNcqpoLCw
-	6lIXXj0cCYJo+3634YeyXJkif9IN1EzJ6vFhWp4pTWou3BqRI0eG3m3EWpGQwtA8VXCh2sF+mDtq8
-	pImRSILVBQBIGe/gwaQh46Z/fR39TzZt1RvVF+hDea9AvuQvsea5capgevblAprFPFJrjLJzJtvEn
-	pS7lEsJnzY4dlVSDwSTsN8VarxW8vwG/K6OrPl9BBZFgrcMpD352iArhDNGuvnfqj7WkDkELhWy/4
-	nUV+X9udf/ahDF2rcLTa45twuuJ1ACPoVpujJvF4+SdYRsWfsPlFZAv3QZ8V0Hnk2kLqdL09Fij3h
-	VM4/V7fQ==;
+	bh=O0iGL6fz8Kf21afpKWb7oRbtTSMNKPSbOrF8klzdcCs=; b=MHdd7NRgpSdypDNB9pFqMU0PLg
+	LtSOzZ4ZCx5bqfmw5rDS3m5RrN6NfGIRD0X58fqBrT5CfCSoYdVjwzCQ4q8G1f/xwpPLemqyLdeNp
+	QUv/JSCEDpZqnviKyJGsVSnsyRRrT6/+22bd2Vplofa6uSrrPZoYuR9zXQDJNWARaVJK/Qll1oyvo
+	j1NNs7I36p+GKVuUeY0e4NKFoOizA8yBekac4RS+05u8Eo4pk29cUx4ASNK5JLbQNMiZyenqTQwZY
+	5XAiX5cJdeU8IWBqqEhJeYPfv2CTEQMgvhWoTunmxSMQR8GKx612l4a7rACNeVFUpwxmWT9FC2Llu
+	BDDynFhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVgsG-00000005Ps7-3Szb;
-	Tue, 24 Nov 2026 03:07:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xVhG6-00000005RLB-1fTk;
+	Tue, 24 Nov 2026 03:31:54 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVgsE-00000005Pry-3QFK
+	id 1xVhG1-00000005RKL-475d
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Nov 2026 03:07:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 19ECC44DE3
-	for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2026 03:07:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E10F31F000E0
-	for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2026 03:07:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795489633;
-	bh=f3G7P8EX6lzel8M4murbJ/ClS/XnnVW3EBSz7Xxerm0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Q/oxsYCgid34xy+gjplJh6fDMssmb6kksArIkf0elUB7YfQyGJAyfJqPmjrOI0EF3
-	 PsCNSWFw/RCcez8AHQTpNpMGL0yr6ETRr0HsJTkFNBP2ebj+xcBHoFTx13YRVgfJq4
-	 YsusU1+BluywsEElXMlvOzD9JxRZ4xIrcpl+ntXXuJB+wuUuTTb0KUFyUj0S0BZh7J
-	 WGXvxJz9WztsHeV1IrzQVsC0z9fX8pGlQpGBgKq2Y5YLpi/x/TGqb+gR7Hzrv0U6uP
-	 yNqdDTOa99hBmlz+ngFhQC0BUEVmdX+ISRseyGvrTaB/BwfCk8TLygpkMMxZL4nsgl
-	 Kfe4Di3796qHg==
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb6886d30aso38608335e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 19:07:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEvR1AatNdEi5N3ib0sc0JSloPuGVHlIQ4N5JD6VIvMDlgMxq53w8MhvU7Or2haNzG30THvPv1fpTl6Rw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9q3Zl3OEYY2obDzDH6YetSUTb0s6P9BbQ1vbnuw4+PdozoPQph
-	XqO9xI38Y6aFqONMUgg6r9/XcViGePZS/7VwEiWESWf2Q3FZV2YdAwPFZPV6ETwZcbVGwA6Rg2g
-	Nsifa8VmRtACCiiScOK+jakRrtSO4noE=
-X-Received: by 2002:a05:600c:5308:b0:4bb:76d6:1f5d with SMTP id
- 5b1f17b1804b1-4bb887ca192mr282484095e9.2.1795489632406; Mon, 23 Nov 2026
- 19:07:12 -0800 (PST)
+	Tue, 24 Nov 2026 03:31:53 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-cd60c5da24cso2590458a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 19:31:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795491109; x=1796095909; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qKlNSAE1LII8ekZyJm2r7dBRiHTZedE60seDigfXqMg=;
+        b=XfNixK8zczAx5f2jHNKFXaSbRNoedN0ZyTdJFgnkg+2+5OudByqf2RzcRo6UkOpgl5
+         l7zgCrRjUF1r3JupBA8501+0MBVVp79VAbuAytLrszx9j+Z5SSVp3TZosrWqrb1VDgw7
+         v9NKwtv/pcTbxOE726Xu7r26pnaJlNOIpWnaK8w1wMecwjqJBQKwxPTTRICrhdLHlZha
+         Tt15J7l0fKAmHA/uqn3UXTwgGfTKv0r2EYh+MMQQpsz6zpZ9IUEk1FQiB/j6JWX7ELlk
+         WEgX9Tp+ypK0jCpaUVDByl6dMcG3J5uNQDzn9oc1kUnauDNXocpVCuEu+hmENZviGEuE
+         0B/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795491109; x=1796095909;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qKlNSAE1LII8ekZyJm2r7dBRiHTZedE60seDigfXqMg=;
+        b=GGOER36PXRvPY7+uWhsEoIGuWOu3uGWNwVzIGf0mrMwW0pIc/ZqX/7ksl/A6pBGEkt
+         2+g2PXXDjCuDY0BmC7E1cq6VCYAZBzO36DI25BqQjQdVykpbkGVqGH/MuwsCiMEBeHHO
+         fu0Yt6F9WjwAqA7dzXQX89Z8nZNn3MBYYT7MoKTfVZuS1tbO3QyLVK/Q/R9ic058/yEL
+         V0s6bzVac/UdVxQPMObUE+/6mPyVQ0Qr5taqpJzgHFvUoqAcNlCB7YvYYFbjM0FAEO37
+         h0R6B3rnGec8ubOs8ISjMWi3mF3n5c/qlmF4T9vUkR3EH6pVwm5pfDasrdI3Y6YSiW4u
+         3MAA==
+X-Forwarded-Encrypted: i=1; AL+hErEvywuZSEeP96mn6EWdsjyV/Qp5nOWPDBDJ9AeWD8BndYXaD17V0JUIl3KM3R25rusiYITFfY4AOZcsSg==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+3qhc3S0bso1BQtkDNI08z/PTl6NtTywVN4kfw/XsSd576H15K
+	q4C/LHsfVoEK2oSilhVo6dOzDqsV/zihLsfQkEjhc0XlcbSNdlyKmAFL
+X-Gm-Gg: AZFdTZcdMPrxiCjGwO4wylIuSf0Lx320vfrA8FM/vId4OCk9anDiesvaJUBE6IFwXkg
+	vTCAvGcUT6493EFAWVJoXcOqBPRwGZHbEgoNdmHg+Hk1g5Ed78keImuKvidE869nhrll4UsAXA/
+	dR1/GwPaWZL85TLIFJ3ZiAdCp9Oz7q/EtIjZG4FZUGjNGB8LYjirRwDlHR2pU3LAhwKEO9ojPaB
+	9Al3GussF9eSlMoBidttQridrZiw4bE3oUrAWxw1MvK0zTqpXgta+u4dFVz2o3dj4qKffajn2O5
+	5RP0Y975BxBm+sHr3AKcShCa9kJGXv97tQ8JIbNJi5Fqo70kcUH28Y+ATz8sdBOGahr0CjEkbY4
+	AuFvkGhP6Au2d/5NeERBWFbgfUb93tZp9gQoh4B542VwJh9zchiztf2lkPyPCK9vu5HoZ9l0OiB
+	fbw3uyJtkxCmncKcD5aLMUeJQzAo4ssAPvhqpB37/4a5T5ZqwoijRpdaWfZI6KzCN1F3xTjDmB6
+	h9bc2vQMI07WMWlAC3+8tm72lqylLOXX+9We7M5BFS/SYbQbfhbxb9NNsrvef0HXKuky2q6vmBb
+	8McDgmbNY1xYmQ+qu+5se93Sr6kpGyI=
+X-Received: by 2002:a17:90b:2fd0:b0:3ac:a521:95c with SMTP id 98e67ed59e1d1-3b41cb235aemr14048909a91.58.1795491109076;
+        Mon, 23 Nov 2026 19:31:49 -0800 (PST)
+Received: from [0.0.0.0] ([20.89.104.82])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d639fdsm23890691a91.10.2026.11.23.19.31.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 19:31:48 -0800 (PST)
+Message-ID: <12933da0-9bc8-4f92-96d4-36c5673d3f5e@gmail.com>
+Date: Tue, 24 Nov 2026 11:31:44 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261124-riscv-vdso-build-vdso-v1-1-c52b0b3592dc@iscas.ac.cn>
-In-Reply-To: <20261124-riscv-vdso-build-vdso-v1-1-c52b0b3592dc@iscas.ac.cn>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 24 Nov 2026 11:07:00 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRxR42+vfhSZkKnJ8D1BjDBO0MtW3eJ5FayeMVuWEaTdQ@mail.gmail.com>
-X-Gm-Features: Aa3M54oQjNWkBQrZ_zxXhlkqAwKIdWJTZjWnIQiYXF9Pb9UKL3pW2cnEgdggPKk
-Message-ID: <CAJF2gTRxR42+vfhSZkKnJ8D1BjDBO0MtW3eJ5FayeMVuWEaTdQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: vdso: Define BUILD_VDSO
-To: gaohan@iscas.ac.cn
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Drew Fustini <fustini@kernel.org>, 
-	Han Gao <rabenda.cn@gmail.com>, linux-riscv@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: dts: spacemit: k1: fix the EEPROM page size
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Vivian Wang <wangruikang@iscas.ac.cn>, Junhui Liu
+ <junhui.liu@pigmoral.tech>,
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev
+References: <20261123-fix-bpf3-eeprom-v1-1-df8cce6ef2b5@gmail.com>
+ <awS2-clBenE1r1a1@aurel32.net>
+Content-Language: en-US
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+In-Reply-To: <awS2-clBenE1r1a1@aurel32.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261123_193150_026790_9267C1DD 
+X-CRM114-Status: GOOD (  12.56  )
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +110,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gVHVlLCBOb3YgMjQsIDIwMjYgYXQgMjo0NeKAr0FNIEhhbiBHYW8gdmlhIEI0IFJlbGF5Cjxk
-ZXZudWxsK2dhb2hhbi5pc2Nhcy5hYy5jbkBrZXJuZWwub3JnPiB3cm90ZToKPgo+IEZyb206IEhh
-biBHYW8gPGdhb2hhbkBpc2Nhcy5hYy5jbj4KPgo+IFVubGlrZSBhcm02NCwgcG93ZXJwYyBhbmQg
-b3RoZXJzLCByaXNjdiBkb2VzIG5vdCBkZWZpbmUgQlVJTERfVkRTTwo+IGZvciBpdHMgdkRTTyBi
-dWlsZCwgc28gaGVhZGVyIGNoZWNrcyBvbiBpdCBuZXZlciBhcHBseSBoZXJlLgo+Cj4gVGhlIFQt
-SGVhZCBXUklURV9PTkNFIGVycmF0YSBuZWVkcyBpdCB0byBrZWVwIGl0cyBhbHRlcm5hdGl2ZSBv
-dXQgb2YKPiB0aGUgdkRTTy4gT3RoZXJ3aXNlIGJvb3Rpbmcgd2l0aCBDT05GSUdfREVCVUdfVklS
-VFVBTD15IGhpdHMKPiBWSVJUVUFMX0JVR19PTigpIGluIHZtYWxsb2NfdG9fcGFnZSgpLgo+Cj4g
-TGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvQ0FKRjJnVFErY09ZZlFY
-PUpzSzZUNkFpajc5RlU5Ukd1eXhBQW91eUw5NTh6OEFCcW5nQG1haWwuZ21haWwuY29tLwo+IFNp
-Z25lZC1vZmYtYnk6IEhhbiBHYW8gPGdhb2hhbkBpc2Nhcy5hYy5jbj4KPiAtLS0KPiBUZXN0ZWQg
-d2l0aCB0aGUgV1JJVEVfT05DRSBlcnJhdGEgVjYgaW4gcWVtdSAtY3B1IHRoZWFkLWM5MDYuCj4g
-LS0tCj4gIGFyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUgfCAxICsKPiAgMSBmaWxlIGNo
-YW5nZWQsIDEgaW5zZXJ0aW9uKCspCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
-dmRzby9NYWtlZmlsZSBiL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUKPiBpbmRleCBj
-MDIzMDQ2YTNmZDc1YTk1OTQ2YmFiYjk2YjNmOTAxOWVlMmRlYzRhLi5iOTk2NDU2NzI2MzQ4NTJk
-ZjgxNGU5ZDE3Yzc2OGJmODIyOTcwNzliIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVs
-L3Zkc28vTWFrZWZpbGUKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlCj4g
-QEAgLTM1LDYgKzM1LDcgQEAgZW5kaWYKPgo+ICBjY2ZsYWdzLXkgOj0gLWZuby1zdGFjay1wcm90
-ZWN0b3IKPiAgY2NmbGFncy15ICs9IC1ERElTQUJMRV9CUkFOQ0hfUFJPRklMSU5HCj4gK2NjZmxh
-Z3MteSArPSAtREJVSUxEX1ZEU08KVGhpcyBkb2Vzbid0IG5lZWQgdG8gYmUgc2VwYXJhdGUgZnJv
-bSB0aGUgb3JpZ2luYWwgcGF0Y2jigJRJJ2xsIGZvbGQgaXQKaW50byB0aGUgbmV3IHZlcnNpb24u
-CgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Aurelien,
+
+On 2026/11/24 5:58, Aurelien Jarno wrote:
+> Hi,
+> 
+> On 2026-11-23 12:41, Zixian Zeng wrote:
+>> The bananapi-f3 carries an AT24C02 compatible EEPROM GT24C02B [1]:
+>> 256 bytes with an 8-byte write page, which can be found in schematic[2].
+>> The device tree declares pagesize = <16>, which does not match the
+>> eeprom chip datasheet which declares pagesize 8 bytes.
+> 
+> Oops, I am not sure how I got that wrong. Sorry about that.
+> 
+>> EEPROM pagesize of k1-bananapi-cm6-io[3] and k1-orangepi-rv2[4] changed
+>> together, based on the chip model shown in the schematic diagram.
+> 
+> The k1-milkv-jupiter board is also affected with the same issue, despite
+> using a slightly different EEPROM (24C04).
+> 
+
+The GT24C04A EEPROM used on k1-milkv-jupiter board doesn't seem to have
+the same issue, which you can find "Page Size: 16 bytes" in datasheet:
+https://www.giantec-semi.com/uploads/20220929/GT24C04A.pdf
+
+But I don't have the board, simple test would be appreciated. Perhaps I
+should include test steps in the commit message for the next revision.
+
+Best regards,
+Zixian
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
