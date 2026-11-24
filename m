@@ -2,81 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CEFB606A33F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 09:23:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CDF5606A33A
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 09:39:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TzUx0onN;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=Wdf5YjgG
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EjvyJw04;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YTbgr2mb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bN52SHMmsmE/kdCHhZAZE5Qj4MJbqDB7HG9fKGxxWEs=; b=TzUx0onN/dZHt9f6aSIpiaq7ul
-	9YjQBK7PpnR6WMea/pn1ZgDZ5SBZw0EZd4h+LFdq45tkB0If7mfxTTcOjKtRljTRScJQuwFo4dTjX
-	tBE67onoIjcCpVvchKZpUSdJzJjf7CPqVQirozWK0CtN71ltv+bpn780o5GZ9eglWmhw7XOEsri65
-	i/mKHsPCm+kNE1cqp+9IOeucLE9DmgzRDKQkZoTTAM7K6qmMXcb7feXHxJQxa3M95OpE2QZ8/+xAE
-	i3cD3A4dykCCvwS60Bzqxgqqs/pN3Hui7W7udFsfpV4YSzKOVaHHTjvvzeEnPKPqTi3xoSlmtfDZH
-	hH0FoiSg==;
+	bh=B9010Zp1Tkt14PRsZv+xOobWgWtdIRG9YYQX0aDoRfQ=; b=EjvyJw04RIlrNWsuLuSwh+kW5e
+	JeLnlVwl9k/1lfDY5FZB8gVFq50CYM9z8jILMUnKug0fFpxnQAfkbV9ceErvtXhHcazAwPFl5CdaF
+	nypi2avltgVZ4Es4nhRk6HrjskP+ywGGp5GCkg+A46nCpigYNWtnmHe1ofzSg+WTWn3MdflzCvzy8
+	7y2ZMLDA+zbEZ4Du+4xnQlSZpIsvuVtinzluNFBGyZEynVPGmXQ5aPakRMrgEh6JfDXUgRR53kNtu
+	J8wYZhGK1de92a/2qnUXAyjSr6Zg09D4QY3s3m/B6YZYcArDmcj/zWErQi96cD+uHatmYXu2zUO5D
+	eVaG2Obg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVmjm-000000062wC-1ORO;
-	Tue, 24 Nov 2026 09:22:54 +0000
-Received: from mail-m83233.xmail.ntesmail.com ([156.224.83.233])
+	id 1xVmzl-000000064qf-0pWQ;
+	Tue, 24 Nov 2026 09:39:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVmje-000000062s3-1Czd;
-	Tue, 24 Nov 2026 09:22:50 +0000
-Received: from [127.0.0.1] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 55ce35fd7;
-	Tue, 24 Nov 2026 17:22:41 +0800 (GMT+08:00)
-Message-ID: <a6acdf27-b681-4a3d-928d-3e72a8992238@rock-chips.com>
-Date: Tue, 24 Nov 2026 17:22:36 +0800
+	id 1xVmzj-000000064pN-10Qa
+	for linux-riscv@lists.infradead.org;
+	Tue, 24 Nov 2026 09:39:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B7AE6022F;
+	Tue, 24 Nov 2026 09:39:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 748031F000E1;
+	Tue, 24 Nov 2026 09:39:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795513162;
+	bh=i1zYmnYkPR+QppMSA1qkt8iIgekTBwLhdACmYiJ7duw=;
+	h=From:Date:Subject:To:Cc;
+	b=YTbgr2mbFQvtLcFWiluIvcnSj4YXF/9Ynu1yYHUTLZwPE9myGc33zyIRazXZ0f4PT
+	 06PotWNIX2iR9SGG/VoLRmNxHClPqsX4FqflHL3IBGgCPIWe2YzY/jv5xeaGpdMG5f
+	 KfJaDY15bycehz6Uo5z3Vuc0xltqsQCnlmtnxSGgxa4idg9oWACxxNvUS+a4EQJmaA
+	 tlUO5EQfHDkxZhCLR0pg5HHtNFIKFiLkVXM6DYE2miSDWq/1nzmeT+Mm33YyTJWRiH
+	 NCdSO6jcvXZPHwDcE6ot1lEzA6MTtCtUTAgA9is/7AskW3C5+klmR+QKMuCG+Walmf
+	 KvdJWKSExn4dQ==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Date: Tue, 24 Nov 2026 10:39:11 +0100
+Subject: [PATCH] mm/rmap: avoid reusing batched TLB flush generations
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] drm/bridge: add TH1520 DesignWare MIPI DSI host
- controller
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
- <andyshrk@163.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, Han Gao <gaohan@iscas.ac.cn>
-References: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
- <20261124-th1520-dw-mipi-dsi-v3-2-ffcf2d87971b@iscas.ac.cn>
- <af27260f-1911-47bb-8fe2-8eaa8bec31b0@rock-chips.com>
- <561b5dc1b3a87ebc78f2357d253df4676395fb10.camel@iscas.ac.cn>
- <a797b2da-ea60-4b81-8fbf-e027afc89cc6@rock-chips.com>
- <b763d766c886dbcf733e4ab65046448b67973426.camel@iscas.ac.cn>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <b763d766c886dbcf733e4ab65046448b67973426.camel@iscas.ac.cn>
-X-HM-Tid: 0aa20cdd52db03a7kunmbc41ab46ce3d87
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZTkgYVh9CHUsdSB5NTE5MS1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
-	5LVUpLS1VKQktCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=Wdf5YjgGeP43SVwS3+h5ltmwIke/Z/hfTIhKnStAEwF1CL4Jd1K/P6VMei3uRGwgBBX9KiX/VCo+pD1v4IzmG45OqHI3DGWM8BI47YonaAnjmDmhu/e+BCzbjfvYgUGICDjih569on0j0V+ojMXI6svtVUtD2swgRsAL4jTytxs=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=VlQ85A/9vnWvT0qz71pyfTUKRPX62xg1Ulm/5rstCSE=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261124_012247_944151_AD184626 
-X-CRM114-Status: GOOD (  19.90  )
-X-Spam-Score: -2.1 (--)
+Message-Id: <20261124-rmap-v1-1-e3dc48a4b527@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/6tWKk4tykwtVrJSqFYqSi3LLM7Mz1OyUjDUUVBKz
+ kjMS0/VzUxRslJQMjIwMjM0NDLWLcpNLNC1TDJJMklOMUqzsDBT0lFQKihKTcusABsTHQvhF5c
+ mZaUml4D0KtXWAgBhcZqhaAAAAA==
+X-Change-ID: 20261123-rmap-9b4b4cd2f886
+To: Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Rik van Riel <riel@surriel.com>, 
+ Harry Yoo <harry@kernel.org>, Jann Horn <jannh@google.com>, 
+ Lance Yang <lance.yang@linux.dev>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Ying Huang <huang.ying.caritas@gmail.com>
+Cc: linux-mm@kvack.org, linux-rt-devel@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, stable@vger.kernel.org, 
+ Kirk Swidowski <swidowski@google.com>, 
+ "David Hildenbrand (Arm)" <david@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7781; i=david@kernel.org;
+ h=from:subject:message-id; bh=lrNZviMbe0mYa8sui1Fk11Z8MN9F/3GTeY2Mnv2bxIg=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLJZox2f8vTHc91ay1G54XNV7N+dM5MVJb83v0qdu+hR9
+ YlD271fdJSyMIhxMMiKKbIEBd83ePlyXW21Gx8zzBxWJpAhDFycAjCRplpGhlfXtd2lPuUdO/5C
+ 4O+TxXb/cw7MYzD9osJUw5c4Ubvw3xGG/wVHL/uni5cJyF7/a/e9JrDn/mV/q91zdj60YytNfxB
+ jyggA
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,239 +88,207 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-20.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gMTEvMjQvMjAyNiA0OjUyIFBNLCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+IOWcqCAyMDI2LTEx
-LTI05LqM55qEIDE2OjQ0ICswODAw77yMQ2hhb3lpIENoZW7lhpnpgZPvvJoKPj4gSGkgSWNlbm93
-eSwKPj4KPj4gT24gMTEvMjQvMjAyNiA0OjM0IFBNLCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+Pj4g
-5ZyoIDIwMjYtMTEtMjTkuoznmoQgMTY6MjkgKzA4MDDvvIxDaGFveWkgQ2hlbuWGmemBk++8mgo+
-Pj4+IEhpIEljZW5vd3ksCj4+Pj4KPj4+PiBPbiAxMS8yNC8yMDI2IDM6NTYgUE0sIEljZW5vd3kg
-Wmhlbmcgd3JvdGU6Cj4+Pj4+IFRoZSBULUhlYWQgVEgxNTIwIFNvQyBjb250YWlucyBhIFN5bm9w
-c3lzIERlc2lnbldhcmUgTUlQSSBEU0kgaG9zdAo+Pj4+PiBjb250cm9sbGVyIHdpdGggYW4gaW50
-ZXJuYWwgRGVzaWduV2FyZSBNSVBJIEQtUEhZLgo+Pj4+Pgo+Pj4+PiBBZGQgYSBnbHVlIGRyaXZl
-ciBjb25maWd1cmluZyBjbG9ja3MgYW5kIFBIWSBwYXJhbWV0ZXJzIGZvciBpdC4KPj4+Pj4KPj4+
-Pj4gU2lnbmVkLW9mZi1ieTogSWNlbm93eSBaaGVuZyA8emhlbmd4aW5nZGFAaXNjYXMuYWMuY24+
-Cj4+Pj4+IC0tLQo+Pj4+PiAgZHJpdmVycy9ncHUvZHJtL2JyaWRnZS9LY29uZmlnICAgICAgICAg
-ICAgICB8ICAxMiArCj4+Pj4+ICBkcml2ZXJzL2dwdS9kcm0vYnJpZGdlL01ha2VmaWxlICAgICAg
-ICAgICAgIHwgICAxICsKPj4+Pj4gIGRyaXZlcnMvZ3B1L2RybS9icmlkZ2UvdGgxNTIwLWR3LW1p
-cGktZHNpLmMgfCA1NzAgKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+Pj4+PiAgMyBmaWxl
-cyBjaGFuZ2VkLCA1ODMgaW5zZXJ0aW9ucygrKQo+Pj4+Pgo+Pj4+PiBkaWZmIC0tZ2l0IGEvZHJp
-dmVycy9ncHUvZHJtL2JyaWRnZS9LY29uZmlnIGIvZHJpdmVycy9ncHUvZHJtL2JyaWRnZS9LY29u
-ZmlnCj4+Pj4+IGluZGV4IGM3ZGE2YjAyZDdiNmIuLmY4OTg3ZTg5NDZmYmIgMTAwNjQ0Cj4+Pj4+
-IC0tLSBhL2RyaXZlcnMvZ3B1L2RybS9icmlkZ2UvS2NvbmZpZwo+Pj4+PiArKysgYi9kcml2ZXJz
-L2dwdS9kcm0vYnJpZGdlL0tjb25maWcKPj4+Pj4gQEAgLTM3Miw2ICszNzIsMTggQEAgY29uZmln
-IERSTV9USEVBRF9USDE1MjBfRFdfSERNSQo+Pj4+PiAgCSAgQ2hvb3NlIHRoaXMgdG8gZW5hYmxl
-IHN1cHBvcnQgZm9yIHRoZSBpbnRlcm5hbCBIRE1JIGJyaWRnZSBmb3VuZAo+Pj4+PiAgCSAgb24g
-dGhlIFQtSGVhZCBUSDE1MjAgU29DLgo+Pj4+PiAgCj4+Pj4+ICtjb25maWcgRFJNX1RIRUFEX1RI
-MTUyMF9EV19NSVBJX0RTSQo+Pj4+PiArCXRyaXN0YXRlICJULUhlYWQgVEgxNTIwIERlc2lnbldh
-cmUgTUlQSSBEU0kgYnJpZGdlIgo+Pj4+PiArCWRlcGVuZHMgb24gT0YKPj4+Pj4gKwlkZXBlbmRz
-IG9uIENPTU1PTl9DTEsKPj4+Pj4gKwlkZXBlbmRzIG9uIEFSQ0hfVEhFQUQgfHwgQ09NUElMRV9U
-RVNUCj4+Pj4+ICsJc2VsZWN0IERSTV9EV19NSVBJX0RTSQo+Pj4+PiArCXNlbGVjdCBHRU5FUklD
-X1BIWV9NSVBJX0RQSFkKPj4+Pj4gKwlzZWxlY3QgTUZEX1NZU0NPTgo+Pj4+PiArCWhlbHAKPj4+
-Pj4gKwkgIENob29zZSB0aGlzIHRvIGVuYWJsZSBzdXBwb3J0IGZvciB0aGUgaW50ZXJuYWwgTUlQ
-SSBEU0kgYnJpZGdlCj4+Pj4+ICsJICBmb3VuZCBvbiB0aGUgVC1IZWFkIFRIMTUyMCBTb0MuCj4+
-Pj4+ICsKPj4+Pj4gIGNvbmZpZyBEUk1fVE9TSElCQV9UQzM1ODc2Mgo+Pj4+PiAgCXRyaXN0YXRl
-ICJUQzM1ODc2MiBEU0kvRFBJIGJyaWRnZSIKPj4+Pj4gIAlkZXBlbmRzIG9uIE9GCj4+Pj4+IGRp
-ZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL01ha2VmaWxlIGIvZHJpdmVycy9ncHUv
-ZHJtL2JyaWRnZS9NYWtlZmlsZQo+Pj4+PiBpbmRleCAxNWNjODIxZDg1YjdlLi41YWY4NzFiYTVj
-ZTc3IDEwMDY0NAo+Pj4+PiAtLS0gYS9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL01ha2VmaWxlCj4+
-Pj4+ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS9icmlkZ2UvTWFrZWZpbGUKPj4+Pj4gQEAgLTMyLDYg
-KzMyLDcgQEAgb2JqLSQoQ09ORklHX0RSTV9TSUk5MjM0KSArPSBzaWk5MjM0Lm8KPj4+Pj4gIG9i
-ai0kKENPTkZJR19EUk1fU0lNUExFX0JSSURHRSkgKz0gc2ltcGxlLWJyaWRnZS5vCj4+Pj4+ICBv
-YmotJChDT05GSUdfRFJNX1NPTE9NT05fU1NEMjgyNSkgKz0gc3NkMjgyNS5vCj4+Pj4+ICBvYmot
-JChDT05GSUdfRFJNX1RIRUFEX1RIMTUyMF9EV19IRE1JKSArPSB0aDE1MjAtZHctaGRtaS5vCj4+
-Pj4+ICtvYmotJChDT05GSUdfRFJNX1RIRUFEX1RIMTUyMF9EV19NSVBJX0RTSSkgKz0gdGgxNTIw
-LWR3LW1pcGktZHNpLm8KPj4+Pj4gIG9iai0kKENPTkZJR19EUk1fVEhJTkVfVEhDNjNMVkQxMDI0
-KSArPSB0aGM2M2x2ZDEwMjQubwo+Pj4+PiAgb2JqLSQoQ09ORklHX0RSTV9UT1NISUJBX1RDMzU4
-NzYyKSArPSB0YzM1ODc2Mi5vCj4+Pj4+ICBvYmotJChDT05GSUdfRFJNX1RPU0hJQkFfVEMzNTg3
-NjQpICs9IHRjMzU4NzY0Lm8KPj4+Pj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9icmlk
-Z2UvdGgxNTIwLWR3LW1pcGktZHNpLmMgYi9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL3RoMTUyMC1k
-dy1taXBpLWRzaS5jCj4+Pj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+Pj4+IGluZGV4IDAwMDAw
-MDAwMDAwMDAuLjhlODY2YjcwYWVjODgKPj4+Pj4gLS0tIC9kZXYvbnVsbAo+Pj4+PiArKysgYi9k
-cml2ZXJzL2dwdS9kcm0vYnJpZGdlL3RoMTUyMC1kdy1taXBpLWRzaS5jCj4+Pj4+IEBAIC0wLDAg
-KzEsNTcwIEBACj4+Pj4+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+Pj4+
-PiArLyoKPj4+Pj4gKyAqIENvcHlyaWdodCAoQykgMjAyNiBJbnN0aXR1dGUgb2YgU29mdHdhcmUs
-IENoaW5lc2UgQWNhZGVteSBvZiBTY2llbmNlcyAoSVNDQVMpCj4+Pj4+ICsgKgo+Pj4+PiArICog
-QXV0aG9yOgo+Pj4+PiArICogICBJY2Vub3d5IFpoZW5nIDx6aGVuZ3hpbmdkYUBpc2Nhcy5hYy5j
-bj4KPj4+Pj4gKyAqCj4+Pj4+ICsgKiBCYXNlZCBvbiBkd19taXBpX2RzaS1zdG0uYywgd2hpY2gg
-aXM6Cj4+Pj4+ICsgKiAgIENvcHlyaWdodCAoQykgU1RNaWNyb2VsZWN0cm9uaWNzIFNBIDIwMTcK
-Pj4+Pj4gKyAqCj4+Pj4+ICsgKiBCYXNlZCBvbiBkdy1taXBpLWRzaS1yb2NrY2hpcC5jLCB3aGlj
-aCBpczoKPj4+Pj4gKyAqICAgQ29weXJpZ2h0IChDKSBSb2NrY2hpcCBFbGVjdHJvbmljcyBDby4s
-IEx0ZC4KPj4+Pj4gKyAqCj4+Pj4+ICsgKiBCYXNlZCBvbiB2ZW5kb3Iga2VybmVsIHBoeS1kdy1t
-aXBpLWRwaHkuYywgd2hpY2ggaXM6Cj4+Pj4+ICsgKiAgIENvcHlyaWdodCAoQykgQWxpYmFiYSBH
-cm91cCBIb2xkaW5nIExpbWl0ZWQuCj4+Pj4+ICsgKi8KPj4+Pj4gKwo+Pj4+PiArI2luY2x1ZGUg
-PGxpbnV4L2JpdGZpZWxkLmg+Cj4+Pj4+ICsjaW5jbHVkZSA8bGludXgvY2xrLmg+Cj4+Pj4+ICsj
-aW5jbHVkZSA8bGludXgva2VybmVsLmg+Cj4+Pj4+ICsjaW5jbHVkZSA8bGludXgvbWZkL3N5c2Nv
-bi5oPgo+Pj4+PiArI2luY2x1ZGUgPGxpbnV4L21vZHVsZS5oPgo+Pj4+PiArI2luY2x1ZGUgPGxp
-bnV4L3BoeS9waHkuaD4KPj4+Pj4gKyNpbmNsdWRlIDxsaW51eC9waHkvcGh5LW1pcGktZHBoeS5o
-Pgo+Pj4+PiArI2luY2x1ZGUgPGxpbnV4L3BsYXRmb3JtX2RldmljZS5oPgo+Pj4+PiArI2luY2x1
-ZGUgPGxpbnV4L3JlZ21hcC5oPgo+Pj4+PiArI2luY2x1ZGUgPGxpbnV4L3JlZ3VsYXRvci9jb25z
-dW1lci5oPgo+Pj4+PiArCj4+Pj4+ICsjaW5jbHVkZSA8dmlkZW8vbWlwaV9kaXNwbGF5Lmg+Cj4+
-Pj4+ICsKPj4+Pj4gKyNpbmNsdWRlIDxkcm0vYnJpZGdlL2R3X21pcGlfZHNpLmg+Cj4+Pj4+ICsj
-aW5jbHVkZSA8ZHJtL2RybV9taXBpX2RzaS5oPgo+Pj4+PiArCj4+Pj4+ICsvKiBEU0kgY29udHJv
-bGxlciByZWdpc3RlcnMgZm9yIERQSFkgYWNjZXNzICovCj4+Pj4+ICsKPj4+Pj4gKyNkZWZpbmUg
-RFNJX1BIWV9UU1RfQ1RSTDAJCTB4YjQKPj4+Pj4gKyNkZWZpbmUgUEhZX1RFU1RDTEsJCQlCSVQo
-MSkKPj4+Pj4gKyNkZWZpbmUgUEhZX1VOVEVTVENMSwkJCTAKPj4+Pj4gKyNkZWZpbmUgUEhZX1RF
-U1RDTFIJCQlCSVQoMCkKPj4+Pj4gKyNkZWZpbmUgUEhZX1VOVEVTVENMUgkJCTAKPj4+Pj4gKwo+
-Pj4+PiArI2RlZmluZSBEU0lfUEhZX1RTVF9DVFJMMQkJMHhiOAo+Pj4+PiArI2RlZmluZSBQSFlf
-VEVTVEVOCQkJQklUKDE2KQo+Pj4+PiArI2RlZmluZSBQSFlfVU5URVNURU4JCQkwCj4+Pj4+ICsj
-ZGVmaW5lIFBIWV9URVNURE9VVChuKQkJCSgoKG4pICYgMHhmZikgPDwgOCkKPj4+Pj4gKyNkZWZp
-bmUgUEhZX1RFU1RESU4obikJCQkoKChuKSAmIDB4ZmYpIDw8IDApCj4+Pj4+ICsKPj4+Pj4gKy8q
-IERQSFkgcmVnaXN0ZXJzICovCj4+Pj4+ICsKPj4+Pj4gKyNkZWZpbmUgUExMX0RFTEFZX0xQX1RY
-X1NUQVJUX0xQMTEJMHgwMgo+Pj4+PiArI2RlZmluZSBUWERJTkRMWVRJTUVfOV8yCQlHRU5NQVNL
-KDcsICAwKQo+Pj4+PiArCj4+Pj4+ICsjZGVmaW5lIFBMTF9GU01fQ05UUkwJCQkweDAzCj4+Pj4+
-ICsKPj4+Pj4gKyNkZWZpbmUgUExMX1BST1BfQ0hBUkdFX1BVTVBfQ1RSTAkweDBlCj4+Pj4+ICsj
-ZGVmaW5lIFBMTF9QUk9QX0NOVFJMCQkJR0VOTUFTSyg1LCAgMCkKPj4+Pj4gKwo+Pj4+PiArI2Rl
-ZmluZSBQTExfSU5UX0NIQVJHRV9QVU1QX0NUUkwJMHgwZgo+Pj4+PiArI2RlZmluZSBQTExfSU5U
-X0NOVFJMCQkJR0VOTUFTSyg1LCAgMCkKPj4+Pj4gKwo+Pj4+PiArI2RlZmluZSBQTExfVkNPX0NU
-UkwJCQkweDEyCj4+Pj4+ICsjZGVmaW5lIFBMTF9WQ09fQ05UUkxfT1ZSX0VOCQlCSVQoNikKPj4+
-Pj4gKyNkZWZpbmUgUExMX1ZDT19DTlRSTF9PVlIJCUdFTk1BU0soNSwgIDApCj4+Pj4+ICsKPj4+
-Pj4gKyNkZWZpbmUgUExMX0dNUF9DVFJMX0RJR0lUQUxfVEVTVAkweDEzCj4+Pj4+ICsjZGVmaW5l
-IFBMTF9URVNUTE9DSwkJCUJJVCg3KQo+Pj4+PiArI2RlZmluZSBQTExfR01QX0NOVFJMCQkJR0VO
-TUFTSyg1LCAgNCkKPj4+Pj4gKyNkZWZpbmUgVFNUUExMRElHCQkJR0VOTUFTSygzLCAgMSkKPj4+
-Pj4gKyNkZWZpbmUgVFNUUExMRElHX0xPQ0sJCQkoMHgwIDw8IDEpCj4+Pj4+ICsjZGVmaW5lIFRT
-VFBMTERJR19SRUZDTEsJCSgweDEgPDwgMSkKPj4+Pj4gKyNkZWZpbmUgVFNUUExMRElHX0ZCQ0xL
-CQkJKDB4MiA8PCAxKQo+Pj4+PiArI2RlZmluZSBUU1RQTExESUdfSU5UX0NMS0lOCQkoMHgzIDw8
-IDEpCj4+Pj4+ICsjZGVmaW5lIFRTVFBMTERJR19MT0NLX0ZST01fREVURUNUT1IJKDB4NCA8PCAx
-KQo+Pj4+PiArI2RlZmluZSBUU1RQTExESUdfT1VUUFVUCQkoMHg1IDw8IDEpCj4+Pj4+ICsjZGVm
-aW5lIFRTVFBMTERJR19CVUZfVkNPQ0xLCQkoMHg2IDw8IDEpCj4+Pj4+ICsjZGVmaW5lIFRTVFBM
-TERJR19VUERBVEVQTEwJCSgweDcgPDwgMSkKPj4+Pj4gKwo+Pj4+PiArI2RlZmluZSBQTExfTl9E
-SVZfRlNNX1NJRwkJMHgxNwo+Pj4+PiArI2RlZmluZSBQTExfTl9PVlIJCQlHRU5NQVNLKDMsICAw
-KQo+Pj4+PiArCj4+Pj4+ICsjZGVmaW5lIFBMTF9NX0RJVgkJCTB4MTgKPj4+Pj4gKyNkZWZpbmUg
-UExMX01fT1ZSXzRfMAkJCUdFTk1BU0soNCwgIDApCj4+Pj4+ICsjZGVmaW5lIFBMTF9NX09WUl85
-XzUJCQlHRU5NQVNLKDQsICAwKQo+Pj4+PiArCj4+Pj4+ICsjZGVmaW5lIFBMTF9OX0FORF9NX0RJ
-Vl9DVFJMCQkweDE5Cj4+Pj4+ICsjZGVmaW5lIFBMTF9NX09WUl9FTgkJCUJJVCg1KQo+Pj4+PiAr
-I2RlZmluZSBQTExfTl9PVlJfRU4JCQlCSVQoNCkKPj4+Pj4gKwo+Pj4+PiArI2RlZmluZSBQTExf
-Q0hBUkdFX1BVTVBfQklBU19DVFJMCTB4MWMKPj4+Pj4gKyNkZWZpbmUgUExMX0NQQklBU19DTlRS
-TAkJR0VOTUFTSyg2LCAgMCkKPj4+Pj4gKwo+Pj4+PiArI2RlZmluZSBQTExfQU5BTE9HX1BST0dS
-QU1fQ09OVFJPTAkweDFmCj4+Pj4+ICsjZGVmaW5lIFBMTF9NUExMX1BST0dfNV8wCQlHRU5NQVNL
-KDUsICAwKQo+Pj4+PiArI2RlZmluZSBQTExfTVBMTF9QUk9HXzExXzYJCUdFTk1BU0soNSwgIDAp
-Cj4+Pj4+ICsjZGVmaW5lIFBMTF9NUExMX1BST0dfMTZfMTIJCUdFTk1BU0soNCwgIDApCj4+Pj4+
-ICsKPj4+Pj4gKyNkZWZpbmUgSFNfRlJFUV9SQU5HRV9PRl9PUEVSQVRJT04JMHg0NAo+Pj4+PiAr
-I2RlZmluZSBIU0ZSRVFSQU5HRV9PVlJfRU4JCUJJVCg3KQo+Pj4+PiArI2RlZmluZSBIU0ZSRVFS
-QU5HRV9PVlIJCQlHRU5NQVNLKDYsICAwKQo+Pj4+PiArI2RlZmluZSBIU0ZSRVFSQU5HRQkJCUhT
-RlJFUVJBTkdFX09WUgo+Pj4+PiArCj4+Pj4+ICsjZGVmaW5lIFBHX0xQX0JJQVNfTEFORTAJCTB4
-NGEKPj4+Pj4gKyNkZWZpbmUgUFJHX09OX0xBTkUwCQkJQklUKDYpCj4+Pj4+ICsKPj4+Pj4gKyNk
-ZWZpbmUgU1JfRlNNX09WUl9DTlRSTAkJMHhhMAo+Pj4+PiArI2RlZmluZSBTUl9ERExfTE9PUF9D
-T05GCQkweGEzCj4+Pj4+ICsKPj4+Pj4gKy8qIHN5c2NvbiByZWdpc3RlcnMgKi8KPj4+Pj4gKwo+
-Pj4+PiArI2RlZmluZSBNSVBJRFNJMF9TWVNSRUcJCQkweDgKPj4+Pj4gKyNkZWZpbmUgTUlQSURT
-STFfU1lTUkVHCQkJMHhjCj4+Pj4+ICsjZGVmaW5lIE1JUElEU0lfSFNGUkVRUkFOR0UJCUdFTk1B
-U0soOSwgIDMpCj4+Pj4+ICsjZGVmaW5lIE1JUElEU0lfQ0ZHQ0xLRlJFUVJBTkdFCQlHRU5NQVNL
-KDE1LCAxMCkKPj4+Pj4gKyNkZWZpbmUgTUlQSURTSV9DRkdDTEtGUkVRUkFOR0VfREVGCSgweDFj
-IDw8IDEwKQo+Pj4+PiArCj4+Pj4+ICtzdHJ1Y3QgcGxsX2hzZnJlcXJhbmdlIHsKPj4+Pj4gKwl1
-bnNpZ25lZCBpbnQgbWF4X21icHM7Cj4+Pj4+ICsJdTggaHNmcmVxcmFuZ2U7Cj4+Pj4+ICt9Owo+
-Pj4+PiArCj4+Pj4+ICtzdGF0aWMgY29uc3Qgc3RydWN0IHBsbF9oc2ZyZXFyYW5nZSBoc2ZyZXFy
-YW5nZV90YWJsZVtdID0gewo+Pj4+PiArCXsgODAsICAweDAwIH0sCj4+Pj4+ICsJeyA5MCwgIDB4
-MTAgfSwKPj4+Pj4gKwl7IDEwMCwgMHgyMCB9LAo+Pj4+PiArCXsgMTEwLCAweDMwIH0sCj4+Pj4+
-ICsJeyAxMjAsIDB4MDEgfSwKPj4+Pj4gKwl7IDEzMCwgMHgxMSB9LAo+Pj4+PiArCXsgMTQwLCAw
-eDIxIH0sCj4+Pj4+ICsJeyAxNTAsIDB4MzEgfSwKPj4+Pj4gKwl7IDE2MCwgMHgwMiB9LAo+Pj4+
-PiArCXsgMTcwLCAweDEyIH0sCj4+Pj4+ICsJeyAxODAsIDB4MjIgfSwKPj4+Pj4gKwl7IDE5MCwg
-MHgzMiB9LAo+Pj4+PiArCXsgMjA1LCAweDAzIH0sCj4+Pj4+ICsJeyAyMjAsIDB4MTMgfSwKPj4+
-Pj4gKwl7IDIzNSwgMHgyMyB9LAo+Pj4+PiArCXsgMjUwLCAweDMzIH0sCj4+Pj4+ICsJeyAyNzUs
-IDB4MDQgfSwKPj4+Pj4gKwl7IDMwMCwgMHgxNCB9LAo+Pj4+PiArCXsgMzI1LCAweDI1IH0sCj4+
-Pj4+ICsJeyAzNTAsIDB4MzUgfSwKPj4+Pj4gKwl7IDQwMCwgMHgwNSB9LAo+Pj4+PiArCXsgNDUw
-LCAweDE2IH0sCj4+Pj4+ICsJeyA1MDAsIDB4MjYgfSwKPj4+Pj4gKwl7IDU1MCwgMHgzNyB9LAo+
-Pj4+PiArCXsgNjAwLCAweDA3IH0sCj4+Pj4+ICsJeyA2NTAsIDB4MTggfSwKPj4+Pj4gKwl7IDcw
-MCwgMHgyOCB9LAo+Pj4+PiArCXsgNzUwLCAweDM5IH0sCj4+Pj4+ICsJeyA4MDAsIDB4MDkgfSwK
-Pj4+Pj4gKwl7IDg1MCwgMHgxOSB9LAo+Pj4+PiArCXsgOTAwLCAweDI5IH0sCj4+Pj4+ICsJeyA5
-NTAsIDB4M0EgfSwKPj4+Pj4gKwl7IDEwMDAsIDB4MEEgfSwKPj4+Pj4gKwl7IDEwNTAsIDB4MUEg
-fSwKPj4+Pj4gKwl7IDExMDAsIDB4MkEgfSwKPj4+Pj4gKwl7IDExNTAsIDB4M0IgfSwKPj4+Pj4g
-Kwl7IDEyMDAsIDB4MEIgfSwKPj4+Pj4gKwl7IDEyNTAsIDB4MUIgfSwKPj4+Pj4gKwl7IDEzMDAs
-IDB4MkIgfSwKPj4+Pj4gKwl7IDEzNTAsIDB4M0MgfSwKPj4+Pj4gKwl7IDE0MDAsIDB4MEMgfSwK
-Pj4+Pj4gKwl7IDE0NTAsIDB4MUMgfSwKPj4+Pj4gKwl7IDE1MDAsIDB4MkMgfSwKPj4+Pj4gKwl7
-IDE1NTAsIDB4M0QgfSwKPj4+Pj4gKwl7IDE2MDAsIDB4MEQgfSwKPj4+Pj4gKwl7IDE2NTAsIDB4
-MUQgfSwKPj4+Pj4gKwl7IDE3MDAsIDB4MkUgfSwKPj4+Pj4gKwl7IDE3NTAsIDB4M0UgfSwKPj4+
-Pj4gKwl7IDE4MDAsIDB4MEUgfSwKPj4+Pj4gKwl7IDE4NTAsIDB4MUUgfSwKPj4+Pj4gKwl7IDE5
-MDAsIDB4MkYgfSwKPj4+Pj4gKwl7IDE5NTAsIDB4M0YgfSwKPj4+Pj4gKwl7IDIwMDAsIDB4MEYg
-fSwKPj4+Pj4gKwl7IDIwNTAsIDB4NDAgfSwKPj4+Pj4gKwl7IDIxMDAsIDB4NDEgfSwKPj4+Pj4g
-Kwl7IDIxNTAsIDB4NDIgfSwKPj4+Pj4gKwl7IDIyMDAsIDB4NDMgfSwKPj4+Pj4gKwl7IDIyNTAs
-IDB4NDQgfSwKPj4+Pj4gKwl7IDIzMDAsIDB4NDUgfSwKPj4+Pj4gKwl7IDIzNTAsIDB4NDYgfSwK
-Pj4+Pj4gKwl7IDI0MDAsIDB4NDcgfSwKPj4+Pj4gKwl7IDI0NTAsIDB4NDggfSwKPj4+Pj4gKwl7
-IDI1MDAsIDB4NDkgfSwKPj4+Pj4gK307Cj4+Pj4+ICsKPj4+Pj4gK3N0cnVjdCBoc3R0IHsKPj4+
-Pj4gKwl1bnNpZ25lZCBpbnQgbWF4X21icHM7Cj4+Pj4+ICsJc3RydWN0IGR3X21pcGlfZHNpX2Rw
-aHlfdGltaW5nIHRpbWluZzsKPj4+Pj4gK307Cj4+Pj4+ICsKPj4+Pj4gKyNkZWZpbmUgSFNUVChf
-bWF4X21icHMsIF9jX2xwMmhzLCBfY19oczJscCwgX2RfbHAyaHMsIF9kX2hzMmxwKQlcCj4+Pj4+
-ICt7CQkJCQlcCj4+Pj4+ICsJLm1heF9tYnBzID0gX21heF9tYnBzLAkJXAo+Pj4+PiArCS50aW1p
-bmcgPSB7CQkJXAo+Pj4+PiArCQkuY2xrX2xwMmhzID0gX2NfbHAyaHMsCVwKPj4+Pj4gKwkJLmNs
-a19oczJscCA9IF9jX2hzMmxwLAlcCj4+Pj4+ICsJCS5kYXRhX2xwMmhzID0gX2RfbHAyaHMsCVwK
-Pj4+Pj4gKwkJLmRhdGFfaHMybHAgPSBfZF9oczJscCwJXAo+Pj4+PiArCX0JCQkJXAo+Pj4+PiAr
-fQo+Pj4+PiArCj4+Pj4+ICtzdGF0aWMgc3RydWN0IGhzdHQgaHN0dF90YWJsZVtdID0gewo+Pj4+
-PiArCUhTVFQoODAsIDIxLCAxNywgMTUsIDEwKSwKPj4+Pj4gKwlIU1RUKDkwLCAyMywgMTcsIDE2
-LCAxMCksCj4+Pj4+ICsJSFNUVCgxMDAsIDIyLCAxNywgMTYsIDEwKSwKPj4+Pj4gKwlIU1RUKDEx
-MCwgMjUsIDE4LCAxNywgMTEpLAo+Pj4+PiArCUhTVFQoMTIwLCAyNiwgMjAsIDE4LCAxMSksCj4+
-Pj4+ICsJSFNUVCgxMzAsIDI3LCAxOSwgMTksIDExKSwKPj4+Pj4gKwlIU1RUKDE0MCwgMjcsIDE5
-LCAxOSwgMTEpLAo+Pj4+PiArCUhTVFQoMTUwLCAyOCwgMjAsIDIwLCAxMiksCj4+Pj4+ICsJSFNU
-VCgxNjAsIDMwLCAyMSwgMjIsIDEzKSwKPj4+Pj4gKwlIU1RUKDE3MCwgMzAsIDIxLCAyMywgMTMp
-LAo+Pj4+PiArCUhTVFQoMTgwLCAzMSwgMjEsIDIzLCAxMyksCj4+Pj4+ICsJSFNUVCgxOTAsIDMy
-LCAyMiwgMjQsIDEzKSwKPj4+Pj4gKwlIU1RUKDIwNSwgMzUsIDIyLCAyNSwgMTMpLAo+Pj4+PiAr
-CUhTVFQoMjIwLCAzNywgMjYsIDI3LCAxNSksCj4+Pj4+ICsJSFNUVCgyMzUsIDM4LCAyOCwgMjcs
-IDE2KSwKPj4+Pj4gKwlIU1RUKDI1MCwgNDEsIDI5LCAzMCwgMTcpLAo+Pj4+PiArCUhTVFQoMjc1
-LCA0MywgMjksIDMyLCAxOCksCj4+Pj4+ICsJSFNUVCgzMDAsIDQ1LCAzMiwgMzUsIDE5KSwKPj4+
-Pj4gKwlIU1RUKDMyNSwgNDgsIDMzLCAzNiwgMTgpLAo+Pj4+PiArCUhTVFQoMzUwLCA1MSwgMzUs
-IDQwLCAyMCksCj4+Pj4+ICsJSFNUVCg0MDAsIDU5LCAzNywgNDQsIDIxKSwKPj4+Pj4gKwlIU1RU
-KDQ1MCwgNjUsIDQwLCA0OSwgMjMpLAo+Pj4+PiArCUhTVFQoNTAwLCA3MSwgNDEsIDU0LCAyNCks
-Cj4+Pj4+ICsJSFNUVCg1NTAsIDc3LCA0NCwgNTcsIDI2KSwKPj4+Pj4gKwlIU1RUKDYwMCwgODIs
-IDQ2LCA2NCwgMjcpLAo+Pj4+PiArCUhTVFQoNjUwLCA4NywgNDgsIDY3LCAyOCksCj4+Pj4+ICsJ
-SFNUVCg3MDAsIDk0LCA1MiwgNzEsIDI5KSwKPj4+Pj4gKwlIU1RUKDc1MCwgOTksIDUyLCA3NSwg
-MzEpLAo+Pj4+PiArCUhTVFQoODAwLCAxMDUsIDU1LCA4MiwgMzIpLAo+Pj4+PiArCUhTVFQoODUw
-LCAxMTAsIDU4LCA4NSwgMzIpLAo+Pj4+PiArCUhTVFQoOTAwLCAxMTUsIDU4LCA4OCwgMzUpLAo+
-Pj4+PiArCUhTVFQoOTUwLCAxMjAsIDYyLCA5MywgMzYpLAo+Pj4+PiArCUhTVFQoMTAwMCwgMTI4
-LCA2MywgOTksIDM4KSwKPj4+Pj4gKwlIU1RUKDEwNTAsIDEzMiwgNjUsIDEwMiwgMzgpLAo+Pj4+
-PiArCUhTVFQoMTEwMCwgMTM4LCA2NywgMTA2LCAzOSksCj4+Pj4+ICsJSFNUVCgxMTUwLCAxNDYs
-IDY5LCAxMTIsIDQyKSwKPj4+Pj4gKwlIU1RUKDEyMDAsIDE1MSwgNzEsIDExNywgNDMpLAo+Pj4+
-PiArCUhTVFQoMTI1MCwgMTUzLCA3NCwgMTIwLCA0NSksCj4+Pj4+ICsJSFNUVCgxMzAwLCAxNjAs
-IDczLCAxMjQsIDQ2KSwKPj4+Pj4gKwlIU1RUKDEzNTAsIDE2NSwgNzYsIDEzMCwgNDcpLAo+Pj4+
-PiArCUhTVFQoMTQwMCwgMTcyLCA3OCwgMTM0LCA0OSksCj4+Pj4+ICsJSFNUVCgxNDUwLCAxNzcs
-IDgwLCAxMzgsIDQ5KSwKPj4+Pj4gKwlIU1RUKDE1MDAsIDE4MywgODEsIDE0MywgNTIpLAo+Pj4+
-PiArCUhTVFQoMTU1MCwgMTkxLCA4NCwgMTQ3LCA1MiksCj4+Pj4+ICsJSFNUVCgxNjAwLCAxOTQs
-IDg1LCAxNTIsIDUyKSwKPj4+Pj4gKwlIU1RUKDE2NTAsIDIwMSwgODYsIDE1NSwgNTMpLAo+Pj4+
-PiArCUhTVFQoMTcwMCwgMjA4LCA4OCwgMTYxLCA1MyksCj4+Pj4+ICsJSFNUVCgxNzUwLCAyMTIs
-IDg5LCAxNjUsIDUzKSwKPj4+Pj4gKwlIU1RUKDE4MDAsIDIyMCwgOTAsIDE3MSwgNTQpLAo+Pj4+
-PiArCUhTVFQoMTg1MCwgMjIzLCA5MiwgMTc1LCA1NCksCj4+Pj4+ICsJSFNUVCgxOTAwLCAyMzEs
-IDkxLCAxODAsIDU1KSwKPj4+Pj4gKwlIU1RUKDE5NTAsIDIzNiwgOTUsIDE4NSwgNTYpLAo+Pj4+
-PiArCUhTVFQoMjAwMCwgMjQzLCA5NywgMTkwLCA1NiksCj4+Pj4+ICsJSFNUVCgyMDUwLCAyNDgs
-IDk5LCAxOTQsIDU4KSwKPj4+Pj4gKwlIU1RUKDIxMDAsIDI1MiwgMTAwLCAxOTksIDU5KSwKPj4+
-Pj4gKwlIU1RUKDIxNTAsIDI1OSwgMTAyLCAyMDQsIDYxKSwKPj4+Pj4gKwlIU1RUKDIyMDAsIDI2
-NiwgMTA1LCAyMTAsIDYyKSwKPj4+Pj4gKwlIU1RUKDIyNTAsIDI2OSwgMTA5LCAyMTMsIDYzKSwK
-Pj4+Pj4gKwlIU1RUKDIzMDAsIDI3MiwgMTA5LCAyMTcsIDY1KSwKPj4+Pj4gKwlIU1RUKDIzNTAs
-IDI4MSwgMTEyLCAyMjUsIDY2KSwKPj4+Pj4gKwlIU1RUKDI0MDAsIDI4MywgMTE1LCAyMjYsIDY2
-KSwKPj4+Pj4gKwlIU1RUKDI0NTAsIDI4MiwgMTE1LCAyMjYsIDY3KSwKPj4+Pj4gKwlIU1RUKDI1
-MDAsIDI4MSwgMTE4LCAyMjcsIDY3KSwKPj4+Pj4gK307Cj4+Pj4+ICsKPj4+Pgo+Pj4+IFdoZXJl
-IGRvIHRoZXNlIGRhdGEgY29tZSBmcm9tPwo+Pj4KPj4+IFRoaXMgaXMgcGFydCBvZiB0aGUgdmVu
-ZG9yIERQSFkgZHJpdmVyLCBzZWUgWzFdLgo+Pj4KPj4+IFRoYW5rcywKPj4+IEljZW5vd3kKPj4+
-Cj4+PiBbMV0KPj4+IGh0dHBzOi8vZ2l0aHViLmNvbS9yZXZ5b3MvdGgxNTIwLWxpbnV4LWtlcm5l
-bC9ibG9iL3RoMTUyMC1sdHMvZHJpdmVycy9waHkvc3lub3BzeXMvcGh5LWR3LW1pcGktZHBoeS5j
-I0wxODUKPj4KPj4gVGhpcyBsb29rcyBjb25zaXN0ZW50IHdpdGggaW14OTMtbWlwaS1kc2kuYywg
-YnV0IHRoZSBUSDE1MjAgZG9lcyBub3QKPj4gdXNlIHRoZSBzYW1lIFRTTUMgMTZubSBwcm9jZXNz
-IGFzIHRoZSBJTVg5My4gQXMgZmFyIGFzIEkga25vdywgdGhleQo+PiBhcmUgdXN1YWxseSBkaWZm
-ZXJlbnQuIAo+IAo+IFdlbGwsIEkgZGlkIHNvbWUgSW50ZXJuZXQgaW52ZXN0aWdhdGlvbiwgYW5k
-IHRoZSByZXN1bHQgc2VlbXMgaW50ZXJlc3Rpbmc6Cj4gCj4gVFNNQyAxNm5tIGFuZCAxMm5tIGFy
-ZSBzaWJsaW5ncywgdGhleSBzaGFyZSBhIHBhZ2UgYXQgVFNNQydzIHdlYnNpdGUgWzFdLAo+IGFu
-ZCB0aGVyZSdyZSBydW1vcnMgc2F5aW5nIHRoYXQgdGhleSBqdXN0IGJyYW5kZWQgcmVmaW5lZCAx
-Nm5tIGFzIDEybm0KPiBbMl1bM10uCj4gCgpJbnRlcmVzdGluZy4KCj4+Cj4+IENvdWxkIHlvdSBj
-b25maXJtIHRoaXMgZnJvbSB0aGUgRGVzaWduV2FyZSBQSFkgZGF0YWJvb2s/Cj4gVW5mb3J0dW5h
-dGVseSBJIGRvbid0IGhhdmUgaXQuLi4KPiAKClBlcmhhcHMgYWRkaW5nIGEgcGxhdF9kYXRhIHRv
-IG1vZGlmeSBQSFlfU1RPUF9XQUlUX1RJTUUgd291bGQgYmUgYQpnb29kIGlkZWEuIEl0IGxvb2tz
-IGxpa2UgYSBUT0RPIGl0ZW0sIGFuZCBIaXNpbGljb24gYWxzbyBzZXRzIGl0LiAKCkFuZCB3aGF0
-IEkgYW0gY3VyaW91cyBhYm91dCBpcyBQSFlfV0FJVF9NT0RFLiBUaGlzIGxvb2tzIGxpa2UgdGhl
-IHRMUFgKdGltZSBpbiBEUEhZLCB3aGljaCBoYXMgYSBtaW5pbXVtIHRpbWUgcmVxdWlyZW1lbnQs
-IGJ1dCBJIGRvbid0CnVuZGVyc3RhbmQgd2h5IHJlZHVjaW5nIHRoaXMgdmFsdWUgbWFkZSBpdCB3
-b3JrIG5vcm1hbGx5IGluc3RlYWQuIAoKUGVyaGFwcyBJIGdvdCBzb21ldGhpbmcgd3Jvbmcgc29t
-ZXdoZXJlLiA6KQoKPiBUaGFua3MsCj4gSWNlbm93eQo+IAo+IFsxXQo+IGh0dHBzOi8vd3d3LnRz
-bWMuY29tL2VuZ2xpc2gvZGVkaWNhdGVkRm91bmRyeS90ZWNobm9sb2d5L2xvZ2ljL2xfMTZfMTJu
-bQo+IFsyXSBodHRwczovL3d3dy5lZW5ld3NldXJvcGUuY29tL2VuL3JlcG9ydC10c21jLXRvLXJl
-bGFiZWwtcHJvY2Vzcy1hcy0xMm5tLwo+IFszXQo+IGh0dHBzOi8vd3d3LmZvb2wuY29tL2ludmVz
-dGluZy8yMDE3LzAxLzE4L3RhaXdhbi1zZW1pY29uZHVjdG9yLW1mZy1jby1sdGQtY29uZmlybXMt
-MTJubS10ZWNoLmFzcHgKCi0tIApCZXN0LCAKQ2hhb3lpCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+mm->tlb_flush_batched packs a 15-bit pending and a 15-bit flushed
+counter into one atomic_t, and resets both once pending gets large.
+flush_tlb_batched_pending() updates flushed with a cmpxchg() against the
+value it read before flushing.
+
+If the counters get reset and reach that same value again while
+flush_tlb_mm() is running, the cmpxchg() succeeds and unmaps that
+happened in the meantime are considered flushed. A later zap can then
+skip the flush and leave stale writable TLB entries behind.
+
+Use two separate counters, never reset pending, and let the flusher
+simply store the pending value it read before flushing. To keep pending
+from wrapping around to flushed, pull flushed to pending - 1 once
+pending is more than INT_MAX ahead.
+
+Preventing the wrapping is primarily required because
+try_to_unmap_flush() as called from migration and reclaim code does
+*not* go through flush_tlb_batched_pending(), as it does not iterate
+MMs. So if nothing in the MM triggers flush_tlb_batched_pending(), there
+would be a problem.
+
+As the separate counters are no longer read atomically together, we must
+read "flushed" before "pending" (acquire/release), so a reader can never
+pair a just moved-forward "flushed" value with an older "pending" value.
+
+We'll leave the barrier() between clearing the PTE and incrementing
+"pending" alone for now: it should be a smp_mb__before_atomic(), but
+existing arch code (x86: inc_mm_tlb_gen(), arm64: dsb(ishst) before the
+TLBI, riscv: fully-ordered xchg() in ptep_get_and_clear()) imply a
+barrier. This should be cleaned up or documented separately.
+
+Note: if a flusher stalls between reading "pending" and storing it,
+while "pending" advances by an exact multiple of 2^32, the counters
+could compare equal and we could miss a flush. The same applies to a
+writer that stalls while moving "flushed" forward.
+
+That is irrelevant in practice: both hold the PTL, so without PREEMPT_RT
+they cannot get preempted, and wrapping within the ~20s soft lockup and
+RCU stall timeouts would require more than 200 million batched unmaps
+per second on a single mm, which is impossible in practice. Even with
+PREEMPT_RT or long vCPU preemption, we would need minutes of unmap and
+refault churn while the stalled task stays off the CPU, which is highly
+unlikely and not a realistic attack vector.
+
+This effectively adds 4 bytes to mm_struct. However, on common 64-bit
+configs it fits into the existing padding, leaving the size unchanged.
+
+Fixes: 5ee2fa2f0636 ("mm/rmap: fix potential batched TLB flush race")
+Cc: stable@vger.kernel.org
+Reported-by: Kirk Swidowski <swidowski@google.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+[ david: use atomic_t instead of atomic64_t, adjust description ]
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+---
+ include/linux/mm_types.h |  3 ++-
+ mm/rmap.c                | 70 +++++++++++++++++++++---------------------------
+ 2 files changed, 33 insertions(+), 40 deletions(-)
+
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index 1ed35d258d2e3..9f51a0ec67451 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -1407,7 +1407,8 @@ struct mm_struct {
+ 		atomic_t tlb_flush_pending;
+ #ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+ 		/* See flush_tlb_batched_pending() */
+-		atomic_t tlb_flush_batched;
++		atomic_t tlb_flush_batch_pending;
++		atomic_t tlb_flush_batch_flushed;
+ #endif
+ 		struct uprobes_state uprobes_state;
+ #ifdef CONFIG_PREEMPT_RT
+diff --git a/mm/rmap.c b/mm/rmap.c
+index 65646ed6fc453..038435994b99a 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -731,22 +731,12 @@ void try_to_unmap_flush_dirty(void)
+ 		try_to_unmap_flush();
+ }
+ 
+-/*
+- * Bits 0-14 of mm->tlb_flush_batched record pending generations.
+- * Bits 16-30 of mm->tlb_flush_batched bit record flushed generations.
+- */
+-#define TLB_FLUSH_BATCH_FLUSHED_SHIFT	16
+-#define TLB_FLUSH_BATCH_PENDING_MASK			\
+-	((1 << (TLB_FLUSH_BATCH_FLUSHED_SHIFT - 1)) - 1)
+-#define TLB_FLUSH_BATCH_PENDING_LARGE			\
+-	(TLB_FLUSH_BATCH_PENDING_MASK / 2)
+-
+ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
+ 		unsigned long start, unsigned long end)
+ {
+ 	struct tlbflush_unmap_batch *tlb_ubc = &current->tlb_ubc;
+-	int batch;
+ 	bool writable = pte_dirty(pteval);
++	unsigned int pending, flushed;
+ 
+ 	if (!pte_accessible(mm, pteval))
+ 		return;
+@@ -755,23 +745,21 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
+ 	tlb_ubc->flush_required = true;
+ 
+ 	/*
+-	 * Ensure compiler does not re-order the setting of tlb_flush_batched
++	 * Ensure compiler does not re-order the pending count update
+ 	 * before the PTE is cleared.
+ 	 */
+ 	barrier();
+-	batch = atomic_read(&mm->tlb_flush_batched);
+-retry:
+-	if ((batch & TLB_FLUSH_BATCH_PENDING_MASK) > TLB_FLUSH_BATCH_PENDING_LARGE) {
+-		/*
+-		 * Prevent `pending' from catching up with `flushed' because of
+-		 * overflow.  Reset `pending' and `flushed' to be 1 and 0 if
+-		 * `pending' becomes large.
+-		 */
+-		if (!atomic_try_cmpxchg(&mm->tlb_flush_batched, &batch, 1))
+-			goto retry;
+-	} else {
+-		atomic_inc(&mm->tlb_flush_batched);
+-	}
++	atomic_inc(&mm->tlb_flush_batch_pending);
++
++	/*
++	 * If no flusher ran for a long time, "pending" could wrap around and
++	 * catch up with "flushed". Move "flushed" forward to prevent that.
++	 */
++	pending = atomic_read(&mm->tlb_flush_batch_pending);
++	flushed = atomic_read(&mm->tlb_flush_batch_flushed);
++	if (unlikely(pending - flushed > INT_MAX))
++		/* Pairs with atomic_read_acquire() in flush_tlb_batched_pending() */
++		atomic_set_release(&mm->tlb_flush_batch_flushed, pending - 1);
+ 
+ 	/*
+ 	 * If the PTE was dirty then it's best to assume it's writable. The
+@@ -805,25 +793,29 @@ static bool should_defer_flush(struct mm_struct *mm, enum ttu_flags flags)
+  * if required. This will cost one additional flush per reclaim cycle paid
+  * by the first operation at risk such as mprotect and mumap.
+  *
+- * This must be called under the PTL so that an access to tlb_flush_batched
+- * that is potentially a "reclaim vs mprotect/munmap/etc" race will synchronise
++ * This must be called under the PTL so that an access to the batch counters
++ * that is potentially a "reclaim vs mprotect/munmap/etc" race will synchronize
+  * via the PTL.
+  */
+ void flush_tlb_batched_pending(struct mm_struct *mm)
+ {
+-	int batch = atomic_read(&mm->tlb_flush_batched);
+-	int pending = batch & TLB_FLUSH_BATCH_PENDING_MASK;
+-	int flushed = batch >> TLB_FLUSH_BATCH_FLUSHED_SHIFT;
++	/*
++	 * Read flushed before pending. Pairs with atomic_set_release() in
++	 * set_tlb_ubc_flush_pending(), which updates flushed without a flush.
++	 */
++	const int flushed = atomic_read_acquire(&mm->tlb_flush_batch_flushed);
++	const int pending = atomic_read(&mm->tlb_flush_batch_pending);
+ 
+-	if (pending != flushed) {
+-		flush_tlb_mm(mm);
+-		/*
+-		 * If the new TLB flushing is pending during flushing, leave
+-		 * mm->tlb_flush_batched as is, to avoid losing flushing.
+-		 */
+-		atomic_cmpxchg(&mm->tlb_flush_batched, batch,
+-			       pending | (pending << TLB_FLUSH_BATCH_FLUSHED_SHIFT));
+-	}
++	if (pending == flushed)
++		return;
++
++	flush_tlb_mm(mm);
++	/*
++	 * Only set "flushed" equal to "pending" after flushing the TLB.
++	 * Racing flushers that store an older value can only cause an extra
++	 * flush.
++	 */
++	atomic_set(&mm->tlb_flush_batch_flushed, pending);
+ }
+ #else
+ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
+
+---
+base-commit: 1c1815d259fc11f14cfd80f8cc37fc067bf6c69e
+change-id: 20261123-rmap-9b4b4cd2f886
+
+Best regards,
+--  
+David Hildenbrand (Arm) <david@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
