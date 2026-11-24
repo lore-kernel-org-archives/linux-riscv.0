@@ -2,94 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1912C606A321
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 09:57:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A5FB606A322
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 10:05:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uNtqIyUG;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=ehg+2Ynd
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4xiV0bFn;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=G/zVCdyZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=R4SUlWAAipHJxld+VCOfZhEr2Q0n+lnrFmQE5VAzik4=; b=uNtqIyUGgGWfTiUJt0ZTbZqjx+
-	jkvFXVf2b9fj0ieHrCe97TzGLId8klNuwgzgAF7QQu50+xewAyNtHStRiWHJvfH6kT3gHsmb0ceDM
-	lkxvTKjpCcECu4Q1L48OZuttdJrkY52oweUYatgQOfGhPY5VNFAPHgiQdY2/Q06LjARyY0vAshbQV
-	JbSB6jJc1BXFq8N5bI0ALSmr5VhGpVMFEk8IEgahMq0oGUXGlTQ8mpL61mkM4TFIcCibWChc750AG
-	wPEBDx1MUb6EW/b4UWPC15Wd+4XioL9ybHstem9zULDhxPZT6y7T1RoRqG6VNwtW/AVzvRn6cV6Sr
-	FxrVNyVg==;
+	bh=XtGImoJFpc5XRkLa05gfH68Hva1cx8eMObwva935sT4=; b=4xiV0bFnawDjK3BSUtpif6Fdbv
+	n2LgVXI2h6xJHepWeMFLsRaC830IqGdsPd/CjJZa5q/wpdNs0rp5uGjE0ga7V4DX5sw2J/CJm14YK
+	M1FQINKYKheBm5Ufi216+KYEJThHbtRmpTYvWEs0M6fgPazquyEc+7Z/0Q9LDrgDTysAc4kvH5UoA
+	pFNfmrNpSif96qGCj5YyYU1HId1ofuRtmxRxu7SyGXus5f472l9zrl2UvbdBxL97IE1KJsVmtDZNS
+	FLJ2PtKw1SATK140gBSpGE/TkHywcBJZWB2xZhWTn/hwQvN/iiuQT6x2m9dh4/7Amqx/QeGTyVfpp
+	zrETautg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVnGe-000000069Di-3Y4h;
-	Tue, 24 Nov 2026 09:56:52 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xVnPM-00000006BLN-3j9p;
+	Tue, 24 Nov 2026 10:05:52 +0000
+Received: from mail-m83212.xmail.ntesmail.com ([156.224.83.212])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVnFv-000000068Rc-46Za
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Nov 2026 09:56:17 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261124095558euoutp027dae85d0c57f0fb889299811c7015e24~q8p0lMrYF2767027670euoutp02j
-	for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2026 09:55:58 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261124095558euoutp027dae85d0c57f0fb889299811c7015e24~q8p0lMrYF2767027670euoutp02j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795514158;
-	bh=W9g6FSXIUBy4xVtnJU8pOZa2xn9AERBrYFbo8nVZxe8=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=ehg+2YnduWWkBFecoI847YN9NMsbGE7LD9MDnGh+0+w9WJHNUyBoObX44SX9wv+FD
-	 hRZWELZfybQWwK4R3V2H5JYGxUF8hx1YqVKlsibBgh21+t+iTSfD0RhU5pPRk7QGGu
-	 yTMLa/C1U0FJZkPCPVjAK6V1A476b/5uD8ATXlfg=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261124095557eucas1p2c0a2eb2c433a7fdb2b9535674b10906f~q8p0F5QEj0909209092eucas1p2j;
-	Tue, 24 Nov 2026 09:55:57 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261124095556eusmtip20ceeef1fa458ec48c1732cb2bc6062ab~q8pzQTpUG0412504125eusmtip2D;
-	Tue, 24 Nov 2026 09:55:56 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 24 Nov 2026 10:54:00 +0100
-Subject: [PATCH v8 3/5] phy: rockchip: inno-hdmi: Use the common Innosilicon
- PHY helpers
+	id 1xVnPG-00000006BIN-2Qs4;
+	Tue, 24 Nov 2026 10:05:49 +0000
+Received: from [127.0.0.1] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55cfe0c09;
+	Tue, 24 Nov 2026 18:05:40 +0800 (GMT+08:00)
+Message-ID: <e2cd8fff-be6f-444f-a435-ccd35158dfc1@rock-chips.com>
+Date: Tue, 24 Nov 2026 18:05:36 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261124-jh7110-inno-hdmi-phy-v8-3-5e3008122cba@samsung.com>
-In-Reply-To: <20261124-jh7110-inno-hdmi-phy-v8-0-5e3008122cba@samsung.com>
-To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
-	<neil.armstrong@linaro.org>,  Manivannan Sadhasivam <mani@kernel.org>, Rob
-	Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
-	Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Emil Renner
-	Berthing <kernel@esmil.dk>,  Hal Feng <hal.feng@starfivetech.com>, Dominique
-	Belhachemi <db@domibel.de>,  Michal Wilczynski <m.wilczynski@samsung.com>,
-	Andy Yan <andyshrk@163.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,  Marek
-	Szyprowski <m.szyprowski@samsung.com>,  Icenowy Zheng
-	<zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Joshua Peisach <jpeisach@ubuntu.com>, Byron Stanoszek <gandalf@winds.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13127;
-	i=m.wilczynski@samsung.com; h=from:subject:message-id;
-	bh=NDpW6YtGfPLxHeWmD/OLM9Btqlr05WAM8Gq3LG2Kuww=;
-	b=owGbwMvMwCGWumv6zndzRCIZT6slMWSzxmsy1a1pyfuxzOqy4NEJl/deWG7x/+lWhyt7Jk0+M
-	DH5ct4y+Y5SFgYxDgZZMUWWsxujjST/MTwtP/74F8wcViaQIQxcnAIwkbUTGRm2Zjmu/11ZkLv0
-	+gKt91dmMahetPbmi7b13jrNgLEwsmsSI8MGowUOVybvqN5yYtuCwDmvHWK+q+8vfDL30HvNj5e
-	EtH/zAQA=
-X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
-	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
-X-CMS-MailID: 20261124095557eucas1p2c0a2eb2c433a7fdb2b9535674b10906f
-X-Msg-Generator: CA
-X-RootMTR: 20261124095557eucas1p2c0a2eb2c433a7fdb2b9535674b10906f
-X-EPHeader: CA
-X-CMS-RootMailID: 20261124095557eucas1p2c0a2eb2c433a7fdb2b9535674b10906f
-References: <20261124-jh7110-inno-hdmi-phy-v8-0-5e3008122cba@samsung.com>
-	<CGME20261124095557eucas1p2c0a2eb2c433a7fdb2b9535674b10906f@eucas1p2.samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] drm/bridge: add TH1520 DesignWare MIPI DSI host
+ controller
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
+ <andyshrk@163.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, Han Gao <gaohan@iscas.ac.cn>
+References: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
+ <20261124-th1520-dw-mipi-dsi-v3-2-ffcf2d87971b@iscas.ac.cn>
+ <af27260f-1911-47bb-8fe2-8eaa8bec31b0@rock-chips.com>
+ <561b5dc1b3a87ebc78f2357d253df4676395fb10.camel@iscas.ac.cn>
+ <a797b2da-ea60-4b81-8fbf-e027afc89cc6@rock-chips.com>
+ <b763d766c886dbcf733e4ab65046448b67973426.camel@iscas.ac.cn>
+ <a6acdf27-b681-4a3d-928d-3e72a8992238@rock-chips.com>
+ <0fc088f8c50155c0ab1583eb3cc89646ea49fb73.camel@iscas.ac.cn>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <0fc088f8c50155c0ab1583eb3cc89646ea49fb73.camel@iscas.ac.cn>
+X-HM-Tid: 0aa20d04af1903a7kunm7fef9203ced858
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaQkwZVkwfHR8eTx0aTktCTlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
+	5LVUpLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=G/zVCdyZQ7UMppvcugW7aNP+r8kFfl3yJt7GOW6c8Kl0YsRqyF0VV/sjGksgATnF51tCkNbYTFU+LY/NcZof/YqS4KAVhV1tzF0I7rp6v0ZWe+JNxpj3K8jsWZmtPpcXf5N9nHWCC/BGBLuaT1Hsmd7IneprqXxD8sYtomk1nXM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=br269MlMTvv+QN1Et/27/bgc0pLna1Ou25fchT7CGnU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261124_015608_487284_E796A6C1 
-X-CRM114-Status: GOOD (  21.55  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261124_020547_316060_C70DC2D4 
+X-CRM114-Status: GOOD (  13.67  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,363 +88,272 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-20.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The RK3328 pre-PLL programming, its table lookup and its recalc_rate and
-determine_rate implementations are the generic Innosilicon ones, so drop
-the local copies and use the shared helpers instead.
-
-The RK3228 pre-PLL sits at different register addresses, so it keeps its
-own register level code and only shares the table lookup.
-
-The now unused RK3328 pre-PLL register macros go with it, as does the
-local pre-PLL config lookup wrapper; both call sites already have the
-TMDS clock to hand and call inno_hdmi_phy_pre_pll_lookup() directly.
-
-The RK3328 recalc_rate used to log the pre-PLL output as "vco". The
-shared helper logs it too, and reports the actual VCO frequency
-alongside the rate, which is the value with the 1.4-3.2 GHz constraint.
-
-The register writes, their order and the values written are unchanged.
-No functional change intended.
-
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-Reviewed-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Tested-by: Byron Stanoszek <gandalf@winds.org>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- drivers/phy/rockchip/Kconfig                  |   1 +
- drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 169 ++++----------------------
- 2 files changed, 26 insertions(+), 144 deletions(-)
-
-diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-index 39759bb2fa1d10ca275fa9e449199f0a43d3e82f..c919a5bf5fa191e193e5aadcbff7d32575f1fee9 100644
---- a/drivers/phy/rockchip/Kconfig
-+++ b/drivers/phy/rockchip/Kconfig
-@@ -34,6 +34,7 @@ config PHY_ROCKCHIP_INNO_HDMI
- 	depends on COMMON_CLK
- 	depends on HAS_IOMEM
- 	select GENERIC_PHY
-+	select PHY_INNO_HDMI
- 	help
- 	  Enable this to support the Rockchip Innosilicon HDMI PHY.
- 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-index d2c2b17df5f340e4486d38c1a10a05a014b53e2e..14660144e475318c4e1a1835c7300d933490cdec 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-@@ -17,6 +17,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-+#include <linux/phy/inno-hdmi-phy.h>
- #include <linux/phy/phy.h>
- #include <linux/slab.h>
- 
-@@ -130,42 +131,14 @@
- #define RK3328_INT_VSS_AGND_ESD_DET			BIT(1)
- #define RK3328_INT_AGND_VSS_ESD_DET			BIT(0)
- /* REG: 0xa0 */
--#define RK3328_PCLK_VCO_DIV_5_MASK			BIT(1)
--#define RK3328_PCLK_VCO_DIV_5(x)			UPDATE(x, 1, 1)
- #define RK3328_PRE_PLL_POWER_DOWN			BIT(0)
- /* REG: 0xa1 */
--#define RK3328_PRE_PLL_PRE_DIV_MASK			GENMASK(5, 0)
--#define RK3328_PRE_PLL_PRE_DIV(x)			UPDATE(x, 5, 0)
- /* REG: 0xa2 */
--/* unset means center spread */
--#define RK3328_SPREAD_SPECTRUM_MOD_DOWN			BIT(7)
--#define RK3328_SPREAD_SPECTRUM_MOD_DISABLE		BIT(6)
--#define RK3328_PRE_PLL_FRAC_DIV_DISABLE			UPDATE(3, 5, 4)
--#define RK3328_PRE_PLL_FB_DIV_11_8_MASK			GENMASK(3, 0)
--#define RK3328_PRE_PLL_FB_DIV_11_8(x)			UPDATE((x) >> 8, 3, 0)
- /* REG: 0xa3 */
--#define RK3328_PRE_PLL_FB_DIV_7_0(x)			UPDATE(x, 7, 0)
- /* REG: 0xa4*/
--#define RK3328_PRE_PLL_TMDSCLK_DIV_C_MASK		GENMASK(1, 0)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_C(x)			UPDATE(x, 1, 0)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_B_MASK		GENMASK(3, 2)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_B(x)			UPDATE(x, 3, 2)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_A_MASK		GENMASK(5, 4)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_A(x)			UPDATE(x, 5, 4)
- /* REG: 0xa5 */
--#define RK3328_PRE_PLL_PCLK_DIV_B_SHIFT			5
--#define RK3328_PRE_PLL_PCLK_DIV_B_MASK			GENMASK(6, 5)
--#define RK3328_PRE_PLL_PCLK_DIV_B(x)			UPDATE(x, 6, 5)
--#define RK3328_PRE_PLL_PCLK_DIV_A_MASK			GENMASK(4, 0)
--#define RK3328_PRE_PLL_PCLK_DIV_A(x)			UPDATE(x, 4, 0)
- /* REG: 0xa6 */
--#define RK3328_PRE_PLL_PCLK_DIV_C_SHIFT			5
--#define RK3328_PRE_PLL_PCLK_DIV_C_MASK			GENMASK(6, 5)
--#define RK3328_PRE_PLL_PCLK_DIV_C(x)			UPDATE(x, 6, 5)
--#define RK3328_PRE_PLL_PCLK_DIV_D_MASK			GENMASK(4, 0)
--#define RK3328_PRE_PLL_PCLK_DIV_D(x)			UPDATE(x, 4, 0)
- /* REG: 0xa9 */
--#define RK3328_PRE_PLL_LOCK_STATUS			BIT(0)
- /* REG: 0xaa */
- #define RK3328_POST_PLL_POST_DIV_ENABLE			GENMASK(3, 2)
- #define RK3328_POST_PLL_REFCLK_SEL_TMDS			BIT(1)
-@@ -218,11 +191,8 @@
- #define RK3328_TMDS_TERM_RESIST_1000			BIT(1)
- #define RK3328_TMDS_TERM_RESIST_2000			BIT(0)
- /* REG: 0xd1 */
--#define RK3328_PRE_PLL_FRAC_DIV_23_16(x)		UPDATE((x) >> 16, 7, 0)
- /* REG: 0xd2 */
--#define RK3328_PRE_PLL_FRAC_DIV_15_8(x)			UPDATE((x) >> 8, 7, 0)
- /* REG: 0xd3 */
--#define RK3328_PRE_PLL_FRAC_DIV_7_0(x)			UPDATE(x, 7, 0)
- 
- struct inno_hdmi_phy_drv_data;
- 
-@@ -240,6 +210,8 @@ struct inno_hdmi_phy {
- 	const struct inno_hdmi_phy_drv_data *plat_data;
- 	int chip_version;
- 
-+	struct inno_hdmi_phy_pre_pll pre_pll;
-+
- 	/* clk provider */
- 	struct clk_hw hw;
- 	struct clk *phyclk;
-@@ -248,21 +220,6 @@ struct inno_hdmi_phy {
- 	unsigned long opts_tmds_char_rate;
- };
- 
--struct pre_pll_config {
--	unsigned long pixclock;
--	unsigned long tmdsclock;
--	u8 prediv;
--	u16 fbdiv;
--	u8 tmds_div_a;
--	u8 tmds_div_b;
--	u8 tmds_div_c;
--	u8 pclk_div_a;
--	u8 pclk_div_b;
--	u8 pclk_div_c;
--	u8 pclk_div_d;
--	u8 vco_div_5_en;
--	u32 fracdiv;
--};
- 
- struct post_pll_config {
- 	unsigned long tmdsclock;
-@@ -291,7 +248,7 @@ struct inno_hdmi_phy_drv_data {
- 	const struct phy_config		*phy_cfg_table;
- };
- 
--static const struct pre_pll_config pre_pll_cfg_table[] = {
-+static const struct inno_hdmi_phy_pre_pll_config pre_pll_cfg_table[] = {
- 	{ 25175000,  25175000,  3,  125, 3, 1, 1,  1, 3, 3,  4, 0, 0xe00000},
- 	{ 25175000,  31468750,  1,   41, 0, 3, 3,  1, 3, 3,  4, 0, 0xf5554f},
- 	{ 27000000,  27000000,  1,   36, 0, 3, 3,  1, 2, 3,  4, 0,      0x0},
-@@ -603,7 +560,7 @@ static irqreturn_t inno_hdmi_phy_rk3328_irq(int irq, void *dev_id)
- static int inno_hdmi_phy_validate(struct phy *phy, enum phy_mode mode,
- 				  int submode, union phy_configure_opts *opts)
- {
--	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-+	const struct inno_hdmi_phy_pre_pll_config *cfg = pre_pll_cfg_table;
- 	unsigned long tmdsclock;
- 
- 	if (!(mode == PHY_MODE_HDMI && submode == PHY_HDMI_MODE_TMDS))
-@@ -717,23 +674,6 @@ static const struct phy_ops inno_hdmi_phy_ops = {
- 	.validate = inno_hdmi_phy_validate,
- };
- 
--static const
--struct pre_pll_config *inno_hdmi_phy_get_pre_pll_cfg(struct inno_hdmi_phy *inno,
--						     unsigned long rate)
--{
--	const struct pre_pll_config *cfg = pre_pll_cfg_table;
--	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
--
--	for (; cfg->pixclock != 0; cfg++)
--		if (cfg->pixclock == rate && cfg->tmdsclock == tmdsclock)
--			break;
--
--	if (cfg->pixclock == 0)
--		return ERR_PTR(-EINVAL);
--
--	return cfg;
--}
--
- static int inno_hdmi_phy_rk3228_clk_is_prepared(struct clk_hw *hw)
- {
- 	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
-@@ -797,7 +737,7 @@ unsigned long inno_hdmi_phy_rk3228_clk_recalc_rate(struct clk_hw *hw,
- static int inno_hdmi_phy_rk3228_clk_determine_rate(struct clk_hw *hw,
- 						   struct clk_rate_request *req)
- {
--	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-+	const struct inno_hdmi_phy_pre_pll_config *cfg = pre_pll_cfg_table;
- 
- 	req->rate = (req->rate / 1000) * 1000;
- 
-@@ -818,7 +758,7 @@ static int inno_hdmi_phy_rk3228_clk_set_rate(struct clk_hw *hw,
- 					     unsigned long parent_rate)
- {
- 	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
--	const struct pre_pll_config *cfg;
-+	const struct inno_hdmi_phy_pre_pll_config *cfg;
- 	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
- 	u32 v;
- 	int ret;
-@@ -829,7 +769,7 @@ static int inno_hdmi_phy_rk3228_clk_set_rate(struct clk_hw *hw,
- 	if (inno->pixclock == rate && inno->tmdsclock == tmdsclock)
- 		return 0;
- 
--	cfg = inno_hdmi_phy_get_pre_pll_cfg(inno, rate);
-+	cfg = inno_hdmi_phy_pre_pll_lookup(&inno->pre_pll, rate, tmdsclock);
- 	if (IS_ERR(cfg))
- 		return PTR_ERR(cfg);
- 
-@@ -915,39 +855,9 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
- 						   unsigned long parent_rate)
- {
- 	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
--	unsigned long frac;
--	u8 nd, no_a, no_b, no_d;
--	u64 vco;
--	u16 nf;
--
--	nd = inno_read(inno, 0xa1) & RK3328_PRE_PLL_PRE_DIV_MASK;
--	nf = ((inno_read(inno, 0xa2) & RK3328_PRE_PLL_FB_DIV_11_8_MASK) << 8);
--	nf |= inno_read(inno, 0xa3);
--	vco = parent_rate * nf;
--
--	if (!(inno_read(inno, 0xa2) & RK3328_PRE_PLL_FRAC_DIV_DISABLE)) {
--		frac = inno_read(inno, 0xd3) |
--		       (inno_read(inno, 0xd2) << 8) |
--		       (inno_read(inno, 0xd1) << 16);
--		vco += DIV_ROUND_CLOSEST(parent_rate * frac, (1 << 24));
--	}
--
--	if (inno_read(inno, 0xa0) & RK3328_PCLK_VCO_DIV_5_MASK) {
--		do_div(vco, nd * 5);
--	} else {
--		no_a = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_A_MASK;
--		no_b = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_B_MASK;
--		no_b >>= RK3328_PRE_PLL_PCLK_DIV_B_SHIFT;
--		no_b += 2;
--		no_d = inno_read(inno, 0xa6) & RK3328_PRE_PLL_PCLK_DIV_D_MASK;
--
--		do_div(vco, (nd * (no_a == 1 ? no_b : no_a) * no_d * 2));
--	}
- 
--	inno->pixclock = DIV_ROUND_CLOSEST((unsigned long)vco, 1000) * 1000;
--
--	dev_dbg(inno->dev, "%s rate %lu vco %llu\n",
--		__func__, inno->pixclock, vco);
-+	inno->pixclock = inno_hdmi_phy_pre_pll_recalc_rate(&inno->pre_pll,
-+							   parent_rate);
- 
- 	return inno->pixclock;
- }
-@@ -955,20 +865,9 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
- static int inno_hdmi_phy_rk3328_clk_determine_rate(struct clk_hw *hw,
- 						   struct clk_rate_request *req)
- {
--	const struct pre_pll_config *cfg = pre_pll_cfg_table;
--
--	req->rate = (req->rate / 1000) * 1000;
--
--	for (; cfg->pixclock != 0; cfg++)
--		if (cfg->pixclock == req->rate)
--			break;
--
--	if (cfg->pixclock == 0)
--		return -EINVAL;
--
--	req->rate = cfg->pixclock;
-+	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
- 
--	return 0;
-+	return inno_hdmi_phy_pre_pll_determine_rate(&inno->pre_pll, req);
- }
- 
- static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
-@@ -976,9 +875,8 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
- 					     unsigned long parent_rate)
- {
- 	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
--	const struct pre_pll_config *cfg;
-+	const struct inno_hdmi_phy_pre_pll_config *cfg;
- 	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
--	u32 val;
- 	int ret;
- 
- 	dev_dbg(inno->dev, "%s rate %lu tmdsclk %lu\n",
-@@ -987,39 +885,15 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
- 	if (inno->pixclock == rate && inno->tmdsclock == tmdsclock)
- 		return 0;
- 
--	cfg = inno_hdmi_phy_get_pre_pll_cfg(inno, rate);
-+	cfg = inno_hdmi_phy_pre_pll_lookup(&inno->pre_pll, rate, tmdsclock);
- 	if (IS_ERR(cfg))
- 		return PTR_ERR(cfg);
- 
--	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN,
--			 RK3328_PRE_PLL_POWER_DOWN);
-+	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, true);
-+	inno_hdmi_phy_pre_pll_configure(&inno->pre_pll, cfg);
-+	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, false);
- 
--	/* Configure pre-pll */
--	inno_update_bits(inno, 0xa0, RK3328_PCLK_VCO_DIV_5_MASK,
--			 RK3328_PCLK_VCO_DIV_5(cfg->vco_div_5_en));
--	inno_write(inno, 0xa1, RK3328_PRE_PLL_PRE_DIV(cfg->prediv));
--
--	val = RK3328_SPREAD_SPECTRUM_MOD_DISABLE;
--	if (!cfg->fracdiv)
--		val |= RK3328_PRE_PLL_FRAC_DIV_DISABLE;
--	inno_write(inno, 0xa2, RK3328_PRE_PLL_FB_DIV_11_8(cfg->fbdiv) | val);
--	inno_write(inno, 0xa3, RK3328_PRE_PLL_FB_DIV_7_0(cfg->fbdiv));
--	inno_write(inno, 0xa5, RK3328_PRE_PLL_PCLK_DIV_A(cfg->pclk_div_a) |
--		   RK3328_PRE_PLL_PCLK_DIV_B(cfg->pclk_div_b));
--	inno_write(inno, 0xa6, RK3328_PRE_PLL_PCLK_DIV_C(cfg->pclk_div_c) |
--		   RK3328_PRE_PLL_PCLK_DIV_D(cfg->pclk_div_d));
--	inno_write(inno, 0xa4, RK3328_PRE_PLL_TMDSCLK_DIV_C(cfg->tmds_div_c) |
--		   RK3328_PRE_PLL_TMDSCLK_DIV_A(cfg->tmds_div_a) |
--		   RK3328_PRE_PLL_TMDSCLK_DIV_B(cfg->tmds_div_b));
--	inno_write(inno, 0xd3, RK3328_PRE_PLL_FRAC_DIV_7_0(cfg->fracdiv));
--	inno_write(inno, 0xd2, RK3328_PRE_PLL_FRAC_DIV_15_8(cfg->fracdiv));
--	inno_write(inno, 0xd1, RK3328_PRE_PLL_FRAC_DIV_23_16(cfg->fracdiv));
--
--	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN, 0);
--
--	/* Wait for Pre-PLL lock */
--	ret = inno_poll(inno, 0xa9, val, val & RK3328_PRE_PLL_LOCK_STATUS,
--			1000, 10000);
-+	ret = inno_hdmi_phy_pre_pll_wait_locked(&inno->pre_pll, 10000);
- 	if (ret) {
- 		dev_err(inno->dev, "Pre-PLL locking failed\n");
- 		return ret;
-@@ -1418,6 +1292,13 @@ static int inno_hdmi_phy_probe(struct platform_device *pdev)
- 	if (IS_ERR(inno->regmap))
- 		return PTR_ERR(inno->regmap);
- 
-+	/* The PHY block starts the register space on these SoCs. */
-+	inno->pre_pll.dev = inno->dev;
-+	inno->pre_pll.regmap = inno->regmap;
-+	inno->pre_pll.offset = 0;
-+	inno->pre_pll.table = pre_pll_cfg_table;
-+	inno->pre_pll.table_size = ARRAY_SIZE(pre_pll_cfg_table);
-+
- 	/* only the newer rk3328 hdmiphy has an interrupt */
- 	inno->irq = platform_get_irq(pdev, 0);
- 	if (inno->irq > 0) {
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTEvMjQvMjAyNiA1OjUxIFBNLCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+IOWcqCAyMDI2LTEx
+LTI05LqM55qEIDE3OjIyICswODAw77yMQ2hhb3lpIENoZW7lhpnpgZPvvJoKPj4gT24gMTEvMjQv
+MjAyNiA0OjUyIFBNLCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+Pj4g5ZyoIDIwMjYtMTEtMjTkuozn
+moQgMTY6NDQgKzA4MDDvvIxDaGFveWkgQ2hlbuWGmemBk++8mgo+Pj4+IEhpIEljZW5vd3ksCj4+
+Pj4KPj4+PiBPbiAxMS8yNC8yMDI2IDQ6MzQgUE0sIEljZW5vd3kgWmhlbmcgd3JvdGU6Cj4+Pj4+
+IOWcqCAyMDI2LTExLTI05LqM55qEIDE2OjI5ICswODAw77yMQ2hhb3lpIENoZW7lhpnpgZPvvJoK
+Pj4+Pj4+IEhpIEljZW5vd3ksCj4+Pj4+Pgo+Pj4+Pj4gT24gMTEvMjQvMjAyNiAzOjU2IFBNLCBJ
+Y2Vub3d5IFpoZW5nIHdyb3RlOgo+Pj4+Pj4+IFRoZSBULUhlYWQgVEgxNTIwIFNvQyBjb250YWlu
+cyBhIFN5bm9wc3lzIERlc2lnbldhcmUgTUlQSSBEU0kgaG9zdAo+Pj4+Pj4+IGNvbnRyb2xsZXIg
+d2l0aCBhbiBpbnRlcm5hbCBEZXNpZ25XYXJlIE1JUEkgRC1QSFkuCj4+Pj4+Pj4KPj4+Pj4+PiBB
+ZGQgYSBnbHVlIGRyaXZlciBjb25maWd1cmluZyBjbG9ja3MgYW5kIFBIWSBwYXJhbWV0ZXJzIGZv
+ciBpdC4KPj4+Pj4+Pgo+Pj4+Pj4+IFNpZ25lZC1vZmYtYnk6IEljZW5vd3kgWmhlbmcgPHpoZW5n
+eGluZ2RhQGlzY2FzLmFjLmNuPgo+Pj4+Pj4+IC0tLQo+Pj4+Pj4+ICBkcml2ZXJzL2dwdS9kcm0v
+YnJpZGdlL0tjb25maWcgICAgICAgICAgICAgIHwgIDEyICsKPj4+Pj4+PiAgZHJpdmVycy9ncHUv
+ZHJtL2JyaWRnZS9NYWtlZmlsZSAgICAgICAgICAgICB8ICAgMSArCj4+Pj4+Pj4gIGRyaXZlcnMv
+Z3B1L2RybS9icmlkZ2UvdGgxNTIwLWR3LW1pcGktZHNpLmMgfCA1NzAgKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKwo+Pj4+Pj4+ICAzIGZpbGVzIGNoYW5nZWQsIDU4MyBpbnNlcnRpb25zKCsp
+Cj4+Pj4+Pj4KPj4+Pj4+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL2JyaWRnZS9LY29u
+ZmlnIGIvZHJpdmVycy9ncHUvZHJtL2JyaWRnZS9LY29uZmlnCj4+Pj4+Pj4gaW5kZXggYzdkYTZi
+MDJkN2I2Yi4uZjg5ODdlODk0NmZiYiAxMDA2NDQKPj4+Pj4+PiAtLS0gYS9kcml2ZXJzL2dwdS9k
+cm0vYnJpZGdlL0tjb25maWcKPj4+Pj4+PiArKysgYi9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL0tj
+b25maWcKPj4+Pj4+PiBAQCAtMzcyLDYgKzM3MiwxOCBAQCBjb25maWcgRFJNX1RIRUFEX1RIMTUy
+MF9EV19IRE1JCj4+Pj4+Pj4gIAkgIENob29zZSB0aGlzIHRvIGVuYWJsZSBzdXBwb3J0IGZvciB0
+aGUgaW50ZXJuYWwgSERNSSBicmlkZ2UgZm91bmQKPj4+Pj4+PiAgCSAgb24gdGhlIFQtSGVhZCBU
+SDE1MjAgU29DLgo+Pj4+Pj4+ICAKPj4+Pj4+PiArY29uZmlnIERSTV9USEVBRF9USDE1MjBfRFdf
+TUlQSV9EU0kKPj4+Pj4+PiArCXRyaXN0YXRlICJULUhlYWQgVEgxNTIwIERlc2lnbldhcmUgTUlQ
+SSBEU0kgYnJpZGdlIgo+Pj4+Pj4+ICsJZGVwZW5kcyBvbiBPRgo+Pj4+Pj4+ICsJZGVwZW5kcyBv
+biBDT01NT05fQ0xLCj4+Pj4+Pj4gKwlkZXBlbmRzIG9uIEFSQ0hfVEhFQUQgfHwgQ09NUElMRV9U
+RVNUCj4+Pj4+Pj4gKwlzZWxlY3QgRFJNX0RXX01JUElfRFNJCj4+Pj4+Pj4gKwlzZWxlY3QgR0VO
+RVJJQ19QSFlfTUlQSV9EUEhZCj4+Pj4+Pj4gKwlzZWxlY3QgTUZEX1NZU0NPTgo+Pj4+Pj4+ICsJ
+aGVscAo+Pj4+Pj4+ICsJICBDaG9vc2UgdGhpcyB0byBlbmFibGUgc3VwcG9ydCBmb3IgdGhlIGlu
+dGVybmFsIE1JUEkgRFNJIGJyaWRnZQo+Pj4+Pj4+ICsJICBmb3VuZCBvbiB0aGUgVC1IZWFkIFRI
+MTUyMCBTb0MuCj4+Pj4+Pj4gKwo+Pj4+Pj4+ICBjb25maWcgRFJNX1RPU0hJQkFfVEMzNTg3NjIK
+Pj4+Pj4+PiAgCXRyaXN0YXRlICJUQzM1ODc2MiBEU0kvRFBJIGJyaWRnZSIKPj4+Pj4+PiAgCWRl
+cGVuZHMgb24gT0YKPj4+Pj4+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL2JyaWRnZS9N
+YWtlZmlsZSBiL2RyaXZlcnMvZ3B1L2RybS9icmlkZ2UvTWFrZWZpbGUKPj4+Pj4+PiBpbmRleCAx
+NWNjODIxZDg1YjdlLi41YWY4NzFiYTVjZTc3IDEwMDY0NAo+Pj4+Pj4+IC0tLSBhL2RyaXZlcnMv
+Z3B1L2RybS9icmlkZ2UvTWFrZWZpbGUKPj4+Pj4+PiArKysgYi9kcml2ZXJzL2dwdS9kcm0vYnJp
+ZGdlL01ha2VmaWxlCj4+Pj4+Pj4gQEAgLTMyLDYgKzMyLDcgQEAgb2JqLSQoQ09ORklHX0RSTV9T
+SUk5MjM0KSArPSBzaWk5MjM0Lm8KPj4+Pj4+PiAgb2JqLSQoQ09ORklHX0RSTV9TSU1QTEVfQlJJ
+REdFKSArPSBzaW1wbGUtYnJpZGdlLm8KPj4+Pj4+PiAgb2JqLSQoQ09ORklHX0RSTV9TT0xPTU9O
+X1NTRDI4MjUpICs9IHNzZDI4MjUubwo+Pj4+Pj4+ICBvYmotJChDT05GSUdfRFJNX1RIRUFEX1RI
+MTUyMF9EV19IRE1JKSArPSB0aDE1MjAtZHctaGRtaS5vCj4+Pj4+Pj4gK29iai0kKENPTkZJR19E
+Uk1fVEhFQURfVEgxNTIwX0RXX01JUElfRFNJKSArPSB0aDE1MjAtZHctbWlwaS1kc2kubwo+Pj4+
+Pj4+ICBvYmotJChDT05GSUdfRFJNX1RISU5FX1RIQzYzTFZEMTAyNCkgKz0gdGhjNjNsdmQxMDI0
+Lm8KPj4+Pj4+PiAgb2JqLSQoQ09ORklHX0RSTV9UT1NISUJBX1RDMzU4NzYyKSArPSB0YzM1ODc2
+Mi5vCj4+Pj4+Pj4gIG9iai0kKENPTkZJR19EUk1fVE9TSElCQV9UQzM1ODc2NCkgKz0gdGMzNTg3
+NjQubwo+Pj4+Pj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL3RoMTUyMC1k
+dy1taXBpLWRzaS5jIGIvZHJpdmVycy9ncHUvZHJtL2JyaWRnZS90aDE1MjAtZHctbWlwaS1kc2ku
+Ywo+Pj4+Pj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+Pj4+Pj4gaW5kZXggMDAwMDAwMDAwMDAw
+MC4uOGU4NjZiNzBhZWM4OAo+Pj4+Pj4+IC0tLSAvZGV2L251bGwKPj4+Pj4+PiArKysgYi9kcml2
+ZXJzL2dwdS9kcm0vYnJpZGdlL3RoMTUyMC1kdy1taXBpLWRzaS5jCj4+Pj4+Pj4gQEAgLTAsMCAr
+MSw1NzAgQEAKPj4+Pj4+PiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPj4+
+Pj4+PiArLyoKPj4+Pj4+PiArICogQ29weXJpZ2h0IChDKSAyMDI2IEluc3RpdHV0ZSBvZiBTb2Z0
+d2FyZSwgQ2hpbmVzZSBBY2FkZW15IG9mIFNjaWVuY2VzIChJU0NBUykKPj4+Pj4+PiArICoKPj4+
+Pj4+PiArICogQXV0aG9yOgo+Pj4+Pj4+ICsgKiAgIEljZW5vd3kgWmhlbmcgPHpoZW5neGluZ2Rh
+QGlzY2FzLmFjLmNuPgo+Pj4+Pj4+ICsgKgo+Pj4+Pj4+ICsgKiBCYXNlZCBvbiBkd19taXBpX2Rz
+aS1zdG0uYywgd2hpY2ggaXM6Cj4+Pj4+Pj4gKyAqICAgQ29weXJpZ2h0IChDKSBTVE1pY3JvZWxl
+Y3Ryb25pY3MgU0EgMjAxNwo+Pj4+Pj4+ICsgKgo+Pj4+Pj4+ICsgKiBCYXNlZCBvbiBkdy1taXBp
+LWRzaS1yb2NrY2hpcC5jLCB3aGljaCBpczoKPj4+Pj4+PiArICogICBDb3B5cmlnaHQgKEMpIFJv
+Y2tjaGlwIEVsZWN0cm9uaWNzIENvLiwgTHRkLgo+Pj4+Pj4+ICsgKgo+Pj4+Pj4+ICsgKiBCYXNl
+ZCBvbiB2ZW5kb3Iga2VybmVsIHBoeS1kdy1taXBpLWRwaHkuYywgd2hpY2ggaXM6Cj4+Pj4+Pj4g
+KyAqICAgQ29weXJpZ2h0IChDKSBBbGliYWJhIEdyb3VwIEhvbGRpbmcgTGltaXRlZC4KPj4+Pj4+
+PiArICovCj4+Pj4+Pj4gKwo+Pj4+Pj4+ICsjaW5jbHVkZSA8bGludXgvYml0ZmllbGQuaD4KPj4+
+Pj4+PiArI2luY2x1ZGUgPGxpbnV4L2Nsay5oPgo+Pj4+Pj4+ICsjaW5jbHVkZSA8bGludXgva2Vy
+bmVsLmg+Cj4+Pj4+Pj4gKyNpbmNsdWRlIDxsaW51eC9tZmQvc3lzY29uLmg+Cj4+Pj4+Pj4gKyNp
+bmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KPj4+Pj4+PiArI2luY2x1ZGUgPGxpbnV4L3BoeS9waHku
+aD4KPj4+Pj4+PiArI2luY2x1ZGUgPGxpbnV4L3BoeS9waHktbWlwaS1kcGh5Lmg+Cj4+Pj4+Pj4g
+KyNpbmNsdWRlIDxsaW51eC9wbGF0Zm9ybV9kZXZpY2UuaD4KPj4+Pj4+PiArI2luY2x1ZGUgPGxp
+bnV4L3JlZ21hcC5oPgo+Pj4+Pj4+ICsjaW5jbHVkZSA8bGludXgvcmVndWxhdG9yL2NvbnN1bWVy
+Lmg+Cj4+Pj4+Pj4gKwo+Pj4+Pj4+ICsjaW5jbHVkZSA8dmlkZW8vbWlwaV9kaXNwbGF5Lmg+Cj4+
+Pj4+Pj4gKwo+Pj4+Pj4+ICsjaW5jbHVkZSA8ZHJtL2JyaWRnZS9kd19taXBpX2RzaS5oPgo+Pj4+
+Pj4+ICsjaW5jbHVkZSA8ZHJtL2RybV9taXBpX2RzaS5oPgo+Pj4+Pj4+ICsKPj4+Pj4+PiArLyog
+RFNJIGNvbnRyb2xsZXIgcmVnaXN0ZXJzIGZvciBEUEhZIGFjY2VzcyAqLwo+Pj4+Pj4+ICsKPj4+
+Pj4+PiArI2RlZmluZSBEU0lfUEhZX1RTVF9DVFJMMAkJMHhiNAo+Pj4+Pj4+ICsjZGVmaW5lIFBI
+WV9URVNUQ0xLCQkJQklUKDEpCj4+Pj4+Pj4gKyNkZWZpbmUgUEhZX1VOVEVTVENMSwkJCTAKPj4+
+Pj4+PiArI2RlZmluZSBQSFlfVEVTVENMUgkJCUJJVCgwKQo+Pj4+Pj4+ICsjZGVmaW5lIFBIWV9V
+TlRFU1RDTFIJCQkwCj4+Pj4+Pj4gKwo+Pj4+Pj4+ICsjZGVmaW5lIERTSV9QSFlfVFNUX0NUUkwx
+CQkweGI4Cj4+Pj4+Pj4gKyNkZWZpbmUgUEhZX1RFU1RFTgkJCUJJVCgxNikKPj4+Pj4+PiArI2Rl
+ZmluZSBQSFlfVU5URVNURU4JCQkwCj4+Pj4+Pj4gKyNkZWZpbmUgUEhZX1RFU1RET1VUKG4pCQkJ
+KCgobikgJiAweGZmKSA8PCA4KQo+Pj4+Pj4+ICsjZGVmaW5lIFBIWV9URVNURElOKG4pCQkJKCgo
+bikgJiAweGZmKSA8PCAwKQo+Pj4+Pj4+ICsKPj4+Pj4+PiArLyogRFBIWSByZWdpc3RlcnMgKi8K
+Pj4+Pj4+PiArCj4+Pj4+Pj4gKyNkZWZpbmUgUExMX0RFTEFZX0xQX1RYX1NUQVJUX0xQMTEJMHgw
+Mgo+Pj4+Pj4+ICsjZGVmaW5lIFRYRElORExZVElNRV85XzIJCUdFTk1BU0soNywgIDApCj4+Pj4+
+Pj4gKwo+Pj4+Pj4+ICsjZGVmaW5lIFBMTF9GU01fQ05UUkwJCQkweDAzCj4+Pj4+Pj4gKwo+Pj4+
+Pj4+ICsjZGVmaW5lIFBMTF9QUk9QX0NIQVJHRV9QVU1QX0NUUkwJMHgwZQo+Pj4+Pj4+ICsjZGVm
+aW5lIFBMTF9QUk9QX0NOVFJMCQkJR0VOTUFTSyg1LCAgMCkKPj4+Pj4+PiArCj4+Pj4+Pj4gKyNk
+ZWZpbmUgUExMX0lOVF9DSEFSR0VfUFVNUF9DVFJMCTB4MGYKPj4+Pj4+PiArI2RlZmluZSBQTExf
+SU5UX0NOVFJMCQkJR0VOTUFTSyg1LCAgMCkKPj4+Pj4+PiArCj4+Pj4+Pj4gKyNkZWZpbmUgUExM
+X1ZDT19DVFJMCQkJMHgxMgo+Pj4+Pj4+ICsjZGVmaW5lIFBMTF9WQ09fQ05UUkxfT1ZSX0VOCQlC
+SVQoNikKPj4+Pj4+PiArI2RlZmluZSBQTExfVkNPX0NOVFJMX09WUgkJR0VOTUFTSyg1LCAgMCkK
+Pj4+Pj4+PiArCj4+Pj4+Pj4gKyNkZWZpbmUgUExMX0dNUF9DVFJMX0RJR0lUQUxfVEVTVAkweDEz
+Cj4+Pj4+Pj4gKyNkZWZpbmUgUExMX1RFU1RMT0NLCQkJQklUKDcpCj4+Pj4+Pj4gKyNkZWZpbmUg
+UExMX0dNUF9DTlRSTAkJCUdFTk1BU0soNSwgIDQpCj4+Pj4+Pj4gKyNkZWZpbmUgVFNUUExMRElH
+CQkJR0VOTUFTSygzLCAgMSkKPj4+Pj4+PiArI2RlZmluZSBUU1RQTExESUdfTE9DSwkJCSgweDAg
+PDwgMSkKPj4+Pj4+PiArI2RlZmluZSBUU1RQTExESUdfUkVGQ0xLCQkoMHgxIDw8IDEpCj4+Pj4+
+Pj4gKyNkZWZpbmUgVFNUUExMRElHX0ZCQ0xLCQkJKDB4MiA8PCAxKQo+Pj4+Pj4+ICsjZGVmaW5l
+IFRTVFBMTERJR19JTlRfQ0xLSU4JCSgweDMgPDwgMSkKPj4+Pj4+PiArI2RlZmluZSBUU1RQTExE
+SUdfTE9DS19GUk9NX0RFVEVDVE9SCSgweDQgPDwgMSkKPj4+Pj4+PiArI2RlZmluZSBUU1RQTExE
+SUdfT1VUUFVUCQkoMHg1IDw8IDEpCj4+Pj4+Pj4gKyNkZWZpbmUgVFNUUExMRElHX0JVRl9WQ09D
+TEsJCSgweDYgPDwgMSkKPj4+Pj4+PiArI2RlZmluZSBUU1RQTExESUdfVVBEQVRFUExMCQkoMHg3
+IDw8IDEpCj4+Pj4+Pj4gKwo+Pj4+Pj4+ICsjZGVmaW5lIFBMTF9OX0RJVl9GU01fU0lHCQkweDE3
+Cj4+Pj4+Pj4gKyNkZWZpbmUgUExMX05fT1ZSCQkJR0VOTUFTSygzLCAgMCkKPj4+Pj4+PiArCj4+
+Pj4+Pj4gKyNkZWZpbmUgUExMX01fRElWCQkJMHgxOAo+Pj4+Pj4+ICsjZGVmaW5lIFBMTF9NX09W
+Ul80XzAJCQlHRU5NQVNLKDQsICAwKQo+Pj4+Pj4+ICsjZGVmaW5lIFBMTF9NX09WUl85XzUJCQlH
+RU5NQVNLKDQsICAwKQo+Pj4+Pj4+ICsKPj4+Pj4+PiArI2RlZmluZSBQTExfTl9BTkRfTV9ESVZf
+Q1RSTAkJMHgxOQo+Pj4+Pj4+ICsjZGVmaW5lIFBMTF9NX09WUl9FTgkJCUJJVCg1KQo+Pj4+Pj4+
+ICsjZGVmaW5lIFBMTF9OX09WUl9FTgkJCUJJVCg0KQo+Pj4+Pj4+ICsKPj4+Pj4+PiArI2RlZmlu
+ZSBQTExfQ0hBUkdFX1BVTVBfQklBU19DVFJMCTB4MWMKPj4+Pj4+PiArI2RlZmluZSBQTExfQ1BC
+SUFTX0NOVFJMCQlHRU5NQVNLKDYsICAwKQo+Pj4+Pj4+ICsKPj4+Pj4+PiArI2RlZmluZSBQTExf
+QU5BTE9HX1BST0dSQU1fQ09OVFJPTAkweDFmCj4+Pj4+Pj4gKyNkZWZpbmUgUExMX01QTExfUFJP
+R181XzAJCUdFTk1BU0soNSwgIDApCj4+Pj4+Pj4gKyNkZWZpbmUgUExMX01QTExfUFJPR18xMV82
+CQlHRU5NQVNLKDUsICAwKQo+Pj4+Pj4+ICsjZGVmaW5lIFBMTF9NUExMX1BST0dfMTZfMTIJCUdF
+Tk1BU0soNCwgIDApCj4+Pj4+Pj4gKwo+Pj4+Pj4+ICsjZGVmaW5lIEhTX0ZSRVFfUkFOR0VfT0Zf
+T1BFUkFUSU9OCTB4NDQKPj4+Pj4+PiArI2RlZmluZSBIU0ZSRVFSQU5HRV9PVlJfRU4JCUJJVCg3
+KQo+Pj4+Pj4+ICsjZGVmaW5lIEhTRlJFUVJBTkdFX09WUgkJCUdFTk1BU0soNiwgIDApCj4+Pj4+
+Pj4gKyNkZWZpbmUgSFNGUkVRUkFOR0UJCQlIU0ZSRVFSQU5HRV9PVlIKPj4+Pj4+PiArCj4+Pj4+
+Pj4gKyNkZWZpbmUgUEdfTFBfQklBU19MQU5FMAkJMHg0YQo+Pj4+Pj4+ICsjZGVmaW5lIFBSR19P
+Tl9MQU5FMAkJCUJJVCg2KQo+Pj4+Pj4+ICsKPj4+Pj4+PiArI2RlZmluZSBTUl9GU01fT1ZSX0NO
+VFJMCQkweGEwCj4+Pj4+Pj4gKyNkZWZpbmUgU1JfRERMX0xPT1BfQ09ORgkJMHhhMwo+Pj4+Pj4+
+ICsKPj4+Pj4+PiArLyogc3lzY29uIHJlZ2lzdGVycyAqLwo+Pj4+Pj4+ICsKPj4+Pj4+PiArI2Rl
+ZmluZSBNSVBJRFNJMF9TWVNSRUcJCQkweDgKPj4+Pj4+PiArI2RlZmluZSBNSVBJRFNJMV9TWVNS
+RUcJCQkweGMKPj4+Pj4+PiArI2RlZmluZSBNSVBJRFNJX0hTRlJFUVJBTkdFCQlHRU5NQVNLKDks
+ICAzKQo+Pj4+Pj4+ICsjZGVmaW5lIE1JUElEU0lfQ0ZHQ0xLRlJFUVJBTkdFCQlHRU5NQVNLKDE1
+LCAxMCkKPj4+Pj4+PiArI2RlZmluZSBNSVBJRFNJX0NGR0NMS0ZSRVFSQU5HRV9ERUYJKDB4MWMg
+PDwgMTApCj4+Pj4+Pj4gKwo+Pj4+Pj4+ICtzdHJ1Y3QgcGxsX2hzZnJlcXJhbmdlIHsKPj4+Pj4+
+PiArCXVuc2lnbmVkIGludCBtYXhfbWJwczsKPj4+Pj4+PiArCXU4IGhzZnJlcXJhbmdlOwo+Pj4+
+Pj4+ICt9Owo+Pj4+Pj4+ICsKPj4+Pj4+PiArc3RhdGljIGNvbnN0IHN0cnVjdCBwbGxfaHNmcmVx
+cmFuZ2UgaHNmcmVxcmFuZ2VfdGFibGVbXSA9IHsKPj4+Pj4+PiArCXsgODAsICAweDAwIH0sCj4+
+Pj4+Pj4gKwl7IDkwLCAgMHgxMCB9LAo+Pj4+Pj4+ICsJeyAxMDAsIDB4MjAgfSwKPj4+Pj4+PiAr
+CXsgMTEwLCAweDMwIH0sCj4+Pj4+Pj4gKwl7IDEyMCwgMHgwMSB9LAo+Pj4+Pj4+ICsJeyAxMzAs
+IDB4MTEgfSwKPj4+Pj4+PiArCXsgMTQwLCAweDIxIH0sCj4+Pj4+Pj4gKwl7IDE1MCwgMHgzMSB9
+LAo+Pj4+Pj4+ICsJeyAxNjAsIDB4MDIgfSwKPj4+Pj4+PiArCXsgMTcwLCAweDEyIH0sCj4+Pj4+
+Pj4gKwl7IDE4MCwgMHgyMiB9LAo+Pj4+Pj4+ICsJeyAxOTAsIDB4MzIgfSwKPj4+Pj4+PiArCXsg
+MjA1LCAweDAzIH0sCj4+Pj4+Pj4gKwl7IDIyMCwgMHgxMyB9LAo+Pj4+Pj4+ICsJeyAyMzUsIDB4
+MjMgfSwKPj4+Pj4+PiArCXsgMjUwLCAweDMzIH0sCj4+Pj4+Pj4gKwl7IDI3NSwgMHgwNCB9LAo+
+Pj4+Pj4+ICsJeyAzMDAsIDB4MTQgfSwKPj4+Pj4+PiArCXsgMzI1LCAweDI1IH0sCj4+Pj4+Pj4g
+Kwl7IDM1MCwgMHgzNSB9LAo+Pj4+Pj4+ICsJeyA0MDAsIDB4MDUgfSwKPj4+Pj4+PiArCXsgNDUw
+LCAweDE2IH0sCj4+Pj4+Pj4gKwl7IDUwMCwgMHgyNiB9LAo+Pj4+Pj4+ICsJeyA1NTAsIDB4Mzcg
+fSwKPj4+Pj4+PiArCXsgNjAwLCAweDA3IH0sCj4+Pj4+Pj4gKwl7IDY1MCwgMHgxOCB9LAo+Pj4+
+Pj4+ICsJeyA3MDAsIDB4MjggfSwKPj4+Pj4+PiArCXsgNzUwLCAweDM5IH0sCj4+Pj4+Pj4gKwl7
+IDgwMCwgMHgwOSB9LAo+Pj4+Pj4+ICsJeyA4NTAsIDB4MTkgfSwKPj4+Pj4+PiArCXsgOTAwLCAw
+eDI5IH0sCj4+Pj4+Pj4gKwl7IDk1MCwgMHgzQSB9LAo+Pj4+Pj4+ICsJeyAxMDAwLCAweDBBIH0s
+Cj4+Pj4+Pj4gKwl7IDEwNTAsIDB4MUEgfSwKPj4+Pj4+PiArCXsgMTEwMCwgMHgyQSB9LAo+Pj4+
+Pj4+ICsJeyAxMTUwLCAweDNCIH0sCj4+Pj4+Pj4gKwl7IDEyMDAsIDB4MEIgfSwKPj4+Pj4+PiAr
+CXsgMTI1MCwgMHgxQiB9LAo+Pj4+Pj4+ICsJeyAxMzAwLCAweDJCIH0sCj4+Pj4+Pj4gKwl7IDEz
+NTAsIDB4M0MgfSwKPj4+Pj4+PiArCXsgMTQwMCwgMHgwQyB9LAo+Pj4+Pj4+ICsJeyAxNDUwLCAw
+eDFDIH0sCj4+Pj4+Pj4gKwl7IDE1MDAsIDB4MkMgfSwKPj4+Pj4+PiArCXsgMTU1MCwgMHgzRCB9
+LAo+Pj4+Pj4+ICsJeyAxNjAwLCAweDBEIH0sCj4+Pj4+Pj4gKwl7IDE2NTAsIDB4MUQgfSwKPj4+
+Pj4+PiArCXsgMTcwMCwgMHgyRSB9LAo+Pj4+Pj4+ICsJeyAxNzUwLCAweDNFIH0sCj4+Pj4+Pj4g
+Kwl7IDE4MDAsIDB4MEUgfSwKPj4+Pj4+PiArCXsgMTg1MCwgMHgxRSB9LAo+Pj4+Pj4+ICsJeyAx
+OTAwLCAweDJGIH0sCj4+Pj4+Pj4gKwl7IDE5NTAsIDB4M0YgfSwKPj4+Pj4+PiArCXsgMjAwMCwg
+MHgwRiB9LAo+Pj4+Pj4+ICsJeyAyMDUwLCAweDQwIH0sCj4+Pj4+Pj4gKwl7IDIxMDAsIDB4NDEg
+fSwKPj4+Pj4+PiArCXsgMjE1MCwgMHg0MiB9LAo+Pj4+Pj4+ICsJeyAyMjAwLCAweDQzIH0sCj4+
+Pj4+Pj4gKwl7IDIyNTAsIDB4NDQgfSwKPj4+Pj4+PiArCXsgMjMwMCwgMHg0NSB9LAo+Pj4+Pj4+
+ICsJeyAyMzUwLCAweDQ2IH0sCj4+Pj4+Pj4gKwl7IDI0MDAsIDB4NDcgfSwKPj4+Pj4+PiArCXsg
+MjQ1MCwgMHg0OCB9LAo+Pj4+Pj4+ICsJeyAyNTAwLCAweDQ5IH0sCj4+Pj4+Pj4gK307Cj4+Pj4+
+Pj4gKwo+Pj4+Pj4+ICtzdHJ1Y3QgaHN0dCB7Cj4+Pj4+Pj4gKwl1bnNpZ25lZCBpbnQgbWF4X21i
+cHM7Cj4+Pj4+Pj4gKwlzdHJ1Y3QgZHdfbWlwaV9kc2lfZHBoeV90aW1pbmcgdGltaW5nOwo+Pj4+
+Pj4+ICt9Owo+Pj4+Pj4+ICsKPj4+Pj4+PiArI2RlZmluZSBIU1RUKF9tYXhfbWJwcywgX2NfbHAy
+aHMsIF9jX2hzMmxwLCBfZF9scDJocywgX2RfaHMybHApCVwKPj4+Pj4+PiArewkJCQkJXAo+Pj4+
+Pj4+ICsJLm1heF9tYnBzID0gX21heF9tYnBzLAkJXAo+Pj4+Pj4+ICsJLnRpbWluZyA9IHsJCQlc
+Cj4+Pj4+Pj4gKwkJLmNsa19scDJocyA9IF9jX2xwMmhzLAlcCj4+Pj4+Pj4gKwkJLmNsa19oczJs
+cCA9IF9jX2hzMmxwLAlcCj4+Pj4+Pj4gKwkJLmRhdGFfbHAyaHMgPSBfZF9scDJocywJXAo+Pj4+
+Pj4+ICsJCS5kYXRhX2hzMmxwID0gX2RfaHMybHAsCVwKPj4+Pj4+PiArCX0JCQkJXAo+Pj4+Pj4+
+ICt9Cj4+Pj4+Pj4gKwo+Pj4+Pj4+ICtzdGF0aWMgc3RydWN0IGhzdHQgaHN0dF90YWJsZVtdID0g
+ewo+Pj4+Pj4+ICsJSFNUVCg4MCwgMjEsIDE3LCAxNSwgMTApLAo+Pj4+Pj4+ICsJSFNUVCg5MCwg
+MjMsIDE3LCAxNiwgMTApLAo+Pj4+Pj4+ICsJSFNUVCgxMDAsIDIyLCAxNywgMTYsIDEwKSwKPj4+
+Pj4+PiArCUhTVFQoMTEwLCAyNSwgMTgsIDE3LCAxMSksCj4+Pj4+Pj4gKwlIU1RUKDEyMCwgMjYs
+IDIwLCAxOCwgMTEpLAo+Pj4+Pj4+ICsJSFNUVCgxMzAsIDI3LCAxOSwgMTksIDExKSwKPj4+Pj4+
+PiArCUhTVFQoMTQwLCAyNywgMTksIDE5LCAxMSksCj4+Pj4+Pj4gKwlIU1RUKDE1MCwgMjgsIDIw
+LCAyMCwgMTIpLAo+Pj4+Pj4+ICsJSFNUVCgxNjAsIDMwLCAyMSwgMjIsIDEzKSwKPj4+Pj4+PiAr
+CUhTVFQoMTcwLCAzMCwgMjEsIDIzLCAxMyksCj4+Pj4+Pj4gKwlIU1RUKDE4MCwgMzEsIDIxLCAy
+MywgMTMpLAo+Pj4+Pj4+ICsJSFNUVCgxOTAsIDMyLCAyMiwgMjQsIDEzKSwKPj4+Pj4+PiArCUhT
+VFQoMjA1LCAzNSwgMjIsIDI1LCAxMyksCj4+Pj4+Pj4gKwlIU1RUKDIyMCwgMzcsIDI2LCAyNywg
+MTUpLAo+Pj4+Pj4+ICsJSFNUVCgyMzUsIDM4LCAyOCwgMjcsIDE2KSwKPj4+Pj4+PiArCUhTVFQo
+MjUwLCA0MSwgMjksIDMwLCAxNyksCj4+Pj4+Pj4gKwlIU1RUKDI3NSwgNDMsIDI5LCAzMiwgMTgp
+LAo+Pj4+Pj4+ICsJSFNUVCgzMDAsIDQ1LCAzMiwgMzUsIDE5KSwKPj4+Pj4+PiArCUhTVFQoMzI1
+LCA0OCwgMzMsIDM2LCAxOCksCj4+Pj4+Pj4gKwlIU1RUKDM1MCwgNTEsIDM1LCA0MCwgMjApLAo+
+Pj4+Pj4+ICsJSFNUVCg0MDAsIDU5LCAzNywgNDQsIDIxKSwKPj4+Pj4+PiArCUhTVFQoNDUwLCA2
+NSwgNDAsIDQ5LCAyMyksCj4+Pj4+Pj4gKwlIU1RUKDUwMCwgNzEsIDQxLCA1NCwgMjQpLAo+Pj4+
+Pj4+ICsJSFNUVCg1NTAsIDc3LCA0NCwgNTcsIDI2KSwKPj4+Pj4+PiArCUhTVFQoNjAwLCA4Miwg
+NDYsIDY0LCAyNyksCj4+Pj4+Pj4gKwlIU1RUKDY1MCwgODcsIDQ4LCA2NywgMjgpLAo+Pj4+Pj4+
+ICsJSFNUVCg3MDAsIDk0LCA1MiwgNzEsIDI5KSwKPj4+Pj4+PiArCUhTVFQoNzUwLCA5OSwgNTIs
+IDc1LCAzMSksCj4+Pj4+Pj4gKwlIU1RUKDgwMCwgMTA1LCA1NSwgODIsIDMyKSwKPj4+Pj4+PiAr
+CUhTVFQoODUwLCAxMTAsIDU4LCA4NSwgMzIpLAo+Pj4+Pj4+ICsJSFNUVCg5MDAsIDExNSwgNTgs
+IDg4LCAzNSksCj4+Pj4+Pj4gKwlIU1RUKDk1MCwgMTIwLCA2MiwgOTMsIDM2KSwKPj4+Pj4+PiAr
+CUhTVFQoMTAwMCwgMTI4LCA2MywgOTksIDM4KSwKPj4+Pj4+PiArCUhTVFQoMTA1MCwgMTMyLCA2
+NSwgMTAyLCAzOCksCj4+Pj4+Pj4gKwlIU1RUKDExMDAsIDEzOCwgNjcsIDEwNiwgMzkpLAo+Pj4+
+Pj4+ICsJSFNUVCgxMTUwLCAxNDYsIDY5LCAxMTIsIDQyKSwKPj4+Pj4+PiArCUhTVFQoMTIwMCwg
+MTUxLCA3MSwgMTE3LCA0MyksCj4+Pj4+Pj4gKwlIU1RUKDEyNTAsIDE1MywgNzQsIDEyMCwgNDUp
+LAo+Pj4+Pj4+ICsJSFNUVCgxMzAwLCAxNjAsIDczLCAxMjQsIDQ2KSwKPj4+Pj4+PiArCUhTVFQo
+MTM1MCwgMTY1LCA3NiwgMTMwLCA0NyksCj4+Pj4+Pj4gKwlIU1RUKDE0MDAsIDE3MiwgNzgsIDEz
+NCwgNDkpLAo+Pj4+Pj4+ICsJSFNUVCgxNDUwLCAxNzcsIDgwLCAxMzgsIDQ5KSwKPj4+Pj4+PiAr
+CUhTVFQoMTUwMCwgMTgzLCA4MSwgMTQzLCA1MiksCj4+Pj4+Pj4gKwlIU1RUKDE1NTAsIDE5MSwg
+ODQsIDE0NywgNTIpLAo+Pj4+Pj4+ICsJSFNUVCgxNjAwLCAxOTQsIDg1LCAxNTIsIDUyKSwKPj4+
+Pj4+PiArCUhTVFQoMTY1MCwgMjAxLCA4NiwgMTU1LCA1MyksCj4+Pj4+Pj4gKwlIU1RUKDE3MDAs
+IDIwOCwgODgsIDE2MSwgNTMpLAo+Pj4+Pj4+ICsJSFNUVCgxNzUwLCAyMTIsIDg5LCAxNjUsIDUz
+KSwKPj4+Pj4+PiArCUhTVFQoMTgwMCwgMjIwLCA5MCwgMTcxLCA1NCksCj4+Pj4+Pj4gKwlIU1RU
+KDE4NTAsIDIyMywgOTIsIDE3NSwgNTQpLAo+Pj4+Pj4+ICsJSFNUVCgxOTAwLCAyMzEsIDkxLCAx
+ODAsIDU1KSwKPj4+Pj4+PiArCUhTVFQoMTk1MCwgMjM2LCA5NSwgMTg1LCA1NiksCj4+Pj4+Pj4g
+KwlIU1RUKDIwMDAsIDI0MywgOTcsIDE5MCwgNTYpLAo+Pj4+Pj4+ICsJSFNUVCgyMDUwLCAyNDgs
+IDk5LCAxOTQsIDU4KSwKPj4+Pj4+PiArCUhTVFQoMjEwMCwgMjUyLCAxMDAsIDE5OSwgNTkpLAo+
+Pj4+Pj4+ICsJSFNUVCgyMTUwLCAyNTksIDEwMiwgMjA0LCA2MSksCj4+Pj4+Pj4gKwlIU1RUKDIy
+MDAsIDI2NiwgMTA1LCAyMTAsIDYyKSwKPj4+Pj4+PiArCUhTVFQoMjI1MCwgMjY5LCAxMDksIDIx
+MywgNjMpLAo+Pj4+Pj4+ICsJSFNUVCgyMzAwLCAyNzIsIDEwOSwgMjE3LCA2NSksCj4+Pj4+Pj4g
+KwlIU1RUKDIzNTAsIDI4MSwgMTEyLCAyMjUsIDY2KSwKPj4+Pj4+PiArCUhTVFQoMjQwMCwgMjgz
+LCAxMTUsIDIyNiwgNjYpLAo+Pj4+Pj4+ICsJSFNUVCgyNDUwLCAyODIsIDExNSwgMjI2LCA2Nyks
+Cj4+Pj4+Pj4gKwlIU1RUKDI1MDAsIDI4MSwgMTE4LCAyMjcsIDY3KSwKPj4+Pj4+PiArfTsKPj4+
+Pj4+PiArCj4+Pj4+Pgo+Pj4+Pj4gV2hlcmUgZG8gdGhlc2UgZGF0YSBjb21lIGZyb20/Cj4+Pj4+
+Cj4+Pj4+IFRoaXMgaXMgcGFydCBvZiB0aGUgdmVuZG9yIERQSFkgZHJpdmVyLCBzZWUgWzFdLgo+
+Pj4+Pgo+Pj4+PiBUaGFua3MsCj4+Pj4+IEljZW5vd3kKPj4+Pj4KPj4+Pj4gWzFdCj4+Pj4+IGh0
+dHBzOi8vZ2l0aHViLmNvbS9yZXZ5b3MvdGgxNTIwLWxpbnV4LWtlcm5lbC9ibG9iL3RoMTUyMC1s
+dHMvZHJpdmVycy9waHkvc3lub3BzeXMvcGh5LWR3LW1pcGktZHBoeS5jI0wxODUKPj4+Pgo+Pj4+
+IFRoaXMgbG9va3MgY29uc2lzdGVudCB3aXRoIGlteDkzLW1pcGktZHNpLmMsIGJ1dCB0aGUgVEgx
+NTIwIGRvZXMgbm90Cj4+Pj4gdXNlIHRoZSBzYW1lIFRTTUMgMTZubSBwcm9jZXNzIGFzIHRoZSBJ
+TVg5My4gQXMgZmFyIGFzIEkga25vdywgdGhleQo+Pj4+IGFyZSB1c3VhbGx5IGRpZmZlcmVudC4g
+Cj4+Pgo+Pj4gV2VsbCwgSSBkaWQgc29tZSBJbnRlcm5ldCBpbnZlc3RpZ2F0aW9uLCBhbmQgdGhl
+IHJlc3VsdCBzZWVtcyBpbnRlcmVzdGluZzoKPj4+Cj4+PiBUU01DIDE2bm0gYW5kIDEybm0gYXJl
+IHNpYmxpbmdzLCB0aGV5IHNoYXJlIGEgcGFnZSBhdCBUU01DJ3Mgd2Vic2l0ZSBbMV0sCj4+PiBh
+bmQgdGhlcmUncmUgcnVtb3JzIHNheWluZyB0aGF0IHRoZXkganVzdCBicmFuZGVkIHJlZmluZWQg
+MTZubSBhcyAxMm5tCj4+PiBbMl1bM10uCj4+Pgo+Pgo+PiBJbnRlcmVzdGluZy4KPj4KPj4+Pgo+
+Pj4+IENvdWxkIHlvdSBjb25maXJtIHRoaXMgZnJvbSB0aGUgRGVzaWduV2FyZSBQSFkgZGF0YWJv
+b2s/Cj4+PiBVbmZvcnR1bmF0ZWx5IEkgZG9uJ3QgaGF2ZSBpdC4uLgo+Pj4KPj4KPj4gUGVyaGFw
+cyBhZGRpbmcgYSBwbGF0X2RhdGEgdG8gbW9kaWZ5IFBIWV9TVE9QX1dBSVRfVElNRSB3b3VsZCBi
+ZSBhCj4+IGdvb2QgaWRlYS4gSXQgbG9va3MgbGlrZSBhIFRPRE8gaXRlbSwgYW5kIEhpc2lsaWNv
+biBhbHNvIHNldHMgaXQuIAo+IAo+IFNheWluZyBhYm91dCBIaVNpbGljb24sIEkgcmVtZW1iZXJl
+ZCBteSB0cnkgdG8gZGVkdXBsaWNhdGUKPiBkd19taXBpX2RzaV9waHlfd3JpdGUoKSwgd2hpY2gg
+aXMgcmV0cmFjdGVkIGluIHYyIGJlY2F1c2Ugb2Ygc29tZQo+IGNvbXBsaWNhdGVkIHVzYWdlIG9m
+IGR3LW1pcGktZHNpLXJvY2tjaGlwIHB1cmVseSBhcyBhIEQtUEhZLiBUaGlzIGZ1bmN0aW9uCj4g
+aXMgYWxzbyBwcmVzZW50IGluIEhpU2kgZHdfZHJtX2RzaSBhcyBkc2lfcGh5X3RzdF9zZXQoKS4K
+PiAKPiBXZWxsIHllcyBJIGNoZWNrZWQgdGhlIHZhbHVlIHNldCBieSB0aGUgSGlTaSBkcml2ZXIs
+IGl0J3MgZXZlbiBiaWdnZXIgLS0KPiAweDMwLgo+IAo+Pgo+PiBBbmQgd2hhdCBJIGFtIGN1cmlv
+dXMgYWJvdXQgaXMgUEhZX1dBSVRfTU9ERS4gVGhpcyBsb29rcyBsaWtlIHRoZSB0TFBYCj4+IHRp
+bWUgaW4gRFBIWSwgd2hpY2ggaGFzIGEgbWluaW11bSB0aW1lIHJlcXVpcmVtZW50LCBidXQgSSBk
+b24ndAo+PiB1bmRlcnN0YW5kIHdoeSByZWR1Y2luZyB0aGlzIHZhbHVlIG1hZGUgaXQgd29yayBu
+b3JtYWxseSBpbnN0ZWFkLiAKPiAKPiBEbyB5b3UganVzdCBtZWFuIFBIWV9TVE9QX1dBSVRfVElN
+RT8gSSBkaWRuJ3QgZmluZCBhIGZpZWxkIGNhbGxlZAo+IFBIWV9XQUlUX1RJTUUuCj4gCgpZZXMs
+IGl0J3MgdHlwby4uLgoKPj4KPj4gUGVyaGFwcyBJIGdvdCBzb21ldGhpbmcgd3Jvbmcgc29tZXdo
+ZXJlLiA6KQo+IAo+IEkgdGhpbmsgaXQncyBjb25zdHJhaW5pbmcgaG93IGZyZXF1ZW50IGNhbiBI
+UyBiZSBlbnRlcmVkICh0aHVzIGRpc3BsYXkKPiBidXJzdHMgYXJlIHNlbnQpLiBXaGVuIHRoZSBE
+U0kgZGF0YSByYXRlIGlzIHRpZ2h0IChxdWl0ZSBjbG9zZSB0byB0aGUgcGl4ZWwKPiByYXRlKSwg
+YSBsb25nIHdhaXQgdGltZSBjYW4gcHJldmVudCBidXJzdHMgdG8gYmUgc2VudCBmcmVxdWVudGx5
+IGVub3VnaCwKPiB0aHVzIGRpc3BsYXkgaXMgbWVzc2VkIHVwLgo+IAo+IEFsdGhvdWdoIHRvIGJl
+IGhvbmVzdCBJIGhhdmVuJ3QgcmVhZCBELVBIWSBzcGVjaWZpY2F0aW9uIHlldCwgc28gcGxlYXNl
+Cj4gZXhjdXNlIG1lIGZvciBhbnkgaHVtYW4gaGFsbHVjaW5hdGlvbi4KPiAKCkl0IGFsc28gbWFr
+ZXMgc2Vuc2UuIFJlZHVjaW5nIHRoaXMgaXMgZXF1aXZhbGVudCB0byByZWR1Y2luZyB0aGUgdGlt
+ZSBjb25zdW1lZApwZXIgbGluZS4gUGVyaGFwcyBvbmx5IHRoZSBkZXNpZ24gZW5naW5lZXJzIGtu
+b3cgdGhlc2UgZGV0YWlscy4gOikKCj4gVGhhbmtzLAo+IEljZW5vd3kKPiAKPj4KPj4+IFRoYW5r
+cywKPj4+IEljZW5vd3kKPj4+Cj4+PiBbMV0KPj4+IGh0dHBzOi8vd3d3LnRzbWMuY29tL2VuZ2xp
+c2gvZGVkaWNhdGVkRm91bmRyeS90ZWNobm9sb2d5L2xvZ2ljL2xfMTZfMTJubQo+Pj4gWzJdIGh0
+dHBzOi8vd3d3LmVlbmV3c2V1cm9wZS5jb20vZW4vcmVwb3J0LXRzbWMtdG8tcmVsYWJlbC1wcm9j
+ZXNzLWFzLTEybm0vCj4+PiBbM10KPj4+IGh0dHBzOi8vd3d3LmZvb2wuY29tL2ludmVzdGluZy8y
+MDE3LzAxLzE4L3RhaXdhbi1zZW1pY29uZHVjdG9yLW1mZy1jby1sdGQtY29uZmlybXMtMTJubS10
+ZWNoLmFzcHgKPiAKCi0tIApCZXN0LCAKQ2hhb3lpCgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
