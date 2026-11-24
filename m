@@ -2,103 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BA2E606A686
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 19:00:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28DA0606A31E
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 19:55:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=x2VGF741;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ncKK1whx
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KSHSUkm9;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NqzBwZIr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ELrTPUl5XYU/5XqHHi+MusU2kWmAO8PS+zJevWXX8sk=; b=x2VGF741wbg9aufb1yKtp4WlEy
-	vgjyVcteFlfLn6fuXvtWXkmebLmDkg+M94Hde4TO+hRrDLrSd2Z24T5u33t8GDy8wLeOxwJm+egjs
-	FgCH5mKOCkTnifjQ7sEFKxprp6AR3ZfaUpCx9qmUICZ47X2bB5/4ifqNd9UD22iU0I2mtSAjqLPqq
-	P+i1TUfz9W8RARrhIaUCGeJzeypbVoSyHed7Weo7tCjSQh8mj/YjrGM1wHfcPWSAIn1Un8ElXwYTO
-	EwiFi7Y5bOOH4UR1WViBJJ8XK3oiPZoThltlPdgy1Ue8y3EWHV3HeMT/qAnuyhz/fSJD1+pDUD6PT
-	suYVCdbA==;
+	bh=PWth4w8WshDAKdRDsg+Oo0JT44eZizi0RAZcP46KRSQ=; b=KSHSUkm96nwP/L1MDcLjAWsAju
+	GJp6GkrXIf+poHnbEIV/+q44UewnURC2qPfjr4vXN2GlCrTdnvXTxjPfgnc0lX/qvrPFFpoKT1T4j
+	0IJrDIMkg6AQP9AB/V38NWvDZHkhZyAiJ1gJKYJ9Xi89ZrGacFkVsFNPbCn/lvRoBVO0zP/Clq03T
+	zV+bkL2i/Wkpwg4IIUJffoTZPK26TrpwADn4jnaJIOC38gK/GU1dzNc7a+U14kGwvPOaNEtW6Hqnm
+	sp+opOoFrt8T6zgT+ZVrjkfaIsq9/Pd0xdI1Koruxp/vijNRarLvOSUaVrTgGkX43VNZX3tc1+N9C
+	dkkxN21Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVvkb-00000007Yho-2UcX;
-	Tue, 24 Nov 2026 19:00:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xVwbi-00000007g0A-0Ax6;
+	Tue, 24 Nov 2026 19:55:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVvkZ-00000007YhS-1GXF;
-	Tue, 24 Nov 2026 19:00:19 +0000
+	id 1xVwbg-00000007fyh-1MaD;
+	Tue, 24 Nov 2026 19:55:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD808442C4;
-	Tue, 24 Nov 2026 19:00:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FA771F000C4;
-	Tue, 24 Nov 2026 19:00:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 646FE6252B;
+	Tue, 24 Nov 2026 19:55:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F54A1F000D0;
+	Tue, 24 Nov 2026 19:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795546818;
-	bh=OfIXQRWoYznMpr75Y1t1EKHjE7dfreJB7BbbTEkR9WU=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=ncKK1whxIxltl9w3NrjL8l4PDTlrCE/FzSAxmSG7NSaUmYQuWeH6L8sIqoWaoNvrw
-	 0/PeRp9VmjzBxclu9NKYtU+u3TYgQCHsL257kJ+cNY52LeOxS5SWVfKfP0WmIdoFVp
-	 yASCbkBMPQqX5sAXqFJbm02JZFNTVe/3d1gLzMTO27O5CVmnblzubVOthX6sna3aPp
-	 I+z99cPKoFG3wKJuOJ97BRWkLcmWMDKZV/jb9LgavqbrxZzgJNVi5uG1FDZ0eZxt2J
-	 DdD+dIyU28gy++Kug8HSdUdHyu1wQVI9BUVUj4mRBFPJ1ysICP9aOag+8SjMkiMWkj
-	 l1n8fJ1H4G3+w==
-From: Brian Masney <masneyb@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- linux-riscv@lists.infradead.org, Lee Jones <lee@kernel.org>
-Cc: linux-kernel@vger.kernel.org, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
- "Zhao, Linaro" <richard.zhao@linaro.org>, Abel Vesa <abelvesa@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Amit Daniel Kachhap <amit.daniel@samsung.com>, 
- Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Chander Kashyap <k.chander@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
- Drew Fustini <fustini@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
- Francesco Dolcini <francesco.dolcini@toradex.com>, 
- Frank Li <Frank.Li@nxp.com>, Heiko Stuebner <heiko@sntech.de>, 
- imx@lists.linux.dev, Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Joel Stanley <jms@oss.tenstorrent.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, Jyri Sarha <jsarha@ti.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
- Liam Beguin <lvb@xiphos.com>, Linaro Ltd <mturquette@linaro.org>, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-tegra@vger.kernel.org, 
- Lubomir Rintel <lkundrak@v3.sk>, Lukasz Luba <lukasz.luba@arm.com>, 
- Marian Mihailescu <mihailescu2m@gmail.com>, 
- Maxime Coquelin <maxime.coquelin@st.com>, 
- Mike Looijmans <mike.looijmans@topic.nl>, Peng Fan <peng.fan@nxp.com>, 
- Pengpeng Hou <pengpeng@iscas.ac.cn>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Prashant Gaikwad <pgaikwad@nvidia.com>, Rosen Penev <rosenp@gmail.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Sergej Sawazki <ce3a@gmx.de>, 
- Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Thierry Reding <thierry.reding@kernel.org>, 
- Thomas Abraham <thomas.ab@samsung.com>, Tomasz Figa <t.figa@samsung.com>, 
- Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261123164834.3330320-1-lee@kernel.org>
-References: <20261123164834.3330320-1-lee@kernel.org>
-Subject: Re: (subset) [PATCH 00/10] clk: Assorted bug fixes across clock
- core and drivers
-Message-Id: <179554678508.352639.3508427370180732943.b4-ty@b4>
-Date: Tue, 24 Nov 2026 13:59:45 -0500
+	s=k20260515; t=1795550110;
+	bh=grUnuBcgp8t+MSOi+H3ID6xVrMhx8VhnciDCacLxfxs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NqzBwZIr1Pg6A41nBWqgIzK4e+hizMaKakN+ommcoqE8FSgoJSIdIy26TcQJkhjhD
+	 CTbByepXplY6cFG0WrpRRsegDFzkug4NrSWMurNVoJojlOzKvhgUAIQ2TVmw4lNrIB
+	 9WBvC6wpwtrnxzthS4Ju5xSO9ASxGNKlPrMQTMBl0z3aTaWMwXVf4yLT6NG/xqxJtc
+	 gkt4jnzHDNJHKOvIdniIQvdxbcda3qnaSnItVe4gn4GAbb8Dq+piBD7thPqQXGI1O2
+	 hInqTW8J0LYat7sAtWVe7dNkTOw3bS/vUEY951EC8/+A1wV510CCCRXKDjwb3VSlwE
+	 qYpJbQ1HmNmhg==
+Date: Tue, 24 Nov 2026 11:55:09 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH v4 2/2] phy: add a driver for T-Head TH1520 USB PHY
+Message-ID: <awXrnQVKZBXKsV2c@thelio>
+References: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
+ <20261103081444.1983071-3-zhengxingda@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Mailer: b4 0.17-dev-8145e
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3203; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=Ag2AinISm4aFoF5s9EyCfBnaRyNhL06vGNk10A6iLlI=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJZ720tnJcTOVN5EVPBweUqLjvWLfm7rev3YcVz7FO6y
- hcuWLU7uKOUhUGMi0FWTJFlSa5RQUTqKtt7dzRZYOawMoEMYeDiFICJ/D/D8N9rsoXElmlecoVx
- h3xSf/5sSY/XeCnxXCfY81/BklWy+usZ/teydF76fdXpYmPdscuXihu2CR2aIzFx3erNj5okavd
- w7GUHAA==
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+Content-Disposition: inline
+In-Reply-To: <20261103081444.1983071-3-zhengxingda@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,71 +63,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, linux-phy@lists.infradead.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, Drew Fustini <dfustini@tenstorrent.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Wei Fu <wefu@redhat.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Ck9uIE1vbiwgMjMgTm92IDIwMjYgMTY6NDc6MzMgKzAwMDAsIExlZSBKb25lcyB3cm90ZToKPiBj
-bGs6IEFzc29ydGVkIGJ1ZyBmaXhlcyBhY3Jvc3MgY2xvY2sgY29yZSBhbmQgZHJpdmVycwo+IAo+
-IFRoZXNlIGlzc3VlcyB3ZXJlIHJlcG9ydGVkIGJ5IFNhc2hpa28uCj4gCj4gTm9uZSBvZiB0aGVz
-ZSBjaGFuZ2VzIGhhdmUgYmVlbiB0ZXN0ZWQgb24gcGh5c2ljYWwgaGFyZHdhcmUuCj4gCj4gQ2M6
-ICJVd2UgS2xlaW5lLUvDtm5pZyIgPHUua2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25peC5kZT4KPiBD
-YzogIlpoYW8sIExpbmFybyIgPHJpY2hhcmQuemhhb0BsaW5hcm8ub3JnPgo+IENjOiBBYmVsIFZl
-c2EgPGFiZWx2ZXNhQGtlcm5lbC5vcmc+Cj4gQ2M6IEFsaW0gQWtodGFyIDxhbGltLmFraHRhckBz
-YW1zdW5nLmNvbT4KPiBDYzogQW1pdCBEYW5pZWwgS2FjaGhhcCA8YW1pdC5kYW5pZWxAc2Ftc3Vu
-Zy5jb20+Cj4gQ2M6IEFuaXJ1ZGggU3Jpbml2YXNhbiA8YXNyaW5pdmFzYW5Ab3NzLnRlbnN0b3Jy
-ZW50LmNvbT4KPiBDYzogQnJpYW4gTWFzbmV5IDxibWFzbmV5K2Nsa0ByZWRoYXQuY29tPgo+IENj
-OiBDaGFuZGVyIEthc2h5YXAgPGsuY2hhbmRlckBzYW1zdW5nLmNvbT4KPiBDYzogQ2hhbndvbyBD
-aG9pIDxjdzAwLmNob2lAc2Ftc3VuZy5jb20+Cj4gQ2M6IERvbmcgQWlzaGVuZyA8YWlzaGVuZy5k
-b25nQG54cC5jb20+Cj4gQ2M6IERyZXcgRnVzdGluaSA8ZnVzdGluaUBrZXJuZWwub3JnPgo+IENj
-OiBGYWJpbyBFc3RldmFtIDxmZXN0ZXZhbUBnbWFpbC5jb20+Cj4gQ2M6IEZyYW5jZXNjbyBEb2xj
-aW5pIDxmcmFuY2VzY28uZG9sY2luaUB0b3JhZGV4LmNvbT4KPiBDYzogRnJhbmsgTGkgPEZyYW5r
-LkxpQG54cC5jb20+Cj4gQ2M6IEhlaWtvIFN0dWVibmVyIDxoZWlrb0BzbnRlY2guZGU+Cj4gQ2M6
-IGlteEBsaXN0cy5saW51eC5kZXYKPiBDYzogSmVyb21lIEJydW5ldCA8amJydW5ldCtjbGtAYmF5
-bGlicmUuY29tPgo+IENjOiBKb2VsIFN0YW5sZXkgPGptc0Bvc3MudGVuc3RvcnJlbnQuY29tPgo+
-IENjOiBKb25hdGhhbiBIdW50ZXIgPGpvbmF0aGFuaEBudmlkaWEuY29tPgo+IENjOiBKeXJpIFNh
-cmhhIDxqc2FyaGFAdGkuY29tPgo+IENjOiBLcnp5c3p0b2YgS296bG93c2tpIDxrcnprQGtlcm5l
-bC5vcmc+Cj4gQ2M6IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5y
-ZW5lc2FzLmNvbT4KPiBDYzogTGlhbSBCZWd1aW4gPGx2YkB4aXBob3MuY29tPgo+IENjOiBMaW5h
-cm8gTHRkIDxtdHVycXVldHRlQGxpbmFyby5vcmc+Cj4gQ2M6IGxpbnV4LWFybS1rZXJuZWxAbGlz
-dHMuaW5mcmFkZWFkLm9yZwo+IENjOiBsaW51eC1jbGtAdmdlci5rZXJuZWwub3JnCj4gQ2M6IGxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBDYzogbGludXgtc2Ftc3VuZy1zb2NAdmdl
-ci5rZXJuZWwub3JnCj4gQ2M6IGxpbnV4LXRlZ3JhQHZnZXIua2VybmVsLm9yZwo+IENjOiBMdWJv
-bWlyIFJpbnRlbCA8bGt1bmRyYWtAdjMuc2s+Cj4gQ2M6IEx1a2FzeiBMdWJhIDxsdWthc3oubHVi
-YUBhcm0uY29tPgo+IENjOiBNYXJpYW4gTWloYWlsZXNjdSA8bWloYWlsZXNjdTJtQGdtYWlsLmNv
-bT4KPiBDYzogTWF4aW1lIENvcXVlbGluIDxtYXhpbWUuY29xdWVsaW5Ac3QuY29tPgo+IENjOiBN
-aWtlIExvb2lqbWFucyA8bWlrZS5sb29pam1hbnNAdG9waWMubmw+Cj4gQ2M6IFBlbmcgRmFuIDxw
-ZW5nLmZhbkBueHAuY29tPgo+IENjOiBQZW5ncGVuZyBIb3UgPHBlbmdwZW5nQGlzY2FzLmFjLmNu
-Pgo+IENjOiBQZW5ndXRyb25peCBLZXJuZWwgVGVhbSA8a2VybmVsQHBlbmd1dHJvbml4LmRlPgo+
-IENjOiBQZXRlciBHcmlmZmluIDxwZXRlci5ncmlmZmluQGxpbmFyby5vcmc+Cj4gQ2M6IFByYXNo
-YW50IEdhaWt3YWQgPHBnYWlrd2FkQG52aWRpYS5jb20+Cj4gQ2M6IFJvc2VuIFBlbmV2IDxyb3Nl
-bnBAZ21haWwuY29tPgo+IENjOiBTYXNjaGEgSGF1ZXIgPHMuaGF1ZXJAcGVuZ3V0cm9uaXguZGU+
-Cj4gQ2M6IFNlcmdlaiBTYXdhemtpIDxjZTNhQGdteC5kZT4KPiBDYzogU2hhd24gR3VvIDxzaGF3
-bmd1b0BrZXJuZWwub3JnPgo+IENjOiBTdGVwaGVuIEJveWQgPHNib3lkQGtlcm5lbC5vcmc+Cj4g
-Q2M6IFN5bHdlc3RlciBOYXdyb2NraSA8cy5uYXdyb2NraUBzYW1zdW5nLmNvbT4KPiBDYzogVGhp
-ZXJyeSBSZWRpbmcgPHRoaWVycnkucmVkaW5nQGtlcm5lbC5vcmc+Cj4gQ2M6IFRob21hcyBBYnJh
-aGFtIDx0aG9tYXMuYWJAc2Ftc3VuZy5jb20+Cj4gQ2M6IFRvbWFzeiBGaWdhIDx0LmZpZ2FAc2Ft
-c3VuZy5jb20+Cj4gCj4gWy4uLl0KCkFwcGxpZWQsIHRoYW5rcyEKClswMi8xMF0gY2xrOiBsbWsw
-NDgzMjogVmFsaWRhdGUgY2hpbGQgcmVnIGluZGV4IGluIGxtazA0ODMyX3Byb2JlKCkKICAgICAg
-ICBodHRwczovL2dpdC5rZXJuZWwub3JnL2Nsay9saW51eC9jLzUwM2ZlMzJlNDZiNQpbMDMvMTBd
-IGNsazogdGVncmE6IGJwbXA6IEJvdW5kIG51bV9wYXJlbnRzIGJ5IE1SUV9DTEtfTUFYX1BBUkVO
-VFMKICAgICAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL2Nsay9saW51eC9jLzg3NWU2MjQxNjE0
-NQpbMDQvMTBdIGNsazogY29tcG9zaXRlOiBJbml0aWFsaXNlIHN1Yi1odyBwb2ludGVycyBpbiBk
-ZXRlcm1pbmVfcmF0ZSgpCiAgICAgICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9jbGsvbGludXgv
-Yy9lZmE3NjAzMDM2YjgKWzA2LzEwXSBjbGs6IGdwaW86IFJlamVjdCBnYXRlIGNsb2NrcyB3aXRo
-IG11bHRpcGxlIHBhcmVudHMKICAgICAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL2Nsay9saW51
-eC9jL2FjN2ZiMWU4ZmZlYQpbMDkvMTBdIGNsazogY2RjZTkyNTogVXNlIGRldm1fb2ZfY2xrX2Fk
-ZF9od19wcm92aWRlcigpIHRvIGF2b2lkIFVBRiBvbiB1bmJpbmQKICAgICAgICBodHRwczovL2dp
-dC5rZXJuZWwub3JnL2Nsay9saW51eC9jL2IwYzIyYTQ5NjY2MApbMTAvMTBdIGNsazogbW1wOiBh
-dWRpbzogVXNlIGRldm1fb2ZfY2xrX2FkZF9od19wcm92aWRlcigpIHRvIHByZXZlbnQgVUFGCiAg
-ICAgICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9jbGsvbGludXgvYy84YjAxYmRiY2Q2YWUKCkJl
-c3QgcmVnYXJkcywKLS0gCkJyaWFuIE1hc25leSA8bWFzbmV5YkBrZXJuZWwub3JnPgoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Nov 03, 2026 at 04:14:44PM +0800, Icenowy Zheng wrote:
+> The USB PHY on T-Head TH1520 SoC is a Synopsys USB 3.0 FemtoPHY, with
+> some PHY parameters exported as another system controller along with it.
+> 
+> A few PHY parameters have unusable defaults. Add a driver that programs
+> them before releasing the PHY from reset in addition to
+> clock/reset/regulator management.
+> 
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> ---
+> Changes in v4:
+> - Make exit callback always success to prevent PHY state machine desync
+>   with clk/rst state as suggested by Sashiko.
+> - Re-wrap some comments targetting full 80 columns.
+> - Use dev_err_probe for PHY creation error handling, to prevent spamming
+>   the kernel log with -EPROBE_DEFER.
+> Changes in v3:
+> - Use fsleep() to replace udelay(), and add proper inclusion of
+>   linux/delay.h for this function. (fsleep() suggested by Drew and
+>   inclusion suggested by Sashiko)
+> - Adapt Drew's suggestion on the wording of the commit message's 2nd
+>   paragraph.
+> Changes in v2:
+> - Removed unreferenced register names.
+> - Changed the behavior to leaving bus clock on instead of binding it to
+>   the regmap.
+> - Removed early return for reset deassert failure in phy exit callback.
+> - Tweaked the Kconfig item (removed default value and added "select
+>   REGMAP_MMIO).
+> 
+>  drivers/phy/Kconfig                |   1 +
+>  drivers/phy/Makefile               |   1 +
+>  drivers/phy/thead/Kconfig          |  12 ++
+>  drivers/phy/thead/Makefile         |   2 +
+>  drivers/phy/thead/phy-th1520-usb.c | 179 +++++++++++++++++++++++++++++
+>  5 files changed, 195 insertions(+)
+>  create mode 100644 drivers/phy/thead/Kconfig
+>  create mode 100644 drivers/phy/thead/Makefile
+>  create mode 100644 drivers/phy/thead/phy-th1520-usb.c
+
+Sorry for the delay in review. I think binding and driver dir should be
+added under thead soc support in MAINTAINERS, right?
+
+> +struct th1520_usb_phy {
+> +	struct platform_device *pdev;
+
+It seems that pdev is only assigned in th1520_usb_phy_probe() and never
+read. I think it can be dropped.
+
+With those addressed:
+
+Reviewed-by: Drew Fustini <fustini@kernel.org>
+
+BTW, I see that I never applied the MISC clock patches (1 to 3) from the
+v1 series [1] like I said I would. Do you still want me to apply them?
+If so, I will fix up the platform data check for usb_suspend_div_clk in
+patch 2 when applying.
+
+Thanks,
+Drew
+
+[1] https://lore.kernel.org/r/20260507081710.4090814-1-zhengxingda@iscas.ac.cn/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
