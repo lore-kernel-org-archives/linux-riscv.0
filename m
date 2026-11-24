@@ -2,84 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 863D6606A33F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 08:35:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80E17606A33C
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 08:35:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DLc6C+Gi
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FZp1pYQz;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=STBqYclq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bZ3euau0y1/Te5M1eOW/SiKEqHvFeMI7akQPdTsZCnA=; b=DLc6C+Gi2x88cvzqNs8UCP3O0J
-	WxWXd2jqxp/5j51B17ipkb/N4fxddGqi4PC1XvODukmKbAWvLgYJ3nYNvZd89QlRsK4/6lhc8p0qo
-	1Qzw8WLS+zMZVizLRl0LCYKHGzuYvuimTyskal+pYubXwG3dVqmcHpWxST1ITBYSH2p3gkYVLlABG
-	utOsOSZZ3Prj/cKPsiWJGdP4ybFdeoOiUMVdFV47DRQFfnU3nMXsUryTMNRb4oDQCsKM5IfNtEQxn
-	IqYHF2jEM288eQntPFhcDvHShx043ujj+mbNfa6Ds0YKsCzCB8XNh2GFV+h8YPd2bo85km5RlVUpJ
-	eCNE7PIg==;
+	bh=Vg5ll9VAurhVpYceSEBInSjPAn6DFrakNc+YJWtV3PM=; b=FZp1pYQzLxrpYRY7u/Czr5us0p
+	bbDR1bt3Y9gcs9wr9tBIiV9T2619kFh3di18fdUgHZKZQx4mAW+bKXOM0dQadDIwWIS2a2tyF02YY
+	wcFSP++8Guqi1htInDZmuRa48+9hZn8mokqxMx4yiAn9+w+u8YeCSAnenIjYJL2r29yjPry/E/WpM
+	qMdtqTp3HZ5rZN54j6R+scwnoPubvsi52OKp2otosIrF1Sd346S43+ObGIP0Q3v4UhEMzry1OUkv0
+	wZe4M0AEPaFH7zhOk6qYEkWB5E+YDnTwEuIiGylcZBWwGWd1f9596kHpMsHnNjrbEMsaAJ/DBJe6o
+	iYui3nIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVlzg-00000005v75-0LGN;
-	Tue, 24 Nov 2026 08:35:16 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1xVlzt-00000005vCb-0uOE;
+	Tue, 24 Nov 2026 08:35:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVlzW-00000005v30-16Ct;
-	Tue, 24 Nov 2026 08:35:14 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [120.85.97.139])
-	by APP-01 (Coremail) with SMTP id qwCowAAHMvwiTAVro9qUAQ--.44326S2;
-	Tue, 24 Nov 2026 16:34:43 +0800 (CST)
-Message-ID: <561b5dc1b3a87ebc78f2357d253df4676395fb10.camel@iscas.ac.cn>
-Subject: Re: [PATCH v3 2/2] drm/bridge: add TH1520 DesignWare MIPI DSI host
- controller
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong	
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart	 <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring	 <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley	 <conor+dt@kernel.org>, Sandy
- Huang <hjc@rock-chips.com>, Heiko =?ISO-8859-1?Q?St=FCbner?=	
- <heiko@sntech.de>, Andy Yan <andyshrk@163.com>,
- dri-devel@lists.freedesktop.org, 	devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, 	linux-riscv@lists.infradead.org, Han
- Gao <gaohan@iscas.ac.cn>
-Date: Tue, 24 Nov 2026 16:34:42 +0800
-In-Reply-To: <af27260f-1911-47bb-8fe2-8eaa8bec31b0@rock-chips.com>
-References: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
-	 <20261124-th1520-dw-mipi-dsi-v3-2-ffcf2d87971b@iscas.ac.cn>
-	 <af27260f-1911-47bb-8fe2-8eaa8bec31b0@rock-chips.com>
-User-Agent: Evolution 3.58.3 
+	id 1xVlzs-00000005vC0-06mE
+	for linux-riscv@lists.infradead.org;
+	Tue, 24 Nov 2026 08:35:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C37C141B4A;
+	Tue, 24 Nov 2026 08:35:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4AD31F000E1;
+	Tue, 24 Nov 2026 08:35:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795509327;
+	bh=E2Iui6nyflKBUHKAAV+wZGQlF41I5Mkux6PwXcFAOMA=;
+	h=From:Date:Subject:To:Cc;
+	b=STBqYclqVmb2ma1VTLpCp/QBi8UOHAwSo+IbiHO0QWB9vbdoMZcBCcBV8gZAAtRBs
+	 ZDfUrhZc756TScR2XhaudxyzFT4KylxqjfVmyeJQmSQqBazWhsFM1T4azw2XBxupVW
+	 Dm112gsOHLdhNP9KeQq+yfrK3NBWEjRN9CE9qocdt5Fjbs7MugOtsYrAET1TPi28IP
+	 RqA2l24XjGuVzdyDCywIYwOpI+CpwDTwTyBgv0ruOwnivYCJwFnRfsK7Vfcy//zVLC
+	 280zd7LjfPhPlXzyWRPeGGF9/AesQFEkqsNJcP5TAIE9ktWsKpcy4qRP8LfUuRILdA
+	 vF28Pkt5bRiJg==
+From: "GUO Ren (XuanTie)" <guoren@kernel.org>
+Date: Tue, 24 Nov 2026 08:35:04 +0000
+Subject: [PATCH v7] riscv: errata: Add ERRATA WRITE_ONCE fixup
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAHMvwiTAVro9qUAQ--.44326S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Cw4rWr1xXFWrZw48uFWDCFg_yoWDWF18pF
-	1xAFWUtFW5JFs7Wwnav3Z5trnxJw1rtr1rW3yxtr48tFyFvr93Gr4q9r9xJFy8ZFs5Xr4S
-	ya98ua13K34ftrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07b4oGdUUUUU=
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261124_003506_882671_FF790F1D 
-X-CRM114-Status: GOOD (  24.49  )
-X-Spam-Score: -4.2 (----)
+Message-Id: <20261124-write_once-v7-1-4158a930aa80@kernel.org>
+X-B4-Tracking: v=1; b=H4sIADdMBWsC/03Myw6CMBCF4Vchs7akMwEaXfkexphahlIvrZmCm
+ hDeXdCNyz8555sgswTOsCsmEH6GHFJcwmwKcL2NnlVolwbS1CBSpV4SBj6l6Fi1lrA1aKwzBMv
+ hIdyF9xc7HH+dx/OF3bAK66KTdFdDL2z/Ua2RDFKJ29rUTaVQ+TEJx/2VJfKtTOJhnj/Hq+SAq
+ wAAAA==
+X-Change-ID: 20261124-write_once-da21d717ac72
+To: Drew Fustini <fustini@kernel.org>, Han Gao <gaohan@iscas.ac.cn>, 
+ Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
+ Chen Wang <chen.wang@linux.dev>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, sophgo@lists.linux.dev, 
+ Alexandre Ghiti <alexghiti@rivosinc.com>, 
+ Leonardo Bras <leobras@redhat.com>, Yao Zi <me@ziyao.cc>, 
+ Chen Wang <unicorn_wang@outlook.com>, 
+ Xiaoguang Xing <xiaoguang.xing@sophgo.com>, 
+ "GUO Ren (XuanTie)" <guoren@kernel.org>
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,203 +77,265 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-5ZyoIDIwMjYtMTEtMjTkuoznmoQgMTY6MjkgKzA4MDDvvIxDaGFveWkgQ2hlbuWGmemBk++8mgo+
-IEhpIEljZW5vd3ksCj4gCj4gT24gMTEvMjQvMjAyNiAzOjU2IFBNLCBJY2Vub3d5IFpoZW5nIHdy
-b3RlOgo+ID4gVGhlIFQtSGVhZCBUSDE1MjAgU29DIGNvbnRhaW5zIGEgU3lub3BzeXMgRGVzaWdu
-V2FyZSBNSVBJIERTSSBob3N0Cj4gPiBjb250cm9sbGVyIHdpdGggYW4gaW50ZXJuYWwgRGVzaWdu
-V2FyZSBNSVBJIEQtUEhZLgo+ID4gCj4gPiBBZGQgYSBnbHVlIGRyaXZlciBjb25maWd1cmluZyBj
-bG9ja3MgYW5kIFBIWSBwYXJhbWV0ZXJzIGZvciBpdC4KPiA+IAo+ID4gU2lnbmVkLW9mZi1ieTog
-SWNlbm93eSBaaGVuZyA8emhlbmd4aW5nZGFAaXNjYXMuYWMuY24+Cj4gPiAtLS0KPiA+ICBkcml2
-ZXJzL2dwdS9kcm0vYnJpZGdlL0tjb25maWcgICAgICAgICAgICAgIHwgIDEyICsKPiA+ICBkcml2
-ZXJzL2dwdS9kcm0vYnJpZGdlL01ha2VmaWxlICAgICAgICAgICAgIHwgICAxICsKPiA+ICBkcml2
-ZXJzL2dwdS9kcm0vYnJpZGdlL3RoMTUyMC1kdy1taXBpLWRzaS5jIHwgNTcwICsrKysrKysrKysr
-KysrKysrKysrKysrKysrKysKPiA+ICAzIGZpbGVzIGNoYW5nZWQsIDU4MyBpbnNlcnRpb25zKCsp
-Cj4gPiAKPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL0tjb25maWcgYi9k
-cml2ZXJzL2dwdS9kcm0vYnJpZGdlL0tjb25maWcKPiA+IGluZGV4IGM3ZGE2YjAyZDdiNmIuLmY4
-OTg3ZTg5NDZmYmIgMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL0tjb25m
-aWcKPiA+ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS9icmlkZ2UvS2NvbmZpZwo+ID4gQEAgLTM3Miw2
-ICszNzIsMTggQEAgY29uZmlnIERSTV9USEVBRF9USDE1MjBfRFdfSERNSQo+ID4gIAkgIENob29z
-ZSB0aGlzIHRvIGVuYWJsZSBzdXBwb3J0IGZvciB0aGUgaW50ZXJuYWwgSERNSSBicmlkZ2UgZm91
-bmQKPiA+ICAJICBvbiB0aGUgVC1IZWFkIFRIMTUyMCBTb0MuCj4gPiAgCj4gPiArY29uZmlnIERS
-TV9USEVBRF9USDE1MjBfRFdfTUlQSV9EU0kKPiA+ICsJdHJpc3RhdGUgIlQtSGVhZCBUSDE1MjAg
-RGVzaWduV2FyZSBNSVBJIERTSSBicmlkZ2UiCj4gPiArCWRlcGVuZHMgb24gT0YKPiA+ICsJZGVw
-ZW5kcyBvbiBDT01NT05fQ0xLCj4gPiArCWRlcGVuZHMgb24gQVJDSF9USEVBRCB8fCBDT01QSUxF
-X1RFU1QKPiA+ICsJc2VsZWN0IERSTV9EV19NSVBJX0RTSQo+ID4gKwlzZWxlY3QgR0VORVJJQ19Q
-SFlfTUlQSV9EUEhZCj4gPiArCXNlbGVjdCBNRkRfU1lTQ09OCj4gPiArCWhlbHAKPiA+ICsJICBD
-aG9vc2UgdGhpcyB0byBlbmFibGUgc3VwcG9ydCBmb3IgdGhlIGludGVybmFsIE1JUEkgRFNJIGJy
-aWRnZQo+ID4gKwkgIGZvdW5kIG9uIHRoZSBULUhlYWQgVEgxNTIwIFNvQy4KPiA+ICsKPiA+ICBj
-b25maWcgRFJNX1RPU0hJQkFfVEMzNTg3NjIKPiA+ICAJdHJpc3RhdGUgIlRDMzU4NzYyIERTSS9E
-UEkgYnJpZGdlIgo+ID4gIAlkZXBlbmRzIG9uIE9GCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9n
-cHUvZHJtL2JyaWRnZS9NYWtlZmlsZSBiL2RyaXZlcnMvZ3B1L2RybS9icmlkZ2UvTWFrZWZpbGUK
-PiA+IGluZGV4IDE1Y2M4MjFkODViN2UuLjVhZjg3MWJhNWNlNzcgMTAwNjQ0Cj4gPiAtLS0gYS9k
-cml2ZXJzL2dwdS9kcm0vYnJpZGdlL01ha2VmaWxlCj4gPiArKysgYi9kcml2ZXJzL2dwdS9kcm0v
-YnJpZGdlL01ha2VmaWxlCj4gPiBAQCAtMzIsNiArMzIsNyBAQCBvYmotJChDT05GSUdfRFJNX1NJ
-STkyMzQpICs9IHNpaTkyMzQubwo+ID4gIG9iai0kKENPTkZJR19EUk1fU0lNUExFX0JSSURHRSkg
-Kz0gc2ltcGxlLWJyaWRnZS5vCj4gPiAgb2JqLSQoQ09ORklHX0RSTV9TT0xPTU9OX1NTRDI4MjUp
-ICs9IHNzZDI4MjUubwo+ID4gIG9iai0kKENPTkZJR19EUk1fVEhFQURfVEgxNTIwX0RXX0hETUkp
-ICs9IHRoMTUyMC1kdy1oZG1pLm8KPiA+ICtvYmotJChDT05GSUdfRFJNX1RIRUFEX1RIMTUyMF9E
-V19NSVBJX0RTSSkgKz0gdGgxNTIwLWR3LW1pcGktZHNpLm8KPiA+ICBvYmotJChDT05GSUdfRFJN
-X1RISU5FX1RIQzYzTFZEMTAyNCkgKz0gdGhjNjNsdmQxMDI0Lm8KPiA+ICBvYmotJChDT05GSUdf
-RFJNX1RPU0hJQkFfVEMzNTg3NjIpICs9IHRjMzU4NzYyLm8KPiA+ICBvYmotJChDT05GSUdfRFJN
-X1RPU0hJQkFfVEMzNTg3NjQpICs9IHRjMzU4NzY0Lm8KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJz
-L2dwdS9kcm0vYnJpZGdlL3RoMTUyMC1kdy1taXBpLWRzaS5jIGIvZHJpdmVycy9ncHUvZHJtL2Jy
-aWRnZS90aDE1MjAtZHctbWlwaS1kc2kuYwo+ID4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiA+IGlu
-ZGV4IDAwMDAwMDAwMDAwMDAuLjhlODY2YjcwYWVjODgKPiA+IC0tLSAvZGV2L251bGwKPiA+ICsr
-KyBiL2RyaXZlcnMvZ3B1L2RybS9icmlkZ2UvdGgxNTIwLWR3LW1pcGktZHNpLmMKPiA+IEBAIC0w
-LDAgKzEsNTcwIEBACj4gPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiA+
-ICsvKgo+ID4gKyAqIENvcHlyaWdodCAoQykgMjAyNiBJbnN0aXR1dGUgb2YgU29mdHdhcmUsIENo
-aW5lc2UgQWNhZGVteSBvZiBTY2llbmNlcyAoSVNDQVMpCj4gPiArICoKPiA+ICsgKiBBdXRob3I6
-Cj4gPiArICogICBJY2Vub3d5IFpoZW5nIDx6aGVuZ3hpbmdkYUBpc2Nhcy5hYy5jbj4KPiA+ICsg
-Kgo+ID4gKyAqIEJhc2VkIG9uIGR3X21pcGlfZHNpLXN0bS5jLCB3aGljaCBpczoKPiA+ICsgKiAg
-IENvcHlyaWdodCAoQykgU1RNaWNyb2VsZWN0cm9uaWNzIFNBIDIwMTcKPiA+ICsgKgo+ID4gKyAq
-IEJhc2VkIG9uIGR3LW1pcGktZHNpLXJvY2tjaGlwLmMsIHdoaWNoIGlzOgo+ID4gKyAqICAgQ29w
-eXJpZ2h0IChDKSBSb2NrY2hpcCBFbGVjdHJvbmljcyBDby4sIEx0ZC4KPiA+ICsgKgo+ID4gKyAq
-IEJhc2VkIG9uIHZlbmRvciBrZXJuZWwgcGh5LWR3LW1pcGktZHBoeS5jLCB3aGljaCBpczoKPiA+
-ICsgKiAgIENvcHlyaWdodCAoQykgQWxpYmFiYSBHcm91cCBIb2xkaW5nIExpbWl0ZWQuCj4gPiAr
-ICovCj4gPiArCj4gPiArI2luY2x1ZGUgPGxpbnV4L2JpdGZpZWxkLmg+Cj4gPiArI2luY2x1ZGUg
-PGxpbnV4L2Nsay5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9rZXJuZWwuaD4KPiA+ICsjaW5jbHVk
-ZSA8bGludXgvbWZkL3N5c2Nvbi5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KPiA+
-ICsjaW5jbHVkZSA8bGludXgvcGh5L3BoeS5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9waHkvcGh5
-LW1pcGktZHBoeS5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9wbGF0Zm9ybV9kZXZpY2UuaD4KPiA+
-ICsjaW5jbHVkZSA8bGludXgvcmVnbWFwLmg+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L3JlZ3VsYXRv
-ci9jb25zdW1lci5oPgo+ID4gKwo+ID4gKyNpbmNsdWRlIDx2aWRlby9taXBpX2Rpc3BsYXkuaD4K
-PiA+ICsKPiA+ICsjaW5jbHVkZSA8ZHJtL2JyaWRnZS9kd19taXBpX2RzaS5oPgo+ID4gKyNpbmNs
-dWRlIDxkcm0vZHJtX21pcGlfZHNpLmg+Cj4gPiArCj4gPiArLyogRFNJIGNvbnRyb2xsZXIgcmVn
-aXN0ZXJzIGZvciBEUEhZIGFjY2VzcyAqLwo+ID4gKwo+ID4gKyNkZWZpbmUgRFNJX1BIWV9UU1Rf
-Q1RSTDAJCTB4YjQKPiA+ICsjZGVmaW5lIFBIWV9URVNUQ0xLCQkJQklUKDEpCj4gPiArI2RlZmlu
-ZSBQSFlfVU5URVNUQ0xLCQkJMAo+ID4gKyNkZWZpbmUgUEhZX1RFU1RDTFIJCQlCSVQoMCkKPiA+
-ICsjZGVmaW5lIFBIWV9VTlRFU1RDTFIJCQkwCj4gPiArCj4gPiArI2RlZmluZSBEU0lfUEhZX1RT
-VF9DVFJMMQkJMHhiOAo+ID4gKyNkZWZpbmUgUEhZX1RFU1RFTgkJCUJJVCgxNikKPiA+ICsjZGVm
-aW5lIFBIWV9VTlRFU1RFTgkJCTAKPiA+ICsjZGVmaW5lIFBIWV9URVNURE9VVChuKQkJCSgoKG4p
-ICYgMHhmZikgPDwgOCkKPiA+ICsjZGVmaW5lIFBIWV9URVNURElOKG4pCQkJKCgobikgJiAweGZm
-KSA8PCAwKQo+ID4gKwo+ID4gKy8qIERQSFkgcmVnaXN0ZXJzICovCj4gPiArCj4gPiArI2RlZmlu
-ZSBQTExfREVMQVlfTFBfVFhfU1RBUlRfTFAxMQkweDAyCj4gPiArI2RlZmluZSBUWERJTkRMWVRJ
-TUVfOV8yCQlHRU5NQVNLKDcsICAwKQo+ID4gKwo+ID4gKyNkZWZpbmUgUExMX0ZTTV9DTlRSTAkJ
-CTB4MDMKPiA+ICsKPiA+ICsjZGVmaW5lIFBMTF9QUk9QX0NIQVJHRV9QVU1QX0NUUkwJMHgwZQo+
-ID4gKyNkZWZpbmUgUExMX1BST1BfQ05UUkwJCQlHRU5NQVNLKDUsICAwKQo+ID4gKwo+ID4gKyNk
-ZWZpbmUgUExMX0lOVF9DSEFSR0VfUFVNUF9DVFJMCTB4MGYKPiA+ICsjZGVmaW5lIFBMTF9JTlRf
-Q05UUkwJCQlHRU5NQVNLKDUsICAwKQo+ID4gKwo+ID4gKyNkZWZpbmUgUExMX1ZDT19DVFJMCQkJ
-MHgxMgo+ID4gKyNkZWZpbmUgUExMX1ZDT19DTlRSTF9PVlJfRU4JCUJJVCg2KQo+ID4gKyNkZWZp
-bmUgUExMX1ZDT19DTlRSTF9PVlIJCUdFTk1BU0soNSwgIDApCj4gPiArCj4gPiArI2RlZmluZSBQ
-TExfR01QX0NUUkxfRElHSVRBTF9URVNUCTB4MTMKPiA+ICsjZGVmaW5lIFBMTF9URVNUTE9DSwkJ
-CUJJVCg3KQo+ID4gKyNkZWZpbmUgUExMX0dNUF9DTlRSTAkJCUdFTk1BU0soNSwgIDQpCj4gPiAr
-I2RlZmluZSBUU1RQTExESUcJCQlHRU5NQVNLKDMsICAxKQo+ID4gKyNkZWZpbmUgVFNUUExMRElH
-X0xPQ0sJCQkoMHgwIDw8IDEpCj4gPiArI2RlZmluZSBUU1RQTExESUdfUkVGQ0xLCQkoMHgxIDw8
-IDEpCj4gPiArI2RlZmluZSBUU1RQTExESUdfRkJDTEsJCQkoMHgyIDw8IDEpCj4gPiArI2RlZmlu
-ZSBUU1RQTExESUdfSU5UX0NMS0lOCQkoMHgzIDw8IDEpCj4gPiArI2RlZmluZSBUU1RQTExESUdf
-TE9DS19GUk9NX0RFVEVDVE9SCSgweDQgPDwgMSkKPiA+ICsjZGVmaW5lIFRTVFBMTERJR19PVVRQ
-VVQJCSgweDUgPDwgMSkKPiA+ICsjZGVmaW5lIFRTVFBMTERJR19CVUZfVkNPQ0xLCQkoMHg2IDw8
-IDEpCj4gPiArI2RlZmluZSBUU1RQTExESUdfVVBEQVRFUExMCQkoMHg3IDw8IDEpCj4gPiArCj4g
-PiArI2RlZmluZSBQTExfTl9ESVZfRlNNX1NJRwkJMHgxNwo+ID4gKyNkZWZpbmUgUExMX05fT1ZS
-CQkJR0VOTUFTSygzLCAgMCkKPiA+ICsKPiA+ICsjZGVmaW5lIFBMTF9NX0RJVgkJCTB4MTgKPiA+
-ICsjZGVmaW5lIFBMTF9NX09WUl80XzAJCQlHRU5NQVNLKDQsICAwKQo+ID4gKyNkZWZpbmUgUExM
-X01fT1ZSXzlfNQkJCUdFTk1BU0soNCwgIDApCj4gPiArCj4gPiArI2RlZmluZSBQTExfTl9BTkRf
-TV9ESVZfQ1RSTAkJMHgxOQo+ID4gKyNkZWZpbmUgUExMX01fT1ZSX0VOCQkJQklUKDUpCj4gPiAr
-I2RlZmluZSBQTExfTl9PVlJfRU4JCQlCSVQoNCkKPiA+ICsKPiA+ICsjZGVmaW5lIFBMTF9DSEFS
-R0VfUFVNUF9CSUFTX0NUUkwJMHgxYwo+ID4gKyNkZWZpbmUgUExMX0NQQklBU19DTlRSTAkJR0VO
-TUFTSyg2LCAgMCkKPiA+ICsKPiA+ICsjZGVmaW5lIFBMTF9BTkFMT0dfUFJPR1JBTV9DT05UUk9M
-CTB4MWYKPiA+ICsjZGVmaW5lIFBMTF9NUExMX1BST0dfNV8wCQlHRU5NQVNLKDUsICAwKQo+ID4g
-KyNkZWZpbmUgUExMX01QTExfUFJPR18xMV82CQlHRU5NQVNLKDUsICAwKQo+ID4gKyNkZWZpbmUg
-UExMX01QTExfUFJPR18xNl8xMgkJR0VOTUFTSyg0LCAgMCkKPiA+ICsKPiA+ICsjZGVmaW5lIEhT
-X0ZSRVFfUkFOR0VfT0ZfT1BFUkFUSU9OCTB4NDQKPiA+ICsjZGVmaW5lIEhTRlJFUVJBTkdFX09W
-Ul9FTgkJQklUKDcpCj4gPiArI2RlZmluZSBIU0ZSRVFSQU5HRV9PVlIJCQlHRU5NQVNLKDYsICAw
-KQo+ID4gKyNkZWZpbmUgSFNGUkVRUkFOR0UJCQlIU0ZSRVFSQU5HRV9PVlIKPiA+ICsKPiA+ICsj
-ZGVmaW5lIFBHX0xQX0JJQVNfTEFORTAJCTB4NGEKPiA+ICsjZGVmaW5lIFBSR19PTl9MQU5FMAkJ
-CUJJVCg2KQo+ID4gKwo+ID4gKyNkZWZpbmUgU1JfRlNNX09WUl9DTlRSTAkJMHhhMAo+ID4gKyNk
-ZWZpbmUgU1JfRERMX0xPT1BfQ09ORgkJMHhhMwo+ID4gKwo+ID4gKy8qIHN5c2NvbiByZWdpc3Rl
-cnMgKi8KPiA+ICsKPiA+ICsjZGVmaW5lIE1JUElEU0kwX1NZU1JFRwkJCTB4OAo+ID4gKyNkZWZp
-bmUgTUlQSURTSTFfU1lTUkVHCQkJMHhjCj4gPiArI2RlZmluZSBNSVBJRFNJX0hTRlJFUVJBTkdF
-CQlHRU5NQVNLKDksICAzKQo+ID4gKyNkZWZpbmUgTUlQSURTSV9DRkdDTEtGUkVRUkFOR0UJCUdF
-Tk1BU0soMTUsIDEwKQo+ID4gKyNkZWZpbmUgTUlQSURTSV9DRkdDTEtGUkVRUkFOR0VfREVGCSgw
-eDFjIDw8IDEwKQo+ID4gKwo+ID4gK3N0cnVjdCBwbGxfaHNmcmVxcmFuZ2Ugewo+ID4gKwl1bnNp
-Z25lZCBpbnQgbWF4X21icHM7Cj4gPiArCXU4IGhzZnJlcXJhbmdlOwo+ID4gK307Cj4gPiArCj4g
-PiArc3RhdGljIGNvbnN0IHN0cnVjdCBwbGxfaHNmcmVxcmFuZ2UgaHNmcmVxcmFuZ2VfdGFibGVb
-XSA9IHsKPiA+ICsJeyA4MCwgIDB4MDAgfSwKPiA+ICsJeyA5MCwgIDB4MTAgfSwKPiA+ICsJeyAx
-MDAsIDB4MjAgfSwKPiA+ICsJeyAxMTAsIDB4MzAgfSwKPiA+ICsJeyAxMjAsIDB4MDEgfSwKPiA+
-ICsJeyAxMzAsIDB4MTEgfSwKPiA+ICsJeyAxNDAsIDB4MjEgfSwKPiA+ICsJeyAxNTAsIDB4MzEg
-fSwKPiA+ICsJeyAxNjAsIDB4MDIgfSwKPiA+ICsJeyAxNzAsIDB4MTIgfSwKPiA+ICsJeyAxODAs
-IDB4MjIgfSwKPiA+ICsJeyAxOTAsIDB4MzIgfSwKPiA+ICsJeyAyMDUsIDB4MDMgfSwKPiA+ICsJ
-eyAyMjAsIDB4MTMgfSwKPiA+ICsJeyAyMzUsIDB4MjMgfSwKPiA+ICsJeyAyNTAsIDB4MzMgfSwK
-PiA+ICsJeyAyNzUsIDB4MDQgfSwKPiA+ICsJeyAzMDAsIDB4MTQgfSwKPiA+ICsJeyAzMjUsIDB4
-MjUgfSwKPiA+ICsJeyAzNTAsIDB4MzUgfSwKPiA+ICsJeyA0MDAsIDB4MDUgfSwKPiA+ICsJeyA0
-NTAsIDB4MTYgfSwKPiA+ICsJeyA1MDAsIDB4MjYgfSwKPiA+ICsJeyA1NTAsIDB4MzcgfSwKPiA+
-ICsJeyA2MDAsIDB4MDcgfSwKPiA+ICsJeyA2NTAsIDB4MTggfSwKPiA+ICsJeyA3MDAsIDB4Mjgg
-fSwKPiA+ICsJeyA3NTAsIDB4MzkgfSwKPiA+ICsJeyA4MDAsIDB4MDkgfSwKPiA+ICsJeyA4NTAs
-IDB4MTkgfSwKPiA+ICsJeyA5MDAsIDB4MjkgfSwKPiA+ICsJeyA5NTAsIDB4M0EgfSwKPiA+ICsJ
-eyAxMDAwLCAweDBBIH0sCj4gPiArCXsgMTA1MCwgMHgxQSB9LAo+ID4gKwl7IDExMDAsIDB4MkEg
-fSwKPiA+ICsJeyAxMTUwLCAweDNCIH0sCj4gPiArCXsgMTIwMCwgMHgwQiB9LAo+ID4gKwl7IDEy
-NTAsIDB4MUIgfSwKPiA+ICsJeyAxMzAwLCAweDJCIH0sCj4gPiArCXsgMTM1MCwgMHgzQyB9LAo+
-ID4gKwl7IDE0MDAsIDB4MEMgfSwKPiA+ICsJeyAxNDUwLCAweDFDIH0sCj4gPiArCXsgMTUwMCwg
-MHgyQyB9LAo+ID4gKwl7IDE1NTAsIDB4M0QgfSwKPiA+ICsJeyAxNjAwLCAweDBEIH0sCj4gPiAr
-CXsgMTY1MCwgMHgxRCB9LAo+ID4gKwl7IDE3MDAsIDB4MkUgfSwKPiA+ICsJeyAxNzUwLCAweDNF
-IH0sCj4gPiArCXsgMTgwMCwgMHgwRSB9LAo+ID4gKwl7IDE4NTAsIDB4MUUgfSwKPiA+ICsJeyAx
-OTAwLCAweDJGIH0sCj4gPiArCXsgMTk1MCwgMHgzRiB9LAo+ID4gKwl7IDIwMDAsIDB4MEYgfSwK
-PiA+ICsJeyAyMDUwLCAweDQwIH0sCj4gPiArCXsgMjEwMCwgMHg0MSB9LAo+ID4gKwl7IDIxNTAs
-IDB4NDIgfSwKPiA+ICsJeyAyMjAwLCAweDQzIH0sCj4gPiArCXsgMjI1MCwgMHg0NCB9LAo+ID4g
-Kwl7IDIzMDAsIDB4NDUgfSwKPiA+ICsJeyAyMzUwLCAweDQ2IH0sCj4gPiArCXsgMjQwMCwgMHg0
-NyB9LAo+ID4gKwl7IDI0NTAsIDB4NDggfSwKPiA+ICsJeyAyNTAwLCAweDQ5IH0sCj4gPiArfTsK
-PiA+ICsKPiA+ICtzdHJ1Y3QgaHN0dCB7Cj4gPiArCXVuc2lnbmVkIGludCBtYXhfbWJwczsKPiA+
-ICsJc3RydWN0IGR3X21pcGlfZHNpX2RwaHlfdGltaW5nIHRpbWluZzsKPiA+ICt9Owo+ID4gKwo+
-ID4gKyNkZWZpbmUgSFNUVChfbWF4X21icHMsIF9jX2xwMmhzLCBfY19oczJscCwgX2RfbHAyaHMs
-IF9kX2hzMmxwKQlcCj4gPiArewkJCQkJXAo+ID4gKwkubWF4X21icHMgPSBfbWF4X21icHMsCQlc
-Cj4gPiArCS50aW1pbmcgPSB7CQkJXAo+ID4gKwkJLmNsa19scDJocyA9IF9jX2xwMmhzLAlcCj4g
-PiArCQkuY2xrX2hzMmxwID0gX2NfaHMybHAsCVwKPiA+ICsJCS5kYXRhX2xwMmhzID0gX2RfbHAy
-aHMsCVwKPiA+ICsJCS5kYXRhX2hzMmxwID0gX2RfaHMybHAsCVwKPiA+ICsJfQkJCQlcCj4gPiAr
-fQo+ID4gKwo+ID4gK3N0YXRpYyBzdHJ1Y3QgaHN0dCBoc3R0X3RhYmxlW10gPSB7Cj4gPiArCUhT
-VFQoODAsIDIxLCAxNywgMTUsIDEwKSwKPiA+ICsJSFNUVCg5MCwgMjMsIDE3LCAxNiwgMTApLAo+
-ID4gKwlIU1RUKDEwMCwgMjIsIDE3LCAxNiwgMTApLAo+ID4gKwlIU1RUKDExMCwgMjUsIDE4LCAx
-NywgMTEpLAo+ID4gKwlIU1RUKDEyMCwgMjYsIDIwLCAxOCwgMTEpLAo+ID4gKwlIU1RUKDEzMCwg
-MjcsIDE5LCAxOSwgMTEpLAo+ID4gKwlIU1RUKDE0MCwgMjcsIDE5LCAxOSwgMTEpLAo+ID4gKwlI
-U1RUKDE1MCwgMjgsIDIwLCAyMCwgMTIpLAo+ID4gKwlIU1RUKDE2MCwgMzAsIDIxLCAyMiwgMTMp
-LAo+ID4gKwlIU1RUKDE3MCwgMzAsIDIxLCAyMywgMTMpLAo+ID4gKwlIU1RUKDE4MCwgMzEsIDIx
-LCAyMywgMTMpLAo+ID4gKwlIU1RUKDE5MCwgMzIsIDIyLCAyNCwgMTMpLAo+ID4gKwlIU1RUKDIw
-NSwgMzUsIDIyLCAyNSwgMTMpLAo+ID4gKwlIU1RUKDIyMCwgMzcsIDI2LCAyNywgMTUpLAo+ID4g
-KwlIU1RUKDIzNSwgMzgsIDI4LCAyNywgMTYpLAo+ID4gKwlIU1RUKDI1MCwgNDEsIDI5LCAzMCwg
-MTcpLAo+ID4gKwlIU1RUKDI3NSwgNDMsIDI5LCAzMiwgMTgpLAo+ID4gKwlIU1RUKDMwMCwgNDUs
-IDMyLCAzNSwgMTkpLAo+ID4gKwlIU1RUKDMyNSwgNDgsIDMzLCAzNiwgMTgpLAo+ID4gKwlIU1RU
-KDM1MCwgNTEsIDM1LCA0MCwgMjApLAo+ID4gKwlIU1RUKDQwMCwgNTksIDM3LCA0NCwgMjEpLAo+
-ID4gKwlIU1RUKDQ1MCwgNjUsIDQwLCA0OSwgMjMpLAo+ID4gKwlIU1RUKDUwMCwgNzEsIDQxLCA1
-NCwgMjQpLAo+ID4gKwlIU1RUKDU1MCwgNzcsIDQ0LCA1NywgMjYpLAo+ID4gKwlIU1RUKDYwMCwg
-ODIsIDQ2LCA2NCwgMjcpLAo+ID4gKwlIU1RUKDY1MCwgODcsIDQ4LCA2NywgMjgpLAo+ID4gKwlI
-U1RUKDcwMCwgOTQsIDUyLCA3MSwgMjkpLAo+ID4gKwlIU1RUKDc1MCwgOTksIDUyLCA3NSwgMzEp
-LAo+ID4gKwlIU1RUKDgwMCwgMTA1LCA1NSwgODIsIDMyKSwKPiA+ICsJSFNUVCg4NTAsIDExMCwg
-NTgsIDg1LCAzMiksCj4gPiArCUhTVFQoOTAwLCAxMTUsIDU4LCA4OCwgMzUpLAo+ID4gKwlIU1RU
-KDk1MCwgMTIwLCA2MiwgOTMsIDM2KSwKPiA+ICsJSFNUVCgxMDAwLCAxMjgsIDYzLCA5OSwgMzgp
-LAo+ID4gKwlIU1RUKDEwNTAsIDEzMiwgNjUsIDEwMiwgMzgpLAo+ID4gKwlIU1RUKDExMDAsIDEz
-OCwgNjcsIDEwNiwgMzkpLAo+ID4gKwlIU1RUKDExNTAsIDE0NiwgNjksIDExMiwgNDIpLAo+ID4g
-KwlIU1RUKDEyMDAsIDE1MSwgNzEsIDExNywgNDMpLAo+ID4gKwlIU1RUKDEyNTAsIDE1MywgNzQs
-IDEyMCwgNDUpLAo+ID4gKwlIU1RUKDEzMDAsIDE2MCwgNzMsIDEyNCwgNDYpLAo+ID4gKwlIU1RU
-KDEzNTAsIDE2NSwgNzYsIDEzMCwgNDcpLAo+ID4gKwlIU1RUKDE0MDAsIDE3MiwgNzgsIDEzNCwg
-NDkpLAo+ID4gKwlIU1RUKDE0NTAsIDE3NywgODAsIDEzOCwgNDkpLAo+ID4gKwlIU1RUKDE1MDAs
-IDE4MywgODEsIDE0MywgNTIpLAo+ID4gKwlIU1RUKDE1NTAsIDE5MSwgODQsIDE0NywgNTIpLAo+
-ID4gKwlIU1RUKDE2MDAsIDE5NCwgODUsIDE1MiwgNTIpLAo+ID4gKwlIU1RUKDE2NTAsIDIwMSwg
-ODYsIDE1NSwgNTMpLAo+ID4gKwlIU1RUKDE3MDAsIDIwOCwgODgsIDE2MSwgNTMpLAo+ID4gKwlI
-U1RUKDE3NTAsIDIxMiwgODksIDE2NSwgNTMpLAo+ID4gKwlIU1RUKDE4MDAsIDIyMCwgOTAsIDE3
-MSwgNTQpLAo+ID4gKwlIU1RUKDE4NTAsIDIyMywgOTIsIDE3NSwgNTQpLAo+ID4gKwlIU1RUKDE5
-MDAsIDIzMSwgOTEsIDE4MCwgNTUpLAo+ID4gKwlIU1RUKDE5NTAsIDIzNiwgOTUsIDE4NSwgNTYp
-LAo+ID4gKwlIU1RUKDIwMDAsIDI0MywgOTcsIDE5MCwgNTYpLAo+ID4gKwlIU1RUKDIwNTAsIDI0
-OCwgOTksIDE5NCwgNTgpLAo+ID4gKwlIU1RUKDIxMDAsIDI1MiwgMTAwLCAxOTksIDU5KSwKPiA+
-ICsJSFNUVCgyMTUwLCAyNTksIDEwMiwgMjA0LCA2MSksCj4gPiArCUhTVFQoMjIwMCwgMjY2LCAx
-MDUsIDIxMCwgNjIpLAo+ID4gKwlIU1RUKDIyNTAsIDI2OSwgMTA5LCAyMTMsIDYzKSwKPiA+ICsJ
-SFNUVCgyMzAwLCAyNzIsIDEwOSwgMjE3LCA2NSksCj4gPiArCUhTVFQoMjM1MCwgMjgxLCAxMTIs
-IDIyNSwgNjYpLAo+ID4gKwlIU1RUKDI0MDAsIDI4MywgMTE1LCAyMjYsIDY2KSwKPiA+ICsJSFNU
-VCgyNDUwLCAyODIsIDExNSwgMjI2LCA2NyksCj4gPiArCUhTVFQoMjUwMCwgMjgxLCAxMTgsIDIy
-NywgNjcpLAo+ID4gK307Cj4gPiArCj4gCj4gV2hlcmUgZG8gdGhlc2UgZGF0YSBjb21lIGZyb20/
-CgpUaGlzIGlzIHBhcnQgb2YgdGhlIHZlbmRvciBEUEhZIGRyaXZlciwgc2VlIFsxXS4KClRoYW5r
-cywKSWNlbm93eQoKWzFdCmh0dHBzOi8vZ2l0aHViLmNvbS9yZXZ5b3MvdGgxNTIwLWxpbnV4LWtl
-cm5lbC9ibG9iL3RoMTUyMC1sdHMvZHJpdmVycy9waHkvc3lub3BzeXMvcGh5LWR3LW1pcGktZHBo
-eS5jI0wxODUKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+The early version of XuanTie C910 core has a store merge buffer
+delay problem. The store merge buffer could improve the store queue
+performance by merging multi-store requests, but when there are not
+continued store requests, the prior single store request would be
+waiting in the store queue for a long time. That would cause
+significant problems for communication between multi-cores. This
+problem was found on sg2042 platform with the qspinlock lock torture
+test.
+
+So appending a fence w.o could immediately flush the store merge
+buffer and let other cores see the write result.
+
+This will apply the WRITE_ONCE errata to handle the non-standard
+behavior via appending a fence w.o instruction for WRITE_ONCE().
+
+This problem is only observed on the sg2042 hardware platform: it
+takes hours of locktorture stress testing to trigger the livelock
+once, and an interrupt can break the livelock. No user space
+application has been observed to hit this problem, so there is no
+need to modify user space WRITE_ONCE(). The vDSO code runs in user
+space context as well, so its WRITE_ONCE() does not need the errata
+fence either.
+
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Leonardo Bras <leobras@redhat.com>
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+Tested-by: Han Gao <gaohan@iscas.ac.cn>
+Tested-by: Yao Zi <me@ziyao.cc>
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Drew Fustini <fustini@kernel.org>
+Co-developed-by: Han Gao <gaohan@iscas.ac.cn>
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+---
+Changelog
+
+v7:
+ - Define BUILD_VDSO for the riscv vDSO build (as arm64, powerpc and
+   others do) and use it to keep the WRITE_ONCE errata alternative out
+   of the vDSO. The vdso getrandom code uses WRITE_ONCE(), so v6 added
+   .alternative entries to the vDSO and booting with
+   CONFIG_DEBUG_VIRTUAL=y hit VIRTUAL_BUG_ON() in vmalloc_to_page(),
+   as reported by Drew Fustini:
+   https://lore.kernel.org/linux-riscv/awPgjwuswbjeDftg@thelio/
+   Fold in Han Gao's "riscv: vdso: Define BUILD_VDSO" patch:
+   https://lore.kernel.org/linux-riscv/20261124-riscv-vdso-build-vdso-v1-1-c52b0b3592dc@iscas.ac.cn/
+ - Clarify in the commit message why user space and the vDSO are not
+   affected by the livelock.
+ - Rebase on v7.4-rc4.
+
+v6:
+https://lore.kernel.org/linux-riscv/20261120012712.1957564-1-guoren@kernel.org/
+ - Refine the title
+ - Focus on SG2042 fixup
+ - Rebase on v7.4-rc3
+
+v5:
+https://lore.kernel.org/linux-riscv/20260421143154.1590156-1-guoren@kernel.org/
+ - Add Acked-by: Arnd Bergmann <arnd@arndb.de> for asm/generic
+ - Add Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+ - Rebase on v7.0
+
+v4:
+https://lore.kernel.org/linux-riscv/20260412143116.1445893-1-guoren@kernel.org/
+ - Add Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+   (https://lore.kernel.org/linux-riscv/1cfdf6c1-a384-43ad-9588-284335d073f7@ghiti.fr/)
+ - Add Tested-by: Yao Zi <me@ziyao.cc>
+ - Rebase on v7.0-rc7
+
+v3:
+https://lore.kernel.org/linux-riscv/20260125063941.443777-1-guoren@kernel.org/
+ - Rebase on 6.19-rc6.
+ - Remove errata_list_vendors patch which has been merged.
+ - Add Tested-by tag.
+
+v2:
+https://lore.kernel.org/linux-riscv/20250713155321.2064856-1-guoren@kernel.org/
+ - Add new header file for errata_list_vendors.
+ - Rebase newest kernel version.
+
+v1:
+https://lore.kernel.org/all/20241214143039.4139398-1-guoren@kernel.org/
+---
+ arch/riscv/Kconfig.errata                    | 18 +++++++++++++++++
+ arch/riscv/errata/thead/errata.c             | 20 +++++++++++++++++++
+ arch/riscv/include/asm/errata_list_vendors.h |  3 ++-
+ arch/riscv/include/asm/rwonce.h              | 30 ++++++++++++++++++++++++++++
+ arch/riscv/kernel/vdso/Makefile              |  1 +
+ include/asm-generic/rwonce.h                 |  2 ++
+ 6 files changed, 73 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index 4f77b3c6d7fd..3505ab2bf9e4 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -179,4 +179,22 @@ config ERRATA_THEAD_GHOSTWRITE
+ 
+ 	  If you don't know what to do here, say "Y".
+ 
++config ERRATA_THEAD_WRITE_ONCE
++	bool "Apply T-Head WRITE_ONCE errata"
++	depends on ERRATA_THEAD
++	default y
++	help
++	  The early version of XuanTie C9xx cores of sg2042 & th1520 have a
++	  store merge buffer delay problem. The store merge buffer could
++	  improve the store queue performance by merging multi-store
++	  requests, but when there are no continued store requests, the
++	  prior single store request would be waiting in the store queue
++	  for a long time. That would cause significant problems for
++	  communication between multi-cores. Appending a fence w.o could
++	  immediately flush the store merge buffer and let other cores
++	  see the write result.
++
++	  This will apply the WRITE_ONCE errata to handle the non-standard
++	  behavior via appending a fence w.o instruction for WRITE_ONCE().
++
+ endmenu # "CPU errata selection"
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index 6f1c683f0ec0..64683882d50b 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -168,6 +168,23 @@ static bool errata_probe_ghostwrite(unsigned int stage,
+ 	return true;
+ }
+ 
++static bool errata_probe_write_once(unsigned int stage,
++				    unsigned long arch_id, unsigned long impid)
++{
++	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
++		return false;
++
++	/* target-c9xx cores report arch_id and impid as 0 */
++	if (arch_id != 0 || impid != 0)
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_BOOT ||
++	    stage == RISCV_ALTERNATIVES_MODULE)
++		return true;
++
++	return false;
++}
++
+ static u32 thead_errata_probe(unsigned int stage,
+ 			      unsigned long archid, unsigned long impid)
+ {
+@@ -183,6 +200,9 @@ static u32 thead_errata_probe(unsigned int stage,
+ 
+ 	errata_probe_ghostwrite(stage, archid, impid);
+ 
++	if (errata_probe_write_once(stage, archid, impid))
++		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
++
+ 	return cpu_req_errata;
+ }
+ 
+diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
+index 02b5ab0d23a8..678cd0d42b42 100644
+--- a/arch/riscv/include/asm/errata_list_vendors.h
++++ b/arch/riscv/include/asm/errata_list_vendors.h
+@@ -19,7 +19,8 @@
+ #define	ERRATA_THEAD_MAE 0
+ #define	ERRATA_THEAD_PMU 1
+ #define	ERRATA_THEAD_GHOSTWRITE 2
+-#define	ERRATA_THEAD_NUMBER 3
++#define	ERRATA_THEAD_WRITE_ONCE 3
++#define	ERRATA_THEAD_NUMBER 4
+ #endif
+ 
+ #ifdef CONFIG_ERRATA_MIPS
+diff --git a/arch/riscv/include/asm/rwonce.h b/arch/riscv/include/asm/rwonce.h
+new file mode 100644
+index 000000000000..327a663f90d2
+--- /dev/null
++++ b/arch/riscv/include/asm/rwonce.h
+@@ -0,0 +1,30 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __ASM_RWONCE_H
++#define __ASM_RWONCE_H
++
++#include <linux/compiler_types.h>
++#include <asm/alternative-macros.h>
++#include <asm/vendorid_list.h>
++#include <asm/errata_list_vendors.h>
++
++#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE) \
++					    && !defined(BUILD_VDSO)
++
++#define __WRITE_ONCE(x, val)				\
++do {							\
++	*(__volatile__ typeof(x) *)&(x) = (val);	\
++	asm volatile(ALTERNATIVE(			\
++		"nop",					\
++		"fence w, o",				\
++		THEAD_VENDOR_ID,			\
++		ERRATA_THEAD_WRITE_ONCE,		\
++		CONFIG_ERRATA_THEAD_WRITE_ONCE)		\
++		: : : "memory");			\
++} while (0)
++
++#endif /* CONFIG_ERRATA_THEAD_WRITE_ONCE && !NO_ALTERNATIVE && !BUILD_VDSO */
++
++#include <asm-generic/rwonce.h>
++
++#endif	/* __ASM_RWONCE_H */
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index c023046a3fd7..b99645672634 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -35,6 +35,7 @@ endif
+ 
+ ccflags-y := -fno-stack-protector
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
++ccflags-y += -DBUILD_VDSO
+ ccflags-y += -fno-builtin
+ ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
+ ccflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
+diff --git a/include/asm-generic/rwonce.h b/include/asm-generic/rwonce.h
+index 52b969c7cef9..4e2d941f15a1 100644
+--- a/include/asm-generic/rwonce.h
++++ b/include/asm-generic/rwonce.h
+@@ -50,10 +50,12 @@
+ 	__READ_ONCE(x);							\
+ })
+ 
++#ifndef __WRITE_ONCE
+ #define __WRITE_ONCE(x, val)						\
+ do {									\
+ 	*(volatile typeof(x) *)&(x) = (val);				\
+ } while (0)
++#endif
+ 
+ #define WRITE_ONCE(x, val)						\
+ do {									\
+
+---
+base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+change-id: 20261124-write_once-da21d717ac72
+
+Best regards,
+--  
+GUO Ren (XuanTie) <guoren@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
