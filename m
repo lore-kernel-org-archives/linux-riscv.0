@@ -2,105 +2,61 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C425F606A31E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 08:23:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87509606A321
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 08:24:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cu8W2ZC5;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=GcwSHRu1
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=J3VYanga;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=UURWRjVw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:
-	References:In-Reply-To:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5iK8G7ESFleXpRXGItd56eXvjz90M2S3X7/ePJGHiQ0=; b=cu8W2ZC5E0kfaAnicMrr2BZjoj
-	pm7bya2EGh2IPN8y+uvgTK5NRA+8jKNJkvHx115G28QTWfwR8/B3nETdAbzNz3vHc17LvInWBGf2z
-	M/QiMnK49DPx9g7tLyQx6uzumAroIjjaI9qhw0dq73L2kRLOKHUebjhpAjyKAzOWDT8dikaBXPGIV
-	v09ueUoMAIzieM7R/2i27ZwmmIHB8KgvBGFTAfhJ7qteGcf9IqDW556KrxFkR4OLoeIoFlpEuv8DL
-	1kZqObAKtu8dTa5YYEF9tkn94yPPMbTFIaZaqlXfNOjREdPojE1BITalzesA94ESs89J09Cz63JOE
-	FV3kKmow==;
+	bh=L0aiEi2QCW1sw46KH/z/cEil0pZI9+uV3YHTa5Dy8Fs=; b=J3VYangaty5oe9t5pnzbN/vsdX
+	XQFJEjioeC1m5rLso7cuKA84Ak1t5AzRL001yORU9cinAuQC4L/MZPZ3HJTDzUavbRMZ03mnyS8zu
+	Pa8I4pODTF/uI4vrL0QkEQIBpHnXgWiOH8rNHb9kArr4UHODdG2AytFequWm6YW9hu5ImDGvCkCRB
+	ee3597zyVZrY8UD0ZmLiE0/6bIPPOfzqFP0dmIDz+oyMGUnvHNOizEidiKwpU5iIncQJVv9BQ9hN5
+	pBzLa+z+AGvRbQZpcp+KwvNQ/FtVmWFl+dLIrMz0M+2c6Bxa0Kc1jKA1U3VtOVhu7kOElhcMeLDfZ
+	NINzNCKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVlo7-00000005sSG-1WkN;
-	Tue, 24 Nov 2026 08:23:19 +0000
-Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
+	id 1xVlpL-00000005seA-0g2P;
+	Tue, 24 Nov 2026 08:24:35 +0000
+Received: from mail-m1602365392.xmail.ntesmail.com ([160.236.53.92])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVlo4-00000005sQF-1lnp
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Nov 2026 08:23:18 +0000
-Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.12/8.18.1.12) with ESMTP id 6AO7hor33490018;
-	Tue, 24 Nov 2026 08:22:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=+
-	lB0qIYI/uTFr9P55v+/IWmV/RBbTeTLfzExy9APUxM=; b=GcwSHRu1RrLLvwsJK
-	AAszIL2ncf/yn2lbDQ783VeZr4DGtCL/uU6ZJ83M/AKlNNcOzVWE9PMZ03PJcs+v
-	bqOfX6wYUVuK47jbYST6iO6Vs39dZXvzLBfTfLFtdVUTLgk1WxbWiwYebwwIkTU4
-	GhbGY5cMe57TMF83YBqq92NEch3ZapGS65VrKjQdwxFWB1OpueDmul+LbohaY0BF
-	SdpghDaTU3ZPr/8VbNpC+UIkN6Zj9agp4CiPMeYNd9Tx2FwJJ2N2ov/lLwIAApFi
-	1OIr2+GA1NAe+/8W86Kgye1N35zirEncoq9sckfeYEX/b8t2euchF2dmgIbtPE3a
-	01esQ==
-Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4j32ev23kk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT key_exchange=secp384r1);
-	Tue, 24 Nov 2026 08:22:39 +0000 (GMT)
-Received: from [127.0.1.1] (172.25.128.225) by HHMAIL01.hh.imgtec.org
- (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 24 Nov
- 2026 08:22:35 +0000
-From: Brajesh Gupta <brajesh.gupta@imgtec.com>
-To: Alessio Belle <alessio.belle@imgtec.com>,
-        Luigi Santivetti
-	<luigi.santivetti@imgtec.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>,
-        Alexandru Dadu <alexandru.dadu@imgtec.com>
-CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        "Matt
- Coster" <opensource@mtcoster.net>
-In-Reply-To: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
-References: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
-Subject: Re: [PATCH v4 0/5] drm/imagination: RISC-V and META firmware
- interface updates
-Message-ID: <179550855515.553125.14973110047433852790.b4-ty@b4>
-Date: Tue, 24 Nov 2026 13:52:35 +0530
+	id 1xVlpF-00000005scg-2qL5;
+	Tue, 24 Nov 2026 08:24:33 +0000
+Received: from [127.0.0.1] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55cb96efc;
+	Tue, 24 Nov 2026 16:24:16 +0800 (GMT+08:00)
+Message-ID: <c89271be-85f9-41ba-9c19-c78743d212c8@rock-chips.com>
+Date: Tue, 24 Nov 2026 16:24:12 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Mailer: b4 0.16.0
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzMiBTYWx0ZWRfX3xLW8kDiKZny
- pzlgA/m8MpTShOQsfONqSEAcTepgDtguhEDCsampD/Ja17GkuUAW83GOOIHkZ6XqOMavplItAfq
- u/U/Hcx0KkDuGxUHlqxoq0PUi4JLkSU=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzMiBTYWx0ZWRfX0cAKPrQZFaRf
- U0+zDi/HU6sfNVMnXoXgGW2jqr0SzyIDcp0HPKMkJID6SXbVj4MsnRE/kMGow0p4ujSQ70jSG/e
- HHdhSzB32GgjfR3urcXvcIUuUdGuJMKPBOS+TgIjEAYoFGY89KbcBt2GQ20lC8F+t2nRoiYFskg
- 19feJhOXT6AOWm8wbPKANGVqpK00sW+u8ZYmaGfAgcyfBTdZKpQAIX8y5sNer39zWv/MHKKt7Cr
- /3+YkmnrZKwm4WwWVH+Y+DGzFiZZhA1Vgt8eOiYB/v2LIwJhE7DhRVgdeG1hQ/QeogdeoI+T3Ie
- AhQoVeADJErfkx6RVhV86W/Vr634RN0tnbEQ8Gon++MyLVIDBBO64UPC/HV/F+ISBrmbKRTRHfs
- qFnPVxn2V8IBJKvYmDaIC38WK6TgTSoKYtyFHGgtTVH59sIcStoBDSYus4ukJUiBFv9uK0gtn6I
- JyD7SkTxgKvGKLdehcA==
-X-Authority-Analysis: v=2.4 cv=T7AZ3PKQ c=1 sm=1 tr=0 ts=6b05494f cx=c_pps
- a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
- a=HYrZrZQ_E1YA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
- a=r_1tXGB3AAAA:8 a=b4IBWIOinYyicvjhWD4A:9 a=QEXdDO2ut3YA:10
- a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: DFY79QVYbJn3aGu_YdsitQqUhvNz5qNf
-X-Proofpoint-ORIG-GUID: DFY79QVYbJn3aGu_YdsitQqUhvNz5qNf
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/2] drm/bridge: add glue driver for T-Head TH1520 DW
+ MIPI DSI
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+References: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
+X-HM-Tid: 0aa20ca7d7d303a7kunmc11de194cd4c3b
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSkpOVkgdHx1PSkseQkpJTlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=UURWRjVwdo+3l2AULyocD6fSNflb4NLvemODSt3E0BkJ4SDNYTRbIrvF97HUU4K2rtd/SDBnXtHZ+9biRxmmr2VYZUHyx1vjJo4sQNiVBRKlCiF1JgNn+It/uQ2dEKWkUHaT+/LN1vLB/a+9UefWRH0gS3pOe07esi2EjWKgg4A=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=CIIxCHmaf4fxrIyFS/BRlR2dhrRZVanUxs4tziQTo54=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261124_002316_736508_C6DF370C 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261124_002430_361884_AB786EE7 
+X-CRM114-Status: GOOD (  17.92  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +66,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Robert Foss <rfoss@kernel.org>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, linux-rockchip@lists.infradead.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Han Gao <gaohan@iscas.ac.cn>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Sandy Huang <hjc@rock-chips.com>, Thomas Zimmermann <tzimmermann@suse.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 03 Nov 2026 11:00:39 +0200, Alexandru Dadu wrote:
-> Refactor RISC-V and META firmware interface headers to have a more
-> generic and architecture independent approach:
-> 1. Limits access to the RISC-V and META firmware respective interfaces.
-> 2. Aligns RISC-V and META firmware headers with the other processor
-> headers.
-> 3. Add "_fw_" component to the headers filename.
+Hi Icenowy,
+
+On 11/24/2026 3:56 PM, Icenowy Zheng wrote:
+> T-Head TH1520 contains a DesignWare MIPI DSI host controller paired with
+> an internal DesignWare PHY, as a similar design (but with a different
+> PHY) with the Rockchip DW MIPI DSI.
 > 
-> [...]
+> The functionality to write to the PHY is shared between these two
+> implementations of DW MIPI DSI, so it's extracted from the Rockchip
+> driver to the common code. (The same sequence could be seen in the
+> HiSilicon Kirin DRM driver, but that one hasn't been converted to common
+> DW MIPI DSI.)
+> 
+> Tested on a Lichee Console 4A (with a Mingjun MJ070BI30IA2 panel) with
+> further pending DT patches.
+> 
+> One question remains: I have to copy the extra lane bandwidth headroom
+> from the Rockchip driver, otherwise the Mingjun panel cannot keep sync
+> to the display signal; from my testing, changing the hardcoded
+> PHY_STOP_WAIT_TIME from 0x20 to 0x2 (which is written by the vendor
+> driver) can also make this panel to work w/o the extra headroom. I want
+> some advice on whether to keep the extra headroom or changing the common
+> code to make the PHY_STOP_WAIT_TIME parameter adjustable.
+> 
 
-Applied to drm-misc-next, thanks!
+Does the DesignWare PHY databook describe about PHY_STOP_WAIT_TIME?
+  
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> ---
+> Changes in v3:
+> - Fixed a remaining `syscon` in the DT binding.
+> - Link to v2: https://patch.msgid.link/20261119-th1520-dw-mipi-dsi-v2-0-9ab5f9808f87@iscas.ac.cn
+> 
+> Changes in v2:
+> - Changed `syscon` to `thead,vo-syscon` in the DT binding.
+> - Dropped the patch moving common PHY write routine to dw-mipi-dsi
+>   common code.
+> - Fixed a few problems pointed out by Sashiko in v1.
+> - Link to v1: https://patch.msgid.link/20261030-th1520-dw-mipi-dsi-v1-0-753f34fd304f@iscas.ac.cn
+> 
+> ---
+> Icenowy Zheng (2):
+>       dt-bindings: display: bridge: document TH1520 MIPI DSI controller
+>       drm/bridge: add TH1520 DesignWare MIPI DSI host controller
+> 
+>  .../display/bridge/thead,th1520-dw-mipi-dsi.yaml   | 103 ++++
+>  drivers/gpu/drm/bridge/Kconfig                     |  12 +
+>  drivers/gpu/drm/bridge/Makefile                    |   1 +
+>  drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c        | 570 +++++++++++++++++++++
+>  4 files changed, 686 insertions(+)
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20261030-th1520-dw-mipi-dsi-580d5b2792f9
+> 
+> Best regards,
+> --  
+> Icenowy Zheng <zhengxingda@iscas.ac.cn>
 
-[1/5] drm/imagination: Prepare heap config header for multi-arch support
-      commit: 78739294551c39d6c082913afd45166102c81bd4
-[2/5] drm/imagination: Limit access to the RISC-V firmware interface
-      commit: 2f42457ad97a6d3274196e6a825763d9d51d677f
-[3/5] drm/imagination: Make the RISC-V firmware header arch-independent
-      commit: a2eb58c3919aa45bd600c3c092ec301ee96f715c
-[4/5] drm/imagination: Limit access to the META firmware interface
-      commit: 780a9c551157cd373cac647b00a2c18a440ee49b
-[5/5] drm/imagination: Make the META firmware header arch-independent
-      commit: a70a2efe98a999f78a307bbcd933bfccf22f0672
-
-Best regards,
 -- 
-Brajesh Gupta <brajesh.gupta@imgtec.com>
-
-
+Best, 
+Chaoyi
 
 _______________________________________________
 linux-riscv mailing list
