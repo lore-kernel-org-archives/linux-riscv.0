@@ -2,107 +2,114 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B921606A33D
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 03:34:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15373606A687
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 03:58:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gzfCjjwf;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XWgi8/bd
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eFUMUg/9;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=MytrWrPm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=MokofFenUCi1jv5Y6gw39tzusdeWIuA01GYl2FLkg7k=; b=gzfCjjwfm3ER2hNXQg5h2PUCPR
-	ifWVur6QGwSGnfGcS3oJVlJnfnsYDfy3BtTo4BQon7rxj4EA66GsAnCnzZCZWClmkGqtTTRnf/QIT
-	pamo64IyKkRT8HrLkHTcdmLwxapo24OGl7FCZSC/k9+qMz1jU65vmI8QJ6V+DOWwpyMNr66PKIAv9
-	v9s1f5ro72Fc03T0VM54/o9gG/DXhSfvq5ko6MYheI8s360jB6vNPbIdpMvLltWmkPKfixmL8M1fR
-	dERmwM6wqXDvhQdyEvO+Wv+/sBSJT5sT3dzJN2Zr7vfH0LB+2yk3kd9qaQt2H67YWRIZVJL7D+zo1
-	DmTy6lag==;
+	bh=uB67ovnnVp9DDJKKssEkXys07XiGlu6ObyI5eFnFF/c=; b=eFUMUg/9KFnv7PwW7cKTWRxzOK
+	CNVdeY2v+QxF7eIttuGZe48mfT3aL3SJlqWFzyrHNIh7tO3bXUgopeYzDgXEQfhKykZFMgVkLbQ55
+	YPTa9cr1j5N6rh/z9lHIwsYFCFFNdLfbXuaDaK5v/QlnVvcNMEh7pvLYNsv2hidACPodFI1IX53an
+	vAOrZnwGWbWSkBD+IrxDcSleLzD+HC3Bw5HQdlHeIePjuCSMIdgYvqHxbbUA+iX1KruUfqJlWiz+o
+	tSLWC8riChTWinxmDiOhBK43SAtWFDk7jvP2l4qz8oKBWWaGTCe2gOttaRJyaFoMUKn9mdxZWysqG
+	hjXM0L+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVhI1-00000005RqF-04ZO;
-	Tue, 24 Nov 2026 03:33:53 +0000
-Received: from mail-pj2-x05.google.com ([2607:f8b0:4864:39::5])
+	id 1xVhg9-00000005UEP-28fR;
+	Tue, 24 Nov 2026 03:58:49 +0000
+Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVhHw-00000005RmS-0cQ3
+	id 1xVhfq-00000005U9w-2L4q
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Nov 2026 03:33:49 +0000
-Received: by mail-pj2-x05.google.com with SMTP id d9443c01a7336-2f066a193bbso19825615ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 19:33:47 -0800 (PST)
+	Tue, 24 Nov 2026 03:58:47 +0000
+Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-67c246c0c60so3791889d50.0
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 19:58:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795492700; cv=none;
+        d=google.com; s=arc-20260327;
+        b=o/9BEqtxuJovtT0I1EgpZ8SsOJRunWBitw7FkaxvFfUVrFreoz7DtpEW0AYFQnMc0g
+         f4ewQcZRdsmPGWSRfy5LS777iyZr2c7HETCEyY5kfR0jGS7ZNTIURb5JoezNz9zLglZz
+         UTq9R4m6aNsl5ttmy83+WIlv8nJKnNVu+CKgF2DKjCjZCZVpMpYAeDs1twLmXPHFn3JD
+         BBWrv57q+lSgZeX0WtfvXhmrbpeFUdo3M6i+XztSk9CvKhoze8OYuwuZICX8t3uVU9cc
+         WEHm5EXZly6eCzagy33lS6DwmDJpzrBgR4035+L6qNMnR7Cg/gkkz2/kI0x1Vdz6X76h
+         iZGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Gv4uJJGyzmSUG7P381t7O1IG6z0LrgKIDZorRLIr+gM=;
+        fh=wbVso0WbhQyvE3Amh45xmPJMGkN8fbCy96ZFUOe54+E=;
+        b=jqgydDbcR1kiJRACim8FmyQhqwyk3lp+1ic4HXpSNCsecq+uMPiUCvHyZa17tzojwR
+         SF2fsBvmTKoEG3q2TynsPlBdm/+YaGlJe2Zc5dHdjBMHhZhmEF8cobXaJsufDZGA5l6i
+         8Dw6555ELskQOMx62ZozJQ07XW4+l162sPTvU8y2/jBWLT+MWXmiZfCb2mdnepPxwQVi
+         BIhGf1Pk0p8cJVF1l8ZAVfUzZV0G52R5sLJJZSLaPVwX/YpA5t6nXGcmh0zxrid76AKz
+         nFUClbwoTRKcppNRu+ziguNF1Ja95LTFMOKYNTBvWIkkvVBLNVTjXOruHBAtKGJZnEH3
+         zOnw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795491227; x=1796096027; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+aG4MNfkbYBkCJSsJvADe/q3LoG/+w55119ipXSrHN0=;
-        b=XWgi8/bd3lV0+t/KHi165SM/Andcy1vne7iUDJn9LpnnRaUJEU/do1O87sznVP7zL9
-         /NeKTA1uYhArNpZ3uK1Q76zhKogv5E7U24lpJ/2bH7hyACm5cAAYdcx+Uhj+KjD4jWv/
-         t7n5EydtVN5auetE8qKzt2VV5aWDRdii47kxbpkqtHpHVGkxyk13k0DEglgup1vpwckd
-         wuoqdBia+lVyHshVIVrMVmcOtonwyTPYxjjJXGtNTjus/a9EnFwpzkn6nwg92ZclGXMx
-         1+QhxxTL058xBNkepCXQ+IhuuZ3dOWFzAQLh+I/OsDBvoWQ2s70Cy/Ww4gjhoGRn/E1L
-         GWDA==
+        d=bytedance.com; s=google; t=1795492700; x=1796097500; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Gv4uJJGyzmSUG7P381t7O1IG6z0LrgKIDZorRLIr+gM=;
+        b=MytrWrPmhuFqQueD0OPlnjb87xoxmyUWPGhllauGzYUStEM9cCliPkivtUItacQMLi
+         C2UyrAHdM9QAOSwYsSvxcdxcsrt4poIXAhNht4iJLUplJoe+p+r30dMwYPOg79yr8cS9
+         G2HWmPuIyD5RRJbmehA6cdyGAt1GYELGXAuNRYqsGWUAT4F+yXNqAbXoOMpQCtHgzzfV
+         sKXdTqsMYkufBCvbKXHMzeP6klof9sqPZMNwsdbSLHFAil6/G68G0skUcM2y7RPqGz6i
+         dfkdw5wLxWFiZfAtBBzaggyIPdsw6RzDH735xY2nme/WSkeKltAQsQ3czc4k6eHbnSKF
+         Hr7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795491227; x=1796096027;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+aG4MNfkbYBkCJSsJvADe/q3LoG/+w55119ipXSrHN0=;
-        b=a/oUFW21nrZ2TWOHTQo1P3J8eCmHKCQr80RWi9/acQ/JI6mLTtT24BFE7d9VvKSRs3
-         0nocACfNDp+1Ma537DWlgvX39wNLDGFezWeRj2VQbzxX25rP9glF+Pb7NRvUWtqIBL85
-         QQS/UwF5XHm4+9yEj2zp7vDw0ZLdR0rvFXx0j4JkYs8zVSPYQwoznaChB2E7pX97SE9r
-         jQJjbSyzrr6eFMaCwckP6itCdx/XuSsh5mldnLkQQHDfdQ9vUM6FB2pPj61Peoampuny
-         +DOG1Y1dAVq5rJnp6Sl5N7dBMJkHXQWr5MvyfttSJ2TD1T8Vdr5kccWXtsRYWm+OZXkb
-         jpeg==
-X-Forwarded-Encrypted: i=1; AL+hErFZi3kLqfF4kt91nV9IdmRJv1KKA35fZt98pjS8bBw/zMXoBXAzxqB9DLkj15MSbAJus4tEh8gRyFKn6w==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/jAUiaH25t4Yuh9+CEq8lzYDqu7WI5Gd0Lt9BbQDOUKipVvZj3
-	IC720mbWL/2Cx0B13lbiY45/S2DoJfScEmWjD5G+QL7ph5PHitRc+Fdj
-X-Gm-Gg: AZFdTZfNwy932mIDuSjDgS1uN1PJHxnt9qyYEXy93C30slYgJKmsqauqCziR5xziDT2
-	JZHTeMllgbCJI3W+A/g0Ei1c9cKZyyzBFDG/5WkkHeg57Xa+60Uyrd+RW48QMEGpCw0fZxr4zmS
-	WyEuDktlqsOdnEa03wwIDMfQHUEPUgg60KisdgwM9N8BlA8Vkiw5q2EiYFHGyB+mkUB6y3ZRjhf
-	kkDAo2EkcSNJ1B5tYBEhinDAU0TUYiw4+SJmJWxSyKgOeAVwbydmsz96zlc/OLJkAZYHz29TPF1
-	9nXzgevXrvfjhL3oiS6asjBWO/KhhmMVBGFLyfqB46Ou+1uhqWlhYaWUvyIYHQKNPwXJdtyIpmL
-	0mCyddUXUkf8ktCn/Y/5Ae4wMpyHSMspH/oe62fKDeduY0h1VhZKH/DVXjwaGEcTtXfne/L0Ez+
-	U7oO8mdCrv7u31T5lbgov4f4HiuZAUQKB9hihzwk4JJjNtuaHj1RdKx/KmksO0Myu0cyyiJSQQJ
-	aIj4QQJJwTOpVUBrFqKZg633uapcwSGJZ9avEvDq6c6iF9hsF9Tltd9FcU0K0AANVjZh8Tmyjje
-	d0AqBssSXoYueEiKTa2mahTyHM1MFeZdr0Jo+uxogw==
-X-Received: by 2002:a05:6300:218b:b0:3f8:f0b1:e7c0 with SMTP id adf61e73a8af0-4014da5fc3emr12855841637.59.1795491227174;
-        Mon, 23 Nov 2026 19:33:47 -0800 (PST)
-Received: from q-Legion-Y7000-IRX9.. ([223.86.210.47])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bff6sm6495773b3a.3.2026.11.23.19.33.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 19:33:46 -0800 (PST)
-From: Bingyu Xian <shanbeeyoo@gmail.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <andrew.jones@linux.dev>
-Cc: Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Quan Zhou <zhouquan@iscas.ac.cn>,
-	Bingyu Xian <shanbeeyoo@gmail.com>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] KVM: selftests: Test steal-time dirty logging and RISC-V STA transitions
-Date: Tue, 24 Nov 2026 11:33:28 +0800
-Message-Id: <20261124033328.612894-3-shanbeeyoo@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261124033328.612894-1-shanbeeyoo@gmail.com>
-References: <20261124033328.612894-1-shanbeeyoo@gmail.com>
+        d=1e100.net; s=20260707; t=1795492700; x=1796097500;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Gv4uJJGyzmSUG7P381t7O1IG6z0LrgKIDZorRLIr+gM=;
+        b=ORlFdrZAYWsl5+KkNRC5km/Xylk95r8JHKkogmo6nOCiLkya0wBkIF2L4IqU4C1Yi6
+         vYiukLDYty6uvbNwDFe653C0jiTAhrNdmDibtNdE5mn3w04J9Yk4TdcadkqngxreznJN
+         rNzXzlVeHgjBSmAXEp00xWuZfEvnzDJXoBGS3ko/+FP9glriM7BM2hl6hz9i6zwRF4a8
+         tqWU3Uf/lFxj+Mm2lMrew7BgfGXnN0HNlGuzO1rg95ZJZTqA/WkvNcs8JcOzlpRnaCjv
+         Rpkel2K9kDYxYh/XNmzr64uR6ljUZcNpQ18J+homlb4wvY4xuqsRmUGiHOZzDml3XSqc
+         HgUg==
+X-Forwarded-Encrypted: i=1; AL+hErE0MF18pWC4NQ8GW0hUlwDeZQm8xkOiItPNh1nt1n6+nfsA7YVze2+Eii+yDChDS+7lCsviz194YP72QQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/xju5vAWwKLcvltkd8UWZqZEoeYiOuMg6FWnKJF4DkAqcDHJ1l
+	AOU29vUKbM7dmKacY3G8m5tFdh+vKgkxgsRDpD0CmnEmbRjPwWMutcOMV6CndzdqyBNTNZbwCas
+	6ExYp06yypQbpm8Rr02gJLmD3yLSCc6w8BmX2Ji3eQA==
+X-Gm-Gg: AZFdTZdL2Hrl4r5Zg3grAwHFMXXSuQcWiu9FuKFA9UD+zeM/rL5a4yVjPjehWC0pmFg
+	Kjqjsr/ww1Nfcqt3bqe/a7ZKmFmIKB9omNAR83KYlZtaTI0U2wRFxLk/8XJQMRVhRFNwgB6KAMz
+	wUtsNZ5yvDwDS3s6yFiD4oVYNFQI2Xcp1cjXI80ZQ8xsdjYbEw0320ZRYRlpgyRmBKMVHy2/iBp
+	O0tgLdF9/R+0oRml/GASP9TDDFhfBWJGrvxXnIv4PIjM/7SY8QExddqVQSShTAgF0E3aD+LgnDl
+	IMjQgh4afE9WrH43BRK8zmcrBHdzSaRQGzWewKJlD3y5cGbtkUNxIysxCognPObM53uCrwO4uy2
+	DrjyoP07lp6M+Bshbqx1VY0/Z5F0ANYmGadWQ
+X-Received: by 2002:a05:690e:440d:b0:67c:1c81:fe59 with SMTP id
+ 956f58d0204a3-67df44077c4mr3119996d50.12.1795492699638; Mon, 23 Nov 2026
+ 19:58:19 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+References: <202611230851.6AN8pFDD065900@mse-fl1.zte.com.cn>
+In-Reply-To: <202611230851.6AN8pFDD065900@mse-fl1.zte.com.cn>
+From: Muchun Song <songmuchun@bytedance.com>
+Date: Tue, 24 Nov 2026 11:57:43 +0800
+X-Gm-Features: Aa3M54osbbQsBQ30OQPILu59VKnjdwijA1lNndox2VeAUO0QbDMk_0iqr7KJXdU
+Message-ID: <CAMZfGtWxmbASYdVBVhLFRDmQGqCunuUS+OqxPVzQpCT9n8pqYQ@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: mm: allocate split linear mapping page tables
+ via the standard page table allocation APIs
+To: li.hanting@zte.com.cn
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	Linux Memory Management List <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_193348_212726_A782F90A 
-X-CRM114-Status: GOOD (  22.40  )
-X-Spam-Score: -0.1 (/)
+X-CRM114-CacheID: sfid-20261123_195832_029835_3E0FC902 
+X-CRM114-Status: GOOD (  38.33  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,416 +119,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	HK_RANDOM_FROM,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-KVM writes to a guest steal-time structure must be recorded in the guest
-RAM dirty log. Enable dirty logging on the shared-area memslot in the
-common per-vCPU test path, clear initialization dirty bits after the
-first run, and force runnable scheduling delay before checking that the
-subsequent accounting write marks the expected page dirty.
-
-On RISC-V, additionally exercise three SBI STA transitions: disabling an
-active shared area, re-enabling the same area, and replacing an active
-registration directly with a new area at the end of a second host page.
-Clear the dirty log after each transition, arrange runnable contention on
-the pinned CPU with a bounded monotonic timeout, and compare sequence and
-stolen time against a stopped-vCPU snapshot so valid zero-increment skips
-are permitted. After active replacement, verify that the old page remains
-both unchanged and clean.
-
-Use per-architecture hooks for protocol-specific lifecycle cases instead of
-adding #ifdefs in main(). These SBI enable/disable operations match those
-used by the Linux RISC-V guest CPU online and CPU-down callbacks, while the
-selftest exercises the SBI protocol directly rather than booting Linux.
-Drop the v1 MADV_DONTNEED check, which discarded guest page contents and
-did not model migration.
-
-Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Bingyu Xian <shanbeeyoo@gmail.com>
----
-Changes in v2:
-- Move accounting dirty-log checks into the common per-vCPU loop and
-  remove the added #ifdefs from main().
-- Test RISC-V disable, re-enable of the same area, and direct active
-  replacement separately; drop the v1 MADV_DONTNEED case.
-- Isolate registration dirty bits with kvm_vm_get_dirty_log() and arrange
-  bounded runnable contention instead of assuming unconditional updates.
-- Align the two-page region and boundary offset to getpagesize().
-
- tools/testing/selftests/kvm/steal_time.c | 233 ++++++++++++++++++++---
- 1 file changed, 206 insertions(+), 27 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-index 82b94a82d..276eb03a6 100644
---- a/tools/testing/selftests/kvm/steal_time.c
-+++ b/tools/testing/selftests/kvm/steal_time.c
-@@ -8,6 +8,7 @@
- #include <time.h>
- #include <sched.h>
- #include <pthread.h>
-+#include <linux/bitmap.h>
- #include <linux/kernel.h>
- #include <asm/kvm.h>
- #ifdef __riscv
-@@ -29,11 +30,17 @@ static u64 guest_stolen_time[NR_VCPUS];
- 
- static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
- 					   struct kvm_vcpu *vcpus[]);
-+static long force_steal_time(void);
- 
- #if defined(__x86_64__)
- 
- /* steal_time must have 64-byte alignment */
- #define STEAL_TIME_SIZE		((sizeof(struct kvm_steal_time) + 63) & ~63)
-+#define NR_LIFECYCLE_TESTS	0
-+
-+static void check_steal_time_lifecycle(void)
-+{
-+}
- 
- static void check_status(struct kvm_steal_time *st)
- {
-@@ -115,6 +122,11 @@ static void check_steal_time_uapi(void)
- 
- /* PV_TIME_ST must have 64-byte alignment */
- #define STEAL_TIME_SIZE		((sizeof(struct st_time) + 63) & ~63)
-+#define NR_LIFECYCLE_TESTS	0
-+
-+static void check_steal_time_lifecycle(void)
-+{
-+}
- 
- #define SMCCC_ARCH_FEATURES	0x80000001
- #define PV_TIME_FEATURES	0xc5000020
-@@ -239,6 +251,7 @@ static void check_steal_time_uapi(void)
- 
- /* SBI STA shmem must have 64-byte alignment */
- #define STEAL_TIME_SIZE		((sizeof(struct sta_struct) + 63) & ~63)
-+#define NR_LIFECYCLE_TESTS	3
- 
- static gpa_t st_gpa[NR_VCPUS];
- 
-@@ -329,6 +342,129 @@ static void steal_time_dump(struct kvm_vm *vm, u32 vcpu_idx)
- 	pr_info("\n");
- }
- 
-+static gpa_t lifecycle_second_gpa;
-+
-+static void sta_lifecycle_guest(void)
-+{
-+	sta_set_shmem(ST_GPA_BASE, 0);
-+	GUEST_SYNC(0);
-+	GUEST_SYNC(1);
-+
-+	sta_set_shmem(INVALID_GPA, 0);
-+	GUEST_SYNC(2);
-+	GUEST_SYNC(3);
-+
-+	/* Re-enable the same area, as the guest CPU online callback does. */
-+	sta_set_shmem(ST_GPA_BASE, 0);
-+	GUEST_SYNC(4);
-+	GUEST_SYNC(5);
-+
-+	/* Replace the active registration without disabling it first. */
-+	sta_set_shmem(lifecycle_second_gpa, 0);
-+	GUEST_SYNC(6);
-+	GUEST_SYNC(7);
-+	sta_set_shmem(INVALID_GPA, 0);
-+	GUEST_DONE();
-+}
-+
-+static void sta_lifecycle_run(struct kvm_vcpu *vcpu, unsigned int stage)
-+{
-+	struct ucall uc;
-+
-+	vcpu_run(vcpu);
-+	switch (get_ucall(vcpu, &uc)) {
-+	case UCALL_SYNC:
-+		TEST_ASSERT_EQ(uc.args[1], stage);
-+		break;
-+	case UCALL_DONE:
-+		TEST_ASSERT_EQ(stage, 8);
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(uc);
-+	default:
-+		TEST_FAIL("Unexpected STA lifecycle exit at stage %u", stage);
-+	}
-+}
-+
-+static void check_sta_page(struct sta_struct *st, struct sta_struct *before)
-+{
-+	TEST_ASSERT(st->sequence != before->sequence && !(st->sequence & 1),
-+		    "Expected a completed STA update, sequence=%u", st->sequence);
-+	TEST_ASSERT(st->steal > before->steal, "STA stolen time did not advance");
-+	TEST_ASSERT_EQ(st->flags, 0);
-+	TEST_ASSERT_EQ(st->preempted, 0);
-+}
-+
-+static void check_steal_time_lifecycle(void)
-+{
-+	struct sta_struct snapshot, before, *first, *second;
-+	size_t host_page_size = getpagesize();
-+	unsigned long dirty = 0;
-+	unsigned int gpages;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, sta_lifecycle_guest);
-+	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, 2 * host_page_size);
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
-+				    1, gpages, KVM_MEM_LOG_DIRTY_PAGES);
-+	/* Also exercise an STA structure ending at a host page boundary. */
-+	WRITE_AND_SYNC_TO_GUEST(vm, lifecycle_second_gpa,
-+				ST_GPA_BASE + 2 * host_page_size - sizeof(struct sta_struct));
-+	first = addr_gpa2hva(vm, ST_GPA_BASE);
-+	second = addr_gpa2hva(vm, lifecycle_second_gpa);
-+
-+	/* Establish active updates on the first page before testing disable. */
-+	sta_lifecycle_run(vcpu, 0);
-+	before = *first;
-+	/* Registration writes zeroes and dirties the page independently. */
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	force_steal_time();
-+	sta_lifecycle_run(vcpu, 1);
-+	check_sta_page(first, &before);
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	TEST_ASSERT_EQ(dirty, BIT(0));
-+
-+	sta_lifecycle_run(vcpu, 2);
-+	snapshot = *first;
-+	/* Entry before the disable call may have updated the old area. */
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	force_steal_time();
-+	sta_lifecycle_run(vcpu, 3);
-+	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
-+		    "Disabled STA shared page was modified");
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	TEST_ASSERT_EQ(dirty, 0);
-+	ksft_test_result_pass("STA disable stops shared page updates\n");
-+
-+	sta_lifecycle_run(vcpu, 4);
-+	before = *first;
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	force_steal_time();
-+	sta_lifecycle_run(vcpu, 5);
-+	check_sta_page(first, &before);
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	TEST_ASSERT_EQ(dirty, BIT(0));
-+	ksft_test_result_pass("STA re-enable resumes shared page updates\n");
-+
-+	sta_lifecycle_run(vcpu, 6);
-+	/* Snapshot after the last entry that could still update the old area. */
-+	snapshot = *first;
-+	before = *second;
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	force_steal_time();
-+	sta_lifecycle_run(vcpu, 7);
-+	check_sta_page(second, &before);
-+	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
-+		    "Old STA shared page was modified after replacement");
-+	kvm_vm_get_dirty_log(vm, 1, &dirty);
-+	TEST_ASSERT_EQ(dirty, BIT(1));
-+	ksft_test_result_pass("STA active replacement updates only the new page\n");
-+
-+	sta_lifecycle_run(vcpu, 8);
-+	kvm_vm_free(vm);
-+}
-+
- static void check_steal_time_uapi(void)
- {
- 	struct kvm_vm *vm;
-@@ -368,8 +504,13 @@ static void check_steal_time_uapi(void)
- 
- /* steal_time must have 64-byte alignment */
- #define STEAL_TIME_SIZE		((sizeof(struct kvm_steal_time) + 63) & ~63)
-+#define NR_LIFECYCLE_TESTS	0
- #define KVM_STEAL_PHYS_VALID	BIT_ULL(0)
- 
-+static void check_steal_time_lifecycle(void)
-+{
-+}
-+
- struct kvm_steal_time {
- 	__u64 steal;
- 	__u32 version;
-@@ -466,22 +607,58 @@ static void check_steal_time_uapi(void)
- }
- #endif
- 
-+struct steal_time_worker {
-+	bool stop;
-+	struct timespec deadline;
-+};
-+
- static void *do_steal_time(void *arg)
- {
--	struct timespec ts, stop;
-+	struct steal_time_worker *worker = arg;
-+	struct timespec ts;
- 
--	clock_gettime(CLOCK_MONOTONIC, &ts);
--	stop = timespec_add_ns(ts, MIN_RUN_DELAY_NS);
--
--	while (1) {
-+	while (!READ_ONCE(worker->stop)) {
- 		clock_gettime(CLOCK_MONOTONIC, &ts);
--		if (timespec_to_ns(timespec_sub(ts, stop)) >= 0)
-+		if (timespec_to_ns(timespec_sub(ts, worker->deadline)) >= 0)
- 			break;
- 	}
- 
- 	return NULL;
- }
- 
-+/* The caller is pinned; its worker inherits the same CPU affinity. */
-+static long force_steal_time(void)
-+{
-+	struct steal_time_worker worker = {};
-+	struct timespec ts;
-+	pthread_t thread;
-+	cpu_set_t cpuset;
-+	long start, delay;
-+	int cpu = sched_getcpu();
-+
-+	clock_gettime(CLOCK_MONOTONIC, &ts);
-+	worker.deadline = timespec_add_ns(ts, 5 * NSEC_PER_SEC);
-+	start = get_run_delay();
-+	kvm_pthread_create(&thread, NULL, do_steal_time, &worker);
-+	kvm_pthread_getaffinity(thread, &cpuset);
-+	TEST_ASSERT(CPU_COUNT(&cpuset) == 1 && CPU_ISSET(cpu, &cpuset),
-+		    "Worker failed to inherit parent's CPU affinity");
-+
-+	do {
-+		sched_yield();
-+		delay = get_run_delay() - start;
-+		clock_gettime(CLOCK_MONOTONIC, &ts);
-+	} while (delay < MIN_RUN_DELAY_NS &&
-+		 timespec_to_ns(timespec_sub(ts, worker.deadline)) < 0);
-+
-+	WRITE_ONCE(worker.stop, true);
-+	kvm_pthread_join(thread, NULL);
-+	TEST_ASSERT(delay >= MIN_RUN_DELAY_NS,
-+		    "Timed out waiting for runnable delay: expected >= %lu ns, got %ld",
-+		    MIN_RUN_DELAY_NS, delay);
-+	return delay;
-+}
-+
- static void run_vcpu(struct kvm_vcpu *vcpu)
- {
- 	struct ucall uc;
-@@ -509,7 +686,8 @@ static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
- 	/* Create a VM and an identity mapped memslot for the steal time structure */
- 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
- 	gpages = vm_calc_num_guest_pages(VM_MODE_DEFAULT, STEAL_TIME_SIZE * nr_vcpus);
--	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE, 1, gpages, 0);
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
-+				    1, gpages, KVM_MEM_LOG_DIRTY_PAGES);
- 	virt_map(vm, ST_GPA_BASE, ST_GPA_BASE, gpages);
- 
- 	return vm;
-@@ -518,26 +696,31 @@ static struct kvm_vm *vm_create_steal_time(u32 nr_vcpus, void *guest_code,
- int main(int ac, char **av)
- {
- 	struct kvm_vcpu *vcpus[NR_VCPUS];
-+	unsigned long *dirty_log;
-+	unsigned int dirty_npages, page;
- 	struct kvm_vm *vm;
--	pthread_t thread;
--	cpu_set_t cpuset;
- 	long stolen_time;
- 	long run_delay;
- 	bool verbose;
--	int i, cpu;
-+	int i;
- 
- 	verbose = ac > 1 && (!strncmp(av[1], "-v", 3) || !strncmp(av[1], "--verbose", 10));
- 
- 	/* Set CPU affinity so we can force preemption of the VCPU */
--	cpu = pin_self_to_any_cpu();
-+	pin_self_to_any_cpu();
- 
- 	vm = vm_create_steal_time(NR_VCPUS, guest_code, vcpus);
- 
- 	ksft_print_header();
- 	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
--	ksft_set_plan(NR_VCPUS);
-+	TEST_REQUIRE(!access("/proc/self/schedstat", R_OK));
-+	ksft_set_plan(2 * NR_VCPUS + NR_LIFECYCLE_TESTS);
-+	dirty_npages = memslot2region(vm, 1)->region.memory_size / getpagesize();
-+	dirty_log = bitmap_zalloc(dirty_npages);
-+	TEST_ASSERT(dirty_log, "Failed to allocate dirty log");
- 
- 	check_steal_time_uapi();
-+	check_steal_time_lifecycle();
- 
- 	/* Run test on each VCPU */
- 	for (i = 0; i < NR_VCPUS; ++i) {
-@@ -547,30 +730,24 @@ int main(int ac, char **av)
- 
- 		/* First VCPU run initializes steal-time */
- 		run_vcpu(vcpus[i]);
-+		/* Exclude initialization writes from the accounting dirty log. */
-+		kvm_vm_get_dirty_log(vm, 1, dirty_log);
-+		force_steal_time();
- 
- 		/* Second VCPU run, expect guest stolen time to be <= run_delay */
- 		run_vcpu(vcpus[i]);
-+		kvm_vm_get_dirty_log(vm, 1, dirty_log);
-+		for (page = 0; page < dirty_npages; page++)
-+			TEST_ASSERT_EQ(!!test_bit(page, dirty_log),
-+				       page == i * STEAL_TIME_SIZE / getpagesize());
-+		ksft_test_result_pass("vcpu%d shared page update is marked dirty\n", i);
- 		stolen_time = SYNC_FROM_GUEST_AND_READ(vm, guest_stolen_time[i]);
- 		run_delay = get_run_delay();
- 		TEST_ASSERT(stolen_time <= run_delay,
- 			    "Expected stolen time <= %ld, got %ld",
- 			    run_delay, stolen_time);
- 
--		/* Steal time from the VCPU. The steal time thread has the same CPU affinity as the VCPUs. */
--		run_delay = get_run_delay();
--		kvm_pthread_create(&thread, NULL, do_steal_time, NULL);
--		kvm_pthread_getaffinity(thread, &cpuset);
--		TEST_ASSERT(CPU_COUNT(&cpuset) == 1 && CPU_ISSET(cpu, &cpuset),
--			    "Worker failed to inherit parent's CPU affinity");
--
--		do
--			sched_yield();
--		while (get_run_delay() - run_delay < MIN_RUN_DELAY_NS);
--		kvm_pthread_join(thread, NULL);
--		run_delay = get_run_delay() - run_delay;
--		TEST_ASSERT(run_delay >= MIN_RUN_DELAY_NS,
--			    "Expected run_delay >= %ld, got %ld",
--			    MIN_RUN_DELAY_NS, run_delay);
-+		run_delay = force_steal_time();
- 
- 		/* Run VCPU again to confirm stolen time is consistent with run_delay */
- 		run_vcpu(vcpus[i]);
-@@ -588,6 +765,8 @@ int main(int ac, char **av)
- 		}
- 		ksft_test_result_pass("vcpu%d\n", i);
- 	}
-+	free(dirty_log);
-+	kvm_vm_free(vm);
- 
- 	/* Print results and exit() accordingly */
- 	ksft_finished();
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBOb3YgMjMsIDIwMjYgYXQgNDo1MeKAr1BNIDxsaS5oYW50aW5nQHp0ZS5jb20uY24+
+IHdyb3RlOgo+Cj4gSGksCgpUaGlzIGlzIHRoZSBjb21taXQgbWVzc2FnZSBib2R5LCB3aGljaCBz
+aG91bGQgYmUgYSBiaXQgbW9yZSBmb3JtYWwuCllvdSBjYW4gcGxhY2UgZXhwcmVzc2lvbnMgbGlr
+ZSB0aGVzZSBhZnRlciB0aGUgdGhyZWUgdW5kZXJzY29yZXMuCgpUaGUgc3ViamVjdCBpcyByYXRo
+ZXIgbG9uZy4gIEhvdyBhYm91dDoKCnJpc2N2OiBtbTogRml4IHNwbGl0IGxpbmVhciBtYXAgcGFn
+ZSB0YWJsZSBhbGxvY2F0aW9uCgo+Cj4gQ29tbWl0IDllNGEzZWMzNDExYiAoIng4Ni9tbS9wYXQ6
+IEFsbG9jYXRlIHNwbGl0IHBhZ2UgdGFibGVzIGFzIGtlcm5lbAo+IHBhZ2UgdGFibGVzIikgcmVj
+ZW50bHkgZml4ZWQgYSBsYXRlbnQgaW5jb25zaXN0ZW5jeSBpbiB0aGUgeDg2IENQQSBjb2RlCj4g
+KGFzc2lnbmVkIENWRS0yMDI2LTk3NTI1KTogX19zcGxpdF9sYXJnZV9wYWdlKCkgYWxsb2NhdGVk
+IHRoZSBuZXcgUFRFCj4gcGFnZSB3aXRoIGEgYmFyZSBwYWdldGFibGVfYWxsb2MoKSwgYnlwYXNz
+aW5nIHB0ZV9hbGxvY19vbmVfa2VybmVsKCksIHNvCj4gdGhlIHBhZ2UgdGFibGUgY29uc3RydWN0
+b3IgbmV2ZXIgcmFuIGFuZCB0aGUgcmVzdWx0aW5nIHBhZ2Ugd2FzIG5laXRoZXIKPiBmbGFnZ2Vk
+IFBHX3RhYmxlLCBub3IgYWNjb3VudGVkIGluIE5SX1BBR0VUQUJMRSwgbm9yIG1hcmtlZCBhcyBh
+IGtlcm5lbAo+IHBhZ2UgdGFibGUuCj4KPiBSSVNDLVYgb3Blbi1jb2RlcyB0aGUgc2FtZSBwYXR0
+ZXJuIHdoZW4gc3BsaXR0aW5nIHRoZSBsaW5lYXIgbWFwcGluZyBvbgo+IGJlaGFsZiBvZiBzZXRf
+bWVtb3J5XyooKTogX19zcGxpdF9saW5lYXJfbWFwcGluZ197cG1kLHB1ZCxwNGR9KCkKPiBhbGxv
+Y2F0ZSB0aGUgbmV3IHBhZ2UgdGFibGUgcGFnZXMgd2l0aCBiYXJlIGFsbG9jX3BhZ2UoR0ZQX0tF
+Uk5FTCkgLQo+IHRocmVlIGNhbGwgc2l0ZXMgaW4gYXJjaC9yaXNjdi9tbS9wYWdlYXR0ci5jLCBp
+bnRyb2R1Y2VkIGJ5Cj4gY29tbWl0IDMxMWNkMmY2ZTI1MyAoInJpc2N2OiBGaXggc2V0X21lbW9y
+eV9YWCgpIGFuZCBzZXRfZGlyZWN0X21hcF9YWCgpCj4gYnkgc3BsaXR0aW5nIGh1Z2UgbGluZWFy
+IG1hcHBpbmdzIikuCj4KPiBBcyBvbiBwcmUtZml4IHg4NiwgdGhlIHJlc3VsdGluZyBwYWdlcyBs
+aXZlIGluIGluaXRfbW0gd2l0aG91dCB0aGUKPiBQR190YWJsZSBmbGFnLCB3aXRob3V0IE5SX1BB
+R0VUQUJMRSBhY2NvdW50aW5nIGFuZCB3aXRob3V0IHRoZSBrZXJuZWwKPiBwdGRlc2MgbWFya2lu
+Zy4gVW5kZXIgQ09ORklHX01FTU9SWV9IT1RQTFVHLCBob3QtcmVtb3ZpbmcgbWVtb3J5IHRlYXJz
+Cj4gZG93biB0aGUgbGluZWFyIG1hcHBpbmcgb2YgdGhlIHJlbW92ZWQgcmFuZ2UgdmlhIGFyY2hf
+cmVtb3ZlX21lbW9yeSgpCj4gLT4gcmVtb3ZlX2xpbmVhcl9tYXBwaW5nKCkgLT4gZnJlZV9wKmRf
+dGFibGUoKSwgd2hpY2ggcmVsZWFzZXMgdGhlc2UKPiBwYWdlIHRhYmxlcyB0aHJvdWdoIHBhZ2V0
+YWJsZV9kdG9yKCkgZXZlbiB0aG91Z2ggdGhlIGNvbnN0cnVjdG9yIG5ldmVyCj4gcmFuLCB1bmRl
+cmZsb3dpbmcgTlJfUEFHRVRBQkxFIG9uIGN1cnJlbnQgbWFpbmxpbmUuIE11Y2h1biBTb25nJ3MK
+PiBzZXJpZXMgIm1tOiBGaXggcGFnZS10YWJsZSB0ZWFyZG93biBkdXJpbmcgbWVtb3J5IGhvdC1y
+ZW1vdmUiIFsyXQo+IGZpeGVzIHRoZSBmcmVlaW5nIHNpZGUgYnkgc2tpcHBpbmcgdGhlIGRlc3Ry
+dWN0b3IgZm9yIHBhZ2VzIHdpdGhvdXQKPiB0aGUgUEdfdGFibGUgZmxhZywgYnV0IHRoZSByb290
+IGNhdXNlIHJlbWFpbnM6IHRoZSBhbGxvY2F0aW9uIHNpZGUKPiBzdGlsbCBieXBhc3NlcyB0aGUg
+cGFnZS10YWJsZSBjb25zdHJ1Y3RvcnMsIHNvIHRoZXNlIHRhYmxlcyBhcmUKPiB1bmZsYWdnZWQg
+YW5kIHVuYWNjb3VudGVkIGZvciB0aGVpciBlbnRpcmUgbGlmZXRpbWUuCj4KPiBBbGlnbiB0aGUg
+dGhyZWUgc2l0ZXMgd2l0aCB0aGUgc3RhbmRhcmQgYWxsb2NhdGlvbiBwYXRoczoKPgo+ICAtIHRo
+ZSBQVEUgbGV2ZWwgc3dpdGNoZXMgdG8gcHRlX2FsbG9jX29uZV9rZXJuZWwoJmluaXRfbW0pLCBl
+eGFjdGx5Cj4gICAgbGlrZSB0aGUgeDg2IGZpeDsKPgo+ICAtIHRoZSBQTUQgYW5kIFBVRCBsZXZl
+bHMgc3dpdGNoIHRvIHRoZSBnZW5lcmljIHBtZF9hbGxvY19vbmUoKSBhbmQKPiAgICBwdWRfYWxs
+b2Nfb25lKCksIHdoaWNoIGFscmVhZHkgaGFuZGxlIHRoZSBpbml0X21tIGNhc2UgYnkgc2VsZWN0
+aW5nCj4gICAgR0ZQX1BHVEFCTEVfS0VSTkVMLCBydW5uaW5nIHRoZSBsZXZlbCBjb25zdHJ1Y3Rv
+cnMgYW5kIG1hcmtpbmcgdGhlCj4gICAgcHRkZXNjIGFzIGEga2VybmVsIHBhZ2UgdGFibGUuCj4K
+PiBObyBmdW5jdGlvbmFsIGNoYW5nZSBpcyBpbnRlbmRlZDsgdGhlIG9ic2VydmFibGUgZGlmZmVy
+ZW5jZSBpcyB0aGF0Cj4gc3BsaXQgbGluZWFyIG1hcHBpbmcgcGFnZSB0YWJsZXMgYXJlIG5vdyBw
+cm9wZXJseSBmbGFnZ2VkIGFuZAoKVGhpcyBpcyBzbGlnaHRseSBtaXNsZWFkaW5nIGJlY2F1c2Ug
+dGhlIGFjY291bnRpbmcsIFBHX3RhYmxlIHN0YXRlIGFuZApob3QtcmVtb3ZlIGRlc3RydWN0b3Ig
+YmVoYXZpb3IgYXJlIGludGVudGlvbmFsIGZ1bmN0aW9uYWwgY2hhbmdlcy4gIEkKdGhpbmsgaXQg
+d291bGQgYmUgbW9yZSBwcmVjaXNlIHRvIHNheSB0aGF0IG5vIGNoYW5nZSB0byB0aGUgcmVzdWx0
+aW5nCmxpbmVhciBtYXBwaW5ncyBpcyBpbnRlbmRlZC4KCj4gYWNjb3VudGVkLCBzbyAvcHJvYy92
+bXN0YXQ6bnJfcGFnZV90YWJsZV9wYWdlcyBubyBsb25nZXIgdW5kZXItY291bnRzLgo+Cj4gRml4
+ZXM6IDMxMWNkMmY2ZTI1MyAoInJpc2N2OiBGaXggc2V0X21lbW9yeV9YWCgpIGFuZCBzZXRfZGly
+ZWN0X21hcF9YWCgpIGJ5IHNwbGl0dGluZyBodWdlIGxpbmVhciBtYXBwaW5ncyIpCj4gU2lnbmVk
+LW9mZi1ieTogSGFudGluZyBMaSA8bGkuaGFudGluZ0B6dGUuY29tLmNuPgo+Cj4gLS0tCj4gQ2hh
+bmdlcyBzaW5jZSB2MSBbMV06Cj4KPiAtIFN3aXRjaCB0aGUgUE1EIGFuZCBQVUQgbGV2ZWxzIHRv
+IHRoZSBnZW5lcmljIHBtZF9hbGxvY19vbmUoKSAvCj4gICBwdWRfYWxsb2Nfb25lKCkgaW5zdGVh
+ZCBvZiBhIGxvY2FsIGhlbHBlciwgYXMgc3VnZ2VzdGVkIGJ5IHRoZQo+ICAgU2FzaGlrbyBhdXRv
+bWF0ZWQgcmV2aWV3LiBUaGUgZ2VuZXJpYyB2ZXJzaW9ucyBhbHJlYWR5IGhhbmRsZQo+ICAgaW5p
+dF9tbSBjb3JyZWN0bHksIHdoaWNoIGFsc28gcmVzb2x2ZXMgdGhlIGZpcnN0IG9wZW4gcXVlc3Rp
+b24gb2YKPiAgIHYxLgo+Cj4gLSBDb3JyZWN0IHRoZSBzZXZlcml0eSBkaXNjdXNzaW9uLiB2MSBj
+bGFpbWVkIHRoZXNlIHBhZ2UgdGFibGVzIGFyZQo+ICAgbmV2ZXIgZnJlZWQ7IHRoYXQgaXMgd3Jv
+bmcgdW5kZXIgQ09ORklHX01FTU9SWV9IT1RQTFVHLCB3aGVyZSBtZW1vcnkKPiAgIGhvdC1yZW1v
+dmFsIGZyZWVzIHRoZW0gdGhyb3VnaCByZW1vdmVfbGluZWFyX21hcHBpbmcoKSAtPgo+ICAgZnJl
+ZV9wKmRfdGFibGUoKSAtPiBwYWdldGFibGVfZHRvcigpLCBzbyB0aGUgY3Rvci9kdG9yIG1pc21h
+dGNoIGNhbgo+ICAgYWN0dWFsbHkgdW5kZXJmbG93IE5SX1BBR0VUQUJMRS4gQWxzbyBwb2ludGVk
+IG91dCBieSB0aGUgYXV0b21hdGVkCj4gICByZXZpZXcuCj4KPiAtIEFkZCB0aGUgRml4ZXM6IHRh
+ZyBhbmQgbW92ZSB0aGUgZGlzY3Vzc2lvbiBub3RlcyBiZWxvdyB0aGUgdGVhcgo+ICAgbGluZS4K
+Pgo+IFsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYxMTA5MTEwMS42QTlCMU5mMzAx
+NTMzN0Btc2UtZGIuenRlLmNvbS5jbgo+IFsyXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIw
+MjYxMDA4MDczMDIxLjI1MTI2NjUtMy1zb25nbXVjaHVuQGJ5dGVkYW5jZS5jb20KPgo+IEhlbGxv
+LAo+Cj4gT25lIGRpc2N1c3Npb24gcG9pbnQgZnJvbSB2MSByZW1haW5zIG9wZW46Cj4KPiBTaW5j
+ZSBSSVNDLVYgbmV2ZXIgY29sbGFwc2VzIHRoZSBzcGxpdCBsaW5lYXIgbWFwcGluZyBiYWNrLCBv
+bmUgY291bGQKPiBhcmd1ZSBmb3IgZGVmZXJyaW5nIHRoaXMgY2hhbmdlIHVudGlsIGZyZWUtcGF0
+aCB3b3JrIGFjdHVhbGx5IGxhbmRzLgo+IE15IHByZWZlcmVuY2UgaXMgdG8gdGFrZSBpdCBub3c6
+IHdpdGggQ09ORklHX01FTU9SWV9IT1RQTFVHIHRoZSBmcmVlCj4gcGF0aCBhbHJlYWR5IGV4aXN0
+cyB0b2RheSwgYW5kIHRha2luZyB0aGlzIG5vdyByZW1vdmVzIGEgdHJhcCBmb3IgYW55Cj4gZnV0
+dXJlIHdvcmsgb24gdGhlIGxpbmVhciBtYXBwaW5nLgo+Cj4gKE5vdGU6IHRoZSBnZW5lcmljIENQ
+QSByZXdvcmsgc2VyaWVzICJbUEFUQ0ggUkZDIDAwLzE4XSBhcmNoLCBtbToKPiBjcmVhdGUgYSBn
+ZW5lcmljIHNldF9tZW1vcnkvY2hhbmdlX3BhZ2VfYXR0ciBjb3JlIiB3b3VsZCBldmVudHVhbGx5
+Cj4gcmVwbGFjZSB0aGlzIGNvZGUgZW50aXJlbHk7IHRoaXMgcGF0Y2ggaXMgaW50ZW5kZWQgYXMg
+YSBzbWFsbCBmaXggaW4KPiB0aGUgbWVhbnRpbWUuIFRoZSBzZXJpZXMgYXV0aG9yIGhhcyBzYWlk
+IGhlIGlzIHdhaXRpbmcgZm9yIHN1Y2ggZml4ZXMKPiB0byBzZXR0bGUgYmVmb3JlIHBvc3Rpbmcg
+YSBub24tUkZDIHZlcnNpb24uKQo+Cj4gQ29tbWVudHMgd2VsY29tZS4KPgo+ICBhcmNoL3Jpc2N2
+L21tL3BhZ2VhdHRyLmMgfCA0MSArKysrKysrKysrKysrKysrKy0tLS0tLS0tLS0tLS0tLS0tLQo+
+ICAxIGZpbGUgY2hhbmdlZCwgMjAgaW5zZXJ0aW9ucygrKSwgMjEgZGVsZXRpb25zKC0pCj4KPiBk
+aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9wYWdlYXR0ci5jIGIvYXJjaC9yaXNjdi9tbS9wYWdl
+YXR0ci5jCj4gLS0tIGEvYXJjaC9yaXNjdi9tbS9wYWdlYXR0ci5jCj4gKysrIGIvYXJjaC9yaXNj
+di9tbS9wYWdlYXR0ci5jCj4gQEAgLTMsOSArMywxMSBAQAo+ICAgKiBDb3B5cmlnaHQgKEMpIDIw
+MTkgU2lGaXZlCj4gICAqLwo+Cj4gKyNpbmNsdWRlIDxsaW51eC9tbS5oPgo+ICAjaW5jbHVkZSA8
+bGludXgvcGFnZXdhbGsuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L3BndGFibGUuaD4KPiAgI2luY2x1
+ZGUgPGxpbnV4L3ZtYWxsb2MuaD4KPiArI2luY2x1ZGUgPGFzbS9wZ2FsbG9jLmg+Cj4gICNpbmNs
+dWRlIDxhc20vdGxiZmx1c2guaD4KPiAgI2luY2x1ZGUgPGFzbS9iaXRvcHMuaD4KPiAgI2luY2x1
+ZGUgPGFzbS9zZXRfbWVtb3J5Lmg+Cj4gQEAgLTEwOSwyMyArMTExLDIyIEBAIHN0YXRpYyBpbnQg
+X19zcGxpdF9saW5lYXJfbWFwcGluZ19wbWQocHVkX3QgKnB1ZHAsCj4gICAgICAgICAgICAgICAg
+ICAgICAgICAgY29udGludWU7Cj4KPiAgICAgICAgICAgICAgICAgaWYgKHBtZF9sZWFmKHBtZHBf
+Z2V0KHBtZHApKSkgewo+IC0gICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBwYWdlICpwdGVf
+cGFnZTsKPiAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIHBmbiA9IF9wbWRf
+cGZuKHBtZHBfZ2V0KHBtZHApKTsKPiAgICAgICAgICAgICAgICAgICAgICAgICBwZ3Byb3RfdCBw
+cm90ID0gX19wZ3Byb3QocG1kX3ZhbChwbWRwX2dldChwbWRwKSkgJiB+X1BBR0VfUEZOX01BU0sp
+Owo+ICAgICAgICAgICAgICAgICAgICAgICAgIHB0ZV90ICpwdGVwX25ldzsKPiAgICAgICAgICAg
+ICAgICAgICAgICAgICBpbnQgaTsKPgo+IC0gICAgICAgICAgICAgICAgICAgICAgIHB0ZV9wYWdl
+ID0gYWxsb2NfcGFnZShHRlBfS0VSTkVMKTsKPiAtICAgICAgICAgICAgICAgICAgICAgICBpZiAo
+IXB0ZV9wYWdlKQo+ICsgICAgICAgICAgICAgICAgICAgICAgIHB0ZXBfbmV3ID0gcHRlX2FsbG9j
+X29uZV9rZXJuZWwoJmluaXRfbW0pOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIGlmICghcHRl
+cF9uZXcpCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gLUVOT01FTTsK
+Pgo+IC0gICAgICAgICAgICAgICAgICAgICAgIHB0ZXBfbmV3ID0gKHB0ZV90ICopcGFnZV9hZGRy
+ZXNzKHB0ZV9wYWdlKTsKPiAtICAgICAgICAgICAgICAgICAgICAgICBmb3IgKGkgPSAwOyBpIDwg
+UFRSU19QRVJfUFRFOyArK2ksICsrcHRlcF9uZXcpCj4gLSAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBzZXRfcHRlKHB0ZXBfbmV3LCBwZm5fcHRlKHBmbiArIGksIHByb3QpKTsKPiArICAg
+ICAgICAgICAgICAgICAgICAgICBmb3IgKGkgPSAwOyBpIDwgUFRSU19QRVJfUFRFOyArK2kpCj4g
+KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRfcHRlKHB0ZXBfbmV3ICsgaSwgcGZu
+X3B0ZShwZm4gKyBpLCBwcm90KSk7Cj4KPiAgICAgICAgICAgICAgICAgICAgICAgICBzbXBfd21i
+KCk7Cj4KPiAtICAgICAgICAgICAgICAgICAgICAgICBzZXRfcG1kKHBtZHAsIHBmbl9wbWQocGFn
+ZV90b19wZm4ocHRlX3BhZ2UpLCBQQUdFX1RBQkxFKSk7Cj4gKyAgICAgICAgICAgICAgICAgICAg
+ICAgc2V0X3BtZChwbWRwLCBwZm5fcG1kKHBhZ2VfdG9fcGZuKHZpcnRfdG9fcGFnZShwdGVwX25l
+dykpLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBQQUdF
+X1RBQkxFKSk7CgpOb3cgdGhhdCB0aGUgcGFnZS10YWJsZSBwYWdlcyBhcmUgYWxsb2NhdGVkIHRo
+cm91Z2ggdGhlIHN0YW5kYXJkCnBndGFibGUgQVBJcywgY291bGQgdGhlIHBhcmVudCBlbnRyaWVz
+IGFsc28gYmUgaW5zdGFsbGVkIHRocm91Z2ggdGhlCmNvcnJlc3BvbmRpbmcgcG9wdWxhdGUgaGVs
+cGVycz8gIEZvciBleGFtcGxlOgoKICAgICAgICBwbWRfcG9wdWxhdGVfa2VybmVsKCZpbml0X21t
+LCBwbWRwLCBwdGVwX25ldyk7CgphbmQgc2ltaWxhcmx5IHB1ZF9wb3B1bGF0ZSgpIGFuZCBwNGRf
+cG9wdWxhdGUoKSBmb3IgdGhlIHVwcGVyIGxldmVscy4KVGhhdCB3b3VsZCBhdm9pZCBvcGVuLWNv
+ZGluZyB0aGUgdmlydHVhbC1hZGRyZXNzLXRvLVBGTiBjb252ZXJzaW9uIGFuZAptYWtlIGl0IGV4
+cGxpY2l0IHRoYXQgdGhlc2UgYXJlIG5vbi1sZWFmIGVudHJpZXMgcG9pbnRpbmcgdG8gbG93ZXIt
+bGV2ZWwKcGFnZSB0YWJsZXMuCgpUaGFua3MsCk11Y2h1bgoKPiAgICAgICAgICAgICAgICAgfQo+
+ICAgICAgICAgfSB3aGlsZSAocG1kcCsrLCB2YWRkciA9IG5leHQsIHZhZGRyICE9IGVuZCk7Cj4K
+PiBAQCAtMTQ5LDI0ICsxNTAsMjMgQEAgc3RhdGljIGludCBfX3NwbGl0X2xpbmVhcl9tYXBwaW5n
+X3B1ZChwNGRfdCAqcDRkcCwKPiAgICAgICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsKPgo+
+ICAgICAgICAgICAgICAgICBpZiAocHVkX2xlYWYocHVkcF9nZXQocHVkcCkpKSB7Cj4gLSAgICAg
+ICAgICAgICAgICAgICAgICAgc3RydWN0IHBhZ2UgKnBtZF9wYWdlOwo+ICAgICAgICAgICAgICAg
+ICAgICAgICAgIHVuc2lnbmVkIGxvbmcgcGZuID0gX3B1ZF9wZm4ocHVkcF9nZXQocHVkcCkpOwo+
+ICAgICAgICAgICAgICAgICAgICAgICAgIHBncHJvdF90IHByb3QgPSBfX3BncHJvdChwdWRfdmFs
+KHB1ZHBfZ2V0KHB1ZHApKSAmIH5fUEFHRV9QRk5fTUFTSyk7Cj4gICAgICAgICAgICAgICAgICAg
+ICAgICAgcG1kX3QgKnBtZHBfbmV3Owo+ICAgICAgICAgICAgICAgICAgICAgICAgIGludCBpOwo+
+Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgcG1kX3BhZ2UgPSBhbGxvY19wYWdlKEdGUF9LRVJO
+RUwpOwo+IC0gICAgICAgICAgICAgICAgICAgICAgIGlmICghcG1kX3BhZ2UpCj4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgcG1kcF9uZXcgPSBwbWRfYWxsb2Nfb25lKCZpbml0X21tLCB2YWRkcik7
+Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgaWYgKCFwbWRwX25ldykKPiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHJldHVybiAtRU5PTUVNOwo+Cj4gLSAgICAgICAgICAgICAgICAg
+ICAgICAgcG1kcF9uZXcgPSAocG1kX3QgKilwYWdlX2FkZHJlc3MocG1kX3BhZ2UpOwo+IC0gICAg
+ICAgICAgICAgICAgICAgICAgIGZvciAoaSA9IDA7IGkgPCBQVFJTX1BFUl9QTUQ7ICsraSwgKytw
+bWRwX25ldykKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldF9wbWQocG1kcF9u
+ZXcsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgZm9yIChpID0gMDsgaSA8IFBUUlNfUEVSX1BN
+RDsgKytpKQo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0X3BtZChwbWRwX25l
+dyArIGksCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBmbl9wbWQo
+cGZuICsgKChpICogUE1EX1NJWkUpID4+IFBBR0VfU0hJRlQpLCBwcm90KSk7Cj4KPiAgICAgICAg
+ICAgICAgICAgICAgICAgICBzbXBfd21iKCk7Cj4KPiAtICAgICAgICAgICAgICAgICAgICAgICBz
+ZXRfcHVkKHB1ZHAsIHBmbl9wdWQocGFnZV90b19wZm4ocG1kX3BhZ2UpLCBQQUdFX1RBQkxFKSk7
+Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgc2V0X3B1ZChwdWRwLCBwZm5fcHVkKHBhZ2VfdG9f
+cGZuKHZpcnRfdG9fcGFnZShwbWRwX25ldykpLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBQQUdFX1RBQkxFKSk7Cj4gICAgICAgICAgICAgICAgIH0KPgo+
+ICAgICAgICAgICAgICAgICByZXQgPSBfX3NwbGl0X2xpbmVhcl9tYXBwaW5nX3BtZChwdWRwLCB2
+YWRkciwgbmV4dCk7Cj4gQEAgLTE5OCwyMyArMTk4LDIxIEBAIHN0YXRpYyBpbnQgX19zcGxpdF9s
+aW5lYXJfbWFwcGluZ19wNGQocGdkX3QgKnBnZHAsCj4gICAgICAgICAgICAgICAgICAgICAgICAg
+Y29udGludWU7Cj4KPiAgICAgICAgICAgICAgICAgaWYgKHA0ZF9sZWFmKHA0ZHBfZ2V0KHA0ZHAp
+KSkgewo+IC0gICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBwYWdlICpwdWRfcGFnZTsKPiAg
+ICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIHBmbiA9IF9wNGRfcGZuKHA0ZHBf
+Z2V0KHA0ZHApKTsKPiAgICAgICAgICAgICAgICAgICAgICAgICBwZ3Byb3RfdCBwcm90ID0gX19w
+Z3Byb3QocDRkX3ZhbChwNGRwX2dldChwNGRwKSkgJiB+X1BBR0VfUEZOX01BU0spOwo+ICAgICAg
+ICAgICAgICAgICAgICAgICAgIHB1ZF90ICpwdWRwX25ldzsKPiAgICAgICAgICAgICAgICAgICAg
+ICAgICBpbnQgaTsKPgo+IC0gICAgICAgICAgICAgICAgICAgICAgIHB1ZF9wYWdlID0gYWxsb2Nf
+cGFnZShHRlBfS0VSTkVMKTsKPiAtICAgICAgICAgICAgICAgICAgICAgICBpZiAoIXB1ZF9wYWdl
+KQo+ICsgICAgICAgICAgICAgICAgICAgICAgIHB1ZHBfbmV3ID0gcHVkX2FsbG9jX29uZSgmaW5p
+dF9tbSwgdmFkZHIpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIGlmICghcHVkcF9uZXcpCj4g
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gLUVOT01FTTsKPgo+ICAgICAg
+ICAgICAgICAgICAgICAgICAgIC8qCj4gICAgICAgICAgICAgICAgICAgICAgICAgICogRmlsbCB0
+aGUgcHVkIGxldmVsIHdpdGggbGVhZiBwdWRzIHRoYXQgaGF2ZSB0aGUgc2FtZQo+ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAqIHByb3RlY3Rpb25zIGFzIHRoZSBsZWFmIHA0ZC4KPiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgKi8KPiAtICAgICAgICAgICAgICAgICAgICAgICBwdWRwX25ldyA9
+IChwdWRfdCAqKXBhZ2VfYWRkcmVzcyhwdWRfcGFnZSk7Cj4gLSAgICAgICAgICAgICAgICAgICAg
+ICAgZm9yIChpID0gMDsgaSA8IFBUUlNfUEVSX1BVRDsgKytpLCArK3B1ZHBfbmV3KQo+IC0gICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0X3B1ZChwdWRwX25ldywKPiArICAgICAgICAg
+ICAgICAgICAgICAgICBmb3IgKGkgPSAwOyBpIDwgUFRSU19QRVJfUFVEOyArK2kpCj4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRfcHVkKHB1ZHBfbmV3ICsgaSwKPiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGZuX3B1ZChwZm4gKyAoKGkgKiBQVURf
+U0laRSkgPj4gUEFHRV9TSElGVCksIHByb3QpKTsKPgo+ICAgICAgICAgICAgICAgICAgICAgICAg
+IC8qCj4gQEAgLTIyNCw3ICsyMjIsOCBAQCBzdGF0aWMgaW50IF9fc3BsaXRfbGluZWFyX21hcHBp
+bmdfcDRkKHBnZF90ICpwZ2RwLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAqLwo+ICAgICAg
+ICAgICAgICAgICAgICAgICAgIHNtcF93bWIoKTsKPgo+IC0gICAgICAgICAgICAgICAgICAgICAg
+IHNldF9wNGQocDRkcCwgcGZuX3A0ZChwYWdlX3RvX3BmbihwdWRfcGFnZSksIFBBR0VfVEFCTEUp
+KTsKPiArICAgICAgICAgICAgICAgICAgICAgICBzZXRfcDRkKHA0ZHAsIHBmbl9wNGQocGFnZV90
+b19wZm4odmlydF90b19wYWdlKHB1ZHBfbmV3KSksCj4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIFBBR0VfVEFCTEUpKTsKPiAgICAgICAgICAgICAgICAgfQo+
+Cj4gICAgICAgICAgICAgICAgIHJldCA9IF9fc3BsaXRfbGluZWFyX21hcHBpbmdfcHVkKHA0ZHAs
+IHZhZGRyLCBuZXh0KTsKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
