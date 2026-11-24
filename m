@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01678606A31E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 21:56:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BC1606A31E
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 23:19:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0Hj9OorQ;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=QgUCELLF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HDiRiVkY;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ooPODiqh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,68 +14,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=8HDmoJSK8wQ2rPMcbcDuRtQNzVBedZpFR+kURXLwfoE=; b=0Hj9OorQ3CUy2PH9b+o3sRqeNT
-	mMm8unTam60CjKowzATY2/8RvJiOlJTWrVOfSeTojXISaUcPEBpfpqFg4vfL4c+7T9pFode2UqS0H
-	YJDVBYxn2CD3GIXKQoRu2+SDaPErHWDlBLFS2y11lhfG4VPI7xME8Spr/R1vQ+tWqyHy+hc3Fmcid
-	b1hQBGVzUgxBIh8sKPmv3vC12xpu1LspW5YepzSWtMXiRQdJzLA5r8zGGWlo1v437KL/ja5ljjroD
-	O6igGBmoxkY2FwJvNfXwc0PbQBRnSYR3LlV/wyo1i7lQWJ3l1chARyaXdr6Th1Ql3eY+BOQFvVVbv
-	Lgo1/9cw==;
+	bh=L17OAkZ9Yb2i+dQy3zFViqep8o1tx3J055cU/XRqDt0=; b=HDiRiVkYdXopwUdQQE2/Ay6cWs
+	ROyqfeVXZFl2DA8g5xLwizXuoKPSz5dlm4PzaNpn+gNQD7adLB+Ej++9W/fypV3eQWBujXutkNSkY
+	G4hchLfGDDgwooroUrsoY443+TIA7PbRNmwQGKBgsiZ7kL9YWZbudB1AZTKeeaV4sPbekojwgxUgP
+	EutSzZ8OsF+R1Os/+roFZv3hELzuPRxF2EJZEezj4NJP9TKo5uk+b4Qi6zH3Da18ewulfw/6aSM+V
+	Kc2wrAddtlF5w0wholoR8aYkckL1YPSMzbamac3QI1otBtt12EBDBYfmxEJLKfryLkNRcfsVJFZHl
+	inS1JwrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVyVK-00000007wom-31qH;
-	Tue, 24 Nov 2026 21:56:46 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1xVzn7-000000083yZ-2sH9;
+	Tue, 24 Nov 2026 23:19:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVyVI-00000007woE-1L5W
+	id 1xVzn6-000000083yT-296f
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Nov 2026 21:56:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=9X06TH/eKKW7Q/OT28lgH1tdTkDqNa2x4QON52BKzhU=; b=QgUCELLF9S0Pdj6zZVDyGQPsbG
-	9HslDjK3iUkWJhSQFryuJSjvGbl/jNexc5qsiqF74HwfVuKvX0FAXdAxe2ICmGN2zCcs1E7GFrco/
-	UwSBPU4a9IvNcp1T49T8BE7AetVOeTyoFcT9iAGfmoPmGLMr52/nj+W4JusSI4+PLw1NDzyD4N4WW
-	B35UzJzzj50V6rhjONOmWtW1KiNWhCjlKVUA50KGuw1WsJ8r7jvFl8D4iDoM3fp9+uUiA7wXNuag4
-	yxs/uyGcRBODd+oL42kkPdnEVFXt+SwjAuxFPgH0g+yK97byxyYa3J3U9yAefifwT9Z/09td+tYvN
-	3p89apag==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1xVyVD-00000008zX1-2qFO;
-	Tue, 24 Nov 2026 22:56:39 +0100
-Date: Tue, 24 Nov 2026 22:56:39 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Jiayu Du <duge1256@gmail.com>
-Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, dlan@kernel.org,
-	troy.mitchell@linux.spacemit.com, me@ziyao.cc, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+	Tue, 24 Nov 2026 23:19:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E4484325E;
+	Tue, 24 Nov 2026 23:19:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AB321F000C4;
+	Tue, 24 Nov 2026 23:19:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795562352;
+	bh=SRWWMd+yzuA6S+ZzDttweE7vNGF2Hx8rwgs6Wuiy3ZY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ooPODiqhP96bXIhoVPrnYtH5/9wmyGxrQBG4wgzt0BL2f25b/6lKOtsnmT4tvBT7T
+	 nAqDnBBxjWb7MBDfHHZ6/JefncBErm2Pcb7T4H7TuWKJaEQmFzUvAVP7A3lwWnNxn/
+	 54jk4xVvT8IXm6koQbJSzYwy96d0n700WNpGDXPRyS4Vvm5pmMd286xk46DZssGcAW
+	 iksh7sRP7JAB7MR0Vd8v4dLxST9TGZB82+vWDPo2zkbMbCH6luHwOXv6XuFMJnrYvN
+	 hPxNTzqQyymFeufwt3VJjMVYbf3YTZwBWL8y80nXjR4kbs+oKhuDeGaodVT0d3AEUI
+	 cHyEE4kI7IY7Q==
+Date: Tue, 24 Nov 2026 23:19:09 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	E Shattow <e@freeshell.de>, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] riscv: dts: spacemit: Add K3 eFuse and
- temperature trim cells
-Message-ID: <awYIF2ynf95-g5-W@aurel32.net>
-Mail-Followup-To: Jiayu Du <duge1256@gmail.com>, srini@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	dlan@kernel.org, troy.mitchell@linux.spacemit.com, me@ziyao.cc,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-References: <20261122173810.2409146-1-duge1256@gmail.com>
- <20261122173810.2409146-4-duge1256@gmail.com>
+Subject: Re: [PATCH v3 0/2] riscv: dts: spacemit: mark K1 boot nodes
+ bootph-pre-ram
+Message-ID: <20261124231909-GKB245721@kernel.org>
+References: <20261024092558.143621-1-alan.tseng.cs@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261122173810.2409146-4-duge1256@gmail.com>
-User-Agent: Mutt/2.4.1 (2026-07-04)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261124_135644_516350_CA903D17 
-X-CRM114-Status: GOOD (  15.85  )
-X-Spam-Score: -4.4 (----)
+In-Reply-To: <20261024092558.143621-1-alan.tseng.cs@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,76 +74,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jiayu,
+Hi Hung-Chun, 
 
-On 2026-11-23 01:38, Jiayu Du wrote:
-> Add the K3 eFuse controller and NVMEM cells for the temperature
-> calibration data in bank 0 and bank 7.
+On 17:25 Sat 24 Oct     , Hung-Chun Tseng wrote:
+> On the SpacemiT K1 the BootROM loads the next boot stage into SRAM, and
+> that stage sets up DRAM. This series marks the nodes it needs for that
+> bootph-pre-ram: the SoC clocks, UART, boot media and the two I2C buses
+> in k1.dtsi, and the board EEPROM (which holds the DRAM configuration),
+> the PMIC rails and the SPI NOR in the board files.
 > 
-> Signed-off-by: Jiayu Du <duge1256@gmail.com>
-> ---
->  arch/riscv/boot/dts/spacemit/k3.dtsi | 23 +++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
+> The vendor confirmed that the BootROM itself does not access the
+> EEPROM [1]. It is tagged because bootph-pre-ram covers the phase that
+> sets up SDRAM, and DRAM cannot be trained without it.
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> index e89d2cc5ca8c..af1a758788ff 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> @@ -1439,6 +1439,29 @@ saplic: interrupt-controller@e0804000 {
->  
->  		/* sec_i2c3: 0xf0614000, not available from Linux */
->  
-> +		efuse: efuse@f0702800 {
-> +			compatible = "spacemit,k3-efuse";
-> +			reg = <0x0 0xf0702800 0x0 0x400>;
-> +			clocks = <&syscon_apmu CLK_APMU_AES_WTM>;
-> +			resets = <&syscon_apmu RESET_APMU_AES_WTM>;
-> +
-> +			nvmem-layout {
-> +				compatible = "fixed-layout";
-> +				#address-cells = <1>;
-> +				#size-cells = <1>;
-> +
-> +				soc_rtemp_trim1: temperature-trim@1c {
-> +					reg = <0x1c 0x1>;
-> +					bits = <0 8>;
-> +				};
-> +
-> +				soc_rtemp_trim: temperature-trim@ea {
-> +					reg = <0xea 0x2>;
-> +					bits = <4 8>;
-> +				};
-> +			};
-> +		};
-> +
->  		mimsic: interrupt-controller@f1000000 {
->  			compatible = "spacemit,k3-imsics", "riscv,imsics";
->  			reg = <0x0 0xf1000000 0x0 0x10000>;
+> Testing: all K1 DTBs build, and dtbs_check is clean for them with and
+> without this series.
+> 
+> I used Claude to help read the U-Boot SPL and the device trees. I
+> checked the changes and ran dtbs_check myself.
+> 
+> Changes in v3:
+> - Reword both commit messages to describe the hardware instead of what
+>   an SPL does, and drop the U-Boot paragraph from patch 1 (E)
+> - Tag i2c2 in k1.dtsi too, as every K1 board has the EEPROM there
+> - Tag eeprom@50 on the OrangePi RV2 and R2S, missed in v2 (Sashiko)
+> - Drop the Assisted-by tags, see commit 1e035297ffda
+> - Keep E's Reviewed-by on both patches, as the changes are the ones
+>   discussed on v2
+> - Link to v2: https://lore.kernel.org/all/20261017180141.3477743-1-alan.tseng.cs@gmail.com/
+> 
+> Changes in v2:
+> - Tag i2c8 in k1.dtsi instead of in every board file (Yixun)
+> - Rebase onto the spacemit dt-for-next branch
+> - Link to v1: https://lore.kernel.org/all/20261012235624.77993-1-alan.tseng.cs@gmail.com/
+> 
+> [1] https://lore.kernel.org/all/20261021083425-GKA125937@kernel.org/
+> 
+> Hung-Chun Tseng (2):
+>   riscv: dts: spacemit: k1: mark boot-critical SoC nodes bootph-pre-ram
+>   riscv: dts: spacemit: mark K1 board boot devices bootph-pre-ram
+> 
+I'd not put this series on hold, we generally could address other
+remains of issue/improvement later. so with
 
-This looks all good to me. The offset and bits matches what is in the 
-vendor driver (after mapping each bank to the correct address).
+Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-
-Small nitpick, no need to fix it, but the vendor device tree also define 
-offsets for soc_die_id, soc_ver_id, soc_pack_id, soc_chip_id and 
-soc_svt_dro data. It might be useful to export (some of) them.
-
-Regards
-Aurelien
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi |  5 +++++
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   |  5 +++++
+>  arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts |  6 ++++++
+>  arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts    |  6 ++++++
+>  arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts  |  5 +++++
+>  arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts  |  6 ++++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi              | 14 ++++++++++++++
+>  7 files changed, 47 insertions(+)
+> 
+> 
+> base-commit: d05c6236496071916e19012cda7149465f15e66e
+> -- 
+> 2.43.0
+> 
 
 -- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
