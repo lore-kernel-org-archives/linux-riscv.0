@@ -2,106 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C8EA606A31E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 05:32:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 669F9606A31E
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2026 06:57:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1ljniKsc;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RVOTMx1X
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kjZi+Mnk;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r5h+CbQY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QOlbe2miWrHpwKqxi/HqS5ImBNLjELb1pW9aO9/UOUg=; b=1ljniKscChENbhVk+VgrghFN7W
-	0REGDpnJNA7qMt0spJWMenQRNlNR8JrTSxjr3BR2zG/hRjIKBmpGwM/oARvBQyUHxNos9GRsPAN/e
-	q1Hu7w34j1lSAXCqddoroblF8pZ/jT7oymancbrA2DnekvWWeyr43ZZ92GuH5adiDHPMi5/M+Nr61
-	SLt3ceP3PEAqbABvN2nxeFzsf8NST5OGbsgZONucuU9qinmRozDkSE6CgG7D1ft6qjWJq1njQzc80
-	8TFSEyWXfVgEbBwSS1Yl3rMpDRVKR1kCkK59ADV13EOTt4So67l31TYG6KEGmgc4LpyJl+8BNbylg
-	KOCMjNDQ==;
+	bh=1m5Z+I+HQeDei72QF1A5rFAiLyYNAMJM6KAUvSJJUmo=; b=kjZi+Mnkrb7pUfh0kg7lRm1o7A
+	tNcmOozIKyw0ISyQ6kgAjpIMRkvzi+I78vqc+53Amm/cRNBPaKDJThuU99R4ZhpRYcuon2iOAdhV9
+	nI6I2E7vTcWcTaQzNIxvmDrUxmVFtrdoFwFRAL4s6NPK7BYkOfXGpxRAw4BoTjFIU47yoFZgBC5J8
+	93CZ7BEZ9QrqvzE2Aw1W5pPcC40gTxQ7yI4GS/EZr0ki2HCDzhul1W6LaaRFfohT2Ziw+h0uvbv4X
+	EVIjlvKBKh33wiuKjUMIwVOUPoOyTQ9Dj9JifzGpujmY5/OTk+Z6ZO5bcK+VjHLSh3L7t29XhLrL7
+	l7Y+UsHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVj83-00000005cCL-2UQ1;
-	Tue, 24 Nov 2026 05:31:43 +0000
-Received: from mail-pj2-x00.google.com ([2607:f8b0:4864:39::])
+	id 1xVkSl-00000005gYo-1XXR;
+	Tue, 24 Nov 2026 06:57:11 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVj7z-00000005cBY-2Tq5
+	id 1xVkSc-00000005gUP-1CGG
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Nov 2026 05:31:42 +0000
-Received: by mail-pj2-x00.google.com with SMTP id 98e67ed59e1d1-3b4067446d7so676040a91.1
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 21:31:39 -0800 (PST)
+	Tue, 24 Nov 2026 06:57:05 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2f04fab527eso30584205ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Nov 2026 22:57:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795498299; x=1796103099; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=MHGUggYwA3gp5Hl40fLruxFZvaBCGWgXTV8JidRQovM=;
-        b=RVOTMx1XZEkFBSNvLRUcvM837SirKq/X1PhXa8kMbJ05hJ2lJESmX1r+FQmHjaLqw1
-         E2JwdC6EcLO+qMAglBPcJLw4lptH0Sszb4J+3S+m7xpwRTJ5EEikxPautRCZzGnshj5t
-         qgkUtQy/jhVrpr47gD830QJ8NrrNnoJHs4h67dsJO9682GsVqpkJxIEfKAXsHcNmuwYp
-         aDEOSk6TVTxkaTs/3m/t9f//3TntJWC+RgoZ8fvccCM71vJ0xPUhsMwp4aF3k4AAxM/9
-         dMogqlNKdsODlke9QlQ4JOZsow2t/vycl/HQ3Qtc8C0YAwwM8AT52CetJJrV92MX0+Vp
-         o2xw==
+        d=gmail.com; s=20260707; t=1795503422; x=1796108222; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WUgckmCiFEyGBP0TcCUPMUukDceeXTTvOHMOsE4uhQ4=;
+        b=r5h+CbQY/Dhgh62FoNXzJSgIgHnXA6yEf9J6rybJgHP5tHtXAppbXmrdDNh6bcgD5d
+         8gmL3hBHsWv+KISn+BMdMFMCHFxARCVUo1d93OTYfbTplLxIa1czCrQfyRHLfPZ7h4w8
+         1Tel60cr2AHK/d/qtCjs5hC7ACSsrTxS57zoPpaD7ChlHVv1UwW43+MmYdoLmLcJhaX0
+         icXPMCc2bImqbsVH4A/1D2MgTR2C4eeFJTXxeZ2SUfIrRgUWxBS0jvB2fsy9KSs4hb7y
+         8fsGRiv5a0/HECt6K1jpxol1U8AJLRpODMTpB5wyeetjbTum5TvCCj5vBhIkeFveEdZZ
+         Ybcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795498299; x=1796103099;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MHGUggYwA3gp5Hl40fLruxFZvaBCGWgXTV8JidRQovM=;
-        b=BDfkZgGnZCaNc3OIHH5vZjqLdPkzkITJ+wehSvWgbqY4FasZa9vQXmRYuX41d9aFJI
-         bA1k4ax2YPgPG/yfJY8MgVmltafKpj2+VFvvrarF2PEBFBvthrl0yNwhMSXUyAJQNQFb
-         L+LMj2YWvbxVYCaTJ5r7vnJCQvGR7w4r+B9npDKmDz/u2PwfhLsuFjb2bwqtvSVqiGoB
-         d/8ImiUmuGgnrEgdg9RfJjUDhzKDGvjLq+4nTvtKDwK9ZrP3eQ61epK0ikzMKCiwHmtz
-         NAwObGrecuRJ1Uk970QoPesPE8Gc68eraPKjOKBQhtGjy9Ir7asUK9v1d/gam6uD+KUF
-         jbhg==
-X-Forwarded-Encrypted: i=1; AL+hErEbF2yNP5YVtNNHQaQ3bmwF3JEfcu/bZvY6WPGbFy12irVlCRcoC8GKjW3E8RAhMbhWOFj7aS09SjGX2g==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/hAe0cx5KSYL5VVVmqPLUqZzaPKTupl0AdEK1Oqj9i82MAnQEL
-	RTlRU5xIvZqkGTAXhpMhH4U9PS/Hw5jEbK0j8sDGC9+uuT8RCubN+B0E
-X-Gm-Gg: AZFdTZdkIUIKlJD1LwVZGPro/oqU7Ql5kmcB7rqlALA7pW/m/ZTBTGmqeGlttmHm5mT
-	dv5SErbAx61rlAbYZUvHMe9W1GroKlDNfGYj9t3jgv++E2oq9AGG7UcdedSM2wRGx3SRzIRE4qz
-	C/MPHLgFEywwafrxIHJv+K9xV8U+ZgX03l4MsCDDsxqRFrtZz9x0uXMYXR0TcM43lG8sAeaeLrW
-	lGvA5sXC9VpjUa+fOvMR1KCowKeHjz/2HYOubfxAXc9rTJ39L0bO9xQi33xsZfN8T8feTXvr/oF
-	vTYgoMRyS5qrLqlfgZ9V2jcnHdphUHnGMB7ByXVtREV9pN1CNmhOA3wYPYeHT+7RJT5c8wIg8D7
-	9oiuMKZe8VeWSNJG7A+abYQ4S++pDHuLGUBnQeEhaC5/TRznwLJ5i9+S66XAz2N7m26CmVGaUEY
-	9tQ8FU3tOHfaOzXF1Ip0l0khwSbl3z4VTKmFk41Vwe0I/IUlO9NE58ac5wSIB7YcefFznWM5Xhf
-	kDJFDf1GczerUvEqe3+TCsFp9mfr8Bj9J3e7TCiR74LqhnCr7akzWk5o3F2OAH/OFIE6TrgAdoC
-	vosqi9bJAKChU5G534PM8U0aGyGzE480F115U/wzWB5Zkts0XI64
-X-Received: by 2002:a05:6a20:7d9b:b0:3e0:dc12:8908 with SMTP id adf61e73a8af0-4014e25b4f1mr12376756637.81.1795498298665;
-        Mon, 23 Nov 2026 21:31:38 -0800 (PST)
-Received: from [192.168.22.174] ([114.246.237.251])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6c9c7dcbsm6562442a12.0.2026.11.23.21.31.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 21:31:38 -0800 (PST)
-Message-ID: <286b4604-fb68-452c-b131-d3847669726f@gmail.com>
-Date: Tue, 24 Nov 2026 13:31:29 +0800
+        d=1e100.net; s=20260707; t=1795503422; x=1796108222;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WUgckmCiFEyGBP0TcCUPMUukDceeXTTvOHMOsE4uhQ4=;
+        b=oni5aRWQzYxKLIbAVHhU+67LEp2jbvbaGVTwS170gt7SHVmKWPt/jcMwSTrpxApvlk
+         0bbcBuMKgU/sTH0/jyq4l0/+C3prYEd/938HROUtJstuw9mQsi3EJ6GrW8mO0ZF6mjuv
+         fXAEasaUjgHMvRHuiC1M2S/kYgK8u711NBNQiKYswXJILkG8pE2Kp0uNyKlglX2UagkI
+         1mKVrKlq3kpnFHnIi4p9zA7qhQNJwG/UtybhvYTE95DP3sd901fv+5Mklou05jGSpzO+
+         LENx+uagp6kH6NHf0rdEddJHustZ8deQibIN+23ckjUUTfyUuUN0zrDhZP3LBpdT4grj
+         eDcg==
+X-Forwarded-Encrypted: i=1; AL+hErFWnryoMXiDViyzwsiRcx9lSkpinTtGcbcfIwrNFu3HseTQ4+LZg3kc/Dp1fclPaez3OOMqsSQMxpEGnw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8Xee9upToVC8n8O9SCp0WZq33h2wjEsQ/cYPgJ5/PBkh1nuwpU
+	lCtxlkV3dEnML9vkQv75c7VopUm8bcFkf6asOPozBSvc4qBJNwQVVR46
+X-Gm-Gg: AZFdTZfR3/xeOIqRGAOdfApLIxJY6SoDRO4tvxlKiIhTxUAnQoxG8H3zhqUJWoUij9t
+	z/6wN8iCM6WMfwf+oNLJA/O6IMCnxbxeJmPoOqgBBrVmMfH+7PwxhvKuXzuogfXgwX3d3U826dH
+	DENxVQ9qf+ve29mOe+ygq8IRdd+3al+S/47qHq86kXNYDIkwTf/B4cTMMyZ9JWwaXSiwPffxfOe
+	A+LTsDOgFwuLFx+e79U701DJS7+6rU+DZe86mKYj4BzPXarxN2HTXCHGmT4lrxr1XLRoY/eTQqU
+	BRPjFC8X6e5JmMqnxO+cUC18SRm2NNT9gRvgspupgupW12eHt7Bi3xmO5SgGQeQ6mwOUIEONswo
+	RdpfIx8hkmE6tkwrOhmhg8zhQA/dbUXZ06dbXIfdWTwgLXjaC+FbpqIgFjYLI8wY+VQAF6be7rM
+	sMtBKzNi8rHzHp5D67lUyxXEiTEJu+sHuhJc78ggTI+qN8lM6TuznN0axg1JsybqApEIroScBLd
+	NVsqfU32r/g17Uv1cuUDbFJqDKns4wRLKIiRtk9uHcEQTHkpbMKSbzatlvCPOfedpj7jGaDG5j7
+	ST2hvpGKvZw4JbhErx/eTmdSRQMS+HpaW3QSjUIXYR6RBVrtzZosmPw=
+X-Received: by 2002:a17:903:41cd:b0:2ef:efae:e8e7 with SMTP id d9443c01a7336-2f03eded341mr142785705ad.0.1795503421589;
+        Mon, 23 Nov 2026 22:57:01 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105b66sm64966685ad.51.2026.11.23.22.56.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 22:57:01 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org
+Cc: mark.rutland@arm.com,
+	alex@ghiti.fr,
+	emil.renner.berthing@canonical.com,
+	masahiroy@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	u-boot@lists.denx.de,
+	Ping Li <leeonion.muyu@gmail.com>
+Subject: [PATCH 1/2] arm64: boot: emit standard LZ4 frame for Image.lz4
+Date: Tue, 24 Nov 2026 14:56:49 +0800
+Message-Id: <20261124065650.1968930-2-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261124065650.1968930-1-leeonion.muyu@gmail.com>
+References: <20261124065650.1968930-1-leeonion.muyu@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 RESEND 2/5] KVM: riscv: Avoid THP adjustment for
- existing 4K G-stage leaves
-To: Jinyu Tang <jinyu.tang@linux.dev>, Anup Patel <anup@brainfault.org>,
- Anup Patel <apatel@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
- Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Jones <andrew.jones@oss.qualcomm.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Yong-Xuan Wang <yongxuan.wang@sifive.com>, Nutty Liu
- <nutty.liu@hotmail.com>, Jinyu Tang <tjytimi@163.com>,
- Gong Shuai <gong.shuai@sanechips.com.cn>
-References: <20260815102833.864330-1-jinyu.tang@linux.dev>
- <20260815103245.864925-1-jinyu.tang@linux.dev>
-From: Gong Shuai <gsh517025@gmail.com>
-In-Reply-To: <20260815103245.864925-1-jinyu.tang@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261123_213139_638821_430F24D6 
-X-CRM114-Status: GOOD (  24.02  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261123_225704_042507_E93769E9 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,88 +109,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
 	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jinyu,
+The shared cmd_lz4 rule passes -l to the lz4 tool, producing the
+legacy LZ4 format (magic 0x184C2102).  That is the format understood
+by the kernel's own decompressor, lib/decompress_unlz4, whose users
+are the self-extracting images of other architectures (all of which
+compress their payloads with the *_with_size variants) and the
+lz4-compressed initramfs.  An arm64 boot image is not consumed by the
+kernel itself though: it is decompressed by the bootloader.
 
-On 8/15/2026 6:32 PM, Jinyu Tang wrote:
-> When dirty logging is disabled after a G-stage PMD mapping has been
-> split, the fault path may see a 4K G-stage leaf while the backing host
-> page is still THP-backed. The existing kvm_riscv_gstage_map_page()
-> comment says that this path should update the small leaf and leave huge
-> mapping recovery to a later ioctl path.
-> 
-> However, transparent_hugepage_adjust() runs before that G-stage lookup
-> and rewrites the fault GPA to the PMD base. If the original fault is not
-> at the PMD base, the lookup can find and update the wrong 4K leaf.
-> 
-> Check the original fault GPA in transparent_hugepage_adjust(). If it
-> already has a 4K G-stage leaf, skip THP adjustment and keep handling the
-> fault at PAGE_SIZE granularity.
-> 
-> Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
-> ---
->   arch/riscv/kvm/mmu.c | 14 +++++++++++++-
->   1 file changed, 13 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index bfd6168ebe30..2fabcd409991 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -500,10 +500,21 @@ static int get_hva_mapping_size(struct kvm *kvm,
->   
->   static unsigned long transparent_hugepage_adjust(struct kvm *kvm,
->   						 struct kvm_memory_slot *memslot,
-> +						 struct kvm_gstage *gstage,
->   						 unsigned long hva,
->   						 kvm_pfn_t *hfnp, gpa_t *gpa)
->   {
->   	kvm_pfn_t hfn = *hfnp;
-> +	u32 ptep_level;
-> +	pte_t *ptep;
-> +
-> +	/*
-> +	 * Keep the existing split G-stage leaf and update the original
-> +	 * faulting 4K page in the vCPU fault path.
-> +	 */
-> +	if (kvm_riscv_gstage_get_leaf(gstage, *gpa, &ptep, &ptep_level) &&
-> +	    !ptep_level)
-> +		return PAGE_SIZE;
->   
->   	/*
->   	 * Make sure the adjustment is done only for THP pages. Also make
-> @@ -730,7 +741,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
->   	 * so do not promote them through the THP helper.
->   	 */
->   	if (!logging && !is_hugetlb && vma_pagesize == PAGE_SIZE)
-> -		vma_pagesize = transparent_hugepage_adjust(kvm, memslot, hva, &hfn, &gpa);
-> +		vma_pagesize = transparent_hugepage_adjust(kvm, memslot, &gstage,
-> +							   hva, &hfn, &gpa);
->   
->   	if (writable) {
->   		mark_page_dirty_in_slot(kvm, memslot, gfn);
+U-Boot, which supports booting compressed arm64 kernels with 'booti'
+(boot/image.c image_decomp -> lib/lz4_wrapper.c ulz4fn), only accepts
+the standard LZ4 frame (magic 0x184D2204) and returns
+-EPROTONOSUPPORT for anything else.  Its host tooling (binman)
+likewise emits standard frames.  As a result, an arm64 Image.lz4
+built today cannot be decompressed by U-Boot at all.
 
-Thanks for your work.
+Emit the standard LZ4 frame through a local rule, leaving the shared
+cmd_lz4 untouched for the in-kernel users.
 
-Tested this patch on v7.4-rc4.
+Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+---
+ arch/arm64/boot/Makefile | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-FYI:
-https://lore.kernel.org/qemu-devel/95fe4c53-fe13-4e0c-abbc-bbb546850560@gmail.com/
-
-Tested-by: Gong Shuai <gong.shuai@sanechips.com.cn>
-
-Best regards,
-Shuai
+diff --git a/arch/arm64/boot/Makefile b/arch/arm64/boot/Makefile
+index d42d07667822..19b26aa83203 100644
+--- a/arch/arm64/boot/Makefile
++++ b/arch/arm64/boot/Makefile
+@@ -28,8 +28,15 @@ $(obj)/Image.bz2: $(obj)/Image FORCE
+ $(obj)/Image.gz: $(obj)/Image FORCE
+ 	+$(call if_changed,gzip)
+ 
++# The shared cmd_lz4 passes -l, producing the legacy LZ4 format that
++# matches the kernel's own decompressor.  Image.lz4 is decompressed by
++# the bootloader though, and U-Boot only supports the standard LZ4 frame
++# format, so use a local rule that omits -l.
++quiet_cmd_lz4_std = LZ4     $@
++      cmd_lz4_std = cat $(real-prereqs) | $(LZ4) -9 - - > $@
++
+ $(obj)/Image.lz4: $(obj)/Image FORCE
+-	$(call if_changed,lz4)
++	$(call if_changed,lz4_std)
+ 
+ $(obj)/Image.lzma: $(obj)/Image FORCE
+ 	$(call if_changed,lzma)
+-- 
+2.34.1
 
 
 _______________________________________________
