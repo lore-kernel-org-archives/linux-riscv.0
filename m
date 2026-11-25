@@ -2,152 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C00CD606A33D
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 16:30:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FA4A606A329
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 16:48:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YiBXN7v4;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=tVRKWPxs
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oZuLnmJK;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=EpN4216W
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Cc:
-	To:From:Subject:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=XSH6k1k8WuK2RZQ9i66fjFXmtffvNtO5rwm6QHNX9Qk=; b=YiBXN7v4oA4HG+g30BDMqmjpb8
-	7lXTsLsw5rk6aM95YP+UUVVZBEKTpQ+h5YwYYVSkslgdF19d9xVW/KXZPuMPku7a6PFQqdENwqw7X
-	UTAfTtanFdA/lMDtLvbzedb83TSet62gLkBSnED85RfjsQzhQ3RQmss334My0d5T1A/M3iGlQVKRQ
-	pk8L1iA2ybYNbgsdOCOuGJ2ZvfMPTn4zx/zNbuE/y1W1LP0WCEb7vhyHZrdqNsHJut53hbDNNOhB6
-	aCsQa2NS0PtaMk72jqVuP8b1dLEb8NzqML1OriqT3ddwPbPkzVweSjWIEEM/iDu/Nr0tp9tPNlZ29
-	kBo7+ILQ==;
+	bh=Ibn+DVSZV/Xx6WMpCK2VVCKGEvxJQv80pw/UW3FJiHM=; b=oZuLnmJKziSuZbiuLQ/y/cjh1F
+	gDlWDJ+gBk8Jq7CgBQhjFr92vM1tbS1mHJqCWJ85REW035xLLIZxziqkdZa8PRoVpXODDmJQgc9DO
+	8ax7//sDDVX1P7bcCNpPCaTf+rcuRZgcaiOujtsxaj0pOsOs+MXiDV7grhfqnUrdW2AzK+A/zzT8X
+	0oV8iDlGJ4gxErGXCu3HJWga8SySZBVY6HJMdNfyGwRfnG5CQZKclQV8TqbupcZLDb+EyUQFTmFfv
+	h4GA50lrFTwsrbOyiXvrxirl3mbyvnAv97Zv+M10rfjN7WrAVUpcGaS/Wn9XMY9vsNzX/ktXCBvEt
+	vcSRqAPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWFsh-0000000AYzC-2TGh;
-	Wed, 25 Nov 2026 16:30:03 +0000
-Received: from mail-ukwestazon11020076.outbound.protection.outlook.com ([52.101.195.76] helo=CWXP265CU008.outbound.protection.outlook.com)
+	id 1xWGA7-0000000Ad2D-0gFc;
+	Wed, 25 Nov 2026 16:48:03 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWFrL-0000000AYOF-2y3D;
-	Wed, 25 Nov 2026 16:28:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ha1iZpZvU0UvAZlA0LGSw04MVNvqWTqomTPr1ZI8HiXBjMhmbQdjBX4AHTTPqBybf4X1nV2zT8bgsB8QcAcaEPeon+r4lv8GszAfqw4TZ1NYaVEgJ/DHmXjbSFn+p5M9tbbF8pvJMQp/vxfo1QRiYmisiKgEy9MxQCJhSlKY3lN93nT8y2ObMsTcfJqMDUHQOF1uUekRhzolidCcMXLMzk3nClkNjAUu2gMktGh27Lt7qODc4207WZUl4JfejbDNe3IiFHf1bHwzXFRRG9Xg/PDRmSkj37kw2czgojOJ5WDOKehFAYcN7dhcuHSFpoD04aiYs17OosYq5hTWExAgdQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=etV7w6McVU4IkyvSR1MbS3GvzqUUoDoXyhVUKvZEZQ0=;
- b=iN4fTo/BIhIyALnk64XGac9fvKPMdKXwvhOZ+MsXEg0ytGbBg3t7mpts8oOIHr7bZzK4SL96gFvY9tY3a8wMYr3CnYyV0k8qaHJrrNYeDU3YTIejjRU4Mryg+leayu2EZVLpfxs/Hbm+OKhAz0nYZy279s24oPnXxjQMRUIpJ8PO+hfUq/FSKykfD9sI3zBI//WhmSM6PghJxGCFOGi+jLmrppZPQ4TWk7UkON21S0qR8TKG3U2SJjAMBjfYACEe0rafKuMy75L/fSyKLA/p1xkmmiVY1+uVTIQLeXKqY7xtjSmWYqdQ9wAerTeYhF1CfUGud71yy4v7+EszbvM9CQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=etV7w6McVU4IkyvSR1MbS3GvzqUUoDoXyhVUKvZEZQ0=;
- b=tVRKWPxsYNS0b7XyHyEJiZxCMgHdb9DBwZwvTn8tfu0gm1XcqeisvaPh0IB4fnaIACSiojPJwkCPBLdh+uh0dWEPU9zDefg5ERQ3TADUVyMUTo1XGA2YPxEGnnIydZEhr3gR3G6mrSv1PLWOX7tFMOHrDKpJGzP5y7UQ2wOzfnU=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by LO8P265MB7671.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:3ca::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
- 2026 16:28:04 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 16:28:04 +0000
-Date: Wed, 25 Nov 2026 16:28:02 +0000
-Message-Id: <DN4FM3TBOJ9T.2QOOL77P5HETO@garyguo.net>
-Subject: Re: [RFC PATCH v2 00/30] unwind: Minimal DWARF CFI unwinding for
- user and kernel space
-From: "Gary Guo" <gary@garyguo.net>
-To: "Ian Rogers" <irogers@google.com>, <linux-kernel@vger.kernel.org>,
- <linux-trace-kernel@vger.kernel.org>, <linux-arch@vger.kernel.org>
-Cc: <jpoimboe@kernel.org>, <rostedt@goodmis.org>, <peterz@infradead.org>,
- <mingo@redhat.com>, <tglx@kernel.org>, <bp@alien8.de>,
- <dave.hansen@linux.intel.com>, <x86@kernel.org>, <catalin.marinas@arm.com>,
- <will@kernel.org>, <mark.rutland@arm.com>,
- <linux-arm-kernel@lists.infradead.org>, <pjw@kernel.org>,
- <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
- <linux-riscv@lists.infradead.org>, <acme@kernel.org>,
- <namhyung@kernel.org>, <linux-perf-users@vger.kernel.org>,
- <mhiramat@kernel.org>, <ast@kernel.org>, <daniel@iogearbox.net>,
- <andrii@kernel.org>, <bpf@vger.kernel.org>, <nathan@kernel.org>,
- <llvm@lists.linux.dev>, <nsc@kernel.org>, <linux-kbuild@vger.kernel.org>,
- <ojeda@kernel.org>, <rust-for-linux@vger.kernel.org>, <ardb@kernel.org>,
- <linux-efi@vger.kernel.org>, <maz@kernel.org>, <oupton@kernel.org>,
- <kvmarm@lists.linux.dev>, <shuah@kernel.org>,
- <linux-kselftest@vger.kernel.org>, <indu.bhagat@oracle.com>,
- <jremus@linux.ibm.com>, <wnliu@google.com>, <dylanbhatch@google.com>
-X-Mailer: aerc 0.22.0
-References: <20261125061523.1540234-1-irogers@google.com>
-In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
-X-ClientProxiedBy: LO4P265CA0261.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:37c::14) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+	id 1xWGA3-0000000Ad0Z-0WIh;
+	Wed, 25 Nov 2026 16:48:01 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261125164755euoutp01a5a5fab61dd9798e759be69e5b9e0235~rV6zDc7Lk0384803848euoutp01t;
+	Wed, 25 Nov 2026 16:47:55 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261125164755euoutp01a5a5fab61dd9798e759be69e5b9e0235~rV6zDc7Lk0384803848euoutp01t
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795625276;
+	bh=7TatMQsD+nKk2SlAoHDqVLWs4KiHkC+B/2mGwzcyZ3E=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=EpN4216Wld6F8bjjy70JLDrBUDUtE6rusAEz54jLTD3XLo2dUxl4yXXaT+DeXIusV
+	 jYQiUTmMqF955Qs375ei7zjQB+xf20y3Zoo9JdFKubXAw0PUTGsZet5P46/scw/Yfp
+	 E0IVKOHx3TmBqWcPJ4keVQVXch7GmomOtUXCwOe0=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261125164755eucas1p24d5d6bb83e752fd082cddf5be8b0dfd1~rV6yfXVA43152031520eucas1p2P;
+	Wed, 25 Nov 2026 16:47:55 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261125164753eusmtip18d3c6a9329085828572b3a1b4e8ce215~rV6wxHev50383403834eusmtip1t;
+	Wed, 25 Nov 2026 16:47:53 +0000 (GMT)
+Message-ID: <74cccd59-ef2c-4334-aa75-b187379e66a6@samsung.com>
+Date: Wed, 25 Nov 2026 17:47:53 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LO8P265MB7671:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93a54ba0-c3e9-4a79-2c32-08df4b111461
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|23010399003|376014|10070799003|366016|261009223027099003|18002099003|22082099003|56012099006|261028144727099003|261022113327099003|261022075727099003|261022105027099003|261026140227099003|261026121527099003|10067099003;
-X-Microsoft-Antispam-Message-Info: 4pEqPffHiIuHgwKDpWn0vgwlvV+li/4UKkd8XhWfSs6FiCqlSZHm2qMrxAN33Ao0pjeuZcanPTs4urwLEn+8+iYXhvEUSwjI8pAX8njmDkmwzkkCjRRHj3KB1dsJGO/pHe9koiI1f2bzgkz1HdMYzNQw0rCs+MO7KZT3NL9YdW9OACcKcn7jc5TWBPsWHu/OLhCmA42tv2vw2lKajqHmfzf3xHE9G2f4S0no2poSPJbePyp7TNUvkj1t4ytj2qzz5Pscgnfp1kMMdoMRV3eEVc7Cl/oSiXgABtF4kIuDUxtthnGaRrWs9Z1e2DzR19XjuoBmw1X0I47LWZk2bxm4YPfibFqsWjGx5ucRCTWKz/vX936zj4WH2RQ8tcOPKFAOSlbYBtgUbdlFFgji3uPQfq2ZtXp43b/aGJgkgBfwsztggidzqoaXkjFjTw2RF6ZIkRcC54Z9xm31YjS3uD1IfXHBQs3ovWiCH2SPoSu98NRXnZQLRRLbWNEnz/gVBUdt5xJac34a0FplOngbLaSQyUR8Hf8EbhxzgLg1nPc1YWAzPkCEVkW7Yn0hPHJL64eeIDIksvRg4080GTawHF5IqsQ9W6f1oBW2mixJRu+7NVa7SCyfKxxykLiYz6TLJoh/OlqBeM539LNfXhw7NXP24l3n7T6Qmf1StckpPG/fey0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(23010399003)(376014)(10070799003)(366016)(261009223027099003)(18002099003)(22082099003)(56012099006)(261028144727099003)(261022113327099003)(261022075727099003)(261022105027099003)(261026140227099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NVczU2p1NUxqVzg1QlRxN0JiSjUwN1g5a0Z0WUxoS3BvMUxZTE1OMStnd0Z5?=
- =?utf-8?B?Z1RtaWFaZjNJMWxHRmR5QS90MkpFSUMxL2w5TVh5YU9kSWpxeVc5ZHlXVG5m?=
- =?utf-8?B?M2tMU1RRT0ZRR3hocEtiWWU3QlVFWGp3K1VLaXRRZmx4OGNhOFBOY295OFdO?=
- =?utf-8?B?MStlZkdFUG5jVnprTVhQTU5uZjdRR2JOQlBiN2tvYytucEZFN0UvTTdCNCty?=
- =?utf-8?B?Y2tsVFFQWnprbXN3bXJMSFNEZ2ErdC9haFJNWlkyS0kvdXRqWXQ1MTlBNUI0?=
- =?utf-8?B?UVdZL2d5VmRRS2cxSGYxcHI0dVU4NTVuVE45Z1lpQTNjMkZvSndNSU9ZdWdO?=
- =?utf-8?B?VUZ1QjF2U21uMlhPS3BmTXBxaERnK0hxa3R4Q0MvQ29KbGQrTWxVY2kzc0gz?=
- =?utf-8?B?VGN0Z1dwa092dG05ei9uSkF1Ky9mQko1UUlzSlIvdnRuRFJqUkVqdVF4ZFk2?=
- =?utf-8?B?cnBPZ1c3ZjBJM0J3UUFpdVFCUERTb2Uya1Y3YzlNWlc0R3kyUnJjd01TWi8v?=
- =?utf-8?B?TzVSMUo2aFZZKzRCdDlBY045RUx1WUpIY05ETUt4U2dTcUI3R0lvUmVCeS8r?=
- =?utf-8?B?ZXpTQVVIa3gxTzFnUUtDZmc2K3JYSXN0cEN3VEFGdVlObmZvYmFVMDBuc0hB?=
- =?utf-8?B?cHBkcFh5dnNlOUN5eWxTcGhWOHJSeXc4YlcvdDRJZHM5NEdlMlE3YlZCQ3Vt?=
- =?utf-8?B?Tjc4a2paUnJFR005MW1CR0tZeHlOeTdhRG83K1JhS2FMOURPa0pFbG44VHBU?=
- =?utf-8?B?akRPZ3FVcmd6d2RhM0FpSlpsWkFEb25nYVpaUG5zV3M5ZHNZbEVzSkJtbXFO?=
- =?utf-8?B?aGNoTE4xdlI1RndlRDYvZ3ZTbjZtMnN2cktmeFd5ZVN6NkJ3U2o4UFFHU1F3?=
- =?utf-8?B?MCtkWDBxcWxoZ3Y2dVQ0MXVEblZGN1NUWW1aS09sV28xTmJrOGpYZCtaMnEz?=
- =?utf-8?B?WmQ3SVM3VDR4L2RadXBqZWUwQ21RQ1d5QTNCaUdoZ09RSm5MYWg2N3d1dDNx?=
- =?utf-8?B?TzJCZnJoaWw1dUxJRjE1UG1PNUw4VWtqQmxHQXdkSGc1ZGREcThIUjV3YWZE?=
- =?utf-8?B?OWtVcUxLVGdnM3hiMmJDdHhCSjNpVVUwV0JTMmFkUTB6aG00akRGS0cvT2pR?=
- =?utf-8?B?VW5WV21uckJkWENOVUZwSlZpNUJyU3ZtWXMwR3cvTHBuSGJvK2Y2YmR1Qnhp?=
- =?utf-8?B?SWUraGYwaXFxc1FRVGNTdXlLWnh6ZE81V044NGc0dC95UEFmTms1ZzB1cHVs?=
- =?utf-8?B?QlVaOFkyZDFPajJpcEFBQitZRzlEOFNiYW4vTTNKaTgzdXZWR0lMRC9ZbUxP?=
- =?utf-8?B?dHlTZUpOMDk2V1ZGL0FUYVVJTFFPQ3ZUKzFxKzF1ZU9Kak15Z0JrRTIyOEFK?=
- =?utf-8?B?MGN5ejd4TXBkYmpFR3dCcFZ1ZXlSNjQ3cVlibStza0h1SGdaYzMxbFBGQnk3?=
- =?utf-8?B?c3pQNnoveXVYalczdktCUjdldUJQdllodjMwbXhnd1l3YXhpRHpRdXRXQkNh?=
- =?utf-8?B?bEthSUlkWGxsTWI3SnFFakZJQ2gxR3JUOFNlckhqRXlIdDVHdlFsVXVESVB1?=
- =?utf-8?B?N2ZTamNPSWlEZzhEV25Hc2Y0LzRYWVZxRXRoN1F3cjcvbTlPak9OSHNvZElB?=
- =?utf-8?B?dkRSVnJTRysxRmJ1U1E0Ty9ROUozZFlaZzJNUk5wajBPNm1RaURLRG5ZQWhp?=
- =?utf-8?B?WXVhRThnQmZTQnBzc1dTNmpHaUgwWGZuQ01TMklsRmdQNGdVczI3V3dxNTk3?=
- =?utf-8?B?Q1M1UDZSVzBEOEJjK1l6enFHQmdQOTV5WXdLd2R6MUVnNnAzTnlhcTV2TXBG?=
- =?utf-8?B?eDVZbXBGMXo1a1UrWVZXSjU2Q0NCRjI5ZzFTV0lWZ2F4TkFCQnJGZWZpNDMv?=
- =?utf-8?B?VU5OMDVKZ0M0eU9IWWlTcS9RNzBkV0k2aUtIT0RVQ1VscTRialRudjdGSXEr?=
- =?utf-8?B?V1VobW9WRndjV0pVYXJqRXlueEpVelc3SVM3aGdFQzdMNzQwaVNjWEpMTlhp?=
- =?utf-8?B?Z2xtSmZkNis5V3VCY09GOVRaQ05md1EwbW9neGVpdjdRWmNJck5rVURGRDU0?=
- =?utf-8?B?U1hma2UvdlJvcVJLbTNBbHdzcjNuSXNhZkh3QUxLd1FYQitYOUxVTlRWeEUw?=
- =?utf-8?B?VGxaRGZFd2xMelcxMUFVdS8rdllEZFYwbDEwK2ZwNVpTWEp1UmxtQVJrYXpK?=
- =?utf-8?B?dlJIRVYzTC92Tm93N1Bzc202OCtvQjN5eTB0U2FQRkpHTTd0QTl3Rjl3UmxT?=
- =?utf-8?B?M1pHM3l2cDVwUUFwVkdJUnh0Wnk3aVJUVFZSekZqeGphbzRRWWNhR3A1ZlNo?=
- =?utf-8?B?TC80b1E2Tll0VmhZV1VzaVBTRnZjcGUrZTZEVDBHUzF2OWtISmFxQT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93a54ba0-c3e9-4a79-2c32-08df4b111461
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 16:28:03.9540
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zfLPUsOGfR/d8B9Jc7ISsOR1doPTigyD8v8xZJajv77s4IRWJaS+Ul7s/UjjTU/DZ1mNYwogycPZR6w7HBNHBA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO8P265MB7671
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 04/18] dt-bindings: display: starfive: Add
+ starfive,jh7110-hdmi-subsystem
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20261125-tasteful-brown-galago-a6725e@quoll>
+X-CMS-MailID: 20261125164755eucas1p24d5d6bb83e752fd082cddf5be8b0dfd1
+X-Msg-Generator: CA
+X-RootMTR: 20261124155406eucas1p23a523deb496c21cbf3da3724812a8101
+X-EPHeader: CA
+X-CMS-RootMailID: 20261124155406eucas1p23a523deb496c21cbf3da3724812a8101
+References: <20261124-jh7110-clean-send-v8-0-de92635dd857@samsung.com>
+	<CGME20261124155406eucas1p23a523deb496c21cbf3da3724812a8101@eucas1p2.samsung.com>
+	<20261124-jh7110-clean-send-v8-4-de92635dd857@samsung.com>
+	<20261125-tasteful-brown-galago-a6725e@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_082845_858882_BB5B31C2 
-X-CRM114-Status: GOOD (  10.60  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261125_084759_760566_707EBDCB 
+X-CRM114-Status: GOOD (  18.13  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,43 +80,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Heiko Stuebner <heiko@sntech.de>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, Joshua Peisach <jpeisach@ubuntu.com>, Conor Dooley <conor.dooley@microchip.com>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, William Qiu <william.qiu@starfivetech.com>, linux-riscv@lists.infradead.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>, David Airlie <airlied@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Dominique Belhachemi <db@domibel.de>, Robert Foss <rfoss@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Hal Feng <hal.feng@starfivetech.com>, Maud Spierings <maud_spierings@murena.io>, linux-rockchip@lists.infradead.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Marek Szyprowski <m.szyprowski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Thomas Zimmermann <tzimmermann@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, Graham Markall <hello@big-grey.co.uk>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Xingyu Wu <xingyu.wu@starfivetech.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Paul Walmsley <pjw@kernel.org>, linux-arm-kernel@lists.infradead.org, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Neil Armstrong <neil.armstrong@linaro.org>, Sandy Huang <hjc@rock-chips.com>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Yakir Yang <kuankuan.y@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-20.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed Nov 25, 2026 at 6:14 AM GMT, Ian Rogers wrote:
-> Overview
-> ========
->
-> This RFC v2 series introduces Minimal DWARF Call Frame Information (CFI)
-> stack unwinding in the Linux kernel for both user-space deferred
-> callchains (unwind_user / PERF_RECORD_CALLCHAIN_DEFERRED) and
-> kernel-space stack traces (stacktrace.h / HAVE_RELIABLE_STACKTRACE)
-> across x86-64, ARM64, and RISC-V, paired with an optional standalone C
-> build-time .eh_frame minifier (scripts/min_eh_frame.c).
->
-> It enables reliable stack unwinding across kernel and user-space
-> binaries compiled with or without frame pointers (-fomit-frame-pointer),
-> without introducing duplicate .sframe sections in user-space ELF files
-> or requiring new compiler, assembler, or dynamic-loader formats.
->
 
-Hi Ian,
 
-I'm a big fan of using DWARF. I haven't got the time to look into the details,
-but minifying the info so only IP/CFA is kept sounds like a reasonable approach.
+On 11/25/26 08:31, Krzysztof Kozlowski wrote:
+> On Tue, Nov 24, 2026 at 04:52:40PM +0100, Michal Wilczynski wrote:
+>> Add the dt-binding for the StarFive JH7110 HDMI subsystem.
+>>
+>> The JH7110 HDMI IP is a monolithic block containing both the digital
+>> controller and analog PHY in a single register space. This binding
+>> defines the parent device, which holds the shared register map, and its
+>> two children: the PHY and the controller.
+>>
+>> The two have separate resources. The PHY takes the 24 MHz reference
+>> clock and provides both the pixel clock, which the VOUT clock generator
+>> routes on to the display controller, and the phy the controller uses.
+>> The controller takes its clocks from the VOUT clock generator. What
+>> they share is the register space, which the parent maps.
+>>
+>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>> ---
+>>  .../starfive/starfive,jh7110-hdmi-subsystem.yaml   | 95 ++++++++++++++++++++++
+>>  1 file changed, 95 insertions(+)
+>>
+> 
+> DT bot reports here a lot of failures. I don't see immediate problem,
+> but something feels odd.
+> 
+> E.g. https://protect2.fireeye.com/v1/url?k=1f5c925f-40c75c3b-1f5d1910-000babda0201-32d14b792e1191ed&q=1&e=0335675f-d64b-42b3-b953-cd282e903fa2&u=https%3A%2F%2Fgitlab.com%2Frobherring%2Flinux-dt-review%2F-%2Fjobs%2F18332570769%2Fartifacts%2Fraw%2Fbuild-15017782.log
+> (see rest on DT patchwork)
+> 
+> Best regards,
+> Krzysztof
+> 
+> 
 
-A quick question: how do you plan to get this working on 32-bit ARM which has
-its own EHABI?
+Hi,
 
-Best,
-Gary
+Thanks for checking. For patches 4,6 same as in v6 [1], these come from
+dependencies missing in the bot tree.
+
+The dependency is in the cover b4 prerequisite trailers and Rob
+mentioned in v6 that he would look at why the bot did not pick it up.
+
+For Patch 3 a comment in its example points at the hdmi-subsystem
+binding by path, and that file only comes in patch 4.
+I'll fix that in v9, and also note the dependency in patches 4 and 6
+themselves under ---.
+
+[1] -  https://lore.kernel.org/all/20261029183041.GA4029917-robh@kernel.org/
+
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
