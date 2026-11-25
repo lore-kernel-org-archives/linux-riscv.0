@@ -2,69 +2,92 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FDB8606A31E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 13:52:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56647606A321
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 14:07:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JHGgoBeJ;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eassQ+eh
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2y8KIDfn;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J5sHknHB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Ie9KPi4zN7eRBDizB9x96Gi+UI193/kdGQrH8qAlhYo=; b=JHGgoBeJ5QSiAtM1L6VXnfOMcy
-	xOv0lMwWBVHp5LqJdvi9c/8BJz9aiO3AupKsvcxdchsSgVU2Z/MjJX/f5gIVqjH8aekKAdgaVr0vo
-	izrIf3bcVNODFGfNy1f67tiafWuTN4Cv7MDysmpv6W+c6Tal2/OrvupbSG3z6utJ9wna4I2RZZg/f
-	dBRtHClBJeYMy2eAA/NLXhfVMBZuitGzoDOyK8mjaOZ3CLrVuuFG9aTzRfdb1kMKszRLEht2sory5
-	6H2yBolNIeIIYjiqZUM/stNtQ/foCp2vok3ckXAgzWQ4yVFlmjAEEPLDVk3z55xgpWmgE+7Cuq3nF
-	WIPv6EYg==;
+	bh=V/Sjju8nMV3jLJQIw4rUzoIXatSQpO95jEwKHydj+10=; b=2y8KIDfnVD/xtVvLYpYAHOdv7e
+	mmeLrEzfXpQMDKzF6PuCe8ocXMbasUHkHmGf7qzh53QRH1uXLtvxL69GugkEkyIuC4c3gM0HYzD7g
+	8bS4Bmr9fLZbEifC0z3RQoCajIHex8dfxPTCrTgyryynHsRtaXref7ktm6tEcbeLr+w40QAF2qlU7
+	5SCv7faPWl54mOxspftfguMRSl3ixql+/8sLdkeefz3Ygz8W0Xlv8yEtB4lBVxEe44yIp9ACmLNe1
+	y70PdKYVUHA40/1G8oToFjez5/ujQmcg3O3+ZwV6QRpFopIHGZKSF6xLGOtP9udOfgWn+ekUwaqvu
+	/YqZPeWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWDQ6-0000000A3iU-27Cz;
-	Wed, 25 Nov 2026 13:52:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xWDe9-0000000A6At-2rdz;
+	Wed, 25 Nov 2026 14:06:53 +0000
+Received: from mail-dl2-x07.google.com ([2607:f8b0:4864:38::7])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWDQ4-0000000A3hQ-1VWg
+	id 1xWDe7-0000000A68f-01Kk
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 13:52:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CAFB2623E0;
-	Wed, 25 Nov 2026 13:52:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E21D61F000EE;
-	Wed, 25 Nov 2026 13:52:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795614739;
-	bh=ih1VDTrU3FeJ2fsbtiUZSy/fzpLqeBrB/3Ho1Q8Vksg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eassQ+ehtNlIg7BCYm6d9K32YvY8qw6Lw2o1T2KIXMP1nElqmQXlEYtZ3auoJRGPs
-	 RuPLl0AlZn5mOfaiPEATfDF5yS2c9jSNMDDvEc2aB3teBrAHDvhqvQ0MilTw5woUrX
-	 r+0qd3DgUr8J04D3fhgoVd1Mx84QADjJiEWYndLt5edAv7x6+DpeHV7Vl+aDd+IcQh
-	 1ojyxYxC1kYLPCYAitx6iV/dJHFlHDlAbFcQmP57isDtbEc1BaI4smiZPDCiSmq5VS
-	 ltAC3lonKaXHrHdjEBqyBOf1CebpOHDeQUX4mcBbO+VEv83fNq1eCllKZOuRXUuBGD
-	 YyMs/2wdpZIAg==
-Date: Wed, 25 Nov 2026 13:52:17 +0000
-From: Harry Yoo <harry@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>, 
-	Lance Yang <lance.yang@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Ying Huang <huang.ying.caritas@gmail.com>, linux-mm@kvack.org, 
-	linux-rt-devel@lists.linux.dev, linux-riscv@lists.infradead.org, stable@vger.kernel.org, 
-	Kirk Swidowski <swidowski@google.com>, Huang Ying <ying.huang@linux.alibaba.com>
-Subject: Re: [PATCH v2] mm/rmap: avoid reusing batched TLB flush generations
-Message-ID: <awboAcnWHZfsy8bg@thinkstation>
-References: <20261125-rmap-v2-1-0ba817662eac@kernel.org>
+	Wed, 25 Nov 2026 14:06:52 +0000
+Received: by mail-dl2-x07.google.com with SMTP id a92af1059eb24-139b659a45eso659350c88.1
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2026 06:06:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795615608; x=1796220408; darn=lists.infradead.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MP09FK8BKciK7H/NzSBFI5ee4XjfPiGr8z/17qMy3kI=;
+        b=J5sHknHBY8ROd2WtYYSYd5C+F9fmYg01+YLkkXzU6c/22N9nHvVKReJxt291lCjYi1
+         DLJfHIGRXgU+eZ2IX/NOFYgAoOXdGqhPieIua2bVids1JFrdRea2LXbxh6IrWSY0+odP
+         trUvtHlW8YM3Xtoak0Clb1QQXZaYRxT7teKA1Ddhz2eyJmZoHNUXxC464GlS/IkKrSpR
+         65jVidziop/nbVmoy7JOCUrEw2rrtzgcOvrD1OcRblHErpkY4Mqc5AAdl6jI3PySvdb6
+         SSXNoTQmYw2NCvRdaamuc/Q63QYnHomW7LWjadnxUx8a1lf96VWOFeHhV3IGmUdPP/VV
+         e5Sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795615608; x=1796220408;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MP09FK8BKciK7H/NzSBFI5ee4XjfPiGr8z/17qMy3kI=;
+        b=fWqIvr3zR9Q+B8jqb3NuTbFGP7vlrUBdl4OFfmzUuB9znaG0gInepD6qB3eaayWLms
+         wX5XrNoOfN4nguZO+upjo+pNckagxKFMEpvRMzumzeg3KQ04o9y86QegY7EOWYpfpX/E
+         /Ekad6Aaif/UGo9e5c2d606NMzV9xCUsENCMgAhEtgvmRBGeWN2T9JX2yohMGn9evLED
+         ggt88o4PGfs3LKM1tGgJZYtLR+7vIpPMVZ+4GFtBiTVilh/Y7N6mK0frRPoHhPbIMd+J
+         y3qnTKCobG/nPNlCUyAOq07SqQ4TpySQenSkiRn8R3bg8Uk1yV+Gob975wo1OXwniO1a
+         k/tQ==
+X-Forwarded-Encrypted: i=1; AL+hErFYED2zhfOytKaGfx//6aJVmQalJuHjnSmDLODgVzo9+dwe5PAw+o6w5dy3pQsj7Nr3bnfId4VirOXVjw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/XFrZtXQ+mZu6T+P8KdySDpFtl0D5YaD7Urud9H4296SoTXwkH
+	QsPhd6jD1yHCczS2OxuyaGIFPaee4Ed421HZoLfSQSjZOuMyZD+0UBfv
+X-Gm-Gg: AZFdTZd5QTsocQB3WYLX55x5rVOBxqdBm0nO3xQoTjzKru941FlKAal/O5ujBzImhYd
+	udyeM5qDBi9m/NuVBZYW2FGL/03FLndJrH6WqlPxpUUtG00uQrP7ZbKUkZf51jlCh6DJtkyCb5j
+	gMHlgvPazFw9bSyjvAOSMjdDbLAmIVUZhCJt+NEHK5+OtHZ8VXZUxcBIaknILCYpoS1E+gkiX1w
+	WMpBd9A9s1Agth3J2788yiJ8S6XnlsVYkaoIbxw2DSCMWyIPWgfjUxLUKoPu3wi0SMX5AUckvrP
+	UHJoX60Whvbc1RDDjAtCSOxh2kq0ViGECczlJ0b2745d54dblEcrd0JtDI/xukNYZuTT/3FsX4C
+	SUoG3ZT4dJU8ypl6SEVgdxhBZd/14C9VX/7fBNe9q0gj4jmR99Z/jBF09ILNlgSlpHW2En3h+J6
+	FRhyeYIBiAeZxTh49zHFW+FkJWx2HLQy9hbVBtEmBr7IST6aF+ehzkWfgle9TOaXCuv49LHxKc5
+	OinhzzZUaq0D9n/gmApLbxDyO9M+4OHXUEZ+WENM96KbWmkvHrO48fVBkjhy3GRWDgOoaIFSYjo
+	5LztgB2iS0Cl6qaCLPSBN1wYo1n4Rw/EAnP/UtQoCg==
+X-Received: by 2002:a05:701a:844e:10b0:1b0:20:6444 with SMTP id a92af1059eb24-1b56e185990mr10444498c88.39.1795615608143;
+        Wed, 25 Nov 2026 06:06:48 -0800 (PST)
+Received: from localhost ([2604:a840:3:1e0::3003])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm61981028eec.26.2026.11.25.06.06.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 06:06:47 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:06:43 +0800
+Message-ID: <eccf3f1e6dc94fbe847d112e8804c053.codykang.hk@gmail.com>
+From: Cody Kang <codykang.hk@gmail.com>
+To: James Morris <jmorris@namei.org>
+Subject: Re: [PATCH v3 00/17] drm/spacemit: add SpacemiT K3 display support
+In-Reply-To: <87eaeb2-b6e9-9198-b9cf-7e9f96bdcbc@namei.org>
+References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
+ <87eaeb2-b6e9-9198-b9cf-7e9f96bdcbc@namei.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261125-rmap-v2-1-0ba817662eac@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261125_060651_144039_34DD9894 
+X-CRM114-Status: GOOD (  19.44  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,89 +97,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Guodong Xu <docular.xu@gmail.com>, Yao Zi <me@ziyao.cc>, Michael Turquette <mturquette@baylibre.com>, Sarah Emery <sarah.emery@canonical.com>, dri-devel@lists.freedesktop.org, Ze Huang <ze.huang@oss.qualcomm.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, linux-clk@vger.kernel.org, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Jerome Brunet <jbrunet+clk@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Thomas Zimmermann <tzimmermann@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Brian Masney <bmasney+clk@redhat.com>, spacemit@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Haylen Chu <heylenay@4d2.org>, Dmitry Baryshkov <lumag@kernel.org>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Philipp Zabel <p.zabel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 25, 2026 at 10:34:46AM +0100, David Hildenbrand (Arm) wrote:
-> mm->tlb_flush_batched packs a 15-bit pending and a 15-bit flushed
-> counter into one atomic_t, and resets both once pending gets large.
-> flush_tlb_batched_pending() updates flushed with a cmpxchg() against the
-> value it read before flushing.
-> 
-> If the counters get reset and reach that same value again while
-> flush_tlb_mm() is running, the cmpxchg() succeeds and unmaps that
-> happened in the meantime are considered flushed. A later zap can then
-> skip the flush and leave stale writable TLB entries behind.
-> 
-> Use two separate counters, never reset pending, and let the flusher
-> simply store the pending value it read before flushing. To keep pending
-> from wrapping around to flushed, pull flushed to pending - 1 once
-> pending is more than INT_MAX ahead.
-> 
-> Preventing the wrapping is primarily required because
-> try_to_unmap_flush() as called from migration and reclaim code does
-> *not* go through flush_tlb_batched_pending(), as it does not iterate
-> MMs. So if nothing in the MM triggers flush_tlb_batched_pending(), there
-> would be a problem.
-> 
-> As the separate counters are no longer read atomically together, we must
-> read "flushed" before "pending" (acquire/release), so a reader can never
-> pair a just moved-forward "flushed" value with an older "pending" value.
-> 
-> We'll leave the barrier() between clearing the PTE and incrementing
-> "pending" alone for now: it should be a smp_mb__before_atomic(), but
-> existing arch code (x86: inc_mm_tlb_gen(), arm64: dsb(ishst) before the
-> TLBI, riscv: fully-ordered xchg() in ptep_get_and_clear()) implies a
-> barrier. This should be cleaned up or documented separately.
-> 
-> As dup_mm() copies the counters using memcpy() while they can get
-> updated concurrently, a newly forked child could end up with "flushed"
-> being "pending + 1" and we could skip a later flush in the child. In
-> theory, this might have been possible before (load tearing), but two
-> separate counters make that easier to trigger. So let's just reset them to
-> 0 during fork(). Put it into the existing init_tlb_flush_pending() and
-> rename the function to make the name better match the wider scope.
-> 
-> Note: if a flusher stalls between reading "pending" and storing it,
-> while "pending" advances by an exact multiple of 2^32, the counters
-> could compare equal and we could miss a flush. The same applies to a
-> writer that stalls while moving "flushed" forward.
-> 
-> That is irrelevant in practice: both hold the PTL, so without PREEMPT_RT
-> they cannot get preempted, and wrapping within the ~20s soft lockup and
-> RCU stall timeouts would require more than 200 million batched unmaps
-> per second on a single mm, which is impossible in practice. Even with
-> PREEMPT_RT or long vCPU preemption, we would need minutes of unmap and
-> refault churn while the stalled task stays off the CPU, which is highly
-> unlikely and not a realistic attack vector.
-> 
-> This effectively adds 4 bytes to mm_struct. However, on common 64-bit
-> configs it fits into the existing padding, leaving the size unchanged.
-> 
-> [ david: use atomic_t instead of atomic64_t, reset counters during fork(),
->          adjust description ]
-> 
-> Fixes: 5ee2fa2f0636 ("mm/rmap: fix potential batched TLB flush race")
-> Cc: stable@vger.kernel.org
-> Reported-by: Kirk Swidowski <swidowski@google.com>
-> Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-> Reviewed-by: Huang Ying <ying.huang@linux.alibaba.com>
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
-> ---
+Hi James,
 
-Looks good to me,
-Reviewed-by: Harry Yoo (Meta) <harry@kernel.org>
+On Tue, 24 Nov 2026 19:53:11 -0800, James Morris wrote:
+> On Sat, 21 Nov 2026, Cody Kang via B4 Relay wrote:
+>
+> > This series adds display support for the SpacemiT K3 [2], a RISC-V SoC:
+> > a new DRM driver, a new PHY driver and three new bindings.
+>
+>
+> Tested-by: James Morris <jmorris@namei.org> # CoM260-IFX, DisplayPort
+>
+> Assisted by an LLM.
+>
+> v3 on v7.4-rc1 works on a SpacemiT K3 CoM260 IFX with an Acer EDB323QU
+> (2560x1440, 144 Hz) on the DisplayPort connector. The DRM, DP and PHY
+> drivers were built in, and Linux ran from an initramfs with
+> clk_ignore_unused.
 
--- 
-Cheers,
-Harry / Hyeonggon
+Thanks for testing v3. I will add your Tested-by in v4, on the PHY,
+DRM driver, SoC device tree and CoM260-IFX patches.
+
+> The board has the vendor U-Boot 2022.10 built on May 21 2026, not the
+> uboot-for-k3-display-verify branch. That link in the cover letter
+> returns 404 for me.
+
+I will drop that link in v4.
+
+[...]
+> Two observations:
+>
+> 1. The HPD interrupt never fired. /proc/interrupts stayed at 0 for
+>    cac88000.dp in both boots, also across the unplug and replug, when
+>    the stream was running. The connector poll caught both.
+
+Same on my CoM260-IFX: the count stays at 0, also across an unplug
+and replug with the output on.
+
+The external DP connector is polled on purpose. The interrupt needs
+the pixel clock, so it cannot report a plug into an idle port, and the
+bridge leaves out DRM_BRIDGE_OP_HPD there.
+
+> 2. With the monitor asleep, nothing was displayed. It kept HPD high and
+>    returned a generic 1920x1080 EDID. Link training passed at
+>    2.7 Gbps x2, but the monitor stayed dark until I woke it by hand
+>    and a later modeset retrained the link. The kernel got no event
+>    when the monitor woke. I found no DP_SET_POWER write in the driver;
+>    could the sink be left in D3?
+
+Right, v3 never writes DP_SET_POWER. v4 will set the sink to D0
+before link training.
+
+Cody
 
 _______________________________________________
 linux-riscv mailing list
