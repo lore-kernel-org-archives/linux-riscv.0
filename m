@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E3CC606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5103606A33D
 	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 04:15:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=szvZbmkH;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DnuQY2mv
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IaFkdbc9;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CBUILgMQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,65 +14,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=OhOl6SrzjJRbtab3z85eQb102fPPH4UVx6HwUryJrzU=; b=szvZbmkHi62nmG6y043JCqqd8F
-	TQobrVLjtLNC7YdxiliOK4aCkcLsjCz4MsxR/kJCzgZ4FJPWg3lTUwfdA/tgTXKo/G4NwTkqEn1ac
-	S/+D6AZCs7sbIzuKC5kr9p7ZLFerpPcPv5d/QPjCJ7fGfYB9s9iFfhis/CaQMQR5OcMATqMy0nE2V
-	rCesMMgjrV2O6qA6MmoMHwD0a+3ARiQxLmnKsmBnELjAsJSXVZzrB37p7AW7Pqcv91m23GopP6UGE
-	3/VL/IU0oDKHKOy2m6izQH2PoOegxosNOypr78Bo7Fy5qQbLbMvL5sN5UV0yMej7pF8To1E1192A7
-	DBhXVgUQ==;
+	bh=fiPgBXy5++c7Y6FANLALL55ENZYArViwJlpHrnLYdLc=; b=IaFkdbc9HDs4f+gdI/4z08eHTn
+	DdXjtOTAd216aD5bRPVTwK3gPoBDgoRvIizyWDdst5no7A+sa9F42KiYLN+J9lVAQQ6zYW9alf2Fs
+	0jaHh86KqizcVBgCnkzbh1O5YE9mZaWtbMU+KYJH0jVwRO/SBQXFYKCUj618TnAEGY1nVoOZ7ah7q
+	Apx5m3uiydQBACyUwptEPtCOR0op1SujpfR1d6uHvgO6Ax1F4bg6jtp3/XkwKjwN4niphhfHtwvz4
+	Xis22ju0xRB44VHnp2QpySS//HWRbyJq16NlDxEYHGYK3KBGt74eZZu3bat8PS0oZJG9xnOuNOptd
+	hm92AP8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW4Q4-00000008N9v-0GZr;
-	Wed, 25 Nov 2026 04:15:44 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1xW4Pz-00000008N8M-4AiP;
+	Wed, 25 Nov 2026 04:15:41 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW4Q0-00000008N8O-2afd
+	id 1xW4Pw-00000008N7c-45ti
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 04:15:43 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3b41e627cadso3276173a91.1
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2026 20:15:40 -0800 (PST)
+	Wed, 25 Nov 2026 04:15:38 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2f045b921caso30015585ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2026 20:15:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795580140; x=1796184940; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1795580136; x=1796184936; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+lnP5N8d/GW3QDCKYsZCJCZ0aJwXzBKVnMHodRhbiOc=;
-        b=DnuQY2mvrgW/EvenboP8s8fQHEyfjVLSTj/4tGrY5CfLZTA2BkjJzPHnpXsSDQIvJe
-         N2MHka2s/u8mHO056c3hWf1b/Yph4vCGUpDmwKoPCHs6Boh8/dEc/pOkUr+rteWlDiS3
-         utuE8bx40eD+vJp2WJ1EoHqIyDyTakqkfWSEQFNwJq78/FEI8ZlDn5ALPEppUcEy/UlT
-         YFukkoMKUBfgVobcWUtxIO2SMnrzsyT3lRs5wAuev3QdbwfGgZ+qTIGSgTX2aNyGcyMd
-         YnWRXV2olZdhx7+z7uk7m9bVpO3yv9aa4Fy//dfec9Rv3X4ASdMNirDeV9djWaHTShqU
-         i4hw==
+        bh=D/X9ZyEdnOXOVxwhtJ+XxsYI1vONhPEcHfkavK3jVzU=;
+        b=CBUILgMQVMPVr9F9mqqpL63hYZQ2HKjovxGINcmwfPrbzvnrxaeXP5gZH/BnKESz05
+         QDbSB38L0QtmNet3VwlaDDxB4rQYqYyOVchNnJTVxQBuy00QrSjTmBo1/Fek29I6SeRE
+         IwiDFEsKlVZyiWldCkDOX+DLLZDW8HesMII0lJT6BpEOT65wpyfel8sO5DUxx1rkJP69
+         OLrYSZB8Qhrwuzq0t6s4l3G9vOrExExl3g2GJnH+vwji3Babiz75ByjGYPvH5tUj+GLQ
+         bGZC3q0ShBkU5IbRQxI8OrGAYhUI/6kvbPK/go1RYa8kbET6uVo+3hIf0ocY9dEjSDHd
+         58/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795580140; x=1796184940;
+        d=1e100.net; s=20260707; t=1795580136; x=1796184936;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+lnP5N8d/GW3QDCKYsZCJCZ0aJwXzBKVnMHodRhbiOc=;
-        b=DSxk6cJgfMQUknXMvqhEeG4K1u/ZNHZlW6tvJAcdPNEal3egH172FYpAHkm0/3jlLH
-         F719thGyA8brsVix2WKzFUhcP+Ir4e5ILTLapBMMSSJI8gCAWRDwx3ZCgFZGoSyCHU8M
-         Acpb1x8jRq/ly8CTn6PHpH4njK7M+pX78fP4luxXOGIqRusL/YegkTgU4CocAiG/50nY
-         roEAli4r0D8Kw4LW8YwXuO6w+UBQUlkYlKbb0U+h1qf1qOk+/jN3XqmQt8qLwQr4sxYf
-         f6dGosHwVs9bvGBKM/fOLWeBEdeHIVPPYr7Q7bq0ZqbzpHAkYq1SrkB0cyKhMB3g7RxP
-         0EGg==
-X-Forwarded-Encrypted: i=1; AL+hErFQePJdm3ToroO3k/4Rs1AIDT2Dj3JqlgPNDubcUxrmD/4/JOdfp5y6vNWKNge5OHXh0yjCn3CDXOX47w==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/bvDcKxhXWxBkccP6zPneqaIVpj5JBiyMUbBAU6bw8sOGSI284
-	Aply4Q7FO/IOCKPfTQ71GnkcSiQ5TYKUQG8xKSSUJ+YRzBy8cGn4k1To
-X-Gm-Gg: AZFdTZdYD+Ka2suczVpWjhM4VaRsWDOeIh8l7KXvH2fqmykTL5II47HJ5LG/xrKXLwy
-	LRIosrtj/VX1CfoU6PRn5D1L5i02DgLrsH+zq1wEYvHhAvdT6LBWz8oIl8U84UMHSALMB2rdlBK
-	yIVusvwNekiFOtwGHNQW9FHWzW8nc+jjIVwX+RiEoAMUYnvDtBCJAy8ugn2ssd3tYDbvygfvSrg
-	+b//4slVaSnn9vmvltYlQjMOf+WOFJdGMElPfdzRs4QUBoEVVHAuT3NRq9jUztIguNHGx02J3md
-	IgovZ7qcqzaaGsFlmDieqo89SZRV5Q6X6YxJBxE+yBnqu5hiEWYtfkRaTNZwBSJSL8vtZgu1eZ4
-	MPxv7zSdVas9wLVhte29K9e0vPQkrgJ5U81yTAjB4d5d+IOYK8WYZfLko9NtpcWdTN1jILgEVbF
-	2hZCpjeZdyrNe2MugTcse/TszaapYPUR5g8cOzfqQpg4L8MlI3e5boa6qF4DiYiXi5jZKcpkv/Z
-	dJnVsrc3Di+5SoLRe1qCkyr1Tqr9xWAnv1N04Mu9PEZpDhGDjgd//HykaHlVxtq8l3fArnlZfnf
-	xnxQm03g+vW7tY57qRrrvP6NaPE=
-X-Received: by 2002:a17:90b:2f8c:b0:3ac:9c37:9426 with SMTP id 98e67ed59e1d1-3b41c92a2c1mr16021471a91.31.1795580139611;
-        Tue, 24 Nov 2026 20:15:39 -0800 (PST)
+        bh=D/X9ZyEdnOXOVxwhtJ+XxsYI1vONhPEcHfkavK3jVzU=;
+        b=oru+lSjQUkr48mgJLu3wJ3HX8MNkOtIIcIAwzpllTq+E271zKuiTXtzvntAfTGbtlK
+         qtga5PXrlk3t+Zqy4BaOp2c8vJX6S/Wzv755Stt2umzwhtIUAMxlefHqwfAUZ2lFJ3e/
+         f83RuR7Fon4S/Y6okL8ojX5DKEu77ED9OZwRZYulBpROcOqdcX8xZFk+rzlpXLQqgP6p
+         F/s3igrx9OlFK8fdrPB93t/qwEOKPFJPTRZIb2hv8M2e7egEsEz2uGrRtIg29VbmggNn
+         sGD8Ty0F+PsjbKzxlkIWVC8OhOObPVnPgl47yCFkMFMSn18Kjq6s7fY3TVsoesO3pNJj
+         eZtg==
+X-Forwarded-Encrypted: i=1; AL+hErHIZsahUDIRe2ktq7jdF+iGLMhjHr6omZv8vSksZI7hv90Mu4XoRQ3WCyloLmOJC7GhqbOsTPi2o+oUcg==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/fGHbmjDwVcHUyYZonpDl+pd/cUKp0723Iuw1NUVN9mPS6qkJj
+	7fEVjwJm9Rqh6l0VYhRRtvpHWhVaTU0ruYkHn31jPa0pvj1rZp/4QNmm
+X-Gm-Gg: AZFdTZdWY5oGTfqGKbA/65dQaj6J9YLlfFN56n25npDSOUIedAwoe9hwMNPYcSIn6IJ
+	eAtvZWLQGlhuaZDgZ4BeitVSHi7APxbOKdbN2TK1TgAigYFl+op7VifN8snJqggnzqnZXyxB+id
+	ZKdhXhW2rRRxji2cAc6GcZUBBuA3ST7pstOOUhwrm+u1euJxcvpGHaSsrWot8k3wDxcZFmqb1H8
+	xObNgTQqFbOhlWNOCA2w9t336/fMaTxTewrPhHv28LiNSYc0O+c8ftJtsX1C1uqdKGTr0p2YJPF
+	4QxtUGrAQNFbO8GOBIN47bdFCXT0vAyyrjnCz8N6jMVolWZNau7hQ08OwNe6c/As5ycCg5QjxZ2
+	mDK71QMEVbPIViHAgWleBFC3W80iMe0QCMRjgPXly8MRssyn5UKuYq2RAgfZC98oypM4K1/Oq5w
+	afG8JGuFzLJ+lppz/12lHjTLF+lojw23HSBP0Fis+vKQkhLM9njf2/Opsz70xN4TLKlEsJwFulm
+	gSeTp3eW/YY4RkS6fy5cvBVpXJ/LUrb1UhcJJLsKuFDHxQUa9vfTwd1H2M9DEYchMPT1AkIbI6f
+	DQ5ayPNqGnD3APXw74JJAyxN2SCg
+X-Received: by 2002:a17:902:e80b:b0:2eb:1dd7:3aa4 with SMTP id d9443c01a7336-2f03f181759mr177341625ad.34.1795580136016;
+        Tue, 24 Nov 2026 20:15:36 -0800 (PST)
 Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm25258203a91.0.2026.11.24.20.15.38
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f04f8aca00sm68640555ad.38.2026.11.24.20.15.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 20:15:38 -0800 (PST)
+        Tue, 24 Nov 2026 20:15:35 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Jingoo Han <jingoohan1@gmail.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
@@ -115,17 +115,17 @@ Cc: linux-pci@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>,
 	Aurelien Jarno <aurelien@aurel32.net>
-Subject: [PATCH v8 2/6] PCI: spacemit-k1: Add multiple PHY handles support
-Date: Wed, 25 Nov 2026 12:15:16 +0800
-Message-ID: <20261125041523.242588-3-inochiama@gmail.com>
+Subject: [PATCH v8 1/6] PCI: spacemit-k1: Add device data support
+Date: Wed, 25 Nov 2026 12:15:15 +0800
+Message-ID: <20261125041523.242588-2-inochiama@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261125041523.242588-1-inochiama@gmail.com>
 References: <20261125041523.242588-1-inochiama@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261124_201541_998403_B62AB95C 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20261124_201537_026177_628CF557 
+X-CRM114-Status: GOOD (  16.88  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -147,143 +147,101 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The PCIe controller on Spacemit K3 may use multiple PHYs at the
-same time. The feature is not supported by the current driver.
-So extend the PHY definition to support multiple PHY handles.
+To reuse the K1 PCIe driver logic for K3 PCIe controller, add device
+data to handle the K1 specific logic and make room for the incoming
+logic for K3.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Tested-by: Aurelien Jarno <aurelien@aurel32.net>
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- drivers/pci/controller/dwc/pcie-spacemit-k1.c | 57 ++++++++++++++-----
- 1 file changed, 42 insertions(+), 15 deletions(-)
+ drivers/pci/controller/dwc/pcie-spacemit-k1.c | 30 ++++++++++++++++---
+ 1 file changed, 26 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-index 658ad2fa87b2..8a3cae32609f 100644
+index 92a71ea90ac3..658ad2fa87b2 100644
 --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
 +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-@@ -54,12 +54,14 @@ struct k1_pcie_device_data {
- 	const struct dw_pcie_host_ops *host_ops;
- 	const struct dw_pcie_ops *ops;
- 	int (*parse_port)(struct k1_pcie *k1);
-+	unsigned int max_phy_count;
- };
+@@ -48,8 +48,17 @@
+ #define PCIE_CONTROL_LOGIC			0x0004
+ #define PCIE_SOFT_RESET			BIT(0)
  
++struct k1_pcie;
++
++struct k1_pcie_device_data {
++	const struct dw_pcie_host_ops *host_ops;
++	const struct dw_pcie_ops *ops;
++	int (*parse_port)(struct k1_pcie *k1);
++};
++
  struct k1_pcie {
  	struct dw_pcie pci;
- 	const struct k1_pcie_device_data *data;
--	struct phy *phy;
-+	struct phy_bulk_data *phys;
-+	unsigned int phy_count;
++	const struct k1_pcie_device_data *data;
+ 	struct phy *phy;
  	void __iomem *link;
  	struct regmap *pmu;	/* Errors ignored; MMIO-backed regmap */
- 	u32 pmu_off;
-@@ -118,6 +120,25 @@ static void k1_pcie_disable_resources(struct k1_pcie *k1)
- 	clk_bulk_disable_unprepare(ARRAY_SIZE(pci->app_clks), pci->app_clks);
- }
- 
-+static int k1_pcie_get_phy_handle(struct k1_pcie *k1, struct device_node *node)
-+{
-+	const struct k1_pcie_device_data *data = k1->data;
-+	struct device *dev = k1->pci.dev;
-+	int count;
-+
-+	count = devm_of_phy_bulk_get_all(dev, node, &k1->phys);
-+	if (count < 0)
-+		return count;
-+	if (!count)
-+		return -ENOENT;
-+	if (count > data->max_phy_count)
-+		return -EINVAL;
-+
-+	k1->phy_count = count;
-+
-+	return 0;
-+}
-+
- /* FIXME: Disable ASPM L1 to avoid errors reported on some NVMe drives */
- static void k1_pcie_disable_aspm_l1(struct k1_pcie *k1)
- {
-@@ -173,12 +194,13 @@ static int k1_pcie_init(struct dw_pcie_rp *pp)
- 	 */
- 	regmap_set_bits(k1->pmu, reset_ctrl, DEVICE_TYPE_RC | PCIE_AUX_PWR_DET);
- 
--	ret = phy_init(k1->phy);
--	if (ret) {
--		k1_pcie_disable_resources(k1);
-+	ret = phy_bulk_init(k1->phy_count, k1->phys);
-+	if (ret)
-+		goto failed_phy_init;
- 
--		return ret;
--	}
-+	ret = phy_bulk_power_on(k1->phy_count, k1->phys);
-+	if (ret)
-+		goto failed_phy_power_on;
- 
- 	/* Deassert fundamental reset (drive PERST# high) */
- 	regmap_clear_bits(k1->pmu, reset_ctrl, PCIE_RC_PERST);
-@@ -187,6 +209,14 @@ static int k1_pcie_init(struct dw_pcie_rp *pp)
- 	k1_pcie_disable_aspm_l1(k1);
- 
- 	return 0;
-+
-+failed_phy_power_on:
-+	phy_bulk_exit(k1->phy_count, k1->phys);
-+failed_phy_init:
-+	k1_pcie_disable_resources(k1);
-+
-+	return ret;
-+
- }
- 
- static void k1_pcie_deinit(struct dw_pcie_rp *pp)
-@@ -198,7 +228,8 @@ static void k1_pcie_deinit(struct dw_pcie_rp *pp)
- 	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CLK_RESET_CONTROL,
- 			PCIE_RC_PERST);
- 
--	phy_exit(k1->phy);
-+	phy_bulk_power_off(k1->phy_count, k1->phys);
-+	phy_bulk_exit(k1->phy_count, k1->phys);
- 
- 	k1_pcie_disable_resources(k1);
- }
-@@ -265,23 +296,18 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
- {
- 	struct device *dev = k1->pci.dev;
- 	struct device_node *root_port;
--	struct phy *phy;
-+	int ret;
- 
- 	/* We assume only one root port */
- 	root_port = of_get_next_available_child(dev_of_node(dev), NULL);
- 	if (!root_port)
- 		return -EINVAL;
- 
--	phy = devm_of_phy_get(dev, root_port, NULL);
-+	ret = k1_pcie_get_phy_handle(k1, root_port);
- 
- 	of_node_put(root_port);
- 
--	if (IS_ERR(phy))
--		return PTR_ERR(phy);
--
--	k1->phy = phy;
--
--	return 0;
-+	return ret;
- }
+@@ -277,14 +286,21 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
  
  static int k1_pcie_probe(struct platform_device *pdev)
-@@ -357,6 +383,7 @@ static const struct k1_pcie_device_data k1_pcie_device_data = {
- 	.host_ops	= &k1_pcie_host_ops,
- 	.ops		= &k1_pcie_ops,
- 	.parse_port	= k1_pcie_parse_port,
-+	.max_phy_count	= 1,
- };
+ {
++	const struct k1_pcie_device_data *data;
+ 	struct device *dev = &pdev->dev;
+ 	struct k1_pcie *k1;
+ 	int ret;
  
++	data = device_get_match_data(dev);
++	if (!data)
++		return -ENODATA;
++
+ 	k1 = devm_kzalloc(dev, sizeof(*k1), GFP_KERNEL);
+ 	if (!k1)
+ 		return -ENOMEM;
+ 
++	k1->data = data;
++
+ 	k1->pmu = syscon_regmap_lookup_by_phandle_args(dev_of_node(dev),
+ 						       SYSCON_APMU, 1,
+ 						       &k1->pmu_off);
+@@ -298,11 +314,11 @@ static int k1_pcie_probe(struct platform_device *pdev)
+ 				     "failed to map \"link\" registers\n");
+ 
+ 	k1->pci.dev = dev;
+-	k1->pci.ops = &k1_pcie_ops;
++	k1->pci.ops = data->ops;
+ 	k1->pci.pp.num_vectors = MAX_MSI_IRQS;
+ 	dw_pcie_cap_set(&k1->pci, REQ_RES);
+ 
+-	k1->pci.pp.ops = &k1_pcie_host_ops;
++	k1->pci.pp.ops = data->host_ops;
+ 
+ 	/* Hold the PHY in reset until we start the link */
+ 	regmap_set_bits(k1->pmu, k1->pmu_off + PCIE_CLK_RESET_CONTROL,
+@@ -319,7 +335,7 @@ static int k1_pcie_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, k1);
+ 
+-	ret = k1_pcie_parse_port(k1);
++	ret = data->parse_port(k1);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to parse root port\n");
+ 
+@@ -337,8 +353,14 @@ static void k1_pcie_remove(struct platform_device *pdev)
+ 	dw_pcie_host_deinit(&k1->pci.pp);
+ }
+ 
++static const struct k1_pcie_device_data k1_pcie_device_data = {
++	.host_ops	= &k1_pcie_host_ops,
++	.ops		= &k1_pcie_ops,
++	.parse_port	= k1_pcie_parse_port,
++};
++
  static const struct of_device_id k1_pcie_of_match_table[] = {
+-	{ .compatible = "spacemit,k1-pcie", },
++	{ .compatible = "spacemit,k1-pcie", .data = &k1_pcie_device_data },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, k1_pcie_of_match_table);
 -- 
 2.56.1
 
