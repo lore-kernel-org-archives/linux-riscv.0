@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CAF7606A31E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 17:29:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BDE1606A31E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 17:35:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AGW8xyB0;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=yzP910FA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qSTkh54J;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YVxpg//7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,67 +14,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=I+UI0uNojL9U2fqnnU19XNiecGaiolG8vTE5kGOQqUA=; b=AGW8xyB0gDVz+H+lnx7sUz25YW
-	rusRy8Jgl94ibzZ4n0mInNwPytCkEM1cksBJWrTbISEi7wN02eZYU3Uu785XZwvRzw2bTIzqVbvI/
-	CEoousf3OJace6EzjWxNXkjP/9fGQXsL7Dc/fVgKW32Rs0ZHNrj3vH7wkYOgq81fCy3TJgkDHE74l
-	QcoaXAynbK4aX10sdFOJ6pujIZGD5Dg68mEmvAbs5vGY94jmxdJP9guqlbPr/GweiT8lgKIZRepiL
-	yOIWzWWsk5PzNWxKnfpHN388YqS7cGo6WkJhb4e/ODUfcQH02MVsm4GC7zOjnJMt4xXCjex6DVWX7
-	nMPGNCHw==;
+	bh=uwOtjlYjqQAFD4qZkgz+Lqz8tg0AvyzL/dDg95QbVpA=; b=qSTkh54JB72LMPO13vUHFCq5Jq
+	V9VOVDWzZ9eKKQQreChAAAE1AXFUAsy799HoNaP8Iu2T7bGUs7s/AUqx5U2u0YxkPIHdNrPB4wgvx
+	0E2XE4BiJi6TpjwYrT+EEoWxCoUATsvz8t93fqrjdELk5FdAmpaJg0JR3NfuYCR+g3xuuyXbeRXd/
+	eDHgjJqNCMKPBBIxnJZUxeMNW2ikXLU2oOwuFdlOeFZnexRAWal18WNxUdXi/Nj08s6srZX0LNROf
+	NDMlV8aGdrlYhF4Y28BeuC9mJaj4+TRUncUHdY8MEtnt3AXk+Hno0XD8tYohIGfGIuaVl/BZM9LFh
+	hpTPHzWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWGo5-0000000Ak4q-3raO;
-	Wed, 25 Nov 2026 17:29:21 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1xWGtp-0000000AkxE-1rlK;
+	Wed, 25 Nov 2026 17:35:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWGo3-0000000Ak3M-1Zl9
+	id 1xWGto-0000000Akwp-0wlx
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 17:29:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=yrd/T5Z1nZ5j4ICtv7zxxrKmkmhWKnEi2p3IlK1vsdw=; b=yzP910FAxdw0Bm95XXINPjoinf
-	DmAWg7phoC706aJL1nxgtfsPqIW65vFYpDXb/3mRiKlWCzjcw8ciLo+CIDw3bVFUfB2skUX9dSbBv
-	kHI7u7DmxBSrlITzszVZQfATk2Ncu0DxyMjZ2bF5VaW8Iu9RYDf9U9D2Gt/4G6mF/+MsvagkhAqEv
-	R31CJ+zQ3aJt5hksVgepyajB5txeY6/XihN7eLxhBfsISs2GeULpDFHIcJqZgb0rekm1VhY13MPxj
-	c058YeI3GBBwz918VSGTxVLKewagQap7nMO3Dqe6bipM63+kx5pN3lQQWYVHZm687ZSzeJADds0Sm
-	lMUkVhMQ==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1xWGnd-0000000AANN-3j0f;
-	Wed, 25 Nov 2026 18:28:53 +0100
-Date: Wed, 25 Nov 2026 18:28:53 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Zixian Zeng <sycamoremoon376@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Wed, 25 Nov 2026 17:35:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7080861E25;
+	Wed, 25 Nov 2026 17:35:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E977E1F000C4;
+	Wed, 25 Nov 2026 17:35:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795628115;
+	bh=VhHyLFRoMZTTpzK9/qbi2HxQjus7kyc4UtiAeaU33j0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YVxpg//7XUL6zEg+Rxa4H4eebER+ohBygTeKRTnmnvYPVXxRaLu/XdtfuYX9DnRgd
+	 rLao18Zai3T8xA6NyahKhwrdj6yOUV++Az+cNM1fzjtyEybKTBfkdijg151IMOgu5t
+	 ZqhrPibPlb9mO1zb0+KfuthXmzZJqB1SwLR9N0gS1uRSYdIolvdTzKpZ7Cl/nMUOn5
+	 1UnEuKzP0lsE0rdjZqkn3gKAo6N/H1Oxhy5zb55/muZb2ouaKXJjB4mBC5x1/RyE1k
+	 j1Ao5wjAPD44ix9opEzz2iPAqOArQk2pAP58VX1Lf7gnXO9qSQRI0lIArJO48r+hgj
+	 O116O9pU6GeVA==
+Date: Wed, 25 Nov 2026 09:35:13 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: "GUO Ren (XuanTie)" <guoren@kernel.org>
+Cc: Han Gao <gaohan@iscas.ac.cn>, Inochi Amaoto <inochiama@gmail.com>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH] riscv: dts: spacemit: k1: fix the EEPROM page size
-Message-ID: <awca1TDIKObMIeHE@aurel32.net>
-References: <20261123-fix-bpf3-eeprom-v1-1-df8cce6ef2b5@gmail.com>
- <awS2-clBenE1r1a1@aurel32.net>
- <12933da0-9bc8-4f92-96d4-36c5673d3f5e@gmail.com>
- <awXUSuYOUQMPCl-5@aurel32.net>
- <CANAwSgRf0XpWnyDaoiGySFv3NPKCBYn6BODf1M+P4w58BF-duw@mail.gmail.com>
+	Arnd Bergmann <arnd@arndb.de>, Chen Wang <chen.wang@linux.dev>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, sophgo@lists.linux.dev,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Leonardo Bras <leobras@redhat.com>, Yao Zi <me@ziyao.cc>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+Subject: Re: [PATCH v7] riscv: errata: Add ERRATA WRITE_ONCE fixup
+Message-ID: <awccUVMi/lSQFfHQ@x1>
+References: <20261124-write_once-v7-1-4158a930aa80@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CANAwSgRf0XpWnyDaoiGySFv3NPKCBYn6BODf1M+P4w58BF-duw@mail.gmail.com>
-User-Agent: Mutt/2.4.1 (2026-07-04)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_092919_479034_563CA6A6 
-X-CRM114-Status: GOOD (  33.21  )
-X-Spam-Score: -4.4 (----)
+In-Reply-To: <20261124-write_once-v7-1-4158a930aa80@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,108 +76,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-11-25 13:22, Anand Moon wrote:
-> Hi Aurelien,
+On Tue, Nov 24, 2026 at 08:35:04AM +0000, GUO Ren (XuanTie) wrote:
+> The early version of XuanTie C910 core has a store merge buffer
+> delay problem. The store merge buffer could improve the store queue
+> performance by merging multi-store requests, but when there are not
+> continued store requests, the prior single store request would be
+> waiting in the store queue for a long time. That would cause
+> significant problems for communication between multi-cores. This
+> problem was found on sg2042 platform with the qspinlock lock torture
+> test.
 > 
-> On Wed, 25 Nov 2026 at 00:14, Aurelien Jarno <aurelien@aurel32.net> wrote:
-> >
-> > Hi Zixian,
-> >
-> > On 2026-11-24 11:31, Zixian Zeng wrote:
-> > > Hi Aurelien,
-> > >
-> > > On 2026/11/24 5:58, Aurelien Jarno wrote:
-> > > > Hi,
-> > > >
-> > > > On 2026-11-23 12:41, Zixian Zeng wrote:
-> > > > > The bananapi-f3 carries an AT24C02 compatible EEPROM GT24C02B [1]:
-> > > > > 256 bytes with an 8-byte write page, which can be found in schematic[2].
-> > > > > The device tree declares pagesize = <16>, which does not match the
-> > > > > eeprom chip datasheet which declares pagesize 8 bytes.
-> > > >
-> > > > Oops, I am not sure how I got that wrong. Sorry about that.
-> >
-> > The question of the page size has been raised in the initial review [1],
-> > and it seems that the GT24C02 has a 16-byte page size, while the
-> > GT24C02B [2] has a 8-byte page size. The BPI-F3 schematics confirms that
-> > the B version is used. Sorry about the mistake.
-> >
-> > > > > EEPROM pagesize of k1-bananapi-cm6-io[3] and k1-orangepi-rv2[4] changed
-> > > > > together, based on the chip model shown in the schematic diagram.
-> > > >
-> > > > The k1-milkv-jupiter board is also affected with the same issue, despite
-> > > > using a slightly different EEPROM (24C04).
-> > > >
-> > >
-> > > The GT24C04A EEPROM used on k1-milkv-jupiter board doesn't seem to have
-> > > the same issue, which you can find "Page Size: 16 bytes" in datasheet:
-> > > https://www.giantec-semi.com/uploads/20220929/GT24C04A.pdf
-> >
-> > Indeed you are correct, and I confirm that this is the exact version
-> > used on the schematics. Therefore there is no need to extend your patch,
-> > it can be merged that way.
-> >
-> > > But I don't have the board, simple test would be appreciated. Perhaps I
-> > > should include test steps in the commit message for the next revision.
-> >
-> > Unfortunately the board has the EEPROM write protection pin connected to
-> > VCC, which means the write protection is enabled. Therefore testing is
-> > not so easy.
-> >
-> > Regards
-> > Aurelien
-> >
-> > [1] https://lore.kernel.org/linux-riscv/aNLzRJcKCYOngc7z@aurel32.net/
-> > [2] https://www.giantec-semi.com/juchen1123/uploads/pdf/GT24C02_DS_Au.pdf
-> >
-> Apologies, this is a different issue.
+> So appending a fence w.o could immediately flush the store merge
+> buffer and let other cores see the write result.
 > 
-> I am currently working on enabling multi-DTB support in U-Boot SPL
-> for SpacemiT K1 boards.
+> This will apply the WRITE_ONCE errata to handle the non-standard
+> behavior via appending a fence w.o instruction for WRITE_ONCE().
 > 
-> While investigating the board detection issue, I noticed that the EEPROM
-> on my Banana Pi BPI-F3 does not contain a Product Name TLV entry.
+> This problem is only observed on the sg2042 hardware platform: it
+> takes hours of locktorture stress testing to trigger the livelock
+> once, and an interrupt can break the livelock. No user space
+> application has been observed to hit this problem, so there is no
+> need to modify user space WRITE_ONCE(). The vDSO code runs in user
+> space context as well, so its WRITE_ONCE() does not need the errata
+> fence either.
 > 
-> alarm@k1:~$ sudo hexdump -C /sys/bus/i2c/devices/2-0050/eeprom
-> 00000000  54 6c 76 49 6e 66 6f 00  01 00 20 24 06 fe fe fe  |TlvInfo... $....|
-> 00000010  d5 52 bd 2a 02 00 02 23  0c 39 38 61 39 63 33 61  |.R.*...#.98a9c3a|
-> 00000020  32 62 64 34 37 fe 04 3b  e3 ff bd ff ff ff ff ff  |2bd47..;........|
-> 00000030  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  |................|
-> *
-> 00000100
-
-Yes, I observed the same on my board. It seems the Banana-Pi F3 (or 
-probably more the designed it is based on) is the first board that got 
-produced and misses that.
-
-> Although the EEPROM is readable, the missing Product Name TLV entry
-> explains why read_product_name() returns `-ENOENT` (-2), assuming the
-> EEPROM read and validation succeed.
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Reviewed-by: Leonardo Bras <leobras@redhat.com>
+> Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+> Tested-by: Han Gao <gaohan@iscas.ac.cn>
+> Tested-by: Yao Zi <me@ziyao.cc>
+> Cc: Chen Wang <unicorn_wang@outlook.com>
+> Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+> Cc: Paul Walmsley <pjw@kernel.org>
+> Cc: Drew Fustini <fustini@kernel.org>
+> Co-developed-by: Han Gao <gaohan@iscas.ac.cn>
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+> ---
+> Changelog
 > 
-> Consequently, automatic board detection fails, and U-Boot falls back to
-> CONFIG_DEFAULT_DEVICE_TREE, which may select an incorrect device
-> tree for the target board.
+> v7:
+>  - Define BUILD_VDSO for the riscv vDSO build (as arm64, powerpc and
+>    others do) and use it to keep the WRITE_ONCE errata alternative out
+>    of the vDSO. The vdso getrandom code uses WRITE_ONCE(), so v6 added
+>    .alternative entries to the vDSO and booting with
+>    CONFIG_DEBUG_VIRTUAL=y hit VIRTUAL_BUG_ON() in vmalloc_to_page(),
+>    as reported by Drew Fustini:
+>    https://lore.kernel.org/linux-riscv/awPgjwuswbjeDftg@thelio/
+>    Fold in Han Gao's "riscv: vdso: Define BUILD_VDSO" patch:
+>    https://lore.kernel.org/linux-riscv/20261124-riscv-vdso-build-vdso-v1-1-c52b0b3592dc@iscas.ac.cn/
+>  - Clarify in the commit message why user space and the vDSO are not
+>    affected by the livelock.
+>  - Rebase on v7.4-rc4.
 
-Yes, I think the MusePi Pro is not the good default board. The vendor 
-code uses sets DEFAULT_PRODUCT_NAME to "k1-x_deb1" in 
-include/configs/k1-x.h, I think the upstream U-Boot should do the same.
-I already pointed that out [1].
+Reviewed-by: Drew Fustini <fustini@kernel.org>
 
-Regards
-Aurelien
+I tried v7 in qemu with -cpu thead-c906 and CONFIG_DEBUG_VIRTUAL=y. It
+boots okay and the vdso has no entries in .alternative.
 
-[1] https://lore.kernel.org/ahNs0lme0ya2zolV@aurel32.net/
-
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
