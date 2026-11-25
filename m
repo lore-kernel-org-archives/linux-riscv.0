@@ -2,112 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0194F606A69C
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 11:49:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E683606A31E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 11:53:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OtssHtZM;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=trw7nSX0
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xl3fTXrx;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=C8qj2Rj+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=I3xbR2BP+RH0KpCgQzT2mSefMRpBBbyyh2OBqhSbbWc=; b=OtssHtZMHer9z5EOAU5jk2d5/k
-	UUZ/tu4KPP5P2QhOPdcNRYPBcsg5Wx1amVUcTQkVrxnSuVsc3D6uACbp4MvVN9leQZqgoVe0ol4Vl
-	4xXJ8LYSKCq1pO25iFS0Eb5aaehEMG+uS11N1dp9v7BeEodrNhaVuFIoubGwyxjmFJfh30kQYf1Ea
-	8ce9CQShcH4aPyljC++H9TMNNYeWF7wWi21QKKlk/nOm1Kre9RpUDEwhhYJL8pCkXCRASAdEaEsm3
-	d8eZKCj7L6kFiALhwE+Zxk8CEYc4gK0pMCa85yGySajx7csWAdxITe4U0+QXWJkMBS/r2uukRysJE
-	W7Ctih5g==;
+	bh=bJL/QuBeOpF/UFbC2DuQu8D+1WUb46JuQv38+ITQdQ8=; b=Xl3fTXrxHBTwWHXSK9bbMjiInr
+	5kz6/Qd5qFxNeYYelyFBtzfJ/8Qh9S8EyoW0TyJlXCCjXdhset/AKBHr4oGYpfPf3X2gLsd6xM96Q
+	6Fd1pFww4FEgeo2y1bdZAtCC4D1DIm/FgZsiLl9fxOIaD1hj9PbSj9uEs3NmwGLSN2wKzGly6sEwL
+	FaVxWf7LLSurUXn0Vupf1/LRwBL5WoqMn4TetEHj6WJRVJEtZRkaeUHYcgDBZ3EY18NoIv2QtMZs1
+	0TMlRNADdZNoDWeCWVepbwQa5fHAKfN9UprA74z79b7ZIrQRTvq2KTP0b3NEoiuqlUMJAp3O+EPkU
+	DOh+eDcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWBVV-00000009hyX-0Hof;
-	Wed, 25 Nov 2026 11:49:49 +0000
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	id 1xWBZL-00000009jZD-2EPA;
+	Wed, 25 Nov 2026 11:53:47 +0000
+Received: from watt.d-silva.org ([119.15.109.137] helo=www.nmnhosting.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWBVG-00000009hlz-40Cx
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 11:49:39 +0000
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.12/8.18.1.12) with ESMTP id 6AP7p8ei1960842;
-	Wed, 25 Nov 2026 11:49:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=4
-	CfRCISKaUfvlxADLmdA9mSe+FQm0MkTvyy26GOlOBg=; b=trw7nSX04UiGvw7IR
-	YP9uFSd1okWmDHDt+VZgCzD8LHe9plpVnjDKIvsOhEGl5suiAfuSWJPxyC7LYnSc
-	N7YXQw6erUz1khv2ejHhjom7VB4Xq9zotKy9xVq5hFfJQFbFwl2btBCFKGGbFXZ+
-	MqX4lVbQ+vV+QP7wKVegR5W40DMJI1vcvENC19l3rYM6En44yScizFEeJwXJ6XsE
-	g3VYIAUIyKKY2gf26THAL1TdpFNx3yHhkijttgEDUAEeJpI1mcdQBNquT7iIDR2m
-	Jw8IfTc8BW/JSHFeeLzJGngLkukyv020A5km7xdLNhzOqi2OWsJLj6c7la52BGtD
-	kj9cA==
-Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 4j3491kdys-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT key_exchange=secp384r1);
-	Wed, 25 Nov 2026 11:49:07 +0000 (GMT)
-Received: from [127.0.1.1] (172.25.10.203) by HHMAIL01.hh.imgtec.org
- (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 25 Nov
- 2026 11:49:05 +0000
-From: Alexandru Dadu <alexandru.dadu@imgtec.com>
-Date: Wed, 25 Nov 2026 13:48:34 +0200
-Subject: [PATCH 6/6] drm/imagination: Avoid loop in configure_seg_mmu()
+	id 1xWBZ3-00000009jW2-3hbe;
+	Wed, 25 Nov 2026 11:53:36 +0000
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id 32D4E45844;
+	Wed, 25 Nov 2026 22:53:20 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795607600;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mlkDCg9kprZ62DwlXQd8yd+ADgwJpdD1CpbOrg8ZjiY=;
+	b=C8qj2Rj+fzKog24buY1PaEC/j3+RQMketNzOBNyqLPWLhq3UVkUmXjPujBBBfT32+Ki+0s
+	2Y6k9BKv4Xh6Cgdk4eNvSDniSQhzK5oRY5aaw8V03U/XkGaHoA8oZcgvXvXzrrwIhtpckP
+	D7e+5pVv+l6s9ImcAxTvntnCi3d2XynmKc4m8EmxMU3tg72jdrGMswbwvB8ygFYJyyf1aJ
+	HUapdsxbhWcfElKIXpTDoNlNeqEAEO3kDjc6dUakyf3z4+fSNGVWbQdDDxumfm/rnqxnz7
+	PKxPPKekc+UHvNn7g/4bNwrBoIOeaE/YpnGdebkwT26eR7KAiLcsSJcNrm1rdw==
+X-GPT-Reason: The email is classified as personal/professional
+	correspondence because it appears to be a direct reply to a technical
+	discussion. The sender domain (d-silva.org) matches the recipient's
+	known personal mailbox (alastair@d-silva.org), the subject line
+	refers to a specific technical patch (clk: sunxi-ng: a733), and
+	there are no phishing indicators, urgency tactics, or external URLs
+	present.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Junhui Liu <junhui.liu@pigmoral.tech>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	netdev@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	Norman Herms <dockseed@proton.me>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+Subject: Re: [PATCH v7 7/8] clk: sunxi-ng: a733: Add bus clock gates
+Date: Wed, 25 Nov 2026 22:53:20 +1100
+Message-ID: <20261125115320.3692954-1-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech>
+References: <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-ID: <20261125-b4-commonize-fw-segment-loading-v1-6-69657fa52ac3@imgtec.com>
-References: <20261125-b4-commonize-fw-segment-loading-v1-0-69657fa52ac3@imgtec.com>
-In-Reply-To: <20261125-b4-commonize-fw-segment-loading-v1-0-69657fa52ac3@imgtec.com>
-To: Alessio Belle <alessio.belle@imgtec.com>,
-        Luigi Santivetti
-	<luigi.santivetti@imgtec.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>,
-        Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva"
-	<gustavoars@kernel.org>
-CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <linux-hardening@vger.kernel.org>,
-        Alexandru Dadu <alexandru.dadu@imgtec.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795607333; l=2620;
- i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
- bh=mH864ocXZNC25WYs2lKkZEbtfIlEtPaodCWW6jSS8bw=;
- b=pG8Z8ATSuSrkO3Oqr41DAy+xghqzGl+Lyijfvqv/L0wO4hZzQZ0vexU2zkNHKUUlZJ8Rfccag
- qqsmCGFfV7SBSEqWQPjYpH+UOJpMR9+V9dyKp3QQwgR9HZkSxo6qtRA
-X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
- pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0NiBTYWx0ZWRfX3X/zDx2aWuyu
- iHL/p9PdnGvAwrvYwklQHfBFEfuVRoZwZ+qHq8Dk9FDae2QQXz3Rzx/1Kfp4/1H8IZDzUKdO8BF
- YZN+dsYEUxNUrJr9twmlAbQ9+ceZ7ULDb3sYVnbIlvZbbFjtjUWHbK+o5bHSekM2o23aRRv1MYx
- +wU3g4WYwvF/MGhmsteeOxS1rw54xebSyf0RkddtilPJdQQkdhsV3NeIDP4tzF1F8JR3pKVvnhj
- 6eYL+3R0m4J+R9oTOSnDjCSgQ6v/MmiZLkThYT6E5eN0JD4q2niP4TcLqGu7DmsPQkyHiqKMMST
- /7q1sqv2XHT9vYXNznTQTzh6LWnK0dLS25y/DUIyoZprncEUvJbnsev2wsYv3tjR5ojNCPcxwRZ
- tNPBXsb9wV+Ynd8Qe8Ya5fqmXgt6HySF9KYxvcnIsX41f9cvZRKiYqbxWSeuod9skP13CmSe9Am
- uTUOEqPiFQhJBkl8CGQ==
-X-Authority-Analysis: v=2.4 cv=OaENnRTY c=1 sm=1 tr=0 ts=6b06cb33 cx=c_pps
- a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
- a=4EFqt8Tv61wA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=7RYWX5rxfSByPNLylY2M:22
- a=r_1tXGB3AAAA:8 a=RsU-mexvXcnqIS9unQEA:9 a=QEXdDO2ut3YA:10
- a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0NiBTYWx0ZWRfX2sp8e2CMco+c
- LZ27dDLBqWOKDYIxFDrlDiru2J62p2Zz6YNXiDeJ2wAt2dum//wZuxn/PBIf4MMEBkXUIttYvH1
- 2VIb3wIOsusfg4I9vZw5fnnMgdMwG/s=
-X-Proofpoint-GUID: QNqZJqeBUj2jaWl1CS5X_0np2lIr9fvj
-X-Proofpoint-ORIG-GUID: QNqZJqeBUj2jaWl1CS5X_0np2lIr9fvj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_034935_332848_19FF221A 
-X-CRM114-Status: GOOD (  14.99  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261125_035330_073149_0FB44BAB 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,89 +105,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Alessio Belle <alessio.belle@imgtec.com>
+Hi Junhui,
 
-Use recently added API to directly find the one section the code is
-looking for.
+On Thu, 12 Nov 2026, Junhui Liu wrote:
+> static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
+> 			  0x5c0, BIT(16), 0);
+> ...
+> static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hws,
+> 			  0x5e0, BIT(29), 0);
 
-Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
-Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
----
- drivers/gpu/drm/imagination/pvr_fw_meta.c | 50 +++++++++++++++----------------
- 1 file changed, 24 insertions(+), 26 deletions(-)
+While bringing up GMAC0 on the OrangePi 4 Pro with this v7 CCU series,
+link-up and DMA broke as soon as clk_disable_unused() ran.
 
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-index 53143a6ad2ca..92f54c846169 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-@@ -353,32 +353,30 @@ configure_seg_id(u64 seg_out_addr, u32 seg_base, u32 seg_limit, u32 seg_id,
- static void
- configure_seg_mmu(struct pvr_device *pvr_dev, u32 **boot_conf_ptr)
- {
--	u64 data_seg_gpu_addr =
--		pvr_fw_obj_get_gpu_addr(pvr_dev->fw_dev.mem.segments[PVR_FW_SEGMENT_DATA].obj);
--	u64 seg_out_addr_top =
--		ROGUE_FW_SEGMMU_OUTADDR_TOP_SLC(MMU_CONTEXT_MAPPING_FWPRIV,
--						ROGUE_FW_SEGMMU_META_BIFDM_ID);
--
--	pvr_for_each_fw_section_desc(pvr_dev->fw_dev.metadata, desc) {
--		/*
--		 * FW code is using the bootloader segment which is already
--		 * configured on boot. FW coremem code and data don't use the
--		 * segment MMU. Only the FW data segment needs to be configured.
--		 */
--		if (desc->segment == PVR_FW_SEGMENT_DATA) {
--			u32 seg_id = ROGUE_FW_SEGMMU_DATA_ID;
--			u64 seg_out_addr = data_seg_gpu_addr;
--
--			seg_out_addr += desc->alloc_offset;
--			seg_out_addr |= seg_out_addr_top;
--
--			/* Write the sequence to the bootldr. */
--			configure_seg_id(seg_out_addr, desc->base_addr,
--					 desc->size, seg_id, boot_conf_ptr);
--
--			break;
--		}
--	}
-+	const struct pvr_fw_section_desc *data =
-+		pvr_fw_get_section_desc(pvr_dev, PVR_FW_SECTION_PRIVATE_DATA);
-+	struct pvr_fw_object *data_obj =
-+		pvr_dev->fw_dev.mem.segments[PVR_FW_SEGMENT_DATA].obj;
-+	u64 data_gpu_addr = pvr_fw_obj_get_gpu_addr(data_obj);
-+	u64 seg_out_addr = data_gpu_addr + data->alloc_offset;
-+	u32 data_base_addr = data->base_addr;
-+	u32 data_size = data->size;
-+
-+	/*
-+	 * FW code is using the bootloader segment which is already configured on boot.
-+	 * FW coremem code and data don't use the segment MMU. Only the FW data segment
-+	 * needs to be configured.
-+	 */
-+
-+	seg_out_addr |= ROGUE_FW_SEGMMU_OUTADDR_TOP_SLC(MMU_CONTEXT_MAPPING_FWPRIV,
-+							ROGUE_FW_SEGMMU_META_BIFDM_ID);
-+
-+	/* Write the sequence to the bootloader. */
-+	configure_seg_id(seg_out_addr,
-+			 data_base_addr,
-+			 data_size,
-+			 ROGUE_FW_SEGMMU_DATA_ID,
-+			 boot_conf_ptr);
- }
- 
- static void
+ahb-msi-lite0 (0x5c0, BIT(16)) and mbus-msi-lite0 (0x5e0, BIT(29)) gate
+the shared MSI-Lite0 bus fabric used by GMAC0 and other masters, whereas
+bus-msi-lite0 is only its register configuration clock. Referencing
+ahb-msi-lite0 and mbus-msi-lite0 only in gmac0 does not model the
+shared fabric, and gating them off breaks GMAC0 DMA.
 
--- 
-2.43.0
+Could you please mark ahb_msi_lite0_clk and mbus_msi_lite0_clk with
+CLK_IS_CRITICAL, matching ahb_store_clk and mbus_store_clk in this
+driver?
 
+Tested on OrangePi 4 Pro (Allwinner A733).
+
+Thanks,
+Alastair
 
 _______________________________________________
 linux-riscv mailing list
