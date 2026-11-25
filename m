@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4851D606A321
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 13:24:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FDB8606A31E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 13:52:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=A71SQAhv;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T9bW1DWp
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JHGgoBeJ;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eassQ+eh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,57 +14,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=s3Y0fC1zI/hjhPSqnLzzEHgULmK/fxGayVLahtUOMkU=; b=A71SQAhvpd1KgKuYAT4sqrUzDA
-	+Op3iRtfZJEEZ2Q6Q1FxSIZhjepvj5HGsIjW0vOBQjaQxp9J3y1eUUNBzlSxqZcc+qEnmSSzjdhnK
-	+1kev94dVUXQPlfT8H7hsvAnp7HBnaDVLJOD2S6laTKGJizc5DCXawnw9JbXM7PcIpjdtku3Spfbs
-	BX01A+iwkKl8gVE/NfjhiWOrExKGk9eV1p5hc6FwmbxTT+xv9x5qd/qJLFwxCWs3DIFnZ6op2//p3
-	7pXQClJpuVz8o/lwJw6YgNyXI3TYQH4wWgTs1t6x4oK2PDlsTwIIgeAR4XDT4XBAIS0ayOuf0xEiU
-	ZgSv4Ygw==;
+	bh=Ie9KPi4zN7eRBDizB9x96Gi+UI193/kdGQrH8qAlhYo=; b=JHGgoBeJ5QSiAtM1L6VXnfOMcy
+	xOv0lMwWBVHp5LqJdvi9c/8BJz9aiO3AupKsvcxdchsSgVU2Z/MjJX/f5gIVqjH8aekKAdgaVr0vo
+	izrIf3bcVNODFGfNy1f67tiafWuTN4Cv7MDysmpv6W+c6Tal2/OrvupbSG3z6utJ9wna4I2RZZg/f
+	dBRtHClBJeYMy2eAA/NLXhfVMBZuitGzoDOyK8mjaOZ3CLrVuuFG9aTzRfdb1kMKszRLEht2sory5
+	6H2yBolNIeIIYjiqZUM/stNtQ/foCp2vok3ckXAgzWQ4yVFlmjAEEPLDVk3z55xgpWmgE+7Cuq3nF
+	WIPv6EYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWCz3-00000009yew-2lGu;
-	Wed, 25 Nov 2026 13:24:25 +0000
+	id 1xWDQ6-0000000A3iU-27Cz;
+	Wed, 25 Nov 2026 13:52:23 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWCz2-00000009yef-2M7O
+	id 1xWDQ4-0000000A3hQ-1VWg
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 13:24:24 +0000
+	Wed, 25 Nov 2026 13:52:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A2CCC62674;
-	Wed, 25 Nov 2026 13:24:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43A781F000EC;
-	Wed, 25 Nov 2026 13:24:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CAFB2623E0;
+	Wed, 25 Nov 2026 13:52:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E21D61F000EE;
+	Wed, 25 Nov 2026 13:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795613062;
-	bh=YLE1Bl5J5RjYqAMTMVsCbfJY9agCq5jvI6bufzbFxSU=;
+	s=k20260515; t=1795614739;
+	bh=ih1VDTrU3FeJ2fsbtiUZSy/fzpLqeBrB/3Ho1Q8Vksg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T9bW1DWpO3+XLqY1yM0WpoAyuaRW7+L6jXCvoC+6B6/rmrJ3Ct5iTXGl0fWQaRsRJ
-	 8qBXg2r+qcP99Lv3ZNjwfAMoiAyMRYsRcmfwnJQhK7iWnYOdh2fWjnlmsPd/zsD/yX
-	 jSNBzNWOGMAbrNAZKCTHI5kFDWjfW12TqHwzf6ZVPf8NoTzp/bbPmtn+Ib4K7X6do2
-	 FC8THwQ8onIfDosJp1Pa364Htcb4usQRuDnxyGAlI/tT1Ib8k2myZeqKlVlsG+uo3A
-	 7SEn6n/uHI1UlT68rHwFWBJvT/ZVU76xVUzl4Pn/QvAvpz69k+q0nL1H/az14o9XyP
-	 1EluBbL0Eu0lw==
-Date: Wed, 25 Nov 2026 21:04:00 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v8] riscv: mm: Trace TLB flush requests
-Message-ID: <awbcwAG4OeZbZKV5@xhacker>
-References: <20261125-tlb_tracepoint-v8-1-18abde32ef0a@gmail.com>
+	b=eassQ+ehtNlIg7BCYm6d9K32YvY8qw6Lw2o1T2KIXMP1nElqmQXlEYtZ3auoJRGPs
+	 RuPLl0AlZn5mOfaiPEATfDF5yS2c9jSNMDDvEc2aB3teBrAHDvhqvQ0MilTw5woUrX
+	 r+0qd3DgUr8J04D3fhgoVd1Mx84QADjJiEWYndLt5edAv7x6+DpeHV7Vl+aDd+IcQh
+	 1ojyxYxC1kYLPCYAitx6iV/dJHFlHDlAbFcQmP57isDtbEc1BaI4smiZPDCiSmq5VS
+	 ltAC3lonKaXHrHdjEBqyBOf1CebpOHDeQUX4mcBbO+VEv83fNq1eCllKZOuRXUuBGD
+	 YyMs/2wdpZIAg==
+Date: Wed, 25 Nov 2026 13:52:17 +0000
+From: Harry Yoo <harry@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>, 
+	Lance Yang <lance.yang@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Ying Huang <huang.ying.caritas@gmail.com>, linux-mm@kvack.org, 
+	linux-rt-devel@lists.linux.dev, linux-riscv@lists.infradead.org, stable@vger.kernel.org, 
+	Kirk Swidowski <swidowski@google.com>, Huang Ying <ying.huang@linux.alibaba.com>
+Subject: Re: [PATCH v2] mm/rmap: avoid reusing batched TLB flush generations
+Message-ID: <awboAcnWHZfsy8bg@thinkstation>
+References: <20261125-rmap-v2-1-0ba817662eac@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20261125-tlb_tracepoint-v8-1-18abde32ef0a@gmail.com>
+In-Reply-To: <20261125-rmap-v2-1-0ba817662eac@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,522 +77,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 25, 2026 at 11:41:52AM +0100, Roman 'Hedin' Storozhenko wrote:
-> Make RISC-V TLB flush requests observable together with the
-> architecture-specific context available when the request reaches
-> the RISC-V implementation.
+On Wed, Nov 25, 2026 at 10:34:46AM +0100, David Hildenbrand (Arm) wrote:
+> mm->tlb_flush_batched packs a 15-bit pending and a 15-bit flushed
+> counter into one atomic_t, and resets both once pending gets large.
+> flush_tlb_batched_pending() updates flushed with a cmpxchg() against the
+> value it read before flushing.
 > 
-> The generic tlb:tlb_flush event provides reason and page-count
-> information. At the RISC-V implementation level, additional
-> context is available, including the invalidation range and stride,
-> ASID, target CPU mask, and invalidation scope.
+> If the counters get reset and reach that same value again while
+> flush_tlb_mm() is running, the cmpxchg() succeeds and unmaps that
+> happened in the meantime are considered flushed. A later zap can then
+> skip the flush and leave stale writable TLB entries behind.
+> 
+> Use two separate counters, never reset pending, and let the flusher
+> simply store the pending value it read before flushing. To keep pending
+> from wrapping around to flushed, pull flushed to pending - 1 once
+> pending is more than INT_MAX ahead.
+> 
+> Preventing the wrapping is primarily required because
+> try_to_unmap_flush() as called from migration and reclaim code does
+> *not* go through flush_tlb_batched_pending(), as it does not iterate
+> MMs. So if nothing in the MM triggers flush_tlb_batched_pending(), there
+> would be a problem.
+> 
+> As the separate counters are no longer read atomically together, we must
+> read "flushed" before "pending" (acquire/release), so a reader can never
+> pair a just moved-forward "flushed" value with an older "pending" value.
+> 
+> We'll leave the barrier() between clearing the PTE and incrementing
+> "pending" alone for now: it should be a smp_mb__before_atomic(), but
+> existing arch code (x86: inc_mm_tlb_gen(), arm64: dsb(ishst) before the
+> TLBI, riscv: fully-ordered xchg() in ptep_get_and_clear()) implies a
+> barrier. This should be cleaned up or documented separately.
+> 
+> As dup_mm() copies the counters using memcpy() while they can get
+> updated concurrently, a newly forked child could end up with "flushed"
+> being "pending + 1" and we could skip a later flush in the child. In
+> theory, this might have been possible before (load tearing), but two
+> separate counters make that easier to trigger. So let's just reset them to
+> 0 during fork(). Put it into the existing init_tlb_flush_pending() and
+> rename the function to make the name better match the wider scope.
+> 
+> Note: if a flusher stalls between reading "pending" and storing it,
+> while "pending" advances by an exact multiple of 2^32, the counters
+> could compare equal and we could miss a flush. The same applies to a
+> writer that stalls while moving "flushed" forward.
+> 
+> That is irrelevant in practice: both hold the PTL, so without PREEMPT_RT
+> they cannot get preempted, and wrapping within the ~20s soft lockup and
+> RCU stall timeouts would require more than 200 million batched unmaps
+> per second on a single mm, which is impossible in practice. Even with
+> PREEMPT_RT or long vCPU preemption, we would need minutes of unmap and
+> refault churn while the stalled task stays off the CPU, which is highly
+> unlikely and not a realistic attack vector.
+> 
+> This effectively adds 4 bytes to mm_struct. However, on common 64-bit
+> configs it fits into the existing padding, leaving the size unchanged.
+> 
+> [ david: use atomic_t instead of atomic64_t, reset counters during fork(),
+>          adjust description ]
+> 
+> Fixes: 5ee2fa2f0636 ("mm/rmap: fix potential batched TLB flush race")
+> Cc: stable@vger.kernel.org
+> Reported-by: Kirk Swidowski <swidowski@google.com>
+> Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+> Reviewed-by: Huang Ying <ying.huang@linux.alibaba.com>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
 
-These info can be got w/o tracepoint. So I still object adding this
-trace point due to non-trivial tracepoint overhead on riscv with up
-to at least gcc15
+Looks good to me,
+Reviewed-by: Harry Yoo (Meta) <harry@kernel.org>
 
-> 
-> This context is useful for debugging and workload analysis. The
-> target CPU mask shows the address-space CPU footprint involved in
-> an invalidation, while range and stride distinguish requests at
-> different mapping granularities. The ASID and scope help correlate
-> requests with MM, scheduler, IPI, and firmware activity.
-> 
-> Add riscv_tlb:riscv_tlb_flush_request in flush_tlb_all() and
-> __flush_tlb_range(). Record start, size, stride, ASID (or the
-> no-ASID sentinel), whether an mm is associated with the request,
-> the target CPU mask and its weight, and the derived scope.
-> 
-> Record the complete target mask because CPU identity cannot be
-> reconstructed from a count. Calculate its weight from the recorded
-> bitmap so both fields agree even if mm_cpumask() changes during
-> recording.
-> 
-> The event describes an invalidation request before dispatch. It
-> does not report whether a remote flush uses SBI RFENCE or Linux
-> cross-CPU coordination, since that choice is effectively established
-> during initialization rather than made for each request.
-> 
-> The address field (start) may contain kernel virtual addresses
-> for flushes involving kernel mappings. Require perf tracepoint
-> permissions even for counting-only events, since perf filters
-> could otherwise reveal address information through event counts.
-> 
-> Tested on QEMU virt with OpenSBI using local and shared-mm
-> mprotect()/munmap() workloads, exercising single, range, and
-> address-space invalidations. A MADV_PAGEOUT reclaim workload
-> exercised global flushes. All four scope values were observed.
-> 
-> Confirmed that trace-cmd records the event and that perf can count
-> it with sufficient privileges. With perf_event_paranoid=0,
-> unprivileged attempts to count the event using perf were denied,
-> as intended.
-> 
-> Document the event fields, request semantics, limitations, and
-> usage through tracefs and userspace tracing tools.
-> 
-> Tested local and shared-mm invalidations with
-> CONFIG_UBSAN_ALIGNMENT=y on QEMU virt without tracepoint-related
-> alignment warnings.
-> 
-> Built with and without CONFIG_PERF_EVENTS.
-> 
-> Built and verified the RISC-V HTML documentation.
-> 
-> Signed-off-by: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-> ---
-> Add a RISC-V tracepoint for observing TLB invalidation requests
-> before they are dispatched by the architecture-specific
-> implementation.
-> 
-> The generic tlb:tlb_flush event describes TLB flush activity using
-> reason and page-count information. The RISC-V event records
-> additional context, including the invalidation range and stride,
-> ASID, target CPU mask and its weight, and derived request scope.
-> 
-> This context helps correlate TLB invalidation activity with MM,
-> scheduler, IPI, and firmware activity. The event describes the
-> request rather than the execution backend. SBI RFENCE versus Linux
-> cross-CPU coordination is effectively determined at initialization
-> rather than selected independently for each request.
-> 
-> The target CPU mask weight is derived from the recorded bitmap to
-> keep both fields consistent under concurrent mm_cpumask() updates.
-> Since the address field (start) may contain kernel virtual
-> addresses, the event requires perf tracepoint permissions even
-> for counting-only access.
-> 
-> Tested on QEMU virt with OpenSBI using local and shared-mm
-> mprotect()/munmap() workloads. A MADV_PAGEOUT reclaim workload
-> on QEMU virt with APLIC+IMSIC exercised global flushes. All four
-> scope values -- single, range, address-space, and all -- were
-> observed.
-> 
-> Confirmed trace-cmd recording and privileged perf counting.
-> With perf_event_paranoid=0, unprivileged attempts to count the
-> event using perf were denied, as intended. The kernel was built
-> with and without CONFIG_PERF_EVENTS.
-> 
-> Tested local and shared-mm invalidations with
-> CONFIG_UBSAN_ALIGNMENT=y on QEMU virt without tracepoint-related
-> alignment warnings.
-> ---
-> Changes in v8:
-> - Rebase on the current RISC-V for-next branch (c9b3feb61e61)
-> - Add documentation describing the trace event fields, request
->   semantics, limitations, and usage.
-> - Link to v7: https://lore.kernel.org/r/20261019-tlb_tracepoint-v7-1-4cc3e99d387a@gmail.com
-> 
-> Changes in v7:
-> - Rename the tracepoint header to asm/tlb_trace.h to make its
->   purpose explicit, as suggested by Steven Rostedt.
-> - Link to v6: https://lore.kernel.org/r/20261018-tlb_tracepoint-v6-1-14476427870f@gmail.com
-> 
-> Changes in v6:
-> - Change the scope field from u8 to u32 to ensure the dynamic
->   CPU mask is properly aligned for bitmap operations.
-> - Verify local and shared-mm TLB flush tracing with
->   CONFIG_UBSAN_ALIGNMENT=y on QEMU virt.
-> - Link to v5: https://lore.kernel.org/r/20261017-tlb_tracepoint-v5-1-256fb5393a7f@gmail.com
-> 
-> Changes in v5:
-> - Move the architecture-specific trace event definition under
->   arch/riscv/, as requested by Steven Rostedt.
-> - Calculate target_mask_weight from the recorded CPU mask to
->   keep both fields consistent under concurrent updates.
-> - Require perf tracepoint permissions for counting-only access,
->   since the event may expose kernel virtual addresses.
-> - Link to v4: https://lore.kernel.org/r/20261015-tlb_tracepoint-v4-1-f238a2bd8f7e@gmail.com
-> 
-> Changes in v4:
-> - Drop unrelated whitespace-only changes in arch/riscv/mm/tlbflush.c.
-> - Link to v3: https://lore.kernel.org/all/20261015-tlb_tracepoint-v3-1-eef305a3bb63@gmail.com/
-> 
-> Changes in v3:
-> - Rebase on current RISC-V for-next.
-> - Thanks to Jisheng Zhang for pointing out that SBI RFENCE versus Linux
->   cross-CPU coordination is effectively a system-wide choice established
->   during initialization rather than a per-request decision.
-> - Drop the local/SBI RFENCE/cross-CPU path field.
-> - Rename the event from riscv_tlb_flush_path to
->   riscv_tlb_flush_request and refocus it on the semantic TLB
->   invalidation request.
-> - Emit one request event independently of the mechanism subsequently
->   used to perform the invalidation.
-> - Address checkpatch.pl --strict alignment issues.
-> - Link to v2: https://lore.kernel.org/r/20260830-tlb_tracepoint-v2-1-e3c88c24df5b@gmail.com
-> 
-> Changes in v2:
-> - Use trace_call__riscv_tlb_flush_path() after the explicit
->   trace_riscv_tlb_flush_path_enabled() check to avoid a second
->   tracepoint static-key test, as suggested by Steven Rostedt.
-> - Link to v1: https://lore.kernel.org/r/20260829-tlb_tracepoint-v1-1-dfdaede7e741@gmail.com
-> ---
->  Documentation/arch/riscv/index.rst     |   1 +
->  Documentation/arch/riscv/tlb-trace.rst | 137 +++++++++++++++++++++++++++++++++
->  arch/riscv/include/asm/tlb_trace.h     | 103 +++++++++++++++++++++++++
->  arch/riscv/mm/tlbflush.c               |  45 ++++++++++-
->  4 files changed, 282 insertions(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/arch/riscv/index.rst b/Documentation/arch/riscv/index.rst
-> index ac535c52d509..a5450811e4af 100644
-> --- a/Documentation/arch/riscv/index.rst
-> +++ b/Documentation/arch/riscv/index.rst
-> @@ -9,6 +9,7 @@ RISC-V architecture
->      boot
->      boot-image-header
->      vm-layout
-> +    tlb-trace
->      hwprobe
->      patch-acceptance
->      uabi
-> diff --git a/Documentation/arch/riscv/tlb-trace.rst b/Documentation/arch/riscv/tlb-trace.rst
-> new file mode 100644
-> index 000000000000..c664df20d7ef
-> --- /dev/null
-> +++ b/Documentation/arch/riscv/tlb-trace.rst
-> @@ -0,0 +1,137 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +========================
-> +RISC-V TLB Flush Tracing
-> +========================
-> +
-> +Overview
-> +========
-> +
-> +The RISC-V Linux kernel provides the
-> +``riscv_tlb:riscv_tlb_flush_request`` trace event to observe TLB
-> +invalidation requests at the architecture-specific implementation.
-> +The event records the virtual address range, stride, ASID, target CPU
-> +mask, and derived request scope.
-> +
-> +This information can help correlate TLB invalidation requests with
-> +memory management, scheduler, IPI, and firmware activity. The event
-> +reports the request before dispatch; it does not identify the mechanism
-> +used to carry it out or confirm that a particular hart invalidated its
-> +TLB. In particular, it does not distinguish SBI RFENCE from Linux
-> +cross-CPU coordination.
-> +
-> +Event fields
-> +============
-> +
-> +``start``
-> +    Starting virtual address supplied with the invalidation request.
-> +    It is not a meaningful range boundary for a full global flush.
-> +    Requests involving kernel mappings may contain kernel virtual
-> +    addresses.
-> +
-> +``size``
-> +    Size of the requested range in bytes. ``FLUSH_TLB_MAX_SIZE``
-> +    denotes a full-range invalidation.
-> +
-> +``stride``
-> +    Invalidation granularity supplied to the RISC-V implementation.
-> +    It may be zero for a full global flush.
-> +
-> +``asid``
-> +    Address-space identifier, or ``FLUSH_TLB_NO_ASID`` when no ASID
-> +    is specified. ASIDs can be reused and must not be treated as
-> +    persistent identifiers of address spaces.
-> +
-> +``has_mm``
-> +    Whether the request is associated with an ``mm_struct``.
-> +
-> +``target_cpus``
-> +    CPU mask associated with the request. For an mm-associated
-> +    request, it reflects the relevant address-space CPU mask;
-> +    for a global request, it reflects the online CPU mask supplied
-> +    at the tracepoint. It does not prove which CPUs or harts
-> +    actually performed an invalidation.
-> +
-> +``target_mask_weight``
-> +    Number of CPUs in the recorded ``target_cpus`` bitmap.
-> +
-> +``scope``
-> +    Derived invalidation scope:
-> +
-> +    * ``single``: a range no larger than one stride.
-> +    * ``range``: a range larger than one stride.
-> +    * ``address-space``: a full-range request with an associated
-> +      ``mm_struct``.
-> +    * ``all``: a full-range request without an associated
-> +      ``mm_struct``.
-> +
-> +Using the event
-> +===============
-> +
-> +The event is available through tracefs when kernel event tracing is
-> +configured. The commands below assume tracefs is mounted at
-> +``/sys/kernel/tracing`` and are run with sufficient privileges.
-> +
-> +Inspect the available event fields::
-> +
-> +    # cat /sys/kernel/tracing/events/riscv_tlb/riscv_tlb_flush_request/format
-> +
-> +To record requests, clear the current trace buffer and enable the event::
-> +
-> +    # cd /sys/kernel/tracing
-> +    # echo > trace
-> +    # echo 1 > events/riscv_tlb/riscv_tlb_flush_request/enable
-> +
-> +Run a workload that changes memory mappings or permissions, for example
-> +one using ``munmap()`` or ``mprotect()``. Then disable the event and
-> +read the buffer::
-> +
-> +    # echo 0 > events/riscv_tlb/riscv_tlb_flush_request/enable
-> +    # cat trace
-> +
-> +``trace_pipe`` can be used instead of ``trace`` to consume events as
-> +they occur. Clearing ``trace`` affects the current tracing instance;
-> +avoid doing so while another tracing session is using it.
-> +
-> +Example output
-> +==============
-> +
-> +The following lines were captured in separate QEMU ``virt`` test runs.
-> +Addresses, ASIDs, CPU masks, and timestamps depend on the workload and
-> +system configuration::
-> +
-> +    tlb_workload-ri-290 [000] ...5. 748.436198: riscv_tlb_flush_request: start=0xfffffffffff000 size=0x1000 stride=0x1000 asid=0x158 has_mm=1 target_mask_weight=1 target_cpus=00000000,00000001 scope=single
-> +    tlb_workload-ri-290 [000] ...1. 748.580051: riscv_tlb_flush_request: start=0x7fff891e2000 size=0x20000 stride=0x1000 asid=0x158 has_mm=1 target_mask_weight=2 target_cpus=00000000,00000003 scope=range
-> +    tlb_scope_all-r-309 [000] ...1. 986.214468: riscv_tlb_flush_request: start=0 size=0xffffffffffffffff stride=0x1000 asid=0xffffffffffffffff has_mm=0 target_mask_weight=3 target_cpus=0-2 scope=all
-> +
-> +The first request covers one 4 KiB stride. The second covers a 128 KiB
-> +range and records two target CPUs (mask ``0x3``). The last is an
-> +mm-independent full-range request; its target mask includes CPUs 0-2.
-> +The different CPU-mask representations reflect tracing output options.
-> +
-> +Userspace tools
-> +---------------
-> +
-> +The event may also be recorded with the external ``trace-cmd`` tool::
-> +
-> +    # trace-cmd record -e riscv_tlb:riscv_tlb_flush_request ./workload
-> +    # trace-cmd report
-> +
-> +It is also accessible to perf and other tools supporting kernel trace
-> +events, subject to access permissions. For general tracefs usage and
-> +event filtering, see ``Documentation/trace/events.rst``.
-> +
-> +Limitations
-> +===========
-> +
-> +This event describes a Linux TLB invalidation request, not hardware TLB
-> +state, the execution path within firmware, or completion of remote
-> +invalidation operations.
-> +
-> +The recorded CPU mask and its weight agree, but copying a concurrently
-> +changing mask does not provide an atomic snapshot of all CPU or
-> +address-space state.
-> +
-> +Since the event can contain kernel virtual addresses, access to its
-> +trace data must be appropriately restricted. Perf access permissions
-> +also apply to counting-only use of this event.
-> diff --git a/arch/riscv/include/asm/tlb_trace.h b/arch/riscv/include/asm/tlb_trace.h
-> new file mode 100644
-> index 000000000000..60b48eb0d355
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/tlb_trace.h
-> @@ -0,0 +1,103 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#undef TRACE_SYSTEM
-> +#define TRACE_SYSTEM riscv_tlb
-> +
-> +#if !defined(_TRACE_RISCV_TLB_TRACE_H) || defined(TRACE_HEADER_MULTI_READ)
-> +#define _TRACE_RISCV_TLB_TRACE_H
-> +
-> +#include <linux/cpumask.h>
-> +#include <linux/tracepoint.h>
-> +#include <linux/perf_event.h>
-> +
-> +#ifndef _TRACE_RISCV_TLB_ENUMS
-> +#define _TRACE_RISCV_TLB_ENUMS
-> +
-> +enum riscv_tlb_flush_scope {
-> +	RISCV_TLB_FLUSH_SCOPE_SINGLE,
-> +	RISCV_TLB_FLUSH_SCOPE_RANGE,
-> +	RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE,
-> +	RISCV_TLB_FLUSH_SCOPE_ALL,
-> +};
-> +
-> +#endif /* _TRACE_RISCV_TLB_ENUMS */
-> +
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_SINGLE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_RANGE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE);
-> +TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ALL);
-> +
-> +#define show_riscv_tlb_flush_scope(scope) \
-> +	__print_symbolic(scope, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_SINGLE,        "single" }, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_RANGE,         "range" }, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE, "address-space" }, \
-> +		{ RISCV_TLB_FLUSH_SCOPE_ALL,           "all" })
-> +
-> +/*
-> + * Record the invalidation request received by the RISC-V architecture code
-> + *
-> + * The target CPU mask represents the CPUs Linux intends to cover for the
-> + * request. It can be correlated with per-CPU activity, but does not describe
-> + * which harts ultimately performed an invalidation.
-> + *
-> + * The ASID is hardware-visible and may be reused. It must not be treated as a
-> + * persistent identifier for an mm.
-> + *
-> + * The stride describes the invalidation granularity supplied to the RISC-V
-> + * implementation.
-> + *
-> + * The event records the invalidation request before it is dispatched. It does
-> + * not describe the mechanism used to execute the request.
-> + *
-> + */
-> +TRACE_EVENT(riscv_tlb_flush_request,
-> +	    TP_PROTO(unsigned long start, unsigned long size,
-> +		     unsigned long stride, unsigned long asid, bool has_mm,
-> +		     const struct cpumask *cmask,
-> +		     enum riscv_tlb_flush_scope scope),
-> +
-> +	TP_ARGS(start, size, stride, asid, has_mm, cmask, scope),
-> +
-> +	TP_STRUCT__entry(__field(unsigned long, start)
-> +		__field(unsigned long, size)
-> +		__field(unsigned long, stride)
-> +		__field(unsigned long, asid)
-> +		__field(bool, has_mm)
-> +		__field(unsigned int, target_mask_weight)
-> +		__cpumask(target_cpus)
-> +		__field(u32, scope)
-> +	),
-> +
-> +	TP_fast_assign(__entry->start = start;
-> +		__entry->size = size;
-> +		__entry->stride = stride;
-> +		__entry->asid = asid;
-> +		__entry->has_mm = has_mm;
-> +		__assign_cpumask(target_cpus, cpumask_bits(cmask));
-> +		__entry->target_mask_weight = cpumask_weight((const struct cpumask *)
-> +						     __get_cpumask(target_cpus));
-> +		__entry->scope = scope;
-> +	),
-> +
-> +	TP_printk("start=%#lx size=%#lx stride=%#lx asid=%#lx has_mm=%d target_mask_weight=%u target_cpus=%s scope=%s",
-> +		  __entry->start, __entry->size, __entry->stride,
-> +		  __entry->asid, __entry->has_mm,
-> +		  __entry->target_mask_weight, __get_cpumask(target_cpus),
-> +		  show_riscv_tlb_flush_scope(__entry->scope))
-> +);
-> +
-> +#ifdef CONFIG_PERF_EVENTS
-> +TRACE_EVENT_PERF_PERM(riscv_tlb_flush_request,
-> +		      perf_allow_tracepoint());
-> +#endif
-> +
-> +#endif /* _TRACE_RISCV_TLB_TRACE_H */
-> +
-> +#undef TRACE_INCLUDE_PATH
-> +#undef TRACE_INCLUDE_FILE
-> +
-> +#define TRACE_INCLUDE_PATH asm
-> +#define TRACE_INCLUDE_FILE tlb_trace
-> +
-> +/* This part must be outside protection. */
-> +#include <trace/define_trace.h>
-> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-> index a74a7d5258aa..815867c34e18 100644
-> --- a/arch/riscv/mm/tlbflush.c
-> +++ b/arch/riscv/mm/tlbflush.c
-> @@ -9,6 +9,9 @@
->  #include <asm/mmu_context.h>
->  #include <asm/cpufeature.h>
->  
-> +#define CREATE_TRACE_POINTS
-> +#include <asm/tlb_trace.h>
-> +
->  #define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
->  
->  /*
-> @@ -63,6 +66,32 @@ void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
->  	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE, FLUSH_TLB_NO_ASID);
->  }
->  
-> +static enum riscv_tlb_flush_scope
-> +riscv_tlb_get_flush_scope(unsigned long size, unsigned long stride, bool has_mm)
-> +{
-> +	if (size == FLUSH_TLB_MAX_SIZE)
-> +		return has_mm ? RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE :
-> +			RISCV_TLB_FLUSH_SCOPE_ALL;
-> +
-> +	return size <= stride ? RISCV_TLB_FLUSH_SCOPE_SINGLE :
-> +		RISCV_TLB_FLUSH_SCOPE_RANGE;
-> +}
-> +
-> +static __always_inline void
-> +riscv_tlb_trace_flush_request(const struct cpumask *cmask, unsigned long start,
-> +			      unsigned long size, unsigned long stride,
-> +			      unsigned long asid, bool has_mm)
-> +{
-> +	enum riscv_tlb_flush_scope scope;
-> +
-> +	if (!trace_riscv_tlb_flush_request_enabled())
-> +		return;
-> +
-> +	scope = riscv_tlb_get_flush_scope(size, stride, has_mm);
-> +	trace_call__riscv_tlb_flush_request(start, size, stride, asid, has_mm,
-> +					    cmask, scope);
-> +}
-> +
->  static void __ipi_flush_tlb_all(void *info)
->  {
->  	local_flush_tlb_all();
-> @@ -70,12 +99,18 @@ static void __ipi_flush_tlb_all(void *info)
->  
->  void flush_tlb_all(void)
->  {
-> -	if (num_online_cpus() < 2)
-> +	riscv_tlb_trace_flush_request(cpu_online_mask, 0,
-> +				      FLUSH_TLB_MAX_SIZE, 0,
-> +				      FLUSH_TLB_NO_ASID, false);
-> +
-> +	if (num_online_cpus() < 2) {
->  		local_flush_tlb_all();
-> -	else if (riscv_use_sbi_for_rfence())
-> -		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
-> -	else
-> +	} else if (riscv_use_sbi_for_rfence()) {
-> +		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE,
-> +					   FLUSH_TLB_NO_ASID);
-> +	} else {
->  		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
-> +	}
->  }
->  
->  struct flush_tlb_range_data {
-> @@ -105,6 +140,8 @@ static void __flush_tlb_range(struct mm_struct *mm,
->  
->  	cpu = get_cpu();
->  
-> +	riscv_tlb_trace_flush_request(cmask, start, size, stride, asid, !!mm);
-> +
->  	/* Check if the TLB flush needs to be sent to other CPUs. */
->  	if (cpumask_any_but(cmask, cpu) >= nr_cpu_ids) {
->  		local_flush_tlb_range_asid(start, size, stride, asid);
-> 
-> ---
-> base-commit: c9b3feb61e6134d61656e5ec2516de82ea0d0f27
-> change-id: 20260829-tlb_tracepoint-844105ab5092
-> 
-> Best regards,
-> -- 
-> Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-> 
+-- 
+Cheers,
+Harry / Hyeonggon
 
 _______________________________________________
 linux-riscv mailing list
