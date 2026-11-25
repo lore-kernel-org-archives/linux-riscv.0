@@ -2,96 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D150E606A323
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 08:47:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FE50606A689
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 08:49:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C1cIR4n7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MhII1r12;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cZd942Yp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kaUZuDbPZWObq80WB29Gllmg2y6tJwQoc7RvQpRFFRg=; b=C1cIR4n7KXIpFe5Hidld0yszn7
-	bGXcvtmNcfCzlS10nC43LaEjbQDeCGmuDVuPiyaIPAih2Kxsv9TvazjR31V9MpS1NsS8tmSWYW5Lt
-	wBtomod4MEQwuAnhYvQE2lAWyEN9Uw5+DVzJo8zZXOb++iwdOLLtZ3PmugxofDEaqm3tNDnC/gYQP
-	fcDkJ6G+ZyV63skaVxzWgJOb3ljDwRbx5CmZxZFTWd05afJEUsKHgSJsB4ECprzWpdrDTRh6Nuaj5
-	Z982yO17Zkq5rY8d+RhesPG+kmx8EuzaUodDRmw81lBecjE63Pj0fxOf74YOk7uZXpvCzxlgGe4vo
-	BOUG5+kQ==;
+	bh=2BlNxe2Nylcp84sNn0h0bYbgcCyBxqKX/KHyGDQ5eU4=; b=MhII1r120VDIcLYTafA0s6zBre
+	ZhqawEz4FwXaH//q41yeMcBxKqEOgRwas0/VR+Lbx8a2PC6/xeSAovMXLWLt29MQqU7Ou/1D+ICkn
+	avSvHvy8HhBy6Ra0pJDh2CRuAeTfKAQox0hnr+WvlP1iFrLgPP8mbNHrHuKqK3vT2lWeuc6+uPdQ0
+	0LPec9BYB/fHxHci0acYR8CVZn4F6EimNl4aeC8Vj0t6Xo4+g2jMRug7w2t8bIIAvppLvFPtOnc7C
+	stqkSGcSaq6f7g8m3o8anj0Z58YeXBLXF5MZqPYRZSUsoiRbhYjwe66Viw/Hi1pbCIkt1QqOQnwfJ
+	tSUoIQ9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW8fB-000000099do-0qrl;
-	Wed, 25 Nov 2026 08:47:37 +0000
-Received: from mail-ua1-f47.google.com ([209.85.222.47])
+	id 1xW8gp-00000009AFi-40p9;
+	Wed, 25 Nov 2026 08:49:20 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW8f8-000000099cu-1A2X
+	id 1xW8gn-00000009AEb-2HBQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 08:47:35 +0000
-Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-99b49d6a5caso1604228241.2
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2026 00:47:31 -0800 (PST)
+	Wed, 25 Nov 2026 08:49:19 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3b3d4d3bba3so2762549a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2026 00:49:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795596556; x=1796201356; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XoBUSoCkv2nIwetH2G0D++atFkrgwpTcXSMeJUec7JY=;
+        b=cZd942YpW8uhTIsn7wswy/hu8kCG0poCDKCPDPE5oMidVTuZdNy8s5AEWEx0WZOqWc
+         +6AFQ6JEvqCT2QLRGiIzJpoVaSZgw/qpUgXD+C76YhnmazoiTD43ChhoJcoZAlRtvo+A
+         hH4RCdqcGF1708coHlVnQnosUUTUOtnuiuZ4C/SmELFS5M05NwUTTHMd8rtgf5TAsAzv
+         L2RxWYmjwYHrNhp3IYSu+KDedf09s5dXIyReZ2J2Bd1ksjr/HJq1aJpeXkAjUHKJcTO9
+         R2CHCFNuYALMNf5YXf4hfUvDGN6VAWULZpkHNGkaEGv62zIRpFYLvG7lINKSpbivIa0r
+         7qHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795596451; x=1796201251;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=g2VZTRXJhfP019ydeKL5YFHq+Ono4E72cezNWVIlDDs=;
-        b=2pE7g1w2/IvM1R42JRKLjWvnoVN0T7lzIyABCMAGKAybn4XfMpWAKu4jjhQwsiIiX1
-         NmquiFnoj2or8AH3yuQJihLAfAfYxTD8wdiR8R1/72/rbhthh9/E8KMdacPpoKUfzgy/
-         f75BZghfMHgbzwlTRRwfH0WO8ULAtHAGWeqFliiZBo+Z/zixlfR8njpqsRcP9Bxaiqb8
-         qwCVB1zciJEGv5z9WapGuGZdJEp3k+AFjQeJ0JzKVLogRpeJNZ6NzdBgvsCR3fopDtal
-         VCiHExngsp9r6tN6IpeSj+NhzuZsXImflY/xO8Adjr2Vs1eDaTEqvgrOiaYzzPG3RKCI
-         tBxA==
-X-Forwarded-Encrypted: i=1; AL+hErEXtnt8MJWZabqRL5STIL5SjKwbJmx6bs8jLRSSJCbBh9Pl4WU/KT/Sx854lyQJAWUFVX3rVzT6Y/s8iQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9Zrn1P7FgIw3A4qtegJ/lw6TCvLFn2MV5t7xFNNrJw/HSLP3sR
-	nrn2PpBQcXsgbITgYYnQ1y3UqUMGj2X+mN49cf6qlfDMFHoSXOMpbBdigHP39yrl
-X-Gm-Gg: AZFdTZdPALQdst0x2oI1y14AVQM9rF9D5q0rT0WYUqkcpKhxnkqC/UWkTA4TguLmbff
-	25gaciDH8uMf1YMQCpA3IUeHCD5vvcbammPJ202LuLjHFc08UrOlodnNlWSTnN72QUcExZS55uJ
-	Kk+eiAVwyCHwwEtFu32vkqleD5yXxrOLc5VB5RueqZ7hK5S65cOxhbflW/WeZs9kNUtePwtG5V+
-	m+61ZalnnymrWzOSG2mpsmIdnUs79YpH95rKZ9XGHGTjjv4DwFqhP1Qby0zM/O/MprUM7yiK2L1
-	rm4t214av/MOyzXVjJZM2c2Xlw+j6VT1wzqjWvhb9yuG8PKTDrUaMZbMPJ//tte1ykcj0KCltPM
-	I471piEMeplmE+w22hqCsilN1mIWazzzKmPW5r3YJhtmyfXiLrxXzZ338sVi2mFC/DPXJxNwiZF
-	Y+mEM6jSocU6NzO5s2kyjINN/VAoIdbL4JJFSbkEcuRaMSTVbcJUkqbTBDNcsQiR52RIUfpjcis
-	lfQeYKVhQ4uTUxHaDB8hGedqGZUH3whWdLQjpFVGANwHyi/J6P+/jtxLSSKsY8XqiktCmeair9k
-	uuZRyViYD6pcJeHnQbJWEmxQ/3NY7J1KezvAiBZMVlat3E6VLdKtoXXu62ZFg807okY=
-X-Received: by 2002:a05:6102:441c:b0:7c3:472d:be6b with SMTP id ada2fe7eead31-7d7396c0f38mr8629465137.33.1795596450879;
-        Wed, 25 Nov 2026 00:47:30 -0800 (PST)
-Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e81cee49sm18282347137.8.2026.11.25.00.47.30
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 00:47:30 -0800 (PST)
-Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-99b49d6a5caso1604225241.2
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2026 00:47:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGf84ij4TLrag+eij4U91pH/JQD4bjaMLXkAeGD75qBvQIq1tqGJAJQhPfklkNTYaXbcgVc0kvmnjSSnA==@lists.infradead.org
-X-Received: by 2002:a05:6102:cd3:b0:7cc:56a:58da with SMTP id
- ada2fe7eead31-7d7395d630fmr7124513137.23.1795596450466; Wed, 25 Nov 2026
- 00:47:30 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795596556; x=1796201356;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XoBUSoCkv2nIwetH2G0D++atFkrgwpTcXSMeJUec7JY=;
+        b=ixtdDylfgUHUpLO7EEp2B34XE5I95scdSzQFBxIwA1Xr+wRHpSw7Vagv83ZD1lsUaf
+         ZWMTKho20XuEYkqhJjJoz7S6AQXZ3tg/jiHr8IF2XuMed8Yx/OnD4jR86bSORa9Qlc0g
+         jYLukvIyBXGs0i8bZfNEzhreVa2kCDqOA14kUj6ckk/TIsPBCwkj4ZVbRI0sIAgTzpZ0
+         RJDgjcOzSBkrQVilnqOdFV/x97aWRZ79xMK4nxuTzWQZyFMhz0yHHAOvvst5zdctkz+F
+         3jjC2ERz2qywtX3Al9U4Fl63o5Gi+KKnQsJ2jG7GMe/N5M95eIr4fUiQDxnwxvxwEdY0
+         JSUg==
+X-Forwarded-Encrypted: i=1; AL+hErF9DRfVAl6Ay7BcjXuFG8R+DFWIypGwPTbTprVGccHhD7KuLLS10GyT2fiGalqG0rFuqSjF4v0IVxj7Fw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/tZlszanJ2ck7wxgMs2w/Uhdn8xyR6wr/OzrGWQzLkiNjGdbmV
+	9Nlj0rRGTI1aCoGn4/ZJmy1ANQqNDlXPC/XXyqZzNDgRxCGEKC5f8jvB
+X-Gm-Gg: AZFdTZdfs9k+Sf84cYVDGglQdUOc6FjkfwXCtKnoCfpoOxbmncvjR/u/9X2UikVveZM
+	3aIi24w2rqkIsEBo97V5Rv/JM7PeN7wopTLW8IkCHVNwKoQ6dJB0xlW7ZnrljWag7/AjqYDUd2d
+	BEHOeSyGAw5M+vSB0wX/JkuHFbzvhsN3ajU5Pid/+JMtwfI9zpEyAXAN/ksoNOn/vHTYTteq9i2
+	6dwqerjRfoubIebpJHVHYDKJ1qKpHJObp4bstV3jtMXOQvWowKB9W5ZyJK74HQFetekzwx2ISgO
+	wtLTsExXWzwcKenobNTqo73OZecMtTlv13I6nbSTF5G4JsRLiLJdz/ov5Gx2pzuTNe9+tlwIRdA
+	05nXzR5ImOr+K/vJGDjenCkBTPh+0psM6ZtW5rcAhCCsfKrZEL2H4P2GJKknPSak7FU/sqAmG1Q
+	vLVsDU20ZYnYgSZg1ihbJnTzvZVCaR3fbA2kkPUeR6IjnnKmmarKqdYdfxIkAPBvkdGo17hsbN/
+	+w/73AJtQfcHwJ0xLPnUc2Y3qvjDhW7DgDmDhOq8i7UNX5cG+ougV3iKmVoMDLhCU2vvCz4VOlh
+	2Aq8fvG1WNsqMJLuLRVieoRfuw==
+X-Received: by 2002:a17:90b:4d10:b0:3b3:ce10:7659 with SMTP id 98e67ed59e1d1-3b41c7ac261mr16316108a91.5.1795596556346;
+        Wed, 25 Nov 2026 00:49:16 -0800 (PST)
+Received: from duge-G3-3500 ([138.199.21.246])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40f4312dfsm28307740a91.3.2026.11.25.00.49.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 00:49:15 -0800 (PST)
+Date: Wed, 25 Nov 2026 16:49:07 +0800
+From: Jiayu Du <duge1256@gmail.com>
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, dlan@kernel.org, troy.mitchell@linux.spacemit.com, me@ziyao.cc, 
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	p.zabel@pengutronix.de, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] riscv: dts: spacemit: Add K3 eFuse and
+ temperature trim cells
+Message-ID: <sifzfexbsbd2byrpynbv42habxgbrxgndaxqhsjgppyipfuivp@qvawoamxksfu>
+References: <20261122173810.2409146-1-duge1256@gmail.com>
+ <20261122173810.2409146-4-duge1256@gmail.com>
+ <awYIF2ynf95-g5-W@aurel32.net>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
- <20261103-prep-meta-fw-arch-independent-v4-2-513d1c51f458@imgtec.com>
-In-Reply-To: <20261103-prep-meta-fw-arch-independent-v4-2-513d1c51f458@imgtec.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 25 Nov 2026 09:47:19 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVqGEZckVZMnmKfwpJZ-sT6Jisj7JkL31uS0S_XABCbGg@mail.gmail.com>
-X-Gm-Features: Aa3M54oYWwJ4QX4LtZBAQOtixmcWW5HWWBj8NKw1oLcuyKzIqPAFolEjnn9UcmQ
-Message-ID: <CAMuHMdVqGEZckVZMnmKfwpJZ-sT6Jisj7JkL31uS0S_XABCbGg@mail.gmail.com>
-Subject: Re: [PATCH v4 2/5] drm/imagination: Limit access to the RISC-V
- firmware interface
-To: Alexandru Dadu <alexandru.dadu@imgtec.com>
-Cc: Alessio Belle <alessio.belle@imgtec.com>, 
-	Luigi Santivetti <luigi.santivetti@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, imagination@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <awYIF2ynf95-g5-W@aurel32.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_004734_324749_6E40CC4B 
-X-CRM114-Status: GOOD (  18.72  )
-X-Spam-Score: -0.8 (/)
+X-CRM114-CacheID: sfid-20261125_004917_590698_A970A717 
+X-CRM114-Status: GOOD (  21.67  )
+X-Spam-Score: 2.8 (++)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +108,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Alexandru,
+On Tue, Nov 24, 2026 at 10:56:39PM +0100, Aurelien Jarno wrote:
+> Hi Jiayu,
+> 
+> On 2026-11-23 01:38, Jiayu Du wrote:
+> > Add the K3 eFuse controller and NVMEM cells for the temperature
+> > calibration data in bank 0 and bank 7.
+> > 
+> > Signed-off-by: Jiayu Du <duge1256@gmail.com>
+> > ---
+> >  arch/riscv/boot/dts/spacemit/k3.dtsi | 23 +++++++++++++++++++++++
+> >  1 file changed, 23 insertions(+)
+> > 
+> > diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> > index e89d2cc5ca8c..af1a758788ff 100644
+> > --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
+> > +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> > @@ -1439,6 +1439,29 @@ saplic: interrupt-controller@e0804000 {
+> >  
+> >  		/* sec_i2c3: 0xf0614000, not available from Linux */
+> >  
+> > +		efuse: efuse@f0702800 {
+> > +			compatible = "spacemit,k3-efuse";
+> > +			reg = <0x0 0xf0702800 0x0 0x400>;
+> > +			clocks = <&syscon_apmu CLK_APMU_AES_WTM>;
+> > +			resets = <&syscon_apmu RESET_APMU_AES_WTM>;
+> > +
+> > +			nvmem-layout {
+> > +				compatible = "fixed-layout";
+> > +				#address-cells = <1>;
+> > +				#size-cells = <1>;
+> > +
+> > +				soc_rtemp_trim1: temperature-trim@1c {
+> > +					reg = <0x1c 0x1>;
+> > +					bits = <0 8>;
+> > +				};
+> > +
+> > +				soc_rtemp_trim: temperature-trim@ea {
+> > +					reg = <0xea 0x2>;
+> > +					bits = <4 8>;
+> > +				};
+> > +			};
+> > +		};
+> > +
+> >  		mimsic: interrupt-controller@f1000000 {
+> >  			compatible = "spacemit,k3-imsics", "riscv,imsics";
+> >  			reg = <0x0 0xf1000000 0x0 0x10000>;
+> 
+> This looks all good to me. The offset and bits matches what is in the 
+> vendor driver (after mapping each bank to the correct address).
+> 
+> Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
+> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+> 
 
-On Tue, 3 Nov 2026 at 10:01, Alexandru Dadu <alexandru.dadu@imgtec.com> wrote:
-> From: Alessio Belle <alessio.belle@imgtec.com>
->
-> - Rename the RISC-V firmware processor header adding an "internal"
->   suffix.
-> - Add guard to the RISC-V firmware processor header to prevent
->   accidental inclusion outside of the RISC-V firmware specific logic.
->
-> Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
-> Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Hi Aurelien,
 
-Thanks for your patch, which is now commit 2f42457ad97a6d32
-("drm/imagination: Limit access to the RISC-V firmware interface")
-in drm-misc/for-linux-next.
+Thanks for reviewing and testing. I'll include your tags in v4.
 
-> --- a/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-> +++ b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-> @@ -7,7 +7,9 @@
->  #include "pvr_fw_mips.h"
->  #include "pvr_gem.h"
->  #include "pvr_rogue_cr_defs.h"
-> -#include "pvr_rogue_riscv.h"
-> +#define PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
-> +#include "pvr_rogue_riscv_internal.h"
-> +#undef PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
+> Small nitpick, no need to fix it, but the vendor device tree also define 
+> offsets for soc_die_id, soc_ver_id, soc_pack_id, soc_chip_id and 
+> soc_svt_dro data. It might be useful to export (some of) them.
 
-Really? IMHO that is very ugly.
+The downstream socinfo driver uses these cells. If I work on
+upstream socinfo support, I'll add the relevant cells then.
 
->  #include "pvr_vm.h"
->
->  #include <linux/compiler.h>
+Best regards,
+Jiayu Du
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
