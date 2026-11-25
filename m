@@ -2,12 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CEA8606A33F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 06:18:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EB3F606A33A
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 06:19:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M6+NU17y;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=cIKgCTqt;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=T51EoU4/
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qwghPaF6;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OKiSSskU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -15,79 +14,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=gPECyxXH9rf/XSp7XFuYfzcVMQ+qWRUwReJ9S3d5YXg=; b=M6+NU17yT7kYA92HICy7d19bs/
-	shmm7K2+sIqugZb47LBzbLrcxmbW+a2pus3RX420sp5pLbRxn9kfBQ3nlW1UsGipWhE6zPp+0+lBM
-	PEcrm6Ntq1NOyQQoO7shC+qcFWMoIeMwWPiPXbvMPcJm0afM7hvJzzu+GwM/Emkmk0IQH6iGM3rTA
-	5s11MntgbZTwCEe0pmujvnSkcW0n0k5zyyKihTWxS+/IbIEivHbM7aMIuX8u7B7G8nMDB3yH7Iba9
-	A6AzxYjotebZGNHsDrIsINFzSnCgzq8em8Pc9DU8Fao120+JQHn6R2aCET9toe4/0+ihkxOune1jA
-	j4hwbmSw==;
+	bh=ckbDoDgH8BUpA0L065W+w4RCqbwd2YOHc2mDbe75iZU=; b=qwghPaF6zqRDreaX5cE9rZp51B
+	YVzHqV1Asr8RSc9ZI5l+9ZwVJByEfkWXL7RVumxKCu5Iw0YBYgXT0PyWdm0jycorETtOA7FVBdo1E
+	QpoTwoVMoyiY+w1CpUH/zodcVi68ZjX/fSBgHka8Ftmi0wb4iFsE8gFo943pM2YFYIo+pFu4CJCB/
+	YZIjcR+Fzo5BZ5daky7jd/qenmqfbFAhtWfJ1P4xHpvSOdewgsZExO8U05tu+z/l29BCMluS636kB
+	2XgR4WOeKzNXECpZ0bHPzdoPWdYAzJx83jVG1IABwkdZmZb7uwIbd1z6cl/hnLhaSpAUHpRVMGqF7
+	ufNH0Mlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW6L8-00000008cDt-492W;
-	Wed, 25 Nov 2026 06:18:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xW6LG-00000008cQo-3JvQ;
+	Wed, 25 Nov 2026 06:18:55 +0000
+Received: from mail-dl1-f71.google.com ([74.125.82.71])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW6JM-00000008ZIn-2yNl
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 25 Nov 2026 06:16:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=opbvbiqLtMKnZidmW1akDPMoAVRaFGJF5QXg9EIzgwM=; b=cIKgCTqt0+8/2d+eB33LhSL751
-	7N9Pgd+Dxt4b1OSMoMaePu/Gx4hXn4egGPjB9GD/E+p6UaekRQTTrI1QdmT0Df5C9r0olMw19e5tI
-	NY77E5O9dUiJNGT5tiMnyY0uHfFYV57oGaCvSA5q4b0ySOg1YoFqKhidnFxVFzk9sYBa30ezthns4
-	6QciQRi3sjHgoo2LoPCJ+5dtCoMgq1sTb/Ng1fr5ZA8s/2ofgBbIv7QEmb8zeSRmgirXxouUfMjl0
-	ofCMLG5/G/PQ6hXfEKkWh9DyPjDgIaVutEx1JdJszu96EgfIDuq/LjiZXO7PosDqjL1Rblbjnft3R
-	ml3JTthg==;
-Received: from mail-oi1-x247.google.com ([2607:f8b0:4864:20::247])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW6JH-00000004u5B-3CpZ
+	id 1xW6JI-00000008ZCp-0NGL
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 06:16:55 +0000
-Received: by mail-oi1-x247.google.com with SMTP id 5614622812f47-4b37620eb73so7025344b6e.1
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2026 22:16:47 -0800 (PST)
+	Wed, 25 Nov 2026 06:16:59 +0000
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-14373747468so5248633c88.1
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2026 22:16:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795587406; x=1796192206; darn=lists.infradead.org;
+        d=google.com; s=20260707; t=1795587410; x=1796192210; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=opbvbiqLtMKnZidmW1akDPMoAVRaFGJF5QXg9EIzgwM=;
-        b=T51EoU4/CZqq2Dw585WNDMxBOcro+OAZiZxo7UOrOGPtCxt8dSe8nI3cMymZETO/NZ
-         kmO2cqovwmKOiolCWjTydt5eW2uIcjqOeSaO6rs5Qj1zirw/549L7354PHLo1YLittEm
-         D2mtqGREx5vWFBUcrsV742XiJvYQns6X2lb/4nSEvHXOKlJqUcr9VtEAfA9zZXrc2nVx
-         gd41SlhEnP3NtOvQrYm4RbVere8KvKR00XaC1wxOpc1lHnaJ2T3kDaKyeZGBYqhKrMk/
-         bnaXb4VN0+22yNYA9VKFG1PxjkaMtGR32SJ4d+QZwH09GO5zTF4G4FfradBtchIparxl
-         /OkQ==
+        bh=PGUaOXcAUgKDNV4MrYudUGzscZJWJkWDT1OV8fdzh5s=;
+        b=OKiSSskUAf0SgsQYnXJlHPx4XqVIi+zkrf/+Yc9ULb+Vvlnv/wthf+SpQqumehVGQ9
+         DvvWV/16WKv01sPNTaM++DQ1PkmDX8yLaOSyx+UWu9RlhJYrXVYsXemzUxvTsRrk5Y0S
+         mlqv7tqGFJ2dQL6LuOjtyt1bmOawZpMpF71Cf5i7vVQcZWDZ2zSI7c/vh/CkM3uLgK2n
+         MVj//lI48C0Yo40ozOXoNLAzKBLwlFxuVk5AGbzEvIYpj0boldSpIRSjXuCdtogIHHuU
+         hrdIy32Q0H4vVzBGn/FdhDb2jWRcCnTPdvChMF2F61vnw10dd8xHTSuudZhH8hHoFkej
+         3eOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795587406; x=1796192206;
+        d=1e100.net; s=20260707; t=1795587410; x=1796192210;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=opbvbiqLtMKnZidmW1akDPMoAVRaFGJF5QXg9EIzgwM=;
-        b=EwB09tb/wuVziTGXpu9U1dmI5j5cPQqXzsWzFLsYJdiOW4/VDPlzfxvN3bd7Tapaz+
-         1O7BOZPhFmfyUx7nT+TVWpeJlq9DxT9IXSOuRJjJEtEIGhbDvb+WhS9w/+Ul6RZKdrP0
-         xu78FrKTP3MohpNSr4udeNvEUdcQcQp084XCPlIj6z/mOEZ6IM7ZvlospFXVO8aTE757
-         sUhNRbmL7/tSjal+nBGO4kKGdgRKknAeATZFHfA5bJhCbxg1FjG+rn0eSOi8jgmYemro
-         MyfGpHpl1gGuoa2QoNeEHkOWEYcU11IzJQnQKGAbPE5471bLLI1dXGIZcQv6Pn40rdUc
-         UuQw==
-X-Forwarded-Encrypted: i=1; AL+hErGYjY/N50LsZri6lBFk5jn2zkT5Lb7UbfdkxG2bftOA1FxkJnaqMdC9yPAmL3j7Z7f93a+v9inGFE/LYQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z95sa/b4DUF+lmSKkDs5xQrzm7v3efHP0zbqnmo9jLVU6wBvHeo
-	HY2U0JprEppoQEzSlnI70quMjfLtyarHdY6cX2t0aAxJBR0YG4oEF/PwmK4Dgh0exak6fIW62CG
-	vhe0qaUfvDw==
-X-Received: from oigu20-n1.prod.google.com ([2002:a05:6809:5d4:10b0:4f5:740:2bcf])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:319b:b0:4f5:eaac:5173
- with SMTP id 5614622812f47-57a0b84fa3dmr15864618b6e.57.1795587405164; Tue, 24
- Nov 2026 22:16:45 -0800 (PST)
-Date: Tue, 24 Nov 2026 22:15:17 -0800
+        bh=PGUaOXcAUgKDNV4MrYudUGzscZJWJkWDT1OV8fdzh5s=;
+        b=VWWxTM25D/coLmokfE7hgXp/YL3qduTgdPvwF1hAy41kNZypYY51KK44xghGrrtNbH
+         PAfTjKrs2J62JU1mJhnE2uHgGrwGnVcF37iRUKXsdkwSiTfiSHyWuEb8qP2nqoAa4/pD
+         2dPdBG8bpozuUmTB71HoSEfB/03PVjttwayvv/yGbtkrI0JlouJM6PELDeHZXWMczpgP
+         Hkv68pbrUndDyCNLIJN9zxvoBxZ3A3A13aMPOEjXLGb/VLqgLd7EhOaHpI4saRFYG/mR
+         pJ6kDMUvQv944sh1TSlRp+mOK1norAlo/R5WISLsuw08jhpK0pZtdIidgSH9VdvyFhUQ
+         aaRA==
+X-Forwarded-Encrypted: i=1; AL+hErGmTLtFvApDe1MaB334Xicsu086/hd6cuXpgbq+P7simLWucipY1aGW1jBDSKtQZ2x9xE2sfA4Btn83xA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+RTF8MNK/hNGX6qqxgfyjCgg+RFM1RN6CXD62Xc10dKjJkyd6h
+	oP0LmNGpOfWANCh1rCRaTRoS1cWXXJzTF/LUbVwRG4lOvFzQ49drIv3Y1+/FkSHFGnWs3U4BPao
+	zlp+fMjG3VQ==
+X-Received: from dlak28.prod.google.com ([2002:a05:701b:291c:b0:1b5:88f8:91d6])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701a:cc86:20b0:1b5:87b6:2906
+ with SMTP id a92af1059eb24-1b587b62983mr1774824c88.13.1795587409494; Tue, 24
+ Nov 2026 22:16:49 -0800 (PST)
+Date: Tue, 24 Nov 2026 22:15:19 -0800
 In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
 References: <20261125061523.1540234-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261125061523.1540234-25-irogers@google.com>
-Subject: [RFC PATCH v2 24/30] tools headers: Add linux/unwind_dwarf_cfi.h copy
- from the kernel sources
+Message-ID: <20261125061523.1540234-27-irogers@google.com>
+Subject: [RFC PATCH v2 26/30] tools/unwind: Add standalone libLLVM Minimal
+ DWARF CFI verifier
 From: Ian Rogers <irogers@google.com>
 To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
 	linux-arch@vger.kernel.org
@@ -106,9 +90,9 @@ Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org,
 	linux-kselftest@vger.kernel.org, indu.bhagat@oracle.com, jremus@linux.ibm.com, 
 	wnliu@google.com, dylanbhatch@google.com, Ian Rogers <irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_061651_668358_485DCF7A 
-X-CRM114-Status: GOOD (  22.53  )
-X-Spam-Score: -7.6 (-------)
+X-CRM114-CacheID: sfid-20261124_221652_562268_72BE7CEE 
+X-CRM114-Status: GOOD (  20.59  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,216 +113,1325 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Copy include/linux/unwind_dwarf_cfi.h to
-tools/include/linux/unwind_dwarf_cfi.h for host unwinding verification
-tools under tools/, and add it to tools/perf/check-headers.sh.
+Add an optional standalone host verification tool (tools/unwind/verify_cfi,
+built via `make -C tools/unwind` or `make tools/unwind` when libLLVM is
+detected via tools/build/Makefile.feature, and gracefully skipped
+otherwise) linked directly against kernel/unwind/dwarf_cfi.c.
+
+This initial commit implements the CLI harness, host VMA and kmem buffer
+wrappers (dwarf_cfi_host.c), and Oracle 1 (verifyOracle1Dwarf()), which
+evaluates libLLVM's full reference DWARFUnwindTable
+(llvm::dwarf::createUnwindTable) and verifies exact agreement with both
+dwarf_cfi_unwind_user_eh_frame_hdr() and dwarf_cfi_unwind_eh_frame_hdr()
+at every FDE start, row-transition boundary (pc - 1 and pc), and end PC.
+
+Across 207,450 vmlinux FDEs (2,575,276 transition PCs) on x86_64, arm64,
+and riscv64, plus user-space shared libraries (libc.so.6, libstdc++.so.6,
+libcrypto.so.3, /bin/bash), Oracle 1 reports 0 mismatches.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/include/linux/unwind_dwarf_cfi.h | 181 +++++++++++++++++++++++++
- tools/perf/check-headers.sh            |   1 +
- 2 files changed, 182 insertions(+)
- create mode 100644 tools/include/linux/unwind_dwarf_cfi.h
+ tools/Makefile                |  13 +-
+ tools/unwind/.gitignore       |   4 +
+ tools/unwind/Makefile         | 123 ++++++
+ tools/unwind/dwarf_cfi_host.c |  80 ++++
+ tools/unwind/dwarf_cfi_host.h |  42 ++
+ tools/unwind/verify_cfi.cpp   | 789 ++++++++++++++++++++++++++++++++++
+ tools/unwind/verify_cfi.hpp   | 147 +++++++
+ 7 files changed, 1192 insertions(+), 6 deletions(-)
+ create mode 100644 tools/unwind/.gitignore
+ create mode 100644 tools/unwind/Makefile
+ create mode 100644 tools/unwind/dwarf_cfi_host.c
+ create mode 100644 tools/unwind/dwarf_cfi_host.h
+ create mode 100644 tools/unwind/verify_cfi.cpp
+ create mode 100644 tools/unwind/verify_cfi.hpp
 
-diff --git a/tools/include/linux/unwind_dwarf_cfi.h b/tools/include/linux/unwind_dwarf_cfi.h
+diff --git a/tools/Makefile b/tools/Makefile
+index cb40961a740f..0890921e56b2 100644
+--- a/tools/Makefile
++++ b/tools/Makefile
+@@ -37,6 +37,7 @@ help:
+ 	@echo '  thermal                - thermal library'
+ 	@echo '  tracing                - misc tracing tools'
+ 	@echo '  turbostat              - Intel CPU idle stats and freq reporting tool'
++	@echo '  unwind                 - Minimal DWARF CFI static verifier'
+ 	@echo '  usb                    - USB testing tools'
+ 	@echo '  virtio                 - vhost test module'
+ 	@echo '  mm                     - misc mm tools'
+@@ -70,7 +71,7 @@ acpi: FORCE
+ cpupower: FORCE
+ 	$(call descend,power/$@)
+ 
+-counter dma firewire hv guest bootconfig spi usb virtio mm bpf iio gpio objtool leds wmi firmware debugging tracing: FORCE
++counter dma firewire hv guest bootconfig spi usb virtio mm bpf iio gpio objtool leds wmi firmware debugging tracing unwind: FORCE
+ 	$(call descend,$@)
+ 
+ bpf/%: FORCE
+@@ -127,7 +128,7 @@ all: acpi counter cpupower dma gpio hv firewire \
+ 		perf selftests bootconfig spi turbostat usb \
+ 		virtio mm bpf x86_energy_perf_policy \
+ 		tmon freefall iio objtool kvm_stat wmi \
+-		debugging tracing thermal thermometer thermal-engine ynl
++		debugging tracing thermal thermometer thermal-engine unwind ynl
+ 
+ acpi_install:
+ 	$(call descend,power/$(@:_install=),install)
+@@ -135,7 +136,7 @@ acpi_install:
+ cpupower_install:
+ 	$(call descend,power/$(@:_install=),install)
+ 
+-counter_install dma_install firewire_install gpio_install hv_install iio_install perf_install bootconfig_install spi_install usb_install virtio_install mm_install bpf_install objtool_install wmi_install debugging_install tracing_install:
++counter_install dma_install firewire_install gpio_install hv_install iio_install perf_install bootconfig_install spi_install usb_install virtio_install mm_install bpf_install objtool_install wmi_install debugging_install tracing_install unwind_install:
+ 	$(call descend,$(@:_install=),install)
+ 
+ selftests_install:
+@@ -171,7 +172,7 @@ install: acpi_install counter_install cpupower_install dma_install gpio_install
+ 		virtio_install mm_install bpf_install x86_energy_perf_policy_install \
+ 		tmon_install freefall_install objtool_install kvm_stat_install \
+ 		wmi_install debugging_install intel-speed-select_install \
+-		tracing_install thermometer_install thermal-engine_install ynl_install
++		tracing_install thermometer_install thermal-engine_install unwind_install ynl_install
+ 
+ acpi_clean:
+ 	$(call descend,power/acpi,clean)
+@@ -179,7 +180,7 @@ acpi_clean:
+ cpupower_clean:
+ 	$(call descend,power/cpupower,clean)
+ 
+-counter_clean dma_clean hv_clean firewire_clean bootconfig_clean spi_clean usb_clean virtio_clean mm_clean wmi_clean bpf_clean iio_clean gpio_clean objtool_clean leds_clean firmware_clean debugging_clean tracing_clean:
++counter_clean dma_clean hv_clean firewire_clean bootconfig_clean spi_clean usb_clean virtio_clean mm_clean wmi_clean bpf_clean iio_clean gpio_clean objtool_clean leds_clean firmware_clean debugging_clean tracing_clean unwind_clean:
+ 	$(call descend,$(@:_clean=),clean)
+ 
+ libapi_clean:
+@@ -231,6 +232,6 @@ clean: acpi_clean counter_clean cpupower_clean dma_clean hv_clean firewire_clean
+ 		freefall_clean build_clean libbpf_clean libsubcmd_clean \
+ 		gpio_clean objtool_clean leds_clean wmi_clean firmware_clean debugging_clean \
+ 		intel-speed-select_clean tracing_clean thermal_clean thermometer_clean thermal-engine_clean \
+-		sched_ext_clean ynl_clean
++		sched_ext_clean unwind_clean ynl_clean
+ 
+ .PHONY: FORCE
+diff --git a/tools/unwind/.gitignore b/tools/unwind/.gitignore
 new file mode 100644
-index 000000000000..3530794c8543
+index 000000000000..1fa1fbaca9b0
 --- /dev/null
-+++ b/tools/include/linux/unwind_dwarf_cfi.h
-@@ -0,0 +1,181 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
-+#ifndef _LINUX_UNWIND_DWARF_CFI_H
-+#define _LINUX_UNWIND_DWARF_CFI_H
++++ b/tools/unwind/.gitignore
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0-only OR MIT
++verify_cfi
++FEATURE-DUMP*
++feature/
+diff --git a/tools/unwind/Makefile b/tools/unwind/Makefile
+new file mode 100644
+index 000000000000..ca6b84dbd31a
+--- /dev/null
++++ b/tools/unwind/Makefile
+@@ -0,0 +1,123 @@
++# SPDX-License-Identifier: GPL-2.0-only OR MIT
++include ../scripts/Makefile.include
 +
-+#include <linux/types.h>
++bindir ?= /usr/bin
++
++ifeq ($(srctree),)
++srctree := $(patsubst %/,%,$(dir $(CURDIR)))
++srctree := $(patsubst %/,%,$(dir $(srctree)))
++endif
++
++ifneq ($(LLVM),)
++  $(call allow-override,HOSTCXX,$(LLVM_PREFIX)clang++$(LLVM_SUFFIX))
++else
++  $(call allow-override,HOSTCXX,g++)
++endif
++
++# verify_cfi is a host analysis tool; ensure feature checks probe the host
++# compiler even when CROSS_COMPILE is set in the environment.
++CC  := $(HOSTCC)
++CXX := $(HOSTCXX)
++
++# Auto-discover versioned llvm-config (e.g. Debian/Ubuntu llvm-config-21) when
++# the default unversioned binary is absent, and export it for Makefile.feature.
++ifeq ($(shell command -v $(firstword $(LLVM_CONFIG)) >/dev/null 2>&1 && echo y),)
++  LLVM_CONFIG_CANDIDATES := llvm-config-22 llvm-config-21 llvm-config-20 \
++			    llvm-config-19 llvm-config-18
++  FOUND_LLVM_CONFIG := $(firstword $(foreach c,$(LLVM_CONFIG_CANDIDATES), \
++			 $(if $(shell command -v $(c) >/dev/null 2>&1 && echo y),$(c))))
++  ifneq ($(FOUND_LLVM_CONFIG),)
++    LLVM_CONFIG := $(FOUND_LLVM_CONFIG)
++  endif
++endif
++export LLVM_CONFIG
++
++FEATURE_USER := .verify_cfi
++FEATURE_TESTS := llvm
++FEATURE_DISPLAY := llvm
++
++check_feat := 1
++NON_CHECK_FEAT_TARGETS := clean
++ifdef MAKECMDGOALS
++ifeq ($(filter-out $(NON_CHECK_FEAT_TARGETS),$(MAKECMDGOALS)),)
++  check_feat := 0
++endif
++endif
++ifeq ($(SKIP_LLVM),1)
++  check_feat := 0
++endif
++
++ifeq ($(check_feat),1)
++ifeq ($(FEATURES_DUMP),)
++include $(srctree)/tools/build/Makefile.feature
++else
++include $(FEATURES_DUMP)
++endif
++endif
++
++LLVM_COMPONENTS := debuginfodwarf object mc mcdisassembler all-targets support
++
++ifeq ($(feature-llvm),1)
++ifneq ($(SKIP_LLVM),1)
++  LLVM_INCDIR := $(shell $(LLVM_CONFIG) --includedir 2>/dev/null)
++  ifneq ($(wildcard $(LLVM_INCDIR)/llvm/DebugInfo/DWARF/LowLevel/DWARFUnwindTable.h),)
++    HAS_LIBLLVM := 1
++    LLVM_CXXFLAGS := $(filter-out -D_GNU_SOURCE -std=%,$(shell $(LLVM_CONFIG) --cxxflags 2>/dev/null))
++    LLVM_LDFLAGS  := $(shell $(LLVM_CONFIG) --ldflags 2>/dev/null)
++    LLVM_LIBS     := $(shell $(LLVM_CONFIG) --link-shared --libs $(LLVM_COMPONENTS) 2>/dev/null)
++    ifeq ($(LLVM_LIBS),)
++      LLVM_LIBS   := $(shell $(LLVM_CONFIG) --libs $(LLVM_COMPONENTS) 2>/dev/null) \
++		     $(shell $(LLVM_CONFIG) --system-libs $(LLVM_COMPONENTS) 2>/dev/null)
++    endif
++  endif
++endif
++endif
++
++TOOLS_INCLUDES := -I$(srctree)/tools/include -I$(srctree)/tools/include/uapi \
++		  -I$(srctree)/tools/arch/x86/include
++
++SHIM_CFLAGS := -O2 -g -Wall -Wextra -Wno-unused-parameter -Wno-maybe-uninitialized \
++	$(TOOLS_INCLUDES)
++
++VERIFY_CXXFLAGS := -O2 -g -Wall -Wextra -std=gnu++20 $(LLVM_CXXFLAGS) \
++	-I$(CURDIR) $(TOOLS_INCLUDES) $(CXXFLAGS)
++VERIFY_LDFLAGS  := $(LLVM_LDFLAGS) $(LDFLAGS)
++
++KERNEL_CFI_DEPS := $(srctree)/kernel/unwind/dwarf_cfi.c \
++		   $(srctree)/tools/include/linux/unwind_dwarf_cfi.h
++
++VERIFY_OBJS := $(OUTPUT)dwarf_cfi_host.o \
++		 $(OUTPUT)verify_cfi.o
++
++ifeq ($(HAS_LIBLLVM),1)
++all: $(OUTPUT)verify_cfi
++else
++all:
++ifeq ($(REQUIRE_LLVM),1)
++	$(error libLLVM 17+ development headers/libraries not found (LLVM_CONFIG=$(LLVM_CONFIG)))
++else
++	@echo "  SKIP    verify_cfi (libLLVM dev files not found; set LLVM_CONFIG=...)"
++endif
++endif
++
++$(OUTPUT)dwarf_cfi_host.o: dwarf_cfi_host.c dwarf_cfi_host.h $(KERNEL_CFI_DEPS)
++	$(QUIET_CC)$(HOSTCC) $(SHIM_CFLAGS) -c $< -o $@
++
++$(OUTPUT)%.o: %.cpp $(wildcard *.hpp) dwarf_cfi_host.h
++	$(QUIET_CXX)$(HOSTCXX) $(VERIFY_CXXFLAGS) -c $< -o $@
++
++$(OUTPUT)verify_cfi: $(VERIFY_OBJS)
++	$(QUIET_LINK)$(HOSTCXX) $(VERIFY_CXXFLAGS) $(VERIFY_OBJS) \
++		-o $@ $(VERIFY_LDFLAGS) $(LLVM_LIBS)
++
++install: all
++	@if [ -x "$(OUTPUT)verify_cfi" ]; then \
++		install -d -m 755 $(DESTDIR)$(bindir); \
++		install $(OUTPUT)verify_cfi $(DESTDIR)$(bindir); \
++	fi
++
++clean:
++	$(RM) -r $(OUTPUT)*.o $(OUTPUT)verify_cfi \
++		$(OUTPUT)feature $(OUTPUT)FEATURE-DUMP*
++
++.PHONY: all install clean
+diff --git a/tools/unwind/dwarf_cfi_host.c b/tools/unwind/dwarf_cfi_host.c
+new file mode 100644
+index 000000000000..307b18fc6fe1
+--- /dev/null
++++ b/tools/unwind/dwarf_cfi_host.c
+@@ -0,0 +1,80 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Host userspace wrapper compiling kernel/unwind/dwarf_cfi.c verbatim against
++ * tools/include/ headers so verify_cfi exercises the exact kernel Minimal DWARF
++ * CFI interpreter on both the 128-byte windowed user stream path and the direct
++ * kmem noinstr path.
++ */
++
++#include <stdbool.h>
++#include <stddef.h>
++#include <stdint.h>
++#include <string.h>
++
++#include "dwarf_cfi_host.h"
++
++static const struct host_vma_seg *g_segs;
++static size_t g_nsegs;
++
++void host_set_vma_segs(const struct host_vma_seg *segs, size_t nsegs)
++{
++	g_segs = segs;
++	g_nsegs = nsegs;
++}
++
++static unsigned long host_copy_from_vma(void *to, const void *from_ptr,
++					unsigned long n)
++{
++	unsigned long addr = (unsigned long)from_ptr;
++	unsigned char *dst = to;
++
++	while (n > 0) {
++		bool found = false;
++		size_t i;
++
++		for (i = 0; i < g_nsegs; i++) {
++			unsigned long start = g_segs[i].vma;
++
++			if (addr >= start && (addr - start) < g_segs[i].size) {
++				unsigned long off = addr - start;
++				unsigned long avail = g_segs[i].size - off;
++				unsigned long chunk = n < avail ? n : avail;
++
++				memcpy(dst, g_segs[i].data + off, chunk);
++				dst += chunk;
++				addr += chunk;
++				n -= chunk;
++				found = true;
++				break;
++			}
++		}
++		if (!found)
++			return n;
++	}
++	return 0;
++}
 +
 +/*
-+ * Minimal DWARF Call Frame Information (CFI) unwinder subset.
-+ *
-+ * Evaluates a strictly bounded, non-Turing-complete subset of .eh_frame and
-+ * .eh_frame_hdr tables matching SFrame's stack-unwinding state model (plus
-+ * fixed-pattern DRAP stack-realignment and signal-frame expressions):
-+ *  - Advances PC monotonically through a single FDE (no backward jumps)
-+ *  - Tracks CFA = (SP | FP | scratch) + cfa_off or *(FP/SP + cfa_off)
-+ *  - Tracks stack save offsets for SP, FP, and RA (ignoring callee-saved GPR
-+ *    spills)
-+ *  - Rejects general DWARF expressions, register-to-register rules on SP/FP/RA,
-+ *    and DW_EH_PE_indirect FDE/table pointer encodings (skipping CIE
-+ *    personality and LSDA fields without dereferencing).
++ * In userspace, <linux/limits.h> resolves to the UAPI header rather than
++ * kernel-internal include/linux/limits.h, and tools/include/linux/kernel.h
++ * avoids defining fixed-width integer bounds globally because other tools/
++ * targets define their own U8_MAX/U32_MAX macros.
 + */
++#ifndef U8_MAX
++#define U8_MAX		((u8)~0U)
++#endif
++#ifndef U32_MAX
++#define U32_MAX		((u32)~0U)
++#endif
++#ifndef S32_MAX
++#define S32_MAX		((s32)(U32_MAX >> 1))
++#endif
++#ifndef S32_MIN
++#define S32_MIN		((s32)(-S32_MAX - 1))
++#endif
++#ifndef noinstr
++#define noinstr
++#endif
++#define copy_from_user(to, from, n) host_copy_from_vma(to, from, n)
 +
-+/* Hard safety bounds enforced on CIE/FDE lengths, offsets, and state stack */
-+#define DWARF_CFI_MAX_CIE_LEN		128U
-+#define DWARF_CFI_MAX_FDE_LEN		4096U
-+#define DWARF_CFI_MAX_CIE_DELTA		(64U * 1024U * 1024U)
-+#define DWARF_CFI_MAX_FDE_COUNT		(4U * 1024U * 1024U)
-+#define DWARF_CFI_MAX_STATE_STACK	4U
++#include "../../kernel/unwind/dwarf_cfi.c"
+diff --git a/tools/unwind/dwarf_cfi_host.h b/tools/unwind/dwarf_cfi_host.h
+new file mode 100644
+index 000000000000..c797f9992bf1
+--- /dev/null
++++ b/tools/unwind/dwarf_cfi_host.h
+@@ -0,0 +1,42 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++#ifndef _TOOLS_UNWIND_DWARF_CFI_HOST_H
++#define _TOOLS_UNWIND_DWARF_CFI_HOST_H
 +
-+/**
-+ * enum dwarf_cfi_base - Base register or addressing mode for computing the CFA
-+ * @DWARF_CFI_BASE_UNDEFINED: CFA rule has not been established yet.
-+ * @DWARF_CFI_BASE_SP: CFA = stack pointer + cfa_off.
-+ * @DWARF_CFI_BASE_FP: CFA = frame pointer + cfa_off.
-+ * @DWARF_CFI_BASE_FP_INDIRECT: DRAP stack realignment: CFA = *(FP + cfa_off).
-+ * @DWARF_CFI_BASE_SP_INDIRECT: Signal trampoline frame: CFA = *(SP + cfa_off).
-+ * @DWARF_CFI_BASE_REG: Transient prologue/epilogue scratch register:
-+ *                      CFA = reg(cfa_reg) + cfa_off.
++#include <stdbool.h>
++#include <stddef.h>
++#include <stdint.h>
++
++/*
++ * Note: In C++ files using LLVM headers, include this header AFTER <llvm/...>
++ * headers (matching tools/perf/util/llvm-c-helpers.cpp) because
++ * tools/include/linux/compiler.h defines macros such as 'noinline' that
++ * conflict with LLVM attribute declarations.
 + */
-+enum dwarf_cfi_base {
-+	DWARF_CFI_BASE_UNDEFINED = 0,
-+	DWARF_CFI_BASE_SP,
-+	DWARF_CFI_BASE_FP,
-+	DWARF_CFI_BASE_FP_INDIRECT,
-+	DWARF_CFI_BASE_SP_INDIRECT,
-+	DWARF_CFI_BASE_REG,
-+};
-+
-+/**
-+ * enum dwarf_cfi_rule - Recovery rule for caller's SP, FP, or return address
-+ * @DWARF_CFI_RULE_SAME: Register retains its value from the current frame
-+ *                       (or defaults to CFA for SP).
-+ * @DWARF_CFI_RULE_OFFSET: Saved on the stack at *(CFA + off).
-+ * @DWARF_CFI_RULE_FP_OFFSET: Saved relative to FP at *(FP + off) (DRAP frame).
-+ * @DWARF_CFI_RULE_SP_OFFSET: Saved relative to SP at *(SP + off) (sigframe).
-+ * @DWARF_CFI_RULE_UNDEFINED: Explicitly undefined (DW_CFA_undefined); marks
-+ *                            the bottom of a stack (e.g. _start or clone).
-+ */
-+enum dwarf_cfi_rule {
-+	DWARF_CFI_RULE_SAME = 0,
-+	DWARF_CFI_RULE_OFFSET,
-+	DWARF_CFI_RULE_FP_OFFSET,
-+	DWARF_CFI_RULE_SP_OFFSET,
-+	DWARF_CFI_RULE_UNDEFINED,
-+};
-+
-+/**
-+ * struct dwarf_cfi_arch - Architecture DWARF register numbers and word size
-+ * @ws: Target address/word size in bytes (4 or 8).
-+ * @sp_reg: DWARF register number for the stack pointer.
-+ * @fp_reg: DWARF register number for the frame pointer.
-+ * @ra_reg: Default DWARF return-address column number.
-+ */
-+struct dwarf_cfi_arch {
-+	u8 ws;
-+	u8 sp_reg;
-+	u8 fp_reg;
-+	u8 ra_reg;
-+};
-+
-+/**
-+ * struct dwarf_cfi_row - Evaluated Minimal DWARF unwind state at a target PC
-+ * @cfa_off: Byte offset added to the CFA base register before or as the CFA.
-+ * @sp_off: Byte offset used to load the saved SP when @sp_rule is an offset.
-+ * @fp_off: Byte offset used to load the saved FP when @fp_rule is an offset.
-+ * @ra_off: Byte offset used to load the saved RA when @ra_rule is an offset.
-+ * @cfa_base: CFA computation mode (&enum dwarf_cfi_base).
-+ * @cfa_reg: DWARF register number when @cfa_base is %DWARF_CFI_BASE_REG.
-+ * @sp_rule: Recovery rule for the stack pointer (&enum dwarf_cfi_rule;
-+ *           %DWARF_CFI_RULE_SAME indicates caller SP equals CFA).
-+ * @fp_rule: Recovery rule for the frame pointer (&enum dwarf_cfi_rule).
-+ * @ra_rule: Recovery rule for the return address (&enum dwarf_cfi_rule).
-+ * @signal: True if the CIE carries the 'S' signal/interrupt frame augmentation,
-+ *          indicating that the saved PC points directly to the interrupted
-+ *          instruction rather than after a call instruction.
-+ * @ra_signed: True on AArch64 when DW_CFA_AARCH64_negate_ra_state indicates
-+ *             that the saved return address carries a PAC signature.
-+ */
-+struct dwarf_cfi_row {
-+	s32 cfa_off;
-+	s32 sp_off;
-+	s32 fp_off;
-+	s32 ra_off;
-+	u8 cfa_base;
-+	u8 cfa_reg;
-+	u8 sp_rule;
-+	u8 fp_rule;
-+	u8 ra_rule;
-+	bool signal;
-+	bool ra_signed;
-+};
-+
-+/**
-+ * struct eh_frame_hdr_entry - Binary-search index entry for an FDE
-+ * @start_off: Signed 32-bit offset from the table base (or entry field) to the
-+ *             FDE's initial PC location.
-+ * @fde_off: Signed 32-bit offset from the table base (or entry field) to the
-+ *           start of the FDE record in .eh_frame.
-+ */
-+struct eh_frame_hdr_entry {
-+	s32 start_off;
-+	s32 fde_off;
-+};
-+
-+#ifdef CONFIG_UNWIND_DWARF_CFI
-+
-+extern const u8 __start_eh_frame_hdr[];
-+extern const u8 __stop_eh_frame_hdr[];
-+extern const u8 __start_eh_frame[];
-+extern const u8 __stop_eh_frame[];
-+
-+int dwarf_cfi_eval_fde_kmem(const u8 *fde, const u8 *eh_start,
-+			    const u8 *eh_end, unsigned long pc,
-+			    const struct dwarf_cfi_arch *arch,
-+			    struct dwarf_cfi_row *out_row);
-+
-+int dwarf_cfi_unwind_eh_frame_hdr(const u8 *hdr, size_t hdr_size,
-+				  const u8 *eh_start, const u8 *eh_end,
-+				  unsigned long pc,
-+				  const struct dwarf_cfi_arch *arch,
-+				  struct dwarf_cfi_row *out_row);
-+
-+int dwarf_cfi_scan_eh_frame_kmem(const u8 *eh_start, size_t eh_size,
-+				 const struct dwarf_cfi_arch *arch,
-+				 unsigned long base_addr,
-+				 struct eh_frame_hdr_entry *entries,
-+				 unsigned int max_entries,
-+				 unsigned int *out_count);
-+
-+int dwarf_cfi_unwind_user_eh_frame_hdr(unsigned long hdr_uaddr,
-+				       size_t hdr_size, unsigned long pc,
-+				       const struct dwarf_cfi_arch *arch,
-+				       struct dwarf_cfi_row *out_row);
-+
-+#if defined(CONFIG_UNWINDER_DWARF_CFI) && defined(CONFIG_MODULES)
-+/**
-+ * struct mod_dwarf_cfi_index - Sorted FDE lookup table for a loadable module
-+ * @num_fdes: Number of sorted FDE index entries in @entries.
-+ * @eh_frame: Pointer to the module's in-memory SHF_ALLOC .eh_frame section;
-+ *            also serves as the base address for @entries offsets.
-+ * @eh_frame_size: Size in bytes of the module's .eh_frame section.
-+ * @entries: Sorted binary-search table mapping PCs to module FDEs.
-+ */
-+struct mod_dwarf_cfi_index {
-+	unsigned int num_fdes;
-+	const u8 *eh_frame;
-+	size_t eh_frame_size;
-+	struct eh_frame_hdr_entry entries[] __counted_by(num_fdes);
-+};
-+
-+struct mod_dwarf_cfi_index *dwarf_cfi_mod_alloc(const void *eh_frame,
-+						size_t eh_frame_size,
-+						const struct dwarf_cfi_arch *arch);
-+void dwarf_cfi_mod_free_rcu(struct mod_dwarf_cfi_index *idx);
-+int dwarf_cfi_mod_eval(const struct mod_dwarf_cfi_index *idx, unsigned long ip,
-+		       const struct dwarf_cfi_arch *arch,
-+		       struct dwarf_cfi_row *out_row);
++#ifdef __cplusplus
++extern "C" {
 +#endif
 +
-+#endif /* CONFIG_UNWIND_DWARF_CFI */
++#ifndef CONFIG_UNWIND_DWARF_CFI
++#define CONFIG_UNWIND_DWARF_CFI 1
++#endif
++#include <linux/unwind_dwarf_cfi.h>
 +
-+#endif /* _LINUX_UNWIND_DWARF_CFI_H */
-diff --git a/tools/perf/check-headers.sh b/tools/perf/check-headers.sh
-index 3e684c851a86..1b1bd04a6690 100755
---- a/tools/perf/check-headers.sh
-+++ b/tools/perf/check-headers.sh
-@@ -30,6 +30,7 @@ declare -a FILES=(
-   "include/linux/hash.h"
-   "include/linux/kmsan-checks.h"
-   "include/linux/list-sort.h"
-+  "include/linux/unwind_dwarf_cfi.h"
-   "include/uapi/linux/hw_breakpoint.h"
-   "arch/x86/include/asm/cpufeatures.h"
-   "arch/x86/include/asm/inat_types.h"
++/**
++ * struct host_vma_seg - Simulated user VMA backing range for host CFI testing
++ * @vma: Starting virtual address of the ELF section/segment.
++ * @size: Length in bytes of the backing buffer @data.
++ * @data: Pointer to in-memory ELF section contents on the host.
++ */
++struct host_vma_seg {
++	unsigned long vma;
++	size_t size;
++	const uint8_t *data;
++};
++
++void host_set_vma_segs(const struct host_vma_seg *segs, size_t nsegs);
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif /* _TOOLS_UNWIND_DWARF_CFI_HOST_H */
+diff --git a/tools/unwind/verify_cfi.cpp b/tools/unwind/verify_cfi.cpp
+new file mode 100644
+index 000000000000..15d99ba57ce3
+--- /dev/null
++++ b/tools/unwind/verify_cfi.cpp
+@@ -0,0 +1,789 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Standalone Multi-Architecture Minimal DWARF CFI Verifier using libLLVM.
++ *
++ * Entry point and Oracle 1 (libLLVM reference DWARFUnwindTable vs. kernel
++ * Minimal DWARF interpreter across both user-stream and kmem paths), with
++ * optional compile-time hooks for Oracle 2 (HAVE_VERIFY_INSN) and Oracle 3
++ * (HAVE_VERIFY_ORC).
++ */
++
++#pragma GCC diagnostic push
++#pragma GCC diagnostic ignored "-Wunused-parameter"
++#include "llvm/ADT/SmallVector.h"
++#include "llvm/BinaryFormat/Dwarf.h"
++#include "llvm/BinaryFormat/ELF.h"
++#include "llvm/DebugInfo/DWARF/DWARFContext.h"
++#include "llvm/DebugInfo/DWARF/DWARFDebugFrame.h"
++#include "llvm/DebugInfo/DWARF/LowLevel/DWARFExpression.h"
++#include "llvm/DebugInfo/DWARF/LowLevel/DWARFUnwindTable.h"
++#include "llvm/MC/MCAsmInfo.h"
++#include "llvm/MC/MCContext.h"
++#include "llvm/MC/MCObjectFileInfo.h"
++#include "llvm/MC/MCTargetOptions.h"
++#include "llvm/MC/TargetRegistry.h"
++#include "llvm/Object/ELFObjectFile.h"
++#include "llvm/Object/ObjectFile.h"
++#include "llvm/Support/InitLLVM.h"
++#include "llvm/Support/MemoryBuffer.h"
++#include "llvm/Support/TargetSelect.h"
++#include "llvm/Support/raw_ostream.h"
++#pragma GCC diagnostic pop
++
++#include "verify_cfi.hpp"
++
++#include <algorithm>
++#include <cinttypes>
++#include <cstdio>
++#include <cstdlib>
++#include <cstring>
++#include <memory>
++
++using namespace llvm;
++using namespace llvm::object;
++
++/**
++ * getArchSpec() - Populate target architecture metadata from an ELF ObjectFile
++ * @Obj: Parsed LLVM ObjectFile under inspection.
++ * @Out: Output &struct ArchSpec populated on success.
++ *
++ * Return: true if @Obj targets a supported architecture (x86_64, aarch64, or
++ * riscv64); false otherwise.
++ */
++static bool getArchSpec(const ObjectFile &Obj, ArchSpec &Out)
++{
++	auto A = Obj.getArch();
++	if (A == Triple::x86_64) {
++		Out = {Triple::x86_64, "x86_64-unknown-linux-gnu", "",
++		       {8, 7, 6, 16}, 8, true};
++		return true;
++	}
++	if (A == Triple::aarch64) {
++		Out = {Triple::aarch64, "aarch64-unknown-linux-gnu",
++		       "+v8.5a,+pauth,+bti", {8, 31, 29, 30}, 0, false};
++		return true;
++	}
++	if (A == Triple::riscv64) {
++		Out = {Triple::riscv64, "riscv64-unknown-linux-gnu",
++		       "+m,+a,+f,+d,+c,+zicsr,+zifencei",
++		       {8, 2, 8, 1}, 0, false};
++		return true;
++	}
++	return false;
++}
++
++/**
++ * rowsEqual() - Compare two evaluated Minimal DWARF unwind rows for equality
++ */
++bool rowsEqual(const dwarf_cfi_row &a, const dwarf_cfi_row &b)
++{
++	if (a.cfa_base != b.cfa_base || a.cfa_off != b.cfa_off ||
++	    a.sp_rule != b.sp_rule || a.fp_rule != b.fp_rule ||
++	    a.ra_rule != b.ra_rule || a.signal != b.signal ||
++	    a.ra_signed != b.ra_signed)
++		return false;
++	if (a.cfa_base == DWARF_CFI_BASE_REG && a.cfa_reg != b.cfa_reg)
++		return false;
++	if (a.sp_rule == DWARF_CFI_RULE_OFFSET && a.sp_off != b.sp_off)
++		return false;
++	if ((a.fp_rule == DWARF_CFI_RULE_OFFSET ||
++	     a.fp_rule == DWARF_CFI_RULE_FP_OFFSET ||
++	     a.fp_rule == DWARF_CFI_RULE_SP_OFFSET) &&
++	    a.fp_off != b.fp_off)
++		return false;
++	if ((a.ra_rule == DWARF_CFI_RULE_OFFSET ||
++	     a.ra_rule == DWARF_CFI_RULE_SP_OFFSET) &&
++	    a.ra_off != b.ra_off)
++		return false;
++	return true;
++}
++
++void recordIssue(VerifyStats &st, const VerifyOptions &opts,
++		 const std::string &reason, const std::string &detail)
++{
++	uint64_t cnt = ++st.mismatch_reasons[reason];
++	if (cnt <= opts.max_samples &&
++	    st.sample_issues.size() < opts.max_samples * 8)
++		st.sample_issues.push_back("[" + reason + "] " + detail);
++}
++
++ArrayRef<uint8_t> findExecBytes(const std::vector<ExecSec> &exec_secs,
++				uint64_t addr, uint64_t len)
++{
++	for (const auto &es : exec_secs) {
++		if (addr >= es.vma && len <= es.bytes.size() &&
++		    (addr - es.vma) <= es.bytes.size() - len) {
++			const uint8_t *p =
++				reinterpret_cast<const uint8_t *>(es.bytes.data()) +
++				(addr - es.vma);
++			return ArrayRef<uint8_t>(p, len);
++		}
++	}
++	return {};
++}
++
++/**
++ * llvmRowToMinimal() - Convert an LLVM reference UnwindRow to Minimal DWARF
++ */
++static bool llvmRowToMinimal(const dwarf::UnwindRow &UR, const dwarf::CIE *Cie,
++			     const dwarf_cfi_arch &arch, dwarf_cfi_row &out)
++{
++	memset(&out, 0, sizeof(out));
++	out.signal = Cie && Cie->getAugmentationString().contains('S');
++
++	if (arch.ra_reg == 30) {
++		if (auto Loc = UR.getRegisterLocations().getRegisterLocation(34)) {
++			if (Loc->getLocation() == dwarf::UnwindLocation::Constant)
++				out.ra_signed = (Loc->getConstant() != 0);
++		}
++	}
++
++	const auto &CFA = UR.getCFAValue();
++	if (CFA.getLocation() == dwarf::UnwindLocation::RegPlusOffset &&
++	    !CFA.getDereference()) {
++		uint32_t r = CFA.getRegister();
++		if (r > 255)
++			return false;
++		if (r == arch.sp_reg)
++			out.cfa_base = DWARF_CFI_BASE_SP;
++		else if (r == arch.fp_reg)
++			out.cfa_base = DWARF_CFI_BASE_FP;
++		else
++			out.cfa_base = DWARF_CFI_BASE_REG;
++		out.cfa_reg = (uint8_t)r;
++		out.cfa_off = CFA.getOffset();
++	} else if (CFA.getLocation() == dwarf::UnwindLocation::DWARFExpr) {
++		auto ExprOpt = CFA.getDWARFExpressionBytes();
++		if (!ExprOpt)
++			return false;
++		SmallVector<DWARFExpression::Operation, 4> Ops;
++		for (auto &Op : *ExprOpt) {
++			if (Op.isError())
++				return false;
++			Ops.push_back(Op);
++		}
++		uint8_t breg_fp = dwarf::DW_OP_breg0 + arch.fp_reg;
++		uint8_t breg_sp = dwarf::DW_OP_breg0 + arch.sp_reg;
++		if (CFA.getDereference() && Ops.size() == 1 &&
++		    (Ops[0].getCode() == breg_fp ||
++		     Ops[0].getCode() == breg_sp)) {
++			out.cfa_base = (Ops[0].getCode() == breg_fp)
++					   ? DWARF_CFI_BASE_FP_INDIRECT
++					   : DWARF_CFI_BASE_SP_INDIRECT;
++			out.cfa_off = (int32_t)(int64_t)Ops[0].getRawOperand(0);
++		} else if (!CFA.getDereference() && Ops.size() == 2 &&
++			   (Ops[0].getCode() == breg_fp ||
++			    Ops[0].getCode() == breg_sp) &&
++			   Ops[1].getCode() == dwarf::DW_OP_deref) {
++			out.cfa_base = (Ops[0].getCode() == breg_fp)
++					   ? DWARF_CFI_BASE_FP_INDIRECT
++					   : DWARF_CFI_BASE_SP_INDIRECT;
++			out.cfa_off = (int32_t)(int64_t)Ops[0].getRawOperand(0);
++		} else {
++			return false;
++		}
++	} else {
++		return false;
++	}
++
++	auto mapRegRule = [&](uint32_t reg, uint8_t &rule, int32_t &off,
++			      bool is_sp, bool is_ra) -> bool {
++		auto LocOpt = UR.getRegisterLocations().getRegisterLocation(reg);
++		if (!LocOpt) {
++			rule = DWARF_CFI_RULE_SAME;
++			off = 0;
++			return true;
++		}
++		const auto &L = *LocOpt;
++		switch (L.getLocation()) {
++		case dwarf::UnwindLocation::Unspecified:
++		case dwarf::UnwindLocation::Same:
++			rule = DWARF_CFI_RULE_SAME;
++			off = 0;
++			return true;
++		case dwarf::UnwindLocation::Undefined:
++			rule = DWARF_CFI_RULE_UNDEFINED;
++			off = 0;
++			return true;
++		case dwarf::UnwindLocation::CFAPlusOffset:
++			if (!L.getDereference())
++				return false;
++			rule = DWARF_CFI_RULE_OFFSET;
++			off = L.getOffset();
++			return true;
++		case dwarf::UnwindLocation::DWARFExpr: {
++			if (!L.getDereference())
++				return false;
++			auto ExprOpt = L.getDWARFExpressionBytes();
++			if (!ExprOpt)
++				return false;
++			SmallVector<DWARFExpression::Operation, 4> Ops;
++			for (auto &Op : *ExprOpt) {
++				if (Op.isError())
++					return false;
++				Ops.push_back(Op);
++			}
++			uint8_t breg_fp = dwarf::DW_OP_breg0 + arch.fp_reg;
++			uint8_t breg_sp = dwarf::DW_OP_breg0 + arch.sp_reg;
++			if (Ops.size() == 1 &&
++			    (Ops[0].getCode() == breg_fp ||
++			     Ops[0].getCode() == breg_sp)) {
++				int32_t o =
++					(int32_t)(int64_t)Ops[0].getRawOperand(0);
++				if (is_sp) {
++					if (Ops[0].getCode() == breg_sp &&
++					    out.cfa_base ==
++						    DWARF_CFI_BASE_SP_INDIRECT &&
++					    o == out.cfa_off) {
++						rule = DWARF_CFI_RULE_SAME;
++						off = 0;
++						return true;
++					}
++					return false;
++				}
++				if (is_ra && Ops[0].getCode() != breg_sp)
++					return false;
++				rule = (Ops[0].getCode() == breg_fp)
++					   ? DWARF_CFI_RULE_FP_OFFSET
++					   : DWARF_CFI_RULE_SP_OFFSET;
++				off = o;
++				return true;
++			}
++			return false;
++		}
++		default:
++			return false;
++		}
++	};
++
++	uint32_t ra_col = Cie ? (uint32_t)Cie->getReturnAddressRegister()
++			      : arch.ra_reg;
++	if (!mapRegRule(arch.fp_reg, out.fp_rule, out.fp_off, false, false))
++		return false;
++	if (!mapRegRule(ra_col, out.ra_rule, out.ra_off, false, true))
++		return false;
++	if (!mapRegRule(arch.sp_reg, out.sp_rule, out.sp_off, true, false))
++		return false;
++
++	return true;
++}
++
++static bool isRelativeEhEncoding(uint8_t enc)
++{
++	if (enc == dwarf::DW_EH_PE_omit)
++		return true;
++	uint8_t adj = enc & 0x70;
++	return adj == dwarf::DW_EH_PE_pcrel || adj == dwarf::DW_EH_PE_datarel;
++}
++
++/**
++ * verifyOracle1Dwarf() - Cross-check libLLVM DWARFUnwindTable vs. dwarf_cfi.c
++ */
++static int verifyOracle1Dwarf(const ObjectFile &Obj, const ArchSpec &AS,
++			      uint64_t eh_hdr_vma, StringRef eh_hdr_bytes,
++			      uint64_t min_eh_vma, bool can_test_kmem,
++			      const std::vector<uint8_t> &kmem_arena,
++			      const uint8_t *kmem_hdr,
++			      const uint8_t *kmem_eh_start,
++			      const uint8_t *kmem_eh_end,
++			      const VerifyOptions &opts, VerifyStats &st,
++			      std::vector<FDERange> &fde_ranges)
++{
++	std::unique_ptr<DWARFContext> DCtx = DWARFContext::create(Obj);
++	auto EHOrErr = DCtx->getEHFrame();
++	if (!EHOrErr) {
++		consumeError(EHOrErr.takeError());
++		return 1;
++	}
++	const DWARFDebugFrame *EH = *EHOrErr;
++
++	for (const dwarf::FrameEntry &FE : EH->entries()) {
++		const auto *Fde = dyn_cast<dwarf::FDE>(&FE);
++		if (!Fde || Fde->getAddressRange() == 0)
++			continue;
++		st.fdes_total++;
++
++		uint64_t fstart = Fde->getInitialLocation();
++		uint64_t fend = fstart + Fde->getAddressRange();
++
++		auto UTOrErr = dwarf::createUnwindTable(Fde);
++		if (!UTOrErr) {
++			consumeError(UTOrErr.takeError());
++			st.fdes_outside_minimal++;
++			fde_ranges.push_back({fstart, fend, false, false});
++			continue;
++		}
++		const dwarf::UnwindTable &UT = *UTOrErr;
++		if (UT.size() == 0) {
++			st.fdes_outside_minimal++;
++			fde_ranges.push_back({fstart, fend, false, false});
++			continue;
++		}
++
++		bool all_rows_minimal = true;
++		std::vector<std::pair<uint64_t, dwarf_cfi_row>> exp_rows;
++		exp_rows.reserve(UT.size());
++		for (size_t i = 0; i < UT.size(); i++) {
++			dwarf_cfi_row mr;
++			if (!llvmRowToMinimal(UT[i], Fde->getLinkedCIE(),
++					      AS.karch, mr)) {
++				all_rows_minimal = false;
++				break;
++			}
++			exp_rows.push_back({UT[i].getAddress(), mr});
++		}
++
++		if (!all_rows_minimal) {
++			st.fdes_outside_minimal++;
++			fde_ranges.push_back({fstart, fend, false, false});
++			continue;
++		}
++		st.fdes_minimal_supported++;
++		const dwarf::CIE *Cie = Fde->getLinkedCIE();
++		bool is_sig = Cie && Cie->getAugmentationString().contains('S');
++		bool fde_rel = Cie &&
++			       isRelativeEhEncoding(Cie->getFDEPointerEncoding());
++		fde_ranges.push_back({fstart, fend, true, is_sig});
++
++		SmallVector<uint64_t, 16> check_pcs;
++		check_pcs.push_back(fstart);
++		for (auto &pr : exp_rows) {
++			if (pr.first >= fstart && pr.first < fend) {
++				if (pr.first > fstart)
++					check_pcs.push_back(pr.first - 1);
++				check_pcs.push_back(pr.first);
++			}
++		}
++		check_pcs.push_back(fend - 1);
++		std::sort(check_pcs.begin(), check_pcs.end());
++		check_pcs.erase(std::unique(check_pcs.begin(), check_pcs.end()),
++				check_pcs.end());
++
++		for (uint64_t pc : check_pcs) {
++			const dwarf_cfi_row *exp = &exp_rows[0].second;
++			for (auto &pr : exp_rows) {
++				if (pr.first <= pc)
++					exp = &pr.second;
++				else
++					break;
++			}
++
++			dwarf_cfi_row krow_user{};
++			int err_u = dwarf_cfi_unwind_user_eh_frame_hdr(
++				(unsigned long)eh_hdr_vma, eh_hdr_bytes.size(),
++				(unsigned long)pc, &AS.karch, &krow_user);
++			st.fde_pc_checks++;
++
++			if (err_u != 0 || !rowsEqual(krow_user, *exp)) {
++				st.llvm_vs_kernel_mismatches++;
++				char buf[200];
++				snprintf(buf, sizeof(buf),
++					 "PC=0x%" PRIx64 " err_u=%d kernel(cfa=%u:%d fp=%u:%d ra=%u:%d)"
++					 " llvm(cfa=%u:%d fp=%u:%d ra=%u:%d)",
++					 pc, err_u, krow_user.cfa_base,
++					 krow_user.cfa_off, krow_user.fp_rule,
++					 krow_user.fp_off, krow_user.ra_rule,
++					 krow_user.ra_off, exp->cfa_base,
++					 exp->cfa_off, exp->fp_rule,
++					 exp->fp_off, exp->ra_rule,
++					 exp->ra_off);
++				recordIssue(st, opts, "llvm_vs_kernel_dwarf",
++					    buf);
++			}
++
++			if (can_test_kmem && fde_rel) {
++				dwarf_cfi_row krow_kmem{};
++				uintptr_t base_u =
++					reinterpret_cast<uintptr_t>(kmem_arena.data());
++				unsigned long kpc = (unsigned long)(
++					base_u +
++					static_cast<uintptr_t>(pc - min_eh_vma));
++				int err_k = dwarf_cfi_unwind_eh_frame_hdr(
++					kmem_hdr, eh_hdr_bytes.size(),
++					kmem_eh_start, kmem_eh_end, kpc,
++					&AS.karch, &krow_kmem);
++				st.kmem_pc_checks++;
++				if (err_k != err_u ||
++				    (err_u == 0 &&
++				     !rowsEqual(krow_kmem, krow_user)))
++					st.kmem_vs_user_mismatches++;
++			}
++		}
++	}
++
++	std::sort(fde_ranges.begin(), fde_ranges.end(),
++		  [](const FDERange &a, const FDERange &b) {
++			  return a.start < b.start;
++		  });
++	return 0;
++}
++
++static int verifyFile(const char *path, const VerifyOptions &opts)
++{
++	auto BufOrErr = MemoryBuffer::getFile(path);
++	if (!BufOrErr) {
++		errs() << "Failed to open " << path << "\n";
++		return 1;
++	}
++	auto ObjOrErr =
++		ObjectFile::createObjectFile(BufOrErr.get()->getMemBufferRef());
++	if (!ObjOrErr) {
++		consumeError(ObjOrErr.takeError());
++		errs() << "Not an object file: " << path << "\n";
++		return 1;
++	}
++	ObjectFile &Obj = *ObjOrErr.get();
++
++	if (Obj.is64Bit() && sizeof(unsigned long) < 8) {
++		errs() << path
++		       << ": 64-bit ELF verification requires a 64-bit host build\n";
++		return 1;
++	}
++
++	ArchSpec AS;
++	if (!getArchSpec(Obj, AS)) {
++		errs() << "Unsupported architecture in " << path << "\n";
++		return 1;
++	}
++
++	StringRef eh_bytes, eh_hdr_bytes, orc_bytes, orc_ip_bytes;
++	uint64_t eh_vma = 0, eh_hdr_vma = 0, orc_ip_vma = 0;
++	std::vector<ExecSec> exec_secs;
++
++	for (const SectionRef &Sec : Obj.sections()) {
++		Expected<StringRef> NameOrErr = Sec.getName();
++		if (!NameOrErr) {
++			consumeError(NameOrErr.takeError());
++			continue;
++		}
++		StringRef Name = *NameOrErr;
++		Expected<StringRef> DataOrErr = Sec.getContents();
++		if (!DataOrErr) {
++			consumeError(DataOrErr.takeError());
++			continue;
++		}
++		StringRef Data = *DataOrErr;
++		uint64_t Addr = Sec.getAddress();
++
++		if (Name == ".eh_frame") {
++			eh_bytes = Data;
++			eh_vma = Addr;
++		} else if (Name == ".eh_frame_hdr") {
++			eh_hdr_bytes = Data;
++			eh_hdr_vma = Addr;
++		} else if (Name == ".orc_unwind") {
++			orc_bytes = Data;
++		} else if (Name == ".orc_unwind_ip") {
++			orc_ip_bytes = Data;
++			orc_ip_vma = Addr;
++		}
++		if (Sec.isText() && !Data.empty())
++			exec_secs.push_back({Name.str(), Addr, Data});
++	}
++
++	if (eh_bytes.empty() || eh_hdr_bytes.empty() ||
++	    eh_hdr_bytes.size() < 12) {
++		errs() << path << ": missing .eh_frame or .eh_frame_hdr\n";
++		return 1;
++	}
++
++	host_vma_seg segs[2] = {
++		{(unsigned long)eh_hdr_vma, eh_hdr_bytes.size(),
++		 reinterpret_cast<const uint8_t *>(eh_hdr_bytes.data())},
++		{(unsigned long)eh_vma, eh_bytes.size(),
++		 reinterpret_cast<const uint8_t *>(eh_bytes.data())},
++	};
++	host_set_vma_segs(segs, 2);
++
++	uint64_t min_eh_vma = std::min(eh_hdr_vma, eh_vma);
++	uint64_t max_eh_end = std::max(eh_hdr_vma + eh_hdr_bytes.size(),
++				       eh_vma + eh_bytes.size());
++	std::vector<uint8_t> kmem_arena;
++	bool can_test_kmem =
++		(max_eh_end >= min_eh_vma) &&
++		(max_eh_end - min_eh_vma) <= (64ULL * 1024 * 1024) &&
++		isRelativeEhEncoding((uint8_t)eh_hdr_bytes[1]) &&
++		isRelativeEhEncoding((uint8_t)eh_hdr_bytes[3]);
++	const uint8_t *kmem_hdr = nullptr;
++	const uint8_t *kmem_eh_start = nullptr;
++	const uint8_t *kmem_eh_end = nullptr;
++	if (can_test_kmem) {
++		kmem_arena.assign(max_eh_end - min_eh_vma, 0);
++		memcpy(kmem_arena.data() + (eh_hdr_vma - min_eh_vma),
++		       eh_hdr_bytes.data(), eh_hdr_bytes.size());
++		memcpy(kmem_arena.data() + (eh_vma - min_eh_vma),
++		       eh_bytes.data(), eh_bytes.size());
++		kmem_hdr = kmem_arena.data() + (eh_hdr_vma - min_eh_vma);
++		kmem_eh_start = kmem_arena.data() + (eh_vma - min_eh_vma);
++		kmem_eh_end = kmem_eh_start + eh_bytes.size();
++		uintptr_t h_addr = reinterpret_cast<uintptr_t>(kmem_hdr);
++		if (h_addr < 0x80000000ULL ||
++		    h_addr > UINTPTR_MAX - 0x80000000ULL)
++			can_test_kmem = false;
++	}
++
++	VerifyStats st;
++	std::vector<FDERange> fde_ranges;
++	if (verifyOracle1Dwarf(Obj, AS, eh_hdr_vma, eh_hdr_bytes, min_eh_vma,
++			       can_test_kmem, kmem_arena, kmem_hdr,
++			       kmem_eh_start, kmem_eh_end, opts, st,
++			       fde_ranges) != 0) {
++		errs() << path << ": LLVM getEHFrame() failed\n";
++		return 1;
++	}
++
++#if defined(HAVE_VERIFY_INSN) || defined(HAVE_VERIFY_ORC)
++	std::string TargetErr;
++	const Target *TheTarget =
++		TargetRegistry::lookupTarget(AS.triple_str, TargetErr);
++	if (!TheTarget) {
++		errs() << "lookupTarget failed: " << TargetErr << "\n";
++		return 1;
++	}
++
++	MCTargetOptions MCOpts;
++	std::unique_ptr<MCRegisterInfo> MCRI(
++		TheTarget->createMCRegInfo(AS.triple_str));
++	std::unique_ptr<MCAsmInfo> MAI(
++		TheTarget->createMCAsmInfo(*MCRI, AS.triple_str, MCOpts));
++	std::unique_ptr<MCSubtargetInfo> STI(
++		TheTarget->createMCSubtargetInfo(AS.triple_str, "",
++						 AS.features));
++	std::unique_ptr<MCInstrInfo> MCII(TheTarget->createMCInstrInfo());
++	std::unique_ptr<MCInstrAnalysis> MIA(
++		TheTarget->createMCInstrAnalysis(MCII.get()));
++	MCContext Ctx(Triple(AS.triple_str), MAI.get(), MCRI.get(), STI.get());
++	std::unique_ptr<MCObjectFileInfo> MOFI(
++		TheTarget->createMCObjectFileInfo(Ctx, /*PIC=*/false));
++	Ctx.setObjectFileInfo(MOFI.get());
++	std::unique_ptr<MCDisassembler> Disasm(
++		TheTarget->createMCDisassembler(*STI, Ctx));
++	std::unique_ptr<MCInstPrinter> InstPrinter(
++		TheTarget->createMCInstPrinter(Triple(AS.triple_str), 0, *MAI,
++					       *MCII, *MCRI));
++
++	std::vector<FuncSym> func_syms;
++	std::unordered_set<uint64_t> noreturn_addrs;
++
++	auto collectSyms = [&](symbol_iterator begin, symbol_iterator end) {
++		for (auto it = begin; it != end; ++it) {
++			SymbolRef Sym = *it;
++			auto TypeOrErr = Sym.getType();
++			auto AddrOrErr = Sym.getAddress();
++			auto NameOrErr = Sym.getName();
++			if (!TypeOrErr || !AddrOrErr || !NameOrErr) {
++				if (!TypeOrErr)
++					consumeError(TypeOrErr.takeError());
++				if (!AddrOrErr)
++					consumeError(AddrOrErr.takeError());
++				if (!NameOrErr)
++					consumeError(NameOrErr.takeError());
++				continue;
++			}
++			uint64_t addr = *AddrOrErr;
++			StringRef name = *NameOrErr;
++			if ((AS.llvm_arch == Triple::aarch64 ||
++			     AS.llvm_arch == Triple::riscv64) &&
++			    (name.starts_with("$x") || name.starts_with("$d")))
++				continue;
++#ifdef HAVE_VERIFY_INSN
++			if (!name.empty() && isKnownNoreturnName(name))
++				noreturn_addrs.insert(addr);
++#endif
++			if (*TypeOrErr == SymbolRef::ST_Function) {
++				uint64_t sz = ELFSymbolRef(Sym).getSize();
++				func_syms.push_back({addr, sz, name.str()});
++			}
++		}
++	};
++	collectSyms(Obj.symbol_begin(), Obj.symbol_end());
++	if (const auto *EObj = dyn_cast<ELFObjectFileBase>(&Obj)) {
++		auto DynSyms = EObj->getDynamicSymbolIterators();
++		collectSyms(DynSyms.begin(), DynSyms.end());
++	}
++
++	std::sort(func_syms.begin(), func_syms.end(),
++		  [](const FuncSym &a, const FuncSym &b) {
++			  return a.addr != b.addr ? a.addr < b.addr
++						  : a.size > b.size;
++		  });
++	func_syms.erase(std::unique(func_syms.begin(), func_syms.end(),
++				    [](const FuncSym &a, const FuncSym &b) {
++					    return a.addr == b.addr;
++				    }),
++			func_syms.end());
++
++#ifdef HAVE_VERIFY_INSN
++	verifyOracle2Instructions(AS, eh_hdr_vma, eh_hdr_bytes, exec_secs,
++				  func_syms, noreturn_addrs, fde_ranges,
++				  *Disasm, *MCII, *MCRI, MIA.get(), opts, st);
++#endif
++
++#ifdef HAVE_VERIFY_ORC
++	if (AS.llvm_arch == Triple::x86_64 && !orc_bytes.empty() &&
++	    !orc_ip_bytes.empty()) {
++		verifyOracle3Orc(AS, eh_hdr_vma, eh_hdr_bytes, orc_bytes,
++				 orc_ip_bytes, orc_ip_vma, exec_secs, func_syms,
++				 *Disasm, *STI, *InstPrinter, opts, st);
++	}
++#else
++	(void)orc_bytes;
++	(void)orc_ip_bytes;
++	(void)orc_ip_vma;
++#endif
++#else
++	(void)orc_bytes;
++	(void)orc_ip_bytes;
++	(void)orc_ip_vma;
++	(void)exec_secs;
++#endif
++
++	bool oracle1_fail = (st.llvm_vs_kernel_mismatches > 0 ||
++			     st.kmem_vs_user_mismatches > 0);
++	bool strict_fail = opts.strict &&
++			   (st.insns_cfa_mismatch > 0 ||
++			    st.insns_ra_mismatch > 0 ||
++			    st.insns_fp_mismatch > 0 ||
++			    st.orc_cfa_mismatch > 0 ||
++			    st.orc_bp_mismatch > 0);
++
++	if (opts.quiet && !oracle1_fail && !strict_fail) {
++		if (st.has_insn_oracle) {
++			printf("%s: OK (FDEs: %" PRIu64 "/%" PRIu64
++			       ", funcs clean: %" PRIu64 "/%" PRIu64 ")\n",
++			       path, st.fdes_minimal_supported, st.fdes_total,
++			       st.funcs_clean, st.funcs_verified);
++		} else {
++			printf("%s: OK (FDEs: %" PRIu64 "/%" PRIu64 ")\n",
++			       path, st.fdes_minimal_supported, st.fdes_total);
++		}
++		fflush(stdout);
++		return 0;
++	}
++
++	printf("=== %s (%s) ===\n", path, AS.triple_str);
++	printf("  [Oracle 1: LLVM Reference DWARF vs Kernel Minimal DWARF]\n");
++	printf("    FDEs total / Minimal-supported : %" PRIu64 " / %" PRIu64
++	       " (%.2f%%)\n",
++	       st.fdes_total, st.fdes_minimal_supported,
++	       st.fdes_total ? 100.0 * st.fdes_minimal_supported / st.fdes_total
++			     : 0.0);
++	printf("    Transition PCs evaluated       : %" PRIu64 "\n",
++	       st.fde_pc_checks);
++	printf("    LLVM vs Kernel mismatches      : %" PRIu64 "\n",
++	       st.llvm_vs_kernel_mismatches);
++	if (st.kmem_pc_checks > 0)
++		printf("    kmem vs user stream mismatches : %" PRIu64
++		       " (%" PRIu64 " PCs)\n",
++		       st.kmem_vs_user_mismatches, st.kmem_pc_checks);
++
++	if (st.has_insn_oracle) {
++		printf("  [Oracle 2: Machine-Instruction Abstract Execution & Clobber Check]\n");
++		printf("    STT_FUNC total / verified      : %" PRIu64
++		       " / %" PRIu64 " (no-FDE: %" PRIu64
++		       ", split/custom-entry: %" PRIu64 ")\n",
++		       st.funcs_total, st.funcs_verified, st.funcs_no_fde,
++		       st.funcs_mid_frame_split);
++		printf("    Functions 100%% instruction-clean: %" PRIu64
++		       " / %" PRIu64 " (%.2f%%)\n",
++		       st.funcs_clean, st.funcs_verified,
++		       st.funcs_verified
++			   ? 100.0 * st.funcs_clean / st.funcs_verified
++			   : 0.0);
++		printf("    Reachable instructions checked : %" PRIu64
++		       " (CFA diff: %" PRIu64 ", RA diff: %" PRIu64
++		       ", FP diff: %" PRIu64 ")\n",
++		       st.insns_verified, st.insns_cfa_mismatch,
++		       st.insns_ra_mismatch, st.insns_fp_mismatch);
++	}
++	for (const auto &kv : st.mismatch_reasons)
++		printf("      - %-28s : %" PRIu64 "\n", kv.first.c_str(),
++		       kv.second);
++	for (const auto &s : st.sample_issues)
++		printf("      sample: %s\n", s.c_str());
++
++	if (st.has_orc) {
++		uint64_t denom = st.orc_call_insns - st.orc_no_fde;
++		printf("  [Oracle 3: Direct x86-64 ORC (.orc_unwind) vs Kernel Minimal DWARF]\n");
++		printf("    ORC_TYPE_CALL insns (with FDE) : %" PRIu64
++		       " (no-FDE asm: %" PRIu64 ")\n",
++		       denom, st.orc_no_fde);
++		printf("    Exact ORC == CFI matches       : %" PRIu64
++		       " / %" PRIu64 " (%.4f%%)\n",
++		       st.orc_matched, denom,
++		       denom ? 100.0 * st.orc_matched / denom : 0.0);
++		printf("    ORC diffs (CFA / BP)           : %" PRIu64
++		       " / %" PRIu64 "\n",
++		       st.orc_cfa_mismatch, st.orc_bp_mismatch);
++		for (const auto &s : st.sample_orc_diffs)
++			printf("      orc_diff: %s\n", s.c_str());
++	}
++	printf("\n");
++	fflush(stdout);
++	return (oracle1_fail || strict_fail) ? 1 : 0;
++}
++
++static void printUsage(const char *prog)
++{
++	printf("Usage: %s [options] <elf_file> [elf_file...]\n"
++	       "\n"
++	       "Options:\n"
++	       "  --strict           Fail (exit 1) on any instruction or ORC diff\n"
++	       "                     (Oracle 1 DWARF interpreter mismatches always fail)\n"
++	       "  --max-samples <N>  Maximum sample diagnostics per category (default: 6)\n"
++	       "  -q, --quiet        Print single-line summary when verification succeeds\n"
++	       "  -h, --help         Show this help message\n",
++	       prog);
++}
++
++int main(int argc, char **argv)
++{
++	InitLLVM X(argc, argv);
++	InitializeAllTargetInfos();
++	InitializeAllTargetMCs();
++	InitializeAllDisassemblers();
++
++	VerifyOptions opts;
++	std::vector<const char *> files;
++
++	for (int i = 1; i < argc; i++) {
++		StringRef arg(argv[i]);
++		if (arg == "-h" || arg == "--help") {
++			printUsage(argv[0]);
++			return 0;
++		} else if (arg == "--strict") {
++			opts.strict = true;
++		} else if (arg == "-q" || arg == "--quiet") {
++			opts.quiet = true;
++		} else if (arg == "--max-samples") {
++			if (i + 1 >= argc) {
++				errs() << "--max-samples requires an integer argument\n";
++				return 1;
++			}
++			char *endp = nullptr;
++			unsigned long v = strtoul(argv[++i], &endp, 10);
++			if (!endp || *endp != '\0') {
++				errs() << "Invalid --max-samples value: "
++				       << argv[i] << "\n";
++				return 1;
++			}
++			opts.max_samples = (size_t)v;
++		} else if (arg.starts_with("-")) {
++			errs() << "Unknown option: " << arg << "\n";
++			printUsage(argv[0]);
++			return 1;
++		} else {
++			files.push_back(argv[i]);
++		}
++	}
++
++	if (files.empty()) {
++		printUsage(argv[0]);
++		return 1;
++	}
++
++	int rc = 0;
++	for (const char *f : files)
++		rc |= verifyFile(f, opts);
++	return rc;
++}
+diff --git a/tools/unwind/verify_cfi.hpp b/tools/unwind/verify_cfi.hpp
+new file mode 100644
+index 000000000000..10bb77302e38
+--- /dev/null
++++ b/tools/unwind/verify_cfi.hpp
+@@ -0,0 +1,147 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++#ifndef _TOOLS_UNWIND_VERIFY_CFI_H
++#define _TOOLS_UNWIND_VERIFY_CFI_H
++
++#pragma GCC diagnostic push
++#pragma GCC diagnostic ignored "-Wunused-parameter"
++#include "llvm/ADT/ArrayRef.h"
++#include "llvm/ADT/StringRef.h"
++#include "llvm/MC/MCDisassembler/MCDisassembler.h"
++#include "llvm/MC/MCInstPrinter.h"
++#include "llvm/MC/MCInstrAnalysis.h"
++#include "llvm/MC/MCInstrInfo.h"
++#include "llvm/MC/MCRegisterInfo.h"
++#include "llvm/MC/MCSubtargetInfo.h"
++#include "llvm/TargetParser/Triple.h"
++#pragma GCC diagnostic pop
++
++#include <cstddef>
++#include <cstdint>
++#include <map>
++#include <string>
++#include <unordered_set>
++#include <vector>
++
++#include "dwarf_cfi_host.h"
++
++/**
++ * struct VerifyOptions - Command-line configuration for verify_cfi
++ * @strict: Return exit status 1 if Oracle 2 or Oracle 3 finds any instruction
++ *          or ORC discrepancy (Oracle 1 mismatches always return exit status 1).
++ * @quiet: Emit a single-line summary per verified file when no failure occurs.
++ * @max_samples: Maximum number of diagnostic mismatch samples printed per kind.
++ */
++struct VerifyOptions {
++	bool strict = false;
++	bool quiet = false;
++	size_t max_samples = 6;
++};
++
++/**
++ * struct ArchSpec - Target architecture parameters for LLVM MC and kernel CFI
++ * @llvm_arch: LLVM Triple::ArchType identifier.
++ * @triple_str: Target triple passed to LLVM TargetRegistry / MCDisassembler.
++ * @features: Subtarget feature string enabling ISA extensions in disassembly
++ *            (e.g. PAC/BTI on AArch64, compressed RVC on RISC-V).
++ * @karch: Kernel DWARF register mapping passed to kernel/unwind/dwarf_cfi.c.
++ * @entry_cfa_off: Byte offset from entry SP to caller's SP (8 on x86_64 where
++ *                 CALL pushes the 8-byte return address; 0 on arm64/riscv64).
++ * @ra_on_entry_stack: True if the return address starts at *(entry_SP + 0)
++ *                     rather than in @karch.ra_reg.
++ */
++struct ArchSpec {
++	llvm::Triple::ArchType llvm_arch;
++	const char *triple_str;
++	const char *features;
++	dwarf_cfi_arch karch;
++	int32_t entry_cfa_off;
++	bool ra_on_entry_stack;
++};
++
++/**
++ * struct VerifyStats - Aggregated verification counters and diagnostic samples
++ */
++struct VerifyStats {
++	// Oracle 1: LLVM Reference DWARF vs Kernel Minimal DWARF
++	uint64_t fdes_total = 0;
++	uint64_t fdes_minimal_supported = 0;
++	uint64_t fdes_outside_minimal = 0;
++	uint64_t fde_pc_checks = 0;
++	uint64_t kmem_pc_checks = 0;
++	uint64_t kmem_vs_user_mismatches = 0;
++	uint64_t llvm_vs_kernel_mismatches = 0;
++
++	// Oracle 2: Instruction Abstract Execution & Clobber Check
++	bool has_insn_oracle = false;
++	uint64_t funcs_total = 0;
++	uint64_t funcs_no_fde = 0;
++	uint64_t funcs_mid_frame_split = 0;
++	uint64_t funcs_verified = 0;
++	uint64_t funcs_clean = 0;
++	uint64_t insns_verified = 0;
++	uint64_t insns_cfa_mismatch = 0;
++	uint64_t insns_ra_mismatch = 0;
++	uint64_t insns_fp_mismatch = 0;
++	std::map<std::string, uint64_t> mismatch_reasons;
++	std::vector<std::string> sample_issues;
++
++	// Oracle 3: ORC vs Kernel Minimal DWARF
++	bool has_orc = false;
++	uint64_t orc_call_insns = 0;
++	uint64_t orc_matched = 0;
++	uint64_t orc_no_fde = 0;
++	uint64_t orc_cfa_mismatch = 0;
++	uint64_t orc_bp_mismatch = 0;
++	std::vector<std::string> sample_orc_diffs;
++};
++
++struct FDERange {
++	uint64_t start;
++	uint64_t end;
++	bool supported;
++	bool signal;
++};
++
++struct ExecSec {
++	std::string name;
++	uint64_t vma;
++	llvm::StringRef bytes;
++};
++
++struct FuncSym {
++	uint64_t addr;
++	uint64_t size;
++	std::string name;
++};
++
++bool rowsEqual(const dwarf_cfi_row &a, const dwarf_cfi_row &b);
++
++void recordIssue(VerifyStats &st, const VerifyOptions &opts,
++		 const std::string &reason, const std::string &detail);
++
++llvm::ArrayRef<uint8_t> findExecBytes(const std::vector<ExecSec> &exec_secs,
++				      uint64_t addr, uint64_t len);
++
++bool isKnownNoreturnName(llvm::StringRef Name);
++
++void verifyOracle2Instructions(
++	const ArchSpec &AS, uint64_t eh_hdr_vma, llvm::StringRef eh_hdr_bytes,
++	const std::vector<ExecSec> &exec_secs,
++	const std::vector<FuncSym> &func_syms,
++	const std::unordered_set<uint64_t> &noreturn_addrs,
++	const std::vector<FDERange> &fde_ranges,
++	const llvm::MCDisassembler &Disasm, const llvm::MCInstrInfo &MCII,
++	const llvm::MCRegisterInfo &MCRI, const llvm::MCInstrAnalysis *MIA,
++	const VerifyOptions &opts, VerifyStats &st);
++
++void verifyOracle3Orc(const ArchSpec &AS, uint64_t eh_hdr_vma,
++		      llvm::StringRef eh_hdr_bytes, llvm::StringRef orc_bytes,
++		      llvm::StringRef orc_ip_bytes, uint64_t orc_ip_vma,
++		      const std::vector<ExecSec> &exec_secs,
++		      const std::vector<FuncSym> &func_syms,
++		      const llvm::MCDisassembler &Disasm,
++		      const llvm::MCSubtargetInfo &STI,
++		      llvm::MCInstPrinter &InstPrinter,
++		      const VerifyOptions &opts, VerifyStats &st);
++
++#endif /* _TOOLS_UNWIND_VERIFY_CFI_H */
 -- 
 2.56.1.831.g720f3f5937-goog
 
