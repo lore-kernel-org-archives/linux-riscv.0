@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA81F606A31E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 23:05:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 930CF606A31E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 23:05:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ICp8VTVt;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gf+kZ96c
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WwZEFeBh;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DQq2x4CO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,42 +14,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Fp58xdgDlbeqzlzuzSvR22LgrczOwk5JrCvS7tTl8UE=; b=ICp8VTVtQC6hJ4zVif8b7gHMFe
-	bBXb2kqd46zMx83/ene1sYBerEnHG5djM9QtBf0Sv23S95jV14GwQnSjnmcJU0xAFYxN5qwpdD2ao
-	zGssNqdZ9S8rPPrvnkZPE/yyd0G9MHJxg5zT6Lzqfx+NEts8W/uQECX463KjVXDDZ3drJMiId/KRC
-	G7sl32z18Wpu58y+Ug0i6wQrUizgRqqa+iJtlUQ+Ilm8bBLWZTm6S+p/WWifv80GmbzDiJXjh724G
-	q/t/0Mgluwn8tF7YjebsC1xCb3ov7YQPo4PQ5aBZ666DntYU+MuuSVScMdY4zfEHT9y+PPAaU52Jw
-	xZaBaFIg==;
+	bh=U6yWJjYrmS7r8W+2qtBczWnDQsSB77ESm28Ms8fEdgs=; b=WwZEFeBhA9mYXMD0Vn0byx5Siv
+	gbcMB6ItJce/ng8HOy/K0cdBimQ6kieMOnmLCqYW7oGJ348dLzxuczBGeCPoEj5j8a+tBczHCAGG4
+	AZ+4ZzQfeqqgqTKhQr/nha9eZycN7tdqKa+6B3QEYBZvU+EWpAh+IpFgKYCXw1KWvLyglC9qClgQP
+	xic8D0tuIYoVqJVFXy++frijhuejTZU651eoi+iPtK513CjFgT47jYwkqZYnjouz74P4BJW6AcQP6
+	cf5jqvHNnfqhyBM04mxdxSwNtbjPZOfiP4/ibRAObR1YYaHBgtkHvxky4LLqMLU3ApFFenYCqNBnQ
+	i9GmeCoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWM2v-0000000BWs1-2JK9;
-	Wed, 25 Nov 2026 23:05:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xWM2r-0000000BWqP-1xa5;
+	Wed, 25 Nov 2026 23:04:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWM2s-0000000BWqZ-0IWI
+	id 1xWM2q-0000000BWpv-0c4d
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 23:04:58 +0000
+	Wed, 25 Nov 2026 23:04:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFF274470B;
-	Wed, 25 Nov 2026 23:04:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B6101F000C4;
+	by tor.source.kernel.org (Postfix) with ESMTP id 3973E61D29;
 	Wed, 25 Nov 2026 23:04:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89DE11F000CA;
+	Wed, 25 Nov 2026 23:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795647897;
-	bh=pby6ROZEcPP/akhHNpSuVe8cP7V1dKMFwkUigrfM6Dc=;
+	s=k20260515; t=1795647894;
+	bh=VHeuitJP9vddzspc29UV0scFtTGU1OuMS5fNcziVF70=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=gf+kZ96cMQj7Xh+u1vk0ntuXeSYE7xknTtR0mnnrxSZLpneP9XgrWGLjX/wKiv8Ej
-	 6aAupjkobui5/nK38UtCV+52tPW/rv6vujcka8gCsmpEYgj6KegTQLA+poTPEJHuKC
-	 bUAobJE5lbBj2Yrt/4LkDMdN4m4Njlg7PEMfZdv6Jjk1AdiD7APZKNpLQSxZsh8n+S
-	 ZlrlX1QfpTaMiWQwRIwt9KhHqfUbxr4JxKim9C63fuejQUD/+sBXgwnsOruVkOPE5W
-	 r1H1cwTk2ruHwUklKHo3SutMkb9KIPLwj6AENbONynTC3iBQy6UqzfawR6MSSXY/iJ
-	 q8kNDlT+OCZ1A==
+	b=DQq2x4COkXdfkFWHw/zzmTQw9f5vDGgzWVT5KEswOQI96rrRnRQlluIJ8vt8h+/tN
+	 6UoJOz8PIfoA9FpVRuL7GmBQuot2Tq8b59ClxVuD4xj5YNiYlo06iR+ucMot9HTs+d
+	 wrsykJX/4+h3J85gSP0tD1Wjcx2eLSPQUEFAqBFOeB1XOkCAx2MhGCEytN4o1A3yUl
+	 ZqdGejeTinqV7DXSBEGgIySrx+tekD1EfpmNP7chP2/sU4+uWmliKI36jA1ILjWfwe
+	 sNJnW3FsTAnzTXyKn9C1EYvn4OcfFK5YmuQNfG+NHakFqWy71Kply5cJGoI9FqklZQ
+	 yzQcURk/0hzqw==
 From: Yixun Lan <dlan@kernel.org>
-Date: Wed, 25 Nov 2026 23:04:38 +0000
-Subject: [PATCH v2 2/2] mmc: sdhci-of-k1: Add TX tuning parameter
+Date: Wed, 25 Nov 2026 23:04:37 +0000
+Subject: [PATCH v2 1/2] dt-bindings: mmc: spacemit,sdhci: Add tx delay
+ property
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261125-07-k3-sdhci-dts-v2-2-a069659ba025@kernel.org>
+Message-Id: <20261125-07-k3-sdhci-dts-v2-1-a069659ba025@kernel.org>
 References: <20261125-07-k3-sdhci-dts-v2-0-a069659ba025@kernel.org>
 In-Reply-To: <20261125-07-k3-sdhci-dts-v2-0-a069659ba025@kernel.org>
 To: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -58,24 +59,24 @@ To: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
 Cc: Long Wan <long.wan@linux.spacemit.com>, linux-mmc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Yixun Lan <dlan@kernel.org>
+ Yixun Lan <dlan@kernel.org>, Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2618; i=dlan@kernel.org;
- h=from:subject:message-id; bh=BPnZzVNxRpMqynOCa0hbZmnCfAwLs4G7uVoGSv+TTbg=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBrB2mOPrDesfxBHBCsd/snwLAsnSpooR6owqqBf
- bdcdl3VoGeJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCawdpjhsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1416; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=860qpvL1n3nNzeJAqEF8XFOw+kpybSxzsA3ypMKT5eA=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBrB2mLwAWqzq/T9KBLeEKZxEybp9fNlFdYndS4K
+ Z3kDU2J+ZaJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCawdpixsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+3QDhAAlUZQez7Xqb7KeA+vAEigusHmQyq1LUwJNYfMTCcUsH4kS1Z5cgCUm
- faXd4DaHxhud6H9pX1wNgu+wEkHvJ7GtmKZZ0KGO/JSxqXpQmvLm8/bydRL2507U8gWO5bMGqUZ
- szHIXT3Z/l17/2dusoYh7fgsi9swhOwHYFyrk2xOQ8GMobP5lW94uO3GmEDG/6a/Qs2msfMkYti
- LceGwfUWTpUHik8OpakBmP+/o/bOE0H7OfzVKNu+0/t2TnWulbvKMHMm3Sp427AbzRO7ZQoeCTB
- GP+3ArZ+6rILtGFN3oaVgtKPlwFFGA10DJiYJMAc7d/fK9PLfi6i8ssYbJYmYkv7zPkup7cvQxE
- 0DG4P/D0hJDiUE7rakF1mFKBWX2Jje8JACSPEzFkCR5tCRY+dBofQs8uP+gskYnrTshTCDVVfVO
- sd1vTl2vGcN6pg3CpeUv1l33sbjNxvn7x9RRnsPFwmA1WrXI/s3gdJwvz9K0c3198VgnjGN8G+j
- Z+fnVXQMLZAoXDFx5UXOfiP3rvEEmRoQugG1pQYLe7d3UstrXVQ33JmTqgspylV/c3h3nu0H+Mb
- V7RaqCnJBvwNeiFLK6gpHKU0MiUFAilrPy3PU4kWJnrNL7accBMlfpfpYJOpNfZlxQ3qrAFelhs
- ogNjfOwXPLpwJ1e7BRGqn/eqopE0Yo=
+ QACgkQMarqR1lNu+2SYg//QnDRgZjFby6xjoUdhB+C9ckZmTZdQaS3EbIPP9KAoUhWO8WROvFYi
+ EZKZsMU6Aai5IH7NPoI0toRCaBL6wWMq1ZRPz+lB1f7fLinQ1T/3qnmeLCi0ODpKSWLg0V38mnU
+ 7zGCVyQWfbC5DB71e5BogSlqgcdYADpgxHwTf/2qkbyVxb/VqF5T0TockB27QpN282Bh1+BTpRx
+ 2DaSKY6SqVmLnAk02v8P5tl7LH6QXohzvA2cxmGU9v9KHKWv/vbekn7ybnWuK8H7MJrygDbIZX7
+ BVA1Bokpt7wzHEhWTNdERXB5fsJVoPIeiBpH1mWfzd2/w/zGSfC8r0PLAcYfqhMKiY/kqKEDz9h
+ L3JHrQ4Iw9UiLsP3TRwlLvdq2YiHdQXCjRuPEpVj7WKHBvvVspSZlGJFjm/t7clH/n5Dq+aGbwJ
+ rhQeo/iA8pX9yRWkKU7Oivdzl8v2ytTwdp88kLy6sqSrEPJAWIBZUQvL0rSAT/QK/EzgPdFrKQN
+ uf650ikCd+iwnAFyPz0YtG803gukqMWC9z2a8bmcAh/TlItHO4328KOvll2QyAs1i8B3yar1JHQ
+ MmsI/DWsR6/6wmLrRSivBvapSW1DifNPCKY2f0Dxsd3YBtVB2xIVSp++QR2sUqQUjGU2uo8BKP+
+ hgH3GbNKSsqoYh+jagsyqs4c80v2BE=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -99,73 +100,38 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Long Wan <long.wan@linux.spacemit.com>
 
-Instead of setting the TX delay code via hardcoded parameter, configuring
-it via device tree property, which make it able to adapt according to
-board specific tuning requirement.
+Introduce a vendor specific property to configure the step count of TX
+delay line which should be applied before RX tuning, compensating for
+board level trace differences. The TX delay line result comes from test
+out of real board which vary from different hardware layout.
 
 Signed-off-by: Long Wan <long.wan@linux.spacemit.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- drivers/mmc/host/sdhci-of-k1.c | 21 +++++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-index 37b0911e7cf2..ee613e1417fa 100644
---- a/drivers/mmc/host/sdhci-of-k1.c
-+++ b/drivers/mmc/host/sdhci-of-k1.c
-@@ -97,6 +97,7 @@ struct spacemit_sdhci_host {
- 	struct pinctrl *pinctrl;
- 	struct pinctrl_state *pinctrl_default;
- 	struct pinctrl_state *pinctrl_uhs;
-+	u8 tx_delaycode;
- };
+diff --git a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+index 34d202af909f..7df48fedc982 100644
+--- a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
++++ b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+@@ -56,6 +56,15 @@ properties:
+   pinctrl-1:
+     description: Optional pinctrl state for 1.8V UHS operation with "uhs" name
  
- /* All helper functions will update clr/set while preserve rest bits */
-@@ -278,12 +279,15 @@ static int spacemit_sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
- 		return 0;
- 
- 	if (mmc->caps2 & MMC_CAP2_NO_MMC) {
-+		struct spacemit_sdhci_host *sdhst;
++  spacemit,tx-delay:
++    $ref: /schemas/types.yaml#/definitions/uint8
++    default: 127
++    description:
++      TX delay line setting applied before RX tuning, compensating for
++      board level trace differences. This is a delay line step count with
++      no fixed time-per-step conversion; determined empirically per board
++      specific, used on SD/SDIO hosts.
 +
-+		sdhst = sdhci_pltfm_priv(sdhci_priv(host));
- 		spacemit_sdhci_set_tx_dline_reg(host, SPACEMIT_TX_TUNING_DLINE_REG);
--		spacemit_sdhci_set_tx_delay(host, SPACEMIT_TX_TUNING_DELAYCODE);
-+		spacemit_sdhci_set_tx_delay(host, sdhst->tx_delaycode);
- 		spacemit_sdhci_tx_tuning_prepare(host);
- 
- 		dev_dbg(mmc_dev(host->mmc), "TX tuning: dline_reg=%d, delaycode=%d\n",
--			SPACEMIT_TX_TUNING_DLINE_REG, SPACEMIT_TX_TUNING_DELAYCODE);
-+			SPACEMIT_TX_TUNING_DLINE_REG, sdhst->tx_delaycode);
- 	}
- 
- 	spacemit_sdhci_prepare_tuning(host);
-@@ -491,6 +495,17 @@ static inline void spacemit_sdhci_get_pins(struct device *dev,
- 		sdhst->pinctrl_default, sdhst->pinctrl_uhs);
- }
- 
-+static void spacemit_sdhci_get_tuning_params(struct device *dev,
-+					     struct sdhci_pltfm_host *pltfm_host)
-+{
-+	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
-+
-+	sdhst->tx_delaycode = SPACEMIT_TX_TUNING_DELAYCODE;
-+
-+	/* Override if valid from DT property */
-+	device_property_read_u8(dev, "spacemit,tx-delay", &sdhst->tx_delaycode);
-+}
-+
- static const struct sdhci_ops spacemit_sdhci_ops = {
- 	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
- 	.reset			= spacemit_sdhci_reset,
-@@ -566,6 +581,8 @@ static int spacemit_sdhci_probe(struct platform_device *pdev)
- 
- 	spacemit_sdhci_get_pins(dev, pltfm_host);
- 
-+	spacemit_sdhci_get_tuning_params(dev, pltfm_host);
-+
- 	host->mmc_host_ops.start_signal_voltage_switch = spacemit_sdhci_start_signal_voltage_switch;
- 
- 	ret = spacemit_sdhci_get_clocks(dev, pltfm_host);
+ required:
+   - compatible
+   - reg
 
 -- 
 2.56.0
