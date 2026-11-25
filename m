@@ -2,11 +2,12 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A6ED606D6F9
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 06:16:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62707606DE7B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 06:16:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZojK1aYB;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=o7Tt+62p
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hWsgj8Pj;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=dNCyYWVL;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ha9huIVk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,63 +15,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=OVuAKfTnhe9Kc608mi/Cm4K82a+5Ly+57J3xdBJGZN8=; b=ZojK1aYBmaet05mL2QWs8UbCth
-	dT7ElLxNBZASJuQ+7khLcpvY2vUa0rdn+qVwuzVqFOPqGmBBpAK5csZTiMgTDYcSlpZBgVckWp3kG
-	5AsbBCbOJwjPT+/K9np9IpJoLnP2ZE4htDqT9lyAgYBqmaY3ghMk0GEWSVBFWSXvMBHLpHFT4WGqg
-	lXDta/2CvX27FgZsMC7IPE6y+ZkAkkziOhU34IsC/+wMkBsm31sjSOLw97gEChIqxObfxiWl12hUk
-	ilXKhEqx+MrtSNUH3vVLUK0j4D/k5hFFo7jXH6S4xP41nsk8BFrIABuO/QDEiObhXlAclo5ui8Cd7
-	rpJB5Eqw==;
+	bh=O+d3hWOr8bOr4UXhY7IP0QS6S4yyZP4pvT++Ig+n8qA=; b=hWsgj8PjAQu4oh2VRILLO/1AmE
+	YZnGuFY9kwKo0JwBkp7dtCocx06jNI2DU20lAo0DPtm3+uNiJ9yK2PKfttorT1GsVoDBBgdoZF5vg
+	vmWTZSDFnnsmaJGSwUp9rODNhWjAf81uW9se9tEa75kB6U2VXeGvMqkaZkUd5RAA8J9+UKTQIwts/
+	Cu9HmFlvWxz9pQlDXltymk4a4sU9gBodVUjWO6K9aSoftuWCKXRq+B+fwVhn6EoNn2RhYD/12lWyF
+	W9nWWnksR0dwoPkVVzTpBZCsum1FTTYck2rW4TGC3TRVnfhiwPkqoP7iDXpSGnWorpZXIbloBgft/
+	Fi6UtVjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW6J1-00000008YxX-0WJD;
-	Wed, 25 Nov 2026 06:16:35 +0000
-Received: from mail-dy1-x1348.google.com ([2607:f8b0:4864:20::1348])
+	id 1xW6JG-00000008ZCk-0NoS;
+	Wed, 25 Nov 2026 06:16:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW6IX-00000008YTn-2ud9
+	id 1xW6Ih-00000008YcM-1tDm
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 25 Nov 2026 06:16:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ZvfWqaB0nFxucxNwNfxUIvrX7JKFCnM6p4UbWiRwSLk=; b=dNCyYWVLbvl0PzxCGASca3Lq4W
+	wHlVCB6RVIvjnbGJ1zDw0r3ajP5e4E1jbJVEAGg5nDSzWTdeVLhvJmHxHgSfwLLbbOCFKfYKhA0jF
+	vV5mR+Vak2qzHO8LQuXewR3DfE11VisZBBWqg+LzuXC/LkO0V0GTX/F2/G8FOHrg5NK0ZQpvHOgNy
+	je55ul88T0FmPuO2V73xmUaTCXj7uUjCQxpXOva1Fa3S39CfmBReiI55bbDsgy/CYfdVl0kokuodU
+	8KMOw6rFmx5acafd6xSPioaJYgrTkZJQSsAeCCYYStkrIoSocqVX/srFXXfdjxPH543s8rQ+Zl+ws
+	f8kpF9rg==;
+Received: from mail-dy1-x1346.google.com ([2607:f8b0:4864:20::1346])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xW6Id-00000004tlO-1cQX
 	for linux-riscv@lists.infradead.org;
 	Wed, 25 Nov 2026 06:16:14 +0000
-Received: by mail-dy1-x1348.google.com with SMTP id 5a478bee46e88-386c3309469so1559856eec.0
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2026 22:16:05 -0800 (PST)
+Received: by mail-dy1-x1346.google.com with SMTP id 5a478bee46e88-384c78aa0dbso7370349eec.0
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2026 22:16:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795587365; x=1796192165; darn=lists.infradead.org;
+        d=google.com; s=20260707; t=1795587369; x=1796192169; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Tq8mjhDcSofx5kxw5eKn8LOnbaPk4exl2xG2U8WBwwQ=;
-        b=o7Tt+62pF0ZlUypLwPNCvs2wp7KwBef2a8qUut1Qs2kw4PF6NNckHvqOg2xgn2WyYn
-         dx08T1MDgtekSHyZjH6nbdndz3/gSG/KEL1FZSDMMERLOu/rSfj+7Pm0EbUa0U2AF/fn
-         8BreTZ70Gk00arlTTPWbNxY0xuINlwn+0Y3+E7ynsWlpq6YPiTwpRpIjHrTSjCPJeINp
-         6GrrnzzIz3HY/qJes4sEDKy+d3AzQop/EiGEemMWEeEjF/uvX2QLkKJyWkx/kVFdRgx0
-         MbfN5de9L/u9pQPYWBObCNUzLlBXJ4xafjnzxKK5f1yX8KsQUxLY+SGbpTSC6mUSf2Sw
-         +IrQ==
+        bh=ZvfWqaB0nFxucxNwNfxUIvrX7JKFCnM6p4UbWiRwSLk=;
+        b=ha9huIVk+puKUag/RZTB2RWqLA3LM9pw82ukmy3Ja3hbrje+EOjAL6BX2B3Z1NteHF
+         f4z3GPNA4kx+tUq1s/WoO7AU4TmT1NWHA5H4Lf6j1C8sHw+bULKBrDh0SUe9mW9qc4Sg
+         oCWxubJQFmsCi28CxLHYU7zKvtSgc9BNPYwE5uSE67u4hDKTO/rMf8DT9YclHqoYq0YA
+         d3HoAsANKDADAVFOJXIS+VqaWvPd7vsTWWfHQmJfCVF8BAVZ3PXy+xfJzy9RUoNpsS1C
+         D+VxkFSQE/QDeV/ixIZLAw6mES2rtDgabysdfCNbP8kYpgStjTfHvsL827DVtnO0vsYf
+         x7KA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795587365; x=1796192165;
+        d=1e100.net; s=20260707; t=1795587369; x=1796192169;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Tq8mjhDcSofx5kxw5eKn8LOnbaPk4exl2xG2U8WBwwQ=;
-        b=N6AZtDQ4sAWHjHlaQBvOjnM9iYV7EZ/nxQTwpqqR1Rxhe/NkvlTB7neC8t/IapqhsU
-         9Csx6YGtlCiIlaYfiQRdk9w557FvACqD93LFAX+jVOvZlVhZEQdobdFQZRm9BrQtJf9Z
-         w3GlIvPs5r8MKlrXMB0z012IeMTnpfvgmbf3WnkNr2bAOpa6PTbq21G8vSR15ewATuSW
-         16RpWCe3FTrw8U6d/hZImsKWhc8iKEy4dBV8Q9NjQG1DeF512KCGoMkITCbG0D7qLfkv
-         J1vb57ZIv+UjKpaq2q9FudfozHwgz6QyDOt6+iD+HITNXIqpU9e8CkXV3w7USQtA9Slh
-         kTzQ==
-X-Forwarded-Encrypted: i=1; AL+hErH/XyBPCDjMcAbmdP91aQTMALwvohbok0kuN7DFP4qXNxdVq0/hvrRdG2V4O44Ua7fnZJjn7jjw58IArg==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+UCJ0PxazpyTNMn/rQUqWUWLPBw+tReV/6oIyMpBynx1ke/12E
-	CAyeGqBUl4eIR0XSMuc0PnAsQmNhNkB03pLb8gwz22pvWnoh0QslCLKh6oFY6uoqe052kBeDQ4U
-	23U/6/AJTkA==
-X-Received: from dyckx5.prod.google.com ([2002:a05:7300:c7c5:b0:386:c57e:ee36])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4201:b0:385:b8f4:755d
- with SMTP id 5a478bee46e88-385b8f47ad3mr17347048eec.20.1795587364179; Tue, 24
- Nov 2026 22:16:04 -0800 (PST)
-Date: Tue, 24 Nov 2026 22:14:57 -0800
+        bh=ZvfWqaB0nFxucxNwNfxUIvrX7JKFCnM6p4UbWiRwSLk=;
+        b=G6/jyn1lwU0uI8ZdVJephttyU4J3sgqzr3drdLKXZC+ymNzHqq/LBbR+7HX5WNqvgz
+         6YV+eXSG1xNzKJrqnuV4UU6umAx0A4SwKXzdHi5QiWCV2pJBp59cOrTOA21m5ECedth/
+         JYJaEuJ/JC1x/m2ugTROiTmFNscep5Y9isVyJZDcu+KDh1SvEsI+PQ8ts7vki5FGX95W
+         bn7bR7rr8ee57A2udK4MMJ82fINpiVHgPtWg+yvoqaMXmuH4ccTwE2S7BIWEqT1MqkP9
+         yJXbiF2pE3jGckTlOcj6g7OBpl9hw6PcbtXSdNkDpsIZ/UjRsdJKYy3bB9lwqF53ESJZ
+         M6Ag==
+X-Forwarded-Encrypted: i=1; AL+hErFoXjrJsASgd6helL86F562dzHfV2JlDFcUDw+OWhsO59cyyRPOUmIImsF3QvjSkITDVfgHydM+Zto1lg==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9Oc4U0DrzYVWNrbdgp4Ks1zNSyl+9t02wlTvB5QhV5RDYpPI9q
+	RBp1LSArcE2epEmHlsGgSgPL0CECTJHThAKOzRxbHBgeGOOxV5hZDeu34zocDVGmAAmLyPGmEuw
+	xzjE7h8M4Cg==
+X-Received: from dyblf45.prod.google.com ([2002:a05:7301:a2d:b0:375:861c:512e])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8953:20b0:386:a70b:75dc
+ with SMTP id 5a478bee46e88-386a70b7837mr10351275eec.11.1795587368701; Tue, 24
+ Nov 2026 22:16:08 -0800 (PST)
+Date: Tue, 24 Nov 2026 22:14:59 -0800
 In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
 References: <20261125061523.1540234-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261125061523.1540234-5-irogers@google.com>
-Subject: [RFC PATCH v2 04/30] x86: unwind_user: Support Minimal DWARF CFI user unwinding
+Message-ID: <20261125061523.1540234-7-irogers@google.com>
+Subject: [RFC PATCH v2 06/30] kbuild: Wire up CONFIG_UNWINDER_DWARF_CFI_MINIFY
+ object pass
 From: Ian Rogers <irogers@google.com>
 To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
 	linux-arch@vger.kernel.org
@@ -89,9 +106,9 @@ Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org,
 	linux-kselftest@vger.kernel.org, indu.bhagat@oracle.com, jremus@linux.ibm.com, 
 	wnliu@google.com, dylanbhatch@google.com, Ian Rogers <irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261124_221605_856045_DE464F07 
-X-CRM114-Status: GOOD (  13.23  )
-X-Spam-Score: -9.5 (---------)
+X-CRM114-CacheID: sfid-20261125_061611_557862_DE823A55 
+X-CRM114-Status: GOOD (  11.05  )
+X-Spam-Score: -7.6 (-------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,113 +129,172 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Provide unwind_user_cfi_arch() in arch/x86/include/asm/unwind_user.h for
-both 64-bit x86-64 (%rsp=7, %rbp=6, %rip=16) and 32-bit IA-32 compat
-(%esp=4, %ebp=5, %eip=8) user tasks, and select HAVE_UNWIND_USER_CFI on
-X86_64.
+Invoke scripts/min_eh_frame on standard kernel C, Rust, and post-LTO
+composite .o objects when CONFIG_UNWINDER_DWARF_CFI_MINIFY is enabled,
+recording scripts/min_eh_frame as a rebuild dependency in .*.cmd files.
+
+Across full vmlinux builds on x86-64, ARM64, and RISC-V, minification
+achieves 100.00% FDE coverage and reduces .eh_frame size 18%-28% below
+SFrame v3 (.sframe).
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- arch/x86/Kconfig                   |  1 +
- arch/x86/include/asm/unwind_user.h | 47 ++++++++++++++++++++++++++++++
- 2 files changed, 48 insertions(+)
+ rust/Makefile              |  4 +++-
+ scripts/Makefile.build     | 12 ++++++++++--
+ scripts/Makefile.lib       | 13 +++++++++++--
+ scripts/Makefile.vmlinux_o |  8 +++++++-
+ 4 files changed, 31 insertions(+), 6 deletions(-)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 58dce0b66179..c8096cf66c38 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -300,6 +300,7 @@ config X86
- 	select HAVE_SYSCALL_TRACEPOINTS
- 	select HAVE_UACCESS_VALIDATION		if HAVE_OBJTOOL
- 	select HAVE_UNSTABLE_SCHED_CLOCK
-+	select HAVE_UNWIND_USER_CFI		if X86_64
- 	select HAVE_UNWIND_USER_FP		if X86_64
- 	select HAVE_USER_RETURN_NOTIFIER
- 	select VDSO_GETRANDOM			if X86_64
-diff --git a/arch/x86/include/asm/unwind_user.h b/arch/x86/include/asm/unwind_user.h
-index 6e469044e4de..1a6be08968c3 100644
---- a/arch/x86/include/asm/unwind_user.h
-+++ b/arch/x86/include/asm/unwind_user.h
-@@ -4,9 +4,17 @@
+diff --git a/rust/Makefile b/rust/Makefile
+index 0165626decbe..1238b4ac661d 100644
+--- a/rust/Makefile
++++ b/rust/Makefile
+@@ -668,7 +668,8 @@ quiet_cmd_rustc_library = $(if $(skip_clippy),RUSTC,$(RUSTC_OR_CLIPPY_QUIET)) L
+ 		$(CC_FLAGS_RUST_INLINE_HELPERS) -Wno-override-module -c $(patsubst %.o,%.m.bc,$@) -o $@ \
+ 		$(cmd_ld_single)) \
+ 	$(if $(rustc_objcopy),;$(OBJCOPY) $(rustc_objcopy) $@) \
+-	$(cmd_objtool)
++	$(cmd_objtool) \
++	$(cmd_min_eh_frame)
  
- #ifdef CONFIG_UNWIND_USER
+ rust-analyzer:
+ 	$(Q)MAKEFLAGS= $(srctree)/scripts/generate_rust_analyzer.py \
+@@ -721,6 +722,7 @@ endif
+ define rule_rustc_library
+ 	$(call cmd_and_fixdep,rustc_library)
+ 	$(call cmd,gen_objtooldep)
++	$(call cmd,gen_min_eh_framedep)
+ 	$(call cmd,gendwarfksyms)
+ endef
  
-+#include <linux/unwind_dwarf_cfi.h>
- #include <asm/ptrace.h>
- #include <asm/uprobes.h>
+diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+index 6127feb970c6..ced0f630f566 100644
+--- a/scripts/Makefile.build
++++ b/scripts/Makefile.build
+@@ -281,6 +281,10 @@ ifdef CONFIG_OBJTOOL
+ $(obj)/%.o: private objtool-enabled = $(if $(is-standard-object),$(if $(delay-objtool),$(is-single-obj-m),y))
+ endif
  
-+/**
-+ * unwind_user_word_size() - Return the user-space word size in bytes on x86
-+ * @regs: User-mode register state.
-+ *
-+ * Return: 8 for 64-bit user mode, 4 for 32-bit IA-32/compat mode, or 0 for
-+ * VM86 mode stacks which cannot be unwound.
-+ */
- static inline int unwind_user_word_size(struct pt_regs *regs)
- {
- 	/* We can't unwind VM86 stacks */
-@@ -15,22 +23,61 @@ static inline int unwind_user_word_size(struct pt_regs *regs)
- 	return user_64bit_mode(regs) ? 8 : 4;
- }
- 
-+/**
-+ * unwind_user_cfi_arch() - Populate x86/x86-64 DWARF register numbers
-+ * @ws: User word size in bytes (8 for x86-64, 4 for i386).
-+ * @arch: Output DWARF CFI architecture descriptor.
-+ *
-+ * Return: true if @ws is 4 or 8, false otherwise.
-+ */
-+static inline bool unwind_user_cfi_arch(unsigned int ws,
-+					struct dwarf_cfi_arch *arch)
-+{
-+	if (ws == 8) {
-+		*arch = (struct dwarf_cfi_arch){
-+			.ws	= 8,
-+			.sp_reg	= 7,	/* %rsp */
-+			.fp_reg	= 6,	/* %rbp */
-+			.ra_reg	= 16,	/* %rip */
-+		};
-+		return true;
-+	}
-+	if (ws == 4) {
-+		*arch = (struct dwarf_cfi_arch){
-+			.ws	= 4,
-+			.sp_reg	= 4,	/* %esp */
-+			.fp_reg	= 5,	/* %ebp */
-+			.ra_reg	= 8,	/* %eip */
-+		};
-+		return true;
-+	}
-+	return false;
-+}
++ifdef CONFIG_UNWINDER_DWARF_CFI_MINIFY
++$(obj)/%.o: private min-eh-frame-enabled = $(if $(filter-out scripts/mod/empty.o,$@),$(is-standard-object))
++endif
 +
- #endif /* CONFIG_UNWIND_USER */
+ ifneq ($(findstring 1, $(KBUILD_EXTRA_WARN)),)
+ cmd_warn_shared_object = $(if $(word 2, $(modname-multi)),$(warning $(kbuild-file): $*.o is added to multiple modules: $(modname-multi)))
+ endif
+@@ -371,11 +375,13 @@ quiet_cmd_rustc_o_rs = $(RUSTC_OR_CLIPPY_QUIET) $(quiet_modtag) $@
+ 		$(CC) $(CLANG_FLAGS) $(filter-out $(CC_FLAGS_LTO),$(KBUILD_CFLAGS)) \
+ 		$(CC_FLAGS_RUST_INLINE_HELPERS) -Wno-override-module -c $(patsubst %.o,%.m.bc,$@) -o $@ \
+ 		$(cmd_ld_single)) \
+-	$(cmd_objtool)
++	$(cmd_objtool) \
++	$(cmd_min_eh_frame)
  
- #ifdef CONFIG_HAVE_UNWIND_USER_FP
+ define rule_rustc_o_rs
+ 	$(call cmd_and_fixdep,rustc_o_rs)
+ 	$(call cmd,gen_objtooldep)
++	$(call cmd,gen_min_eh_framedep)
+ endef
  
-+/* Standard x86 frame record: {saved_bp, ret_addr} at [bp, bp + 2 * ws). */
- #define ARCH_INIT_USER_FP_FRAME(ws)			\
- 	.cfa_off	=  2*(ws),			\
- 	.ra_off		= -1*(ws),			\
- 	.fp_off		= -2*(ws),			\
- 	.use_fp		= true,
+ $(obj)/%.o: $(obj)/%.rs FORCE
+@@ -518,14 +524,16 @@ $(obj)/lib.a: $(lib-y) FORCE
+ 	$(call if_changed,ar)
  
-+/* At function entry before push %rbp: return address is at [sp, sp + ws). */
- #define ARCH_INIT_USER_FP_ENTRY_FRAME(ws)		\
- 	.cfa_off	=  1*(ws),			\
- 	.ra_off		= -1*(ws),			\
- 	.fp_off		= 0,				\
- 	.use_fp		= false,
+ quiet_cmd_ld_multi_m = LD [M]  $@
+-      cmd_ld_multi_m = $(LD) $(ld_flags) -r -o $@ @$< $(cmd_objtool)
++      cmd_ld_multi_m = $(LD) $(ld_flags) -r -o $@ @$< $(cmd_objtool) $(cmd_min_eh_frame)
  
-+/**
-+ * unwind_user_at_function_start() - Check if @regs is at a function entry point
-+ * @regs: User-mode register state.
-+ *
-+ * Return: true if stopped on an entry uprobe before the frame prologue ran.
-+ */
- static inline bool unwind_user_at_function_start(struct pt_regs *regs)
- {
- 	return is_uprobe_at_func_entry(regs);
+ define rule_ld_multi_m
+ 	$(call cmd_and_savecmd,ld_multi_m)
+ 	$(call cmd,gen_objtooldep)
++	$(call cmd,gen_min_eh_framedep)
+ endef
+ 
+ $(multi-obj-m): private objtool-enabled := $(delay-objtool)
++$(multi-obj-m): private min-eh-frame-enabled := $(CONFIG_LTO_CLANG)
+ $(multi-obj-m): private part-of-module := y
+ $(multi-obj-m): %.o: %.mod FORCE
+ 	$(call if_changed_rule,ld_multi_m)
+diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+index 19e96b30a122..b27bcd50daf7 100644
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -222,6 +222,12 @@ objtool-enabled := y
+ 
+ endif # CONFIG_OBJTOOL
+ 
++ifdef CONFIG_UNWINDER_DWARF_CFI_MINIFY
++min_eh_frame := $(objtree)/scripts/min_eh_frame
++cmd_min_eh_frame = $(if $(min-eh-frame-enabled), ; $(min_eh_frame) $@)
++cmd_gen_min_eh_framedep = $(if $(min-eh-frame-enabled), { echo ; echo '$@: $$(wildcard $(min_eh_frame))' ; } >> $(dot-target).cmd)
++endif
++
+ # Useful for describing the dependency of composite objects
+ # Usage:
+ #   $(call multi_depend, multi_used_targets, suffix_to_remove, suffix_to_add)
+@@ -265,7 +271,8 @@ endif
+ quiet_cmd_cc_o_c = CC $(quiet_modtag)  $@
+       cmd_cc_o_c = $(CC) $(c_flags) -c -o $@ $< \
+ 		$(cmd_ld_single) \
+-		$(cmd_objtool)
++		$(cmd_objtool) \
++		$(cmd_min_eh_frame)
+ 
+ define rule_cc_o_c
+ 	$(call cmd_and_fixdep,cc_o_c)
+@@ -273,17 +280,19 @@ define rule_cc_o_c
+ 	$(call cmd,checksrc)
+ 	$(call cmd,checkdoc)
+ 	$(call cmd,gen_objtooldep)
++	$(call cmd,gen_min_eh_framedep)
+ 	$(call cmd,gen_symversions_c)
+ 	$(call cmd,record_mcount)
+ 	$(call cmd,warn_shared_object)
+ endef
+ 
+ quiet_cmd_as_o_S = AS $(quiet_modtag)  $@
+-      cmd_as_o_S = $(CC) $(a_flags) -c -o $@ $< $(cmd_objtool)
++      cmd_as_o_S = $(CC) $(a_flags) -c -o $@ $< $(cmd_objtool) $(cmd_min_eh_frame)
+ 
+ define rule_as_o_S
+ 	$(call cmd_and_fixdep,as_o_S)
+ 	$(call cmd,gen_objtooldep)
++	$(call cmd,gen_min_eh_framedep)
+ 	$(call cmd,gen_symversions_S)
+ 	$(call cmd,warn_shared_object)
+ endef
+diff --git a/scripts/Makefile.vmlinux_o b/scripts/Makefile.vmlinux_o
+index 0b37bd5dc3a4..160d43fbb393 100644
+--- a/scripts/Makefile.vmlinux_o
++++ b/scripts/Makefile.vmlinux_o
+@@ -52,6 +52,10 @@ vmlinux-objtool-args-$(if $(KLP_SYMIDS),y)		+= --klp-symids
+ 
+ objtool-args = $(vmlinux-objtool-args-y) --link
+ 
++ifdef CONFIG_UNWINDER_DWARF_CFI_MINIFY
++min-eh-frame-enabled := $(CONFIG_LTO_CLANG)
++endif
++
+ # Link of vmlinux.o used for section mismatch analysis
+ # ---------------------------------------------------------------------------
+ 
+@@ -64,13 +68,15 @@ quiet_cmd_ld_vmlinux.o = LD      $@
+ 	$(addprefix -T , $(initcalls-lds)) \
+ 	--whole-archive vmlinux.a --no-whole-archive \
+ 	--start-group $(KBUILD_VMLINUX_LIBS) --end-group \
+-	$(cmd_objtool)
++	$(cmd_objtool) \
++	$(cmd_min_eh_frame)
+ 
+ cmd_check_function_names = $(srctree)/scripts/check-function-names.sh $@
+ 
+ define rule_ld_vmlinux.o
+ 	$(call cmd_and_savecmd,ld_vmlinux.o)
+ 	$(call cmd,gen_objtooldep)
++	$(call cmd,gen_min_eh_framedep)
+ 	$(call cmd,check_function_names)
+ endef
+ 
 -- 
 2.56.1.831.g720f3f5937-goog
 
