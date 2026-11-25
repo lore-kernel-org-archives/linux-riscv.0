@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61EAB606A680
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 12:22:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA58D606A321
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 12:25:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=l3mHbhZo;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=q9ipg8Ng
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eFgdrqym;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=u+vVcdZW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,72 +14,85 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GpznJYt3hyY3f2mjxbvuCsOC7mMnhZ0guNCFwYzlRak=; b=l3mHbhZoNBWLCWB2QMr+3RCk8p
-	5QasPbIe428lHx1Pz+Dtm8b9z4PaaHYbhi5R14bzPr95py7aBdxiTUVHwsFq3yvbqqO/g6wwYg4a+
-	WGa6txBro/UUyS+LfJVYBhgH3FxppjtPl46pzdwWCW2AVP7MZZZ3G8QESHRu7RxCHEgXWHbE9WZys
-	X81XAZTJMl1YtTBakH7khrHkJwW/bwMHZiJupirC7beve9r55VZAKGslUNI/tJC4peNh0nUiwTHLE
-	np5LWpFVN+wiK8viqjA7SNhU/Qg4W4wvFAsRfJYKN/2Taeq8oz7FkhD5gdB9WA15epAvJWZCiO3Qs
-	2FRMYJTQ==;
+	bh=UmM3fEGB5ShVg2Cy4WQtxCFTrZq4qHJOXsHlzcLSrt0=; b=eFgdrqymTbZjERKzRAZaA+IQA0
+	wEgNa2Kazi+BIsN8lO53AlrwiU4Hs7L9h9V7O4/ueXGAK4vzaxSOp779aadmee/p6lM+6wsid/e6p
+	crJXTYGqBAysiWbg3v/tKZWU0doBpPZgX65aRviRrYc2QhQ794iEp4WlRUB4JsU8irA1WuletLrHI
+	wpkcaX5B2iSgWhMTUU+6taxOSENYX72leAHlRgDjxExB73JXpxLsUjqkhI0n4aLJOswmNegOQSoFa
+	kYQpfkz/itOi7u0kt+gcADP6bPnBlTp2WnZSDWPkY6ugdXwL20eOzMP24menJQOOmNOlIXb/8KK8I
+	m3WyWGwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWC11-00000009o5N-2Z5n;
-	Wed, 25 Nov 2026 12:22:23 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1xWC3d-00000009oq5-0rIC;
+	Wed, 25 Nov 2026 12:25:05 +0000
+Received: from watt.d-silva.org ([119.15.109.137] helo=www.nmnhosting.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWC0X-00000009nrK-3z4a
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 12:22:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795609310; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=YO+gVdYbAsguYJfAA7/L0gHdhb6kJyRHPaqV/Yh+2u4=;
-	b=q9ipg8Ng06GISbuGWVZOmuVBpgByjGOIEdHFQmTyCqA+2rCeWB4SYdiNsH4oQoEPAOo9aDMY9yUdEV/38aT7Z8JEKEoBvaJINcxk7KOCi4Maolmsmv41pNEWwxPeqUr5wdzIugeI52J0vcr2R7b0l5tyTClWM6zI3Ga7IrUlX4c=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0XFRij20_1795609307;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XFRij20_1795609307 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 25 Nov 2026 20:21:48 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	memxor@gmail.com,
-	bjorn@kernel.org,
-	puranjay@kernel.org,
-	alexei.starovoitov@gmail.com
-Cc: eddyz87@gmail.com,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	emil@etsalapatis.com,
-	ihor.solodrai@linux.dev,
-	pulehui@huawei.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	luke.r.nels@gmail.com,
-	xi.wang@gmail.com,
-	shuah@kernel.org,
-	rgbi3307@gmail.com,
-	guoren@kernel.org,
-	bpf@vger.kernel.org,
+	id 1xWC3Y-00000009onm-2T4D;
+	Wed, 25 Nov 2026 12:25:03 +0000
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id DE1744C930;
+	Wed, 25 Nov 2026 23:24:52 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795609492;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nJaA1oVQlfD3Td2+HTDf6tsxtXlDuEgeg0sbDdSaIuw=;
+	b=u+vVcdZW4+pQIvPMqTSScUsB2Z1KVWtGuyYxTL6kPLXAXgewuFltXTlahkwwEKTpQama05
+	t1wosTGBvOYsvck0FOAtpOIseOvoTHPnFlMH3qF4SY/IEf2li+X7AbwWtOe0gKIsW9UznD
+	u4Gn8UItfKrV7kTpQoVKUpecD4wsRIrh3yg68MBMSu/j/StiwcuBLL4hI9YoL/IP6x2lEI
+	zYso/XIDmQP97v4Cwi1afQCtMPrj+cmBrC2SI9HkhpxsMcHx3cRH788kzElMcalgldVvm9
+	fgSpC7adl2DxgZyvYGfRFRauvnqrFpZFCmy6akE+cuEnFdDhPeUZLPmqVZf4oA==
+X-GPT-Reason: The email is classified as legitimate personal correspondence.
+	The mailbox (alastair@d-silva.org) perfectly matches the sender
+	domain (alastair@d-silva.org), indicating a trusted personal identity.
+	The subject line "Re: [PATCH v7 4/8] clk: sunxi-ng: a733: Add PLL clocks support" follows
+	standard technical/developer communication patterns for code patches,
+	and there are no phishing red flags, urgency tactics, or suspicious
+	links.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Junhui Liu <junhui.liu@pigmoral.tech>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	netdev@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 bpf-next 3/3] selftests/bpf: Test a private stack together with stack arguments
-Date: Wed, 25 Nov 2026 20:21:26 +0800
-Message-ID: <20261125122126.939-4-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125122126.939-1-cp0613@linux.alibaba.com>
-References: <20261125122126.939-1-cp0613@linux.alibaba.com>
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	Norman Herms <dockseed@proton.me>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+Subject: Re: [PATCH v7 4/8] clk: sunxi-ng: a733: Add PLL clocks support
+Date: Wed, 25 Nov 2026 23:24:52 +1100
+Message-ID: <20261125122452.3966873-1-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261112-a733-clk-v7-4-db7c5451ffa2@pigmoral.tech>
+References: <20261112-a733-clk-v7-4-db7c5451ffa2@pigmoral.tech>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_042155_726866_EDB33A85 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20261125_042500_878010_76575BF9 
+X-CRM114-Status: UNSURE (   8.95  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -17.6 (-----------------)
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,93 +105,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add two asm programs to verifier_stack_arg.c, inside the block that is
-already gated on x86, arm64 and riscv64. A raw_tp program with a 64 byte
-frame calls a ten-argument subprog with a 64 byte frame of its own, and
-BPF_PROG_TEST_RUN runs the pair without attaching it. Args 9 and 10 stay
-in the kernel frame and arg 10 points into the caller's frame, so the two
-have to agree on where the outgoing area is. The callee returns what the
-caller stored plus arg 9, so a wrong area shows up as a wrong retval
-rather than as a crash.
+Hi Junhui,
 
-Suggested-by: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-Reviewed-by: Pu Lehui <pulehui@huawei.com>
----
- .../selftests/bpf/progs/verifier_stack_arg.c  | 49 +++++++++++++++++++
- 1 file changed, 49 insertions(+)
+On Thu, 12 Nov 2026, Junhui Liu wrote:
+> static struct ccu_nkmp pll_ref_clk = {
+> ...
+> };
+> ...
+> static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0);
 
-diff --git a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-index c642675dd92b..16afc69af947 100644
---- a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-@@ -1156,6 +1156,55 @@ __naked void stack_arg_precision_fallback(void)
- 	);
- }
- 
-+/* Writes both ends of its frame, then reads args 9, 10 and the frame of the caller. */
-+static __naked __noinline __used
-+long priv_stack_10args(long a, long b, long c, long d, long e, long f, long g, long h,
-+		       long i, long *j)
-+{
-+	asm volatile (
-+		"r1 = 0;"
-+		"*(u64 *)(r10 - 8) = r1;"
-+		"*(u64 *)(r10 - 64) = r1;"
-+		"r0 = *(u64 *)(r11 + 32);"
-+		"r1 = *(u64 *)(r11 + 40);"
-+		"r1 = *(u64 *)(r1 + 0);"
-+		"r0 += r1;"
-+		"exit;"
-+		::: __clobber_all
-+	);
-+}
-+
-+/*
-+ * A frame of 64 bytes in a raw_tp prog goes to the private stack.
-+ * arm64 and riscv64 pass args 9 and 10 on the kernel stack. On x86-64
-+ * both frames stay there as well.
-+ */
-+SEC("raw_tp")
-+__description("stack_arg: private stack in the caller and in the callee")
-+__success __retval(890)
-+__naked void stack_arg_priv_stack(void)
-+{
-+	asm volatile (
-+		"r1 = 800;"
-+		"*(u64 *)(r10 - 64) = r1;"
-+		"r1 = r10;"
-+		"r1 += -64;"
-+		"*(u64 *)(r11 - 40) = r1;"
-+		"*(u64 *)(r11 - 32) = 90;"
-+		"*(u64 *)(r11 - 24) = 8;"
-+		"*(u64 *)(r11 - 16) = 7;"
-+		"*(u64 *)(r11 - 8) = 6;"
-+		"r1 = 1;"
-+		"r2 = 2;"
-+		"r3 = 3;"
-+		"r4 = 4;"
-+		"r5 = 5;"
-+		"call priv_stack_10args;"
-+		"exit;"
-+		::: __clobber_all
-+	);
-+}
-+
- #else
- 
- /* No BTF tells about this store. The insn is what JIT has to deal with. */
--- 
-2.50.1
+While testing this v7 series on the OrangePi 4 Pro (24 MHz HOSC), ttyS0
+switches from earlycon to garbled output with:
 
+  2500000.serial: ttyS0 MMIO32:0x0000000002500000 (irq = 414, base_baud = 1384615) is a 16550A
+
+Because the hardware bypasses pll-ref (0x02002000) when HOSC is 24 MHz,
+sys-24M physically runs at 24 MHz from HOSC, while pll-ref remains
+disabled with reset/unprogrammed N=12, M=13 fields. Since
+ccu_nkmp_ops.recalc_rate() computes parent_rate * N / M regardless of
+the enable bit, pll-ref reports 24000000 * 12 / 13 = 22153846 Hz.
+
+sys-24M, apb-uart, and bus-uart0 inherit 22153846 Hz instead of
+24000000 Hz, so 8250_dw calculates base_baud = 1384615 (instead of
+1500000) and programs divisor 12 instead of 13 (+8.3% baud error).
+
+If pll-ref is disabled/bypassed (or if sys-24M is physically fixed at
+24 MHz as the comment describes), either pll_ref_clk needs a recalc_rate
+that returns 24 MHz when disabled/bypassed, or sys_24M_clk should not
+inherit an unenabled pll-ref N/M ratio.
+
+Tested on OrangePi 4 Pro (Allwinner A733).
+
+Thanks,
+Alastair
 
 _______________________________________________
 linux-riscv mailing list
