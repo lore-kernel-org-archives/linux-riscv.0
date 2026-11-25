@@ -2,83 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59782606A329
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 23:05:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA81F606A31E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 23:05:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DMiixZrG;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iqlDXiQz
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ICp8VTVt;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gf+kZ96c
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SiWGI+WqeVxi3XKFOEnT+IxkllXRMMT5ojIuYA0U+BI=; b=DMiixZrGPgX9mtg07BNTjzYR9c
-	gIaOwl9Y3ZJHs/SAAUA9Cm8JLHlc2OMN478OSJqkZeKjklmkY6hogkcvcRQ98XyKajDhD+o1iaykM
-	WkCNyNLVBOpQetXMy+0W+GV+DyfHqtTEYMR8SwiBhDa27vOGT1cCC2bWI2/cPd/njrMavkXeuG7jg
-	IPB/l5m2kGwuBdbtzAdMp2yG4LNsiMEEE3FThxfidx889lBZBtYHMkCMAvW7jq9Mq/ileefiNkGv8
-	rBrhfvaBVqYHnpkvkMu9hJBcQnqgxEyC+T5Ibh51ZWFr/DjauIkl5e75K5U0V2u4PZiDJgeMAjuPZ
-	s15AFPZQ==;
+	bh=Fp58xdgDlbeqzlzuzSvR22LgrczOwk5JrCvS7tTl8UE=; b=ICp8VTVtQC6hJ4zVif8b7gHMFe
+	bBXb2kqd46zMx83/ene1sYBerEnHG5djM9QtBf0Sv23S95jV14GwQnSjnmcJU0xAFYxN5qwpdD2ao
+	zGssNqdZ9S8rPPrvnkZPE/yyd0G9MHJxg5zT6Lzqfx+NEts8W/uQECX463KjVXDDZ3drJMiId/KRC
+	G7sl32z18Wpu58y+Ug0i6wQrUizgRqqa+iJtlUQ+Ilm8bBLWZTm6S+p/WWifv80GmbzDiJXjh724G
+	q/t/0Mgluwn8tF7YjebsC1xCb3ov7YQPo4PQ5aBZ666DntYU+MuuSVScMdY4zfEHT9y+PPAaU52Jw
+	xZaBaFIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWM2n-0000000BWpi-1b0c;
-	Wed, 25 Nov 2026 23:04:53 +0000
+	id 1xWM2v-0000000BWs1-2JK9;
+	Wed, 25 Nov 2026 23:05:01 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWM2m-0000000BWpc-3R6Z
+	id 1xWM2s-0000000BWqZ-0IWI
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 23:04:52 +0000
+	Wed, 25 Nov 2026 23:04:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D651446FE;
-	Wed, 25 Nov 2026 23:04:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB3BC1F000C4;
-	Wed, 25 Nov 2026 23:04:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CFF274470B;
+	Wed, 25 Nov 2026 23:04:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B6101F000C4;
+	Wed, 25 Nov 2026 23:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795647892;
-	bh=FDGv/L1Nbww7c6KzWDxAyI1PsmHNVWcDz5orsyjliS0=;
-	h=From:Subject:Date:To:Cc;
-	b=iqlDXiQzPENteDV5216FnsrGn5fo75XQt/VYmVlTz/gMnfZ54mH8BG0jgP4RJPCye
-	 7N1zZVJnh4Iraoueo34cekx2C3kfa5E0PYcM9pKm65wghnJuMe26NjXxwAEXLeiyxE
-	 iXGBTFOolrT1x7XXKW0LgrPtG2ZYBcgNHQSNOHUN3ltrI46U7FiQ+B1TaTEJE2/LMT
-	 F6aYbGn4T6aN2aEHePFkRmbPaf6OF106FmAfdUpB1wKeRvklcB92haBJnRxMkHH1Fv
-	 2GsK+dAXWAm5AsuQYlB2I97iNd5xP9DQ94D5/Z4uo5Of0d06qd0/daKIH2gfZWFkmq
-	 62JHvhWJs6VuQ==
+	s=k20260515; t=1795647897;
+	bh=pby6ROZEcPP/akhHNpSuVe8cP7V1dKMFwkUigrfM6Dc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=gf+kZ96cMQj7Xh+u1vk0ntuXeSYE7xknTtR0mnnrxSZLpneP9XgrWGLjX/wKiv8Ej
+	 6aAupjkobui5/nK38UtCV+52tPW/rv6vujcka8gCsmpEYgj6KegTQLA+poTPEJHuKC
+	 bUAobJE5lbBj2Yrt/4LkDMdN4m4Njlg7PEMfZdv6Jjk1AdiD7APZKNpLQSxZsh8n+S
+	 ZlrlX1QfpTaMiWQwRIwt9KhHqfUbxr4JxKim9C63fuejQUD/+sBXgwnsOruVkOPE5W
+	 r1H1cwTk2ruHwUklKHo3SutMkb9KIPLwj6AENbONynTC3iBQy6UqzfawR6MSSXY/iJ
+	 q8kNDlT+OCZ1A==
 From: Yixun Lan <dlan@kernel.org>
-Subject: [PATCH v2 0/2] mmc: spacemit: Introduce tx delay DT property
-Date: Wed, 25 Nov 2026 23:04:36 +0000
-Message-Id: <20261125-07-k3-sdhci-dts-v2-0-a069659ba025@kernel.org>
+Date: Wed, 25 Nov 2026 23:04:38 +0000
+Subject: [PATCH v2 2/2] mmc: sdhci-of-k1: Add TX tuning parameter
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNQQ6CMBBFr0Jm7Zi2gE1deQ/DQsoAIwZIB4mGc
- HcLxpXLl7z//gJCgUngnCwQaGbhoY9gDgn49tY3hFxFBqPMSTmlUVnsUpSq9YzVJJhbV2pbajI
- qh7gaA9X82ovX4svyLO/kpy2zGS3LNIT3fjnrzfvVzV99joeYkXXK+TozaXrpKPT0OA6hgWJd1
- w9YwUrawQAAAA==
-X-Change-ID: 20260901-07-k3-sdhci-dts-579b17b1e205
+Message-Id: <20261125-07-k3-sdhci-dts-v2-2-a069659ba025@kernel.org>
+References: <20261125-07-k3-sdhci-dts-v2-0-a069659ba025@kernel.org>
+In-Reply-To: <20261125-07-k3-sdhci-dts-v2-0-a069659ba025@kernel.org>
 To: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>
 Cc: Long Wan <long.wan@linux.spacemit.com>, linux-mmc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Yixun Lan <dlan@kernel.org>, Conor Dooley <conor.dooley@microchip.com>
+ Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1035; i=dlan@kernel.org;
- h=from:subject:message-id; bh=fj6aBGWfSHhiwKTD1OCuD0+DY2GHc8/iqCOUwSsGIjc=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBrB2mHbg0WnK25HSXbp4+BjWUWQnXBk+jmh/+Ju
- QIVr0AFPJqJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCawdphxsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2618; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=BPnZzVNxRpMqynOCa0hbZmnCfAwLs4G7uVoGSv+TTbg=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBrB2mOPrDesfxBHBCsd/snwLAsnSpooR6owqqBf
+ bdcdl3VoGeJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCawdpjhsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+2L0Q/+OjNoQupHTvkESk6nYm1LUivpm3A/nOH/s12M5YCx2QNO0nOXXpZq/
- z6BI3qd5yibms5ta8a1QuLtmcjJw1Ia2fAgNJci9GaPjttd7xMWw5gPi6FWi+HkyF5hXwh+0r44
- Z/yHAOQZmA3A1PVOPp3GdDBA3iXppWswS4z0EaEWs9iAA7aKvPPReM4LwAGGaNzXrWyEmgJ95Sq
- dPbnpcj//9GHD9ee6zp8OEruTIOgaLoc2N4EyVdK50RJdPGUnUWvLLRCeiDQ6XUUlN+x3QmrtmP
- ETVDBKtAk6VmmKH5HiAAwNxE2HDum0F9giP6TUm9R8vKeJ3//mJCyL1bawhPfGxiJG4VoAP7pdP
- fHng0N0ncmTcXpVvlwgZSCgc9/BZgOYuQfd4hlEDZ+/wz7U7vhEqryMK5pqtHK7NX9c66KghXSZ
- cTrM4Y0mtEG70HA7n3jcuB5AqH5ZWdmVH+Q/j3BF0hb1YTChmZsQb8/FUsIPFMCfQaQqdFapUdi
- OXDUrM/m5YdzzG6aCom4BE1YJ53bok7LLFID/qe7nVcUxOflYLaBVfEX90nhTUuRWr4eXS+dV3B
- SXR+nCd/rul+EYn5kLgqYEFasTaWm4kBm0/evzHlAVzYm+kURpoWdLA96M2oMXzuRrhluTnQDsk
- oCizmEI1Py+G2i9U2en8CNC7N07rD8=
+ QACgkQMarqR1lNu+3QDhAAlUZQez7Xqb7KeA+vAEigusHmQyq1LUwJNYfMTCcUsH4kS1Z5cgCUm
+ faXd4DaHxhud6H9pX1wNgu+wEkHvJ7GtmKZZ0KGO/JSxqXpQmvLm8/bydRL2507U8gWO5bMGqUZ
+ szHIXT3Z/l17/2dusoYh7fgsi9swhOwHYFyrk2xOQ8GMobP5lW94uO3GmEDG/6a/Qs2msfMkYti
+ LceGwfUWTpUHik8OpakBmP+/o/bOE0H7OfzVKNu+0/t2TnWulbvKMHMm3Sp427AbzRO7ZQoeCTB
+ GP+3ArZ+6rILtGFN3oaVgtKPlwFFGA10DJiYJMAc7d/fK9PLfi6i8ssYbJYmYkv7zPkup7cvQxE
+ 0DG4P/D0hJDiUE7rakF1mFKBWX2Jje8JACSPEzFkCR5tCRY+dBofQs8uP+gskYnrTshTCDVVfVO
+ sd1vTl2vGcN6pg3CpeUv1l33sbjNxvn7x9RRnsPFwmA1WrXI/s3gdJwvz9K0c3198VgnjGN8G+j
+ Z+fnVXQMLZAoXDFx5UXOfiP3rvEEmRoQugG1pQYLe7d3UstrXVQ33JmTqgspylV/c3h3nu0H+Mb
+ V7RaqCnJBvwNeiFLK6gpHKU0MiUFAilrPy3PU4kWJnrNL7accBMlfpfpYJOpNfZlxQ3qrAFelhs
+ ogNjfOwXPLpwJ1e7BRGqn/eqopE0Yo=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -100,33 +97,78 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In this series, we try to introduce a tx delay property for SpacemiT
-SDHCI driver, which used to configure the step count of TX delay line,
-it is needed due to varous hardware layout has different tuning settings.
+From: Long Wan <long.wan@linux.spacemit.com>
 
+Instead of setting the TX delay code via hardcoded parameter, configuring
+it via device tree property, which make it able to adapt according to
+board specific tuning requirement.
+
+Signed-off-by: Long Wan <long.wan@linux.spacemit.com>
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
-Changes in v2:
-- drop the idea of introducing a vendor clock-frequency property
-- use type of uint8 for tx delay property, and adjust code accordingly
-- collect ACK tag
-- Link to v1: https://patch.msgid.link/20260902-07-k3-sdhci-dts-v1-0-4e7909cf4233@kernel.org
+ drivers/mmc/host/sdhci-of-k1.c | 21 +++++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
 
----
-Long Wan (2):
-      dt-bindings: mmc: spacemit,sdhci: Add tx delay property
-      mmc: sdhci-of-k1: Add TX tuning parameter
+diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
+index 37b0911e7cf2..ee613e1417fa 100644
+--- a/drivers/mmc/host/sdhci-of-k1.c
++++ b/drivers/mmc/host/sdhci-of-k1.c
+@@ -97,6 +97,7 @@ struct spacemit_sdhci_host {
+ 	struct pinctrl *pinctrl;
+ 	struct pinctrl_state *pinctrl_default;
+ 	struct pinctrl_state *pinctrl_uhs;
++	u8 tx_delaycode;
+ };
+ 
+ /* All helper functions will update clr/set while preserve rest bits */
+@@ -278,12 +279,15 @@ static int spacemit_sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
+ 		return 0;
+ 
+ 	if (mmc->caps2 & MMC_CAP2_NO_MMC) {
++		struct spacemit_sdhci_host *sdhst;
++
++		sdhst = sdhci_pltfm_priv(sdhci_priv(host));
+ 		spacemit_sdhci_set_tx_dline_reg(host, SPACEMIT_TX_TUNING_DLINE_REG);
+-		spacemit_sdhci_set_tx_delay(host, SPACEMIT_TX_TUNING_DELAYCODE);
++		spacemit_sdhci_set_tx_delay(host, sdhst->tx_delaycode);
+ 		spacemit_sdhci_tx_tuning_prepare(host);
+ 
+ 		dev_dbg(mmc_dev(host->mmc), "TX tuning: dline_reg=%d, delaycode=%d\n",
+-			SPACEMIT_TX_TUNING_DLINE_REG, SPACEMIT_TX_TUNING_DELAYCODE);
++			SPACEMIT_TX_TUNING_DLINE_REG, sdhst->tx_delaycode);
+ 	}
+ 
+ 	spacemit_sdhci_prepare_tuning(host);
+@@ -491,6 +495,17 @@ static inline void spacemit_sdhci_get_pins(struct device *dev,
+ 		sdhst->pinctrl_default, sdhst->pinctrl_uhs);
+ }
+ 
++static void spacemit_sdhci_get_tuning_params(struct device *dev,
++					     struct sdhci_pltfm_host *pltfm_host)
++{
++	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
++
++	sdhst->tx_delaycode = SPACEMIT_TX_TUNING_DELAYCODE;
++
++	/* Override if valid from DT property */
++	device_property_read_u8(dev, "spacemit,tx-delay", &sdhst->tx_delaycode);
++}
++
+ static const struct sdhci_ops spacemit_sdhci_ops = {
+ 	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
+ 	.reset			= spacemit_sdhci_reset,
+@@ -566,6 +581,8 @@ static int spacemit_sdhci_probe(struct platform_device *pdev)
+ 
+ 	spacemit_sdhci_get_pins(dev, pltfm_host);
+ 
++	spacemit_sdhci_get_tuning_params(dev, pltfm_host);
++
+ 	host->mmc_host_ops.start_signal_voltage_switch = spacemit_sdhci_start_signal_voltage_switch;
+ 
+ 	ret = spacemit_sdhci_get_clocks(dev, pltfm_host);
 
- .../devicetree/bindings/mmc/spacemit,sdhci.yaml     |  9 +++++++++
- drivers/mmc/host/sdhci-of-k1.c                      | 21 +++++++++++++++++++--
- 2 files changed, 28 insertions(+), 2 deletions(-)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20260901-07-k3-sdhci-dts-579b17b1e205
-
-Best regards,
---  
-Yixun Lan <dlan@kernel.org>
+-- 
+2.56.0
 
 
 _______________________________________________
