@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA85D606A327
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 06:48:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D6C5606A68B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 07:05:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TmW+6N6x;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RGD2OyfZ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c+071jW+;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f9ryw9Ss
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
@@ -14,47 +14,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=y/Dwc3+NBmSVYvdvmzl3J13xJXjZemDFzrw4+AT4Y/Y=; b=TmW+6N6xNxDFWjVx1qGpa3KYro
-	k3eDD+/JXQymX+asNgPT4eZqx2glmAqKGIu17qGWBcA9fu48Bbfh7r5DOejIIEIG5ISiFOeVg4kjL
-	Sq+X+S09yhXsxPtwJf6Gpo+IP670IOPp9k/jPBAu67xWbz5RGxT8mgOc2z2+ca776upXIK0dV9IUA
-	P1VG3mVZpmoBXm4GEdyrsXDonPrKKpqMy3T2/isdLjptQrDjCAaLWFyfugBIse8PQmKv4VyU28v4j
-	yZ9LASlfEn/tlUBzfDt6b7XKVvFG77d/M5kDI2lAKYjPNLxYEzww9pJP44bwHLbXu5sC028su4qOD
-	4/PU/0cw==;
+	bh=uyavSvYCYm/02k0z6Fo90fjlvk8gdC7MwSOhqo//ako=; b=c+071jW+A0qql/k4uEWr3f70Ou
+	62yPagqOKefVl6VCAoYsyKEBdaSMzPheijNCv7fiIVsLRQ/1v9KOX2mP+I6Z/P0QJOlsQTDII/8K9
+	ipt1Q4JPKQc5Kiv1seenwWrJeWOz+YkuZ+bKVim5gBNnYBRdrcl8JirrMCR/k4afu6QZsGVhLI7QI
+	xWkcIwZA8SbOZlF3depT/QzDy25rISuiNb4U45ZYEB07nIxeNgc5Bbon8Z73IpoYJbAFBo5AfBh+w
+	VWzuiBj2cEIKqc0/Ef9P68U5BeP6P0GQIiGvBm3rEA9lmStMXbD6a5ApW6RoiAizYHeVGRAam2+Eu
+	IWMMVunA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW6nW-00000008kBH-37o9;
-	Wed, 25 Nov 2026 06:48:06 +0000
+	id 1xW74L-00000008mXA-2WPh;
+	Wed, 25 Nov 2026 07:05:29 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW6nS-00000008kAf-3SvS;
-	Wed, 25 Nov 2026 06:48:02 +0000
+	id 1xW74J-00000008mVq-0cFw;
+	Wed, 25 Nov 2026 07:05:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 304BA433D9;
-	Wed, 25 Nov 2026 06:48:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B72A1F000C6;
-	Wed, 25 Nov 2026 06:47:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E0F1542AF1;
+	Wed, 25 Nov 2026 07:05:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E660B1F008B2;
+	Wed, 25 Nov 2026 07:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795589281;
-	bh=w/FTXqrH5AIrzUuo8YH2Y9Z6F/zJk24rjcjm0U0HEHw=;
+	s=k20260515; t=1795590326;
+	bh=NV4tHvm//FRxecZaBUoWqlVkU+JTcbeh9ucCxkt6nvY=;
 	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=RGD2OyfZOoXrJx6S4zQf9OrP6dpeguJeek9JYgL019ncKwNu3vVCRtpWDD1PVCyjH
-	 XGIiho4GvZQoNZDuGevBp+EdPfLyYnYBKxPYhI3VwGdOgdK+bWzvAHSM/CNeK406f7
-	 TmzV2LP8jrZy6nkvCbZuAwuWLkM7SYmVX6wmIu5tPdC2MBLMxztD5HB/cEmVBcFq9j
-	 QGm0OEgsUIqrWfLnEgHSGubLihKCRqAMN8vwCGfz5tjr+LPwWp0T2a6x/X04cNqxDv
-	 UVjUV9xvfT8hCmcg64r+XQoR+0gazgtCATLmvOzMBF+K6Igq+1vn67kLjJGMdMv5X4
-	 dj1EETaUgvHPQ==
-Content-Type: multipart/mixed; boundary="===============6730931518485205145=="
+	b=f9ryw9SsJWxv7Waw5QeUwV/Pg9d70/gdXG1J85QsjdoNvADrlx/CbzMXBEaQQqanG
+	 aOrZjv8/lCGzBktU9nEi02WyCp5Se/77h8S/hy7T/gOMaBlUTKShP6T+5frZlL3FYs
+	 lWxUAPV6yekSUrjNOtzQHxTtKIrrkpPJ7aD9h1vAvv+GW+cTHwpRxxrnV/pEXDBFkY
+	 vYD3QI/NVlCLqvpkOCNQ1frtFc8ZI48DX9Jbcwh+zMOXnjPUhqVL/hWxjHA6iRCKke
+	 x7Kx/V43slJOTtvU6L+KQuAqa9ED5iMpxtPhX+9AxGblq+WKigcJIE5w0CCZXTPtlu
+	 r+4Javm+vhfwA==
+Content-Type: multipart/mixed; boundary="===============0385700896231025658=="
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <c5a12d8c446ae04259b5ff4edbcccd0326d5476575d18cdaa5050d57a50b9c51@mail.kernel.org>
-In-Reply-To: <20261125061523.1540234-5-irogers@google.com>
-References: <20261125061523.1540234-5-irogers@google.com>
-Subject: Re: [RFC PATCH v2 04/30] x86: unwind_user: Support Minimal DWARF CFI user unwinding
+Message-Id: <bfa6da75b5dc0cdd6d9e9227dfa134aa117e4bb14b2a11c911506747c175ae94@mail.kernel.org>
+In-Reply-To: <20261125061523.1540234-2-irogers@google.com>
+References: <20261125061523.1540234-2-irogers@google.com>
+Subject: Re: [RFC PATCH v2 01/30] unwind: Add Minimal DWARF CFI bytecode interpreter
 From: bot+bpf-ci@kernel.org
 To: irogers@google.com,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arch@vger.kernel.org
 Cc: jpoimboe@kernel.org,rostedt@goodmis.org,peterz@infradead.org,mingo@redhat.com,tglx@kernel.org,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,linux-riscv@lists.infradead.org,acme@kernel.org,namhyung@kernel.org,linux-perf-users@vger.kernel.org,mhiramat@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,bpf@vger.kernel.org,nathan@kernel.org,llvm@lists.linux.dev,nsc@kernel.org,linux-kbuild@vger.kernel.org,ojeda@kernel.org,rust-for-linux@vger.kernel.org,ardb@kernel.org,linux-efi@vger.kernel.org,maz@kernel.org,oupton@kernel.org,kvmarm@lists.linux.dev,shuah@kernel.org,linux-kselftest@vger.kernel.org,indu.bhagat@oracle.com,jremus@linux.ibm.com,wnliu@google.com,dylanbhatch@google.com,irogers@google.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yongho
  ng.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Wed, 25 Nov 2026 06:47:56 +0000 (UTC)
+Date: Wed, 25 Nov 2026 07:05:21 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,57 +72,200 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============6730931518485205145==
+--===============0385700896231025658==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
-> x86: unwind_user: Support Minimal DWARF CFI user unwinding
+> unwind: Add Minimal DWARF CFI bytecode interpreter
 
-TL;DR: Nit only: unrelated comment additions in this x86 CFI patch aren't in
-the changelog; suggests moving them to a separate documentation patch.
+TL;DR: Nits only: duplicated DWARF CFI parsing, register-check and CIE-lookup
+code could share helpers, and the UNWIND_TABLES Kconfig move may belong in a
+later patch or be explained. No bugs found.
 
-> diff --git a/arch/x86/include/asm/unwind_user.h b/arch/x86/include/asm/unwind_user.h
-> --- a/arch/x86/include/asm/unwind_user.h
-> +++ b/arch/x86/include/asm/unwind_user.h
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -500,6 +500,12 @@ config HAVE_HARDLOCKUP_DETECTOR_ARCH
+>  	  It uses the same command line parameters, and sysctl interface,
+>  	  as the generic hardlockup detectors.
+>
+> +config UNWIND_TABLES
+> +	bool
+> +
+> +config UNWIND_DWARF_CFI
+> +	bool
+> +
+>  config UNWIND_USER
+>  	bool
 
-[ ... ]
-
-> +/**
-> + * unwind_user_word_size() - Return the user-space word size in bytes on x86
-> + * @regs: User-mode register state.
-> + *
-> + * Return: 8 for 64-bit user mode, 4 for 32-bit IA-32/compat mode, or 0 for
-> + * VM86 mode stacks which cannot be unwound.
-> + */
->  static inline int unwind_user_word_size(struct pt_regs *regs)
-
-[ ... ]
-
-> +/* Standard x86 frame record: {saved_bp, ret_addr} at [bp, bp + 2 * ws). */
->  #define ARCH_INIT_USER_FP_FRAME(ws)			\
-
-[ ... ]
-
-> +/* At function entry before push %rbp: return address is at [sp, sp + ws). */
->  #define ARCH_INIT_USER_FP_ENTRY_FRAME(ws)		\
+This isn't a bug, but could the move of UNWIND_TABLES into arch/Kconfig go
+in the patch that first selects it from another architecture, or could the
+changelog say why it is needed here?
 
 [ ... ]
 
-> +/**
-> + * unwind_user_at_function_start() - Check if @regs is at a function entry point
-> + * @regs: User-mode register state.
-> + *
-> + * Return: true if stopped on an entry uprobe before the frame prologue ran.
-> + */
->  static inline bool unwind_user_at_function_start(struct pt_regs *regs)
+> diff --git a/kernel/unwind/dwarf_cfi.c b/kernel/unwind/dwarf_cfi.c
+> --- /dev/null
+> +++ b/kernel/unwind/dwarf_cfi.c
 
-This isn't a bug, but the new comments on unwind_user_word_size(), the
-ARCH_INIT_USER_FP_* macros and unwind_user_at_function_start() don't look
-related to adding CFI support, and the changelog doesn't mention them.
+[ ... ]
 
-Would they fit better in a separate documentation patch, so this one only
-carries the x86 CFI register mapping and the Kconfig select?
+> +static __always_inline int
+> +cfi_parse_indirect_cfa_expr(struct dwarf_cfi_stream *s, u32 expr_len,
+> +			    const struct dwarf_cfi_arch *arch,
+> +			    struct dwarf_cfi_row *row, bool is_user)
+> +{
+> +	struct dwarf_cfi_stream es;
+> +	u8 expr_buf[8], op0, op_end;
+> +	enum dwarf_cfi_base base;
+> +	s32 off;
+> +	int err;
+> +
+> +	if (expr_len < 3 || expr_len > 7)
+> +		return -EINVAL;
+> +	/* Prevent Spectre v1.1 speculative stack overflow of expr_buf[8] */
+> +	barrier_nospec();
+> +
+> +	err = cfi_read_bytes(s, expr_buf, expr_len, is_user);
+> +	if (err)
+> +		return err;
+> +
+> +	cfi_stream_init_kmem(&es, expr_buf, expr_len - 1);
+> +	err = cfi_read_u8(&es, &op0, /*is_user=*/false);
+> +	if (err)
+> +		return err;
+> +
+> +	if (arch->fp_reg <= 31 && op0 == (u8)(DW_OP_breg0 + arch->fp_reg))
+> +		base = DWARF_CFI_BASE_FP_INDIRECT;
+> +	else if (arch->sp_reg <= 31 && op0 == (u8)(DW_OP_breg0 + arch->sp_reg))
+> +		base = DWARF_CFI_BASE_SP_INDIRECT;
+> +	else
+> +		return -EINVAL;
+> +
+> +	err = cfi_read_sleb128_s32(&es, &off, /*is_user=*/false);
+> +	if (err || !cfi_stream_empty(&es, /*is_user=*/false))
+> +		return -EINVAL;
+
+[ ... ]
+
+> +static __always_inline int
+> +cfi_parse_reg_expr(struct dwarf_cfi_stream *s, u32 reg, u32 expr_len,
+> +		   const struct dwarf_cfi_arch *arch, u8 ra_reg,
+> +		   struct dwarf_cfi_row *row, bool is_user)
+> +{
+> +	struct dwarf_cfi_stream es;
+> +	u8 expr_buf[8], op0;
+> +	enum dwarf_cfi_rule rule;
+> +	s32 off;
+> +	int err;
+> +
+> +	if (expr_len < 2 || expr_len > 6)
+> +		return -EINVAL;
+> +	/* Prevent Spectre v1.1 speculative stack overflow of expr_buf[8] */
+> +	barrier_nospec();
+> +
+> +	err = cfi_read_bytes(s, expr_buf, expr_len, is_user);
+> +	if (err)
+> +		return err;
+> +
+> +	cfi_stream_init_kmem(&es, expr_buf, expr_len);
+> +	err = cfi_read_u8(&es, &op0, /*is_user=*/false);
+> +	if (err)
+> +		return err;
+> +
+> +	if (arch->fp_reg <= 31 && op0 == (u8)(DW_OP_breg0 + arch->fp_reg))
+> +		rule = DWARF_CFI_RULE_FP_OFFSET;
+> +	else if (arch->sp_reg <= 31 && op0 == (u8)(DW_OP_breg0 + arch->sp_reg))
+> +		rule = DWARF_CFI_RULE_SP_OFFSET;
+
+This isn't a bug, but cfi_parse_indirect_cfa_expr() and cfi_parse_reg_expr()
+share almost the same DW_OP_breg decode sequence, including the
+barrier_nospec() bounds handling.
+
+Could they use one helper that decodes the breg operand and offset, so each
+caller only adds its own trailing check?
+
+[ ... ]
+
+> +		if (hi == 0x80) {
+> +			/* DW_CFA_offset */
+> +			err = cfi_read_uleb128_u32(s, &uval, is_user);
+> +			if (err)
+> +				return err;
+> +			if (lo == arch->fp_reg || lo == cie->ra_reg ||
+> +			    lo == arch->sp_reg) {
+> +				err = cfi_factored_offset(uval, cie->data_align, &off);
+> +				if (err)
+> +					return err;
+> +				cfi_apply_reg_rule(lo, DWARF_CFI_RULE_OFFSET,
+> +						   off, arch, cie->ra_reg, row);
+> +			}
+> +			continue;
+> +		}
+
+This isn't a bug, but could the repeated fp/ra/sp check in
+dwarf_cfi_exec_insns() become a small inline helper such as
+cfi_reg_is_tracked(reg, arch, cie->ra_reg)?
+
+The same three-way test appears in the DW_CFA_offset, DW_CFA_offset_extended,
+DW_CFA_offset_extended_sf, DW_CFA_GNU_negative_offset_extended,
+DW_CFA_register, DW_CFA_val_offset, DW_CFA_val_offset_sf, DW_CFA_expression
+and DW_CFA_val_expression cases, so the set of tracked registers would be
+defined in one place.
+
+[ ... ]
+
+> +	} else {
+> +		while (lo < hi) {
+> +			u32 mid = lo + (hi - lo) / 2;
+> +			const u8 *ent = table + (size_t)mid * ent_sz;
+> +			unsigned long e_pc = (unsigned long)ent +
+> +					     (long)(s32)get_unaligned_le32(ent);
+> +
+> +			if (e_pc <= pc)
+> +				lo = mid + 1;
+> +			else
+> +				hi = mid;
+> +		}
+> +		if (!lo)
+> +			return -ENOENT;
+> +		{
+> +			const u8 *fent = table + (size_t)(lo - 1) * ent_sz + 4;
+> +
+> +			fde_addr = (unsigned long)fent +
+> +				   (long)(s32)get_unaligned_le32(fent);
+> +		}
+> +	}
+
+This isn't a bug, but could the kernel lookup in
+dwarf_cfi_unwind_eh_frame_hdr() use eh_hdr_entry_addr() in one binary-search
+loop, the way dwarf_cfi_unwind_user_eh_frame_hdr() does, rather than two
+hand-written loops and the bare block around fent?
+
+[ ... ]
+
+> +			if (cie_delta < 4 ||
+> +			    (size_t)((p + 4) - eh_start) < cie_delta)
+> +				return -EINVAL;
+> +			cie = (p + 4) - cie_delta;
+> +			if (cie < eh_start || cie >= eh_end ||
+> +			    (size_t)(eh_end - cie) < 8)
+> +				return -EINVAL;
+> +			cie_len = get_unaligned_le32(cie);
+> +			if (cie_len <= 4 || cie_len > DWARF_CFI_MAX_CIE_LEN ||
+> +			    (size_t)(eh_end - cie) - 4 < (size_t)cie_len ||
+> +			    get_unaligned_le32(cie + 4) != 0)
+> +				return -EINVAL;
+> +
+> +			cfi_stream_init_kmem(&cie_s, cie + 8, cie_len - 4);
+
+This isn't a bug, but could the CIE resolution here in
+dwarf_cfi_scan_eh_frame_kmem() and the one in dwarf_cfi_eval_fde_kmem() share
+a small __always_inline helper?
+
+That way the module index scan and the evaluator could not drift apart on
+which CIEs they accept.
 
 
 ---
@@ -130,7 +273,7 @@ AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
 See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
 CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45561209846
---===============6730931518485205145==
+--===============0385700896231025658==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -141,5 +284,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6730931518485205145==--
+--===============0385700896231025658==--
 
