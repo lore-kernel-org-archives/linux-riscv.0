@@ -2,83 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 506E3606A321
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 17:55:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C851606A32C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 17:59:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DqR8V8sO;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=KYGCCatk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4nYURXex;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jnYqXGhh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5Mw22hHUvoRrJDhSr14O+x3s0QAj48gOhMHIlKzlH0A=; b=DqR8V8sOFviojvySHHXGdmaB48
-	lfTu4l209U7OaJjz/w/nwC81uSz5XktRfnwnngHK2wXiFNj6UAzmEAG8Fix6ROBJx46fM/dF2Dz8V
-	W3U9JMkjSndSogyKjRk+H5urwHc/Ih4UIhbFrguRyQNKmydT7QF2eRFd+13Ze6DD4n8FYCiWK/l5F
-	vzLliiWPorWtXj0PcMwCe4s2sFTcVEvBY+LFo6leZOICKIBijEn+earXHEKQyTDed/gefWcoyIkk3
-	jf66075znACRwsZiUvZb4tABuAvluK6woYq+CvAptIyuzI8n6aHB/Rd0dcRTrIN5gtElARr4Zjt9h
-	+IHdwsUQ==;
+	bh=Sw6ecRDxVHuLJi0C5F/vylSxELu7r6G5Ly+qx0f1ZN8=; b=4nYURXexpo2VnBd28ZkC3tb3uD
+	YKEWR2Og4w3WkxR/9VhXwykIJinxNE34A9PU7F/9IWmbO20byVE1x+hpEU76BlVdFTBWhWBy/+aPA
+	OEjcifBC+S21ZIorb9DRI/ZPXbKfAy4KtIxy7muZrdTvpYnU+yNtKNN4YA/YqLL+0Pie81Pn10Oys
+	vlHskkZdEIKgueHeNMys6VHzK/zA+q+KyIpbzlQQu0ZoEiyneHCwgVYOcYhuIhggHc685A3mZXIzE
+	0D5peqaSjAqSOVAMTgTLMP/X1bQb3aWLzX+1sm27ObcNk05Dy1TKUVGBewBR6hj4yiv6DlcenTIc4
+	xf4WNXww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWHCt-0000000ArJg-11E8;
-	Wed, 25 Nov 2026 17:54:59 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xWHHM-0000000AuAa-2FpH;
+	Wed, 25 Nov 2026 17:59:36 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWHB0-0000000AobY-1Cld;
-	Wed, 25 Nov 2026 17:53:12 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 38D201A17FA;
-	Wed, 25 Nov 2026 17:53:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0D09660480;
-	Wed, 25 Nov 2026 17:53:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AA5F911E6B0CA;
-	Wed, 25 Nov 2026 18:52:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795629174; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=JCAVXopcRhsu0R7W2AJRcPS4xlZfnpyxLhZGemjrQaY=;
-	b=KYGCCatkpDwAP39xFucHg5OhSZCQx2BzoSiOJhGTIvhyjU0iH9MR3Nou9ORwOoHqcQnXWZ
-	k8WtGng3n56RvyZGJYrcqIQmYvx22XJkDzMlShSyJBKI1pVqipDqav+hHfIZm2R/LFJK3Z
-	R6orNWggySMk4Bc/p8PcSNb1BxXblXaYw9rHsTY/CnCvJeuoEbwAJNPf2WEx0KM/Hyp5pe
-	0hJTCcMIveklGb7007f++ldutFB9U0ere1MsT+1fGqCRqCdDgCnONrX7FzjaT87hZFmq75
-	e8h0wMhWaaGOEr+pML/ay1JGJuzjfo0QVZXl39N8Dn+JQqgG8evHxLIQmzJ6BA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 25 Nov 2026 18:51:28 +0100
-Subject: [PATCH RFC 14/16] spi: stm32-ospi: Consume dummy cycles directly
+	id 1xWHH6-0000000Au2s-06XB;
+	Wed, 25 Nov 2026 17:59:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795629560; x=1827165560;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3Q0eWoH0hqjK/+AffASRnzPWdWve09RRdkIHSFgQxy4=;
+  b=jnYqXGhhmXJ8BHq7/KPNjlc36O9TkkitxPtdTpnrAFLzh4trl5fVKmCK
+   WRw5dgTFCQIofLwCmsmBGqZNwCaYh5roRfOPxrG9h/9aByF2hsRiOmqvm
+   Vmk/qFoq9Ku0QQ5F1Il+m5h+6cZ49NMXz7mvmIFYMjyh1s0hu1eZA2S10
+   xwZIssLH5xsqYL7wQVaUtUSlxC/En/aziyVTJHw0V9VyyxMbmuXb1IiJ7
+   xaCd4u0iMTfMQn2ArtOAmH30T6x4DnYNG63LWX1i3UAVEY4gFiUfPYyNr
+   KpPdpdbdnkP2M8ZJvbNXMP2hAEIzQjRzNHCg9Dlm7DqBSpIh7S9d1pUzw
+   A==;
+X-CSE-ConnectionGUID: GSHuaEvrSBeLan9F24KVnw==
+X-CSE-MsgGUID: cALOGvh+QOKgh5/USLGB7g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4462400"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4462400"
+Received: from fmviesa012.fm.intel.com ([10.60.135.152])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:59:19 -0800
+X-CSE-ConnectionGUID: 6a6LIVAHRomgpZJMlg93nw==
+X-CSE-MsgGUID: A0u+DZzIQwOjdpZxlfyO0w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="13597397"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa012.fm.intel.com with ESMTP; 25 Nov 2026 09:59:14 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWHGw-00000001SGM-3o5J;
+	Wed, 25 Nov 2026 17:59:10 +0000
+Date: Thu, 26 Nov 2026 01:58:18 +0800
+From: kernel test robot <lkp@intel.com>
+To: Tan Chi <tanchi25@mails.ucas.ac.cn>, anup@brainfault.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, tj@kernel.org,
+	hannes@cmpxchg.org, mkoutny@suse.com, corbet@lwn.net,
+	skhan@linuxfoundation.org, rdunlap@infradead.org, yosry@kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, cgroups@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Tan Chi <tanchi25@mails.ucas.ac.cn>
+Subject: Re: [PATCH] RISC-V: KVM: Account G-stage page table memory
+Message-ID: <20261126015340.s7bzBtEB-lkp@intel.com>
+References: <20261125125024.1983082-1-tanchi25@mails.ucas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261125-macronix-upstreaming-spi-mem-cycles-v1-14-fd036402fd37@bootlin.com>
-References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
-In-Reply-To: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
-To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
- Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
- Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
- Yu-Chun Lin <eleanor.lin@realtek.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Alvin Zhou <alvinzhou@mxic.com.tw>, 
- Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
- Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Disposition: inline
+In-Reply-To: <20261125125024.1983082-1-tanchi25@mails.ucas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_095302_582941_EBD8B4F1 
-X-CRM114-Status: GOOD (  12.36  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261125_095920_149815_4BA26774 
+X-CRM114-Status: GOOD (  11.74  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,74 +94,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The spi-mem layer is now capable of providing the dummy phase in cycle
-units rather than bytes, provided that drivers advertize the dummy_cycle
-capability. Since this controller is consuming cycles and currently
-converts bytes into cycles, flag it capable to consume cycles directly
-and drop the extra conversions.
+Hi Tan,
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/spi/spi-stm32-ospi.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-index fa0e8e83cb1b..9b28d1f24482 100644
---- a/drivers/spi/spi-stm32-ospi.c
-+++ b/drivers/spi/spi-stm32-ospi.c
-@@ -492,10 +492,9 @@ static int stm32_ospi_send(struct spi_device *spi, const struct spi_mem_op *op)
- 	}
- 
- 	tcr = TCR_SSHIFT;
--	if (op->dummy.buswidth && op->dummy.nbytes) {
--		tcr |= FIELD_PREP(TCR_DCYC_MASK,
--				  op->dummy.nbytes * 8 / op->dummy.buswidth);
--	}
-+	if (op->dummy.buswidth && op->dummy.ncycles)
-+		tcr |= FIELD_PREP(TCR_DCYC_MASK, op->dummy.ncycles);
-+
- 	writel_relaxed(tcr, regs_base + OSPI_TCR);
- 
- 	if (op->data.nbytes) {
-@@ -691,7 +690,7 @@ static int stm32_ospi_transfer_one_message(struct spi_controller *ctrl,
- 		 */
- 		if (transfer->dummy_data) {
- 			op.dummy.buswidth = transfer->tx_nbits;
--			op.dummy.nbytes = transfer->len;
-+			op.dummy.ncycles = transfer->len * 8 / transfer->tx_nbits;
- 			dummy_bytes = transfer->len;
- 
- 			/* If happens, means that message is not correctly built */
-@@ -784,6 +783,10 @@ static const struct spi_controller_mem_ops stm32_ospi_mem_ops = {
- 	.poll_status	= stm32_ospi_poll_status,
- };
- 
-+static const struct spi_controller_mem_caps stm32_ospi_mem_caps = {
-+	.dummy_cycles = true,
-+};
-+
- static int stm32_ospi_get_resources(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -933,6 +936,7 @@ static int stm32_ospi_probe(struct platform_device *pdev)
- 	ctrl->setup = stm32_ospi_setup;
- 	ctrl->bus_num = -1;
- 	ctrl->mem_ops = &stm32_ospi_mem_ops;
-+	ctrl->mem_caps = &stm32_ospi_mem_caps;
- 	ctrl->use_gpio_descriptors = true;
- 	ctrl->transfer_one_message = stm32_ospi_transfer_one_message;
- 	ctrl->num_chipselect = STM32_OSPI_MAX_NORCHIP;
+[auto build test WARNING on kvm-riscv/riscv_kvm_next]
+[also build test WARNING on linus/master next-20261124]
+[cannot apply to tj-cgroup/for-next kvm/queue kvm/next mst-vhost/linux-next kvm/linux-next v7.4-rc4]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Tan-Chi/RISC-V-KVM-Account-G-stage-page-table-memory/20261125-205023
+base:   https://github.com/kvm-riscv/linux.git riscv_kvm_next
+patch link:    https://lore.kernel.org/r/20261125125024.1983082-1-tanchi25%40mails.ucas.ac.cn
+patch subject: [PATCH] RISC-V: KVM: Account G-stage page table memory
+config: riscv-defconfig (https://download.01.org/0day-ci/archive/20261126/20261126015340.s7bzBtEB-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 2012344e5da8e03ea4b8283ecd6fad6e13f09d64)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126015340.s7bzBtEB-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261126015340.s7bzBtEB-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> arch/riscv/kvm/mmu.c:850:5: warning: implicit conversion from 'unsigned long' to 'int' changes value from 18446744073709551612 to -4 [-Wconstant-conversion]
+     849 |                 kvm_account_pgtable_pages(pgd,
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~
+     850 |                                 -(kvm_riscv_gstage_pgd_size >> PAGE_SHIFT));
+         |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 warning generated.
+
+
+vim +850 arch/riscv/kvm/mmu.c
+
+   827	
+   828	void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+   829	{
+   830		struct kvm_gstage gstage;
+   831		void *pgd = NULL;
+   832		bool flush = false;
+   833	
+   834		write_lock(&kvm->mmu_lock);
+   835		if (kvm->arch.pgd) {
+   836			kvm_riscv_gstage_init(&gstage, kvm);
+   837			flush = kvm_riscv_gstage_unmap_all(&gstage);
+   838			pgd = READ_ONCE(kvm->arch.pgd);
+   839			kvm->arch.pgd = NULL;
+   840			kvm->arch.pgd_phys = 0;
+   841			kvm->arch.pgd_levels = 0;
+   842		}
+   843		write_unlock(&kvm->mmu_lock);
+   844	
+   845		if (flush)
+   846			kvm_flush_remote_tlbs(kvm);
+   847	
+   848		if (pgd) {
+   849			kvm_account_pgtable_pages(pgd,
+ > 850					-(kvm_riscv_gstage_pgd_size >> PAGE_SHIFT));
+   851			free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
+   852		}
+   853	}
+   854	
 
 -- 
-2.56.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
