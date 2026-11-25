@@ -2,59 +2,60 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8721A606A323
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 07:07:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2518A606A335
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 07:31:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FVAFpleW;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EYDA9t8w
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h8eUTsul;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PG0ErR3g
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=GbMv3CCEzwUlNBE3RxE6ZEwNXinP7BG5Z+t/LYfwOww=; b=FVAFpleW3VFVfoZDlXapvzzPOC
-	ZmEnT9vQkaTDENoSiodE9MhPVjHGdPlNRNLBtfsapqj+X1Leqj7jtUKtNbS4e8YtVgwnzdSoRpyTh
-	JdgEa/CxhUCTLKMRgR6+7FhNjeVK9qd09okEgAGb3ujylIljlu+7jX3n6PCzMrbVNVsARW4gSHzGm
-	ib0Pc4s3ZnxAKC9pyf51HlWBwBzoIrsCbLbr4ODbIypMFnq2Wcbv7HJ9sj6FbX4DQZHPEdBo1lPun
-	/30GawXb6fJpC2qdPNs3WxyR0x1bl+kWKjYnxXUEpfUtudSXZy3EUwkrclcj3ja2dGs7Y8bOMRurZ
-	YJeTpqBw==;
+	bh=PGPoj5Jy12Ud+ai1fZ2KDcmkXH9EFO+WjcGXyjsV/WM=; b=h8eUTsuluWJwC9P/XV6fhzaDd3
+	gFXVEeQ1shiVXqdd2m1KsgVEkIHbq6fURTldTRSKx0vEnyJxF/L+ylMaqSvRPWOAUbwTAaCwke3b8
+	9X+oqalpNLPuQ1//Lb7YzdpkKf59o0MXMLgWGyDq0buOcxsGebHg2hTiBTtG3Ew7ltBb18W7HQiAR
+	qIBjL6XrmwDGhiPlgtdFDNXUbd7FwNII0YQ8zI/h5opZMk2QRC6x7xAuG9dO0irXL2wzAc2YqxEE3
+	hTAhiPF1LhgO89U9dbdcBSKAGkm0zOyua0FqCVwaJSJD5/E5Fa5N7Obw1BuSAounDFrEaF6dTux1d
+	MunaOCsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW75m-00000008nvR-0brU;
-	Wed, 25 Nov 2026 07:06:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xW7Tg-00000008tj0-0vZq;
+	Wed, 25 Nov 2026 07:31:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW75j-00000008npp-0r3B;
-	Wed, 25 Nov 2026 07:06:55 +0000
+	id 1xW7Te-00000008thS-1pAn;
+	Wed, 25 Nov 2026 07:31:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E8DC544003;
-	Wed, 25 Nov 2026 07:06:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 362D41F000EB;
-	Wed, 25 Nov 2026 07:06:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 13BED4011C;
+	Wed, 25 Nov 2026 07:31:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0EAE1F000C4;
+	Wed, 25 Nov 2026 07:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795590414;
-	bh=6+2sBF4UGgNSi1pC4PKTKJ+2fuWG4BySrMPF8SXLyvw=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=EYDA9t8wPTTIOmpJQN+1x/1ojVmic2gMFJnin56uQu21yU2ozij8RaQrM+4OddC8c
-	 yaV6kxuA0FVl63uhWjhk0Tt0UClD35F5droy0lb8c2KbMrGlt0oNRemaEc2jpn4ZKw
-	 veHmUL8m7aOP0O0PFp14n1H8AA2DGm+UgzH7DTLZE0qhOiMEBv+pe4JeLsUEyTy4KO
-	 87/WG3vvAVX49+K8oNuIGwQKEyqpEAsaWmwC5dxqAIij70w1ftKqt6BQmCDhJZYDpe
-	 NT/TNbzo6EoDnXW9N2T0Fm11Un4rp8nQ5t+ADm4hRyNz3I4dxq6cNnOcsmVgdzc6SK
-	 a9j1oqe2P2h5g==
-Content-Type: multipart/mixed; boundary="===============8194175368741298771=="
+	s=k20260515; t=1795591897;
+	bh=VBOZGBr55Ujwl78qDcJLp8xc/aTsL0m4eKXQ3BODtCU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PG0ErR3gAmTnmjd1zmcQ4dqGICFZ9/gVAxZhRY5ICPtEvjZXvnumFGUXPCvUnUM57
+	 V7Ox3LPxJ/wqw5+ZP0v6lvBYkkzSOopSVTpyivztvutTZr1ReiNz//aM/+bvxfJqB8
+	 mCAVVGL2FBMZCmX+yS3Yfq1JyPrEWPWbduh4CLW6sYREGtigXHCHuMa5qMt76KzEME
+	 DOFFZL3mbaq4B/CGkkPNf+IZfang3VZrolXR/dyvBcclg9E35/1L8AxSwBir024KU6
+	 Cc3hc8mq2GNXx4e5L5QgfSIj1SSjtM9Wsu9qmLciKh2Pu3oSLW/1FW6g98iY+Pw+5U
+	 Y7gJQasbU6ElA==
+Date: Wed, 25 Nov 2026 08:31:34 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: Re: [PATCH v8 04/18] dt-bindings: display: starfive: Add
+ starfive,jh7110-hdmi-subsystem
+Message-ID: <20261125-tasteful-brown-galago-a6725e@quoll>
+References: <20261124-jh7110-clean-send-v8-0-de92635dd857@samsung.com>
+ <CGME20261124155406eucas1p23a523deb496c21cbf3da3724812a8101@eucas1p2.samsung.com>
+ <20261124-jh7110-clean-send-v8-4-de92635dd857@samsung.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <a8cf21b1f0e36cfeac11d08e6093e9abc8037e04d1747d452498bf79941c5ddb@mail.kernel.org>
-In-Reply-To: <20261125061523.1540234-17-irogers@google.com>
-References: <20261125061523.1540234-17-irogers@google.com>
-Subject: Re: [RFC PATCH v2 16/30] arm64/unwind: Add Minimal DWARF CFI kernel unwinder
-From: bot+bpf-ci@kernel.org
-To: irogers@google.com,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arch@vger.kernel.org
-Cc: jpoimboe@kernel.org,rostedt@goodmis.org,peterz@infradead.org,mingo@redhat.com,tglx@kernel.org,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,linux-riscv@lists.infradead.org,acme@kernel.org,namhyung@kernel.org,linux-perf-users@vger.kernel.org,mhiramat@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,bpf@vger.kernel.org,nathan@kernel.org,llvm@lists.linux.dev,nsc@kernel.org,linux-kbuild@vger.kernel.org,ojeda@kernel.org,rust-for-linux@vger.kernel.org,ardb@kernel.org,linux-efi@vger.kernel.org,maz@kernel.org,oupton@kernel.org,kvmarm@lists.linux.dev,shuah@kernel.org,linux-kselftest@vger.kernel.org,indu.bhagat@oracle.com,jremus@linux.ibm.com,wnliu@google.com,dylanbhatch@google.com,irogers@google.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yongho
- ng.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Wed, 25 Nov 2026 07:06:50 +0000 (UTC)
+Content-Disposition: inline
+In-Reply-To: <20261124-jh7110-clean-send-v8-4-de92635dd857@samsung.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,96 +65,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Heiko Stuebner <heiko@sntech.de>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, Joshua Peisach <jpeisach@ubuntu.com>, Conor Dooley <conor.dooley@microchip.com>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, William Qiu <william.qiu@starfivetech.com>, linux-riscv@lists.infradead.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>, David Airlie <airlied@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Dominique Belhachemi <db@domibel.de>, Robert Foss <rfoss@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Hal Feng <hal.feng@starfivetech.com>, Maud Spierings <maud_spierings@murena.io>, linux-rockchip@lists.infradead.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Marek Szyprowski <m.szyprowski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Thomas Zimmermann <tzimmermann@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, Graham Markall <hello@big-grey.co.uk>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Xingyu Wu <xingyu.wu@starfivetech.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Paul Walmsley <pjw@kernel.org>, linux-arm-kernel@lists.infradead.org, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Neil Armstrong <neil.armstrong@linaro.org>, Sandy Huang <hjc@rock-chips.com>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Yakir Yang <kuankuan.y@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============8194175368741298771==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+On Tue, Nov 24, 2026 at 04:52:40PM +0100, Michal Wilczynski wrote:
+> Add the dt-binding for the StarFive JH7110 HDMI subsystem.
+> 
+> The JH7110 HDMI IP is a monolithic block containing both the digital
+> controller and analog PHY in a single register space. This binding
+> defines the parent device, which holds the shared register map, and its
+> two children: the PHY and the controller.
+> 
+> The two have separate resources. The PHY takes the 24 MHz reference
+> clock and provides both the pixel clock, which the VOUT clock generator
+> routes on to the display controller, and the phy the controller uses.
+> The controller takes its clocks from the VOUT clock generator. What
+> they share is the register space, which the parent maps.
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  .../starfive/starfive,jh7110-hdmi-subsystem.yaml   | 95 ++++++++++++++++++++++
+>  1 file changed, 95 insertions(+)
+> 
 
-> arm64/unwind: Add Minimal DWARF CFI kernel unwinder
+DT bot reports here a lot of failures. I don't see immediate problem,
+but something feels odd.
 
-TL;DR: The module lookup (__module_address) called from the noinstr arm64
-stack walkers is unannotated, so kprobes or tracing may re-enter the walker
-and RCU may not be watching; no concrete crash found.
+E.g. https://gitlab.com/robherring/linux-dt-review/-/jobs/18332570769/artifacts/raw/build-15017782.log
+(see rest on DT patchwork)
 
-> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
-> --- a/arch/arm64/kernel/stacktrace.c
-> +++ b/arch/arm64/kernel/stacktrace.c
+Best regards,
+Krzysztof
 
-[ ... ]
-
-> +/**
-> + * arm64_dwarf_cfi_module_find() - Look up Minimal DWARF CFI in loadable modules
-> + * @pc: Kernel instruction pointer to evaluate.
-> + * @row: Output evaluated Minimal DWARF CFI row.
-> + *
-> + * Uses rcu_read_lock_sched_notrace() and rcu_dereference_raw() so lookups are
-> + * safe inside noinstr stack walks and NMI contexts.
-> + *
-> + * Return: 0 on success, -ENOENT if @pc is not in a module FDE, or a negative
-> + * errno on invalid FDE bytecode.
-> + */
-> +static __always_inline int
-> +arm64_dwarf_cfi_module_find(unsigned long pc, struct dwarf_cfi_row *row)
-> +{
-> +	struct mod_dwarf_cfi_index *idx;
-> +	struct module *mod;
-> +	int ret;
-> +
-> +	rcu_read_lock_sched_notrace();
-> +	mod = __module_address(pc);
-
-Is this safe inside the noinstr stack walkers?
-
-arm64_dwarf_cfi_module_find() is __always_inline into arch_stack_walk(),
-arch_stack_walk_reliable() and arch_bpf_stack_walk(), which are all
-noinline noinstr.  But __module_address() is an ordinary out-of-line
-function with no noinstr, notrace or NOKPROBE_SYMBOL() annotation, and it
-calls mod_find(), which is also unannotated.
-
-The arm64 walker was made noinstr by commit 0fbcd8abf337 ("arm64: Prohibit
-instrumentation on arch_stack_walk()") because the stacktrace code can be
-used in kprobe context and cannot be safely probed.  With
-CONFIG_UNWINDER_DWARF_CFI=y, any pc not covered by the vmlinux
-.eh_frame_hdr (module text, BPF JIT code, asm without CFI such as the
-el1h_64_sync vectors) goes to __module_address().  Can a kprobe, fprobe or
-function tracer attached to __module_address() or mod_find() now fire from
-inside the walker, for example via a kprobe event with a stacktrace trigger
-that re-hits the probe?
-
-Separately, rcu_read_lock_sched_notrace() only skips lockdep and tracing.
-It does not make RCU watch, so is the RCU-sched read side section valid
-in a noinstr region where RCU may not be watching?
-
-The comment claims the lookup is "safe inside noinstr stack walks and NMI
-contexts", and the commit message calls kunwind_next_cfi() "noinstr-safe".
-Either the module lookup path needs to be noinstr or kprobe-blacklisted,
-or the comment and commit message should drop that claim.  I could not
-construct a concrete crash through the current kprobe re-entry handling.
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45561209846
---===============8194175368741298771==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8194175368741298771==--
-
