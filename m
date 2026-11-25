@@ -2,107 +2,114 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50676606A31E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 10:42:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 110F9606A695
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 11:49:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DyKnJx02;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BuW2epxc
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iziXZOk9;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=kbC85YzK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=afaQEU2lkfFtiBuBvVJeZINXrHYJ1DiIITZBoxx9mbs=; b=DyKnJx026/MMIiRqKQQSGR/ynm
-	TUYClxJ4rr9232n86bUbXZrrW8sswEKEOX/N5w2U2p7aSenzd18vzkltnYROKtiSPo2BgjPei9RA3
-	+oYZzzICO7axpNobLVqpsI2KKvrG861LBFiPn5L+AtMIziSeMne6uSPcHSzZRvGsJKUC1iKHBxbql
-	46fz3SdZcv/KCdKj6RVODT2D5XYAQnwwZDFg30x78ThUhBB5Rm+PJjFaIxMW/WwyIuHMxz6BD4eqL
-	O2cZOb/d60jNEnHwqFUmzATzSJoe85NKVksamWELjcBaBs4WZXvN9Bpx5toP5l+6VzQ7iL4UBOz9F
-	LCM6HoQw==;
+	bh=GRAlTN8kjTvD8Y5F5wPPuNMelnD0eMaqyK8bMaRP7Y0=; b=iziXZOk9EEIJqnhrls4H2MnjNQ
+	QpQdeyIKuEuOubAnwr0bEDy/vFa9WU3m7eRX7HKbbdspT08VkiUGHLllUCWx5p+3HPIsqluGvuhtp
+	svPAN9dOahc2573bYxEtWjNzNY5zZbwHD+o5OwwbGfixR433KpafVbh5hGU2ybGgZ1MiNmnFMSp0P
+	U7eTGE2oD8qYO5bVSTDf3TL7RhiNF7vHBR9+Ue/+w18o1EfBRzPod1mOOUpWmVCy3VUOr3aGnMpQV
+	k/3RuW6nE94mXlHcvJjJiS4wwTzWRbQ4xHeBDW1HjhfLm17UpUeV2Tpp/L3JW32ZgvLe4tBYDrY80
+	LAYH8xfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWAS6-00000009V1c-37QT;
-	Wed, 25 Nov 2026 10:42:14 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1xWBVA-00000009hjf-2mFi;
+	Wed, 25 Nov 2026 11:49:29 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWAS3-00000009V0N-029T
+	id 1xWBV7-00000009hg1-09uB
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 10:42:12 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-c5198302d38so241312766b.0
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2026 02:42:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795603329; x=1796208129; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=NZCkT3QPCssoP75UH8gUTGSqdqvX1+5iVKl2qUY4uRo=;
-        b=BuW2epxc9iYkO/X0xwF8WfJVupzwXrPOyV35L6Jy2tZ/pB9gWTE3hAsc0TlNVhpZSf
-         H9rMbeY+yCjAl/PBSNFQ+oXqUmWHLCZK19utpmqsG5OcwCA5n5e1vDX0lYTS67tP8uiY
-         dVY9Xu4Si50aC0J/RGWfXCZG+IR700HeWpOxC5OaxW68WeQMvGQQt3bFwJBORhNae0zV
-         xrV1X5Wz2PZLKGKmQKn8RsczfEFOE3udtTjoATaXSGFHCcsHwVy1xN0qgchAfJopSE7G
-         PgDm1T39lwahSAn3pEYNwFQ8o65WxacWs+mnAxnzzE9RuBvhdbOijzzLYwpc3TQ0/WZ8
-         Ho3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795603329; x=1796208129;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=NZCkT3QPCssoP75UH8gUTGSqdqvX1+5iVKl2qUY4uRo=;
-        b=l606MXICWPm0ZTOigDyiVVkMAR9ulT/MoBNGqHsLWQPLK2F4BpeBUlLGDma5SGexT8
-         QILvhuBhm957JcBBAJQRvVn4EOqqI/9w3huXGh9ataObjHZOJvolukN77ZVv+I7FfpP4
-         34fQFP5Q0g8tF7QLNUJl8Kw2rTHjU0GMdTx7dtriu0xB3mWkmsklUGPHkQWVu/KwnCno
-         SSi4xrZdONBVbvR8XC88zIJJGZhEbjULFR45q5wS+aGP5F3K41U7u42K18hqXF3Tmxkw
-         n/3ZJEh7s9dA2/dI07xUd0nZ9b9/TzAg46XArvFQFbQr9DcEC6klNZXDQtTzPZi+pJxQ
-         hz8Q==
-X-Forwarded-Encrypted: i=1; AL+hErGdYZlRRcKuAvz2bOeN1VuVZfwoJ7EzzQi6vJNBUDm/FA1J0XQQU3eUp6fa9dO+ksiFdMd14LI5TtVA6w==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+d/soG1TyC56V03fi4jDoLjVQqTRAzQaOJ05jCU5thhOpis+bF
-	IPSX/ek7dUyYixnj8RN2QvmlU2TjIL1DutEfDiybKpJ1YvoUG6+vBttZ
-X-Gm-Gg: AZFdTZfMiJs2zA4hL/l5h2saSjEUHlGz11wKed8CfzT2n1LguzIzJcfIvCLW78I0M7W
-	ow1zvr9PhFxMMckcDBjE9ojf24xraqMOYz2FQr+Y3+DQ1imFCaVjal9FLRYv3cqlAwsVLj3Z+Ho
-	oS22/SjhEPtqDIMM3u/J+rOxjj4K18fpw7LF4yd5AXvmvnqODPKgHoMZZY9SMBtC0yoPjN1IYrk
-	/Y0YB0cE6xfETu4FjbDKBoFYbLLZ9teqpnkNDC7BE8FSd7Xk1MbBz9PhqTs4Kb25Lc/3S7rUwZM
-	ONVPEUgu27xGj9WINXhi59JCXnDMORPss6LSC6rOj2NmkgQUtg5NAuEs78U94AEA8X9jSgXiNdq
-	+HAAv4RXgR7E/VZeEdn67Tf0oQ7lNWpcEdOK8jkHZV02WXfUN9bgWNWR+WbxCPlYbmPhQYV3/dT
-	3vRm1zUgjYfQTuPXpPbMGE0FGqdlJOaW1jlnLsYnfHAB1+EqK5EsYOUs/8PY9yLJXVCNIc0Yr+v
-	lA9TUMgaA1GVB+yGOlWfBkS1flk6bC2Dlp6gE5ArLLNxTKhzVSoBrZgGKDASzJ3yvoZhn9m2fqy
-	mB/vldKp2qFDLK06J9GT1sxtWC8PLCoYykWtZswRFFSYXo5/akMrndUnGDYDIqUjMAz1cOLdWJ6
-	fATD4JFx9
-X-Received: by 2002:a17:907:1905:b0:c3e:34fa:611d with SMTP id a640c23a62f3a-c514501961cmr1284029166b.35.1795603328497;
-        Wed, 25 Nov 2026 02:42:08 -0800 (PST)
-Received: from [127.0.1.1] (89-65-152-218.dynamic.play.pl. [89.65.152.218])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc5396sm613601266b.58.2026.11.25.02.42.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 02:42:07 -0800 (PST)
-From: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-Date: Wed, 25 Nov 2026 11:41:52 +0100
-Subject: [PATCH v8] riscv: mm: Trace TLB flush requests
+	Wed, 25 Nov 2026 11:49:26 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.12/8.18.1.12) with ESMTP id 6AP79Js51860080;
+	Wed, 25 Nov 2026 11:48:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=c
+	e5JvCWjxkbLgLwIua+N1v3pyOdandUPeaQMGVLon3o=; b=kbC85YzKOQxmNyzWj
+	s/Uhoeq9zF5k5wIaLt/ppbiuP1sl6lLeF/YDkPOXZRRPjP1itopWWahDJztxwkMH
+	I59ToNLnpeND95Qsa0IddolBiDpI7LjvkUmSCo2qTdZdjKkSdDApdhDxV6Vi9ltY
+	WYQsQro1gzBIXLgeoMWQ6YPmCJ9bgQDJ1tM5tqisW7xIwaOBSgu5P6boUw3vjuEE
+	kIfuP2+ej9wYL+lqMzv+jP/6dBgHbKFUSLH1LAC1ldfF+RsLjV+TLCoK8KlGqX/1
+	DlMGfLklYddB4G6/02doCYu5IxxM1n6C5WhK5LEYUJ4ZennYXByPBZBPZ0ZAxmKH
+	ZsyuQ==
+Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4j32ev31p4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT key_exchange=secp384r1);
+	Wed, 25 Nov 2026 11:48:57 +0000 (GMT)
+Received: from [127.0.1.1] (172.25.10.203) by HHMAIL01.hh.imgtec.org
+ (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 25 Nov
+ 2026 11:48:55 +0000
+From: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Date: Wed, 25 Nov 2026 13:48:29 +0200
+Subject: [PATCH 1/6] drm/imagination: Remove get_fw_obj_gpu_addr()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261125-tlb_tracepoint-v8-1-18abde32ef0a@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33QTWrDMBCG4asEresiaSSNnFXvUULRzygRJHawj
- UkJvnvlLIqxaJef4Hlh9GQjDZlGdjw82UBzHnPflWHfDixcXHemJseymeTScCvbZrr6r2lwge5
- 97qbGKiW4dl7zVrKC7gOl/HgFP09lX/I49cP3qz+L9fXP1Cwa0cQUHUVCQiU+zjeXr++hv7E1N
- csNB15xWThBsDZIFZP2ew6/XHChKw4rpwTlGvDewJ6r/7kqPEmwTvpoE9Ke6y3HiuvCpTbJa2j
- BYdpzs+W24qZwoRQaJdEirzhuef3zWLgKAahtI1h0W74syw+cfbU0JgIAAA==
-X-Change-ID: 20260829-tlb_tracepoint-844105ab5092
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>, 
- =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-X-Mailer: b4 0.14.3
+Message-ID: <20261125-b4-commonize-fw-segment-loading-v1-1-69657fa52ac3@imgtec.com>
+References: <20261125-b4-commonize-fw-segment-loading-v1-0-69657fa52ac3@imgtec.com>
+In-Reply-To: <20261125-b4-commonize-fw-segment-loading-v1-0-69657fa52ac3@imgtec.com>
+To: Alessio Belle <alessio.belle@imgtec.com>,
+        Luigi Santivetti
+	<luigi.santivetti@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>,
+        Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva"
+	<gustavoars@kernel.org>
+CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-hardening@vger.kernel.org>,
+        Alexandru Dadu
+	<alexandru.dadu@imgtec.com>,
+        Matt Coster <opensource@mtcoster.net>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795607333; l=1492;
+ i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
+ bh=8iH000nnA3gLzcQQjDaJ6UCxN6ehPOwjRAQyE4EjKEM=;
+ b=mN7vFwAc21jQWae0s5+z1O4jGGuMlVKt5NwFqkeK9ZHApPa9JFMMcAKeePTGRH5u/R5wRwEYK
+ TQ+n+so7yXwD3YNMEkw8ngStgPlwfWIdzHUJWujgZfiapBQ/620s8Ch
+X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
+ pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0NiBTYWx0ZWRfX54cMBOOVrI8e
+ w1CJj87benYV9u8dXO1NZ1mdTtZT3mVbGbXlld6hHny7LsBY+BokGuT0Rt8McPyMOK0221myw2f
+ acHza4qNABulS2hVRHKhxLd+KFiO9Bw=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0NiBTYWx0ZWRfX3Rceip49RCjb
+ S6ZTVZDGOHWy62jX/FqCY6qxdJPv5RHcJQgTPHo4svOcVRfHWg81kWwyBVMQN0fkRv4kYgkUII1
+ t8Zle5pld0TxZrCDeBAM2jfptk2GEGqcEj+QuN64HjlmWTZdKGF6cTDLDfaejKkxx/85ifaOMDe
+ z1CYrcQ0u2Qj0b2mInP77NhEFb2wor7pNI9WRssrv2whk+vFR8x/SVYpMa0nyqy1RB1sCrwNQId
+ TOyvFS2H2KiCUSnAOhTMmOA7fVbYS3WDXUin7pz9VEuJa/+vH9hRJLEcgUX6yKxwDbVFyRSs+ck
+ oBf/MGaLxw0svgbd5IIbVWzqXOHDA7gvmHJj9adH0lDGWpAN5aOsjMdJPniWU/Oykoyrvoj62+2
+ vuSdfXl7xbyiYvCMRV/Z1mHmx2b0E2qAInQSbSli/bLJtzGghe84UE9FE5Hpkl2+gEjRgaSVjvF
+ VfvUV2MsM5r01DpbyHQ==
+X-Authority-Analysis: v=2.4 cv=T7AZ3PKQ c=1 sm=1 tr=0 ts=6b06cb2a cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=4EFqt8Tv61wA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
+ a=r_1tXGB3AAAA:8 a=IP9JAmHCEJnWvg-4tKgA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: e7lErjGrTsDUT1TlRKWJoI0uaFBTMbd6
+X-Proofpoint-ORIG-GUID: e7lErjGrTsDUT1TlRKWJoI0uaFBTMbd6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_024211_216650_1100E36D 
-X-CRM114-Status: GOOD (  27.01  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261125_034925_373922_71CB6410 
+X-CRM114-Status: GOOD (  10.80  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,516 +122,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Make RISC-V TLB flush requests observable together with the
-architecture-specific context available when the request reaches
-the RISC-V implementation.
+From: Matt Coster <matt.coster@imgtec.com>
 
-The generic tlb:tlb_flush event provides reason and page-count
-information. At the RISC-V implementation level, additional
-context is available, including the invalidation range and stride,
-ASID, target CPU mask, and invalidation scope.
+This is just a duplicate of pvr_fw_obj_get_gpu_addr(); use that instead.
 
-This context is useful for debugging and workload analysis. The
-target CPU mask shows the address-space CPU footprint involved in
-an invalidation, while range and stride distinguish requests at
-different mapping granularities. The ASID and scope help correlate
-requests with MM, scheduler, IPI, and firmware activity.
-
-Add riscv_tlb:riscv_tlb_flush_request in flush_tlb_all() and
-__flush_tlb_range(). Record start, size, stride, ASID (or the
-no-ASID sentinel), whether an mm is associated with the request,
-the target CPU mask and its weight, and the derived scope.
-
-Record the complete target mask because CPU identity cannot be
-reconstructed from a count. Calculate its weight from the recorded
-bitmap so both fields agree even if mm_cpumask() changes during
-recording.
-
-The event describes an invalidation request before dispatch. It
-does not report whether a remote flush uses SBI RFENCE or Linux
-cross-CPU coordination, since that choice is effectively established
-during initialization rather than made for each request.
-
-The address field (start) may contain kernel virtual addresses
-for flushes involving kernel mappings. Require perf tracepoint
-permissions even for counting-only events, since perf filters
-could otherwise reveal address information through event counts.
-
-Tested on QEMU virt with OpenSBI using local and shared-mm
-mprotect()/munmap() workloads, exercising single, range, and
-address-space invalidations. A MADV_PAGEOUT reclaim workload
-exercised global flushes. All four scope values were observed.
-
-Confirmed that trace-cmd records the event and that perf can count
-it with sufficient privileges. With perf_event_paranoid=0,
-unprivileged attempts to count the event using perf were denied,
-as intended.
-
-Document the event fields, request semantics, limitations, and
-usage through tracefs and userspace tracing tools.
-
-Tested local and shared-mm invalidations with
-CONFIG_UBSAN_ALIGNMENT=y on QEMU virt without tracepoint-related
-alignment warnings.
-
-Built with and without CONFIG_PERF_EVENTS.
-
-Built and verified the RISC-V HTML documentation.
-
-Signed-off-by: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
 ---
-Add a RISC-V tracepoint for observing TLB invalidation requests
-before they are dispatched by the architecture-specific
-implementation.
+ drivers/gpu/drm/imagination/pvr_fw_meta.c | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
 
-The generic tlb:tlb_flush event describes TLB flush activity using
-reason and page-count information. The RISC-V event records
-additional context, including the invalidation range and stride,
-ASID, target CPU mask and its weight, and derived request scope.
-
-This context helps correlate TLB invalidation activity with MM,
-scheduler, IPI, and firmware activity. The event describes the
-request rather than the execution backend. SBI RFENCE versus Linux
-cross-CPU coordination is effectively determined at initialization
-rather than selected independently for each request.
-
-The target CPU mask weight is derived from the recorded bitmap to
-keep both fields consistent under concurrent mm_cpumask() updates.
-Since the address field (start) may contain kernel virtual
-addresses, the event requires perf tracepoint permissions even
-for counting-only access.
-
-Tested on QEMU virt with OpenSBI using local and shared-mm
-mprotect()/munmap() workloads. A MADV_PAGEOUT reclaim workload
-on QEMU virt with APLIC+IMSIC exercised global flushes. All four
-scope values -- single, range, address-space, and all -- were
-observed.
-
-Confirmed trace-cmd recording and privileged perf counting.
-With perf_event_paranoid=0, unprivileged attempts to count the
-event using perf were denied, as intended. The kernel was built
-with and without CONFIG_PERF_EVENTS.
-
-Tested local and shared-mm invalidations with
-CONFIG_UBSAN_ALIGNMENT=y on QEMU virt without tracepoint-related
-alignment warnings.
----
-Changes in v8:
-- Rebase on the current RISC-V for-next branch (c9b3feb61e61)
-- Add documentation describing the trace event fields, request
-  semantics, limitations, and usage.
-- Link to v7: https://lore.kernel.org/r/20261019-tlb_tracepoint-v7-1-4cc3e99d387a@gmail.com
-
-Changes in v7:
-- Rename the tracepoint header to asm/tlb_trace.h to make its
-  purpose explicit, as suggested by Steven Rostedt.
-- Link to v6: https://lore.kernel.org/r/20261018-tlb_tracepoint-v6-1-14476427870f@gmail.com
-
-Changes in v6:
-- Change the scope field from u8 to u32 to ensure the dynamic
-  CPU mask is properly aligned for bitmap operations.
-- Verify local and shared-mm TLB flush tracing with
-  CONFIG_UBSAN_ALIGNMENT=y on QEMU virt.
-- Link to v5: https://lore.kernel.org/r/20261017-tlb_tracepoint-v5-1-256fb5393a7f@gmail.com
-
-Changes in v5:
-- Move the architecture-specific trace event definition under
-  arch/riscv/, as requested by Steven Rostedt.
-- Calculate target_mask_weight from the recorded CPU mask to
-  keep both fields consistent under concurrent updates.
-- Require perf tracepoint permissions for counting-only access,
-  since the event may expose kernel virtual addresses.
-- Link to v4: https://lore.kernel.org/r/20261015-tlb_tracepoint-v4-1-f238a2bd8f7e@gmail.com
-
-Changes in v4:
-- Drop unrelated whitespace-only changes in arch/riscv/mm/tlbflush.c.
-- Link to v3: https://lore.kernel.org/all/20261015-tlb_tracepoint-v3-1-eef305a3bb63@gmail.com/
-
-Changes in v3:
-- Rebase on current RISC-V for-next.
-- Thanks to Jisheng Zhang for pointing out that SBI RFENCE versus Linux
-  cross-CPU coordination is effectively a system-wide choice established
-  during initialization rather than a per-request decision.
-- Drop the local/SBI RFENCE/cross-CPU path field.
-- Rename the event from riscv_tlb_flush_path to
-  riscv_tlb_flush_request and refocus it on the semantic TLB
-  invalidation request.
-- Emit one request event independently of the mechanism subsequently
-  used to perform the invalidation.
-- Address checkpatch.pl --strict alignment issues.
-- Link to v2: https://lore.kernel.org/r/20260830-tlb_tracepoint-v2-1-e3c88c24df5b@gmail.com
-
-Changes in v2:
-- Use trace_call__riscv_tlb_flush_path() after the explicit
-  trace_riscv_tlb_flush_path_enabled() check to avoid a second
-  tracepoint static-key test, as suggested by Steven Rostedt.
-- Link to v1: https://lore.kernel.org/r/20260829-tlb_tracepoint-v1-1-dfdaede7e741@gmail.com
----
- Documentation/arch/riscv/index.rst     |   1 +
- Documentation/arch/riscv/tlb-trace.rst | 137 +++++++++++++++++++++++++++++++++
- arch/riscv/include/asm/tlb_trace.h     | 103 +++++++++++++++++++++++++
- arch/riscv/mm/tlbflush.c               |  45 ++++++++++-
- 4 files changed, 282 insertions(+), 4 deletions(-)
-
-diff --git a/Documentation/arch/riscv/index.rst b/Documentation/arch/riscv/index.rst
-index ac535c52d509..a5450811e4af 100644
---- a/Documentation/arch/riscv/index.rst
-+++ b/Documentation/arch/riscv/index.rst
-@@ -9,6 +9,7 @@ RISC-V architecture
-     boot
-     boot-image-header
-     vm-layout
-+    tlb-trace
-     hwprobe
-     patch-acceptance
-     uabi
-diff --git a/Documentation/arch/riscv/tlb-trace.rst b/Documentation/arch/riscv/tlb-trace.rst
-new file mode 100644
-index 000000000000..c664df20d7ef
---- /dev/null
-+++ b/Documentation/arch/riscv/tlb-trace.rst
-@@ -0,0 +1,137 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+========================
-+RISC-V TLB Flush Tracing
-+========================
-+
-+Overview
-+========
-+
-+The RISC-V Linux kernel provides the
-+``riscv_tlb:riscv_tlb_flush_request`` trace event to observe TLB
-+invalidation requests at the architecture-specific implementation.
-+The event records the virtual address range, stride, ASID, target CPU
-+mask, and derived request scope.
-+
-+This information can help correlate TLB invalidation requests with
-+memory management, scheduler, IPI, and firmware activity. The event
-+reports the request before dispatch; it does not identify the mechanism
-+used to carry it out or confirm that a particular hart invalidated its
-+TLB. In particular, it does not distinguish SBI RFENCE from Linux
-+cross-CPU coordination.
-+
-+Event fields
-+============
-+
-+``start``
-+    Starting virtual address supplied with the invalidation request.
-+    It is not a meaningful range boundary for a full global flush.
-+    Requests involving kernel mappings may contain kernel virtual
-+    addresses.
-+
-+``size``
-+    Size of the requested range in bytes. ``FLUSH_TLB_MAX_SIZE``
-+    denotes a full-range invalidation.
-+
-+``stride``
-+    Invalidation granularity supplied to the RISC-V implementation.
-+    It may be zero for a full global flush.
-+
-+``asid``
-+    Address-space identifier, or ``FLUSH_TLB_NO_ASID`` when no ASID
-+    is specified. ASIDs can be reused and must not be treated as
-+    persistent identifiers of address spaces.
-+
-+``has_mm``
-+    Whether the request is associated with an ``mm_struct``.
-+
-+``target_cpus``
-+    CPU mask associated with the request. For an mm-associated
-+    request, it reflects the relevant address-space CPU mask;
-+    for a global request, it reflects the online CPU mask supplied
-+    at the tracepoint. It does not prove which CPUs or harts
-+    actually performed an invalidation.
-+
-+``target_mask_weight``
-+    Number of CPUs in the recorded ``target_cpus`` bitmap.
-+
-+``scope``
-+    Derived invalidation scope:
-+
-+    * ``single``: a range no larger than one stride.
-+    * ``range``: a range larger than one stride.
-+    * ``address-space``: a full-range request with an associated
-+      ``mm_struct``.
-+    * ``all``: a full-range request without an associated
-+      ``mm_struct``.
-+
-+Using the event
-+===============
-+
-+The event is available through tracefs when kernel event tracing is
-+configured. The commands below assume tracefs is mounted at
-+``/sys/kernel/tracing`` and are run with sufficient privileges.
-+
-+Inspect the available event fields::
-+
-+    # cat /sys/kernel/tracing/events/riscv_tlb/riscv_tlb_flush_request/format
-+
-+To record requests, clear the current trace buffer and enable the event::
-+
-+    # cd /sys/kernel/tracing
-+    # echo > trace
-+    # echo 1 > events/riscv_tlb/riscv_tlb_flush_request/enable
-+
-+Run a workload that changes memory mappings or permissions, for example
-+one using ``munmap()`` or ``mprotect()``. Then disable the event and
-+read the buffer::
-+
-+    # echo 0 > events/riscv_tlb/riscv_tlb_flush_request/enable
-+    # cat trace
-+
-+``trace_pipe`` can be used instead of ``trace`` to consume events as
-+they occur. Clearing ``trace`` affects the current tracing instance;
-+avoid doing so while another tracing session is using it.
-+
-+Example output
-+==============
-+
-+The following lines were captured in separate QEMU ``virt`` test runs.
-+Addresses, ASIDs, CPU masks, and timestamps depend on the workload and
-+system configuration::
-+
-+    tlb_workload-ri-290 [000] ...5. 748.436198: riscv_tlb_flush_request: start=0xfffffffffff000 size=0x1000 stride=0x1000 asid=0x158 has_mm=1 target_mask_weight=1 target_cpus=00000000,00000001 scope=single
-+    tlb_workload-ri-290 [000] ...1. 748.580051: riscv_tlb_flush_request: start=0x7fff891e2000 size=0x20000 stride=0x1000 asid=0x158 has_mm=1 target_mask_weight=2 target_cpus=00000000,00000003 scope=range
-+    tlb_scope_all-r-309 [000] ...1. 986.214468: riscv_tlb_flush_request: start=0 size=0xffffffffffffffff stride=0x1000 asid=0xffffffffffffffff has_mm=0 target_mask_weight=3 target_cpus=0-2 scope=all
-+
-+The first request covers one 4 KiB stride. The second covers a 128 KiB
-+range and records two target CPUs (mask ``0x3``). The last is an
-+mm-independent full-range request; its target mask includes CPUs 0-2.
-+The different CPU-mask representations reflect tracing output options.
-+
-+Userspace tools
-+---------------
-+
-+The event may also be recorded with the external ``trace-cmd`` tool::
-+
-+    # trace-cmd record -e riscv_tlb:riscv_tlb_flush_request ./workload
-+    # trace-cmd report
-+
-+It is also accessible to perf and other tools supporting kernel trace
-+events, subject to access permissions. For general tracefs usage and
-+event filtering, see ``Documentation/trace/events.rst``.
-+
-+Limitations
-+===========
-+
-+This event describes a Linux TLB invalidation request, not hardware TLB
-+state, the execution path within firmware, or completion of remote
-+invalidation operations.
-+
-+The recorded CPU mask and its weight agree, but copying a concurrently
-+changing mask does not provide an atomic snapshot of all CPU or
-+address-space state.
-+
-+Since the event can contain kernel virtual addresses, access to its
-+trace data must be appropriately restricted. Perf access permissions
-+also apply to counting-only use of this event.
-diff --git a/arch/riscv/include/asm/tlb_trace.h b/arch/riscv/include/asm/tlb_trace.h
-new file mode 100644
-index 000000000000..60b48eb0d355
---- /dev/null
-+++ b/arch/riscv/include/asm/tlb_trace.h
-@@ -0,0 +1,103 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM riscv_tlb
-+
-+#if !defined(_TRACE_RISCV_TLB_TRACE_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_RISCV_TLB_TRACE_H
-+
-+#include <linux/cpumask.h>
-+#include <linux/tracepoint.h>
-+#include <linux/perf_event.h>
-+
-+#ifndef _TRACE_RISCV_TLB_ENUMS
-+#define _TRACE_RISCV_TLB_ENUMS
-+
-+enum riscv_tlb_flush_scope {
-+	RISCV_TLB_FLUSH_SCOPE_SINGLE,
-+	RISCV_TLB_FLUSH_SCOPE_RANGE,
-+	RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE,
-+	RISCV_TLB_FLUSH_SCOPE_ALL,
-+};
-+
-+#endif /* _TRACE_RISCV_TLB_ENUMS */
-+
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_SINGLE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_RANGE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ALL);
-+
-+#define show_riscv_tlb_flush_scope(scope) \
-+	__print_symbolic(scope, \
-+		{ RISCV_TLB_FLUSH_SCOPE_SINGLE,        "single" }, \
-+		{ RISCV_TLB_FLUSH_SCOPE_RANGE,         "range" }, \
-+		{ RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE, "address-space" }, \
-+		{ RISCV_TLB_FLUSH_SCOPE_ALL,           "all" })
-+
-+/*
-+ * Record the invalidation request received by the RISC-V architecture code
-+ *
-+ * The target CPU mask represents the CPUs Linux intends to cover for the
-+ * request. It can be correlated with per-CPU activity, but does not describe
-+ * which harts ultimately performed an invalidation.
-+ *
-+ * The ASID is hardware-visible and may be reused. It must not be treated as a
-+ * persistent identifier for an mm.
-+ *
-+ * The stride describes the invalidation granularity supplied to the RISC-V
-+ * implementation.
-+ *
-+ * The event records the invalidation request before it is dispatched. It does
-+ * not describe the mechanism used to execute the request.
-+ *
-+ */
-+TRACE_EVENT(riscv_tlb_flush_request,
-+	    TP_PROTO(unsigned long start, unsigned long size,
-+		     unsigned long stride, unsigned long asid, bool has_mm,
-+		     const struct cpumask *cmask,
-+		     enum riscv_tlb_flush_scope scope),
-+
-+	TP_ARGS(start, size, stride, asid, has_mm, cmask, scope),
-+
-+	TP_STRUCT__entry(__field(unsigned long, start)
-+		__field(unsigned long, size)
-+		__field(unsigned long, stride)
-+		__field(unsigned long, asid)
-+		__field(bool, has_mm)
-+		__field(unsigned int, target_mask_weight)
-+		__cpumask(target_cpus)
-+		__field(u32, scope)
-+	),
-+
-+	TP_fast_assign(__entry->start = start;
-+		__entry->size = size;
-+		__entry->stride = stride;
-+		__entry->asid = asid;
-+		__entry->has_mm = has_mm;
-+		__assign_cpumask(target_cpus, cpumask_bits(cmask));
-+		__entry->target_mask_weight = cpumask_weight((const struct cpumask *)
-+						     __get_cpumask(target_cpus));
-+		__entry->scope = scope;
-+	),
-+
-+	TP_printk("start=%#lx size=%#lx stride=%#lx asid=%#lx has_mm=%d target_mask_weight=%u target_cpus=%s scope=%s",
-+		  __entry->start, __entry->size, __entry->stride,
-+		  __entry->asid, __entry->has_mm,
-+		  __entry->target_mask_weight, __get_cpumask(target_cpus),
-+		  show_riscv_tlb_flush_scope(__entry->scope))
-+);
-+
-+#ifdef CONFIG_PERF_EVENTS
-+TRACE_EVENT_PERF_PERM(riscv_tlb_flush_request,
-+		      perf_allow_tracepoint());
-+#endif
-+
-+#endif /* _TRACE_RISCV_TLB_TRACE_H */
-+
-+#undef TRACE_INCLUDE_PATH
-+#undef TRACE_INCLUDE_FILE
-+
-+#define TRACE_INCLUDE_PATH asm
-+#define TRACE_INCLUDE_FILE tlb_trace
-+
-+/* This part must be outside protection. */
-+#include <trace/define_trace.h>
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index a74a7d5258aa..815867c34e18 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -9,6 +9,9 @@
- #include <asm/mmu_context.h>
- #include <asm/cpufeature.h>
- 
-+#define CREATE_TRACE_POINTS
-+#include <asm/tlb_trace.h>
-+
- #define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
- 
- /*
-@@ -63,6 +66,32 @@ void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
- 	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE, FLUSH_TLB_NO_ASID);
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+index 38a91dcb66cb..74a0e4d255c3 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+@@ -357,14 +357,6 @@ configure_seg_id(u64 seg_out_addr, u32 seg_base, u32 seg_limit, u32 seg_id,
+ 	*boot_conf_ptr = boot_conf;
  }
  
-+static enum riscv_tlb_flush_scope
-+riscv_tlb_get_flush_scope(unsigned long size, unsigned long stride, bool has_mm)
-+{
-+	if (size == FLUSH_TLB_MAX_SIZE)
-+		return has_mm ? RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE :
-+			RISCV_TLB_FLUSH_SCOPE_ALL;
-+
-+	return size <= stride ? RISCV_TLB_FLUSH_SCOPE_SINGLE :
-+		RISCV_TLB_FLUSH_SCOPE_RANGE;
-+}
-+
-+static __always_inline void
-+riscv_tlb_trace_flush_request(const struct cpumask *cmask, unsigned long start,
-+			      unsigned long size, unsigned long stride,
-+			      unsigned long asid, bool has_mm)
-+{
-+	enum riscv_tlb_flush_scope scope;
-+
-+	if (!trace_riscv_tlb_flush_request_enabled())
-+		return;
-+
-+	scope = riscv_tlb_get_flush_scope(size, stride, has_mm);
-+	trace_call__riscv_tlb_flush_request(start, size, stride, asid, has_mm,
-+					    cmask, scope);
-+}
-+
- static void __ipi_flush_tlb_all(void *info)
+-static u64 get_fw_obj_gpu_addr(struct pvr_fw_object *fw_obj)
+-{
+-	struct pvr_device *pvr_dev = to_pvr_device(gem_from_pvr_gem(fw_obj->gem)->dev);
+-	struct pvr_fw_device *fw_dev = &pvr_dev->fw_dev;
+-
+-	return fw_obj->fw_addr_offset + fw_dev->fw_heap_info.gpu_addr;
+-}
+-
+ static void
+ configure_seg_mmu(struct pvr_device *pvr_dev, u32 **boot_conf_ptr)
  {
- 	local_flush_tlb_all();
-@@ -70,12 +99,18 @@ static void __ipi_flush_tlb_all(void *info)
+@@ -384,7 +376,7 @@ configure_seg_mmu(struct pvr_device *pvr_dev, u32 **boot_conf_ptr)
+ 		 */
+ 		if (layout_entries[i].type == FW_DATA) {
+ 			u32 seg_id = ROGUE_FW_SEGMMU_DATA_ID;
+-			u64 seg_out_addr = get_fw_obj_gpu_addr(pvr_dev->fw_dev.mem.data_obj);
++			u64 seg_out_addr = pvr_fw_obj_get_gpu_addr(pvr_dev->fw_dev.mem.data_obj);
  
- void flush_tlb_all(void)
- {
--	if (num_online_cpus() < 2)
-+	riscv_tlb_trace_flush_request(cpu_online_mask, 0,
-+				      FLUSH_TLB_MAX_SIZE, 0,
-+				      FLUSH_TLB_NO_ASID, false);
-+
-+	if (num_online_cpus() < 2) {
- 		local_flush_tlb_all();
--	else if (riscv_use_sbi_for_rfence())
--		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
--	else
-+	} else if (riscv_use_sbi_for_rfence()) {
-+		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE,
-+					   FLUSH_TLB_NO_ASID);
-+	} else {
- 		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
-+	}
- }
- 
- struct flush_tlb_range_data {
-@@ -105,6 +140,8 @@ static void __flush_tlb_range(struct mm_struct *mm,
- 
- 	cpu = get_cpu();
- 
-+	riscv_tlb_trace_flush_request(cmask, start, size, stride, asid, !!mm);
-+
- 	/* Check if the TLB flush needs to be sent to other CPUs. */
- 	if (cpumask_any_but(cmask, cpu) >= nr_cpu_ids) {
- 		local_flush_tlb_range_asid(start, size, stride, asid);
+ 			seg_out_addr += layout_entries[i].alloc_offset;
+ 			seg_out_addr |= seg_out_addr_top;
 
----
-base-commit: c9b3feb61e6134d61656e5ec2516de82ea0d0f27
-change-id: 20260829-tlb_tracepoint-844105ab5092
-
-Best regards,
 -- 
-Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
+2.43.0
 
 
 _______________________________________________
