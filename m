@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBA27606A6A7
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 01:39:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9CAD606A32C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 01:39:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Emc7Bce2;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=p/aXfYku
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sS4KxNQk;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=yUNz9xZj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,43 +14,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ubaLFtlkj2mYeFRq1P2SSaNH/HgSmZe5A0335b9IWlI=; b=Emc7Bce2nDazr4Y6D8/aom1l5l
-	ZAktz1Hof+igTMzGGLMCtlJYbNinZ9E508Bks1Ll9UNPbVkJ5B3ZyP3HbWRMoPO9ohjwCl5UqZau+
-	UHT87y5JASqPxX++skLj9bJLvX6uDV1YfO3J5UjsBY10/sarg9llcVaqNWyJ3+wFtMlbDPSEaN7LR
-	LvHj5yH62u1Wb1Df8EfIRcNhVamD2o/WOaT8H1paG3mcn7XcPH2OGb2HRis1RZ06xVWtyW69I6zSC
-	/UuUz94qi3bTggDlwKIy3Rudtnx3iZ9s5XbTf+SepiPSGCE0LKd4Ylmfkqy2T/WX5G9no6f2B8dV8
-	GWwI4y+A==;
+	bh=M3xuN4H0HiGAT7nYwNzgYuHP/pMhLU9tpTbQpNQqv5A=; b=sS4KxNQkG7XCubBtxTxMF3zh8U
+	EJDAhsrlvFHGR7QVbKA+53GgoJs4kNu0jOAv2P3+GB86pQ93O8VYVz2KVWE+UUVq1o9AIx3itO5HO
+	FsXxMINsncBTYl2nKRISHqvfAg37OKBnNBo6NHd8f/8mfz+6qXoIG1Z7nbXZl10pSntX2YCASaE/d
+	tRuZ1UX6Rd4c+iLnzM+zg4B4p0R+a9TaWROIDBn6bJbjPdO3+aoZs4m/OIJC5sEwujVT37vZENjND
+	f127TdQYzOeVABzu1Uqn63E3y9fsYrH8d2IyTNs2HRES3KFpI5ugiN4OwcJT5/Iu1fI61PkMDdgbv
+	PJUCZpcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW1yO-00000008C1j-2bpt;
-	Wed, 25 Nov 2026 01:39:00 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1xW1yU-00000008C4U-3jUB;
+	Wed, 25 Nov 2026 01:39:06 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW1yH-00000008BzJ-294J
+	id 1xW1yS-00000008Bzz-0mXl
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Nov 2026 01:38:57 +0000
+	Wed, 25 Nov 2026 01:39:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1795570723;
-	bh=L/BwosUgSHi7qE2XAvI70fL4pFI09XpNgAaFb7Xz/fE=;
+	s=mxsw2412; t=1795570732;
+	bh=TtZ7L+0FStK3cBA/dvaUkjGUZLnkhoPuIPbQ7OTOy9M=;
 	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=p/aXfYkuEUckyjbAQHz5tKq2k627/1SttlxmDevRJ0C5rroccQs9ewqMK8fPjYa/p
-	 dgnoJmoJaweHZ1YAK6Wwu/3WXf3SyaLjmd3kJlyYQXMWQw5IYmQxVWCT4yaX5MtSYI
-	 YT2lPeDMFGvy/dLSbJ9VrRL1PlSP8zXX/4BpflTU=
-X-QQ-mid: esmtpsz18t1795570722t78884fd6
-X-QQ-Originating-IP: Rc13t38hCX/EVrgRN3+lRN+gfocxrG5e9FPOQ6cSukg=
+	b=yUNz9xZj7pPkWYG0E/LmZHN/ACd5ZFyCRqHUPpMJP0gOCcdCyxawPWNaq25YvTbp3
+	 UdG3GUJynDH2UauYSGbBIm7ShjlMIji6IdtTHE7f1M5Z8xo0pA809NZxJrxOcHZPLV
+	 5VcLRFZHT/hPrK4Y4QuWWPAvb+i8MmiuwPoO9g+s=
+X-QQ-mid: zesmtpsz5t1795570731t1cfbf41c
+X-QQ-Originating-IP: qm6/nQPQx3/pNPSzdBkdp0oaDuY6kR+5dIbu/pTJ9oA=
 Received: from = ( [183.48.244.245])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 25 Nov 2026 09:38:39 +0800 (CST)
+	id ; Wed, 25 Nov 2026 09:38:47 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16522360061906825992
+X-BIZMAIL-ID: 8991991900957459394
 EX-QQ-RecipientCnt: 16
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Wed, 25 Nov 2026 01:38:21 +0000
-Subject: [PATCH v3 2/5] clocksource/drivers/spacemit: Add K1 timer support
+Date: Wed, 25 Nov 2026 01:38:23 +0000
+Subject: [PATCH v3 4/5] riscv: dts: spacemit: Add the K3 APB timer
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261125-spacemit-soc-timer-v3-2-e6390f3ae4a6@linux.spacemit.com>
+Message-Id: <20261125-spacemit-soc-timer-v3-4-e6390f3ae4a6@linux.spacemit.com>
 References: <20261125-spacemit-soc-timer-v3-0-e6390f3ae4a6@linux.spacemit.com>
 In-Reply-To: <20261125-spacemit-soc-timer-v3-0-e6390f3ae4a6@linux.spacemit.com>
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
@@ -64,39 +64,40 @@ To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
 Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12026;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1383;
  i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
- bh=HUBWtKhC7ACvwbrN5kYRHWK90fywTElnoHHb/Y3oGDI=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDNlsNqIVFzzTtzj2hH/SE52tKrEmiatL1+jZ2m2C25dnh
- R9u1Z/bUcrCIMbFICumyNL9gGdbgU+UbYFAoS/MHFYmkCEMXJwCMJGJqQy/mNIXFiQZKfx67N+T
- d/7+hS0pVxbEZfzpyrC4dbwvafNvN0aGy9fPd13fJ8N7+s39naquhhwuHz2urnbg2HWSRW2yTn8
- IGwA=
+ bh=Lakketge+7u3TGaLDJYVC3ImXbq0o9pWuFTAwlnXYmc=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDNlsNqLLYn01Encp7nYufRgnJOm22T1A7vHzqR4CVnOey
+ 24/k/Sro5SFQYyLQVZMkaX7Ac+2Ap8o2wKBQl+YOaxMIEMYuDgFYCJXyxn+8MSosz5ctpZp997s
+ Hbeyg3ln/X/KIer8ctLCEO9bCZ1BYQz/LD7+tWHTfWWoOEX8orpHySTB1qzTKe9PSDAH99hcTVz
+ OCwA=
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
  fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: M1reM/z5iPpAftyMdBcF1tRIxXXmLx4ABmGdoYpIz3/Ic6i50SKFYl7n
-	MEwAmBOfwrGLfzjD2mxu4p8j+bhLuOEUpbpCgA1MT0UGYT7tVN77SSe61+I1Tls9bUJOZ0f
-	Ditc7kF/xY2iariSzA57WdlRd1vociT3HZfSdd0O2iM5r4WmyMow5mXWoH0T+40eyMlmzxR
-	2DVs+OrtWTse20wJm3BQBCWhzVNo40CF8eqN1fqlwpKlrJn13C1YXG/LIRKwJ0/FosCHunk
-	lLiAB0jh3QgPFcQDtTmCRSs57m0WFS0Mw9G+Q/dggRrL4/+o7GwJojWVTiqXeOyEiWgICNw
-	xjqSKgYMeK/be5cx+y7R1NXvZIzQHKqREfLM5LenJ7o39Bg3KzbLmp34Ahc2f9rUwxM0Jt4
-	iu03YfKCB2CiQ+4htFPKn7Q+aBYnL3iGmGsXvT4G3pagy0OzPaofHhv58jmEQ/vHsQoJBLe
-	MMVSHmpN46UlBv/IUocm5zk1ERu9teE8Je6rJYLxvfZ4W9kTx+7dF0aSCcOODX8lfhxIF18
-	1iGpIXzDs13bsdUh66NnNAhDmCg9q+uQOpmmnULGkCSD49KmCxZI0u9lVt01XzoQWlw6g5Q
-	8wu8/nEkl+ZOPF/NI2BrBc/Lu9IWt7+0BMoWFTzmcTulGBd39tU33qhw94o8QTmZ9AwW3iO
-	VHcQePMvHm4cJ1CI0BkkYEZNWkpNU1iAHphfyCPqV7ZqQiQSGqSI8BJ+lvwsrd6OlbYw4iM
-	CUueMcDqnLFpYpPLd81/0nO+E3XC62GMoPdU5gzyg6V6ytb+ecTd/6Kqh2TqcwGw61ymhND
-	LxfmkfSSDY8smwjDyAH0XNTMowUGJjUpl/U0tIqxVve70Btz5xBq+QBtv8rsosZ75kuPrT1
-	IWKRPDJZdp/MYpBHPY3IC+r1nufoVf3zvrBblP8sTgfRYEmJXL+bS1SZDozcqa+c2QzWxmN
-	H+PwVrHyIrG09UliyS3w/cHelNYIl/g8cK7IMbCr4mhPX4ZHOCUe/Y+WkC42UJXWkihpOap
-	vj9blKFBzuoVbm9Ga+RlrUCVyCA5YUDP7fpEhCXf0AP4OmY1aj24B+5P+EfZfRxruNzWIsm
-	HMpd+UyIxZDn4u5InTYCKOac2LjG0Bii88xWWH1iI9zcCq9byuGqJDcKKzssNPnzQ==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NsKw77UaNFtDDD8E2C/5ISDFDXF7k3GigFhCEvYy0va/ahtyjHSS9b1G
+	EdW3YJuKO2wA++hEdm8J8/uE7eJ9CPmAGS+M6r0C7QDn8idcV4axiDW7VA6qyLMGlQRixbJ
+	psTGRNOJcueJHMJrHVtTQtBPoKGJqawEKpxF3oGR9WJx1z4lIyOap8MdPGcw4jPhmpOfop4
+	SlZgpWiTLWyVAneHS/HGJnfmnjj1j4P8XUrgaDaap6kqKae5ykDW/XDqnLcnCUexEoPtQvN
+	786L0Iip1RLJl3G5b9x1LGmVb/QacHQ3GrBlgjhoJb85mpLUwEYNMYiEHzOMRUMLLRsc0Ac
+	jtxHKw59YXhd9TVDEf5OWfTXuULxkIhF64Fk5C2vsaSUt0V9gYR/WRU/Kk5lmshfAj8yb/w
+	Wol9IGtYbxmOM3UY+aMG03/2t4aFG5/oJnQ6UvhoVB2lS0F6JgAMFQ7vQGv7J5I/EcZmT+f
+	SNZ/MkqTrk6Cxp50mKsFG9tLjdJIQeXEpYeb6p/HGbYgQqRZSTdUTQj5oU9gzUEbRwZKgNO
+	V/rtl2JKIpnUMvIKwX64xTqCkamc8NW4GO1RkSDqLbavvUhB4JF8AhckVjpkKaz+B9d3XVO
+	8DlVVGMY2BdbAfe/2GnCSJloiDgIe5TvSKHk/+pTgxBuJsTtH+veppj2O4FXmB4ua6V/aqs
+	EdX1HFenZDOYvrURXDEhT5QGC3M++yBfcAzTOd5f2hFoRtEy4QT77BWL/NVHKuVrMeo3c2w
+	3GgpNYveVWsJVfiv7NjQj2hPgtdz8lThQIxuw7D4QWOLPCNBz4OYCQFyctMf/0B/rhF8FXA
+	/yBZK+mgkt1U5Klb4jgbz57EJFpPhW6TPtB91b6IU3aCq0nBibWSO76ajbLCtp3hZVbSjVT
+	CMmyiuiH+gyaLxt3g1yI6AzbhmiwXo2nPUWO5CR2soOGycxhokOLCk4Ro3CVPMecT/eTMch
+	pQ/V2oxhO1axO6mTwv8O2x/ZkDZPQcjiAd3ahVy329/sgBdf7z3mluL+TDW5xyqtyZ8Qgdk
+	lCchODi/bQY29oFOzO2dybcwK8m40ZCgrCV7UsuibJV/n2QUqPtjJnXj7IcHO3uCSxFyWUp
+	bFTeUkWD0wayTq1wEkX4GsUtegKMEGpxNAINEeP6ZtM
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261124_173855_599895_CE8CC404 
-X-CRM114-Status: GOOD (  28.66  )
+X-CRM114-CacheID: sfid-20261124_173905_039359_5E4E238D 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,386 +118,41 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SpacemiT K1 and K3 have APB timers that can provide a shared clockevent
-alongside the per-CPU RISC-V timer. Use counter 0 and its first match
-comparator as a oneshot device available to the tick broadcast framework.
+Describe the APB timer at 0xd4016000 and its counter 0 interrupt so it can
+provide a shared clockevent. Select the oscillator-derived 1 MHz input
+and connect the functional clock, bus clock and reset.
 
-Counter enable changes cross clock domains. Wait for the synchronized
-counter value to stop changing before reprogramming the match register,
-and check interrupt acknowledgment through the status register rather
-than reading the write-only clear register. Bound all synchronization
-waits and propagate programming failures to the clockevent core.
-
-Obtain the counter rate from the functional clock and protect it against
-rate changes. Keep the clocks enabled for the clockevent lifetime and
-restore counter configuration through the tick resume callback without
-sleeping clock operations. Use a platform driver so clock and reset
-providers can probe before the timer is registered.
+The register interface is compatible with K1, so use the K1 fallback
+following the K3 compatible.
 
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- drivers/clocksource/Kconfig          |  11 ++
- drivers/clocksource/Makefile         |   1 +
- drivers/clocksource/timer-spacemit.c | 317 +++++++++++++++++++++++++++++++++++
- 3 files changed, 329 insertions(+)
+ arch/riscv/boot/dts/spacemit/k3.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index da83483296d5..e14bb40f9a31 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -163,6 +163,17 @@ config RZN1_TIMER
- 	    - 2 32-bit timers
- 	  Two timers blocks are available in RZ/N1 SoCs.
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index e89d2cc5ca8c..cee313232c11 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -777,6 +777,18 @@ syscon_apbc: system-controller@d4015000 {
+ 			#reset-cells = <1>;
+ 		};
  
-+config SPACEMIT_TIMER
-+	bool "SpacemiT K1/K3 timer"
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	depends on OF && COMMON_CLK && HAS_IOMEM
-+	default y if ARCH_SPACEMIT
-+	help
-+	  Enable the SoC timer clockevent device on SpacemiT K1 and K3.
-+	  It provides a shared oneshot timer for tick broadcast, alongside
-+	  the per-CPU RISC-V timer. The RISC-V clocksource continues to
-+	  provide timekeeping.
++		timer1: timer@d4016000 {
++			compatible = "spacemit,k3-timer", "spacemit,k1-timer";
++			reg = <0x0 0xd4016000 0x0 0x100>;
++			interrupts = <26 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&syscon_apbc CLK_APBC_TIMERS1>,
++				 <&syscon_apbc CLK_APBC_TIMERS1_BUS>;
++			clock-names = "func", "bus";
++			assigned-clocks = <&syscon_apbc CLK_APBC_TIMERS1>;
++			assigned-clock-rates = <1000000>;
++			resets = <&syscon_apbc RESET_APBC_TIMERS1>;
++		};
 +
- config SUN4I_TIMER
- 	bool "Sun4i timer driver" if COMPILE_TEST
- 	depends on HAS_IOMEM
-diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
-index 464ec6690ab6..dadf9bc77dee 100644
---- a/drivers/clocksource/Makefile
-+++ b/drivers/clocksource/Makefile
-@@ -33,6 +33,7 @@ obj-$(CONFIG_BCM2835_TIMER)	+= bcm2835_timer.o
- obj-$(CONFIG_CLPS711X_TIMER)	+= clps711x-timer.o
- obj-$(CONFIG_MXS_TIMER)		+= mxs_timer.o
- obj-$(CONFIG_CLKSRC_PXA)	+= timer-pxa.o
-+obj-$(CONFIG_SPACEMIT_TIMER)	+= timer-spacemit.o
- obj-$(CONFIG_SUN4I_TIMER)	+= timer-sun4i.o
- obj-$(CONFIG_SUN5I_HSTIMER)	+= timer-sun5i.o
- obj-$(CONFIG_MESON6_TIMER)	+= timer-meson6.o
-diff --git a/drivers/clocksource/timer-spacemit.c b/drivers/clocksource/timer-spacemit.c
-new file mode 100644
-index 000000000000..e0f24b133a21
---- /dev/null
-+++ b/drivers/clocksource/timer-spacemit.c
-@@ -0,0 +1,317 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * SpacemiT K1/K3 timer clockevent driver
-+ *
-+ * Copyright (C) 2026 SpacemiT
-+ */
-+
-+#include <linux/bitops.h>
-+#include <linux/clk.h>
-+#include <linux/clockchips.h>
-+#include <linux/delay.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/limits.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+
-+/* Use counter 0 and its first match comparator. */
-+#define TMR_CER			0x00
-+#define TMR_CMR			0x04
-+#define TMR_CCR			0x0c
-+#define TMR_MATCH		0x10
-+#define TMR_PRELOAD		0x40
-+#define TMR_PRELOAD_CTRL		0x50
-+#define TMR_IER			0x60
-+#define TMR_ICR			0x70
-+#define TMR_SR			0x80
-+#define TMR_COUNT		0x90
-+
-+#define TMR_COUNTER_EN		BIT(0)
-+#define TMR_FREE_RUNNING		BIT(0)
-+#define TMR_CLOCK_MASK		GENMASK(1, 0)
-+#define TMR_MATCH0		BIT(0)
-+#define TMR_MATCH_MASK		GENMASK(2, 0)
-+/* Leave room for match and enable synchronization. */
-+#define TMR_MIN_DELTA		16
-+/* COUNT reaches the APB domain up to three counter clocks late. */
-+#define TMR_SYNC_CYCLES		3
-+/* The slowest counter clock is the 32.768 kHz clock. */
-+#define TMR_MIN_RATE		32768
-+
-+struct spacemit_timer {
-+	void __iomem *base;
-+	struct device *dev;
-+	struct clock_event_device clkevt;
-+	raw_spinlock_t lock;
-+	unsigned int sync_us;
-+};
-+
-+static struct spacemit_timer *to_spacemit_timer(struct clock_event_device *evt)
-+{
-+	return container_of(evt, struct spacemit_timer, clkevt);
-+}
-+
-+static int spacemit_timer_write(struct spacemit_timer *timer, u32 reg, u32 val,
-+				u32 mask)
-+{
-+	u32 tmp;
-+
-+	writel(val, timer->base + reg);
-+	return readl_poll_timeout_atomic(timer->base + reg, tmp,
-+					(tmp & mask) == (val & mask), 1,
-+					10 * timer->sync_us);
-+}
-+
-+static int spacemit_timer_stop(struct spacemit_timer *timer)
-+{
-+	u32 val, prev;
-+	int ret, i;
-+
-+	val = readl(timer->base + TMR_CER) & ~TMR_COUNTER_EN;
-+	ret = spacemit_timer_write(timer, TMR_CER, val, TMR_COUNTER_EN);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * CER crosses into the counter clock domain. Its readback alone does
-+	 * not show that counting has stopped. COUNT is synchronized back to
-+	 * APB with a latency of TMR_SYNC_CYCLES. Wait for a stable count
-+	 * before changing the match or preload registers.
-+	 */
-+	prev = readl(timer->base + TMR_COUNT);
-+	for (i = 0; i < 10; i++) {
-+		udelay(timer->sync_us);
-+		val = readl(timer->base + TMR_COUNT);
-+		if (val == prev)
-+			return 0;
-+		prev = val;
-+	}
-+
-+	return -ETIMEDOUT;
-+}
-+
-+static int spacemit_timer_clear(struct spacemit_timer *timer)
-+{
-+	u32 val;
-+
-+	/* ICR is write-only; completion is observed through SR. */
-+	writel(TMR_MATCH_MASK, timer->base + TMR_ICR);
-+	return readl_poll_timeout_atomic(timer->base + TMR_SR, val,
-+					!(val & TMR_MATCH_MASK), 1,
-+					10 * timer->sync_us);
-+}
-+
-+static int spacemit_timer_quiesce(struct spacemit_timer *timer)
-+{
-+	int ret, err;
-+
-+	ret = spacemit_timer_write(timer, TMR_IER, 0, TMR_MATCH_MASK);
-+	/* Still try to stop and acknowledge the timer after a failed write. */
-+	err = spacemit_timer_stop(timer);
-+	if (!ret)
-+		ret = err;
-+	err = spacemit_timer_clear(timer);
-+
-+	return ret ?: err;
-+}
-+
-+static int spacemit_timer_shutdown(struct clock_event_device *evt)
-+{
-+	struct spacemit_timer *timer = to_spacemit_timer(evt);
-+	unsigned long flags;
-+	int ret;
-+
-+	raw_spin_lock_irqsave(&timer->lock, flags);
-+	ret = spacemit_timer_quiesce(timer);
-+	raw_spin_unlock_irqrestore(&timer->lock, flags);
-+
-+	return ret;
-+}
-+
-+static int spacemit_timer_next_event(unsigned long delta,
-+				     struct clock_event_device *evt)
-+{
-+	struct spacemit_timer *timer = to_spacemit_timer(evt);
-+	unsigned long flags;
-+	u32 val;
-+	int ret;
-+
-+	raw_spin_lock_irqsave(&timer->lock, flags);
-+
-+	ret = spacemit_timer_quiesce(timer);
-+	if (ret)
-+		goto out;
-+
-+	ret = spacemit_timer_write(timer, TMR_MATCH, delta - 1, U32_MAX);
-+	if (ret)
-+		goto out;
-+
-+	ret = spacemit_timer_write(timer, TMR_IER, TMR_MATCH0, TMR_MATCH_MASK);
-+	if (ret)
-+		goto out;
-+
-+	/* Enabling the counter reloads the zero preload value. */
-+	val = readl(timer->base + TMR_CER) | TMR_COUNTER_EN;
-+	ret = spacemit_timer_write(timer, TMR_CER, val, TMR_COUNTER_EN);
-+out:
-+	if (ret) {
-+		/* Leave a failed programming attempt with interrupts masked. */
-+		writel(0, timer->base + TMR_IER);
-+		val = readl(timer->base + TMR_CER) & ~TMR_COUNTER_EN;
-+		writel(val, timer->base + TMR_CER);
-+	}
-+	raw_spin_unlock_irqrestore(&timer->lock, flags);
-+
-+	return ret;
-+}
-+
-+static irqreturn_t spacemit_timer_interrupt(int irq, void *data)
-+{
-+	struct spacemit_timer *timer = data;
-+	unsigned long flags;
-+	int ret;
-+
-+	raw_spin_lock_irqsave(&timer->lock, flags);
-+	if (!(readl(timer->base + TMR_SR) & TMR_MATCH0)) {
-+		raw_spin_unlock_irqrestore(&timer->lock, flags);
-+		return IRQ_NONE;
-+	}
-+
-+	ret = spacemit_timer_quiesce(timer);
-+	raw_spin_unlock_irqrestore(&timer->lock, flags);
-+	if (ret)
-+		dev_err_ratelimited(timer->dev, "Failed to acknowledge timer: %d\n", ret);
-+
-+	timer->clkevt.event_handler(&timer->clkevt);
-+	return IRQ_HANDLED;
-+}
-+
-+static int spacemit_timer_resume(struct clock_event_device *evt)
-+{
-+	struct spacemit_timer *timer = to_spacemit_timer(evt);
-+	unsigned long flags;
-+	u32 val;
-+	int ret;
-+
-+	raw_spin_lock_irqsave(&timer->lock, flags);
-+	ret = spacemit_timer_quiesce(timer);
-+	if (ret)
-+		goto out;
-+
-+	/* Select the functional clock and disable automatic match reload. */
-+	val = readl(timer->base + TMR_CCR) & ~TMR_CLOCK_MASK;
-+	ret = spacemit_timer_write(timer, TMR_CCR, val, TMR_CLOCK_MASK);
-+	if (ret)
-+		goto out;
-+
-+	val = readl(timer->base + TMR_CMR) | TMR_FREE_RUNNING;
-+	ret = spacemit_timer_write(timer, TMR_CMR, val, TMR_FREE_RUNNING);
-+	if (ret)
-+		goto out;
-+
-+	ret = spacemit_timer_write(timer, TMR_PRELOAD_CTRL, 0, GENMASK(2, 0));
-+	if (ret)
-+		goto out;
-+
-+	ret = spacemit_timer_write(timer, TMR_PRELOAD, 0, U32_MAX);
-+out:
-+	raw_spin_unlock_irqrestore(&timer->lock, flags);
-+	return ret;
-+}
-+
-+static int spacemit_timer_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct reset_control *reset;
-+	struct spacemit_timer *timer;
-+	struct clk *func, *bus;
-+	unsigned long rate;
-+	int irq, ret;
-+
-+	timer = devm_kzalloc(dev, sizeof(*timer), GFP_KERNEL);
-+	if (!timer)
-+		return -ENOMEM;
-+
-+	timer->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(timer->base))
-+		return PTR_ERR(timer->base);
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	/* Keep both clocks enabled for the lifetime of the clockevent. */
-+	bus = devm_clk_get_enabled(dev, "bus");
-+	if (IS_ERR(bus))
-+		return dev_err_probe(dev, PTR_ERR(bus), "Failed to enable bus clock\n");
-+
-+	func = devm_clk_get_enabled(dev, "func");
-+	if (IS_ERR(func))
-+		return dev_err_probe(dev, PTR_ERR(func), "Failed to enable functional clock\n");
-+
-+	ret = devm_clk_rate_exclusive_get(dev, func);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to protect timer rate\n");
-+
-+	/* The clockevent core takes the rate as a u32. */
-+	rate = clk_get_rate(func);
-+	if (rate < TMR_MIN_RATE || rate > U32_MAX)
-+		return dev_err_probe(dev, -EINVAL, "Invalid timer rate: %lu\n", rate);
-+
-+	reset = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(reset))
-+		return dev_err_probe(dev, PTR_ERR(reset), "Failed to get reset\n");
-+
-+	ret = reset_control_assert(reset);
-+	if (ret)
-+		return ret;
-+	ret = reset_control_deassert(reset);
-+	if (ret)
-+		return ret;
-+
-+	timer->dev = dev;
-+	timer->sync_us = DIV_ROUND_UP(TMR_SYNC_CYCLES * USEC_PER_SEC, rate);
-+	raw_spin_lock_init(&timer->lock);
-+	timer->clkevt.name = dev_name(dev);
-+	timer->clkevt.rating = 200;
-+	timer->clkevt.features = CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_DYNIRQ;
-+	timer->clkevt.cpumask = cpu_possible_mask;
-+	timer->clkevt.irq = irq;
-+	timer->clkevt.set_next_event = spacemit_timer_next_event;
-+	timer->clkevt.set_state_shutdown = spacemit_timer_shutdown;
-+	timer->clkevt.set_state_oneshot = spacemit_timer_shutdown;
-+	timer->clkevt.tick_resume = spacemit_timer_resume;
-+
-+	ret = spacemit_timer_resume(&timer->clkevt);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to initialize timer\n");
-+
-+	ret = devm_request_irq(dev, irq, spacemit_timer_interrupt, IRQF_TIMER,
-+			       dev_name(dev), timer);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to request timer interrupt\n");
-+
-+	clockevents_config_and_register(&timer->clkevt, rate, TMR_MIN_DELTA,
-+					U32_MAX - 1);
-+	return 0;
-+}
-+
-+static const struct of_device_id spacemit_timer_match[] = {
-+	{ .compatible = "spacemit,k1-timer" },
-+	{ }
-+};
-+
-+static struct platform_driver spacemit_timer_driver = {
-+	.probe = spacemit_timer_probe,
-+	.driver = {
-+		.name = "spacemit-timer",
-+		.of_match_table = spacemit_timer_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+builtin_platform_driver(spacemit_timer_driver);
+ 		uart0: serial@d4017000 {
+ 			compatible = "spacemit,k3-uart", "intel,xscale-uart";
+ 			reg = <0x0 0xd4017000 0x0 0x100>;
 
 -- 
 2.56.0
