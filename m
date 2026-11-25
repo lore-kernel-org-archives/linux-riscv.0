@@ -2,97 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E683606A31E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 11:53:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25DA0606A327
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 12:22:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xl3fTXrx;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=C8qj2Rj+
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qVEVLC3I;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=OrErzfAk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bJL/QuBeOpF/UFbC2DuQu8D+1WUb46JuQv38+ITQdQ8=; b=Xl3fTXrxHBTwWHXSK9bbMjiInr
-	5kz6/Qd5qFxNeYYelyFBtzfJ/8Qh9S8EyoW0TyJlXCCjXdhset/AKBHr4oGYpfPf3X2gLsd6xM96Q
-	6Fd1pFww4FEgeo2y1bdZAtCC4D1DIm/FgZsiLl9fxOIaD1hj9PbSj9uEs3NmwGLSN2wKzGly6sEwL
-	FaVxWf7LLSurUXn0Vupf1/LRwBL5WoqMn4TetEHj6WJRVJEtZRkaeUHYcgDBZ3EY18NoIv2QtMZs1
-	0TMlRNADdZNoDWeCWVepbwQa5fHAKfN9UprA74z79b7ZIrQRTvq2KTP0b3NEoiuqlUMJAp3O+EPkU
-	DOh+eDcA==;
+	bh=2PvvKTRtGRwu5aLn45nD2KWTY07gZE/FCMWQblr/GzU=; b=qVEVLC3IH8ytjEt545lcmnoe6t
+	jh8FrOhS49LwX3iN13z3KNXb8KCm3HYZ0L9jhuM6RJIEIYlIX/i4o5n91DxbHt35MXFCgd6WXeP1Y
+	lwK6qSowCVYcc7vvMUHpC/Hc4wpBwidFOAKjnM74vQYvrP6OWOXx9eCLN4sPLLB8440kfUgxrFsjA
+	JUyGbVfDbAoWOnYgrz43ZBjIA8FFdiQE840vZr7NYc38dLi3nGLQQADgmIxunayzzX1ZZRrZxZkJp
+	V6NPBlhziiwUHaDfGqwPP3TO/kzCJ5pLTolLZPHQIjYAiMj7qJZRE4ai51VL77aiumqM/tI7KUaBw
+	7TPQZdQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWBZL-00000009jZD-2EPA;
-	Wed, 25 Nov 2026 11:53:47 +0000
-Received: from watt.d-silva.org ([119.15.109.137] helo=www.nmnhosting.com)
+	id 1xWC0l-00000009nze-0W5k;
+	Wed, 25 Nov 2026 12:22:07 +0000
+Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWBZ3-00000009jW2-3hbe;
-	Wed, 25 Nov 2026 11:53:36 +0000
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id 32D4E45844;
-	Wed, 25 Nov 2026 22:53:20 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795607600;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mlkDCg9kprZ62DwlXQd8yd+ADgwJpdD1CpbOrg8ZjiY=;
-	b=C8qj2Rj+fzKog24buY1PaEC/j3+RQMketNzOBNyqLPWLhq3UVkUmXjPujBBBfT32+Ki+0s
-	2Y6k9BKv4Xh6Cgdk4eNvSDniSQhzK5oRY5aaw8V03U/XkGaHoA8oZcgvXvXzrrwIhtpckP
-	D7e+5pVv+l6s9ImcAxTvntnCi3d2XynmKc4m8EmxMU3tg72jdrGMswbwvB8ygFYJyyf1aJ
-	HUapdsxbhWcfElKIXpTDoNlNeqEAEO3kDjc6dUakyf3z4+fSNGVWbQdDDxumfm/rnqxnz7
-	PKxPPKekc+UHvNn7g/4bNwrBoIOeaE/YpnGdebkwT26eR7KAiLcsSJcNrm1rdw==
-X-GPT-Reason: The email is classified as personal/professional
-	correspondence because it appears to be a direct reply to a technical
-	discussion. The sender domain (d-silva.org) matches the recipient's
-	known personal mailbox (alastair@d-silva.org), the subject line
-	refers to a specific technical patch (clk: sunxi-ng: a733), and
-	there are no phishing indicators, urgency tactics, or external URLs
-	present.
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	netdev@vger.kernel.org,
-	Alastair D'Silva <alastair@d-silva.org>,
-	devicetree@vger.kernel.org,
+	id 1xWC0U-00000009nni-0TbY
+	for linux-riscv@lists.infradead.org;
+	Wed, 25 Nov 2026 12:22:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795609306; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=6pE97X/Hn04iXAcuWJw94ha23fj8mepdZBbL3FYiqqc=;
+	b=OrErzfAkCQuYrBoJPOvFVIWFF15jOJGt52eZfad6+e8RMMd3+RIYXhSc4XzFInzwVmXqfschTa4oGCuelT+fqhN1oOwpRlklM4528bGwf0Y36ZK9rlMhWy+Pt14x6MrLcyw/+Uc+e5EYFT6THPurPosE3qrYmg4FvWZyj/kk91Y=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R891e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0XFRiiym_1795609286;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XFRiiym_1795609286 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 25 Nov 2026 20:21:44 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	memxor@gmail.com,
+	bjorn@kernel.org,
+	puranjay@kernel.org,
+	alexei.starovoitov@gmail.com
+Cc: eddyz87@gmail.com,
+	martin.lau@linux.dev,
+	song@kernel.org,
+	yonghong.song@linux.dev,
+	jolsa@kernel.org,
+	emil@etsalapatis.com,
+	ihor.solodrai@linux.dev,
+	pulehui@huawei.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	luke.r.nels@gmail.com,
+	xi.wang@gmail.com,
+	shuah@kernel.org,
+	rgbi3307@gmail.com,
+	guoren@kernel.org,
+	bpf@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	Norman Herms <dockseed@proton.me>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-Subject: Re: [PATCH v7 7/8] clk: sunxi-ng: a733: Add bus clock gates
-Date: Wed, 25 Nov 2026 22:53:20 +1100
-Message-ID: <20261125115320.3692954-1-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech>
-References: <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech>
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 bpf-next 0/3] riscv: bpf: Add BPF private stack support
+Date: Wed, 25 Nov 2026 20:21:23 +0800
+Message-ID: <20261125122126.939-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_035330_073149_0FB44BAB 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261125_042150_707103_1111E26F 
+X-CRM114-Status: GOOD (  14.59  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,39 +89,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Junhui,
+This series adds private-stack support to the RV64 BPF JIT.
 
-On Thu, 12 Nov 2026, Junhui Liu wrote:
-> static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
-> 			  0x5c0, BIT(16), 0);
-> ...
-> static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hws,
-> 			  0x5e0, BIT(29), 0);
+The verifier rejects a struct_ops program that requests a private stack
+with -EACCES when the JIT does not report
+bpf_jit_supports_private_stack(), and sched_ext requests one for its
+dispatch callback, so no sched_ext scheduler can load on riscv64 today.
 
-While bringing up GMAC0 on the OrangePi 4 Pro with this v7 CCU series,
-link-up and DMA broke as soon as clk_disable_unused() ran.
+Allocation, the guard value and the lifetime handling follow arm64,
+x86-64 and powerpc64; the 16 byte two-copy guard layout follows arm64
+and powerpc64, since x86-64 uses an 8 byte guard with a single copy.
+What is specific to riscv64 is where the pointers end up:
 
-ahb-msi-lite0 (0x5c0, BIT(16)) and mbus-msi-lite0 (0x5e0, BIT(29)) gate
-the shared MSI-Lite0 bus fabric used by GMAC0 and other masters, whereas
-bus-msi-lite0 is only its register configuration clock. Referencing
-ahb-msi-lite0 and mbus-msi-lite0 only in gmac0 does not model the
-shared fabric, and gating them off breaks GMAC0 DMA.
+ - Every BPF stack access goes through BPF_REG_FP (S5), so pointing S5
+   at the top of the per-CPU area and leaving SP on the kernel stack is
+   all the JIT has to do. S5 is callee-saved and each subprog derives
+   its own, so bpf2bpf calls need no extra save and restore.
+ - The outgoing stack argument area stays in the kernel frame: callers
+   write it relative to SP while callees read it relative to RV_REG_FP.
+   Unlike x86-64, no register here is shared with the private-stack
+   frame pointer, so no verifier-side exclusion is needed and stack
+   arguments keep working together with a private stack. arm64 already
+   does the same, and patch 3 tests that combination.
+ - The per-CPU lookup is emitted after the tail call entry point. A
+   program using a private stack can still be entered as a tail call
+   target, at RV_TAILCALL_OFFSET, so it has to set up its own S5 there;
+   and since that offset is a constant added to the target's bpf_func,
+   everything in front of it must be the same size in every program.
 
-Could you please mark ahb_msi_lite0_clk and mbus_msi_lite0_clk with
-CLK_IS_CRITICAL, matching ahb_store_clk and mbus_store_clk in this
-driver?
+The base address is materialized with absolute moves, as on arm64,
+x86-64 and powerpc64, which reach the per-CPU offset through gs:, TPIDR
+or r13; riscv64 has no such register, so the address of __per_cpu_offset
+is loaded too. Patch 1 has the detail, including why emit_imm() is a
+choice there and why the prologue length stays fixed across passes.
 
-Tested on OrangePi 4 Pro (Allwinner A733).
+RV32 does not declare support and keeps the existing behaviour; the
+prologue signature is unchanged, so bpf_jit_comp32.c needs no edit.
 
-Thanks,
-Alastair
+Changes since v3:
+ - Patch 3: Reviewed-by tag added.
+ - Rebased onto 8dfce13340ae.
+
+Changes since v2:
+ - Patch 1: PRIV_STACK_GUARD_VAL moved to bpf_jit.h.
+ - Patch 3: The test redone as two asm programs in
+   progs/verifier_stack_arg.c.
+
+Changes since v1:
+ - Patch 1 commit message: guard layout credited to arm64 and powerpc64,
+   value alone to x86-64; __per_cpu_offset described as a choice.
+ - Patch 3: test_private_stack_runtime() renamed to
+   serial_test_private_stack_runtime(), and the stack argument skip
+   prints a reason.
+
+Testing
+=======
+QEMU virt rv64, an 8 vCPU SMP kernel and a 1 vCPU UP kernel, both built
+at the head of this series on the base commit below, source tree clean,
+selftests built from these patches. There are no private-stack related
+failures, and the private-stack suites logged no BUG, WARNING, unknown
+opcode or guard corruption.
+
+ - verifier_private_stack, struct_ops_private_stack.
+ - tailcalls, stack_arg, subprogs, fentry_fexit, percpu_alloc,
+   async_stack_depth, arena_atomics, stack_arg_precision.
+ - verifier_stack_arg, including patch 3's test.
+ - may_goto_priv_stack, may_goto_far, verifier_may_goto_1,
+   verifier_may_goto_2.
+ - on SMP, scx_simple and the sched_ext runner sweep: 40 cases, 39 pass.
+   enable_cmask fails because its ops.enable() takes a struct scx_cmask
+   __arena pointer and riscv64 does not implement
+   bpf_jit_supports_arena_args().
+ - patch 3's test again on x86-64 and arm64, so all three architectures
+   it is gated on have run it.
+
+Chen Pei (3):
+  riscv: bpf: Add BPF private stack support
+  selftests/bpf: Enable private stack tests for riscv64
+  selftests/bpf: Test a private stack together with stack arguments
+
+ arch/riscv/net/bpf_jit.h                      |  2 +
+ arch/riscv/net/bpf_jit_comp64.c               | 42 +++++++++-
+ arch/riscv/net/bpf_jit_core.c                 | 82 +++++++++++++++++--
+ .../bpf/prog_tests/struct_ops_private_stack.c |  3 +-
+ .../bpf/progs/verifier_private_stack.c        | 41 +++++++++-
+ .../selftests/bpf/progs/verifier_stack_arg.c  | 49 +++++++++++
+ 6 files changed, 205 insertions(+), 14 deletions(-)
+
+
+base-commit: 8dfce13340aeba06d1b68cc7648f37762244be65
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
