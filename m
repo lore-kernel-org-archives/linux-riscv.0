@@ -2,86 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C851606A32C
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 17:59:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91104606A327
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2026 18:02:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4nYURXex;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jnYqXGhh
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w0ML1Aup;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=euK18Za8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Sw6ecRDxVHuLJi0C5F/vylSxELu7r6G5Ly+qx0f1ZN8=; b=4nYURXexpo2VnBd28ZkC3tb3uD
-	YKEWR2Og4w3WkxR/9VhXwykIJinxNE34A9PU7F/9IWmbO20byVE1x+hpEU76BlVdFTBWhWBy/+aPA
-	OEjcifBC+S21ZIorb9DRI/ZPXbKfAy4KtIxy7muZrdTvpYnU+yNtKNN4YA/YqLL+0Pie81Pn10Oys
-	vlHskkZdEIKgueHeNMys6VHzK/zA+q+KyIpbzlQQu0ZoEiyneHCwgVYOcYhuIhggHc685A3mZXIzE
-	0D5peqaSjAqSOVAMTgTLMP/X1bQb3aWLzX+1sm27ObcNk05Dy1TKUVGBewBR6hj4yiv6DlcenTIc4
-	xf4WNXww==;
+	bh=0Qn72stTj3Urn4Pvt4zpAZWn5qTL/H/JZTLzETONi+8=; b=w0ML1AupURws4eCQCMnCK408dm
+	LHxBZnM5/8e9bsGVj3OKSwJiWeWuQMi1/xj0DqWg13jT01+GiGZ7W79V8JZ7dKcCq/3CNFLLTlOkb
+	WAT+hU4hYmLhcctb65qraLKD1yEvd8DSEkUf/Ljgng1JHmygrIPmMeP6HLUxq++kTTyKnRhGdkQNv
+	aXUz7VcwM+CRblA0Eu9jRkjzenIk56SeM2PW8e+kjmqOn3gHSyTGk/MWStF7F/3fHMmHhcrpsA836
+	AV4YurW0zyxoAGMbt+ynxnof5VN8Y/xeukITIElEYWxUXh6rDcsczlx5CgRsMvG5EPrRQyjd85RCB
+	d4TfCm2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWHHM-0000000AuAa-2FpH;
-	Wed, 25 Nov 2026 17:59:36 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1xWHKJ-0000000AvbS-1Eah;
+	Wed, 25 Nov 2026 18:02:39 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWHH6-0000000Au2s-06XB;
-	Wed, 25 Nov 2026 17:59:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795629560; x=1827165560;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3Q0eWoH0hqjK/+AffASRnzPWdWve09RRdkIHSFgQxy4=;
-  b=jnYqXGhhmXJ8BHq7/KPNjlc36O9TkkitxPtdTpnrAFLzh4trl5fVKmCK
-   WRw5dgTFCQIofLwCmsmBGqZNwCaYh5roRfOPxrG9h/9aByF2hsRiOmqvm
-   Vmk/qFoq9Ku0QQ5F1Il+m5h+6cZ49NMXz7mvmIFYMjyh1s0hu1eZA2S10
-   xwZIssLH5xsqYL7wQVaUtUSlxC/En/aziyVTJHw0V9VyyxMbmuXb1IiJ7
-   xaCd4u0iMTfMQn2ArtOAmH30T6x4DnYNG63LWX1i3UAVEY4gFiUfPYyNr
-   KpPdpdbdnkP2M8ZJvbNXMP2hAEIzQjRzNHCg9Dlm7DqBSpIh7S9d1pUzw
-   A==;
-X-CSE-ConnectionGUID: GSHuaEvrSBeLan9F24KVnw==
-X-CSE-MsgGUID: cALOGvh+QOKgh5/USLGB7g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4462400"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4462400"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:59:19 -0800
-X-CSE-ConnectionGUID: 6a6LIVAHRomgpZJMlg93nw==
-X-CSE-MsgGUID: A0u+DZzIQwOjdpZxlfyO0w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="13597397"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa012.fm.intel.com with ESMTP; 25 Nov 2026 09:59:14 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWHGw-00000001SGM-3o5J;
-	Wed, 25 Nov 2026 17:59:10 +0000
-Date: Thu, 26 Nov 2026 01:58:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Tan Chi <tanchi25@mails.ucas.ac.cn>, anup@brainfault.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, tj@kernel.org,
-	hannes@cmpxchg.org, mkoutny@suse.com, corbet@lwn.net,
-	skhan@linuxfoundation.org, rdunlap@infradead.org, yosry@kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, cgroups@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Tan Chi <tanchi25@mails.ucas.ac.cn>
-Subject: Re: [PATCH] RISC-V: KVM: Account G-stage page table memory
-Message-ID: <20261126015340.s7bzBtEB-lkp@intel.com>
-References: <20261125125024.1983082-1-tanchi25@mails.ucas.ac.cn>
+	id 1xWHKE-0000000AvSX-0Umi;
+	Wed, 25 Nov 2026 18:02:35 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 3F8E04E4178B;
+	Wed, 25 Nov 2026 17:53:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 11F2C60480;
+	Wed, 25 Nov 2026 17:53:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3407811E6B0CB;
+	Wed, 25 Nov 2026 18:53:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795629192; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=voL9T1Z3XGsgqOOZRJCgMdwANraTsa7bt67oUn9zWHQ=;
+	b=euK18Za8g+jR4jPPzVdC9Sb8FWmROFOxXu1Vue+OinDIz92TekRJynKuIYn2tedgMIcrnI
+	7PFZfnGPbaXMpRb10YjGK/VpP0FW8l6K9lS5/rchszGPcrzK1m1kAvEVIAUJx68cqrKGPp
+	oMvIwp8C+AmLH3JOuXmkv/MpctDiFscOEOInMDLrvg0jrFSBt9Y4KGy+p7ueS4LC+C6DY8
+	2VSSeZlaP9ToNrDeDmmPG50G+V41hSNVuRPLKu/ip+tHRJZQkbr81UPGjTrC7tq1kjL08B
+	0F4W8Ox0F4cN9gfQziGW8GcmZlDvGqoDN02vgdHkIi+PxFumAYy/NTlnKewLsw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Wed, 25 Nov 2026 18:51:30 +0100
+Subject: [PATCH RFC 16/16] mtd: spi-nor: Express the dummy phase in cycles
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20261125125024.1983082-1-tanchi25@mails.ucas.ac.cn>
+Message-Id: <20261125-macronix-upstreaming-spi-mem-cycles-v1-16-fd036402fd37@bootlin.com>
+References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+In-Reply-To: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
+ Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
+ Yu-Chun Lin <eleanor.lin@realtek.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Alvin Zhou <alvinzhou@mxic.com.tw>, 
+ Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
+ Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_095920_149815_4BA26774 
-X-CRM114-Status: GOOD (  11.74  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261125_100234_467360_20D8540C 
+X-CRM114-Status: GOOD (  17.49  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,81 +91,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Tan,
+SFDP tables and datasheets provide the number of dummy cycles, not the
+number of dummy bytes. Set dummy.ncycles directly instead of converting
+it to dummy.nbytes. Depending on controller capabilities, this may help
+supporting more use cases (typically Macronix 1S-8S-8S 20 dummy cycles)
+while performing less useless maths in the core.
 
-kernel test robot noticed the following build warnings:
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ drivers/mtd/spi-nor/core.c      | 36 ++++++++++--------------------------
+ drivers/mtd/spi-nor/core.h      |  8 ++++----
+ drivers/mtd/spi-nor/micron-st.c |  2 +-
+ drivers/mtd/spi-nor/spansion.c  |  6 +++---
+ 4 files changed, 18 insertions(+), 34 deletions(-)
 
-[auto build test WARNING on kvm-riscv/riscv_kvm_next]
-[also build test WARNING on linus/master next-20261124]
-[cannot apply to tj-cgroup/for-next kvm/queue kvm/next mst-vhost/linux-next kvm/linux-next v7.4-rc4]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Tan-Chi/RISC-V-KVM-Account-G-stage-page-table-memory/20261125-205023
-base:   https://github.com/kvm-riscv/linux.git riscv_kvm_next
-patch link:    https://lore.kernel.org/r/20261125125024.1983082-1-tanchi25%40mails.ucas.ac.cn
-patch subject: [PATCH] RISC-V: KVM: Account G-stage page table memory
-config: riscv-defconfig (https://download.01.org/0day-ci/archive/20261126/20261126015340.s7bzBtEB-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 2012344e5da8e03ea4b8283ecd6fad6e13f09d64)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126015340.s7bzBtEB-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261126015340.s7bzBtEB-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> arch/riscv/kvm/mmu.c:850:5: warning: implicit conversion from 'unsigned long' to 'int' changes value from 18446744073709551612 to -4 [-Wconstant-conversion]
-     849 |                 kvm_account_pgtable_pages(pgd,
-         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~
-     850 |                                 -(kvm_riscv_gstage_pgd_size >> PAGE_SHIFT));
-         |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning generated.
-
-
-vim +850 arch/riscv/kvm/mmu.c
-
-   827	
-   828	void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
-   829	{
-   830		struct kvm_gstage gstage;
-   831		void *pgd = NULL;
-   832		bool flush = false;
-   833	
-   834		write_lock(&kvm->mmu_lock);
-   835		if (kvm->arch.pgd) {
-   836			kvm_riscv_gstage_init(&gstage, kvm);
-   837			flush = kvm_riscv_gstage_unmap_all(&gstage);
-   838			pgd = READ_ONCE(kvm->arch.pgd);
-   839			kvm->arch.pgd = NULL;
-   840			kvm->arch.pgd_phys = 0;
-   841			kvm->arch.pgd_levels = 0;
-   842		}
-   843		write_unlock(&kvm->mmu_lock);
-   844	
-   845		if (flush)
-   846			kvm_flush_remote_tlbs(kvm);
-   847	
-   848		if (pgd) {
-   849			kvm_account_pgtable_pages(pgd,
- > 850					-(kvm_riscv_gstage_pgd_size >> PAGE_SHIFT));
-   851			free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
-   852		}
-   853	}
-   854	
+diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
+index a04d22d2e2e1..dcc36f532aaa 100644
+--- a/drivers/mtd/spi-nor/core.c
++++ b/drivers/mtd/spi-nor/core.c
+@@ -91,7 +91,7 @@ void spi_nor_spimem_setup_op(const struct spi_nor *nor,
+ 	if (op->addr.nbytes)
+ 		op->addr.buswidth = spi_nor_get_protocol_addr_nbits(proto);
+ 
+-	if (op->dummy.nbytes)
++	if (op->dummy.nbytes || op->dummy.ncycles)
+ 		op->dummy.buswidth = spi_nor_get_protocol_addr_nbits(proto);
+ 
+ 	if (op->data.nbytes)
+@@ -109,9 +109,6 @@ void spi_nor_spimem_setup_op(const struct spi_nor *nor,
+ 		op->dummy.dtr = true;
+ 		op->data.dtr = true;
+ 
+-		/* 2 bytes per clock cycle in DTR mode. */
+-		op->dummy.nbytes *= 2;
+-
+ 		ext = spi_nor_get_cmd_ext(nor, op);
+ 		op->cmd.opcode = (op->cmd.opcode << 8) | ext;
+ 		op->cmd.nbytes = 2;
+@@ -205,7 +202,7 @@ static ssize_t spi_nor_spimem_read_data(struct spi_nor *nor, loff_t from,
+ 	struct spi_mem_op op =
+ 		SPI_MEM_OP(SPI_MEM_OP_CMD(nor->read_opcode, 0),
+ 			   SPI_MEM_OP_ADDR(nor->addr_nbytes, from, 0),
+-			   SPI_MEM_OP_DUMMY(nor->read_dummy, 0),
++			   SPI_MEM_OP_DUMMY_CYCLES(nor->read_dummy, 0),
+ 			   SPI_MEM_OP_DATA_IN(len, buf, 0));
+ 	bool usebouncebuf;
+ 	ssize_t nbytes;
+@@ -213,11 +210,6 @@ static ssize_t spi_nor_spimem_read_data(struct spi_nor *nor, loff_t from,
+ 
+ 	spi_nor_spimem_setup_op(nor, &op, nor->read_proto);
+ 
+-	/* convert the dummy cycles to the number of bytes */
+-	op.dummy.nbytes = (nor->read_dummy * op.dummy.buswidth) / 8;
+-	if (spi_nor_protocol_is_dtr(nor->read_proto))
+-		op.dummy.nbytes *= 2;
+-
+ 	usebouncebuf = spi_nor_spimem_bounce(nor, &op);
+ 
+ 	if (nor->dirmap.rdesc) {
+@@ -418,22 +410,23 @@ int spi_nor_write_disable(struct spi_nor *nor)
+  * @nor:	pointer to 'struct spi_nor'.
+  * @naddr:	number of address bytes to send. Can be zero if the operation
+  *		does not need to send an address.
+- * @ndummy:	number of dummy bytes to send after an opcode or address. Can
+- *		be zero if the operation does not require dummy bytes.
++ * @ncycles:	number of dummy clock cycles to insert after an opcode or
++ *		address. Can be zero if the operation does not require dummy
++ *		cycles.
+  * @id:		pointer to a DMA-able buffer where the value of the JEDEC ID
+  *		will be written.
+  * @proto:	the SPI protocol for register operation.
+  *
+  * Return: 0 on success, -errno otherwise.
+  */
+-int spi_nor_read_id(struct spi_nor *nor, u8 naddr, u8 ndummy, u8 *id,
++int spi_nor_read_id(struct spi_nor *nor, u8 naddr, u8 ncycles, u8 *id,
+ 		    enum spi_nor_protocol proto)
+ {
+ 	int ret;
+ 
+ 	if (nor->spimem) {
+ 		struct spi_mem_op op =
+-			SPI_NOR_READID_OP(naddr, ndummy, id, SPI_NOR_MAX_ID_LEN);
++			SPI_NOR_READID_OP(naddr, ncycles, id, SPI_NOR_MAX_ID_LEN);
+ 
+ 		spi_nor_spimem_setup_op(nor, &op, proto);
+ 		ret = spi_mem_exec_op(nor->spimem, &op);
+@@ -741,7 +734,7 @@ int spi_nor_read_sr_ll(struct spi_nor *nor, u8 opcode, u8 *sr,
+ 
+ 		if (nor->reg_proto == SNOR_PROTO_8_8_8_DTR) {
+ 			op.addr.nbytes = nor->params->rdsr_addr_nbytes;
+-			op.dummy.nbytes = nor->params->rdsr_dummy;
++			op.dummy.ncycles = nor->params->rdsr_dummy;
+ 			/*
+ 			 * We don't want to read only one byte in DTR mode. So,
+ 			 * read 2 and then discard the second byte.
+@@ -2247,11 +2240,7 @@ static int spi_nor_spimem_check_readop(struct spi_nor *nor,
+ 
+ 	spi_nor_spimem_setup_op(nor, &op, read->proto);
+ 
+-	/* convert the dummy cycles to the number of bytes */
+-	op.dummy.nbytes = (read->num_mode_clocks + read->num_wait_states) *
+-			  op.dummy.buswidth / 8;
+-	if (spi_nor_protocol_is_dtr(read->proto))
+-		op.dummy.nbytes *= 2;
++	op.dummy.ncycles = read->num_mode_clocks + read->num_wait_states;
+ 
+ 	return spi_nor_spimem_check_read_pp_op(nor, &op);
+ }
+@@ -3492,7 +3481,7 @@ static int spi_nor_create_read_dirmap(struct spi_nor *nor)
+ 		.op_tmpl = &info.primary_op_tmpl,
+ 		.primary_op_tmpl = SPI_MEM_OP(SPI_MEM_OP_CMD(nor->read_opcode, 0),
+ 					      SPI_MEM_OP_ADDR(nor->addr_nbytes, 0, 0),
+-					      SPI_MEM_OP_DUMMY(nor->read_dummy, 0),
++					      SPI_MEM_OP_DUMMY_CYCLES(nor->read_dummy, 0),
+ 					      SPI_MEM_OP_DATA_IN(0, NULL, 0)),
+ 		.offset = 0,
+ 		.length = nor->params->size,
+@@ -3501,11 +3490,6 @@ static int spi_nor_create_read_dirmap(struct spi_nor *nor)
+ 
+ 	spi_nor_spimem_setup_op(nor, op, nor->read_proto);
+ 
+-	/* convert the dummy cycles to the number of bytes */
+-	op->dummy.nbytes = (nor->read_dummy * op->dummy.buswidth) / 8;
+-	if (spi_nor_protocol_is_dtr(nor->read_proto))
+-		op->dummy.nbytes *= 2;
+-
+ 	/*
+ 	 * Since spi_nor_spimem_setup_op() only sets buswidth when the number
+ 	 * of data bytes is non-zero, the data buswidth won't be set here. So,
+diff --git a/drivers/mtd/spi-nor/core.h b/drivers/mtd/spi-nor/core.h
+index 670182b3c2ad..11817280f650 100644
+--- a/drivers/mtd/spi-nor/core.h
++++ b/drivers/mtd/spi-nor/core.h
+@@ -19,10 +19,10 @@
+ #define SPI_NOR_DEFAULT_SECTOR_SIZE SZ_64K
+ 
+ /* Standard SPI NOR flash operations. */
+-#define SPI_NOR_READID_OP(naddr, ndummy, buf, len)			\
++#define SPI_NOR_READID_OP(naddr, ncycles, buf, len)			\
+ 	SPI_MEM_OP(SPI_MEM_OP_CMD(SPINOR_OP_RDID, 0),			\
+ 		   SPI_MEM_OP_ADDR(naddr, 0, 0),			\
+-		   SPI_MEM_OP_DUMMY(ndummy, 0),				\
++		   SPI_MEM_OP_DUMMY_CYCLES(ncycles, 0),			\
+ 		   SPI_MEM_OP_DATA_IN(len, buf, 0))
+ 
+ #define SPI_NOR_WREN_OP							\
+@@ -82,7 +82,7 @@
+ #define SPI_NOR_READ_OP(opcode)						\
+ 	SPI_MEM_OP(SPI_MEM_OP_CMD(opcode, 0),				\
+ 		   SPI_MEM_OP_ADDR(3, 0, 0),				\
+-		   SPI_MEM_OP_DUMMY(1, 0),				\
++		   SPI_MEM_OP_DUMMY_CYCLES(1, 0),			\
+ 		   SPI_MEM_OP_DATA_IN(2, NULL, 0))
+ 
+ #define SPI_NOR_PP_OP(opcode)						\
+@@ -652,7 +652,7 @@ int spi_nor_wait_till_ready(struct spi_nor *nor);
+ int spi_nor_global_block_unlock(struct spi_nor *nor);
+ int spi_nor_prep_and_lock(struct spi_nor *nor);
+ void spi_nor_unlock_and_unprep(struct spi_nor *nor);
+-int spi_nor_read_id(struct spi_nor *nor, u8 naddr, u8 ndummy, u8 *id,
++int spi_nor_read_id(struct spi_nor *nor, u8 naddr, u8 ncycles, u8 *id,
+ 		    enum spi_nor_protocol reg_proto);
+ int spi_nor_sr_ready(struct spi_nor *nor);
+ int spi_nor_read_sr_ll(struct spi_nor *nor, u8 opcode, u8 *sr,
+diff --git a/drivers/mtd/spi-nor/micron-st.c b/drivers/mtd/spi-nor/micron-st.c
+index f97f2dead8c2..34eb15c7d3b3 100644
+--- a/drivers/mtd/spi-nor/micron-st.c
++++ b/drivers/mtd/spi-nor/micron-st.c
+@@ -525,7 +525,7 @@ static int micron_st_nor_read_fsr(struct spi_nor *nor, u8 *fsr)
+ 
+ 		if (nor->reg_proto == SNOR_PROTO_8_8_8_DTR) {
+ 			op.addr.nbytes = nor->params->rdsr_addr_nbytes;
+-			op.dummy.nbytes = nor->params->rdsr_dummy;
++			op.dummy.ncycles = nor->params->rdsr_dummy;
+ 			/*
+ 			 * We don't want to read only one byte in DTR mode. So,
+ 			 * read 2 and then discard the second byte.
+diff --git a/drivers/mtd/spi-nor/spansion.c b/drivers/mtd/spi-nor/spansion.c
+index b1b14ed0fd46..72cc11d3f1d3 100644
+--- a/drivers/mtd/spi-nor/spansion.c
++++ b/drivers/mtd/spi-nor/spansion.c
+@@ -53,10 +53,10 @@
+ 		   SPI_MEM_OP_NO_DUMMY,					\
+ 		   SPI_MEM_OP_DATA_OUT(ndata, buf, 0))
+ 
+-#define CYPRESS_NOR_RD_ANY_REG_OP(naddr, addr, ndummy, buf)		\
++#define CYPRESS_NOR_RD_ANY_REG_OP(naddr, addr, ncycles, buf)		\
+ 	SPI_MEM_OP(SPI_MEM_OP_CMD(SPINOR_OP_RD_ANY_REG, 0),		\
+ 		   SPI_MEM_OP_ADDR(naddr, addr, 0),			\
+-		   SPI_MEM_OP_DUMMY(ndummy, 0),				\
++		   SPI_MEM_OP_DUMMY_CYCLES(ncycles, 0),			\
+ 		   SPI_MEM_OP_DATA_IN(1, buf, 0))
+ 
+ #define CYPRESS_NOR_EN4B_EX4B_OP(enable)				\
+@@ -115,7 +115,7 @@ static int cypress_nor_sr_ready_and_clear_reg(struct spi_nor *nor, u64 addr)
+ 
+ 	if (nor->reg_proto == SNOR_PROTO_8_8_8_DTR) {
+ 		op.addr.nbytes = nor->addr_nbytes;
+-		op.dummy.nbytes = params->rdsr_dummy;
++		op.dummy.ncycles = params->rdsr_dummy;
+ 		op.data.nbytes = 2;
+ 	}
+ 
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.56.0
+
 
 _______________________________________________
 linux-riscv mailing list
