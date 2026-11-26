@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3058606A326
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 14:12:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCC01606A323
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 14:19:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v/HIOIEB;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XM/v0L+X
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=agwAhr+2;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BLUHY1S2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,56 +14,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=RCYudPNIbWSzLcZWJeCEQFtolR2r2KsuSkW3ej7KQeQ=; b=v/HIOIEBgqgrUwZBClo8h9l/mn
-	DuRHE/aAXfkI3gUbDsx9AovBtkA73nC31YbIdxQ7fXJsM2jTq+QMiQQAovSv7nrdLq2J3V6zdD2XU
-	17PZnec4Y6eOxmwp+ggTykz23sYRHvR1CAaSrsbxYU2/5GQC0LzEAD7tqO2PSZLCG3GaNivdMgCYd
-	Dl1x+2j/sHeq6bypZTap15mBMOpJxONEAsXswL9sy/+XnFxz6Euvd+3Z5vBZ6X77tPXLmVxx8n4So
-	paKM2TWLNGa3p6yN+9xfWgKUcgZKTPJog7qepUIOj0gxV+vurgyuV8slOuEftCAQ7PAywFUs5QYww
-	Q3y8mjQg==;
+	bh=kSdxIvxwEULcGPDGl2gmOpkPx3xQM6UUp+VUKQuWPbs=; b=agwAhr+2h+b0N5Hzj3HzWZR8Ql
+	ACaZC2suMpIeqEo2LaGqFzf0WI5hF/3NNX87G1VdFGZqrBfoX2eYzo87qnaKUk6NFJCXG9DpEgNvR
+	XOCQYxyrtmgoDHoBYSNypkCpTfDFjWJbR5xhlgUZTpxZfLmnl0rDVhvZkFJo5wN3Y051EgkjqbHlZ
+	KeNsyeq1j+4HZX2UyXhChcJ6HirVfVwMfMtlyH96NaI1VQxGRzyfLpDgfdlRLGfBoO6r61c4nSBFN
+	o+6SXfJMvBp42+I1849rRNp1IxGBAecNnWfefCind9XqBdSv74Of2c55MMCe+/YuT6/zUQ8M4ojeV
+	xQm/3VgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWaDC-0000000DU8s-0rfe;
-	Thu, 26 Nov 2026 14:12:34 +0000
+	id 1xWaK2-0000000DWaQ-2xjO;
+	Thu, 26 Nov 2026 14:19:38 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWaD9-0000000DU8R-20mf
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Nov 2026 14:12:33 +0000
+	id 1xWaJy-0000000DWZp-1URy;
+	Thu, 26 Nov 2026 14:19:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9311D62DC7;
-	Thu, 26 Nov 2026 14:12:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F20F1F000C4;
-	Thu, 26 Nov 2026 14:12:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C28B63396;
+	Thu, 26 Nov 2026 14:19:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E06551F000C0;
+	Thu, 26 Nov 2026 14:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795702350;
-	bh=i2cNc8HSARC2wOejD22JDbD0mwhfJQiUlrWNB6pO/o4=;
+	s=k20260515; t=1795702773;
+	bh=0nlSHi0qFWi9gf0za/z/P+1+DL2gKRC6mZXAm1Oyf3Y=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XM/v0L+X45woIBgANOwNtHPPIUmqXvHJxQ6mG9ukfV9OpVWj+xy+U5/lLU6twpiv8
-	 I9moaYBWThXPieB8iVDdrgZRck2TaptOWDWaINkRf87Eq23OBBP4BTZHZiTLQF+6Dl
-	 3VoSl6+svsMEeJ2t/4eq+g6pv6fIyAc88iW1KHSuMke+N+vXD7PgYDbZOpIKcCeCBD
-	 LeBKC5ixNrN57C6ukG4KDBtar3YC/74xgGg7ZUoS6201lCrDlW5P4oZaRkM5OvGFkt
-	 8tKz+wqmdZnUid+GmJ08v/IpaXMQLzrmptGj3dz97OX8yyKN8C9vQpgSwH1Cha7eo+
-	 bzApLFZU5wIZA==
-Message-ID: <4b60cf7b-bf8f-42dc-979e-71fe6d00c5d1@kernel.org>
-Date: Thu, 26 Nov 2026 15:12:21 +0100
+	b=BLUHY1S2iF3IL/wCA6mm5j/UjKahg2kQz/XXqkCTlo45D8VOEi7G9QdsNEr9Wjspb
+	 f+sOX/wPQDZkC5aKMS5/mHYD5jT9u3LELLqDi1VkFSswNUTcTF84fd6TILyZlnKUQX
+	 az4k1Fhc398rwL0UL5/povcxQDycmhXbfAL11CxmERtfSYkbUfMNgPk2SDsx2LRoDn
+	 N1jeNgBWAf0q9fzPlzhuw6pd/MC08l2FQsl3AwKBZSqLsiNr8EuujbbjiJnYV/41Dh
+	 zMPRKzSu2x+L0FxiCikBccBJWrJJinfS8fCVjF6ipHLHZndP/d2nUx/v6dwpvPBdCD
+	 Xk2IwgWgvK91A==
+Message-ID: <682c765f-332f-4ac2-b448-4201c8fae6fc@kernel.org>
+Date: Thu, 26 Nov 2026 15:19:13 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/9] mm/mprotect: add MM_CP_PERM_UPGRADE
-To: =?UTF-8?Q?Carlos_L=C3=B3pez?= <clopez@suse.de>, kvm@vger.kernel.org,
- linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-riscv@lists.infradead.org, seanjc@google.com, pbonzini@redhat.com,
- akpm@linux-foundation.org, peterx@redhat.com, ljs@kernel.org,
- imbrenda@linux.ibm.com, borntraeger@linux.ibm.com, frankja@linux.ibm.com,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>
-References: <20261112142039.907090-2-clopez@suse.de>
- <20261112142039.907090-7-clopez@suse.de>
- <3314e44d-dbfe-45da-a1b0-8337784a5e86@kernel.org>
- <5412ba3a-ff32-48e8-b5a1-d46b97cf5f8f@suse.de>
+Subject: Re: [PATCH RESEND v2 12/21] mm/pgtable: redefine PGTABLE_LEVEL enum
+ with ascend order from PGD
+To: Yeoreum Yun <yeoreum.yun@arm.com>, Mike Rapoport <rppt@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>,
+ Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Barry Song <baohua@kernel.org>,
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
+ Wei Xu <weixugc@google.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski
+ <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-openrisc@vger.kernel.org
+References: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
+ <20261102-dummy_ptxp3-v2-12-78840b2ec73c@arm.com>
+ <awXD4i47F-VAG1tD@kernel.org> <awXc0MSZl9t9VW8e@e129823.arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -110,7 +127,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <5412ba3a-ff32-48e8-b5a1-d46b97cf5f8f@suse.de>
+In-Reply-To: <awXc0MSZl9t9VW8e@e129823.arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,39 +137,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-T24gMTEvMTUvMjYgMjM6MDMsIENhcmxvcyBMw7NwZXogd3JvdGU6Cj4gT24gMTEvMTMvMjYgNzo1
-MSBQTSwgRGF2aWQgSGlsZGVuYnJhbmQgKEFybSkgd3JvdGU6Cj4+PiBkaWZmIC0tZ2l0IGEvbW0v
-bXByb3RlY3QuYyBiL21tL21wcm90ZWN0LmMKPj4+IGluZGV4IDg0YmNmZTAyODFkMy4uOGMwZmNk
-MTBmNWEzIDEwMDY0NAo+Pj4gLS0tIGEvbW0vbXByb3RlY3QuYwo+Pj4gKysrIGIvbW0vbXByb3Rl
-Y3QuYwo+Pj4gQEAgLTc2Nyw2ICs3NjcsMTcgQEAgc3RhdGljIGNvbnN0IHN0cnVjdCBtbV93YWxr
-X29wcyBwcm90X25vbmVfd2Fsa19vcHMgPSB7Cj4+PiAgCS53YWxrX2xvY2sJCT0gUEdXQUxLX1dS
-TE9DSywKPj4+ICB9Owo+Pj4gIAo+Pj4gK3N0YXRpYyBib29sIHZtYV9mbGFnc19pc19wZXJtX3Vw
-Z3JhZGUodm1hX2ZsYWdzX3Qgb2xkX3ZtYV9mbGFncywKPj4+ICsJCQkJICAgICAgdm1hX2ZsYWdz
-X3QgbmV3X3ZtYV9mbGFncykKPj4KPj4gVHdvIHRhYiBpbmRlbnQuCj4gCj4gV2lsbCBmaXgKPiAK
-Pj4+ICt7Cj4+PiArCXZtX2ZsYWdzX3Qgb2xkID0gdm1hX2ZsYWdzX3RvX2xlZ2FjeShvbGRfdm1h
-X2ZsYWdzKTsKPj4+ICsJdm1fZmxhZ3NfdCBuZXcgPSB2bWFfZmxhZ3NfdG9fbGVnYWN5KG5ld192
-bWFfZmxhZ3MpOwo+Pj4gKwkvKiBWTV9BQ0NPVU5UIGRvZXMgbm90IGFmZmVjdCBwYWdlIHRhYmxl
-cyAqLwo+Pj4gKwl2bV9mbGFnc190IG1hc2sgPSBWTV9SRUFEIHwgVk1fV1JJVEUgfCBWTV9FWEVD
-IHwgVk1fQUNDT1VOVDsKPj4KPj4gV2h5IGlzIFZNX0FDQ09VTlQgYSBwZXJtaXNzaW9uIHVwZ3Jh
-ZGU/IEF0IGJlc3QgaXQncyAibm8gY2hhbmdlIi4KPj4KPj4gV2hhdCBhbSBJIG1pc3Npbmc/Cj4g
-Cj4gSXQgaXNuJ3QsIHRoaXMganVzdCBtZWFucyB0byBjb3ZlciB0aGUgY2FzZSB3aGVyZSBtcHJv
-dGVjdChQUk9UX1JFQUQgfAo+IFBST1RfV1JJVEUpIG9uIGEgcHJpdmF0ZSByZWFkLW9ubHkgVk1B
-IHNldHMgVk1fQUNDT1VOVCBhcyB3ZWxsLiBXaXRob3V0Cj4gdGhpcywgdGhlIGNoYW5nZSBpcyBu
-b3QgZGV0ZWN0ZWQgYXMgYW4gdXBncmFkZS4KCldoeSBpcyBzZXR0aW5nIFZNX0FDQ09VTlQgYW5k
-IHVwZ3JhZGUgZm9yIHBlcm1pc3Npb25zPyEKCkknbSBzb3JyeSBidXQgdGhpcyBpcyBhbGwgd2F5
-IHRvIHNoYWt5IGFuZCBjb25mdXNpbmcuCgpUYWtlIGEgc3RlcCBiYWNrIGFuZCB0aGluayBob3cg
-dG8gZG8gYWxsIG9mIHRoaXMgY2xlYW5seSB3aXRob3V0IG1ha2luZyB0aGlzCmNvZGUgaGVyZSB1
-bm1haW50YWluYWJsZSA6KQoKLS0gCkNoZWVycywKCkRhdmlkCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 11/24/26 19:52, Yeoreum Yun wrote:
+> On Tue, Nov 24, 2026 at 07:05:38PM +0200, Mike Rapoport wrote:
+>> On Mon, Nov 02, 2026 at 11:21:25AM +0000, Yeoreum Yun wrote:
+>>> The PGTABLE_LEVEL enum values appear to be ordered in the opposite direction
+>>> from their intended usage.
+>>>
+>>> Intuitively, higher page table levels should have smaller enum values,
+>>> but PTE is currently assigned 0.
+>>
+>> That's not what x86 thinks :)
+>> They even expose it in /proc/vmstat with smaller numbers meaning lower levels
+>>
+>> $ grep direct_map /proc/vmstat 
+>> direct_map_level2_splits 152
+>> direct_map_level3_splits 4
+>> direct_map_level2_collapses 0
+>> direct_map_level3_collapses 0
+>>
+>> Just an observation, I don't mind either order.
+> 
+> Right. I made this change because a depth-based scheme seems more intuitive.
+> 
+> As you pointed out, though, the x86 specification uses smaller
+> numbers (0) for lower levels (pte), so I think we can leave the
+> x86-specific direct_map_* entries as they are.
+
+patch #14 depends on this, no?
+
+-- 
+Cheers,
+
+David
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
