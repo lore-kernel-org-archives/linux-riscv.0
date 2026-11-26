@@ -2,86 +2,61 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08F0B606A31E
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 01:38:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC595606A31E
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 02:23:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Q7VmVaTG
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=P/6TcsHD;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SHAjJd0F
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bM4aQL66VlaZNF70v6+5EJdid9LkVHqMYZgMZmrl6yo=; b=Q7VmVaTG+wlxADJl2cx9s5HQgq
-	SoHDzsyMNzbeLgRE0/rpTpAH9GH5gzNajHHb4R8SOybubre3ucikPuhMI1Y7Nosce2stAbp+1INDU
-	nK2xEkB4ZMuqzPE5M/EvzBXM5YWOal/bm5VQHhHPdl1bu9GKBl53jCjFW/d3FhJLncBtjWueVUWit
-	JXybqo31SN3+k9vlqyFsYpPtQR+fjESsiFhiAwoW6Jmg6rsKHTJOJlLk0X4xUEUTCDa2q8Tgbby6u
-	55HkRJ+Z4UOu9JtvvrHVMhFy0z8tOb7B2jMY4woViFeAsnoWh5AwC+jmyglI3yUhk8KR7MxJT0bc5
-	/mjRMTAw==;
+	bh=i+Vpi6HtkZRQRMDonu0t0a84MckzcVq+UWO6ntXyXFQ=; b=P/6TcsHDv5EArvZTzJ91vKWHrs
+	UUixDI8p5Eyy2uZshHFxiS9pYaQBzdTzUE83E2F3oemMlvhvhrF9XUtw2UXuK9HBizQiscN9thOfC
+	Orwe0pmC9QtOJpqqVt3LIzPBOfe1yOE/WuX7yaQJzrP1UaXi3fdLNRViWF4Ojjp1uiaxyPYmg1NtV
+	HHAaDiyDt+cqV5VQJ/YADa6QMvaYqwcaqYAUEma+zWjnE4afepuM4zwu8zyEUp+0B8hMu7bWdk2AZ
+	8cEbJ6zh1qOpNeomKZTZen69ejE6gcsQ4eUY0SiqAx8XKN1gtjSuvl6UWBerdjkpuaYeRAbnYqjaw
+	IA0J7vdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWORP-0000000BoPF-0Pn3;
-	Thu, 26 Nov 2026 01:38:27 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1xWP8l-0000000Bsug-3dfi;
+	Thu, 26 Nov 2026 02:23:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWORK-0000000BoO3-1o27;
-	Thu, 26 Nov 2026 01:38:25 +0000
-Received: from k3-03 (unknown [159.226.43.8])
-	by APP-05 (Coremail) with SMTP id zQCowACXLrRqjQdrOdr2AQ--.256S2;
-	Thu, 26 Nov 2026 09:37:50 +0800 (CST)
-From: Tan Chi <tanchi25@mails.ucas.ac.cn>
-To: anup@brainfault.org
-Cc: atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	corbet@lwn.net,
-	skhan@linuxfoundation.org,
-	rdunlap@infradead.org,
-	yosry@kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	cgroups@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	tanchi25@mails.ucas.ac.cn,
-	lkp@intel.com
-Subject: [PATCH v2] RISC-V: KVM: Account G-stage page table memory
-Date: Thu, 26 Nov 2026 09:37:23 +0800
-Message-ID: <20261126013724.2533363-1-tanchi25@mails.ucas.ac.cn>
-X-Mailer: git-send-email 2.53.0
+	id 1xWP8k-0000000Bstz-35tM
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Nov 2026 02:23:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D357C61F76;
+	Thu, 26 Nov 2026 02:23:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E34881F000C6;
+	Thu, 26 Nov 2026 02:23:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795659793;
+	bh=tBAer5mbEI2P84gV03vcEYGxCO1YYBq7hUZEwgArDEU=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=SHAjJd0FqI1B2nYoUVany1KMvpDFyxjz0i964j5EBRmxNcAHQvq7X4oePGZqxKP6G
+	 72WES/LzM0hnxXM/eUCSHsuslAqXNG+9si8irb9Z+tWUTWTIbU3IaFL4Kh4ektg5Dt
+	 7SJ70/E0fp16HdBFSA1w1JjKs1sSZ4zXGQ6j8+MfC+3nAuAw7N0qLHZRze4GXreCTO
+	 gpHdqyoH6Uw33/Mq+ctfNcIlZEefRuZqetKGTc4IcRPFBaD5kDksfZy+8sWAcXR2IC
+	 hQigZMWMIN9b/9O/a+QS85e1Ey5sPHpGkXBqrC0oy95hNwFrAdBnu2EL0T+EHTGzrk
+	 1HkJ+Z+dDX7fA==
+Date: Wed, 25 Nov 2026 19:23:06 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Zishun Yi <vulab@iscas.ac.cn>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Kees Cook <kees@kernel.org>, Charlie Jenkins <charlie@rivosinc.com>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: Fix memory leak in apply_relocate_add
+In-Reply-To: <20260509115100.1879716-1-vulab@iscas.ac.cn>
+Message-ID: <a71f71b0-cdaa-4a14-55e2-6751881d3174@kernel.org>
+References: <20260509115100.1879716-1-vulab@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACXLrRqjQdrOdr2AQ--.256S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuFW5Xry7Kw13Cw4fJF4Utwb_yoW7uw13pF
-	WkC34S9w1rtr93Cr13JwnF9r13Ga95Gr45Ary29a45ZFsxtr9aywnYq342vF15Xr95Zayf
-	XrZIgFyYvr4vywUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPF14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxV
-	WxJr0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG
-	64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r
-	1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAq
-	YI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4
-	AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
-	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MI
-	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
-	14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJV
-	W8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRK38n
-	DUUUU
-X-CM-SenderInfo: pwdquxrlsvqzpdlo2hpxfd2hldfou0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261125_173822_866674_C1CADE55 
-X-CRM114-Status: GOOD (  14.66  )
-X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,168 +69,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-RISC-V KVM currently does not account G-stage page table memory
-in NR_SECONDARY_PAGETABLE.
+On Sat, 9 May 2026, Zishun Yi wrote:
 
-Use kvm_account_pgtable_pages() to account for the allocation and
-freeing of the root and lower-level page tables, including those
-allocated when splitting huge page mappings.
+> The error path in apply_relocate_add() forgets to clean up the hashtable
+> allocated at the beginning. But we should not use
+> process_accumulated_relocations() as a cleanup function because some
+> entries may be half-finished, and we cannot write incorrect values back
+> to memory.
+> 
+> So, add cleanup_accumulated_relocations() for freeing all memory
+> allocated in the error paths.
 
-This makes G-stage page table memory usage visible through
-SecPageTables in /proc/meminfo and sec_pagetables in the cgroup
-memory.stat interface.
+Thanks, queued for v7.5.
 
-Update the documentation accordingly.
 
-Tested on a RISC-V KVM host running under QEMU TCG with Sv57x4.
-The observed G-stage page table memory usage was:
-
-  100 empty VMs:                         1600 KiB
-  8 GiB sparsely mapped with 4 KiB pages: 16448 KiB
-  256 MiB mapped with 2 MiB pages:          36 KiB
-  After enabling dirty logging:           548 KiB
-
-The accounting in /proc/meminfo, /proc/vmstat and cgroup
-memory.stat matched the expected values and returned to zero
-after destroying the VMs.
-
-This reimplements the work originally proposed by Yosry Ahmed
-in 2022, adapted to the current G-stage MMU code.
-
-Link: https://lore.kernel.org/r/20220426053904.3684293-6-yosryahmed@google.com
-
-Signed-off-by: Tan Chi <tanchi25@mails.ucas.ac.cn>
----
-Changes in v2:
-- Use the allocation order to calculate the number of root page
-  table pages, fixing a Clang warning reported by the kernel test
-  robot.
-  https://lore.kernel.org/oe-kbuild-all/20261126015340.s7bzBtEB-lkp@intel.com/
-
- Documentation/admin-guide/cgroup-v2.rst |  4 ++--
- Documentation/filesystems/proc.rst      |  2 +-
- arch/riscv/kvm/gstage.c                 |  6 +++++-
- arch/riscv/kvm/mmu.c                    | 12 ++++++++----
- 4 files changed, 16 insertions(+), 8 deletions(-)
-
-diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
-index 9e3c67b02ae2..c79d6432ecc3 100644
---- a/Documentation/admin-guide/cgroup-v2.rst
-+++ b/Documentation/admin-guide/cgroup-v2.rst
-@@ -1591,8 +1591,8 @@ The following nested keys are defined.
- 
- 	  sec_pagetables
- 		Amount of memory allocated for secondary page tables,
--		this currently includes KVM mmu allocations on x86
--		and arm64 and IOMMU page tables.
-+		this currently includes KVM mmu allocations on x86,
-+		arm64 and riscv and IOMMU page tables.
- 
- 	  percpu (npn)
- 		Amount of memory used for storing per-cpu kernel
-diff --git a/Documentation/filesystems/proc.rst b/Documentation/filesystems/proc.rst
-index fa7a468e8edf..cd1a74da287c 100644
---- a/Documentation/filesystems/proc.rst
-+++ b/Documentation/filesystems/proc.rst
-@@ -1208,7 +1208,7 @@ PageTables
-               Memory consumed by userspace page tables
- SecPageTables
-               Memory consumed by secondary page tables, this currently includes
--              KVM mmu and IOMMU allocations on x86 and arm64.
-+              KVM mmu and IOMMU allocations on x86, arm64 and riscv.
- NFS_Unstable
-               Always zero. Previously counted pages which had been written to
-               the server, but has not been committed to stable storage.
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index 0aace3215d3e..f8841136d852 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -162,6 +162,7 @@ int kvm_riscv_gstage_set_pte(struct kvm_gstage *gstage,
- 				return -ENOMEM;
- 			set_pte(ptep, pfn_pte(PFN_DOWN(__pa(next_ptep)),
- 					      __pgprot(_PAGE_TABLE)));
-+			kvm_account_pgtable_pages(next_ptep, 1);
- 		} else {
- 			if (gstage_pte_leaf(ptep))
- 				return -EEXIST;
-@@ -357,6 +358,7 @@ bool kvm_riscv_gstage_split_huge(struct kvm_gstage *gstage,
- 
- 		set_pte(ptep, pfn_pte(PFN_DOWN(__pa(next_ptep)),
- 				__pgprot(_PAGE_TABLE)));
-+		kvm_account_pgtable_pages(next_ptep, 1);
- 
- 		if (flush)
- 			gstage_tlb_flush(gstage, current_level, addr);
-@@ -399,8 +401,10 @@ bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 		for (i = 0; i < PTRS_PER_PTE; i++)
- 			flush |= kvm_riscv_gstage_op_pte(gstage, addr + i * next_page_size,
- 							 &next_ptep[i], next_ptep_level, op);
--		if (op == GSTAGE_OP_CLEAR)
-+		if (op == GSTAGE_OP_CLEAR) {
-+			kvm_account_pgtable_pages(next_ptep, -1);
- 			put_page(virt_to_page(next_ptep));
-+		}
- 	} else {
- 		old_pte = *ptep;
- 		if (op == GSTAGE_OP_CLEAR)
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 6861c0e2728d..ab8d8c94a866 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -805,17 +805,18 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
- int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- {
- 	struct page *pgd_page;
-+	int order = get_order(kvm_riscv_gstage_pgd_size);
- 
- 	if (kvm->arch.pgd != NULL) {
- 		kvm_err("kvm_arch already initialized?\n");
- 		return -EINVAL;
- 	}
- 
--	pgd_page = alloc_pages(GFP_KERNEL_ACCOUNT | __GFP_ZERO,
--			       get_order(kvm_riscv_gstage_pgd_size));
-+	pgd_page = alloc_pages(GFP_KERNEL_ACCOUNT | __GFP_ZERO, order);
- 	if (!pgd_page)
- 		return -ENOMEM;
- 	kvm->arch.pgd = page_to_virt(pgd_page);
-+	kvm_account_pgtable_pages(kvm->arch.pgd, 1 << order);
- 	kvm->arch.pgd_phys = page_to_phys(pgd_page);
- 	kvm->arch.pgd_levels = kvm_riscv_gstage_max_pgd_levels;
- 	kvm->arch.pgd_split_page_cache.gfp_zero = __GFP_ZERO;
-@@ -828,6 +829,7 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- 	struct kvm_gstage gstage;
- 	void *pgd = NULL;
- 	bool flush = false;
-+	int order = get_order(kvm_riscv_gstage_pgd_size);
- 
- 	write_lock(&kvm->mmu_lock);
- 	if (kvm->arch.pgd) {
-@@ -843,8 +845,10 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- 	if (flush)
- 		kvm_flush_remote_tlbs(kvm);
- 
--	if (pgd)
--		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
-+	if (pgd) {
-+		kvm_account_pgtable_pages(pgd, -(1 << order));
-+		free_pages((unsigned long)pgd, order);
-+	}
- }
- 
- void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
-
-base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
--- 
-2.53.0
-
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
