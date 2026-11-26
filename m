@@ -2,155 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF785606A31E
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 09:58:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D87F8606A31C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 10:15:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jVMabJqX;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fYchbVi6;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PHPCE5I8
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gzrNJ5+U;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=yandex.ru header.i=@yandex.ru header.a=rsa-sha256 header.s=mail header.b=St3o9qMW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QN+hWW/IFSoCpHXE39/W6ceoKJEUzv40UFaZ0iVIIiw=; b=jVMabJqXMFL4sOgK98HhqmaP4e
-	uiLUQ4sDU2NG0dg5ip8Dr6Gcg1TnUDBciCwZ3xbb2SYwxCJXBYDnr8WkcCkz/8k9UjWQq0Z7aOIUO
-	IJmh2ViscgrLu7qlJi5xYdYjX0dHBPAtkT4Vwkd0QYoLaigZSa5gwOfe+gf1Sl4J1EoC7G2U4e2t8
-	jpWGl7kdfEAhY0ptrfFqzdQvwhAJaBkAotPX/oWQ40OX/UOqeNIT7QbC+R/LbsE6lp50S8HD1tpDX
-	XtBSoDWvZY0d61DeEhO6OOCfb4C8YIhgcMumQeqgx72V58G7ZzCRLrI+U1icEicuWht8NFWBUOZqU
-	br9REwug==;
+	bh=fLDOJ0kZ5GEIvxxftMYF2tGwGzxD49u1ccUfP607Jyc=; b=gzrNJ5+UWEmIdtTN8Nu1kyC44H
+	qaFrNiSap97ACpcOtHat6VZfPP8XwRQcmN6OY2MlArMA8jkjsNDmyziUBJqdfhQUTiOekKUSl/wvd
+	1fxB3TsUigrQG88YbbkeK7P1RZ+xQCiZSuSqFsPGOuAFd3PGA1czB1o6qlF/d8gBWks137BAHqZlk
+	o0i16ZShu15Q/l43dMiMVq4oqEraHjAdSlIjvJ0O+iBNqktGBdKvZw6SwsxCUnwI0sq/XzG2LGUcJ
+	UfOMreS82+0e1Ovh38DSXbobhpIJVAj1JL9BsIWnuk75FVJgdJwDcb33n91yhqbZ09vo8VWnY3+w4
+	sedjTdAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWWEt-0000000CfvA-1DPc;
-	Thu, 26 Nov 2026 09:58:03 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xWWVx-0000000Ciuf-05EZ;
+	Thu, 26 Nov 2026 10:15:41 +0000
+Received: from forward104e.mail.yandex.net ([2a02:6b8:c32:0:1:45:d181:d104])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWWEk-0000000Cfm9-2oZO
+	id 1xWWVt-0000000CiuH-3LZb
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Nov 2026 09:58:01 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7AxMi2175653
-	for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 09:57:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=V5bOdURA8FV
-	OA/hZUhmlwnRgu1GR98lkW/FXUKup9B8=; b=fYchbVi6CTlUVo/KWqt222aUOmj
-	UIZL198acvWlJ6kMbJkrCvQDUtc405cnb/zRUtd1/VGM/Q4G8g3pdGeAFAdwzeLK
-	E7y1drA7aOONrzRSAsDZrk3XLFJYg1YERgJp1Jrzy8H8dlbRBo/w0tve1ibl3EGk
-	LdUmYu/rckMwlq3u7ID8P5E4d8HkuTowOggACQHmQ5nzBosJl9/tXlUyZGpG5yua
-	jDyT083H+rjbxQ4t+DWTmuN2+huX4hYxM+/paL3sf3oi2B9epezozOFlZNyGbgW2
-	NYYDDxV0DwHYbP4a1U1P4LmtDP77X1nMW0bJ9/7ukTHYAciTM8d1Yk+Q+KA==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j61ahuvvr-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 09:57:54 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2f074b87307so41165875ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 01:57:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795687073; x=1796291873; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=V5bOdURA8FVOA/hZUhmlwnRgu1GR98lkW/FXUKup9B8=;
-        b=PHPCE5I8E/73gfQzenHeB0aH/VSLiw/hpI1HdLpWwt1KeULqGg07Aonzs0Lc/IcvEV
-         Z0kA/IlTeC5p6HMFI9TS8Peo4gI1lNWL80YJfoNefSDHc2LxiVPTYdBb+0V1rOZeZm1D
-         pG4ZeIULqLV92oz5F85GmT7ZSPLpDX6JvBnxA7F+6V3lJkkmo0s9QZECVmz/xlc0hmDI
-         91cqTE+jLstDn+lWr2+l7/n5vrbuYKuSzzHY9BRrXJtu6w4Ll8A3wlXzzVOWrH0VETIn
-         Lq2mW347SnA01i1ipu1o0jYAwPqx7t+3qOqYjhEDwebcxaXKWs4S0A7QRFNpEP+tVhEH
-         bE+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795687073; x=1796291873;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=V5bOdURA8FVOA/hZUhmlwnRgu1GR98lkW/FXUKup9B8=;
-        b=gq10ltzaeu6jF8Uq1pjOPq6kHD2pEQ85xePUbiLXvsZBbZoch1VAycAwDC8TDdWxl1
-         RignGus12zTm21eZ9BERy4o7ZVk3hQAwXtmlKPl2v2iUO6VVYSjU/LvBMB6mTQMjcEKl
-         q+05PttCPMR8H4cCeUWltpJdbpmXWt8nHI3kfjjxEs5xzdfcHs8RB0koAs6iAMDkm7/r
-         vvCUw9geUxGosuRbDW7McC0ykJZhY+VfvMZSMVQWe8euiuXfXeL4xyUT78M9QALS2MAY
-         Jj0/7Tr+hyqh+EcHW8V5OMl6m6mDhsQCv1mXCO5Atq6bs9wvJMS3ftnO+srq/xCZ5J59
-         h6kg==
-X-Forwarded-Encrypted: i=1; AL+hErFPGB7NzSKJKwKueQ6h8oc2+uWUXMJTmXChFGMmNEvqSryTCGKfeCD9mbrWSnhA8pJn5jmqA0QbyypZJQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9UDbk4UAJyDs4WgEcf357wocZSLLR3E/7dMAyoW8X/wuKlzZ/N
-	x9fqNU/l5MWAaIx1wT1ffYEfDhJoGrt/dokYZlyJo9hhS+O9UeYyKgSfBZCtrEsA8fRJa1yYCRq
-	eHYNWsP5CTZjuRgwTJiTuJK4J0EmCY4C0BH1fkiE/MUevRvSj/vw5qzYKL8YfinL7Z4yqni0=
-X-Gm-Gg: AZFdTZe/142BLTROHvMo3mGn4hRfGDd35pgjMYJ5D9yAii/+t/i/gc8qBgjrm+8XElx
-	jw+zjEmhlbMUDriF6sjLxq38eQmSHxFl80/0v/+ei2Ehrb9wWj5vK/aDoalnc8XuVwKgcw7oaxH
-	NKkQO6BrrDxd5PNVKJhpTxUwLxvK5Cf9JkUccVo+lvtFjBGt5WYJf5hzMWkI2cqkf8uBH8BlZFP
-	oBHMxu59885t1L37iiGLYJIDdRsWR62RAERXxtkqmBi+9fyXThxEBEyBkEyhifuWcRirxvXx8VP
-	LwDS3Kw3Ejl2Xy2aZXFB880pUrRPHtbrnqazGPg60Srj+UJwF1AoTlqe/+kszuMcOSk1W+uRd1x
-	0mgaZG2oiZNs7aJcga94jTlLZEyhToyRPNxxos9iqMmka6rG3OhBUXeBHK3dRWiJYioBxbJ5Ewg
-	P51IGoT/tr2+vUjLMCvLlziFXVXawzvA1ozO31G/JeSvoDDynqQUCxsEffxlgSGpdoN5cZa+0NV
-	Q==
-X-Received: by 2002:a17:90b:2b4c:b0:3b0:a7b5:c037 with SMTP id 98e67ed59e1d1-3b41c7b6145mr19812375a91.1.1795687073444;
-        Thu, 26 Nov 2026 01:57:53 -0800 (PST)
-X-Received: by 2002:a17:90b:2b4c:b0:3b0:a7b5:c037 with SMTP id 98e67ed59e1d1-3b41c7b6145mr19812358a91.1.1795687072994;
-        Thu, 26 Nov 2026 01:57:52 -0800 (PST)
-Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b41abb2076sm32459030a91.2.2026.11.26.01.57.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:57:52 -0800 (PST)
-From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Greg KH <gregkh@linuxfoundation.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Ian Rogers <irogers@google.com>
-Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
-        Anup Patel <anup.patel@oss.qualcomm.com>,
-        Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
-        Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        Mayuresh Chitale <mchitale@gmail.com>,
-        Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
-        Andrew Jones <andrew.jones@oss.qualcomm.com>,
-        Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Zane Leung <liangzhen@linux.spacemit.com>
-Subject: [PATCH v7 14/14] MAINTAINERS: Add entry for RISC-V trace framework
-Date: Thu, 26 Nov 2026 15:25:35 +0530
-Message-ID: <d5087c1c7ce28317339739df2fbbfcaa5838243d.1795512532.git.mayuresh.chitale@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1795512532.git.mayuresh.chitale@oss.qualcomm.com>
-References: <cover.1795512532.git.mayuresh.chitale@oss.qualcomm.com>
+	Thu, 26 Nov 2026 10:15:40 +0000
+Received: from mail-nwsmtp-smtp-production-main-65 (mail-nwsmtp-smtp-production-main-65.yp-c.yandex.net)
+	by forward104e.mail.yandex.net (postfix) with ESMTPS id 31936C04DE;
+	Thu, 26 Nov 2026 13:15:30 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-65 with ESMTPSA id LFfZVbOZPKo0-3Nht8b5V;
+	Thu, 26 Nov 2026 13:15:28 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
+	t=1795688128; bh=6VTmwgM3jPKMLJbdQSkA0PURopOAUivqXzDuEiYHuBc=;
+	h=Message-ID:Date:Cc:Subject:To:From;
+	b=St3o9qMW7b6FGt3QVXZ+sR5crQHhMxjWWD8KpmP+YUgHArLoHAOSj8atGzyDYbGHK
+	 DXlV9v7nq/Wd+BTGJ4AhuYJ+N2CU2kLvLX8+X5l6CpMcIkzwKI1c9TKqLHHxGG0SAc
+	 igH0K59CQHb9qPK71TzLgvw8jAFFAe4z3FLlUVT8=
+Authentication-Results: mail-nwsmtp-smtp-production-main-65; dkim=pass header.i=@yandex.ru
+From: Dmitry Antipov <dmantipov@yandex.ru>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	Dmitry Antipov <dmantipov@yandex.ru>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] efi/libstub: fix building loongarch32 without zboot enabled
+Date: Thu, 26 Nov 2026 13:14:52 +0300
+Message-ID: <20261126101452.590895-1-dmantipov@yandex.ru>
+X-Mailer: git-send-email 2.56.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Proofpoint-GUID: lGnBO2Y7qn_w36dtv5SbSxA6OZcVbpcP
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzOCBTYWx0ZWRfX6Pleyf6TsnAu
- o+3QluPH4lHcfHIP9tgDt+Ks5kImaYCTpNZxnWTmHt7u/A21YKndSlCIv5H7BCQVj70+qOZqW9K
- bQXuWT700rBNo82WaDV98chZ54u9rcM=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzOCBTYWx0ZWRfX9FQldOki0ptW
- WuNp+tkpBb91TJFYmN5DEz+O95nHtLCdRgde7hEuofG4+DhIrxdCd3gtNz6vKy+PbDd0jthBvVh
- guJWSiMDkDrWnU1Xsrdw0YLexff1GUVYx+PEPMFeYqrcQH7P/SK9BIKyqb9Gq1TxzJYHWFR99F4
- HOIUxTDs1gBvllhjZvYSXW+VKApkCBBx+MOJYKQuIOXfljtcqI6WgX0FlGYoxd3z0VdKaRAHv3y
- ANIrYNvJbXDi+4CDQX3l1R4v9lN+2RUmKaH7AYqC401t6goxAUkZywSHISwnY1NY4k1gwFLaaR8
- 6wHopVSyNTeMsNssas2TfS+GNf5pyGK5neb7Dnr8GN4oUF8fre4D1rwfDASPWb9iZW50eFItk2H
- P4hPrhkI0gIw5ExDDU7JEAkwIPl87j8sQdIwwWJtiCIk0ALEtoKo17W5oNyoaQDJXNSpeO5X/XT
- 0LK20AYUBNvEZV8jelw==
-X-Proofpoint-ORIG-GUID: lGnBO2Y7qn_w36dtv5SbSxA6OZcVbpcP
-X-Authority-Analysis: v=2.4 cv=BbxNQbt2 c=1 sm=1 tr=0 ts=6b0802a2 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
- a=pGLkceISAAAA:8 a=W-_n0kkjAAAA:8 a=JfrnYn6hAAAA:8 a=UgJECxHJAAAA:8
- a=hzgbeqSfhi83Ps7mpaYA:9 a=GvdueXVYPmCkWapjIL-Q:22 a=qeNa2pbTr82C0GpJEZFS:22
- a=1CNFftbPRP8L7MoqJWF3:22 a=-El7cUbtino8hM1DCn8D:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 malwarescore=0 spamscore=0 phishscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261126_015754_740579_2BE7791C 
-X-CRM114-Status: GOOD (  11.66  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261126_021538_372036_52863B4C 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,47 +77,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Anup Patel <anup.patel@oss.qualcomm.com>
+Kernel test robot has reported the following error observed on loongarch:
 
-Add Mayuresh and myself as maintainers for the gtrace framework and
-its RISC-V trace drivers.
+loongarch64-linux-ld: ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L47':
+__efistub_cmdline.c:(.init.text+0x258): undefined reference to `__efistub___ashldi3'
+loongarch64-linux-ld: __efistub_cmdline.c:(.init.text+0x268): undefined reference to `__efistub___lshrdi3'
 
-Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
+Since this happens with CONFIG_EFI_GENERIC_STUB enabled but
+CONFIG_EFI_ZBOOT disabled, tweak loongarch32 build to hook
+extra library objects on the former rather than latter. And
+this quirk seems no longer neeeded on riscv32 because it has
+architecture-specific implementations of ashldi3() and lsrdi3()
+which are aliased to corresponding EFI stubs via
+arch/riscv/kernel/image-vars.h.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/20261122125352.gAcg5yLx-lkp@intel.com/
+Fixes: 442082297e3d ("riscv: fix building compressed EFI image")
+Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
 ---
- MAINTAINERS | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ drivers/firmware/efi/libstub/Makefile | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 742c4e6b291f..e582686ab218 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -24318,6 +24318,17 @@ F:	include/dt-bindings/power/thead,th1520-power.h
- F:	include/dt-bindings/reset/thead,th1520-reset.h
- F:	include/linux/firmware/thead/thead,th1520-aon.h
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index bbab12b8eb4b..77f0d3047b95 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -97,11 +97,11 @@ CFLAGS_zboot-decompress-gzip.o	+= -I$(srctree)/lib/zlib_inflate
+ zboot-obj-$(CONFIG_KERNEL_ZSTD)	:= zboot-decompress-zstd.o lib-xxhash.o
+ CFLAGS_zboot-decompress-zstd.o	+= -I$(srctree)/lib/zstd
  
-+GTRACE FRAMEWORK AND RISC-V TRACE DRIVERS
-+M:	Mayuresh Chitale <mchitale@gmail.com>
-+M:	Anup Patel <anup@brainfault.org>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
-+F:	drivers/hwtracing/gtrace/*
-+F:	include/linux/gtrace*
-+F:	tools/perf/arch/riscv/util/auxtrace.c
-+F:	tools/perf/util/gtrace*
+-zboot-riscv-obj-$(CONFIG_32BIT)	:= lib-ashldi3.o lib-lshrdi3.o
+-zboot-obj-$(CONFIG_RISCV)	+= lib-clz_ctz.o $(zboot-riscv-obj-y)
+-zboot-loongarch-obj-$(CONFIG_32BIT) := lib-ashldi3.o lib-lshrdi3.o
+-zboot-obj-$(CONFIG_LOONGARCH)	+= lib-clz_ctz.o $(zboot-loongarch-obj-y)
+-lib-$(CONFIG_EFI_ZBOOT)		+= zboot.o $(zboot-obj-y)
++extra-loongarch-obj-$(CONFIG_32BIT)	:= lib-ashldi3.o lib-lshrdi3.o
++extra-obj-$(CONFIG_LOONGARCH)	+= $(extra-loongarch-obj-y)
++lib-$(CONFIG_EFI_GENERIC_STUB)	+= $(extra-obj-y)
 +
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
- M:	Jack Wang <jinpu.wang@ionos.com>
++lib-$(CONFIG_EFI_ZBOOT)		+= zboot.o
+ 
+ lib-$(CONFIG_UNACCEPTED_MEMORY) += unaccepted_memory.o bitmap.o find.o
+ 
 -- 
-2.43.0
+2.56.1
 
 
 _______________________________________________
