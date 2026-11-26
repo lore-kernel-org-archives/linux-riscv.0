@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C41E606A697
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:22:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FA35606A32A
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:22:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FOMqOvCG;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oK4AqxJG
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=d7bk8Nm/;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MdONGc5D
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,41 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=P2KlINRTqKHdL8MRMd0a9LaVHkF3xgGnKquy1Mmvw7Q=; b=FOMqOvCGA/AFV/QSNS82i20tmX
-	N7Wii7kr8H4Aijmk3eclFFMVbCT/C/PVBR0fRiaf2ocdJXzhVhTSO/f/iNQqS+5NETN8q3Lti+lNf
-	zLusApgES21M06Oi52nA0GDc0uIHbTwoi5jHPXgIHAD2NC3v89eEqySb1La3ad0Jht53hsjPGQDGf
-	TCVH7VLg6YFK9/I/fzZj4ZWlcYu71oPu7jef8MKRf96dOCvJM0xI51Q5ceiKoOxx44IjrIPxZcjeC
-	PfKyEXHDYwfxd5IGv+VDZtKNojTcmGBVLwTRmeRtO5hf03l/DbDIVjNbWoy99RTuJNmBOPyq8zkd6
-	PIQh2YwQ==;
+	bh=mUbuSjFDVb9PNlLxl5qcy3twGdMyDQIGZ8nbm7vXXmg=; b=d7bk8Nm/DhP/Dur8lz/+En9Epj
+	QpVqFF7lfstBxxjAdSu4m8XLpS26k635OpiafGi+EEs317CrGxfqNeQryTAzo7qFy7N2NV86jm5EW
+	3qehmGz/f+ImNjl2U559jMKTWSpu0hghQT66nkVqeNkunYSs6h77YP8XDOfL0lCFr4TmTgUaeB3Ei
+	u6AqYhJglYdBb+VmMCwMva6iE9IUtA9lFfllU/P3yD2vKZP7eSkcLzr2MDUoHc8cR9x1jyGxQ52gi
+	3iWClKo888TXgRn5hMCFAKlep3+IeZ4sZ7POFxtiCT9sho44dtufpykG13PGoBH+KoNnB2L9MvSEC
+	kBtdM3cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXYc-0000000Cxiy-1ABl;
-	Thu, 26 Nov 2026 11:22:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xWXYh-0000000Cxst-2JVh;
+	Thu, 26 Nov 2026 11:22:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXXO-0000000CwRl-3Huf;
-	Thu, 26 Nov 2026 11:21:14 +0000
+	id 1xWXXY-0000000CwW0-1Zw5;
+	Thu, 26 Nov 2026 11:21:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 174A66338E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1184943D04;
+	Thu, 26 Nov 2026 11:21:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E1641F000C0;
 	Thu, 26 Nov 2026 11:21:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52F331F000F0;
-	Thu, 26 Nov 2026 11:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795692073;
-	bh=acVZadH+VFBFC1d1dLbutXfDJETNRTgRtEhv1loN3Kc=;
+	s=k20260515; t=1795692083;
+	bh=oczPXoX6LmrOL71NJs0ylkVxm4d3C/x+BrDR38WYHaE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=oK4AqxJGy9uqp40xlP/Jc0iEDwgFDT9uMRNK+Zl8qcl8G0bhKbCFVgHRfykGfNWh7
-	 rtJNH451csTci9e1tSOqJ5qyT8T6vptgOd9P041BiJa0SV5y21pqGOAEXr1+d+1WCS
-	 cIpdBKH1Fy/CULw7Wl50ENc3s+c3GzFxSO5iYs+XhEAWpLIAX9icNKRJR3koOxCV0Z
-	 mHqfTR7sjYIttOG7RyHW9UfPkEmc9uo53WuWB6vqHW+ROeoi9ZN6xtbRTt34C0QJDV
-	 AQKxlsm/4KiSBcg5omjktitzKas7r73CDVkNZYMMMl3IfwUGRR6riIvMyHQ81TcoJ/
-	 UqKiSDECBOiuA==
+	b=MdONGc5D6rm4fAIyBNnofa7zpl+ADVHNhC4NDJwfkNfn8091gbfJmZAzoRVlM/UAl
+	 38krRg5mk0qAmdNSn25jievEXiTiFYMnALk5q/eCta1QCgZ9gXPatAvYcRG58uVVBE
+	 3wm4HYstziFwb74euNhfATKEVwYpu+Z970spJ7A+TWt8ilM4sCBjHWuMBCVIPGSzRx
+	 /6zudqAJDsL4am9+DVg43+2gXxLgl6UsPiaIN70VlmvNQeb+uYNXnrQTMkVGavd135
+	 nxFSo02+WGH/4IoofGf/gRphDaH3v6Nduf1B5F3XSAOCSmOauduVMTOdJZelQ13K7m
+	 +/5p7bR7Qt+Hg==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:55 +0200
-Subject: [PATCH RFC v2 42/54] riscv: count the mappings of the linear map
+Date: Thu, 26 Nov 2026 13:14:56 +0200
+Subject: [PATCH RFC v2 43/54] mm/pageattr: let an architecture allocate the
+ page tables for a split
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-generic-set-memory-v0-1-v2-42-723f1e33c3d8@kernel.org>
+Message-Id: <20261126-generic-set-memory-v0-1-v2-43-723f1e33c3d8@kernel.org>
 References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 To: linux-mm@kvack.org
@@ -94,129 +95,81 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The CPA core keeps a counter of the linear map entries at every page table
-level and displays the "Breakdown of page table sizes used in the kernel's
-identity mapping of RAM" in /proc/meminfo.
+The core allocates the page table for a split with pte_alloc_one_kernel()
+and pmd_alloc_one(). s390 cannot use them.
 
-When a large mapping is split, the counters of the split level and the one
-below are updated as well as direct_map_level2_splits or
-direct_map_level3_splits event counters displayed in /proc/vmstat.
+vmem_map_init() write protects the kernel image before the page allocator
+is up, so a split at that time has to allocate from memblock.
 
-The initial updates for these counters happen when an architecture creates
-its linear map.
+A fallback to memblock in the core would not be enough. With CMMA, the
+decompressor marks all memory as no-DAT, and a page has to be switched back
+to DAT before it is used as a page table.
 
-riscv doesn't seed these counters, so the CPA core cannot update them
-during a split, and the split events stay at zero.
+vmem_pte_alloc() and vmem_crst_alloc() do both: they fall back to memblock
+and initialize the page.
 
-Count the linear map when it is created at boot and on memory hot-plug and
-hot-remove.
+Memory hot-remove frees the tables of the identity map with
+vmem_free_pages(), so a segment table in the identity map has to come from
+vmem_crst_alloc() rather than from pmd_alloc_one().
 
-Report the counters in /proc/meminfo, as x86 and s390 do.
+Let an architecture provide arch_cpa_alloc_pgtable() and
+arch_cpa_free_pgtable().
+
+There are no users yet. s390 will use them when it switches to the core.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/riscv/mm/init.c     | 20 ++++++++++++++++++++
- arch/riscv/mm/pageattr.c | 15 +++++++++++++++
- 2 files changed, 35 insertions(+)
+ include/linux/pageattr.h | 6 ++++++
+ mm/pageattr.c            | 6 ++++--
+ 2 files changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index e1bcc3a16129..b466db515ee1 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -28,6 +28,9 @@
- #include <linux/kfence.h>
- #include <linux/execmem.h>
- #include <linux/vmemmap-optimization.h>
-+#ifdef CONFIG_MMU
-+#include <linux/pageattr.h>
-+#endif
- 
- #include <asm/alternative.h>
- #include <asm/fixmap.h>
-@@ -1201,6 +1204,15 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	pt_ops_set_fixmap();
+diff --git a/include/linux/pageattr.h b/include/linux/pageattr.h
+index 091408ad328f..1a4e7c5dca98 100644
+--- a/include/linux/pageattr.h
++++ b/include/linux/pageattr.h
+@@ -111,6 +111,12 @@ static inline int arch_cpa_split_leaf(struct cpa_data *cpa,
  }
+ #endif
  
-+static enum pgtable_level __meminit linear_map_level(uintptr_t map_size)
-+{
-+	if (map_size == PUD_SIZE)
-+		return PGTABLE_LEVEL_PUD;
-+	if (map_size == PMD_SIZE)
-+		return PGTABLE_LEVEL_PMD;
-+	return PGTABLE_LEVEL_PTE;
-+}
++#ifndef arch_cpa_alloc_pgtable
++void *arch_cpa_alloc_pgtable(struct cpa_leaf *leaf);
 +
- static void __meminit create_linear_mapping_range(phys_addr_t start, phys_addr_t end,
- 						  uintptr_t fixed_map_size, const pgprot_t *pgprot)
- {
-@@ -1214,6 +1226,7 @@ static void __meminit create_linear_mapping_range(phys_addr_t start, phys_addr_t
- 
- 		create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
- 				   pgprot ? *pgprot : pgprot_from_va(va));
-+		direct_map_count_update(linear_map_level(map_size), 1);
- 	}
- }
- 
-@@ -1599,6 +1612,8 @@ static void __meminit remove_pte_mapping(pte_t *pte_base, unsigned long addr, un
- 		pte_clear(&init_mm, addr, ptep);
- 		if (is_vmemmap)
- 			free_vmemmap_storage(pte_page(pte), PAGE_SIZE, altmap);
-+		else
-+			direct_map_count_update(PGTABLE_LEVEL_PTE, -1);
- 	}
- }
- 
-@@ -1620,6 +1635,8 @@ static void __meminit remove_pmd_mapping(pmd_t *pmd_base, unsigned long addr, un
- 			pmd_clear(pmdp);
- 			if (is_vmemmap)
- 				free_vmemmap_storage(pmd_page(pmd), PMD_SIZE, altmap);
-+			else
-+				direct_map_count_update(PGTABLE_LEVEL_PMD, -1);
- 			continue;
- 		}
- 
-@@ -1648,6 +1665,9 @@ static void __meminit remove_pud_mapping(pud_t *pud_base, unsigned long addr, un
- 				pud_clear(pudp);
- 				if (is_vmemmap)
- 					free_vmemmap_storage(pud_page(pud), PUD_SIZE, altmap);
-+				else
-+					direct_map_count_update(
-+						PGTABLE_LEVEL_PUD, -1);
- 			}
- 			continue;
- 		}
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index bb8629da0d1d..22826ba688c3 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -5,12 +5,27 @@
- 
- #include <linux/pageattr.h>
- #include <linux/pgtable.h>
-+#include <linux/proc_fs.h>
- #include <linux/vmalloc.h>
- #include <linux/cacheflush.h>
- #include <asm/tlbflush.h>
- #include <asm/bitops.h>
- #include <asm/set_memory.h>
- 
-+#ifdef CONFIG_PROC_FS
-+void arch_report_meminfo(struct seq_file *m)
-+{
-+	unsigned long levels = BIT(PGTABLE_LEVEL_PTE);
-+
-+	if (IS_ENABLED(CONFIG_64BIT))
-+		levels |= BIT(PGTABLE_LEVEL_PMD);
-+	if (pgtable_l4_enabled())
-+		levels |= BIT(PGTABLE_LEVEL_PUD);
-+
-+	cpa_report_meminfo(m, levels);
-+}
++void arch_cpa_free_pgtable(struct cpa_leaf *leaf, void *table);
 +#endif
 +
- void arch_cpa_decode_leaf(struct cpa_leaf *leaf)
+ #ifndef cpa_is_direct_map
+ static inline bool cpa_is_direct_map(unsigned long addr)
  {
- 	pte_t pte = ptep_get(leaf->kpte);
+diff --git a/mm/pageattr.c b/mm/pageattr.c
+index 2f357a8c24d2..e05281a2b169 100644
+--- a/mm/pageattr.c
++++ b/mm/pageattr.c
+@@ -249,7 +249,8 @@ static pte_t *cpa_lookup(struct cpa_data *cpa, unsigned long address,
+ 	return leaf->kpte;
+ }
+ 
+-static void *arch_cpa_alloc_pgtable(struct cpa_leaf *leaf)
++#ifndef arch_cpa_alloc_pgtable
++void *arch_cpa_alloc_pgtable(struct cpa_leaf *leaf)
+ {
+ 	if (leaf->level == PGTABLE_LEVEL_PMD)
+ 		return pte_alloc_one_kernel(&init_mm);
+@@ -257,13 +258,14 @@ static void *arch_cpa_alloc_pgtable(struct cpa_leaf *leaf)
+ 	return pmd_alloc_one(&init_mm, leaf->addr);
+ }
+ 
+-static void arch_cpa_free_pgtable(struct cpa_leaf *leaf, void *table)
++void arch_cpa_free_pgtable(struct cpa_leaf *leaf, void *table)
+ {
+ 	if (leaf->level == PGTABLE_LEVEL_PMD)
+ 		pte_free_kernel(&init_mm, table);
+ 	else
+ 		pmd_free(&init_mm, table);
+ }
++#endif
+ 
+ static int should_split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf)
+ {
 
 -- 
 2.53.0
