@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5996E606A330
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:18:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2E98606A323
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:19:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hvQeC+Fa;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cDUnZJ4u
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lbrTCS8/;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dcA/LQZJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,42 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=UurElQ2QAl47Lcn2Seh49ntzvz9HF5TSkw457PjIayU=; b=hvQeC+FaOFdoHhh6B7Sje8W3XT
-	cdJjVO5sf/GJF+z+xt+IEFcrd8LwuaaCh91IqBlyjKA9Q7gR32oi/dQ560FI+XMmkoGeqPldv5oBN
-	f2kiP9VYlIl3F8jOfTz74XC25ncins1zv8d5V4k8XOBrzX8QNtA9BM8893prZDJVyc3WOHaLSzAkL
-	2yb7sNmkByOQijWoZuTAaq4V/RQyy/p4AOOA4/M91aKEUsujKVO8jVFFbgD407YtCNQ3kOSrF/8BV
-	Da5Dk57HmKhABd4jkbcrNdX30UAahdXgwnqvezu1cXPPcq+DQNJt+yq36qIKxA5DabCXbwokV5GL9
-	xNzUU1eg==;
+	bh=v5J5FTyCfMabigPE5T0MzTT6K/AvOSXj4bPXSrbwVHY=; b=lbrTCS8/oQZxLZWy+Y4KdBvpoB
+	vYqul1HYgKVRAivISdhit+KSUi0PdyhxhyCBUP3GOhf/hqhEVMFv4u8KGy4EQK6BYpppl2dAaBNOO
+	nsw1ryJcrG5bvZfDrt4z8sLOVuDY7F/vIemAPJ7v8gZroyElB+nRYVJ4smXHG14poTchXT4frFQPr
+	n+7ZIWwE+PXS1IBTuC+3iIuWWfVDVb/gTFtUakoYQHLOx0mEdqDTcsNVaWpc32K6lro5u5sQEPp+n
+	0cq5DIAG7Sxjt0o8EqrU/95GFzIcT0/aX+YzvSU3DRqEUoKcevXGwkbx5encORA0LSS4WlMI8NH4P
+	mo3/TWIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXUx-0000000Ctkb-1DxB;
-	Thu, 26 Nov 2026 11:18:43 +0000
+	id 1xWXVD-0000000CuAf-3Ern;
+	Thu, 26 Nov 2026 11:18:59 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXUJ-0000000Csub-2uqZ;
-	Thu, 26 Nov 2026 11:18:06 +0000
+	id 1xWXUc-0000000CtJZ-1sap;
+	Thu, 26 Nov 2026 11:18:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6859244156;
-	Thu, 26 Nov 2026 11:18:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C72051F000F4;
-	Thu, 26 Nov 2026 11:17:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FB18433ED;
+	Thu, 26 Nov 2026 11:18:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612A11F000EB;
+	Thu, 26 Nov 2026 11:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691883;
-	bh=LuNg/+IqwDeUPgc4V4ONbexk5EhrBaEXT2bA4fFnVk0=;
+	s=k20260515; t=1795691901;
+	bh=ZILZfKisda6VydMd2eX+gp7jxSdYsZR8fHOcYz6Cqew=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=cDUnZJ4uBXhYX+uCkx+TJWJMvuT4HdvtrIKy9YiOGubEbW2WpKhS7HgZHvOCnBP9n
-	 UdLkBCN6aehYkFqrEm4ektZzoNieAkCVohQY0jrHFfUd5fNnqkAQ9UQc8vVBMSFymi
-	 aP0MitFMb+lHpiJ/8DQRnNuJ6+YWVKLLF+rOzyKpj2w/hsZfCoJ6EHl2IME8K1iGPZ
-	 WIDk+cGgvkbKtKRvs8On0tR4pdUNkEd/M2TmEUWHjsxXBBRjMBBQeSlAk6JqWDPfUP
-	 Bd//4zNaBlwKksvSBxOr5bBzuABsGs0npCyMCO4HNgEaoTe0b1igiIjsFbaryo4Uhi
-	 bMeTZBhOSNX6Q==
+	b=dcA/LQZJNTRxAXYiSO3ecetRk8UeUJ6G6eowyblPb3SceghWJPlB47dy81dO3ekpo
+	 8zDVpbCPPwxS+gP2aWUtngwOLnVGrkWp3lbRZc00nMGGvENyrC+LUZsSkDTGn2a/Df
+	 Ykat0AJi7F5ysyrmoP735e9b3JtJOJkyBZb/r31kMWVXdrscOhgdsETzfdXnYLy3Oa
+	 9MLDBL0FuPwbh5GLhPshgP2x2ZO3LV6BIDUNOwy6XdbqpNWoRFGlguk+SsxHNgl76s
+	 ing/lUECgznOONlhV/K97ITTVUhM1RAQes1Mo/It0ScWnHTtRza5jJ7IGIDCXcwDNm
+	 NDSCBoaFdVjlw==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:35 +0200
-Subject: [PATCH RFC v2 22/54] x86/mm/pat: consolidate calculation of the
- new protection
+Date: Thu, 26 Nov 2026 13:14:37 +0200
+Subject: [PATCH RFC v2 24/54] x86/mm/pat: detect unchanged mappings by
+ comparing protections
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-generic-set-memory-v0-1-v2-22-723f1e33c3d8@kernel.org>
+Message-Id: <20261126-generic-set-memory-v0-1-v2-24-723f1e33c3d8@kernel.org>
 References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 To: linux-mm@kvack.org
@@ -95,110 +95,64 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The large page path and the PTE path of CPA both apply the request masks to
-the current protection and then run static_protections() and verify_rwx()
-on the result. Each path spells the arguments differently.
+CPA decides whether a mapping changes by encoding the new page table entry
+and comparing it with the existing one.
 
-The generic core will need this calculation as a hook.
+It would be suboptimal to encode actual entries in the generic code for
+every comparison of the existing, requested and new protections, as every
+architecture would need one more out-of-line hook for it.
 
-Move it to cpa_req_prot() and cpa_new_prot() and use them in both PTE and
-PxD paths.
+cpa_leaf by definition has the decoded protection which can be used in
+comparisons.
+
+Compare the new protection with the decoded one and encode only the page
+table entries that are written, as the last step.
+
+Encoding masks out the bits the CPU does not support and _PAGE_GLOBAL bit
+of a non-present entry, comparing protections does not. set_memory_global()
+on a CPU without PGE or on a non-present page now rewrites the PTEs with
+the same value and flushes the TLB. Its only caller changes the kernel
+text, which is always present, once at boot.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/mm/pat/set_memory.c | 54 +++++++++++++++++++++++++++++---------------
- 1 file changed, 36 insertions(+), 18 deletions(-)
+ arch/x86/mm/pat/set_memory.c | 14 +++-----------
+ 1 file changed, 3 insertions(+), 11 deletions(-)
 
 diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 304b7ad26c45..cb503e41340b 100644
+index 0a2d19064f23..f4d3e2d9c3c9 100644
 --- a/arch/x86/mm/pat/set_memory.c
 +++ b/arch/x86/mm/pat/set_memory.c
-@@ -1085,6 +1085,38 @@ static pte_t cpa_pte(enum pgtable_level level, unsigned long pfn, pgprot_t prot)
- 	return pfn_pte(pfn, prot);
- }
- 
-+static pgprot_t cpa_req_prot(const struct cpa_data *cpa,
-+			     const struct cpa_leaf *leaf)
-+{
-+	return __pgprot((pgprot_val(leaf->prot) & ~pgprot_val(cpa->mask_clr)) |
-+			pgprot_val(cpa->mask_set));
-+}
-+
-+static pgprot_t cpa_new_prot(struct cpa_data *cpa, struct cpa_leaf *leaf)
-+{
-+	pgprot_t prot = cpa_req_prot(cpa, leaf);
-+	enum pgtable_level level = leaf->level;
-+	unsigned long size = leaf->size;
-+	unsigned long addr = leaf->addr;
-+	pgprot_t old_prot = leaf->prot;
-+	unsigned long pfn = leaf->pfn;
-+	int warnlvl = CPA_PROTECT;
-+	unsigned long lpsize = 0;
-+	unsigned long numpages;
-+
-+	numpages = size >> PAGE_SHIFT;
-+
-+	if (level != PGTABLE_LEVEL_PTE) {
-+		warnlvl = CPA_DETECT;
-+		lpsize = size;
-+	}
-+
-+	/* A PTE hands in lpsize = 0 to enforce the protection mechanism */
-+	prot = static_protections(prot, addr, pfn, numpages, lpsize, warnlvl);
-+
-+	return verify_rwx(cpa, old_prot, prot, addr, pfn, numpages);
-+}
-+
- static int should_split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf)
- {
- 	unsigned long address = __cpa_addr(cpa, cpa->curpage);
-@@ -1114,9 +1146,7 @@ static int should_split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf)
- 	if (numpages < cpa->numpages)
- 		cpa->numpages = numpages;
- 
--	req_prot = old_prot;
--	pgprot_val(req_prot) &= ~pgprot_val(cpa->mask_clr);
--	pgprot_val(req_prot) |= pgprot_val(cpa->mask_set);
-+	req_prot = cpa_req_prot(cpa, leaf);
- 
- 	/*
- 	 * old_pfn points to the large page base pfn. So we need to add the
-@@ -1148,11 +1178,7 @@ static int should_split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf)
- 	 * Check whether the requested pgprot is conflicting with a static
- 	 * protection requirement in the large page.
- 	 */
--	new_prot = static_protections(req_prot, lpaddr, old_pfn, numpages,
--				      psize, CPA_DETECT);
--
--	new_prot = verify_rwx(cpa, old_prot, new_prot, lpaddr, old_pfn,
--			      numpages);
-+	new_prot = cpa_new_prot(cpa, leaf);
- 
- 	/*
- 	 * If there is a conflict, split the large page.
-@@ -1873,20 +1899,12 @@ static int __change_page_attr(struct cpa_data *cpa)
+@@ -1917,26 +1917,18 @@ static int __change_page_attr(struct cpa_data *cpa)
+ 		return __cpa_process_fault(cpa, address);
  
  	if (leaf.level == PGTABLE_LEVEL_PTE) {
- 		pte_t old_pte = *leaf.kpte;
--		pgprot_t old_prot = leaf.prot;
--		pgprot_t new_prot = leaf.prot;
-+		pgprot_t new_prot;
+-		pte_t old_pte = *leaf.kpte;
+ 		pgprot_t new_prot;
  		unsigned long pfn = leaf.pfn;
- 		pte_t new_pte;
+-		pte_t new_pte;
  
--		pgprot_val(new_prot) &= ~pgprot_val(cpa->mask_clr);
--		pgprot_val(new_prot) |= pgprot_val(cpa->mask_set);
--
  		cpa_inc_pte_install();
--		/* Hand in lpsize = 0 to enforce the protection mechanism */
--		new_prot = static_protections(new_prot, address, pfn, 1, 0,
--					      CPA_PROTECT);
+ 		new_prot = cpa_new_prot(cpa, &leaf);
 -
--		new_prot = verify_rwx(cpa, old_prot, new_prot, address, pfn, 1);
-+		new_prot = cpa_new_prot(cpa, &leaf);
- 
+-		/*
+-		 * We need to keep the pfn from the existing PTE,
+-		 * after all we're only going to change its attributes
+-		 * not the memory it points to
+-		 */
+-		new_pte = cpa_pte(leaf.level, pfn, new_prot);
+ 		cpa->pfn = pfn;
  		/*
- 		 * We need to keep the pfn from the existing PTE,
+ 		 * Do we really change anything ?
+ 		 */
+-		if (pte_val(old_pte) != pte_val(new_pte)) {
+-			set_pte_atomic(leaf.kpte, new_pte);
++		if (pgprot_val(new_prot) != pgprot_val(leaf.prot)) {
++			set_pte_atomic(leaf.kpte,
++				       cpa_pte(leaf.level, pfn, new_prot));
+ 			cpa->state |= CPA_ST_FLUSHTLB;
+ 		}
+ 		cpa->numpages = 1;
 
 -- 
 2.53.0
