@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B02D60A3812
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 09:07:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77E43606A695
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 09:07:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ghJ4NFSI;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=WI6muSmC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ll9dbsq1;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=XpbVz7Ie
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,72 +14,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nxU7z3N1xzuwj4QGKRdk5YlYDdi83IySdnM9sh65vyw=; b=ghJ4NFSIC4DLnawEaraxcIqSbO
-	0Necag1pci57CGVxh51fdoz1blL+cQDb9yPJuMQjtTvzfMfuUKFx24gJK+BLyUazd9bLhNQ3snbZl
-	wgPlnfmZST2ArWyVagacOcoKqAZPld09/epLBRiyP37UNgdkPk3VQWLGZVgTbkLeXr8aJ7zASX1rS
-	ESaSEQ2VUFr07WrNvi2DSn2noZYSSZd10n8E2l+5xQ5pkD79jHALwl0olm0Y5WdRmAJvN9kgfb5Yz
-	yoaUJK70e+lQCwI81pMcTu6R8vWJsrYFsM7EP7+vTHRBxAnJZtA9kG+0Zhn6EUD2MGtgpb2y/FTQc
-	+HBmBZTg==;
+	bh=kcMCnXLS3/xblOjLVOd7S4dM8pJQpj9X6gOPwYcZ/Ls=; b=ll9dbsq1+HR1ZQTDqMFFuXC1zR
+	4EU4nsvgYev7tdyYs9obcA0PZv+K08GF5YK4+ottmHLfv1ZP+I8wsjbEemZk7Mw1Q2gd7v5QBy/r3
+	kETwR2W+0pL90ipCLw6hjt2VDa/PMR+tVd0MULh/PwQGzcKcmI/cjFds2RjnELDTGGxFmBjreB8tJ
+	j1VEq17bQtLRzI8bnFvrCXN3AbevmYjBQjCppRbB/6urz/0f6DN0QYaSKI/umsA0/bMKlPCGYoBsW
+	viZhxbF+8ksQfexpn0CDfcACF6mbbmo/06bL+/FpCR+QUzBAZInFnhcS6/UlzvbzDTfgXocWBbiQC
+	JGUwT+ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWVRx-0000000CU4z-0bx6;
-	Thu, 26 Nov 2026 09:07:29 +0000
-Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
+	id 1xWVRw-0000000CU4n-3IES;
+	Thu, 26 Nov 2026 09:07:28 +0000
+Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWVRt-0000000CU2j-39py
+	id 1xWVRr-0000000CU20-3bjv
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Nov 2026 09:07:27 +0000
-Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-38692f62b22so8497000eec.0
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 01:07:25 -0800 (PST)
+	Thu, 26 Nov 2026 09:07:25 +0000
+Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-386bd881d39so6507406eec.1
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 01:07:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1795684045; x=1796288845; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1795684043; x=1796288843; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FwKsnhSZQ8XFeHSv0eyjguQWfHByolFJAVMuMClJrgY=;
-        b=WI6muSmCnYvJ/ALIh5e4jD3zxnf0RM23hDj17JVemNyjE9x3hZ5fKOR1GBT/NR50PI
-         bgkW3KmvFHy1/XatUuZPGxn1mRrZ473VHprSFrBN7q2Ze5Inz14wWInSvjMV9cdc9rAC
-         0KCROuMHEmY+j9sqlYcJb5qydpwmPKKlooST1rKUZnkZ9JiatLFAL7ib0nCHRJ9bi9Z0
-         bOLTM+bdznuFvVC75ShNn4BT/9xf60tBvKsjpLBlm+M/AeNYGfsGIKpgr1dDe9naReXR
-         6FPAot8rqR8fw84vgWzol1PxKdlRgQvpTseV0e6ZIGAzPiFM6muTHIiZTHSx5CT+ZVSQ
-         iz0w==
+        bh=jN1kVMysduhM1CTMvsxUGOmjxBfuDSc8t5gMB3kEQI0=;
+        b=XpbVz7IeDfGNzaGBe+kn8McYSxJg3I11ynrF6OXuMIUkaMD0Dh0xJZxtVYMQRumGqY
+         vkYb2RNehz0DksKkDJleSbmZBYsTS3PmOmn3NdcUEm+pA9dwcarWmLDTAgJH+Lx9Sm9e
+         UjnVzCCpGBqn09yx6d61Bf8rO0LaAv0WLn0Ymme6hD4L9XYZVp7l4l/gToqjv5tvChhe
+         aJvYL7UFCnZbb352vFTv7gLIehgPEezn9FpITzdwj5EDoceoPee3ct4y3Q6TIfWTd9yN
+         ZPfdsg078mS21+0jjPQLVMIOI8lu5rfWNiuct/6VJKZreCTvO2ZH7HJ2W6XB0ppB4+sy
+         P6fA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795684045; x=1796288845;
+        d=1e100.net; s=20260707; t=1795684043; x=1796288843;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=FwKsnhSZQ8XFeHSv0eyjguQWfHByolFJAVMuMClJrgY=;
-        b=zVT4owHia283B9AZqxzDkkicM+WTpzE71zzXc0u8AkcD5XG/+s3KL5PdjL/Dy3zEvO
-         p6D3lFNrrMprGkTJ1t141DqEddNLJTuK8Jff6girp45JLWipOZPntTEIsm4G4pUCzEcp
-         jySHFZv93KiYZZ7cKRM3XA9f++/+zuqeHH4lNS7qFiggy8KOGVwz5mp6IfwsWZLCUbr9
-         bIqfWxhsrNEIGoRejKrNw8k9475oBSYDTRiRiIfMuB8/PR62XwzaX8C68RDHQwU5Ie6z
-         G86QGR//nF5byskIzFwkjMt742ZpuwCT0MlC6vLZXw5irkn5YkWhDUXtI9A+JFEULPhd
-         LiPg==
-X-Gm-Message-State: APuU4Z8JsiPOSKe2TkV8IbvY25Ju9HPzDMxo4wveQ9GzT0pYHxWoQ4j6
-	bCpn0VUgy9dC1uZwEZ4fvN0Ii20R1iw+cA8pr3uEaOj+Hm0H5Eom8qZXxtZT58GBk+k=
-X-Gm-Gg: AZFdTZdeqTiPAt2m5F/sBNR5fvW7lqMKbpczv5YXcovc1Oc24DvgHoLb6p+Ujne4FOQ
-	2P5SDh60e7tYt2GmEgWj4D4lWNypbFp+CsntCo59wM9fWyY2zL91AWtdNx2Yv4IRwda2IUBZlxL
-	dC33w9ABnRcmzXtj5uubr6zaDi4J+EccKNGzHXd7DbKe9UJntZvDub0o65NTPOQ1SLqlFs2dA73
-	XPBzlah4SGs7kfPZpRr9gPSwpKm+VXvlEMckG2gKY0piZHv9uNlLKqw6vF20Ty9sD8G6ARms+6V
-	5FsG8rVuSfWFoirxR+I+Il2Tf7Q4SRAdd2AoL4uf5C8rlcdXv04ggFV0BBg93xJ2NqjSar1uEap
-	2Gn8XpW/R7iaxcl1lFXNahyOU+6UbFxQKfvZm4AyLZhrKU1Wa3OQMWwKN4fT6OKnJQS2zo9zu+Y
-	KiJs+RoWNuRBfQymJ0LOEPMlCvBqgYiBK9HsI9TywJgpeWVd1B6aab8vi/OvN61J1Hd/yCGiREZ
-	0F61UwRC2cKXmQVvW/MgIdtRRw9SWtO9JTdzav3wecPX6ylPqI6xEMkycMbFf6ixz6J9wFd6O7M
-	MwvimxvTv6mpSu5PTi7H/A7Ggcw5tMwM6ukTdFOEUSPF
-X-Received: by 2002:a05:7301:dd86:b0:351:2958:1740 with SMTP id 5a478bee46e88-3856fb641famr20691278eec.37.1795684044736;
-        Thu, 26 Nov 2026 01:07:24 -0800 (PST)
+        bh=jN1kVMysduhM1CTMvsxUGOmjxBfuDSc8t5gMB3kEQI0=;
+        b=kcULI0FQDS1Av1dK847GuTISyQyYoODNAxL4INUvClK28+27S2KlPaHqlJZ8t5Jdvi
+         yH+eSl3rJO2ugY75+MT+zVIEyvC79WWE6DR9kLVALDH4phju9RA9LrWzg6XEEh5ZQW6K
+         oWcPkYLv50IPdwSMqVHi3zQfrZLZmMT/RF8JJ/taNCl6v1aGDHAHWJyLK1iYT/Vt54RZ
+         C5XDJZFIyoRbuo82F1po39WU1sU/pxnD6AbMBiLD2FJW9fR24gJxdH2sXH4lELw1hL97
+         OT5CvqhHfZ4XLqEhnw8uPNXGYc+xpvo+rigYHMu03XnRA30MiNOpVoRpN4PiSmlbyP/z
+         pm9A==
+X-Gm-Message-State: APuU4Z/a9Zge6ZZfpW7SOS1LFBIW+xw7kfo/Xf0LlCMAuY1nEzLN39Xo
+	9pnCa96kLRSSuSnsxp/HwN2Lxxr7zM2FASNEKVWYOUK74AJ98BK47ZnPgIh14MBXYus=
+X-Gm-Gg: AZFdTZe63mwsiEdmsoYwhdhFQI7FBmvlg3+NBQsCYHgqJkhvENgdNmfjq/TL14Lrj1e
+	yOxx1GoFJ/RpfjCqhaRvdUPiKpnRJUEytfwYsPhILWwUfp1hDWgYRz3y0RDF/kT1Pi+EuLHUY5P
+	ydC9UmcCZfzRTcGymeplBKT9ApiZxvF7RsWmzB9Xwhy/rDfGx4NeXbqcezljJfehoRESAnVifX7
+	ktGIsW01qwTrfHb+gxV0OcNefFxxAigP9ufa/AUyb6qsKFtz+4wMAZcf4GIl0kTCb9ef9NKys/+
+	oQhuwKzZSTnIpw8vuAgRQt4SosZhM5P2vT5ekxDLbTY4I9dPE9nY3TKol+4tE0JQ7wKmNIkecwL
+	TB4E/kLZCeTtDGIjitRilyJ90kmipwsM+JQlWn3LUqOQPbk87+KDK92JEcw3a3G/4PO3fn3g6Ow
+	F+v9rBEd6cmK+suKzS0uSyco3VxPjLpCC2bzkHdWCsMZbhKwlhSnYT1EJaIDqc3DAnUQgwcpbIt
+	e9LfQXgRncstz/9nsaiKTRGB/nYXNmXr4fKbiIaBeReIdTdjNWvGraMtAiAFOsN3thWvELtPXKF
+	wj7DlC/vxU9S6N5xc8t3G/ZtfyiOA4yLmI7k3sUasAM7
+X-Received: by 2002:a05:7301:416:b0:356:7ddb:2e54 with SMTP id 5a478bee46e88-38570f27b33mr21020696eec.29.1795684042660;
+        Thu, 26 Nov 2026 01:07:22 -0800 (PST)
 Received: from sw08.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm54058730eec.8.2026.11.26.01.07.23
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm54058730eec.8.2026.11.26.01.07.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:07:24 -0800 (PST)
+        Thu, 26 Nov 2026 01:07:22 -0800 (PST)
 From: Leo Yu-Chi Liang <leo.liang@sifive.com>
-Date: Thu, 26 Nov 2026 01:07:09 -0800
-Subject: [PATCH 03/10] gtrace: rvtrace: Add pre-ratified private data
- callback
+Date: Thu, 26 Nov 2026 01:07:07 -0800
+Subject: [PATCH 01/10] dt-bindings: riscv: Add SiFive pre-ratified trace
+ components
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-send-preratified-trace-v1-3-1e686fd75be7@sifive.com>
+Message-Id: <20261126-send-preratified-trace-v1-1-1e686fd75be7@sifive.com>
 References: <20261126-send-preratified-trace-v1-0-1e686fd75be7@sifive.com>
 In-Reply-To: <20261126-send-preratified-trace-v1-0-1e686fd75be7@sifive.com>
 To: Mayuresh Chitale <mchitale@gmail.com>, Anup Patel <anup@brainfault.org>, 
@@ -97,8 +97,8 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  huangyifeng@eswincomputing.com, darshan.prajapati@einfochips.com
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261126_010725_838106_945D5DBE 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20261126_010723_907822_A7BF9FFF 
+X-CRM114-Status: GOOD (  14.44  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,18 +121,15 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Eric Lin <eric.lin@sifive.com>
 
-For pre-ratified trace hardware, a trace component might support
-different trace sinks, and its trace sink availability information
-is embedded within the implementation register.
+Add compatible strings for the SiFive pre-ratified encoder and funnel
+trace components. These implement version 0.x of the RISC-V trace
+specification and do not support the generic riscv,trace-component
+fallback.
 
-Introduce a get_data() callback function in 'struct rvtrace_match_data'
-to retrieve the component's supported trace sink features and store
-this information in the gtrace component ID data (comp->id.data). This
-allows the driver to access the pre-ratified hardware capabilities
-during setup.
-
-While at it, zero-initialize the on-stack gtrace_component_id so that
-id.data is never left uninitialized for ratified components.
+A pre-ratified component with an embedded RAM sink can use a reserved
+memory region for its trace buffer, as the sink registers restrict the
+buffer to a single 4GB window. Add an optional memory-region property
+for this.
 
 Co-developed-by: Nick Hu <nick.hu@sifive.com>
 Signed-off-by: Nick Hu <nick.hu@sifive.com>
@@ -141,151 +138,131 @@ Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Eric Lin <eric.lin@sifive.com>
 Signed-off-by: Leo Yu-Chi Liang <leo.liang@sifive.com>
 ---
- drivers/hwtracing/gtrace/rvtrace-platform.c | 10 ++++++++++
- drivers/hwtracing/gtrace/rvtrace-v0.c       | 22 ++++++++++++++++++++++
- drivers/hwtracing/gtrace/rvtrace-v0.h       | 22 ++++++++++++++++++++++
- drivers/hwtracing/gtrace/rvtrace.h          |  4 ++++
- 4 files changed, 58 insertions(+)
+ .../bindings/riscv/riscv,trace-component.yaml      | 96 ++++++++++++++++++++--
+ 1 file changed, 89 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/hwtracing/gtrace/rvtrace-platform.c b/drivers/hwtracing/gtrace/rvtrace-platform.c
-index 8c1503bd8d98..b9b256d469e2 100644
---- a/drivers/hwtracing/gtrace/rvtrace-platform.c
-+++ b/drivers/hwtracing/gtrace/rvtrace-platform.c
-@@ -71,6 +71,7 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
- 	u32 impl, type, major, minor;
- 	struct device_node *node;
- 	struct resource *res;
-+	void *data = NULL;
- 	int gtype;
- 	int ret;
+diff --git a/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml b/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
+index bb519bc4a163..10660b8ce071 100644
+--- a/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
++++ b/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
+@@ -16,16 +16,23 @@ description:
+   The RISC-V trace components have implementation specific directed acyclic
+   graph style interdependency where output of one component serves as input
+   to another component and certain components (such as funnel) can take inputs
+-  from multiple components. The type and version of a RISC-V trace component
+-  can be discovered from it's IMPL memory mapped register hence component
+-  specific compatible strings are not needed.
++  from multiple components. While the type and version of a RISC-V trace component
++  can be discovered from it's IMPL memory mapped register, specific compatible strings
++  are used for pre-ratified trace components.
  
-@@ -126,6 +127,12 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
- 	else
- 		impl = gtrace_read32(pdata, RVTRACE_COMPONENT_IMPL_OFFSET);
+ properties:
+   compatible:
+-    items:
+-      - enum:
+-          - qemu,trace-component
+-      - const: riscv,trace-component
++    oneOf:
++      - items:
++          - enum:
++              - qemu,trace-component
++          - const: riscv,trace-component
++      - items:
++          - const: sifive,trace-encoder0
++        description: SiFive Pre-ratified Encoder Trace Component
++      - items:
++          - const: sifive,trace-funnel0
++        description: SiFive Pre-ratified Funnel Trace Component
  
-+	if (match_data->get_data) {
-+		data = match_data->get_data(pdata);
-+		if (IS_ERR(data))
-+			return PTR_ERR(data);
-+	}
+   reg:
+     maxItems: 1
+@@ -35,6 +42,16 @@ properties:
+     description:
+       phandle to the cpu to which the RISC-V trace component is bound.
+ 
++  memory-region:
++    maxItems: 1
++    description:
++      phandle to a reserved memory region (shared-dma-pool) used for the
++      trace buffer of a pre-ratified trace component which has an embedded
++      RAM sink. The sink limit and write pointer registers of such a
++      component share their upper 32 bits with the sink base address
++      register, so the trace buffer must not cross a 4GB boundary. The
++      region must be aligned and sized accordingly.
 +
- 	type = (impl >> RVTRACE_COMPONENT_IMPL_TYPE_SHIFT) &
- 		RVTRACE_COMPONENT_IMPL_TYPE_MASK;
- 	major = (impl >> RVTRACE_COMPONENT_IMPL_VERMAJOR_SHIFT) &
-@@ -139,6 +146,7 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
+   in-ports:
+     $ref: /schemas/graph.yaml#/properties/ports
+     patternProperties:
+@@ -117,4 +134,69 @@ examples:
+       };
+     };
  
- 	id.type = gtype;
- 	id.version = rvtrace_component_mkversion(major, minor);
-+	id.data = data;
- 
- 	comp = gtrace_register_component(&id, rvtrace_type_name(gtype), pdata);
- 	if (IS_ERR(comp))
-@@ -172,11 +180,13 @@ static const struct rvtrace_match_data rvtrace_std_data = {
- static const struct rvtrace_match_data rvtrace_v0_encoder_data = {
- 	.format = GTRACE_FORMAT_NTRACE,
- 	.get_impl = rvtrace_v0_get_encoder_impl,
-+	.get_data = rvtrace_v0_get_comp_data,
- };
- 
- static const struct rvtrace_match_data rvtrace_v0_funnel_data = {
- 	.format = GTRACE_FORMAT_NTRACE,
- 	.get_impl = rvtrace_v0_get_funnel_impl,
-+	.get_data = rvtrace_v0_get_comp_data,
- };
- #endif
- 
-diff --git a/drivers/hwtracing/gtrace/rvtrace-v0.c b/drivers/hwtracing/gtrace/rvtrace-v0.c
-index a5ca9001bc08..01e62642c245 100644
---- a/drivers/hwtracing/gtrace/rvtrace-v0.c
-+++ b/drivers/hwtracing/gtrace/rvtrace-v0.c
-@@ -3,10 +3,32 @@
-  * Copyright (c) 2026 SiFive Inc.
-  */
- 
-+#include <linux/device.h>
-+#include <linux/err.h>
- #include <linux/gtrace.h>
- #include "rvtrace.h"
- #include "rvtrace-v0.h"
- 
-+void *rvtrace_v0_get_comp_data(struct gtrace_platform_data *pdata)
-+{
-+	struct rvtrace_v0_comp_features *data;
-+	u32 impl;
++  - |
++    // Example 2: SiFive trace encoder and funnel connection
++    reserved-memory {
++        #address-cells = <1>;
++        #size-cells = <1>;
++        ranges;
 +
-+	data = devm_kzalloc(pdata->dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return ERR_PTR(-ENOMEM);
++        trace_buf: trace@80000000 {
++            compatible = "shared-dma-pool";
++            reg = <0x80000000 0x1000000>;
++            reusable;
++        };
++    };
 +
-+	impl = gtrace_read32(pdata, RVTRACE_COMPONENT_IMPL_OFFSET);
++    encoder-0@2000000 {
++        compatible = "sifive,trace-encoder0";
++        reg = <0x2000000 0x1000>;
++        cpus = <&CPU0>;
 +
-+	data->has_sram_sink = impl & RVTRACE_V0_IMPL_HAS_SRAM_SINK_MASK;
-+	data->has_atb_sink = impl & RVTRACE_V0_IMPL_HAS_ATB_SINK_MASK;
-+	data->has_pib_sink = impl & RVTRACE_V0_IMPL_HAS_PIB_SINK_MASK;
-+	data->has_sba_sink = impl & RVTRACE_V0_IMPL_HAS_SBA_SINK_MASK;
-+	data->has_funnel_sink = impl & RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_MASK;
++        out-ports {
++            port {
++                encoder0_out: endpoint {
++                  remote-endpoint = <&funnel_in0>;
++                };
++            };
++        };
++    };
 +
-+	return data;
-+}
++    encoder-1@2001000 {
++        compatible = "sifive,trace-encoder0";
++        reg = <0x2001000 0x1000>;
++        cpus = <&CPU1>;
 +
- static u32 rvtrace_v0_get_impl(struct gtrace_platform_data *pdata,
- 			       enum rvtrace_component_type type)
- {
-diff --git a/drivers/hwtracing/gtrace/rvtrace-v0.h b/drivers/hwtracing/gtrace/rvtrace-v0.h
-index 2d83c87936b9..0681405fa414 100644
---- a/drivers/hwtracing/gtrace/rvtrace-v0.h
-+++ b/drivers/hwtracing/gtrace/rvtrace-v0.h
-@@ -9,9 +9,31 @@
- #define __RVTRACE_V0_H__
- 
- #include <linux/gtrace.h>
-+#include <linux/bits.h>
- #include <linux/types.h>
- 
-+#define RVTRACE_V0_IMPL_HAS_SRAM_SINK_BIT	4
-+#define RVTRACE_V0_IMPL_HAS_ATB_SINK_BIT	5
-+#define RVTRACE_V0_IMPL_HAS_PIB_SINK_BIT	6
-+#define RVTRACE_V0_IMPL_HAS_SBA_SINK_BIT	7
-+#define RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_BIT	8
++        out-ports {
++            port {
++                encoder1_out: endpoint {
++                  remote-endpoint = <&funnel_in1>;
++                };
++            };
++        };
++    };
 +
-+#define RVTRACE_V0_IMPL_HAS_SRAM_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_SRAM_SINK_BIT)
-+#define RVTRACE_V0_IMPL_HAS_ATB_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_ATB_SINK_BIT)
-+#define RVTRACE_V0_IMPL_HAS_PIB_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_PIB_SINK_BIT)
-+#define RVTRACE_V0_IMPL_HAS_SBA_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_SBA_SINK_BIT)
-+#define RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_BIT)
++    funnel-0@2002000 {
++        compatible = "sifive,trace-funnel0";
++        reg = <0x2002000 0x1000>;
++        memory-region = <&trace_buf>;
 +
-+struct rvtrace_v0_comp_features {
-+	bool has_sram_sink;
-+	bool has_atb_sink;
-+	bool has_pib_sink;
-+	bool has_sba_sink;
-+	bool has_funnel_sink;
-+};
++        in-ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            port@0 {
++                reg = <0x0>;
++                funnel_in0: endpoint {
++                    remote-endpoint = <&encoder0_out>;
++                };
++            };
 +
- u32 rvtrace_v0_get_encoder_impl(struct gtrace_platform_data *pdata);
- u32 rvtrace_v0_get_funnel_impl(struct gtrace_platform_data *pdata);
-+void *rvtrace_v0_get_comp_data(struct gtrace_platform_data *pdata);
- 
- #endif /* __RVTRACE_V0_H__ */
-diff --git a/drivers/hwtracing/gtrace/rvtrace.h b/drivers/hwtracing/gtrace/rvtrace.h
-index 7f9e88d99b8f..b0cf2e1d875f 100644
---- a/drivers/hwtracing/gtrace/rvtrace.h
-+++ b/drivers/hwtracing/gtrace/rvtrace.h
-@@ -115,10 +115,14 @@ static inline const char *rvtrace_type_name(enum gtrace_component_type type)
-  * @get_impl: Optional callback to retrieve the implementation register value
-  *            encoded in the standard RISC-V trace IMPL register format. Used
-  *            by pre-ratified components whose IMPL register layout differs.
-+ * @get_data: Optional callback to retrieve component specific private data
-+ *            which is stored in gtrace_component_id.data. Returns an ERR_PTR()
-+ *            on failure.
-  */
- struct rvtrace_match_data {
- 	enum gtrace_format format;
- 	u32 (*get_impl)(struct gtrace_platform_data *pdata);
-+	void *(*get_data)(struct gtrace_platform_data *pdata);
- };
- 
- static inline int rvtrace_comp_poll_empty(struct gtrace_component *comp)
++            port@1 {
++                reg = <0x1>;
++                funnel_in1: endpoint {
++                    remote-endpoint = <&encoder1_out>;
++                };
++            };
++        };
++    };
+ ...
 
 -- 
 2.43.7
