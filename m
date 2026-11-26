@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2285A606A32A
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:17:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30AF4606A685
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:17:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ImP6oX3O;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aYpj+ngS
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t7WHA2+E;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UcMfD6EF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,42 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=C8wxOk7uG2WZvY+gGHxtV793pQqKA0PLApMxY0DZApE=; b=ImP6oX3OyXHK4+NoeMouJAmDip
-	va6P1tE0XhJXnljid3JumP3MJfbm/J041cKmWD5CcLJ24OvGC7gtSjloeR329NG7HORQCpN4ZpLlk
-	tQj4PgmO48Mg3vT3LA+4ABo4rPP4gUHTRUoaMsHYs5WMO9g1gnDYz27ZsbrzJQQ3gLxTYAlrHU2+M
-	lqLqBmsZxb2uf6R3qLptA9wwyPEtwjuEvq5bSnSQ9sBqBcrlH/RRJfZrrGgDfQVa6mLEZg0Idnw+3
-	HA6y7Gf8i+JSvIFrBZY6XTGyRJs+lnKGtC9wC2O4t2SYLrZURiqP0xgQ6RFhfiBYCTZERRhQ46s/T
-	q6lIXD3w==;
+	bh=S9cNr4bLxiOrRHhvGhbO8b86MRBFpkhWrPn9skVg9Co=; b=t7WHA2+EHct4YDRby2QL0j5NGi
+	w2svIzVD25mv7zPGBILe/PWbWeqNBtjbd7GhZI7yl46ZRLUMkJzpPtcxUuTu7IGv1yf3mCMal+JnM
+	vRymQffbxyR4mBJtY8rMct0vr8m3vzIH4VCxmtvUghwHfLJY/UBjqKu4KE5S6ekaN8UsHwskLN3iy
+	kNbuAWmtzfHHjkddmoLn2CpDjYhc6lFFSR748HmV7CZEH9vP5pyw7xEOkTs6xK+G4F+x60sNm2UMh
+	nfuYI0dR6qkxiy9ayc8qvntw5LEqzYP+iNRBB/9egaYpzg0ZcwNjxqEJJTBkrLaY3u+i1YEPWv1sM
+	fsupg9gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXTS-0000000CrpN-1Cxd;
-	Thu, 26 Nov 2026 11:17:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xWXTs-0000000CsRf-14s1;
+	Thu, 26 Nov 2026 11:17:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXSw-0000000CrHd-2XBw;
-	Thu, 26 Nov 2026 11:16:40 +0000
+	id 1xWXTY-0000000Cs16-06DW;
+	Thu, 26 Nov 2026 11:17:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BFA643B55;
-	Thu, 26 Nov 2026 11:16:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 733D71F000C4;
-	Thu, 26 Nov 2026 11:16:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 93FFB40778;
+	Thu, 26 Nov 2026 11:17:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07F4B1F000F0;
+	Thu, 26 Nov 2026 11:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691797;
-	bh=JWC/vBALKCjgB3Vp7e+Dp/3jppLyPAzKiZgZB+giSqk=;
+	s=k20260515; t=1795691835;
+	bh=cQR0I1fT91fdkigqZPutQaUEm76FjFQYRJKTMaWDoC4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=aYpj+ngSiVFqOgPwkjKWlL43cMwZ+c5qm9pyvtLBv6pRVxFQz/EnGMvT3cqG60CKV
-	 gp17gvtMKi2AUU8TijAS5yNkCTOTjH2Hcpzo5zl5CqJX4AX6FkoKmRtDnCuSFqV1Me
-	 F5l2AWld4jnr12BgoJ/0hRgE9SX3p1+lkLsNAfVFhqEKgJ6rZL/qR7qp6M7cgLZYkA
-	 cajyHtUCZrnpDkX20HptjbPShYFK0PskDHvCpXjIeQQYNmZuANQV5dGi67AmHknFT9
-	 b0dh9ehw25xnd7VAFSRbYHeAn3Icdmn02VTQRbc8OoQpSYOJECww1+H2cR7XMAw8q2
-	 JUPAaB2anngGA==
+	b=UcMfD6EFN4cKBwOaWtO5aL4DV8MYygih5LNqLm+tzLxTNRXOIvLqKtAzBF0ZhaBkE
+	 P2kdK4uYNvbHbk6pVNxYE1FjzNfMHG6gxnBz/OopLg4NvjD1qBb9hAx1HHgPh1MDJl
+	 4/+2/+eYx1sjhjoyQygyD3BZ6hozC+nZ+dMUxYLKPDBuHKo7ncu63jozL0IqyFg0jg
+	 YMsINPJSowpwfRTpTGZTF+0CdZRBhRuBxLWVw+TSUdLixc04V+2tSLDZubH5VwwULB
+	 rLT3p+AEd9I9ue+1l3ls31RF1BMEZz7p/y1XxEXtI0mI4OOwo/poT0TAUX5YZNj0oX
+	 AcEClNpvIcfvw==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:26 +0200
-Subject: [PATCH RFC v2 13/54] x86/mm/pat: make the direct map counters
- atomic
+Date: Thu, 26 Nov 2026 13:14:30 +0200
+Subject: [PATCH RFC v2 17/54] x86/mm/pat: drop the check of existing
+ mappings against static protections
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-generic-set-memory-v0-1-v2-13-723f1e33c3d8@kernel.org>
+Message-Id: <20261126-generic-set-memory-v0-1-v2-17-723f1e33c3d8@kernel.org>
 References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 To: linux-mm@kvack.org
@@ -95,98 +95,199 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In update_page_count() pgd_lock protects only the direct map counters. The
-splits and collapses in CPA update the counters under pgd_lock that they
-hold for other reasons.
+Before deciding whether to keep a large page, CPA checks that the existing
+protection of the page satisfies the static protections. If it does not,
+CPA warns, splits the page and fixes up the new PTEs.
 
-Make the counters atomic_long_t, like s390 and powerpc do, so that updating
-them does not need pgd_lock.
+The only reason commit f61c5ba2885e ("x86/mm/cpa: Add sanity check for
+existing mappings") gave for adding the check was that
 
-A split checks that the counter of the large pages is not zero before it
-decrements it. Use atomic_long_dec_if_positive() so that a concurrent
-update cannot drive the counter below zero between the two.
+	... it is possible to do a quick verification that the current
+	mapping is correct vs. the static protection areas.
+
+The warning fired only once, on an earlier version of the same series, and
+the series fixed the cause with commit 2a25dc7c79c9 ("x86/mm/init32: Mark
+text and rodata RO in one go").
+
+Back in 2018 much more code changed the permissions of kernel mappings.
+ftrace made the whole kernel text writable and back on every update, any
+module could call set_memory_x() and set_memory_nx(), and nothing warned
+about W^X mappings.
+
+Since then ftrace switched to text_poke(), the NX helpers are no longer
+exported and W^X violations are detected late in boot and by each CPA call.
+
+A mapping that violates static protections cannot appear today:
+* CPA checks the requested protection against the static protections before
+  it writes a large page
+* the page tables built at boot map the kernel text executable and the BIOS
+  area with 4K pages
+* mark_rodata_ro() enables the read-only checks of static_protections()
+  only once all mappings of rodata are read-only
+
+Even if such a mapping appeared, the check would hardly fix it. It sees
+only the large pages that later requests touch, and of a 1G page it repairs
+only the 2M page around the request.
+
+The check of the existing mappings also complicates how large pages are
+split and stands in the way of moving core CPA logic from x86 to generic
+code.
+
+Drop the check of the existing mappings and leave only the checks of the
+requested protection against the static protections.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/mm/pat/set_memory.c | 28 +++++++++++++++-------------
- 1 file changed, 15 insertions(+), 13 deletions(-)
+ arch/x86/mm/pat/set_memory.c | 73 +++-----------------------------------------
+ 1 file changed, 5 insertions(+), 68 deletions(-)
 
 diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 5e3c1152d202..8076d29a2931 100644
+index 967d691ef1c0..9ccc08cf220f 100644
 --- a/arch/x86/mm/pat/set_memory.c
 +++ b/arch/x86/mm/pat/set_memory.c
-@@ -84,56 +84,58 @@ static inline pgprot_t cachemode2pgprot(enum page_cache_mode pcm)
- }
+@@ -52,7 +52,6 @@ struct cpa_data {
+ };
  
- #ifdef CONFIG_PROC_FS
--static unsigned long direct_pages_count[PG_LEVEL_NUM];
-+static atomic_long_t direct_pages_count[PG_LEVEL_NUM];
+ enum cpa_warn {
+-	CPA_CONFLICT,
+ 	CPA_PROTECT,
+ 	CPA_DETECT,
+ };
+@@ -76,7 +75,6 @@ static DEFINE_SPINLOCK(cpa_lock);
+ #define CPA_ST_FLUSHTLB		0x01 /* the TLB needs a flush */
+ #define CPA_ST_FLUSH_ALL	0x02 /* flush the entire TLB */
+ #define CPA_ST_ALIAS		0x04 /* the request is for an alias */
+-#define CPA_ST_STATIC_PROT	0x08 /* enforce static protections in a split */
  
- void update_page_count(int level, unsigned long pages)
+ static inline pgprot_t cachemode2pgprot(enum page_cache_mode pcm)
  {
--	/* Protect against CPA */
--	guard(spinlock)(&pgd_lock);
--	direct_pages_count[level] += pages;
-+	atomic_long_add(pages, &direct_pages_count[level]);
- }
- 
- static void split_page_count(int level)
+@@ -629,7 +627,6 @@ static inline void check_conflict(int warnlvl, pgprot_t prot, pgprotval_t val,
+ 				  unsigned long pfn, const char *txt)
  {
--	if (direct_pages_count[level] == 0)
-+	if (atomic_long_dec_if_positive(&direct_pages_count[level]) < 0)
- 		return;
- 
--	direct_pages_count[level]--;
- 	if (system_state == SYSTEM_RUNNING) {
- 		if (level == PG_LEVEL_2M)
- 			count_vm_event(DIRECT_MAP_LEVEL2_SPLIT);
- 		else if (level == PG_LEVEL_1G)
- 			count_vm_event(DIRECT_MAP_LEVEL3_SPLIT);
- 	}
--	direct_pages_count[level - 1] += PTRS_PER_PTE;
-+	atomic_long_add(PTRS_PER_PTE, &direct_pages_count[level - 1]);
- }
- 
- static void collapse_page_count(int level)
+ 	static const char *lvltxt[] = {
+-		[CPA_CONFLICT]	= "conflict",
+ 		[CPA_PROTECT]	= "protect",
+ 		[CPA_DETECT]	= "detect",
+ 	};
+@@ -976,7 +973,7 @@ static int should_split_large_page(pte_t *kpte, unsigned long address,
+ 				   enum pg_level level, struct cpa_data *cpa)
  {
--	direct_pages_count[level]++;
-+	atomic_long_inc(&direct_pages_count[level]);
- 	if (system_state == SYSTEM_RUNNING) {
- 		if (level == PG_LEVEL_2M)
- 			count_vm_event(DIRECT_MAP_LEVEL2_COLLAPSE);
- 		else if (level == PG_LEVEL_1G)
- 			count_vm_event(DIRECT_MAP_LEVEL3_COLLAPSE);
- 	}
--	direct_pages_count[level - 1] -= PTRS_PER_PTE;
-+	atomic_long_sub(PTRS_PER_PTE, &direct_pages_count[level - 1]);
-+}
-+
-+static unsigned long direct_pages(int level)
-+{
-+	return atomic_long_read(&direct_pages_count[level]);
+ 	unsigned long numpages, pmask, psize, lpaddr, pfn, old_pfn;
+-	pgprot_t old_prot, new_prot, req_prot, chk_prot;
++	pgprot_t old_prot, new_prot, req_prot;
+ 	pte_t new_pte;
+ 
+ 	if (cpa->flags & CPA_REQ_SPLIT)
+@@ -1045,31 +1042,11 @@ static int should_split_large_page(pte_t *kpte, unsigned long address,
+ 	lpaddr = address & pmask;
+ 	numpages = psize >> PAGE_SHIFT;
+ 
+-	/*
+-	 * Sanity check that the existing mapping is correct versus the static
+-	 * protections. static_protections() guards against !PRESENT, so no
+-	 * extra conditional required here.
+-	 */
+-	chk_prot = static_protections(old_prot, lpaddr, old_pfn, numpages,
+-				      psize, CPA_CONFLICT);
+-
+-	if (WARN_ON_ONCE(pgprot_val(chk_prot) != pgprot_val(old_prot))) {
+-		/*
+-		 * Split the large page and tell the split code to
+-		 * enforce static protections.
+-		 */
+-		cpa->state |= CPA_ST_STATIC_PROT;
+-		return 1;
+-	}
+-
+ 	/*
+ 	 * Optimization: If the requested pgprot is the same as the current
+ 	 * pgprot, then the large page can be preserved and no updates are
+ 	 * required independent of alignment and length of the requested
+-	 * range. The above already established that the current pgprot is
+-	 * correct, which in consequence makes the requested pgprot correct
+-	 * as well if it is the same. The static protection scan below will
+-	 * not come to a different conclusion.
++	 * range.
+ 	 */
+ 	if (pgprot_val(req_prot) == pgprot_val(old_prot)) {
+ 		cpa_inc_lp_sameprot(level);
+@@ -1112,47 +1089,11 @@ static int should_split_large_page(pte_t *kpte, unsigned long address,
+ 	return 0;
  }
  
- void arch_report_meminfo(struct seq_file *m)
+-static void split_set_pte(struct cpa_data *cpa, pte_t *pte, unsigned long pfn,
+-			  pgprot_t ref_prot, unsigned long address,
+-			  unsigned long size)
+-{
+-	unsigned int npg = PFN_DOWN(size);
+-	pgprot_t prot;
+-
+-	/*
+-	 * If should_split_large_page() discovered an inconsistent mapping,
+-	 * remove the invalid protection in the split mapping.
+-	 */
+-	if (!(cpa->state & CPA_ST_STATIC_PROT))
+-		goto set;
+-
+-	/* Hand in lpsize = 0 to enforce the protection mechanism */
+-	prot = static_protections(ref_prot, address, pfn, npg, 0, CPA_PROTECT);
+-
+-	if (pgprot_val(prot) == pgprot_val(ref_prot))
+-		goto set;
+-
+-	/*
+-	 * If this is splitting a PMD, fix it up. PUD splits cannot be
+-	 * fixed trivially as that would require to rescan the newly
+-	 * installed PMD mappings after returning from split_large_page()
+-	 * so an eventual further split can allocate the necessary PTE
+-	 * pages. Warn for now and revisit it in case this actually
+-	 * happens.
+-	 */
+-	if (size == PAGE_SIZE)
+-		ref_prot = prot;
+-	else
+-		pr_warn_once("CPA: Cannot fixup static protections for PUD split\n");
+-set:
+-	set_pte(pte, pfn_pte(pfn, ref_prot));
+-}
+-
+ static int
+ __split_large_page(struct cpa_data *cpa, pte_t *kpte, unsigned long address,
+ 		   unsigned int level, pte_t *pbase)
  {
- 	seq_printf(m, "DirectMap4k:    %8lu kB\n",
--			direct_pages_count[PG_LEVEL_4K] << 2);
-+		   direct_pages(PG_LEVEL_4K) << 2);
- #if defined(CONFIG_X86_64) || defined(CONFIG_X86_PAE)
- 	seq_printf(m, "DirectMap2M:    %8lu kB\n",
--			direct_pages_count[PG_LEVEL_2M] << 11);
-+		   direct_pages(PG_LEVEL_2M) << 11);
- #else
- 	seq_printf(m, "DirectMap4M:    %8lu kB\n",
--			direct_pages_count[PG_LEVEL_2M] << 12);
-+		   direct_pages(PG_LEVEL_2M) << 12);
- #endif
- 	if (direct_gbpages)
- 		seq_printf(m, "DirectMap1G:    %8lu kB\n",
--			direct_pages_count[PG_LEVEL_1G] << 20);
-+			   direct_pages(PG_LEVEL_1G) << 20);
- }
- #else
- static inline void split_page_count(int level) { }
+-	unsigned long lpaddr, lpinc, ref_pfn, pfn, pfninc = 1;
++	unsigned long ref_pfn, pfn, pfninc = 1;
+ 	struct page *base = virt_to_page(pbase);
+ 	pgprot_t ref_prot;
+ 	unsigned int i;
+@@ -1168,16 +1109,12 @@ __split_large_page(struct cpa_data *cpa, pte_t *kpte, unsigned long address,
+ 		 */
+ 		ref_prot = pgprot_large_2_4k(ref_prot);
+ 		ref_pfn = pmd_pfn(*(pmd_t *)kpte);
+-		lpaddr = address & PMD_MASK;
+-		lpinc = PAGE_SIZE;
+ 		break;
+ 
+ 	case PG_LEVEL_1G:
+ 		ref_prot = pud_pgprot(*(pud_t *)kpte);
+ 		ref_pfn = pud_pfn(*(pud_t *)kpte);
+ 		pfninc = PMD_SIZE >> PAGE_SHIFT;
+-		lpaddr = address & PUD_MASK;
+-		lpinc = PMD_SIZE;
+ 		/*
+ 		 * Clear the PSE flags if the PRESENT flag is not set
+ 		 * otherwise pmd_present() will return true even on a non
+@@ -1197,8 +1134,8 @@ __split_large_page(struct cpa_data *cpa, pte_t *kpte, unsigned long address,
+ 	 * Get the target pfn from the original entry:
+ 	 */
+ 	pfn = ref_pfn;
+-	for (i = 0; i < PTRS_PER_PTE; i++, pfn += pfninc, lpaddr += lpinc)
+-		split_set_pte(cpa, pbase + i, pfn, ref_prot, lpaddr, lpinc);
++	for (i = 0; i < PTRS_PER_PTE; i++, pfn += pfninc)
++		set_pte(pbase + i, pfn_pte(pfn, ref_prot));
+ 
+ 	if (within(address, PAGE_OFFSET,
+ 		   PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT)))
 
 -- 
 2.53.0
