@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A403606A31E
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:15:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BD96606A6A1
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:15:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aGDiXjn+;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UtsNJXH5
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cZTtKaIA;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MP3x1Ccg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,42 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=edZQIPIAeU6c2jDDHdRQNtzG1d5Vy3aaEdvPtPPeCY4=; b=aGDiXjn+jbd/ZLGzT8oQQcKQFK
-	LMnIA05C+w4aNc8DaO9NMRXCdTdL/2i+QalegFQ2HMzt63JO+pakkZFCvk3OovSb2Hn/oPT9y9r+7
-	jHyikFdu0f5nE4MR+hoNZcf7KFKNIZdmLMW6//wMYdykJP3eYSBOUFWk+m9Ay2smJV/uIpklQYP7g
-	TYc9w9YVsz2u91t2EwRJ/MXysRwcoDW2GwEwA64FbJDEcBsxFpIENgDP7hbld9jVQCmdmyyZ/+8zM
-	4fCOPfG7DpS3KtNT385jp/IJjVsRDuazlYObaYrj+WVXHvIkHLFZNFTdo3/9+4QRs0VJ9NXGwBcbw
-	2LH3GttQ==;
+	bh=COMmTDVfSf1ZTe/2Y8cLsPjTNi6Qe6jHoMMl2pQeGf0=; b=cZTtKaIA5gt82FknnCVXvc1nio
+	XYhku1ZJVXdhCQDwzRAMYuaPwgVX73/ifAGPCw0pu18pKqA+HQIBK141hIDuX4lDLyY1cKSSUZe9v
+	XaC+RAgiRwSjR9Xa00TSDceR61LL8W0+NB4bEnjTleWqosjlTcbiRgaImTX6KdXySv/TYKuyI303C
+	1RwfBy0sCJYypjrgqAREm5mBcywp3iLJfYLCgehVCdrrN1uQhAMa3UiiqhM2ZUnVWgEzDbU/VIRbB
+	McmIJUzZfoFlAG8CPoI3PZlS5DxczPHgwZ4ZX4auCtlHd4MfKRbGUzKBlEaths0Sb0qxyX25rgh0e
+	9qePu9fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXRg-0000000Cq0Y-1pBb;
-	Thu, 26 Nov 2026 11:15:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xWXRs-0000000CqCS-3Y4E;
+	Thu, 26 Nov 2026 11:15:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXRP-0000000Cpo3-3U1M;
-	Thu, 26 Nov 2026 11:15:03 +0000
+	id 1xWXRZ-0000000Cpse-0z7U;
+	Thu, 26 Nov 2026 11:15:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 919D645CBF;
-	Thu, 26 Nov 2026 11:15:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F18B61F000C0;
-	Thu, 26 Nov 2026 11:14:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F014F44FDC;
+	Thu, 26 Nov 2026 11:15:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F70E1F000D3;
+	Thu, 26 Nov 2026 11:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691703;
-	bh=bj8/4t1D3486bMWuOXwhLcAKxLKyES2zSNh6vuKXpeY=;
+	s=k20260515; t=1795691712;
+	bh=Pa/qSMCChRGH42K3rYTSztXsaxvBOYR3oBjTN9/+VqU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=UtsNJXH5LkGbLvmX8h3OWLUUPvo5d1Agxt9hiYQPPnM54LtZfxIJvEkh7mIytiaPL
-	 R/iQ8gA7kJPLRFnQ2FHCXHvqEw5yPC6eW6oxNL4Gli3chYbPmwhbjwy2PutbebUGMc
-	 R73R+kL6N6mVGWCCB1VsAFs8AB9+g4AyJv+7cH0WQ+PHsw7ExmQ0tVphZP274UDziY
-	 3gfWXTO7rOPovoqCNUi+BQdyjUiAqRxeTnYvKTBDnS5fdyx3AoxmmN1YYITXMeU6u5
-	 58JA57EHTN+Mt/ar7zYd+kdqSTSqOfYOBW/fd8UrNniZmSKj+/mHWAgxeBE9NdurAa
-	 swzGR3b7HpeBA==
+	b=MP3x1CcgVdwXZovNmf2Ki608k9RA+upmwxLp4DhhwvWZFzw5QHNd1LujvDkgy5dqK
+	 VudlIr+IQ0y5h01MkihEvEk+fN3u6e0wS395BMpBkuMKyfNQDtQIXifIJtscUMPgMn
+	 mRMkfl5ZkqBv6Pnrvr3XlMzLeXxLL8XTGCTeQjY+DsJ0sPHkki4BSfureOMycyH4Ig
+	 6F6k/5CR5+LLNSNVwEdIqxm8cn75nagz+yLvq8j0f6/pr5fLtiTxD0jmw41RAcqdG1
+	 gDHYFA178/+99Xx/ijLHYcEFPmOPjXC5GwRv8Ar3G2pFnmTMGX0EXfDolIxf5QrwSJ
+	 NJqE+CbJ3opQQ==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:16 +0200
-Subject: [PATCH RFC v2 03/54] s390/boot: parse boolean parameters like the
- kernel
+Date: Thu, 26 Nov 2026 13:14:17 +0200
+Subject: [PATCH RFC v2 04/54] s390/boot: stop parsing the command line at
+ "--"
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-generic-set-memory-v0-1-v2-3-723f1e33c3d8@kernel.org>
+Message-Id: <20261126-generic-set-memory-v0-1-v2-4-723f1e33c3d8@kernel.org>
 References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 To: linux-mm@kvack.org
@@ -95,58 +95,33 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The decompressor has a copy of kstrtobool() that takes only y/n, 1/0 and
-on/off. The kernel's kstrtobool() also takes true/false since 0d6ea3ac94ca
-("lib/kstrtox.c: add "false"/"true" support to kstrtobool()") and
-enabled/disabled since ae5b3500856f ("kstrtox: add support for enabled and
-disabled in kstrtobool()").
+The kernel parses its parameters up to "--" and passes everything after it
+to init. The decompressor parses the whole command line, so an argument
+meant for init still takes effect in the decompressor if it has the name of
+a parameter the decompressor knows, like "mem=".
 
-The decompressor ignores these values, so "cmma=false" leaves CMMA enabled
-and "prot_virt=true" does not enable it.
-
-Copy kstrtobool() from lib/kstrtox.c. This also adds the break after the
-on/off switch, which only replaces a fall through to the empty default
-case.
+Stop at "--", like parse_args() does.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/s390/boot/string.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/s390/boot/ipl_parm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/s390/boot/string.c b/arch/s390/boot/string.c
-index e4ad196cb720..c12fee2670e3 100644
---- a/arch/s390/boot/string.c
-+++ b/arch/s390/boot/string.c
-@@ -132,13 +132,21 @@ int kstrtobool(const char *s, bool *res)
- 		return -EINVAL;
+diff --git a/arch/s390/boot/ipl_parm.c b/arch/s390/boot/ipl_parm.c
+index 8bbd102fa50f..ed28ea2fc1d1 100644
+--- a/arch/s390/boot/ipl_parm.c
++++ b/arch/s390/boot/ipl_parm.c
+@@ -268,6 +268,10 @@ void parse_boot_command_line(void)
+ 	while (*args) {
+ 		args = next_arg(args, &param, &val);
  
- 	switch (s[0]) {
-+	case 'e':
-+	case 'E':
- 	case 'y':
- 	case 'Y':
-+	case 't':
-+	case 'T':
- 	case '1':
- 		*res = true;
- 		return 0;
-+	case 'd':
-+	case 'D':
- 	case 'n':
- 	case 'N':
-+	case 'f':
-+	case 'F':
- 	case '0':
- 		*res = false;
- 		return 0;
-@@ -156,6 +164,7 @@ int kstrtobool(const char *s, bool *res)
- 		default:
- 			break;
- 		}
-+		break;
- 	default:
- 		break;
- 	}
++		/* The arguments after "--" are for init */
++		if (!val && !strcmp(param, "--"))
++			break;
++
+ 		if (!strcmp(param, "mem") && val)
+ 			memory_limit = round_down(memparse(val, NULL), PAGE_SIZE);
+ 
 
 -- 
 2.53.0
