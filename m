@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23789606A326
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:20:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B013606A31E
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:20:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lI2HatPE;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N6q86/Uu
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1eKHqodg;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PzgtvDcA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,42 +14,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=BmaEHi2gDEuqCGJaIrlKbeKh/VDE79Yq84mX1zRFqKY=; b=lI2HatPEr8kFA3jrXN33OFgUNA
-	9JULU9GAFPkiVVk/rcR16HeTkMElwq25HaxOS1dWY4gFGtZdrzblkz/cJzHN39XsTyaPWL2cna2pn
-	Qt4vToNB0Jujz6PZJOTUsurfyfW+thRYBx4KsTKjv641xylbISREXC7puixiwcBJAKpEn01bmL2L3
-	y20slvwYDPAozp7rwJWIyUXzKIZf2lL/15mVv/QYjkM9jjB6RRtY59q3wwhv9dCsLayBt/kA0oZ+f
-	uTJI+CF/BBi4j+rxuxaROrBSIgd5qd3riCfX9RDVMjECghsYBC1OfrB5JYAqmtDKSqCC2/6rxuyBe
-	d9Ato87w==;
+	bh=IforSgXumbgnGDqDWfyfQvdsa6BohmetnSVS+px/lmE=; b=1eKHqodg8fdgpWkZQs9TEt0sb8
+	dgV6TQ77905U67+GP8CEW4UBPk87KDP6+VdObkDZh34nHWdIXiGxE1th6ar2yJNadJJH9A2mGxQW4
+	VjwfUhVzKnLcWg+VRX80PqmaxQbtQ+8lLOKhgTndiiony96WqbWgp7rlcquWGi731TbXpcBRJrZZ+
+	Iofi4gdBibTzqaKWr4TZi8Cigu+RX/1z0Rc8kshMIVhGW0Yxb1SG8ZvzSllu4zmc9ldEslA47YEoi
+	06ssMOv1FVvOKfT1Wfc1ipxOMl/V4LRAgteFzVe//X3+FB9BOeWAv59yuwMtAQ/HRV1vU1JaO0v1k
+	QetV9rHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXWQ-0000000CvNp-10Ei;
-	Thu, 26 Nov 2026 11:20:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xWXWo-0000000Cvlm-2fIr;
+	Thu, 26 Nov 2026 11:20:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXVh-0000000CubG-2CaE;
-	Thu, 26 Nov 2026 11:19:29 +0000
+	id 1xWXVr-0000000Cul1-1GSQ;
+	Thu, 26 Nov 2026 11:19:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78CFA41794;
-	Thu, 26 Nov 2026 11:19:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38AB1F000C6;
-	Thu, 26 Nov 2026 11:19:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 51F8C62D47;
+	Thu, 26 Nov 2026 11:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79D211F00A03;
+	Thu, 26 Nov 2026 11:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691968;
-	bh=9cPWUjHIPI7LtCSNqYYvsVdQiH3MUbUDgs7gRvdWWiI=;
+	s=k20260515; t=1795691977;
+	bh=6IUAESVFtsidcpD6OicOHeScwyTIg4rQEjzbtezfzqA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=N6q86/UuKdbMrBdtERhjhVFw0CbAJ4clSdTmUchWL6RgFVkEFE3mEFyjySuZ/PEVC
-	 rUCd6Kq2go9A79rGKv9HgKqGK83C2clZ6aUkNYsA29a1Wo0vuxFjA1XROwrOgbp8xw
-	 aOL75eZCeV1YUWJizVWuqhiRYrNriruvGv6qFzQV16MzEVZyn/pOqMpQzhn0BETYu1
-	 Pw/fxf1OEmACLN0sONM/NixOOFWiGvIiGavxH1woaBbI73/XNSn75AXasiZb0IIKd0
-	 HqmQAy3YxyZej2Z4YIxY5NMru1NNVtgYbxwMHf1zAj+lpMo3vwasqVbinhwzpc4VDC
-	 dZfOgF0XejigQ==
+	b=PzgtvDcA4yy/D2Uepj3A4ekmgkoMVvK8vCHb6UdANFhGAR3OBnrXkvAS3r9CqvP2I
+	 eDmwCIrTD3P98wMkVnY3W85BeGo+ZeBhcoHLlCd12HdFjujk8Zaf5uhR8BV51AOM9P
+	 oW6Xtzx0AUymGG49kFi+8vJRbIFAGKIoVzVQwMCXSTZexmCClqXB7irUaJOvnH7AT5
+	 H8yglHbC98pbN4quyuAGcNaw3RNs1KOwrdkUjWO3r1r/5ZIYpv9vJVR16CKt6bfdWC
+	 KH8ca4HCAeD7eXntGrPQqRIQieHY1E0JUb0HMs7NmNLeElY0r6qD2n6VSHz7fdgu6N
+	 3KyI5zsbNkYeQ==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:44 +0200
-Subject: [PATCH RFC v2 31/54] mm/pageattr: introduce
- cpa_flush_tlb_kernel_range()
+Date: Thu, 26 Nov 2026 13:14:45 +0200
+Subject: [PATCH RFC v2 32/54] asm-generic: add an empty pageattr.h
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-generic-set-memory-v0-1-v2-31-723f1e33c3d8@kernel.org>
+Message-Id: <20261126-generic-set-memory-v0-1-v2-32-723f1e33c3d8@kernel.org>
 References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 To: linux-mm@kvack.org
@@ -95,62 +94,45 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Many architectures that implement set_memory_*() APIs flush the TLB after a
-page table update with flush_tlb_kernel_range() for the range of the
-request.
+linux/pageattr.h includes asm/pageattr.h for the overrides of the CPA
+hooks. An architecture that is fine with all the defaults has nothing to
+put there.
 
-Add cpa_flush_tlb_kernel_range() helper for their arch_cpa_flush() hooks.
+Add an empty asm-generic/pageattr.h and make it mandatory, so that such an
+architecture does not need an empty header of its own.
 
-When to flush and whether to flush more than the request stays up to the
-architecture.
-
-LoongArch, ARM, powerpc, riscv and arm64 will use it when they switch to
-the CPA core.
+LoongArch, ARM and powerpc will pick up the asm-generic/pageattr.h when
+they switch to the CPA core.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- include/linux/pageattr.h | 1 +
- mm/pageattr.c            | 8 ++++++++
- 2 files changed, 9 insertions(+)
+ include/asm-generic/Kbuild     | 1 +
+ include/asm-generic/pageattr.h | 5 +++++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/include/linux/pageattr.h b/include/linux/pageattr.h
-index 25f04e61ee85..091408ad328f 100644
---- a/include/linux/pageattr.h
-+++ b/include/linux/pageattr.h
-@@ -65,6 +65,7 @@ static inline unsigned long cpa_addr(struct cpa_data *cpa, unsigned long idx)
- 
- int cpa_process_fault(struct cpa_data *cpa);
- int cpa_change_alias(struct cpa_data *cpa, struct cpa_data *alias);
-+void cpa_flush_tlb_kernel_range(struct cpa_data *cpa);
- 
- int change_page_attr(struct cpa_data *cpa);
- 
-diff --git a/mm/pageattr.c b/mm/pageattr.c
-index dcece32ebad2..852e0989dac9 100644
---- a/mm/pageattr.c
-+++ b/mm/pageattr.c
-@@ -14,6 +14,8 @@
- #include <linux/vmalloc.h>
- #include <linux/set_memory.h>
- 
-+#include <asm/tlbflush.h>
+diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
+index b7a388bef6ea..fd9fb2c3260b 100644
+--- a/include/asm-generic/Kbuild
++++ b/include/asm-generic/Kbuild
+@@ -42,6 +42,7 @@ mandatory-y += mmu_context.h
+ mandatory-y += module.h
+ mandatory-y += module.lds.h
+ mandatory-y += msi.h
++mandatory-y += pageattr.h
+ mandatory-y += pci.h
+ mandatory-y += percpu.h
+ mandatory-y += percpu_types.h
+diff --git a/include/asm-generic/pageattr.h b/include/asm-generic/pageattr.h
+new file mode 100644
+index 000000000000..07bf3b0e84a0
+--- /dev/null
++++ b/include/asm-generic/pageattr.h
+@@ -0,0 +1,5 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __ASM_GENERIC_PAGEATTR_H
++#define __ASM_GENERIC_PAGEATTR_H
 +
- /*
-  * Serialize CPA using cpa_lock so that:
-  * - concurrent requests don't split or change the same large mapping at the
-@@ -482,6 +484,12 @@ int change_page_attr_noflush(struct cpa_data *cpa)
- 	return ret;
- }
- 
-+void cpa_flush_tlb_kernel_range(struct cpa_data *cpa)
-+{
-+	flush_tlb_kernel_range(cpa->addr,
-+			       cpa->addr + cpa->numpages * PAGE_SIZE);
-+}
-+
- int cpa_change_alias(struct cpa_data *cpa, struct cpa_data *alias)
- {
- 	int ret;
++#endif /* __ASM_GENERIC_PAGEATTR_H */
 
 -- 
 2.53.0
