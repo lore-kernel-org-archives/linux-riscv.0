@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E633606A323
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:15:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CC78606A31E
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:16:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Yj4S2Ces;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k3kFIR10
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C8y77q4u;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jpOHDK1p
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,42 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=znFWAyDS5fmDJDael3xBQe+NvzIPA+OmsQLVhwt0V/0=; b=Yj4S2CesCz9ajpGsA+elcZZNUm
-	xJ2cbRmO2Ddq6pZYNUZivHyEAx1kO9ppaj679wgDVQDRAvBMsqUZl1DOmr5Dqv938Tw6L4Z7LSyny
-	WJMBkWSg6Zs1tukALUFD1rnPKno+7FIomL2DOXyHSiKCli+qcthM++Pn0lNp6ctgX2vrT8J+PevG7
-	h2hMdq/7z3/IP9QpW1MIHr5WqWETwz3I/n6dwlimGdeS+LTLsV08crudjWTVlajggSvzUB0W6qNKW
-	GUrYccSnSzg6GbDrNgg1BQwe1IH2snCIAxEEYh7hyZ1lYSVmlLmY1coxbkHnNqd+6iqY0q+QkgVmg
-	zjJIvyTQ==;
+	bh=io7eBnFIiqv1+Mgh1dgfHgUbgBKzqaAUq+kpYLGiyhE=; b=C8y77q4uB/4Qd1/NcQDcD1Vipi
+	njduS+V4CMCjMjABCN2KCF4mfVKIVFTfyLZ4Sga2cOhzqwvdMu3IT34RR9jqwEC4aPi8F3kTWAtOl
+	jqYG3QSESV3Xk2EgvwJavAQnuYXYJqZZHZWGBwGUzR+hj51OqWUcMq82o/wAGXpMBQRY51qiw/Bu4
+	+N3pFqePQduMuPz2MhOjK9TcMets4MHAy7V59Ws4H4eOUeEV0jKQ7lz8oePvMEuz001mxQDNXx0FO
+	kAreForcmLCLqhlt6YXNyOlRrhz/imfdYl09YFh9ElieX3nuwtL/KzzNVBqN5f9XWH75sCIN3Px3E
+	UclFoGGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXS5-0000000CqPn-0Txd;
-	Thu, 26 Nov 2026 11:15:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xWXSF-0000000CqaB-13Cd;
+	Thu, 26 Nov 2026 11:15:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXRi-0000000Cq38-2aVp;
-	Thu, 26 Nov 2026 11:15:22 +0000
+	id 1xWXRs-0000000CqC1-2xg2;
+	Thu, 26 Nov 2026 11:15:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D98643224;
+	by tor.source.kernel.org (Postfix) with ESMTP id 1EC5362207;
+	Thu, 26 Nov 2026 11:15:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C09C61F000D2;
 	Thu, 26 Nov 2026 11:15:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FCDB1F00AE3;
-	Thu, 26 Nov 2026 11:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691722;
-	bh=zImSfvTk7Ce9C0Ntm689zz11A7MeuyzdnAnXV7c96Hs=;
+	s=k20260515; t=1795691731;
+	bh=zeebKmC4zt9ER//cYViWMCf8JsX3wxI4858CYnYyK4Y=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=k3kFIR107EfL7OCOXCU8Gw8+wFHgYeB6pwLpvAtrtxNruSbP+IxmvekCmPdAtQpU6
-	 UY9gwt+R1jj/XLJxRSkgFV/NN1dqYd2vaEiNbba2VGjRRqrndAy3W3NDIYMGpwGJdL
-	 5I5xoLA6NN9oPGIT+cll+4qCT2QAsDrYc+8BocCiyQFLGSboxGfTEYTroUEdlDxo+c
-	 GWTUcL/DyD6jX5uwq92MnSCE+qN75XIupuUympUcKEE9nsukylR8tAJqmagsFaNpi4
-	 wqNpEf6O3v9v4sAEU0M1bRVvAdcO5ESPqGmgBJIygD3v50tp7Tk1xNsDGMbHsOcixL
-	 hxaqNlHeGhMdg==
+	b=jpOHDK1p/+2ScS6pTVO+ve0hzKh3+qSBP1nb5Vo1QtiyTil/tUQdCXZMRsYDRurOy
+	 nMF/zy+gS4188OPxfP1dbbUtm+m7Mbb3agYHHWCFSW/9xowa+DkAE83MKuY9hDAkqA
+	 ItEVaA3iu0i8LkNX5qaBFoxmSBaMSJa5GjeFeFbHrDP1yDt7Xa8NpovnofVLg6cOXu
+	 bNWOrmmtPlvK3xASh9BYQyxFxh9UZ6m9Q/FzKh+Tf+65DDVfs6EAdM5wsnWYU8bmLp
+	 xbkIwTMBdgKK2iqJ7731qo0G/kIPc14YdSl9AIEpGPAuz1H6cnQpuM/SzPPuBFjms7
+	 Wg91I2Upldwwg==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:18 +0200
-Subject: [PATCH RFC v2 05/54] s390/boot: treat dashes and underscores alike
- in parameter names
+Date: Thu, 26 Nov 2026 13:14:19 +0200
+Subject: [PATCH RFC v2 06/54] x86/mm/pat: don't count kernel image splits
+ as direct map splits
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-generic-set-memory-v0-1-v2-5-723f1e33c3d8@kernel.org>
+Message-Id: <20261126-generic-set-memory-v0-1-v2-6-723f1e33c3d8@kernel.org>
 References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 To: linux-mm@kvack.org
@@ -95,129 +95,68 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Dashes and underscores are equivalent in the names of kernel parameters,
-and the kernel compares the names with parameq(). The decompressor uses
-strcmp(), so it ignores "relocate-lowcore" or "prot-virt=1".
+The DirectMap lines of /proc/meminfo count only the direct map. The kernel
+image mapping is never added to them.
 
-Compare the names like parameq() does.
+CPA counts a split if virt_addr_valid() accepts the address and its pfn is
+mapped in the direct map. On 64-bit virt_addr_valid() accepts the kernel
+image mapping too, and its pfns are in the direct map, so the splits of the
+kernel image mapping are counted as well.
 
+Such splits can happen when mark_rodata_ro() updates the protections of the
+kernel image.
+
+Each split of the kernel image mapping moves 2M from DirectMap2M to
+DirectMap4k, although the direct map does not change.
+
+Count splits and collapses only for addresses in the direct map.
+
+Fixes: 8eb5779f6b9c ("x86, mm: use pfn_range_is_mapped() with CPA")
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/s390/boot/ipl_parm.c | 51 ++++++++++++++++++++++++++++++++---------------
- 1 file changed, 35 insertions(+), 16 deletions(-)
+ arch/x86/mm/pat/set_memory.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/arch/s390/boot/ipl_parm.c b/arch/s390/boot/ipl_parm.c
-index ed28ea2fc1d1..ac4cf1ced71d 100644
---- a/arch/s390/boot/ipl_parm.c
-+++ b/arch/s390/boot/ipl_parm.c
-@@ -255,6 +255,25 @@ static void modify_fac_list(char *str)
- 	check_cleared_facilities();
- }
+diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+index 2ff37ff1cecd..42f27d60adf3 100644
+--- a/arch/x86/mm/pat/set_memory.c
++++ b/arch/x86/mm/pat/set_memory.c
+@@ -1190,12 +1190,9 @@ __split_large_page(struct cpa_data *cpa, pte_t *kpte, unsigned long address,
+ 	for (i = 0; i < PTRS_PER_PTE; i++, pfn += pfninc, lpaddr += lpinc)
+ 		split_set_pte(cpa, pbase + i, pfn, ref_prot, lpaddr, lpinc);
  
-+static char dash2underscore(char c)
-+{
-+	if (c == '-')
-+		return '_';
-+	return c;
-+}
-+
-+/* Dashes and underscores are equivalent in parameter names */
-+static bool parameq(const char *a, const char *b)
-+{
-+	size_t i, n = strlen(a) + 1;
-+
-+	for (i = 0; i < n; i++) {
-+		if (dash2underscore(a[i]) != dash2underscore(b[i]))
-+			return false;
-+	}
-+	return true;
-+}
-+
- void parse_boot_command_line(void)
- {
- 	char *param, *val;
-@@ -272,15 +291,15 @@ void parse_boot_command_line(void)
- 		if (!val && !strcmp(param, "--"))
- 			break;
+-	if (virt_addr_valid(address)) {
+-		unsigned long pfn = PFN_DOWN(__pa(address));
+-
+-		if (pfn_range_is_mapped(pfn, pfn + 1))
+-			split_page_count(level);
+-	}
++	if (within(address, PAGE_OFFSET,
++		   PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT)))
++		split_page_count(level);
  
--		if (!strcmp(param, "mem") && val)
-+		if (parameq(param, "mem") && val)
- 			memory_limit = round_down(memparse(val, NULL), PAGE_SIZE);
- 
--		if (!strcmp(param, "vmalloc") && val) {
-+		if (parameq(param, "vmalloc") && val) {
- 			vmalloc_size = round_up(memparse(val, NULL), _SEGMENT_SIZE);
- 			vmalloc_size_set = 1;
+ 	/*
+ 	 * Install the new, split up pagetable.
+@@ -1314,7 +1311,8 @@ static int collapse_pmd_page(pmd_t *pmd, unsigned long addr,
  		}
+ 	}
  
--		if (!strcmp(param, "dfltcc") && val) {
-+		if (parameq(param, "dfltcc") && val) {
- 			if (!strcmp(val, "off"))
- 				zlib_dfltcc_support = ZLIB_DFLTCC_DISABLED;
- 			else if (!strcmp(val, "on"))
-@@ -293,49 +312,49 @@ void parse_boot_command_line(void)
- 				zlib_dfltcc_support = ZLIB_DFLTCC_FULL_DEBUG;
- 		}
+-	if (virt_addr_valid(addr) && pfn_range_is_mapped(pfn, pfn + 1))
++	if (within(addr, PAGE_OFFSET,
++		   PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT)))
+ 		collapse_page_count(PG_LEVEL_2M);
  
--		if (!strcmp(param, "facilities") && val)
-+		if (parameq(param, "facilities") && val)
- 			modify_fac_list(val);
+ 	return 1;
+@@ -1361,7 +1359,8 @@ static int collapse_pud_page(pud_t *pud, unsigned long addr,
+ 	list_add(&page_ptdesc(pud_page(*pud))->pt_list, pgtables);
+ 	set_pud(pud, pfn_pud(pfn, pmd_pgprot(first)));
  
--		if (!strcmp(param, "debug-alternative"))
-+		if (parameq(param, "debug-alternative"))
- 			alt_debug_setup(val);
+-	if (virt_addr_valid(addr) && pfn_range_is_mapped(pfn, pfn + 1))
++	if (within(addr, PAGE_OFFSET,
++		   PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT)))
+ 		collapse_page_count(PG_LEVEL_1G);
  
--		if (!strcmp(param, "nokaslr"))
-+		if (parameq(param, "nokaslr"))
- 			__kaslr_enabled = 0;
- 
--		if (!strcmp(param, "cmma")) {
-+		if (parameq(param, "cmma")) {
- 			rc = kstrtobool(val, &enabled);
- 			if (!rc && !enabled)
- 				cmma_flag = 0;
- 		}
- 
- #ifdef CONFIG_STACKPROTECTOR
--		if (!strcmp(param, "debug_stackprotector"))
-+		if (parameq(param, "debug_stackprotector"))
- 			stack_protector_debug = 1;
- #endif
- 
- #if IS_ENABLED(CONFIG_KVM)
--		if (!strcmp(param, "prot_virt")) {
-+		if (parameq(param, "prot_virt")) {
- 			rc = kstrtobool(val, &enabled);
- 			if (!rc && enabled)
- 				prot_virt_host = 1;
- 		}
- #endif
--		if (!strcmp(param, "relocate_lowcore") && test_facility(193))
-+		if (parameq(param, "relocate_lowcore") && test_facility(193))
- 			set_machine_feature(MFEATURE_LOWCORE);
--		if (!strcmp(param, "earlyprintk"))
-+		if (parameq(param, "earlyprintk"))
- 			boot_earlyprintk = true;
--		if (!strcmp(param, "debug"))
-+		if (parameq(param, "debug"))
- 			boot_console_loglevel = CONSOLE_LOGLEVEL_DEBUG;
--		if (!strcmp(param, "bootdebug")) {
-+		if (parameq(param, "bootdebug")) {
- 			bootdebug = true;
- 			if (val)
- 				strscpy(bootdebug_filter, val);
- 		}
--		if (!strcmp(param, "quiet"))
-+		if (parameq(param, "quiet"))
- 			boot_console_loglevel = CONSOLE_LOGLEVEL_QUIET;
--		if (!strcmp(param, "ignore_loglevel"))
-+		if (parameq(param, "ignore_loglevel"))
- 			boot_ignore_loglevel = true;
--		if (!strcmp(param, "loglevel")) {
-+		if (parameq(param, "loglevel")) {
- 			boot_console_loglevel = simple_strtoull(val, NULL, 10);
- 			if (boot_console_loglevel < CONSOLE_LOGLEVEL_MIN)
- 				boot_console_loglevel = CONSOLE_LOGLEVEL_MIN;
+ 	return 1;
 
 -- 
 2.53.0
