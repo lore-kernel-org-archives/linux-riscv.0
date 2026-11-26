@@ -2,100 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65831606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 18:11:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB7B7606A334
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 18:11:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HObDIiKl;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eTrh4ivt
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eCuMDtFq;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=syqUgwFR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bgx0vORNqTSIIlqWb7C7pnKCok41KkPc+fvGOm72Wek=; b=HObDIiKlTMgWOVqXsh1enJoLAT
-	XC/kpkVgaaaIuOdnnYVaSLovslYZz/UKH/tiTrUiQIrQvtBAVDzVwR2y8Una550R1lzRDDLo04aMk
-	QZRKTp8JqKbIUAliFHTdQhciaIKv62tOKWuaR0kKOUo9YnAYVuklM4NjqgMVi6k+XaeC/cyvt/GuT
-	MQxov0QXpqU3rjCRZkCZoNsf5NBZjuFxu4y7RdVPPkfcPhOPF82mVWJ6EyvRdXcnEHZECIHrB2RVa
-	c6YUp5pQtd2l2LDvn9WkSq5N6Lx8bAwII5nY+yH4xMZuq0ZZCWktINenEwkruVQcrwdhR26Qm4d/x
-	WvooMYGA==;
+	bh=MiPamKxAuRwTVbKG7QeY/jFDyRz6J3P5nnIeGXM/MxI=; b=eCuMDtFqwCTWoHr9PG68WPMU7X
+	7WvVMC85YvTasBvZc256zC2qfp+FHel7GsP9IwXEWiccqucvIAlYA7hYM3LAIGdJV2UC3HjC+s5Wc
+	PrKivMqhGr6m8ndjmTE/KLrwoYs3VJ+mXM/W2klwypJAuRLjzAwMHOiSBB4hriFH5oWTRCe6b11wx
+	R1uYZJebogZUDLZqkah5bSV5VvX1BUi10JIl9g3vHad1b/jfDEAueuwAWyZRz2OLmJjyCmYjlPyP2
+	GlIQA/s6D4HnBrnxzTl/mt+mSRTIIR4YNxhf48i5XE+VQVQVKZHt4W/KoxLUtWIbLSJtaTxGPdsgp
+	MTPdZ6yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWdw3-0000000E8iA-1X87;
-	Thu, 26 Nov 2026 18:11:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xWdwL-0000000E8mY-2wn4;
+	Thu, 26 Nov 2026 18:11:25 +0000
+Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWdvz-0000000E8h5-4AYz;
-	Thu, 26 Nov 2026 18:11:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DC174482C;
-	Thu, 26 Nov 2026 18:11:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E52761F00AD3;
-	Thu, 26 Nov 2026 18:10:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795716662;
-	bh=u9v575CLn7pmoDOzWOn9peb7SoijlK+LbrKGpES9aRg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eTrh4ivtfPOlk36i/Syox5jVW6dXJmhOgZwioO+nYxMKjGShC7TMyjjJl/zzRZ/W3
-	 SkP6MLdWC5iwrRV6uvUn6/rKonHWO56PFB3c75THzdQTim1Mri+dYH52nOteGfRTCj
-	 M+BZepOCmKNRYHvlRa117MS6yceBdzXjdmtuENyHhISgbQTyWosUB771P8KFuwQKC8
-	 pVw08LjMZlVYdDIpRqOeWvsFhzaGdSX4qDT0MagmIoJIq2tNOTskLwvuvj9X76KZmW
-	 omTnmVri/xaVPYJp7AvvaZYW/JxAmTrlzAhShiP47YqYQ+fQwkXl5svB+CMxRIbwv0
-	 XMDyeevoEqAuQ==
-Date: Thu, 26 Nov 2026 20:10:43 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-openrisc@vger.kernel.org
-Subject: Re: [PATCH RESEND v2 12/21] mm/pgtable: redefine PGTABLE_LEVEL enum
- with ascend order from PGD
-Message-ID: <awh2I4llsjkB7Vds@kernel.org>
-References: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
- <20261102-dummy_ptxp3-v2-12-78840b2ec73c@arm.com>
- <awXD4i47F-VAG1tD@kernel.org>
- <awXc0MSZl9t9VW8e@e129823.arm.com>
- <682c765f-332f-4ac2-b448-4201c8fae6fc@kernel.org>
- <awhCnpiUc1R_BLx4@e129823.arm.com>
+	id 1xWdwJ-0000000E8lI-2D06
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Nov 2026 18:11:25 +0000
+Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-170135e43c7so11299543c88.0
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 10:11:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795716680; x=1796321480; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xFsTNbg6lSpPb9VHhNPoPU7xGJLiib7jmQ/aLuF0bIU=;
+        b=syqUgwFRJe7eT0N/oN0gJaYXreMdXhNsKREd4tUTnnoZuT0xokVMFkyq6lhvONelC8
+         nPebZHWilV9yoCVpjhalsRojXBJaFyt+kM3dQpb3zsIdhL80uMN7HSRe7CvXygkAc1GD
+         hAwbF8UYGG/GegOTKtVhLGfQDEyst8+uVMJ4iQyiwEllfki4QWHT5HgAQpcaUqxK0utd
+         Mc3k2OI9jAH7BGtTntyvKePCGUzoStUs6vaVPtcnRk78bx3r5mrkN+zUH6Mqe6x8CrM5
+         2hdyKVLKuCMKE6o8ayhdNlLg1niTp8gb+Ghttu5KpRTFtvoHks7v27cuGEk7dhFSPJfZ
+         cezg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795716680; x=1796321480;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xFsTNbg6lSpPb9VHhNPoPU7xGJLiib7jmQ/aLuF0bIU=;
+        b=sLSQFXtdySJbnezfZua6/j0jqoSSjDCZQu5tmSLp4HsZXcopY9Sh78+s7bfVQd2sAi
+         LfcZNUujq1YUgl/fmDEzN6c/0YzotUuGjx9ROhFVEffQ7vKlMpv+Qp7mb6tlwYFQSf8s
+         ZysQ0Qw+OYyfoylpXZUWh3vaDQge8ffLqBjZm4fvE/gsR+OJY7pnqndq9QLBRjcMVGoF
+         KGCMTtBmXG5wB3TngnmIoEkxRCYYLPYD117+lGZlSsHOn/gux1JOwt2dXNzStbUyY9En
+         36B+koHgvubbpbyd/KQ9mSiyqvrVsJOQROVwYbGHJFZWbmsiGi4PFYlwnMKYAP+AyY8p
+         /ETg==
+X-Forwarded-Encrypted: i=1; AL+hErHMSqItTzHlsBCAofo6jPLqAvmnrtR4/SdbEtE61Eng9WKni+w1Zi0x5ZqWitIQCnCT1ljl8YALGGWVFA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z8vkvxevH1cN8yUyspD2/AJtH+aXGSvV2DGBW35cC/Y9yHC/X/X
+	nRdac/zcBmonomnuI4e1ZXDq913NLGTRns+bq5TOhxn8KUB5TCy3/cWG
+X-Gm-Gg: AZFdTZeSQDcnNSyagKjGdv5s4zX8ZXUxJ8nrV1CfQmiJoAV9s4WU8akHYKhHU5d3LB9
+	jQerBXoVrzDcRTH3St+LRBnkABqG3bT0Dxf7iDv0WYFm5amBVhRbOgSS0sYLMjHYx0mK2ALsxDB
+	c3dJ4L27V7X7Pwp0BjJBJ5RN7R5oRLILexOU95dZ+Hl+Ly0ftGZFE6f70/xh5yeJqS/9Tw9fMXL
+	yRX4sop1ZT2Oz085qKztZILQXyzEDXUa54jcFjBasf7ruvv1HsPs8dFwH33281yAHviPve0dJu0
+	n/kU9fpE+61z9Hyn0CO3U3HzW1CnjsZUUnuQKxgxLZNS7RxArDFx/dAMSBpaMH7OqCXNYFVKMkj
+	06VQuiV/Mu91584bpJuvIExY5+FEchMAeYtfbty+CuwYcjTvi+RyjTMHMZqkdw0VGhr4Vlgl9To
+	Yk5lw5tWm3u56p5tvx23DbQR4Jngki3UWZCafvPzrG5dSy9ZxBtHBfmV1oSgt4VyNjrx+cKJvna
+	hO1oiJ5a8toPhgvBczSoFVyFzC9aWXp6+lF8QcAb9RSmTdoyzucotoH/gC4LSqTlqcjoGKeNOuB
+	p82lB5Gm1fjsCDikSc4iNUk2z86OJ1//WgnZnqDZUPTBjzJ6cCScluPBYSkaaF8vYHSm/lxSlCl
+	oYDMgXF+TC/M6CoTNF91cIYM=
+X-Received: by 2002:a05:7022:3b8e:b0:1b5:32d7:7d73 with SMTP id a92af1059eb24-1b5568f3283mr26472626c88.30.1795716680250;
+        Thu, 26 Nov 2026 10:11:20 -0800 (PST)
+Received: from visitorckw-work01.c.googlers.com.com (55.11.81.34.bc.googleusercontent.com. [34.81.11.55])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm51183875c88.8.2026.11.26.10.11.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 10:11:19 -0800 (PST)
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: daniel.lezcano@kernel.org,
+	tglx@kernel.org
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	geert@linux-m68k.org,
+	laurent@vivier.eu,
+	marscheng@google.com,
+	eleanor15x@gmail.com,
+	jserv@ccns.ncku.edu.tw,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-m68k@lists.linux-m68k.org,
+	Kuan-Wei Chiu <visitorckw@gmail.com>
+Subject: [PATCH v2 0/9] clocksource/drivers/timer-goldfish: Fix bugs and add DT support
+Date: Thu, 26 Nov 2026 18:10:52 +0000
+Message-ID: <20261126181101.3715754-1-visitorckw@gmail.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <awhCnpiUc1R_BLx4@e129823.arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261126_101123_886938_147F6C2A 
+X-CRM114-Status: GOOD (  11.86  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,72 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 26, 2026 at 02:30:54PM +0000, Yeoreum Yun wrote:
-> On Thu, Nov 26, 2026 at 03:19:13PM +0100, David Hildenbrand (Arm) wrote:
-> > On 11/24/26 19:52, Yeoreum Yun wrote:
-> > > On Tue, Nov 24, 2026 at 07:05:38PM +0200, Mike Rapoport wrote:
-> > >> On Mon, Nov 02, 2026 at 11:21:25AM +0000, Yeoreum Yun wrote:
-> > >>> The PGTABLE_LEVEL enum values appear to be ordered in the opposite direction
-> > >>> from their intended usage.
-> > >>>
-> > >>> Intuitively, higher page table levels should have smaller enum values,
-> > >>> but PTE is currently assigned 0.
-> > >>
-> > >> That's not what x86 thinks :)
-> > >> They even expose it in /proc/vmstat with smaller numbers meaning lower levels
-> > >>
-> > >> $ grep direct_map /proc/vmstat 
-> > >> direct_map_level2_splits 152
-> > >> direct_map_level3_splits 4
-> > >> direct_map_level2_collapses 0
-> > >> direct_map_level3_collapses 0
-> > >>
-> > >> Just an observation, I don't mind either order.
-> > > 
-> > > Right. I made this change because a depth-based scheme seems more intuitive.
-> > > 
-> > > As you pointed out, though, the x86 specification uses smaller
-> > > numbers (0) for lower levels (pte), so I think we can leave the
-> > > x86-specific direct_map_* entries as they are.
-> > 
-> > patch #14 depends on this, no?
-> 
-> Interestingly, x86 documentation numbers the PGD level as 4 or 5,
-> whereas helpers such as effective_prot_pgd() use 0 for PGD.
-> 
-> Anyway, this follows the usage and semantics of effective_prot_pXd(),
-> rather than architecture-specific level numbering, which varies across
-> architectures.
+The goldfish timer driver was previously only used and tested on
+single core m68k virt, but the same device is also present on other
+qemu virt machines such as riscv and or1k, where running on SMP exposes
+several issues.
 
-I asked an LLM and here's what it told me:
+Fix the concurrency, oneshot, and registration bugs in the driver, add
+device tree probing support so it can be used across these platforms,
+and add a MAINTAINERS entry.
 
-  x86, s390, riscv, LoongArch and powerpc count from the leaf. arm64 and
-  ARM count from the root, and so does the generic page walk and ptdump.
+Tested on qemu m68k virt and on qemu riscv64 virt with 4 SMP cores. On
+riscv64, testing was done by passing clocksource=goldfish_timer on the
+kernel command line and locally bumping the clock_event_device rating
+above the architected timer to verify both clocksource and oneshot
+clockevent operation.
+---
+Changes in v2:
+- Initialize timerdrv->ced.irq alongside cpumask so SMP tick
+registration operates on the timer IRQ instead of IRQ 0.
+- Set timerdrv->ced.rating to 100 as a base-level rating.
+- Change the Kconfig dependency from !RTC_DRV_GOLDFISH to
+RTC_DRV_GOLDFISH=n to also exclude the module case.
+- Rebase onto latest master.
 
-My guess that the only reason that generic ptdump counts from the root is
-because it came from @arm.com :)
+Link to v1: https://lore.kernel.org/r/20261105161702.3515900-1-visitorckw@gmail.com
 
-> And yes, patch #14 depends on this, although changing the condition to
-> level != PGD_LEVEL would remove that dependency.
+Kuan-Wei Chiu (9):
+  clocksource/drivers/timer-goldfish: Fix latch corruption with spinlock
+  clocksource/drivers/timer-goldfish: Fix oneshot mode spurious
+    interrupt
+  clocksource/drivers/timer-goldfish: Fix resource leaks in init
+  clocksource/drivers/timer-goldfish: Set CLOCK_SOURCE_IS_CONTINUOUS
+    flag
+  clocksource/drivers/timer-goldfish: Drop redundant max_idle_ns setting
+  clocksource/drivers/timer-goldfish: Set clockevent cpumask and irq
+  clocksource/drivers/timer-goldfish: Set clock_event_device rating
+  clocksource/drivers/timer-goldfish: Add device tree probing support
+  MAINTAINERS: Add entry for goldfish timer driver
 
-I think the only real hard dependency on levels numbering is x86's KVM code
-that manages secondary page tables, but it anyway does not use enum
-pgtable_level but rather x86's own enum pg_level.
-
-> -- 
-> Sincerely,
-> Yeoreum Yun
+ MAINTAINERS                          |   6 ++
+ drivers/clocksource/Kconfig          |   5 +-
+ drivers/clocksource/timer-goldfish.c | 115 +++++++++++++++++++++------
+ 3 files changed, 101 insertions(+), 25 deletions(-)
 
 -- 
-Sincerely yours,
-Mike.
+2.56.1.839.g22a8290db9-goog
+
 
 _______________________________________________
 linux-riscv mailing list
