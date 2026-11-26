@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B013606A31E
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:20:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6020606A31C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:20:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1eKHqodg;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PzgtvDcA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=G6dtxTFP;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=arH33Iw+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,41 +14,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IforSgXumbgnGDqDWfyfQvdsa6BohmetnSVS+px/lmE=; b=1eKHqodg8fdgpWkZQs9TEt0sb8
-	dgV6TQ77905U67+GP8CEW4UBPk87KDP6+VdObkDZh34nHWdIXiGxE1th6ar2yJNadJJH9A2mGxQW4
-	VjwfUhVzKnLcWg+VRX80PqmaxQbtQ+8lLOKhgTndiiony96WqbWgp7rlcquWGi731TbXpcBRJrZZ+
-	Iofi4gdBibTzqaKWr4TZi8Cigu+RX/1z0Rc8kshMIVhGW0Yxb1SG8ZvzSllu4zmc9ldEslA47YEoi
-	06ssMOv1FVvOKfT1Wfc1ipxOMl/V4LRAgteFzVe//X3+FB9BOeWAv59yuwMtAQ/HRV1vU1JaO0v1k
-	QetV9rHg==;
+	bh=CDG8YZYG/MIhM18P9pH5WVCLdxcIDHqKbb4lu9sqOiw=; b=G6dtxTFP7eOVzlDuP967h4UfjM
+	gKycIC5Hq8Jukty2TyJeH6LvZsrvGYSys4bm0fvw2IeeKdkndC/IbSSbL42OpgqqtXsBG9XMirNcD
+	A5fDyS62WaVZTraLpv7yrph/4sz/0MFNb9b/gUQpuGV2M51REga9ukdBnNbPLN3q9fAGtzlPhnYit
+	No9M4pUQJnJcFDf/7mIX3oMDbTBQyY9YLxcgAS7qm768q6+GXC8B81xowhE9dT8JGlo916fL1alhx
+	tO0ePYtSvAuzyzqAWe9YLT7ZhOhQDimsXFq05HNmTIe0kfJ5J2O3fwFTtgbDUOA38pwJidY/GQYmz
+	QT4v9G0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXWo-0000000Cvlm-2fIr;
-	Thu, 26 Nov 2026 11:20:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xWXWy-0000000CvxC-1Ce8;
+	Thu, 26 Nov 2026 11:20:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXVr-0000000Cul1-1GSQ;
-	Thu, 26 Nov 2026 11:19:39 +0000
+	id 1xWXW0-0000000Cuqa-1gBl;
+	Thu, 26 Nov 2026 11:19:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51F8C62D47;
+	by sea.source.kernel.org (Postfix) with ESMTP id EE5DB43BED;
+	Thu, 26 Nov 2026 11:19:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF3021F008B2;
 	Thu, 26 Nov 2026 11:19:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79D211F00A03;
-	Thu, 26 Nov 2026 11:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691977;
-	bh=6IUAESVFtsidcpD6OicOHeScwyTIg4rQEjzbtezfzqA=;
+	s=k20260515; t=1795691987;
+	bh=3baBQY1vcim/LIuBDd2iS5vp7cN9wnC3Urh2E32RyUQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=PzgtvDcA4yy/D2Uepj3A4ekmgkoMVvK8vCHb6UdANFhGAR3OBnrXkvAS3r9CqvP2I
-	 eDmwCIrTD3P98wMkVnY3W85BeGo+ZeBhcoHLlCd12HdFjujk8Zaf5uhR8BV51AOM9P
-	 oW6Xtzx0AUymGG49kFi+8vJRbIFAGKIoVzVQwMCXSTZexmCClqXB7irUaJOvnH7AT5
-	 H8yglHbC98pbN4quyuAGcNaw3RNs1KOwrdkUjWO3r1r/5ZIYpv9vJVR16CKt6bfdWC
-	 KH8ca4HCAeD7eXntGrPQqRIQieHY1E0JUb0HMs7NmNLeElY0r6qD2n6VSHz7fdgu6N
-	 3KyI5zsbNkYeQ==
+	b=arH33Iw+PdWr+zlekYtf5nt+Op90L1TFCAIp15UEy+JOD/BMr6gM82izCzHJ1j53x
+	 Rf7Bd3XB7buR8nKFBjOykUN3NzH886rFBdFTBPFTBNhX8nMAbZ26UqYbx9bGLW+g3i
+	 /sQ2LSWtOosQOua5U2835M+MrgzYeEUFMalhl41+LsupVwAVt0II5/HrUmhS4p0NSh
+	 NQAllOapJ7m1dfpO7PW+vkvGZTmiNe52cT0vTejwfyJiRSIEKrJTLRp8aAuN4g45//
+	 GvISaE7BPJ/Lhx5ZN5KxgnwBOhwRJdneHwiwJQvKiPXC9/6nLeJSOz+UOUnwYZx5zs
+	 1+Ng3jE8359qw==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:45 +0200
-Subject: [PATCH RFC v2 32/54] asm-generic: add an empty pageattr.h
+Date: Thu, 26 Nov 2026 13:14:46 +0200
+Subject: [PATCH RFC v2 33/54] LoongArch: use pfn_is_nosave() to exclude
+ firmware ranges from hibernation
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-generic-set-memory-v0-1-v2-32-723f1e33c3d8@kernel.org>
+Message-Id: <20261126-generic-set-memory-v0-1-v2-33-723f1e33c3d8@kernel.org>
 References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 To: linux-mm@kvack.org
@@ -94,45 +95,68 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-linux/pageattr.h includes asm/pageattr.h for the overrides of the CPA
-hooks. An architecture that is fine with all the defaults has nothing to
-put there.
+Commit 619b52777a49 ("LoongArch: Fix kernel_page_present() for
+KPRANGE/XKPRANGE") made kernel_page_present() filter out firmware pages,
+such as EFI runtime services code and data, to prevent hibernation from
+saving and restoring them.
 
-Add an empty asm-generic/pageattr.h and make it mandatory, so that such an
-architecture does not need an empty header of its own.
+kernel_page_present() reports whether a page is mapped in the kernel page
+tables, while excluding physical memory from the hibernation image is what
+pfn_is_nosave() is for.
 
-LoongArch, ARM and powerpc will pick up the asm-generic/pageattr.h when
-they switch to the CPA core.
+Move the check for firmware pages to pfn_is_nosave().
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- include/asm-generic/Kbuild     | 1 +
- include/asm-generic/pageattr.h | 5 +++++
- 2 files changed, 6 insertions(+)
+ arch/loongarch/mm/pageattr.c     | 3 +--
+ arch/loongarch/power/hibernate.c | 6 +++++-
+ 2 files changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
-index b7a388bef6ea..fd9fb2c3260b 100644
---- a/include/asm-generic/Kbuild
-+++ b/include/asm-generic/Kbuild
-@@ -42,6 +42,7 @@ mandatory-y += mmu_context.h
- mandatory-y += module.h
- mandatory-y += module.lds.h
- mandatory-y += msi.h
-+mandatory-y += pageattr.h
- mandatory-y += pci.h
- mandatory-y += percpu.h
- mandatory-y += percpu_types.h
-diff --git a/include/asm-generic/pageattr.h b/include/asm-generic/pageattr.h
-new file mode 100644
-index 000000000000..07bf3b0e84a0
---- /dev/null
-+++ b/include/asm-generic/pageattr.h
-@@ -0,0 +1,5 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_GENERIC_PAGEATTR_H
-+#define __ASM_GENERIC_PAGEATTR_H
+diff --git a/arch/loongarch/mm/pageattr.c b/arch/loongarch/mm/pageattr.c
+index a7dcff40f759..a728db40f9e0 100644
+--- a/arch/loongarch/mm/pageattr.c
++++ b/arch/loongarch/mm/pageattr.c
+@@ -3,7 +3,6 @@
+  * Copyright (C) 2024 Loongson Technology Corporation Limited
+  */
+ 
+-#include <linux/memblock.h>
+ #include <linux/pagewalk.h>
+ #include <linux/pgtable.h>
+ #include <asm/set_memory.h>
+@@ -168,7 +167,7 @@ bool kernel_page_present(struct page *page)
+ 	unsigned long addr = (unsigned long)page_address(page);
+ 
+ 	if (addr < vm_map_base)
+-		return memblock_is_memory(__pa(addr));
++		return true;
+ 
+ 	pgd = pgd_offset_k(addr);
+ 	if (pgd_none(pgdp_get(pgd)))
+diff --git a/arch/loongarch/power/hibernate.c b/arch/loongarch/power/hibernate.c
+index 3de38ffb11c3..65dbf1aed4a7 100644
+--- a/arch/loongarch/power/hibernate.c
++++ b/arch/loongarch/power/hibernate.c
+@@ -4,6 +4,7 @@
+ #include <asm/sections.h>
+ #include <asm/time.h>
+ #include <asm/tlbflush.h>
++#include <linux/memblock.h>
+ #include <linux/suspend.h>
+ 
+ static u32 saved_crmd;
+@@ -44,7 +45,10 @@ int pfn_is_nosave(unsigned long pfn)
+ 	unsigned long nosave_begin_pfn = PFN_DOWN(__pa(&__nosave_begin));
+ 	unsigned long nosave_end_pfn = PFN_UP(__pa(&__nosave_end));
+ 
+-	return	(pfn >= nosave_begin_pfn) && (pfn < nosave_end_pfn);
++	if (pfn >= nosave_begin_pfn && pfn < nosave_end_pfn)
++		return 1;
 +
-+#endif /* __ASM_GENERIC_PAGEATTR_H */
++	return !memblock_is_memory(PFN_PHYS(pfn));
+ }
+ 
+ extern int swsusp_asm_suspend(void);
 
 -- 
 2.53.0
