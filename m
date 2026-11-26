@@ -2,89 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B61A60A262E
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 09:07:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B02D60A3812
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 09:07:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZBitzaE/;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=TN06RRtY
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ghJ4NFSI;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=WI6muSmC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Hm8BhhbvY4fbqTsu1Yo/qWZm0N3a1nQ7cL8qeH/5AmE=; b=ZBitzaE//slzChpP7HmTD31TQr
-	ZsLDXfisl38XKA8/K9t157VkfWU53XAu9qbnZ1IbdBJGkesKXSlPODFCEbb5b71ek5L+ifTeChiQO
-	T29Hmn3iWpniBiPts0Py/K6eIfCm3dxh8n5IsjwC8FkOWTRlQK+3ZGIHhuOUL5MIK8uAd2p7kNdPK
-	iTBNoqUmmUrZpXhKoaQ9zuTcnnSmeVBtIYQKe0RmFbvzmCaCAUeMbEcIqqozy9/qh9cfmxnIAglEB
-	CEAJkr/KualmeqBuRPtZpBh95nrtd96B4dk5wbrESl9aGjlxGsjPgIuZ2KffW52DocGcem45+xE6A
-	FstZEWPg==;
+	bh=nxU7z3N1xzuwj4QGKRdk5YlYDdi83IySdnM9sh65vyw=; b=ghJ4NFSIC4DLnawEaraxcIqSbO
+	0Necag1pci57CGVxh51fdoz1blL+cQDb9yPJuMQjtTvzfMfuUKFx24gJK+BLyUazd9bLhNQ3snbZl
+	wgPlnfmZST2ArWyVagacOcoKqAZPld09/epLBRiyP37UNgdkPk3VQWLGZVgTbkLeXr8aJ7zASX1rS
+	ESaSEQ2VUFr07WrNvi2DSn2noZYSSZd10n8E2l+5xQ5pkD79jHALwl0olm0Y5WdRmAJvN9kgfb5Yz
+	yoaUJK70e+lQCwI81pMcTu6R8vWJsrYFsM7EP7+vTHRBxAnJZtA9kG+0Zhn6EUD2MGtgpb2y/FTQc
+	+HBmBZTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWVRt-0000000CU2l-2hW6;
-	Thu, 26 Nov 2026 09:07:25 +0000
-Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
+	id 1xWVRx-0000000CU4z-0bx6;
+	Thu, 26 Nov 2026 09:07:29 +0000
+Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWVRq-0000000CU1k-3NDF
+	id 1xWVRt-0000000CU2j-39py
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Nov 2026 09:07:24 +0000
-Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-38644aedba1so10186731eec.0
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 01:07:22 -0800 (PST)
+	Thu, 26 Nov 2026 09:07:27 +0000
+Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-38692f62b22so8497000eec.0
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 01:07:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1795684042; x=1796288842; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=9Hd89c8JD9mWPM1aZ0uRbMq7kDfWlM+9M5g/GqO5V3A=;
-        b=TN06RRtYEAq/04fj4ZxbE7LpqBAxiVmDS/Pco0aAV+BmUZTlBmo/jb3iChjONVc8Ay
-         nRWS7+N/6LxUHjlTmqMcz1IyFsNiFCsr2tYJ9BCLe++m6tM4GJMTa0eLfSR+/JV98Bik
-         rJd0Z8E0YpeHIGKpDtZfxTR2rDhaZLNUjdA9pCh7qtyPi2Le9pVP732LGUFvh7ZnFDCK
-         OAby2pCnK6M8+sNVo+CzulnxgAa8cWWJC8B1Nnw7UUl8sQ3u+LqWN7yloKymB+oRgyra
-         TK9a4HNX6aLLY3STqu0smr4VTMZx6ASmyttjS9Q2T1APxjp/mvQNMz2krqbFF5I74LK9
-         J8hA==
+        d=sifive.com; s=google; t=1795684045; x=1796288845; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FwKsnhSZQ8XFeHSv0eyjguQWfHByolFJAVMuMClJrgY=;
+        b=WI6muSmCnYvJ/ALIh5e4jD3zxnf0RM23hDj17JVemNyjE9x3hZ5fKOR1GBT/NR50PI
+         bgkW3KmvFHy1/XatUuZPGxn1mRrZ473VHprSFrBN7q2Ze5Inz14wWInSvjMV9cdc9rAC
+         0KCROuMHEmY+j9sqlYcJb5qydpwmPKKlooST1rKUZnkZ9JiatLFAL7ib0nCHRJ9bi9Z0
+         bOLTM+bdznuFvVC75ShNn4BT/9xf60tBvKsjpLBlm+M/AeNYGfsGIKpgr1dDe9naReXR
+         6FPAot8rqR8fw84vgWzol1PxKdlRgQvpTseV0e6ZIGAzPiFM6muTHIiZTHSx5CT+ZVSQ
+         iz0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795684042; x=1796288842;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=9Hd89c8JD9mWPM1aZ0uRbMq7kDfWlM+9M5g/GqO5V3A=;
-        b=qMkMdYgO+t7l/G2PAy9jmyGVTrFCyHdTkoxkL5eWwR43sV5kwaY3vgHKsb88CMDi78
-         3AjQAVMUOQwUqpW2dEcnSwuYEEEKWaLL9hIWEtiX0IE4p4n2RcGVFvPYacv+KkDnP/Pc
-         i/vAUSkozPnSSZAEr/ubSry4SUers4a/tKPap7DBzdYkeLN66mHHGJQ0keuv1tLsIguQ
-         KS9K4R9S65HKWDMTv1dTem0ewy4j1N8pGDfZjPVSZN1Jiq5+XmUP6qW2F3UjIbrM4ovG
-         W1JEZgY71JAvs3WDt5uYDDTCptIO2nutDco3E3vo/wAkfSy0EFZAtWYOwb+/WZ2Hx9ZF
-         1qog==
-X-Gm-Message-State: APuU4Z9BO+LmN0BtafUCnUrzZRkblAqqQCoQ2Q1QSj0wGIHOAJgIYA07
-	f/qY17ARZRrJs3bvsp+PIrFd050BgMBpzFvH6MD2cpsMiK0/TNRmY3/p6NRBwIIgDMk=
-X-Gm-Gg: AZFdTZfzIFEYv2pDVnB3SrumZvrYaKJtWR6jxSGnYajfm0zpCQ0WI67lpsOvmEtWWn8
-	AZ5EfCZqD2DqviYeC8uSLoJP799CmTkzDtUJ9PN1HsXONTFPevjZ05FObMgkkrUiAAAzAPCeqGH
-	DZ2rMBeZMMyXfYQgB+oKniqZPp4olV6vjVv4bkkMiiQ4IpBn/vtXBvVBAgdxaPGEsQvbc1BIrtZ
-	v/dGHap/NB3JcJFIdy1lzIZwTBHRG3viqpcgU/r2HnQViVvwZgVIh5jTiwYeL9KO6CV/vtNw0UK
-	TTdWrmBNy0AScRkrUcTVHdepMXJV6b7BKlKrIufWnubqH6uxu1LmC211vNV3uvNZNtIXw/rv1N1
-	1/sc/ta4WGDZd0uTcjvHhEG12KoexCil2lPd74LTqJhrxumv4SijHb8Cv2k0o4o+cUnUVwAGrsm
-	AytxiHFMNPhAL1w6gegSZukuKmw1N5MxBxjTluhKpGzOJ/VL6kLS6lZAHsn/++rtF3Bes86BiCF
-	puuWF19WPK+G4ZR5p9upLv3wChr0HDC4/HAg7042Y0zHi4eWFExQHTGeA3pc4igIC7FJiQDfUUT
-	O97+Qxb/9hNrE3vIqSAm5CrZ9TrDcFDHu/XQnNiH6iOc
-X-Received: by 2002:a05:693c:88d4:20b0:386:a8de:2bfc with SMTP id 5a478bee46e88-386a8de2f67mr13392563eec.6.1795684041729;
-        Thu, 26 Nov 2026 01:07:21 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795684045; x=1796288845;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FwKsnhSZQ8XFeHSv0eyjguQWfHByolFJAVMuMClJrgY=;
+        b=zVT4owHia283B9AZqxzDkkicM+WTpzE71zzXc0u8AkcD5XG/+s3KL5PdjL/Dy3zEvO
+         p6D3lFNrrMprGkTJ1t141DqEddNLJTuK8Jff6girp45JLWipOZPntTEIsm4G4pUCzEcp
+         jySHFZv93KiYZZ7cKRM3XA9f++/+zuqeHH4lNS7qFiggy8KOGVwz5mp6IfwsWZLCUbr9
+         bIqfWxhsrNEIGoRejKrNw8k9475oBSYDTRiRiIfMuB8/PR62XwzaX8C68RDHQwU5Ie6z
+         G86QGR//nF5byskIzFwkjMt742ZpuwCT0MlC6vLZXw5irkn5YkWhDUXtI9A+JFEULPhd
+         LiPg==
+X-Gm-Message-State: APuU4Z8JsiPOSKe2TkV8IbvY25Ju9HPzDMxo4wveQ9GzT0pYHxWoQ4j6
+	bCpn0VUgy9dC1uZwEZ4fvN0Ii20R1iw+cA8pr3uEaOj+Hm0H5Eom8qZXxtZT58GBk+k=
+X-Gm-Gg: AZFdTZdeqTiPAt2m5F/sBNR5fvW7lqMKbpczv5YXcovc1Oc24DvgHoLb6p+Ujne4FOQ
+	2P5SDh60e7tYt2GmEgWj4D4lWNypbFp+CsntCo59wM9fWyY2zL91AWtdNx2Yv4IRwda2IUBZlxL
+	dC33w9ABnRcmzXtj5uubr6zaDi4J+EccKNGzHXd7DbKe9UJntZvDub0o65NTPOQ1SLqlFs2dA73
+	XPBzlah4SGs7kfPZpRr9gPSwpKm+VXvlEMckG2gKY0piZHv9uNlLKqw6vF20Ty9sD8G6ARms+6V
+	5FsG8rVuSfWFoirxR+I+Il2Tf7Q4SRAdd2AoL4uf5C8rlcdXv04ggFV0BBg93xJ2NqjSar1uEap
+	2Gn8XpW/R7iaxcl1lFXNahyOU+6UbFxQKfvZm4AyLZhrKU1Wa3OQMWwKN4fT6OKnJQS2zo9zu+Y
+	KiJs+RoWNuRBfQymJ0LOEPMlCvBqgYiBK9HsI9TywJgpeWVd1B6aab8vi/OvN61J1Hd/yCGiREZ
+	0F61UwRC2cKXmQVvW/MgIdtRRw9SWtO9JTdzav3wecPX6ylPqI6xEMkycMbFf6ixz6J9wFd6O7M
+	MwvimxvTv6mpSu5PTi7H/A7Ggcw5tMwM6ukTdFOEUSPF
+X-Received: by 2002:a05:7301:dd86:b0:351:2958:1740 with SMTP id 5a478bee46e88-3856fb641famr20691278eec.37.1795684044736;
+        Thu, 26 Nov 2026 01:07:24 -0800 (PST)
 Received: from sw08.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm54058730eec.8.2026.11.26.01.07.20
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm54058730eec.8.2026.11.26.01.07.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:07:21 -0800 (PST)
+        Thu, 26 Nov 2026 01:07:24 -0800 (PST)
 From: Leo Yu-Chi Liang <leo.liang@sifive.com>
-Subject: [PATCH 00/10] gtrace: Add support for SiFive pre-ratified RISC-V
- trace components
-Date: Thu, 26 Nov 2026 01:07:06 -0800
-Message-Id: <20261126-send-preratified-trace-v1-0-1e686fd75be7@sifive.com>
+Date: Thu, 26 Nov 2026 01:07:09 -0800
+Subject: [PATCH 03/10] gtrace: rvtrace: Add pre-ratified private data
+ callback
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIALv2B2sC/y2Ny26DMBBFfwV5XSO/IIRV/6PKYjweF1cBEo+pW
- kX59xrSzUh3dO65D8GUE7EYm4fI9J04rUsN+q0ROMHySTKFmoVRptfaOMm0BHnLlKGkmCjIkgF
- JkjUBjbcOFIharkRMP4f44/LKvPkvwrLb/olM960ulhcmZmKGY3Fsjj2ltOqMcba1ypnenKSWM
- /xu1TW1OKUCV3pfmdv7Bldc57mtZ3d7YJL7I5Wx8T2cI1iH5PRwQt+fg8VuGMB5HyNajdQFP0R
- xeT7/AMBCH8cQAQAA
-X-Change-ID: 20261124-send-preratified-trace-e32dc2b34a0a
+Message-Id: <20261126-send-preratified-trace-v1-3-1e686fd75be7@sifive.com>
+References: <20261126-send-preratified-trace-v1-0-1e686fd75be7@sifive.com>
+In-Reply-To: <20261126-send-preratified-trace-v1-0-1e686fd75be7@sifive.com>
 To: Mayuresh Chitale <mchitale@gmail.com>, Anup Patel <anup@brainfault.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -100,8 +97,8 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  huangyifeng@eswincomputing.com, darshan.prajapati@einfochips.com
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261126_010722_868687_75C99612 
-X-CRM114-Status: GOOD (  25.01  )
+X-CRM114-CacheID: sfid-20261126_010725_838106_945D5DBE 
+X-CRM114-Status: GOOD (  16.26  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,213 +112,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series adds support for pre-ratified (version 0.x) RISC-V trace
-hardware, such as the SiFive trace encoder and trace funnel as integrated
-in the ESWIN EIC7700 (HiFive Premier P550), on top of the gtrace framework
-posted by Mayuresh Chitale and Anup Patel [1].
+From: Eric Lin <eric.lin@sifive.com>
 
-The gtrace framework and the rvtrace drivers in [1] target the ratified
-RISC-V Trace Control Interface. Hardware that predates the ratified
-specification is functionally the same (encoder -> funnel -> sink), but
-differs in how it is discovered, routed and where the sink lives. The
-specification of the pre-ratified trace hardware, is described in the
-EIC7700X SoC Technical Reference Manual [3].
-This series makes the existing framework drivers handle both flavours
-instead of adding a second, parallel driver stack.
+For pre-ratified trace hardware, a trace component might support
+different trace sinks, and its trace sink availability information
+is embedded within the implementation register.
 
-Background: how pre-ratified hardware differs
----------------------------------------------
+Introduce a get_data() callback function in 'struct rvtrace_match_data'
+to retrieve the component's supported trace sink features and store
+this information in the gtrace component ID data (comp->id.data). This
+allows the driver to access the pre-ratified hardware capabilities
+during setup.
 
- 1. Discovery. The IMPL register layout differs and does not encode the
-    component type. The sink availability is also reported there. Specific
-    compatible strings are therefore needed: "sifive,trace-encoder0" and
-    "sifive,trace-funnel0".
+While at it, zero-initialize the on-stack gtrace_component_id so that
+id.data is never left uninitialized for ratified components.
 
- 2. Source ID. The number of SRC bits is preset by hardware (teImpl.nSrcBits)
-    and offset 0x8 is the read-only teImplExtra register, not
-    trTeInstFeatures. The trTeInstMode encoding also differs.
-
- 3. Routing. Ratified hardware routes at the receiving end (e.g. a funnel
-    masks inputs with trFunnelDisInput). Pre-ratified hardware routes at the
-    sending end: the destination sink is chosen by a bitfield in the sending
-    component's own control register.
-
- 4. Sink. A ratified RAM sink is an independent component with its own MMIO
-    block. A pre-ratified RAM sink is embedded in the encoder or funnel
-    register block, with a different register map.
-
- 5. Buffer placement. The sink limit and write-pointer registers share their
-    upper 32 bits with the sink base register, so the trace buffer must not
-    cross a 4 GiB boundary.
-
-These touch the gtrace framework from [1], so I would like feedback on them
-in particular. Do you think supporting pre-ratified spec by the following
-modification is the way to go?
-
-Architectural changes
----------------------
-
- * Per-compatible match data (struct rvtrace_match_data) carries two optional
-   callbacks. get_impl() translates the pre-ratified IMPL register into the
-   standard IMPL layout, so the common probe code needs no special case.
-   get_data() returns component private data (the available sinks), stored in
-   gtrace_component_id.data.
-
- * Version 0 is handled inside the existing drivers. Components are
-   identified by major version 0 (rvtrace_comp_is_v0()), and the
-   pre-ratified specifics are isolated in a new rvtrace-v0.{c,h}, selected
-   by CONFIG_RVTRACE_V0. Ratified-only configurations are not affected.
-
- * Routing is configured at start() time from the path topology
-   (rvtrace_v0_sink_config()). This needs the next hop of the path, which the
-   old start() callback could not see; see the API changes below.
-
- * The embedded RAM sink reuses the ratified RAM sink setup and copy
-   functions. The register offsets are abstracted into struct
-   rvtrace_ramsink_regs, and the standard and v0 layouts each provide one.
-   An encoder or funnel only sets up its sink when it supports the SBA sink
-   and has no output connection, i.e. when it is the end of a path.
-
- * Because an encoder or funnel can now be in the middle of a path and also
-   implement copyto_auxbuf(), gtrace_path_copyto_auxbuf() now only calls the
-   callback of the path's sink. Previously it called the first component in
-   the path that implemented it.
-
-Function signature and API changes
-----------------------------------
-
- * struct gtrace_driver::start()
-     int (*start)(struct gtrace_component *comp);
-   becomes
-     int (*start)(struct gtrace_path_node *node);
-   Pre-ratified hardware needs the information of the next component to pick
-   the sink at the sending end. The node gives access to both the component
-   (node->comp) and the connection (node->conn).
-
- * gtrace_match_id()
-   Now ends id_table iteration on GTRACE_COMPONENT_TYPE_NONE instead of a
-   zero version. A non-zero version as the end-of-table marker cannot work
-   with version 0 entries such as rvtrace_component_mkversion(0, 0).
-
- * rvtrace_ramsink_read_pair() / rvtrace_ramsink_write_pair()
-     (pdata, low_off)           ->  (pdata, low_off, high_off)
-     (pdata, val, low_off)      ->  (pdata, val, low_off, high_off)
-   Zane also suggested this and Mayuresh said to fix this in v7.
-
- * rvtrace_ramsink copyto_auxbuf()
-   Split into __rvtrace_ramsink_copyto_auxbuf(comp, priv, buf, format), which
-   takes the private data explicitly, and a thin wrapper that keeps the
-   existing callback signature. The v0 encoder and funnel call the helper
-   through the new rvtrace_v0_ramsink_copyto_auxbuf().
-
-Testing
--------
-
- * Boot tested on a HiFive Premier P550 (ESWIN EIC7700, four P550 cores).
-   Tracing was verified to work on this board:
-
-     perf record -e gtrace/event=0x1/ ls
-
-   and the decoded trace content was checked.
-
- * Firmware: U-Boot from [2] (branch eic7x-dt-fix-hfp) and OpenSBI v1.9.
-
- * For this testing I reverted commit a7b9ce39fbe4 ("serial: 8250_dw: Ensure
-   BUSY is deasserted") locally, because without it the P550 hits an init
-   hang. This also happens on v7.4-rc4. See the note at the end.
-   The revert is not part of this series.
-
-Dependencies
-------------
-
-This series applies on top of [1] (v6, 14 patches), rebased onto v7.4-rc4.
-Zane has a patchset implementing RISC-V Linux trace support [4], which add
-RISC-V trace funnel support. I will try to review and merge the pre-ratified
-funnel accordingly.
-
-[1] https://lore.kernel.org/all/20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com/
-[2] https://github.com/ganboing/u-boot-eic7x/tree/eic7x-dt-fix-hfp
-[3] https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
-[4] https://lore.kernel.org/all/20261023031505.2020925-1-liangzhen@linux.spacemit.com/
-
-Side note: UART init hang on EIC7700 (question for the ESWIN folks)
---------------------------------------------------------------------
-
-I added the people working on upstreaming EIC7700 / P550 support to Cc for
-this one, as it is unrelated to the trace series.
-
-On the HiFive Premier P550, booting v7.0 or later to a built-in initramfs
-(busybox) hangs at init. I bisected it between v6.19 and v7.0 to
-
-  a7b9ce39fbe4 serial: 8250_dw: Ensure BUSY is deasserted
-
-and the hang is still there on v7.4-rc4. Reverting that commit makes the
-board boot, and so does adding "snps,uart-16550-compatible" to the DW UART
-nodes (the latter I only tried on v7.0).
-The commit adds a BUSY workaround. I have not found the root cause.
-
-Do you see the same hang with an initramfs on your boards?
-
+Co-developed-by: Nick Hu <nick.hu@sifive.com>
+Signed-off-by: Nick Hu <nick.hu@sifive.com>
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Eric Lin <eric.lin@sifive.com>
 Signed-off-by: Leo Yu-Chi Liang <leo.liang@sifive.com>
 ---
-Eric Lin (9):
-      dt-bindings: riscv: Add SiFive pre-ratified trace components
-      gtrace: rvtrace: Add pre-ratified implementation callback
-      gtrace: rvtrace: Add pre-ratified private data callback
-      gtrace: rvtrace: Add pre-ratified encoder support
-      gtrace: rvtrace: Add pre-ratified trace sink config
-      gtrace: rvtrace: Add pre-ratified trace funnel driver
-      gtrace: rvtrace: Introduce struct rvtrace_ramsink_regs to abstract register offsets
-      gtrace: rvtrace: Add pre-ratified ramsink setup
-      gtrace: rvtrace: Add copyto_auxbuf callback for pre-ratified encoder and funnel
+ drivers/hwtracing/gtrace/rvtrace-platform.c | 10 ++++++++++
+ drivers/hwtracing/gtrace/rvtrace-v0.c       | 22 ++++++++++++++++++++++
+ drivers/hwtracing/gtrace/rvtrace-v0.h       | 22 ++++++++++++++++++++++
+ drivers/hwtracing/gtrace/rvtrace.h          |  4 ++++
+ 4 files changed, 58 insertions(+)
 
-Leo Yu-Chi Liang (1):
-      gtrace: Terminate id_table iteration on GTRACE_COMPONENT_TYPE_NONE
+diff --git a/drivers/hwtracing/gtrace/rvtrace-platform.c b/drivers/hwtracing/gtrace/rvtrace-platform.c
+index 8c1503bd8d98..b9b256d469e2 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-platform.c
++++ b/drivers/hwtracing/gtrace/rvtrace-platform.c
+@@ -71,6 +71,7 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
+ 	u32 impl, type, major, minor;
+ 	struct device_node *node;
+ 	struct resource *res;
++	void *data = NULL;
+ 	int gtype;
+ 	int ret;
+ 
+@@ -126,6 +127,12 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
+ 	else
+ 		impl = gtrace_read32(pdata, RVTRACE_COMPONENT_IMPL_OFFSET);
+ 
++	if (match_data->get_data) {
++		data = match_data->get_data(pdata);
++		if (IS_ERR(data))
++			return PTR_ERR(data);
++	}
++
+ 	type = (impl >> RVTRACE_COMPONENT_IMPL_TYPE_SHIFT) &
+ 		RVTRACE_COMPONENT_IMPL_TYPE_MASK;
+ 	major = (impl >> RVTRACE_COMPONENT_IMPL_VERMAJOR_SHIFT) &
+@@ -139,6 +146,7 @@ static int rvtrace_platform_probe(struct platform_device *pdev)
+ 
+ 	id.type = gtype;
+ 	id.version = rvtrace_component_mkversion(major, minor);
++	id.data = data;
+ 
+ 	comp = gtrace_register_component(&id, rvtrace_type_name(gtype), pdata);
+ 	if (IS_ERR(comp))
+@@ -172,11 +180,13 @@ static const struct rvtrace_match_data rvtrace_std_data = {
+ static const struct rvtrace_match_data rvtrace_v0_encoder_data = {
+ 	.format = GTRACE_FORMAT_NTRACE,
+ 	.get_impl = rvtrace_v0_get_encoder_impl,
++	.get_data = rvtrace_v0_get_comp_data,
+ };
+ 
+ static const struct rvtrace_match_data rvtrace_v0_funnel_data = {
+ 	.format = GTRACE_FORMAT_NTRACE,
+ 	.get_impl = rvtrace_v0_get_funnel_impl,
++	.get_data = rvtrace_v0_get_comp_data,
+ };
+ #endif
+ 
+diff --git a/drivers/hwtracing/gtrace/rvtrace-v0.c b/drivers/hwtracing/gtrace/rvtrace-v0.c
+index a5ca9001bc08..01e62642c245 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-v0.c
++++ b/drivers/hwtracing/gtrace/rvtrace-v0.c
+@@ -3,10 +3,32 @@
+  * Copyright (c) 2026 SiFive Inc.
+  */
+ 
++#include <linux/device.h>
++#include <linux/err.h>
+ #include <linux/gtrace.h>
+ #include "rvtrace.h"
+ #include "rvtrace-v0.h"
+ 
++void *rvtrace_v0_get_comp_data(struct gtrace_platform_data *pdata)
++{
++	struct rvtrace_v0_comp_features *data;
++	u32 impl;
++
++	data = devm_kzalloc(pdata->dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return ERR_PTR(-ENOMEM);
++
++	impl = gtrace_read32(pdata, RVTRACE_COMPONENT_IMPL_OFFSET);
++
++	data->has_sram_sink = impl & RVTRACE_V0_IMPL_HAS_SRAM_SINK_MASK;
++	data->has_atb_sink = impl & RVTRACE_V0_IMPL_HAS_ATB_SINK_MASK;
++	data->has_pib_sink = impl & RVTRACE_V0_IMPL_HAS_PIB_SINK_MASK;
++	data->has_sba_sink = impl & RVTRACE_V0_IMPL_HAS_SBA_SINK_MASK;
++	data->has_funnel_sink = impl & RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_MASK;
++
++	return data;
++}
++
+ static u32 rvtrace_v0_get_impl(struct gtrace_platform_data *pdata,
+ 			       enum rvtrace_component_type type)
+ {
+diff --git a/drivers/hwtracing/gtrace/rvtrace-v0.h b/drivers/hwtracing/gtrace/rvtrace-v0.h
+index 2d83c87936b9..0681405fa414 100644
+--- a/drivers/hwtracing/gtrace/rvtrace-v0.h
++++ b/drivers/hwtracing/gtrace/rvtrace-v0.h
+@@ -9,9 +9,31 @@
+ #define __RVTRACE_V0_H__
+ 
+ #include <linux/gtrace.h>
++#include <linux/bits.h>
+ #include <linux/types.h>
+ 
++#define RVTRACE_V0_IMPL_HAS_SRAM_SINK_BIT	4
++#define RVTRACE_V0_IMPL_HAS_ATB_SINK_BIT	5
++#define RVTRACE_V0_IMPL_HAS_PIB_SINK_BIT	6
++#define RVTRACE_V0_IMPL_HAS_SBA_SINK_BIT	7
++#define RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_BIT	8
++
++#define RVTRACE_V0_IMPL_HAS_SRAM_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_SRAM_SINK_BIT)
++#define RVTRACE_V0_IMPL_HAS_ATB_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_ATB_SINK_BIT)
++#define RVTRACE_V0_IMPL_HAS_PIB_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_PIB_SINK_BIT)
++#define RVTRACE_V0_IMPL_HAS_SBA_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_SBA_SINK_BIT)
++#define RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_MASK	BIT(RVTRACE_V0_IMPL_HAS_FUNNEL_SINK_BIT)
++
++struct rvtrace_v0_comp_features {
++	bool has_sram_sink;
++	bool has_atb_sink;
++	bool has_pib_sink;
++	bool has_sba_sink;
++	bool has_funnel_sink;
++};
++
+ u32 rvtrace_v0_get_encoder_impl(struct gtrace_platform_data *pdata);
+ u32 rvtrace_v0_get_funnel_impl(struct gtrace_platform_data *pdata);
++void *rvtrace_v0_get_comp_data(struct gtrace_platform_data *pdata);
+ 
+ #endif /* __RVTRACE_V0_H__ */
+diff --git a/drivers/hwtracing/gtrace/rvtrace.h b/drivers/hwtracing/gtrace/rvtrace.h
+index 7f9e88d99b8f..b0cf2e1d875f 100644
+--- a/drivers/hwtracing/gtrace/rvtrace.h
++++ b/drivers/hwtracing/gtrace/rvtrace.h
+@@ -115,10 +115,14 @@ static inline const char *rvtrace_type_name(enum gtrace_component_type type)
+  * @get_impl: Optional callback to retrieve the implementation register value
+  *            encoded in the standard RISC-V trace IMPL register format. Used
+  *            by pre-ratified components whose IMPL register layout differs.
++ * @get_data: Optional callback to retrieve component specific private data
++ *            which is stored in gtrace_component_id.data. Returns an ERR_PTR()
++ *            on failure.
+  */
+ struct rvtrace_match_data {
+ 	enum gtrace_format format;
+ 	u32 (*get_impl)(struct gtrace_platform_data *pdata);
++	void *(*get_data)(struct gtrace_platform_data *pdata);
+ };
+ 
+ static inline int rvtrace_comp_poll_empty(struct gtrace_component *comp)
 
- .../bindings/riscv/riscv,trace-component.yaml      |  96 +++++++++-
- drivers/hwtracing/gtrace/Kconfig                   |  25 +++
- drivers/hwtracing/gtrace/Makefile                  |   5 +-
- drivers/hwtracing/gtrace/gtrace-core.c             |  34 ++--
- drivers/hwtracing/gtrace/rvtrace-encoder.c         |  79 +++++++-
- drivers/hwtracing/gtrace/rvtrace-funnel.c          | 132 +++++++++++++
- drivers/hwtracing/gtrace/rvtrace-platform.c        |  46 ++++-
- drivers/hwtracing/gtrace/rvtrace-ramsink.c         | 211 +++++++++++++++++++--
- drivers/hwtracing/gtrace/rvtrace-ramsink.h         |  43 +++++
- drivers/hwtracing/gtrace/rvtrace-v0.c              |  99 ++++++++++
- drivers/hwtracing/gtrace/rvtrace-v0.h              |  80 ++++++++
- drivers/hwtracing/gtrace/rvtrace.h                 |  22 +++
- include/linux/gtrace.h                             |  20 +-
- 13 files changed, 833 insertions(+), 59 deletions(-)
----
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
-change-id: 20261124-send-preratified-trace-e32dc2b34a0a
-prerequisite-message-id: 20261001052243.3042627-1-mayuresh.chitale@oss.qualcomm.com
-prerequisite-patch-id: 1d7b783884bfe7e1d91063e0f8a232b86cdf4c31
-prerequisite-patch-id: 8f59df8d7a27f0b3d3f34a0abb35e6c893c0858b
-prerequisite-patch-id: ef326ac6eba908afdd7a49a264094367ed03a1c0
-prerequisite-patch-id: dae8df7640ac89ff801741dba7e6d8e66432d54b
-prerequisite-patch-id: 56b583656f75c0bf3eec5dac4113782110bbcf0a
-prerequisite-patch-id: eacbdac5b4875ee7c84d9878f5a3cccfb79f7476
-prerequisite-patch-id: 81535ef70fc7c3823810f14dcd1a069a05e6e2ac
-prerequisite-patch-id: 65f827c9235a732612499b9ef95355872dc12a9f
-prerequisite-patch-id: 53d04850a79d6b6fa1d88b6b0d2cebc4348a41d7
-prerequisite-patch-id: 7a9c5eaccb41e1e63169edc3605f2dde7c373da4
-prerequisite-patch-id: 6e0bd370e542f4cd0db70ff88b6634be6a446aec
-prerequisite-patch-id: 509f41312fbcaa6a2bd0d9255cfd2116dc241adb
-prerequisite-patch-id: 0ede4337d462b0cec2b67c10533768c7de762408
-prerequisite-patch-id: 6b8939aa81ca09a16895a9ecf4de71e377a04ea6
-
-Best regards,
---  
-Leo Yu-Chi Liang <leo.liang@sifive.com>
+-- 
+2.43.7
 
 
 _______________________________________________
