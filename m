@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2E98606A323
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:19:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B8BA606A321
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:19:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lbrTCS8/;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dcA/LQZJ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s3Shl477;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U1VVpJka
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,42 +14,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=v5J5FTyCfMabigPE5T0MzTT6K/AvOSXj4bPXSrbwVHY=; b=lbrTCS8/oQZxLZWy+Y4KdBvpoB
-	vYqul1HYgKVRAivISdhit+KSUi0PdyhxhyCBUP3GOhf/hqhEVMFv4u8KGy4EQK6BYpppl2dAaBNOO
-	nsw1ryJcrG5bvZfDrt4z8sLOVuDY7F/vIemAPJ7v8gZroyElB+nRYVJ4smXHG14poTchXT4frFQPr
-	n+7ZIWwE+PXS1IBTuC+3iIuWWfVDVb/gTFtUakoYQHLOx0mEdqDTcsNVaWpc32K6lro5u5sQEPp+n
-	0cq5DIAG7Sxjt0o8EqrU/95GFzIcT0/aX+YzvSU3DRqEUoKcevXGwkbx5encORA0LSS4WlMI8NH4P
-	mo3/TWIA==;
+	bh=suhh5ysSi3TEdYu3v6Fwhr2tCn4HVfD7G8MxTlH6o94=; b=s3Shl4772rlJdfGCjrfGqKjk8S
+	MvPtMkzZ7HlL5SpPT0qHw4eDho90RMHkDqxFL3xzBGRLovLN7kbu+h0VFXSu2JPkdvyANjeYgTK6C
+	c8IIy1akjgD8n/UK+c1HzHco49d7QuNYxHxadDD3Fm2N3i3SzVMAUUAEuMkaoL4M5lpIgLG8Y7ASd
+	YrDp5/iCTLwT4ooifJPdDIwXTB/+ktFQYFcgBOkoW1fvUFuRpacK3w3w8DSGDWzUbyHb66xY5Zl9p
+	ArQal4Jtyb6wOIAJQfGK0Y7M7TqyDE7HHY0qzjsdA0yND4ze1aFbzfDb0kdlnLTTSY12xs5wlxIE4
+	p1tsXQSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXVD-0000000CuAf-3Ern;
-	Thu, 26 Nov 2026 11:18:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xWXVQ-0000000CuOg-0JDs;
+	Thu, 26 Nov 2026 11:19:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWXUc-0000000CtJZ-1sap;
-	Thu, 26 Nov 2026 11:18:22 +0000
+	id 1xWXUm-0000000CtVL-04Sx;
+	Thu, 26 Nov 2026 11:18:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2FB18433ED;
+	by tor.source.kernel.org (Postfix) with ESMTP id 65EF760D55;
+	Thu, 26 Nov 2026 11:18:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91CEE1F000C6;
 	Thu, 26 Nov 2026 11:18:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612A11F000EB;
-	Thu, 26 Nov 2026 11:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691901;
-	bh=ZILZfKisda6VydMd2eX+gp7jxSdYsZR8fHOcYz6Cqew=;
+	s=k20260515; t=1795691911;
+	bh=kg22a2UjYNlx3KcEJrs5W+VCDk/0O6wvkANb+XJaCbg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=dcA/LQZJNTRxAXYiSO3ecetRk8UeUJ6G6eowyblPb3SceghWJPlB47dy81dO3ekpo
-	 8zDVpbCPPwxS+gP2aWUtngwOLnVGrkWp3lbRZc00nMGGvENyrC+LUZsSkDTGn2a/Df
-	 Ykat0AJi7F5ysyrmoP735e9b3JtJOJkyBZb/r31kMWVXdrscOhgdsETzfdXnYLy3Oa
-	 9MLDBL0FuPwbh5GLhPshgP2x2ZO3LV6BIDUNOwy6XdbqpNWoRFGlguk+SsxHNgl76s
-	 ing/lUECgznOONlhV/K97ITTVUhM1RAQes1Mo/It0ScWnHTtRza5jJ7IGIDCXcwDNm
-	 NDSCBoaFdVjlw==
+	b=U1VVpJka7QLxUE4YaYREp3+OZWOG8ko4HiNqynewu4AeFyUfHQhn7brmfvorU4jMj
+	 o0uUS0QKMHz7GfMKQUvJ//XlEAtzumhJGgjIerOXA4rAWfrjf94Lowsrzo2OyspNRk
+	 DVyvxbUGMXY0K3/SOKAXMB1cBBC2Z/1CexvNi+4DB8g4a3/OjW2gS8R85cVmvy+69O
+	 qZUhYEGVTvL2AxEnooJqUb6ERwdNe/eEjnNDxMWp5QYBqFBgbBXumoo1jNxHCpRuXl
+	 WfdpzZtlXFLcqOaW/kvqMfWLQkJEJileeskY9GGqfARZEurJKKDSbEPqrmKJnQ8b4h
+	 uPm1ZG1WRQisA==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:37 +0200
-Subject: [PATCH RFC v2 24/54] x86/mm/pat: detect unchanged mappings by
- comparing protections
+Date: Thu, 26 Nov 2026 13:14:38 +0200
+Subject: [PATCH RFC v2 25/54] x86/mm/pat: add cpa_is_direct_map()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-generic-set-memory-v0-1-v2-24-723f1e33c3d8@kernel.org>
+Message-Id: <20261126-generic-set-memory-v0-1-v2-25-723f1e33c3d8@kernel.org>
 References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
 To: linux-mm@kvack.org
@@ -95,64 +94,85 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-CPA decides whether a mapping changes by encoding the new page table entry
-and comparing it with the existing one.
+CPA open codes the direct map range check in five places, and the generic
+CPA core will need the same check.
 
-It would be suboptimal to encode actual entries in the generic code for
-every comparison of the existing, requested and new protections, as every
-architecture would need one more out-of-line hook for it.
+Move the check to cpa_is_direct_map().
 
-cpa_leaf by definition has the decoded protection which can be used in
-comparisons.
-
-Compare the new protection with the decoded one and encode only the page
-table entries that are written, as the last step.
-
-Encoding masks out the bits the CPU does not support and _PAGE_GLOBAL bit
-of a non-present entry, comparing protections does not. set_memory_global()
-on a CPU without PGE or on a non-present page now rewrites the PTEs with
-the same value and flushes the TLB. Its only caller changes the kernel
-text, which is always present, once at boot.
+No functional change.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/mm/pat/set_memory.c | 14 +++-----------
- 1 file changed, 3 insertions(+), 11 deletions(-)
+ arch/x86/mm/pat/set_memory.c | 21 +++++++++++----------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
 
 diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 0a2d19064f23..f4d3e2d9c3c9 100644
+index f4d3e2d9c3c9..cbbc51be4de7 100644
 --- a/arch/x86/mm/pat/set_memory.c
 +++ b/arch/x86/mm/pat/set_memory.c
-@@ -1917,26 +1917,18 @@ static int __change_page_attr(struct cpa_data *cpa)
- 		return __cpa_process_fault(cpa, address);
+@@ -245,6 +245,12 @@ within(unsigned long addr, unsigned long start, unsigned long end)
+ 	return addr >= start && addr < end;
+ }
  
- 	if (leaf.level == PGTABLE_LEVEL_PTE) {
--		pte_t old_pte = *leaf.kpte;
- 		pgprot_t new_prot;
- 		unsigned long pfn = leaf.pfn;
--		pte_t new_pte;
++static inline bool cpa_is_direct_map(unsigned long addr)
++{
++	return within(addr, PAGE_OFFSET,
++		      PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT));
++}
++
+ #ifdef CONFIG_X86_64
  
- 		cpa_inc_pte_install();
- 		new_prot = cpa_new_prot(cpa, &leaf);
--
--		/*
--		 * We need to keep the pfn from the existing PTE,
--		 * after all we're only going to change its attributes
--		 * not the memory it points to
--		 */
--		new_pte = cpa_pte(leaf.level, pfn, new_prot);
- 		cpa->pfn = pfn;
- 		/*
- 		 * Do we really change anything ?
- 		 */
--		if (pte_val(old_pte) != pte_val(new_pte)) {
--			set_pte_atomic(leaf.kpte, new_pte);
-+		if (pgprot_val(new_prot) != pgprot_val(leaf.prot)) {
-+			set_pte_atomic(leaf.kpte,
-+				       cpa_pte(leaf.level, pfn, new_prot));
- 			cpa->state |= CPA_ST_FLUSHTLB;
+ static inline int
+@@ -1224,8 +1230,7 @@ __split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf, pte_t *pbase)
+ 	for (i = 0; i < PTRS_PER_PTE; i++, pfn += pfninc)
+ 		set_pte(pbase + i, cpa_pte(level - 1, pfn, prot));
+ 
+-	if (within(address, PAGE_OFFSET,
+-		   PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT)))
++	if (cpa_is_direct_map(address))
+ 		split_page_count(level);
+ 
+ 	/*
+@@ -1375,8 +1380,7 @@ static int collapse_pmd_page(pmd_t *pmd, unsigned long addr,
  		}
+ 	}
+ 
+-	if (within(addr, PAGE_OFFSET,
+-		   PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT)))
++	if (cpa_is_direct_map(addr))
+ 		collapse_page_count(PGTABLE_LEVEL_PMD);
+ 
+ 	return 1;
+@@ -1423,8 +1427,7 @@ static int collapse_pud_page(pud_t *pud, unsigned long addr,
+ 	list_add(&page_ptdesc(pud_page(*pud))->pt_list, pgtables);
+ 	set_pud(pud, pfn_pud(pfn, pmd_pgprot(first)));
+ 
+-	if (within(addr, PAGE_OFFSET,
+-		   PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT)))
++	if (cpa_is_direct_map(addr))
+ 		collapse_page_count(PGTABLE_LEVEL_PUD);
+ 
+ 	return 1;
+@@ -1887,8 +1890,7 @@ static int __cpa_process_fault(struct cpa_data *cpa, unsigned long vaddr)
+ 	 * one virtual address page and its pfn. TBD: numpages can be set based
+ 	 * on the initial value and the level returned by lookup_address().
+ 	 */
+-	if (within(vaddr, PAGE_OFFSET,
+-		   PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT))) {
++	if (cpa_is_direct_map(vaddr)) {
  		cpa->numpages = 1;
+ 		cpa->pfn = __pa(vaddr) >> PAGE_SHIFT;
+ 		return 0;
+@@ -1977,8 +1979,7 @@ static int cpa_process_alias(struct cpa_data *cpa)
+ 	 * mapping already:
+ 	 */
+ 	vaddr = __cpa_addr(cpa, cpa->curpage);
+-	if (!(within(vaddr, PAGE_OFFSET,
+-		    PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT)))) {
++	if (!cpa_is_direct_map(vaddr)) {
+ 
+ 		alias_cpa = *cpa;
+ 		alias_cpa.addr = (unsigned long)__va(cpa->pfn << PAGE_SHIFT);
 
 -- 
 2.53.0
