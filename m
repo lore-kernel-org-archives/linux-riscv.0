@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01797606A327
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 16:33:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF385606A31C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 16:33:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ImgXR/GM;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=L0uMP6ob
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iBXmGeVz;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=kvzGya/S
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,47 +14,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=khkZ2gN0PhV7skMlnieRxTpBRVoyJtq84n0P9fropUw=; b=ImgXR/GMQdrhziOOLyi22vhK/a
-	oTQb7hvPUqRwPfoOzTjCNp/lUWlWHhdKj6y3bRep1qHPq1v3TpJC+M1e3Jc8LIU+SHeUPGo9Ap1MJ
-	GPwwKjaI025nKVaqBdGxBzfTi/Zf/Ic5DcYDC6ZXG7PffF0NEbEZxWddwVKnjg15TqP7P9NnFyT9N
-	9Eq8ChKg5P3sBPfMJhUJDZx89LiZhdLVWbOV8/FWT4S7Xsgc8SxPHmBqWNdUEuMG0h/Ugvb7nVoH+
-	SXPOF0OqtTW1anrYnrM72HIGeEysEBngPh77gjvN2u2P6ITQhzk+UjeuiE4nounc/sZKmRF+5mWtj
-	UMqUhwnA==;
+	bh=EQHSsyin4jarGIVz7SrbXQCqSMSj2NhZtizdb620b4A=; b=iBXmGeVzm/w4F6CT8JnuDBMuqr
+	903VFBw0xkTH1V+cpPwcdDjsSrfpzpfmafQrOP2guJIBJbu0a88T64DzWccGSE7AjWJ2j/f5qavJj
+	1DcBNzEVjjLpUtziYdBA8xSkehYLKXIv5ES/2mohgN12b0QthawTADtyLK5yU+huqW39cknwe9qQZ
+	mOE7b9Rp6jMqZYqgtQcRy1A9zZNloxCFdLPWH3y15CJqqmbOhse79i31dkQqOgTTAP5O6C4qTWbDP
+	FA0du71mz0dBPM+rHxIHDiEILXf+rdLcoepJ8MI3lnTzVR9hZdKdqGWRnSvgooEta5oyFirVaLgwM
+	wVbp9pzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWcPf-0000000DvHf-3d6J;
-	Thu, 26 Nov 2026 16:33:35 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xWcPs-0000000DvP4-05RM;
+	Thu, 26 Nov 2026 16:33:48 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWcPc-0000000DvE0-3arh
+	id 1xWcPl-0000000DvKF-16oq
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Nov 2026 16:33:34 +0000
+	Thu, 26 Nov 2026 16:33:47 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QtqDqhsLO8u0gquCmCH2BTGWENjuLJuPrCnPwcYpkcrMwzvS6ThFcTs5EyVNabXDV0pE43SMLq/nx22FqbVy0DRzQRf+kTTbRdjjbua7BpTlL+0+0U7G6FKQctVprx03eEluqZHGeBiwmEtJMQqBBpTcHda/Ign41Z9BDvIDhjxqRP1u4NSgsGOTBWkCaeZbeNlDTwCRBuKaAvxdEBpPlKIEU8CrNgJjI6GfqlK8k0LVk5xrT4fmZgMEuSMGM2LuZrCHWuwiJAdw3sMFFljRbooRHJ/P53kA1Cz3u79iavy1TXWDYkHeXlU9iSN3oJYOq6UeG1sxJmggcK75lDrhrA==
+ b=INS02Ie7g55EMxYdAw95e7ObPlNIWZWKZetg7a3bsm+pDKCR1yxE/185aM4F4CEpjW64qv5DQy/bSDGCd3aiQPIi9xaVQaDg5SaleouwyD3M5AC0kFPy8RmN6gmqhIoWQtIBtXWuU/IsQ8JKor4m6XBGtXfs3r7W4faRUL2iq3JwIi9/2mjDvC8bxNjEraHHtpsuVc/Wdepe7t1Y+Wp6sljUlnBl4gDCCInYhjQYJpSI30RYzwDRoqdqWnvgbuwzV6ZYIgiTsWM5q6eQKxNoDlbCjFwe9M5kZvG7gkJZz/1LbCOR4RUQPAOuOVK+SLUDXBM03jAe1ZsajQZ5GfIzMg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mkx8nicNBIMCWYgZ96zxZlBX3TSq5DOuec66GH5Jdzg=;
- b=DDHs7gthFPZbPKNESyMpLzFHjabVPPx0k/Lba07iliiPNz8l9LezOzp/giSG/TxGn9uByHB2vpuxavon94iQ7zRVrcAOK8pGeRkjgxwaG4Xu+0EhWED4ZGv+A+BTRYxNiKvjksuw8xbS9NWqWgwYfbNtP0+Kwg+LKJH2bh7bUScnJJa7MKLfT1KhcMZLOSAFaa6vIjbaH6+ek/QJVVrb1rD0RTGIMDq7m4zFojKPgLbWqlMJV0ruJh1F6yK7zBUfsNB7eSjVeQAw03bd4kgyB5qvhl2OjQ3uL44thSS6TiVw8BApPShGKFAeseqd9EEa1FbcBe5U7GsNy8JUffpxVg==
+ bh=7soUBChG2eorH8MaKZzLxtkNhLd/s6s3Ma6CXM0wbKc=;
+ b=k1XxXAr4o4WbzY9GMnMEx9T/Zvb6pvRbeV3mjRU2ZYI6dkpVvzE47wuJt97n4KGO5kJOcPF5tZOniSVzMJQc7ogdwir0W3IiB8Sc5A0DS9nx6624qus/YGXmi+axcNNuqCClLjHSeNCPhR311dve43lwwKcDRwMYpy+Y2Ycy1ofx+559yUa0bE94pFKNudqItklZF7DmmfbqrFeOXIEM7scHpXny+ekKbpPGp8hyO/i7y1q5EaHKw2T5HTX2zDTG8Lu0ppTarYjylelXqGtSN1VYBDgwAKSKJydxEGO/hBIBhxAch5Esl9FtSem3y88n0BE5pZZLsuTlt7+dowIYHQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mkx8nicNBIMCWYgZ96zxZlBX3TSq5DOuec66GH5Jdzg=;
- b=L0uMP6ob1KXduxSD8kSKy7ATPtmBqLJiQwCu4K/vEk8AZbd3jWUKuHIIY6sRhPO7cGtq4w3L3OLgkZ6PaMvoH3RrUpt4H4u6sarS64UQ8ZsBGx5AJE29jeB2QkJI35yJk7+xSseZlgEOHXEJMX+Iq4zu7/rMZo07Mf3KdWcE8C4BzHb0XoSTDKdSDwVsIc4abAjod4Tu6HXR0XtvOIifUk+EZtPYnV/FPHcQVrV10ueK0eL8vK9sLBC1lbn8WQrvjx3Tc+oH80c+f9GKRBTkgl5dSmeHf0gHc+1lmii+BNi4i4Xr3LSt/29/VS2s5ai8GMvKplmriQbkco3yAp1qow==
+ bh=7soUBChG2eorH8MaKZzLxtkNhLd/s6s3Ma6CXM0wbKc=;
+ b=kvzGya/SYoRcPeYwTibnHEzV0DPzm98lv1NUqGJ1KC09FBs5BEALaTK1SZDkjDOxHPWXkt/MQtWpSRiM+uLMqxwaeJEoJYQz6/QWHXeq/YJXqqng5hcEXh/dKqlQxbLMnqkDIc90kCVS0UpDJDHWERUAK1v1STsDkZdUy8hO0GlSxQLyShCL/hxtp1ZbrHeY+amRzkxvt3JwRyMaoTtq312Kdozt27EbhI6cytnXFiHGKapszeL7/J5Ff3nBQv/ZDC9UVabV2umc2Xk84rGZDPOKDoAT1zSdANuhD5TFhbNpK+nZVKS+Qwd6vVBHJ3zuiyKlBkON8tYooKcUBEawkw==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
  (2603:10a6:102:4ab::13) by DBBPR04MB8009.eurprd04.prod.outlook.com
  (2603:10a6:10:1ef::11) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 16:33:29 +0000
+ 2026 16:33:37 +0000
 Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
  ([fe80::80e9:ab1c:dbc4:6930]) by PA3PR04MB11203.eurprd04.prod.outlook.com
  ([fe80::80e9:ab1c:dbc4:6930%3]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 16:33:29 +0000
+ 16:33:36 +0000
 From: marouene.boubakri@oss.nxp.com
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -72,72 +72,73 @@ Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Marouene Boubakri <marouene.boubakri@oss.nxp.com>
-Subject: [PATCH v2 7/8] riscv: dts: openhwgroup: add CVA6 APU on Digilent Genesys 2
-Date: Thu, 26 Nov 2026 17:46:31 +0100
-Message-Id: <20261126164632.978624-8-marouene.boubakri@oss.nxp.com>
+Subject: [PATCH v2 8/8] riscv: defconfig: enable OpenHW Group CVA6 APU support
+Date: Thu, 26 Nov 2026 17:46:32 +0100
+Message-Id: <20261126164632.978624-9-marouene.boubakri@oss.nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261126164632.978624-1-marouene.boubakri@oss.nxp.com>
 References: <20261126164632.978624-1-marouene.boubakri@oss.nxp.com>
-X-ClientProxiedBy: PH0PR07CA0057.namprd07.prod.outlook.com
- (2603:10b6:510:e::32) To PA3PR04MB11203.eurprd04.prod.outlook.com
+X-ClientProxiedBy: PH7PR03CA0012.namprd03.prod.outlook.com
+ (2603:10b6:510:339::24) To PA3PR04MB11203.eurprd04.prod.outlook.com
  (2603:10a6:102:4ab::13)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PA3PR04MB11203:EE_|DBBPR04MB8009:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d303cb5-3ae8-48c3-ec6e-08df4bdb008f
+X-MS-Office365-Filtering-Correlation-Id: 063e69e3-ae44-4af7-ae6f-08df4bdb04f8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|376014|7416014|1800799024|19092799006|261022105027099003|261022075727099003|10067099003|56012099006|11063799006|260925021311599003|260925021911599003|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261021123027099003|261102123227099003|261102124527099003|260925022911599003|261009223027099003|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: BPKN1NHngkxgC2Mi275g3BT/jyux09FPcFE1d+bjpn4/afXyN68nCBYAwHh56VsvzkSeQnTporv2mEIGKYAJ/9hrkBWtly1TueSey7qP2EmqCYp7+gFrhITpZATmUv1sXmixuNwJYbW5aQ2De6hwwr1dupOl8Dy22pwoBBeYqU1OdUWkqpkmAnhz5Hmty4ce+yGHL/vWit4d/ty1e2Wqv7SOgu6/TJSmbJ4tIDHS9bLhY3uPz+egWKAVwlr1mz+jOJOxnaISEExOJCHHVhx4wgCcTFw3oevygNfrupkKrYL6DiAyW0aHsJYYggzkJAP78fqMk2+QKkekUJWLQE+jQ48xsyEXQNvxFWJ5LSv25pCSRgkLcrHS966Z2rA7Q4KYUcH5p2+IRvR/OhM3lh63J+bG3JNQHXWyUkd1jUSi29EiJGYbI0u6a6OlfzofsMHxyOg2cBXdXpEgYwimHNHtStPL2mkwH7X//daHyEJSrLTqAAlKtjiqMZmifDMeiw/KHzkT+FMKzkvzzuugPCOw1x8f6t6fUrfdz6JSIrNdjguVhQG8SwhJ2ZSMnAqlOtG1Ze6jMZ1WjHzjsByt4IJxldxlYZ3IMfV77aCFX4GBR1LfYYVVm7xQ0EtVLWjJD7DG
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(7416014)(1800799024)(19092799006)(261022105027099003)(261022075727099003)(10067099003)(56012099006)(11063799006)(260925021311599003)(260925021911599003)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261021123027099003)(261102123227099003)(261102124527099003)(260925022911599003)(261009223027099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|376014|7416014|1800799024|19092799006|10067099003|56012099006|11063799006|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: o6McgzDB7OD/1ykkx7/GDeM34Ui7c1kZcODTJ4nxdrNltqVaiD2adqEhXGdWTdf0CMkGruOlF3V1FI6HkQfaLokRU+Qj8I/bQvE8B0/9dzVaTYJItMd/eKbj0aiPRSIVSYHX7M1GCB7EkmUUbezID2dfWkm2JmMMT5DLVVQ0JEaG30nJDg9CQgZVwR3psO9vA0tF6mrRN6RsWkIlulE9ZA8KTWgUzDhPHhMgYdq5SLSRy6VVgM9px5dziDt0uYKq+BpHW9SuF5f7yPFUAxim8jSqp/fEhk2o0GCE1CkZSoOXiE/zETD8SHBcvgnrmIhfvBsQHfLnuk8gYFe7srCUf7cMHkODY/K7By46e9Fx1bVz56GR8DEErzuAiH0BeyV6g5uPn7VuWpGv/HE9SVRBl/zXUzX5rtsqgVo1NiuKTjIl3ASdHmvSzTJx5I5eacRYXCu6FiqfhBb9DYwcs6o1UsaCIHRibkDfkP2YU/EO6ktisA77e66Na7eC11SwqG16TAc3SMh/a8/B2PoGnFKvd7FQbgE3iZojsoXbYJyujmYQluVLZeHtj9SwZg5rmI8l9iLXo2HY8UiR75W7H38SYyrbu8WtRpvEtAkH1DoHCzhAZdvDpsMeY8cJYv6IvycBO71do38/DZ2TAMGgfzm5553G9L6D0GiEdACsCaMWx9M=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(7416014)(1800799024)(19092799006)(10067099003)(56012099006)(11063799006)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1I52qAn5cGnL8mi1PQafXn58/Wh//svLGfDXswaAnI20yPNKVHAnG9gZV1O2?=
- =?us-ascii?Q?e6T0aZK+cJP2FKApCpFbwvrpau4SXrNIj6py/EmzhPKzxDCqvCrVMJVxlUZI?=
- =?us-ascii?Q?ZfGN+H7e9BJNBqNMzWIYna2gu+AUIE0QJ9aNBrbcX3ckUa7jZbyU4bgp/pcC?=
- =?us-ascii?Q?u0g9Jrv93kLNIfcPzfx2YM4c2oUE1cmRlPAJv6o96D3M9yYrhtDBVMol1Z02?=
- =?us-ascii?Q?+RXMUME+TwFs54XwGvIIp0MXkNgljONdixAZ++d46i/SnLXQhIYrmwOyfDad?=
- =?us-ascii?Q?ym9PTlKQ59LyxnuA/6+ZS/u43zmYdWMUZzVWV7f4Yak15BMCCpC9S0CPl0Ob?=
- =?us-ascii?Q?mg3TwaOgakfk+ToHwXyZ1tlvhGAGn99fxq61bDZcWTO0LDKOAcwwsgy7IAKT?=
- =?us-ascii?Q?NRZ8IEHmD+y1e74TrlzHXPGEhqEFUunm0v6JqYpvY6rXRbaS2GwM6nUCSwHa?=
- =?us-ascii?Q?SsfuiHwdPftt3Q7G+q6QCbcgBr/nqWmA1t1eaN6aERnH6o4tc5tEGs3r1P1d?=
- =?us-ascii?Q?NnyK/2DGqz/0rfqqMslxQ4AZxbnditGTP92JASYZ2xMnUOTqhxezI9r3nfXV?=
- =?us-ascii?Q?yjm6VB0jivoUVQSit7H5jckOAixRiIi2pSxme2nz7xd881VR8dTqpVBl4dA6?=
- =?us-ascii?Q?6dLbI9l8YMpoAtFUcBWRcQ/XWq/cYva1hMYyXIthHLCNEaiBCTEaPzphvdSW?=
- =?us-ascii?Q?4HjKgeNkCCkYz1hms5wJfshO4H2lkJy93mS5WEwjxo7HF4tpBLTdiMhEq5Sr?=
- =?us-ascii?Q?EprwkdVDlu1d14wNXD2M7VW54r5UBcclKkWHqc50PEjJ8vgrsrEkLZQ/fCSh?=
- =?us-ascii?Q?iFN6w46HlZ4FQ3oQslarTa7dl5wsCYbZ3yHdfSwyO5guba6C2LMKquQXa39g?=
- =?us-ascii?Q?ApvA+IhWtbWH8xr2vUkyRimjKA0bARJ8wLbjbxeICaM2bxmex1MSVjqqlyNR?=
- =?us-ascii?Q?8k/gNp+K6kaUB+UkVtudFqKJ2rZ5TRuCSNBYjbI0HCLIZCi/NxCNUobMRwqg?=
- =?us-ascii?Q?JOJEzfE9X19OEwktFOGBAGaoVbge3HYaIF5R++yruGNcT7ikrrTqa/34Zpi1?=
- =?us-ascii?Q?pPbrWVGWu2U1zOB7w9gY3l6Q1bMm4DfMPMikxNEZ3AtDuNSw8+l4X31lyeG0?=
- =?us-ascii?Q?UFPZlJwlWUhTREIF+U4GDw2cE1IQudF1hNcluggWuxpE1FM41gGiFSE90dIF?=
- =?us-ascii?Q?8ZxsQ+IQ1Fnn91MW6TU7JU59+4/RkEwRgKBbaA7jVYKIF+IXhpKfkduOhO9g?=
- =?us-ascii?Q?Ih4GLoZSv9er2IedTYBz6PqUtzz1TEJJlBd8YlXSG20BhZOskf6FbgI1HExY?=
- =?us-ascii?Q?uZMbeJeA8D7mCJKZC4ngW1XQj94Y9hxv360rmN7ypksCLQDkOfMCPnljrnvC?=
- =?us-ascii?Q?GvdQ0+MnmTntl1imm+j8z36lkBm3fgJwCNbXcN3jsMxxYOYhIesy+lPCwGAy?=
- =?us-ascii?Q?rE0Hahf0Ox454Da1G2Bd2xAXPlw7h/hT0eD1O7HSy/Mh9e3WNBdHoSdjXOu/?=
- =?us-ascii?Q?VSt/tgSBwvmu2LEkXdHUe7DNvVfPP5+RQrsoC/dCXEHLZE3wsLNDv6wPZBn0?=
- =?us-ascii?Q?y8HQwLUf9uhH+4zmMPAhNchJwxUt4FcZaO9mdA7q10n+buOrQRmu36Psg+rL?=
- =?us-ascii?Q?mOrYIRpZgYZ2nmNDcgkfdwqUGNKqbyMfBzIRD2ifb2lsml6Tlp0un2qb4KBV?=
- =?us-ascii?Q?sqR3EZZwXSMTC6eGsyvu3mH0tW9/cC/EbHs9/AO1TNyNuZlwzxli6nZFef62?=
- =?us-ascii?Q?yxWrGar1AXVLqx0rTXccVYs1oVt7O3XB1KW362tTFRF9ISF6TaQoNLsboImx?=
-X-MS-Exchange-AntiSpam-MessageData-1: CiE1fRVzRyKHrA==
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?U62xplFZjnwIGVTibgfNvuYGoxZkOWGhi/eptGnXhFcTiUNXO8OL9lUYr0kj?=
+ =?us-ascii?Q?UHE5lErVKTcGXyk+07nBlcgM16OIoSFITnxMByYscrNmkkbQ8K27bh0yjwJQ?=
+ =?us-ascii?Q?pJcRbavRl49roDp8yM6NvClEs6h5Jht8w2wyjvV/fVFwJ9KKtfD4huDWWiNJ?=
+ =?us-ascii?Q?HVLi6HYadkrLchx4vIyltzehqMMbvltTF8kZPnqZMKjwwKKwJcqJlU4QhAY5?=
+ =?us-ascii?Q?HJv9oQ4TITpXnybvNnlHOVh+l0h7QCZXLOR6+XtEUldm7EtVMUrOPmmAROvN?=
+ =?us-ascii?Q?8MVkPQLeAlVQAEddqWPt2jeUFJgfCjNCPLOMVbnhe6oMpm1Dsbf55kJWqyyl?=
+ =?us-ascii?Q?ix91ildugBnRdbGm1IKgdRaYjrlIJjgCh6FfNFcg3OkYr/QmeSc5Q8gPGuPr?=
+ =?us-ascii?Q?Xu0/h4nzMpXPqn5E1oQY+qy+lXphE+nrsCl1AIpioVg32IQqnd1BGrOJyDos?=
+ =?us-ascii?Q?FN9tJbWvZKdT7bNOb3CxyQHHLNfq+Np8uS16UMwOjhV3c5S2cbzbcl0MXxl+?=
+ =?us-ascii?Q?0XlC4mwx/PviFSt6t3wBOLYrGJOs0CHPOeck+FL7VmQivj/gl1h7B+fS+g7o?=
+ =?us-ascii?Q?jVQSXjd3eDq1pBBrmPGqVK1nSoVhaqK7NO3UQtWmHfBxj0lTXvMgxH3Y8LhM?=
+ =?us-ascii?Q?38whjzG20g5BHG8F7oJYQbSwfdXVVgFnnD2Bq7asclNL1BzZD7tUY2byrFv5?=
+ =?us-ascii?Q?xIYoT7TnC0KGt7/PBpymzGnqiLQSNPOS+CemWz0jg4ggOUwOTDi6unDgNMkY?=
+ =?us-ascii?Q?Ry1ycO81Bxta+mvz4MqLx25UkbfDZI7ECN1obWvYe4KNOaQwUZsLn92s/KN4?=
+ =?us-ascii?Q?bSs5nNOAxRgZaqMuhE5cyJLOj9wSfAfiLQkOa7z/oKk+LNZL1FqDGMq/14KS?=
+ =?us-ascii?Q?dWbaqSUv9EKwWdO7aVjVFjpp/buyxnvvvfaUVtlPebhsQOr1MHVSqem8gFAg?=
+ =?us-ascii?Q?jvai1MBQT5rlOVLHYkh9ZEPOZ2RS+YKmTjeJOibCzjr89FWnZRPkMT5ixZ3x?=
+ =?us-ascii?Q?Z1pAnrpj1qAKPQcM2snxLdgPBX5hNY0pYjZa8wadzEaB3rtbQiCHmUGz8QQq?=
+ =?us-ascii?Q?sK1LkY16kdJAeSBE8UQsIOEYHdKBuvxY5SYM+CkTexh4r469hymIqL0/363c?=
+ =?us-ascii?Q?OhSy3cxTImio659SNOzCWr9f7daKZSDIwYOFiV+EanAjGq6rWWaGlLU0OWfA?=
+ =?us-ascii?Q?qM/KN5Dk3LzEOYAgtnc2xIhTEyQCNI5TfbixtvIjptgTJ03XG2lMqkrnB+T2?=
+ =?us-ascii?Q?k8oWmlaFl4wGpoapcQ+DlLbuIeaDbCcEfn/f7za5Au2NeMTlpRV4dQ4PtWSy?=
+ =?us-ascii?Q?m3xpXxwyg81Q3M2Fuy0BinK5lUrCwCjG2pRG4jKzF19Bzzhqe9t/n87sUFOc?=
+ =?us-ascii?Q?0IItzOwlOF3//acu49GcpCuq9E/2pRXRqx69r2+G2OL8sjaOnGhFVLNBXLQ8?=
+ =?us-ascii?Q?Eeyxs3b0MwYrqVEukXH7t6cG8ARAIw6+VwIQTRxb1SpqPzkvzREwjqRgrFAT?=
+ =?us-ascii?Q?Cb5kFaryk2FAV6EGXN1wTFREvy9cZIOJvFSAdOm+QlldAB0P6biUoAbVRcUN?=
+ =?us-ascii?Q?F+vnSDzQnSB1p5ywLidQyD7vo7LFmT8L440SQ3jLE8k+5v+Tl8xCQqg1Ow/s?=
+ =?us-ascii?Q?WGAOSKSDxC2YD1cjCCyr+lRAOV8q41TW+pAYITK+6lf2yIK1k9nGnXwGXQMd?=
+ =?us-ascii?Q?e9F+GHiqp75QCEDt2Y2QpYe46YiBR1iWSMxObx5SNjVlXloBHlKbAiqB+tsE?=
+ =?us-ascii?Q?Zin8T4DdOTw2zjV58mZ5jtvycZ8tdq86bgJU06G2WzMLvnxVlOywGl8RXb2j?=
+X-MS-Exchange-AntiSpam-MessageData-1: Rlg8dOJFfKVn6Q==
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d303cb5-3ae8-48c3-ec6e-08df4bdb008f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 063e69e3-ae44-4af7-ae6f-08df4bdb04f8
 X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11203.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 16:33:29.5409
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 16:33:36.5973
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YGY0ZwVwr/PcQoErv2SbvCHmnDAuCKi9kpw4EupjXs43IrRyn1KwbrMiOORSVrnpzBzRzs2a6INXa0Chx57RJgxSjQCzJeBcZPjaAq78tlNDWt/Y9JU79qPPOUhaOaXteudvd/6/+LjfQtseWmv4Ww==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1eHH1ZrrcpCcZr3ck1pi22BPVx1mDunm1fM9WwMgN1sDnG4DrgKKA0OEn/x43LGyVhRzOzL2l/uRjjZAnVMqFwC3ym8j/gBWIAhX9iGv2Q0XNduDsz0t78FOzLE0RK3L07bTe4UX/HPFhsexAXQ6Dg==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB8009
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261126_083333_513046_19105B38 
-X-CRM114-Status: GOOD (  19.86  )
-X-Spam-Score: -1.0 (-)
+X-CRM114-CacheID: sfid-20261126_083344_824726_3ABA6C74 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,311 +151,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 From: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
 
-The CVA6 APU is the FPGA SoC built around the OpenHW Group CVA6 core in
-the CVA6 repository (corev_apu/fpga, release v5.3.0). It targets the
-Digilent Genesys 2 board and provides a CLINT, a PLIC, a 16550 UART, a
-Xilinx SPI controller connected to the SD card slot and a Xilinx GPIO
-block driving the LEDs.
-
-Describe the SoC in cva6-genesys2.dtsi, shared by the two configurations
-of the core that the FPGA platform builds, and add a board device tree
-for each of them:
-
-  - cv64a6: rv64imafdc with the B, Zcb, Zicond and Zkn extensions,
-    Sv39, 1 GiB of DDR3
-  - cv32a6: rv32ima, Sv32, 128 MiB of DDR3
-
-The ISA extensions follow the core configurations of CVA6 v5.3.0
-(core/include/cv64a6_imafdc_sv39_config_pkg.sv and
-cv32a6_ima_sv32_fpga_config_pkg.sv).
-
-The platform also has a lowRISC Ethernet controller and a PULP APB
-timer. They are left out until bindings exist for them.
+Enable ARCH_OPENHWGROUP so the CVA6 APU device trees are built, and the
+Xilinx SPI and GPIO drivers used by the SD card slot and the LEDs on the
+Digilent Genesys 2.
 
 Signed-off-by: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
 ---
+ arch/riscv/configs/defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Notes:
-    Changes in v2:
-    - Use the versioned board compatibles (Conor Dooley)
-    - Add a clocks property to the cpu node, replacing clock-frequency
-      (Conor Dooley)
-    - Document that the 50 MHz clock is a fixed MMCM output
-
- MAINTAINERS                                   |   7 +
- arch/riscv/boot/dts/Makefile                  |   1 +
- arch/riscv/boot/dts/openhwgroup/Makefile      |   2 +
- .../boot/dts/openhwgroup/cv32a6-genesys2.dts  |  30 ++++
- .../boot/dts/openhwgroup/cv64a6-genesys2.dts  |  32 +++++
- .../boot/dts/openhwgroup/cva6-genesys2.dtsi   | 134 ++++++++++++++++++
- 6 files changed, 206 insertions(+)
- create mode 100644 arch/riscv/boot/dts/openhwgroup/Makefile
- create mode 100644 arch/riscv/boot/dts/openhwgroup/cv32a6-genesys2.dts
- create mode 100644 arch/riscv/boot/dts/openhwgroup/cv64a6-genesys2.dts
- create mode 100644 arch/riscv/boot/dts/openhwgroup/cva6-genesys2.dtsi
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 782389bd5c..17865074a2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23566,6 +23566,13 @@ T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
- F:	arch/riscv/boot/dts/canaan/
- F:	arch/riscv/boot/dts/sifive/
- 
-+RISC-V OPENHW GROUP SoC SUPPORT
-+M:	Marouene Boubakri <marouene.boubakri@oss.nxp.com>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/riscv/openhwgroup.yaml
-+F:	arch/riscv/boot/dts/openhwgroup/
-+
- RISC-V PMU DRIVERS
- M:	Atish Patra <atish.patra@linux.dev>
- R:	Anup Patel <anup@brainfault.org>
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index 69d8751fb1..305a93ad6f 100644
---- a/arch/riscv/boot/dts/Makefile
-+++ b/arch/riscv/boot/dts/Makefile
-@@ -5,6 +5,7 @@ subdir-y += anlogic
- subdir-y += canaan
- subdir-y += eswin
- subdir-y += microchip
-+subdir-y += openhwgroup
- subdir-y += renesas
- subdir-y += sifive
- subdir-y += sophgo
-diff --git a/arch/riscv/boot/dts/openhwgroup/Makefile b/arch/riscv/boot/dts/openhwgroup/Makefile
-new file mode 100644
-index 0000000000..a75a5863b7
---- /dev/null
-+++ b/arch/riscv/boot/dts/openhwgroup/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_ARCH_OPENHWGROUP) += cv32a6-genesys2.dtb cv64a6-genesys2.dtb
-diff --git a/arch/riscv/boot/dts/openhwgroup/cv32a6-genesys2.dts b/arch/riscv/boot/dts/openhwgroup/cv32a6-genesys2.dts
-new file mode 100644
-index 0000000000..f625e868e3
---- /dev/null
-+++ b/arch/riscv/boot/dts/openhwgroup/cv32a6-genesys2.dts
-@@ -0,0 +1,30 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
-+/*
-+ * Copyright 2026 NXP
-+ *
-+ * OpenHW Group CVA6 APU, 32-bit core (cv32a6), on the Digilent Genesys 2.
-+ */
-+
-+/dts-v1/;
-+
-+#include "cva6-genesys2.dtsi"
-+
-+/ {
-+	model = "OpenHW Group CVA6 cv32a6 on Digilent Genesys 2";
-+	compatible = "openhwgroup,cv32a6-genesys2-v5.3.0",
-+		     "openhwgroup,cva6-apu-v5.3.0";
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		/* 128 MiB of DDR3, as configured for this core by the FPGA build */
-+		reg = <0x0 0x80000000 0x0 0x8000000>;
-+	};
-+};
-+
-+&cpu0 {
-+	compatible = "openhwgroup,cv32a6", "riscv";
-+	riscv,isa-base = "rv32i";
-+	riscv,isa-extensions = "i", "m", "a", "zicntr", "zicsr", "zifencei",
-+			       "zihpm";
-+	mmu-type = "riscv,sv32";
-+};
-diff --git a/arch/riscv/boot/dts/openhwgroup/cv64a6-genesys2.dts b/arch/riscv/boot/dts/openhwgroup/cv64a6-genesys2.dts
-new file mode 100644
-index 0000000000..a98c38a55f
---- /dev/null
-+++ b/arch/riscv/boot/dts/openhwgroup/cv64a6-genesys2.dts
-@@ -0,0 +1,32 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
-+/*
-+ * Copyright 2026 NXP
-+ *
-+ * OpenHW Group CVA6 APU, 64-bit core (cv64a6), on the Digilent Genesys 2.
-+ */
-+
-+/dts-v1/;
-+
-+#include "cva6-genesys2.dtsi"
-+
-+/ {
-+	model = "OpenHW Group CVA6 cv64a6 on Digilent Genesys 2";
-+	compatible = "openhwgroup,cv64a6-genesys2-v5.3.0",
-+		     "openhwgroup,cva6-apu-v5.3.0";
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		/* 1 GiB of DDR3, as configured for this core by the FPGA build */
-+		reg = <0x0 0x80000000 0x0 0x40000000>;
-+	};
-+};
-+
-+&cpu0 {
-+	compatible = "openhwgroup,cv64a6", "riscv";
-+	riscv,isa-base = "rv64i";
-+	riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "zba",
-+			       "zbb", "zbc", "zbkb", "zbkc", "zbkx", "zbs",
-+			       "zca", "zcb", "zcd", "zicntr", "zicond", "zicsr",
-+			       "zifencei", "zihpm", "zknd", "zkne", "zknh";
-+	mmu-type = "riscv,sv39";
-+};
-diff --git a/arch/riscv/boot/dts/openhwgroup/cva6-genesys2.dtsi b/arch/riscv/boot/dts/openhwgroup/cva6-genesys2.dtsi
-new file mode 100644
-index 0000000000..910b2f96ba
---- /dev/null
-+++ b/arch/riscv/boot/dts/openhwgroup/cva6-genesys2.dtsi
-@@ -0,0 +1,134 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
-+/*
-+ * Copyright 2026 NXP
-+ *
-+ * OpenHW Group CVA6 APU on the Digilent Genesys 2 FPGA board.
-+ *
-+ * The SoC description is shared between the 32-bit (cv32a6) and the
-+ * 64-bit (cv64a6) configurations of the CVA6 core. The core specific
-+ * properties and the memory size are set in the board .dts files.
-+ */
-+
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		/* The CLINT mtime counter runs at half the core clock */
-+		timebase-frequency = <25000000>;
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			reg = <0>;
-+			clocks = <&clk50>;
-+			tlb-split;
-+
-+			cpu0_intc: interrupt-controller {
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+			};
-+		};
-+	};
-+
-+	/*
-+	 * Core and peripheral clock. It is an output of an MMCM that the
-+	 * bitstream configures for 50 MHz and that has no register interface.
-+	 */
-+	clk50: clock-50mhz {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <50000000>;
-+		clock-output-names = "clk50";
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			gpios = <&gpio0 1 0>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	soc {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		compatible = "simple-bus";
-+		ranges;
-+
-+		clint: clint@2000000 {
-+			compatible = "openhwgroup,cva6-clint", "sifive,clint0";
-+			reg = <0x0 0x2000000 0x0 0xc0000>;
-+			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
-+		};
-+
-+		plic: interrupt-controller@c000000 {
-+			compatible = "openhwgroup,cva6-plic", "sifive,plic-1.0.0";
-+			reg = <0x0 0xc000000 0x0 0x4000000>;
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+			interrupt-controller;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
-+			riscv,ndev = <30>;
-+		};
-+
-+		uart0: serial@10000000 {
-+			compatible = "ns16550a";
-+			reg = <0x0 0x10000000 0x0 0x1000>;
-+			clock-frequency = <50000000>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <1>;
-+			/* Registers are 32-bit wide and 32-bit aligned */
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+		};
-+
-+		spi0: spi@20000000 {
-+			compatible = "xlnx,xps-spi-2.00.a";
-+			reg = <0x0 0x20000000 0x0 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <2>;
-+			xlnx,num-ss-bits = <1>;
-+			xlnx,num-transfer-bits = <8>;
-+
-+			mmc@0 {
-+				compatible = "mmc-spi-slot";
-+				reg = <0>;
-+				spi-max-frequency = <12500000>;
-+				voltage-ranges = <3300 3300>;
-+				disable-wp;
-+			};
-+		};
-+
-+		gpio0: gpio@40000000 {
-+			compatible = "xlnx,xps-gpio-1.00.a";
-+			reg = <0x0 0x40000000 0x0 0x10000>;
-+			clocks = <&clk50>;
-+			#gpio-cells = <2>;
-+			gpio-controller;
-+			xlnx,all-inputs = <0>;
-+			xlnx,all-inputs-2 = <0>;
-+			xlnx,dout-default = <0>;
-+			xlnx,dout-default-2 = <0>;
-+			xlnx,gpio-width = <8>;
-+			xlnx,gpio2-width = <8>;
-+			xlnx,interrupt-present = <0>;
-+			xlnx,is-dual = <1>;
-+			xlnx,tri-default = <0xffffffff>;
-+			xlnx,tri-default-2 = <0xffffffff>;
-+		};
-+	};
-+};
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 04ae305d55..ed495eb8ad 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -26,6 +26,7 @@ CONFIG_ARCH_ANDES=y
+ CONFIG_ARCH_ANLOGIC=y
+ CONFIG_ARCH_ESWIN=y
+ CONFIG_ARCH_MICROCHIP=y
++CONFIG_ARCH_OPENHWGROUP=y
+ CONFIG_ARCH_SIFIVE=y
+ CONFIG_ARCH_SOPHGO=y
+ CONFIG_ARCH_SPACEMIT=y
+@@ -166,6 +167,7 @@ CONFIG_SPI_FSL_QUADSPI=m
+ CONFIG_SPI_PL022=m
+ CONFIG_SPI_SIFIVE=y
+ CONFIG_SPI_SUN6I=y
++CONFIG_SPI_XILINX=y
+ # CONFIG_PTP_1588_CLOCK is not set
+ CONFIG_PINCTRL_TH1520=y
+ CONFIG_PINCTRL_SOPHGO_CV1800B=y
+@@ -175,6 +177,7 @@ CONFIG_PINCTRL_SOPHGO_SG2002=y
+ CONFIG_GPIO_DWAPB=y
+ CONFIG_GPIO_SIFIVE=y
+ CONFIG_GPIO_SPACEMIT_K1=y
++CONFIG_GPIO_XILINX=y
+ CONFIG_GPIO_PCA953X=m
+ CONFIG_GPIO_PCA953X_IRQ=y
+ CONFIG_POWER_RESET_GPIO_RESTART=y
 -- 
 2.43.0
 
