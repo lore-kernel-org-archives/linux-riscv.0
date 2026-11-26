@@ -2,73 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B60EA606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 18:01:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65831606A31C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 18:11:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LZG3BTb0;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PcG7ETBE
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HObDIiKl;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eTrh4ivt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=9oQ1eykF+p1R3LdIVGqSnNtdyFmLyvmJF72BlfAStmE=; b=LZG3BTb0hcJ9Ga57LZBDsVDFVg
-	WKBVDju2hhycOGtGucUHMJthEePCojxnxuuwDQrTbBl/OfaxIG83FQ9MyeDqoeP9plNkGVcaMnR7F
-	4qsuXzQik0KxtmmEe9prfXq1/5yFN8faHmJSwlSALpsAy6B/23KvezhzPwIejOFmF/IlXpuF8X6ND
-	o5HKrgr1GEVzZiltfBiEb1epAo8PP/MIs/KdwtcnMtGUUQk2BTlrFGmRXYbRINlMAt36VffVHr02T
-	XtK09vAp1isap6z8HK1sTg+evibJmyDCy52P8L167o4qvBRfOLfMxib+P4X95QunbLX2D74PUe2wv
-	iiLuiLug==;
+	bh=bgx0vORNqTSIIlqWb7C7pnKCok41KkPc+fvGOm72Wek=; b=HObDIiKlTMgWOVqXsh1enJoLAT
+	XC/kpkVgaaaIuOdnnYVaSLovslYZz/UKH/tiTrUiQIrQvtBAVDzVwR2y8Una550R1lzRDDLo04aMk
+	QZRKTp8JqKbIUAliFHTdQhciaIKv62tOKWuaR0kKOUo9YnAYVuklM4NjqgMVi6k+XaeC/cyvt/GuT
+	MQxov0QXpqU3rjCRZkCZoNsf5NBZjuFxu4y7RdVPPkfcPhOPF82mVWJ6EyvRdXcnEHZECIHrB2RVa
+	c6YUp5pQtd2l2LDvn9WkSq5N6Lx8bAwII5nY+yH4xMZuq0ZZCWktINenEwkruVQcrwdhR26Qm4d/x
+	WvooMYGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWdmc-0000000E7Lf-3j3F;
-	Thu, 26 Nov 2026 18:01:22 +0000
+	id 1xWdw3-0000000E8iA-1X87;
+	Thu, 26 Nov 2026 18:11:07 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWdmb-0000000E7LZ-3Y1j
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Nov 2026 18:01:21 +0000
+	id 1xWdvz-0000000E8h5-4AYz;
+	Thu, 26 Nov 2026 18:11:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C1E740494;
-	Thu, 26 Nov 2026 18:01:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19F841F000C6;
-	Thu, 26 Nov 2026 18:01:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3DC174482C;
+	Thu, 26 Nov 2026 18:11:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E52761F00AD3;
+	Thu, 26 Nov 2026 18:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795716081;
-	bh=dDY36AvQgrOy9pXy1FMhtre9bjSpWej5ips53tUnj3w=;
+	s=k20260515; t=1795716662;
+	bh=u9v575CLn7pmoDOzWOn9peb7SoijlK+LbrKGpES9aRg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PcG7ETBEW1ed09GgyBBcXh3TXKSAcjhGDj9/pk54Vrp8BYsIgpRBhWq0v3lhBxV4o
-	 Ph2GNVe1vXoT2fNQj1FrAps0DQ30wKT1GwZEvAPjYp9kaHJfdzBPCq9kLR+Q9rLJWM
-	 76h6qbeNarG47pU2Ysrc4gDsoLPtYybjLK1HcMP3sMbu+lemjoxnLVTY+D97fjtYZW
-	 ouuQ1oEK0rI2T3cHz9tS0ETSAFXCfAUBJgENDVCeHYtxgB/HkKuzYUmXXr3wCnZTy+
-	 iifS2urWXWLboE0AP+QgqxaxMkIic+s6C6/jfNre45XzLGlrobgcrO1n8azuPhAf1/
-	 xmXzuWWv6d0ew==
-Date: Thu, 26 Nov 2026 18:01:16 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Marouene Boubakri (OSS)" <marouene.boubakri@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	b=eTrh4ivtfPOlk36i/Syox5jVW6dXJmhOgZwioO+nYxMKjGShC7TMyjjJl/zzRZ/W3
+	 SkP6MLdWC5iwrRV6uvUn6/rKonHWO56PFB3c75THzdQTim1Mri+dYH52nOteGfRTCj
+	 M+BZepOCmKNRYHvlRa117MS6yceBdzXjdmtuENyHhISgbQTyWosUB771P8KFuwQKC8
+	 pVw08LjMZlVYdDIpRqOeWvsFhzaGdSX4qDT0MagmIoJIq2tNOTskLwvuvj9X76KZmW
+	 omTnmVri/xaVPYJp7AvvaZYW/JxAmTrlzAhShiP47YqYQ+fQwkXl5svB+CMxRIbwv0
+	 XMDyeevoEqAuQ==
+Date: Thu, 26 Nov 2026 20:10:43 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Anup Patel <anup@brainfault.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Radu Rendec <radu@rendec.net>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 7/8] riscv: dts: openhwgroup: add CVA6 APU on Digilent
- Genesys 2
-Message-ID: <20261126-resale-roast-ec3dc50ca350@spud>
-References: <20261102141727.640769-1-marouene.boubakri@oss.nxp.com>
- <20261102141727.640769-8-marouene.boubakri@oss.nxp.com>
- <20261102-salsa-cartel-dd4f4b2a9639@spud>
- <AM9PR04MB758686FCAE3D9C4A713B6E98FC422@AM9PR04MB7586.eurprd04.prod.outlook.com>
- <20261126-sage-subscript-abb9ea294ca2@spud>
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-openrisc@vger.kernel.org
+Subject: Re: [PATCH RESEND v2 12/21] mm/pgtable: redefine PGTABLE_LEVEL enum
+ with ascend order from PGD
+Message-ID: <awh2I4llsjkB7Vds@kernel.org>
+References: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
+ <20261102-dummy_ptxp3-v2-12-78840b2ec73c@arm.com>
+ <awXD4i47F-VAG1tD@kernel.org>
+ <awXc0MSZl9t9VW8e@e129823.arm.com>
+ <682c765f-332f-4ac2-b448-4201c8fae6fc@kernel.org>
+ <awhCnpiUc1R_BLx4@e129823.arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261126-sage-subscript-abb9ea294ca2@spud>
+Content-Disposition: inline
+In-Reply-To: <awhCnpiUc1R_BLx4@e129823.arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,7 +105,8 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4448761667286804910=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
@@ -87,75 +115,67 @@ X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============4448761667286804910==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="BUT5UXC++Pyzk4aA"
-Content-Disposition: inline
+On Thu, Nov 26, 2026 at 02:30:54PM +0000, Yeoreum Yun wrote:
+> On Thu, Nov 26, 2026 at 03:19:13PM +0100, David Hildenbrand (Arm) wrote:
+> > On 11/24/26 19:52, Yeoreum Yun wrote:
+> > > On Tue, Nov 24, 2026 at 07:05:38PM +0200, Mike Rapoport wrote:
+> > >> On Mon, Nov 02, 2026 at 11:21:25AM +0000, Yeoreum Yun wrote:
+> > >>> The PGTABLE_LEVEL enum values appear to be ordered in the opposite direction
+> > >>> from their intended usage.
+> > >>>
+> > >>> Intuitively, higher page table levels should have smaller enum values,
+> > >>> but PTE is currently assigned 0.
+> > >>
+> > >> That's not what x86 thinks :)
+> > >> They even expose it in /proc/vmstat with smaller numbers meaning lower levels
+> > >>
+> > >> $ grep direct_map /proc/vmstat 
+> > >> direct_map_level2_splits 152
+> > >> direct_map_level3_splits 4
+> > >> direct_map_level2_collapses 0
+> > >> direct_map_level3_collapses 0
+> > >>
+> > >> Just an observation, I don't mind either order.
+> > > 
+> > > Right. I made this change because a depth-based scheme seems more intuitive.
+> > > 
+> > > As you pointed out, though, the x86 specification uses smaller
+> > > numbers (0) for lower levels (pte), so I think we can leave the
+> > > x86-specific direct_map_* entries as they are.
+> > 
+> > patch #14 depends on this, no?
+> 
+> Interestingly, x86 documentation numbers the PGD level as 4 or 5,
+> whereas helpers such as effective_prot_pgd() use 0 for PGD.
+> 
+> Anyway, this follows the usage and semantics of effective_prot_pXd(),
+> rather than architecture-specific level numbering, which varies across
+> architectures.
 
---BUT5UXC++Pyzk4aA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I asked an LLM and here's what it told me:
 
-On Thu, Nov 26, 2026 at 06:00:05PM +0000, Conor Dooley wrote:
-> On Thu, Nov 26, 2026 at 04:38:56PM +0000, Marouene Boubakri (OSS) wrote:
-> > Hi Conor,
-> >=20
-> > Thanks for the review, and for the acks on patches 1 to 4.
-> >=20
-> >=20
-> > NXP Confidential
-> > On Mon, Nov 02, 2026 at 07:30:41PM +0000, Conor Dooley wrote:
-> > > > +RISC-V OPENHW GROUP SoC SUPPORT
-> > > > +M: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
-> > > > +L: linux-riscv@lists.infradead.org
-> > > > +S: Maintained
-> > > > +F: Documentation/devicetree/bindings/riscv/openhwgroup.yaml
-> > > > +F: arch/riscv/boot/dts/openhwgroup/
-> > >
-> > > There's no git tree here, are you expecting me to apply the patches f=
-or
-> > > your platform?
-> >=20
-> > Yes, if that is okay with you. I don't have a tree for this: the platfo=
-rm
-> > is small and I expect very few patches. I will review and test whatever
-> > comes in for it. I can add your tree as T: in this entry, or list the
-> > directory under RISC-V MISC SOC SUPPORT instead, whichever you prefer.
-> > If the platform grows I am happy to set up a tree and send you pull
-> > requests instead.
->=20
-> Sure, I suppose I can. Keep this entry and add the dts dir to my misc
-> entry.
+  x86, s390, riscv, LoongArch and powerpc count from the leaf. arm64 and
+  ARM count from the root, and so does the generic page walk and ptdump.
 
+My guess that the only reason that generic ptdump counts from the root is
+because it came from @arm.com :)
 
-I see you've already send v2. I can always deal with the MAINTAINERS
-stuff on application if v2 is okay.
+> And yes, patch #14 depends on this, although changing the condition to
+> level != PGD_LEVEL would remove that dependency.
 
---BUT5UXC++Pyzk4aA
-Content-Type: application/pgp-signature; name=signature.asc
+I think the only real hard dependency on levels numbering is x86's KVM code
+that manages secondary page tables, but it anyway does not use enum
+pgtable_level but rather x86's own enum pg_level.
 
------BEGIN PGP SIGNATURE-----
+> -- 
+> Sincerely,
+> Yeoreum Yun
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawhz7AAKCRB4tDGHoIJi
-0j2nAPwN24QJf6FPNXePqWf8uvGIRVI7IPEguafbAKDUMydZNAD9HnELmLyHGIPY
-T6+kO1CBNDDv0SdKpnErDxxP4dmFQg0=
-=YifN
------END PGP SIGNATURE-----
-
---BUT5UXC++Pyzk4aA--
-
-
---===============4448761667286804910==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4448761667286804910==--
-
