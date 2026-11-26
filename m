@@ -2,70 +2,109 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 071F3606BF9D
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 01:10:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBA8B606A323
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 01:17:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Wwb5/AwS;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bc1Oroi2
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yCwwRs1G;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=j26QCY9i;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BnDVZwJL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ImPChSERQaluqEFw/MgGsvi+Zn0im6T0KjDkOtBxlpk=; b=Wwb5/AwS0vioskcZVvCTfrztGD
-	eGchZCdGhwKV3WeBKStTf2mTHb74ml1JpXi9SwfJ2kqUZ50+2wLxhwrb+5pRWcpNZmYPD+SCovSKo
-	r8EZKpk98NKGhFIiLaDhcQaoYi08LVAnND1DIX86LJdqwn2BTYTrfjXqKxSRj5YeJp1fSg9e7U/C+
-	5RZT3x+IPK0ARMK8HBH/S6YGWi0waU/3thcYY1a7jaj12F1Erf5CDqTki7I895TVv8VEg11TtBEAX
-	+CrBPrSypiOAV9ff28POg3W6c1h2+RapkKEHDqq+HXrMb9Wc9cZ6YqsSWDZ5Y4M0h6RR2yabIk7kn
-	sgO29tIg==;
+	bh=RDvRoiTZ/hdGre6E6gT8ky0qxGj+THQoYt2HB4IWHGM=; b=yCwwRs1Gg/87YRy+kCnDc2ciKw
+	uuQ7tgpMv5jkX6nCz4psY7OjVBUK9njoblfK4ZQpHasKQYAPbEYbftrr/945iqgcZOJO2DxgRJgG/
+	2kkhrgpVc5+lT6YaUg2cOvBU3V4iLojJyRFeKhByZ7xoW6ja8dzIisdksrJwzFm7NHERXuRBoUQC/
+	YSFi8AxYL7XZzN8YvhpH9+AAkwhfcDssHtxRSCwnR/td9YaTpGNR0MlYql/K+/fS3wOlgdJ4Bh7zc
+	Mvfh627qfFDEKndYQCjoa/KsYm+7HSL7LUwD0YqbDCoI+oO7K82NKVegYcFN3fKRj34N1FG4WobRF
+	clwiGmUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWNzz-0000000BlG4-2qCK;
-	Thu, 26 Nov 2026 01:10:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xWO74-0000000Bmw3-0ciw;
+	Thu, 26 Nov 2026 01:17:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWNzz-0000000BlFx-0S2T
+	id 1xWO6H-0000000BmY2-17nO
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 26 Nov 2026 01:16:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=QlSPO9+8YS67Tn4rbTFkn+Zhwur7gCmRYFgUkoNRUs4=; b=j26QCY9ioCZbdbuBGZUdbM5LtQ
+	FtjySE0v7mgLacxdBfOO3uNZNw8sZeBKPtS3+Sr1XTtkxcvmd6pnN51s83tujcXZPFAsFNR99fX9x
+	PrPw36ZKkzYqZULu1fflDl4XNHC61W+SebDGBE5i/L8PtjuO04kJH/aaqVvIkX4vbxxPBOl7rIABk
+	504gxVLIFvoI1w8MRdaXzEgfO8YqBDjZdu6N2zGU+d2ZaHu/t6lBvRMTM3CUaF5YDypQzzRlRPVik
+	puWdeTqAp1gXd2RtAWsftDnWz5GcR0l26Q6CTFw7yD4Gyde9PVAtJbYKAFxz6hE/ReEZ843CwW61R
+	h8m0p/nQ==;
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xWO6E-00000005whk-0iHb
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Nov 2026 01:10:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE2E745E03;
-	Thu, 26 Nov 2026 01:10:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81DF61F01563;
-	Thu, 26 Nov 2026 01:10:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795655406;
-	bh=n3eDNRFNkis7rRhskdmMxswZGudGLnk3t4gSHbRSwfs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=bc1Oroi26uPkyEsALHrZUf5G9DEPdcDpYa/lyMgb607YBDOuZ//wSlKHBzJpQjn6Y
-	 p8alsnXQHbNbvdhO72hsGUsytiZeUBH8qJjAw111jj5+yDRQfVv8h30of9MMg13l0C
-	 pcSevcG5b6dL+d8VHazb3+yMmE8zscJF8VVQYtC2+NYPWAhNcOxcgv/GYiwbZKAYJi
-	 6NPKAUd999ahIHMX7NvnXDvcOgmujxdH+vhKcag0isBo5rnB/giQqryuuiBGTJBsgh
-	 Pdijmke+Hrxa7o65FuNgL2TLc7spDvLpoOzkoJCy6azRmogyq5BjcwDRz2k9OJERuG
-	 11+Hpv7iT6olw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 774C43809A24;
-	Thu, 26 Nov 2026 01:10:06 +0000 (UTC)
+	Thu, 26 Nov 2026 01:16:36 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-8b4c2da74c0so42485947b3.1
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2026 17:16:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795655791; x=1796260591; darn=lists.infradead.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QlSPO9+8YS67Tn4rbTFkn+Zhwur7gCmRYFgUkoNRUs4=;
+        b=BnDVZwJLbIDgYnD2Vqu7pgmruQpoY0ER0xLYdiPG8CalFGgOrceE3Q8l444DhLTOSk
+         HgbMfcnWUwqOzhtYrNM99mvauHQ8UbCt+3GVKntQQcCp9NTnL3G+cVfmMQBMg852N+pP
+         hxAlJUHiSW8MNt3CIXcbOCuPIv1gj25TDEcbr7xcoK1HpLSl2fraqUD0gujeyzGwlRj9
+         zTPkc2eiS60fzsXBvnjf7bXsxgQ/Dx2vx7oC3++p/XFaI2hgymXXJ7yS/hjpCrDao1UE
+         f2irHm1md9XiFKaKZpjyFiohalvgHdJqzz1IK3uxIRNrw9t6b0YYpJj1NfTRvoEpGFs9
+         QVsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795655791; x=1796260591;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QlSPO9+8YS67Tn4rbTFkn+Zhwur7gCmRYFgUkoNRUs4=;
+        b=DkxfxB2IIrwvKYdNwyrKYgD1BYTymVr4ZRztBBKlFQJrveM/tQnpCwy5Sq8FTc3i0a
+         c+FVN08PxLQKsvKNx/GXNFTjRTqldc4IqcZbQr9M+FWXgI4haCYkgtzK1ghEMz54G05E
+         DhPrsMuG9bu8ZElBqIH08oYB8VsmRQF8MfSzMDWlvVhFn7643rSwvWPyIar5yfzrwDGS
+         3QSbydRHMKrwwo6gBaXmN/og7u6I7+Kz3diE8JCpi9zxGVHEoHfaPc1pLx1zaXWvfyN9
+         SpMVAOmWCzs0DM/j2DQULQBsaSPXIjH5KFNAj2d5h2XLViPRj3KIA/SnjtgCNnZIthMh
+         +OLQ==
+X-Forwarded-Encrypted: i=1; AL+hErHvwY9K40ODLoeI7eOZwnRUHb6LEuTZZg0RGGSx7FhZnAe3Jluz8EMbjv5/EDzG9MkADZCKcloQEDqkwA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z+YjojTit2TajVv2YPAME0sspXkYFN+jC8CsbE6YEKi3GKhFwf+
+	VAcila5X2LwpG2xCJBDQ1JVP4Ar0NL9fSNd5+BeWXpMss4hq5Ck8ZNPi
+X-Gm-Gg: AZFdTZeRrr0P1COx+pqYGgJQNnIX5xaFnw0So52rMYukNtWlSjQ70v+GrQtAfHglPHV
+	5wpCtN167mjIU9sjgH+oCeYjvz9ZXDXUnw7ogP8nC+CWGeLtPHlgqHwW29iHT8KtTzSfILMTnVN
+	zQt7p2qWGr3ByFrHE22klPBaiNdB8OLOb8p6mJihCrJHPKwMZJ9Mdjp/92MNRK1ED+nug+Hol9Q
+	gUI84O7ngH87iYXAmQT3JoXitlPsIKduzjMa6mbMLWj+bOHit2VqzODl5gsTGRs69lhPaYT1vS5
+	vVpr2vMxzANQsSDik6sbOd51ln+Eug+9vvXS1Zl6FN4XpjVA2zETf1lOzRrpvmIH3mrFi9luiMV
+	qNskRI47vkcZ0o5gsPnKdcyOBhu5gwwcQLVncxaH6DjVXpr/OPQem7e2zO6AsfvehPvcXmFPYbF
+	EWPYxxh2+/+prmY+4gn2LvlwBbSJJUEW6BMR2FhqtLcMa5hMD74zLJYUCGod7Gliw+uesfeA3Gs
+	mre7a75Q9jByWVbden5ngG41BardWKX10quTu4XKXhxq2AjmMqVllZDVH93kdbk1FXtjHONWqTm
+	dfGo9Q+a+GoW4YlZAAC8WMOp
+X-Received: by 2002:a05:690c:6a06:b0:8b4:d0ea:ca9d with SMTP id 00721157ae682-8b52045f6c5mr70876907b3.25.1795655791098;
+        Wed, 25 Nov 2026 17:16:31 -0800 (PST)
+Received: from localhost ([120.244.9.31])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b575ff89c0sm12140497b3.0.2026.11.25.17.16.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 17:16:30 -0800 (PST)
+Date: Wed, 25 Nov 2026 20:16:25 -0500
+Message-ID: <9ec2f818084f2e723e8b82218a302258.docular.xu@gmail.com>
+From: Guodong Xu <docular.xu@gmail.com>
+To: Cody Kang <codykang.hk@gmail.com>
+Subject: Re: [PATCH v3 12/17] drm/spacemit: add Innosilicon DP/eDP controller
+ bridge driver
+In-Reply-To: <20261121-k3-display-v3-12-ec419e8e96b8@gmail.com>
+References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
+ <20261121-k3-display-v3-12-ec419e8e96b8@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 bpf-next 0/3] riscv: bpf: Add BPF private stack support
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179565540527.1427026.16404193754358900267.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 01:10:05 +0000
-References: <20261125122126.939-1-cp0613@linux.alibaba.com>
-In-Reply-To: <20261125122126.939-1-cp0613@linux.alibaba.com>
-To: Chen Pei <cp0613@linux.alibaba.com>
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, memxor@gmail.com,
- bjorn@kernel.org, puranjay@kernel.org, alexei.starovoitov@gmail.com,
- eddyz87@gmail.com, martin.lau@linux.dev, song@kernel.org,
- yonghong.song@linux.dev, jolsa@kernel.org, emil@etsalapatis.com,
- ihor.solodrai@linux.dev, pulehui@huawei.com, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- luke.r.nels@gmail.com, xi.wang@gmail.com, shuah@kernel.org,
- rgbi3307@gmail.com, guoren@kernel.org, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261126_011634_311353_91987475 
+X-CRM114-Status: GOOD (  16.09  )
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +114,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Yao Zi <me@ziyao.cc>, Michael Turquette <mturquette@baylibre.com>, Sarah Emery <sarah.emery@canonical.com>, dri-devel@lists.freedesktop.org, Ze Huang <ze.huang@oss.qualcomm.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, linux-clk@vger.kernel.org, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Jerome Brunet <jbrunet+clk@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, Luca Ceresoli <luca.ceresoli@bootlin.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Thomas Zimmermann <tzimmermann@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Cody Kang <codykang@vsit.ai>, Brian Masney <bmasney+clk@redhat.com>, spacemit@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Haylen Chu <heylenay@4d2.org>, Dmitry Baryshkov <lumag@kernel.org>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, Philipp Zabel <p.zabel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello:
+Hi Cody,
 
-This series was applied to bpf/bpf-next.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
+On Sat, 21 Nov 2026 15:40:51 +0800, Cody Kang via B4 Relay wrote:
+[...]
+> diff --git a/drivers/gpu/drm/spacemit/Kconfig b/drivers/gpu/drm/spacemit/Kconfig
+> index 8326a7b98151a..4667cb624401a 100644
+> --- a/drivers/gpu/drm/spacemit/Kconfig
+> +++ b/drivers/gpu/drm/spacemit/Kconfig
+> @@ -16,3 +16,22 @@ config DRM_SPACEMIT
+[...]
+> +config SPACEMIT_INNO_DP
+> +	tristate "SpacemiT Innosilicon DP/eDP controller support"
+[...]
+> diff --git a/drivers/gpu/drm/spacemit/Makefile b/drivers/gpu/drm/spacemit/Makefile
+> index b3b148000cf7b..260d316a271b5 100644
+> --- a/drivers/gpu/drm/spacemit/Makefile
+> +++ b/drivers/gpu/drm/spacemit/Makefile
+> @@ -9,4 +9,7 @@ spacemit-drm-y := spacemit_drm.o \
+>  		  dpu/dpu_saturn_hee.o \
+>  		  dpu/saturn_fbcmem.o
+>
+> +spacemit-inno-dp-y := spacemit_inno_dp.o
+> +
+>  obj-$(CONFIG_DRM_SPACEMIT) += spacemit-drm.o
+> +obj-$(CONFIG_SPACEMIT_INNO_DP) += spacemit-inno-dp.o
 
-On Wed, 25 Nov 2026 20:21:23 +0800 you wrote:
-> This series adds private-stack support to the RV64 BPF JIT.
-> 
-> The verifier rejects a struct_ops program that requests a private stack
-> with -EACCES when the JIT does not report
-> bpf_jit_supports_private_stack(), and sched_ext requests one for its
-> dispatch callback, so no sched_ext scheduler can load on riscv64 today.
-> 
-> [...]
+I noticed a corner case when testing module unload on v3.
+spacemit_inno_dp can be removed while a process still has cardN open
+(say Xorg or kmscube is running and somebody does rmmod
+spacemit_inno_dp), and the DRM device then still holds references on
+the bridge. When that process closes cardN later, the kernel oopses. On
+a CoM260-IFX:
 
-Here is the summary with links:
-  - [v4,bpf-next,1/3] riscv: bpf: Add BPF private stack support
-    https://git.kernel.org/bpf/bpf-next/c/15a0f4bb0dd5
-  - [v4,bpf-next,2/3] selftests/bpf: Enable private stack tests for riscv64
-    https://git.kernel.org/bpf/bpf-next/c/02f7413abb36
-  - [v4,bpf-next,3/3] selftests/bpf: Test a private stack together with stack arguments
-    https://git.kernel.org/bpf/bpf-next/c/805728c7feb4
+	sleep 20 < /dev/dri/card0 &
+	rmmod spacemit_inno_dp
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+  Unable to handle kernel paging request at virtual address ffffffff01ac5188
+  Modules linked in: spacemit_drm [...] [last unloaded: spacemit_inno_dp]
+  epc : drm_bridge_put.part.0+0x72/0xb6 [drm]
+  [...]
+  [<ffffffff01b0b142>] drm_bridge_put.part.0+0x72/0xb6 [drm]
+  [<ffffffff01b0b19e>] drm_bridge_put+0x18/0x22 [drm]
+  [<ffffffff01c41318>] drm_bridge_connector_put_bridges+0x34/0x7a [drm_display_helper]
+  [<ffffffff01b23400>] drm_managed_release+0x86/0x116 [drm]
+  [<ffffffff01b13cce>] drm_minor_release+0x68/0x80 [drm]
+  [<ffffffff01b1ce2a>] drm_release+0xd2/0x102 [drm]
+  [<ffffffff802b325c>] __fput+0xa8/0x248
 
+An open cardN pins spacemit-drm only. The last drm_bridge_put() comes
+at the final close and reads bridge->funcs, which was in the module
+of spacemit_inno_dp that is already gone.
 
+Other DRM drivers with the same structure, rockchipdrm for example,
+put the bridge driver and the DRM driver into one module. I think doing
+the same here (add spacemit_inno_dp.o to spacemit-drm) is the better
+solution.
+
+Luca (added to Cc), is module unload something your bridge hotplug
+series [1] is meant to cover?
+
+[1] https://lore.kernel.org/r/20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com
+
+Guodong
 
 _______________________________________________
 linux-riscv mailing list
