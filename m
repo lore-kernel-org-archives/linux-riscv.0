@@ -2,89 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAE7E606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 10:28:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCDAE606A31E
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 11:09:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BZbqL0yG;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mf9bmvjl
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sNiazKJ0;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=CT0q90WV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Unsubscribe-Post:List-Owner;
-	bh=rJ+e/bcVzErxqzoFaY17TwFu8EoQittAZkr1/ETECKc=; b=BZbqL0yG1qREPJ3nHLbxOJkdBg
-	96AvAnQteFfnGwLHig0pboPVjKZKZvhz/LDEmqbXwlJW85On29iav0W0/mt79Fqx/255E0bR7jZfz
-	mKE5Xtp1g4x9oTJ9ZD4/sZidhBk7iO9hIv+YRaYFP0ldHyEUAkQ4iPqrAZ00jLXxiIQ+MzJ6z5jr2
-	wUfIzE2eTJ9N2AJH1ZoflvFdHn65t9ERlirXGdcyI4rAR0Py1LpoSIbTiNJ7fEumZSTDjzD7nl+Vh
-	EKjhSy1hg9LdZ1ZkX4I/exb3GOwQJllppqcFHIJUfxrNb4aJUHJ32L86i3sDX+OMzoxVYyHU7ncX4
-	GXmNF/5w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=B1aY4sTdL3Rv1Bk7zbc1J9a6uReRYC6cKOO0xX3FUdQ=; b=sNiazKJ0+Sf87DhwtmqVes+arb
+	+9LFvylpDqgGT0iW0G2P7+NgN/ij2wsMaq6QCErtgzZPgNBoCfByaKsBVib3Tqx2YyF3EPdkWqXum
+	1ZdbdWdeBGd7UyDmYmZ83XgvTnrOVBW8SYigUrQNPw5yPAA/sMWkOtjok8hlSy8pgwHLNZhoR7gcB
+	dEIIgmyoW/qpTgKB2uPTNW42SgFLhKtvUTGKS3kMImp6kRVtSLZKUdcuVifonotDmtqHOvT5ALr6Z
+	hy6xKndUhbLhLQeC/9exGXpWGwB4m9sWAyuPx5qmKQ3nAaegFHR4JRYhaJFfIm+f/9AVlyqnPVUFM
+	gl53mHiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWWi0-0000000CkOM-1mR3;
-	Thu, 26 Nov 2026 10:28:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xWXLx-0000000Cp11-2r2M;
+	Thu, 26 Nov 2026 11:09:25 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWWhz-0000000CkNx-0Pb2
+	id 1xWXLu-0000000Coze-1Aju
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Nov 2026 10:28:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 391FC6014C;
-	Thu, 26 Nov 2026 10:28:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DAD31F000D1;
-	Thu, 26 Nov 2026 10:28:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795688885;
-	bh=MwPo1SbEkJSMwvyfYZrrVFgF447rpl/A4wWmxlOULV0=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=mf9bmvjl1U5wqTY1mB2O4KUGGnvMNSNncHPpd9/7PgCYmE64gXL3ndShasXNZruGd
-	 IxDmNoqmFmMkJ8tlnc9veBbALhayjD8YhJzQZKkk93XABb3OjpHFVqGCmCisDUgkBM
-	 Vzrpis23XnVfV13EEynGH3TvaCiZ777UCdMb8O9h5znskZbEGFSUjMmUddg+qNujM0
-	 x3r2chqp9a0Qzn/sKb/Myd+DlAGK4Ih10QPP25STNyD5jCM2uWhwEQmbYAAHRFjNBy
-	 Mi9eNL80zJcmU0PBNJdZtabKtd7+C8hNBob5hcmx8o1ti8weAsG6UEbASg+ZPbaWX2
-	 yaYkrTVmCD61A==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 62E4D1980052;
-	Thu, 26 Nov 2026 05:28:03 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 05:28:03 -0500
-X-ME-Sender: <xms:sAkIa4skbmHC73v2upP0f0Op5b8e1jHAKoUja-N3FKGPna53MW40ew>
-    <xme:sAkIawRFbYYwg9SyMFzPIlBjEtoH1k0ACHvTk-9jY7xuWOjiYIeWU02i93ZYBnMeM
-    S8HJ4vlSqfXB2M3q6FU8aFc2c021BF-ZaIpcPRLfZWAJ3moJNR7BQX5>
-X-ME-Proxy-Cause: dmFkZTELNwvqaE9jHxFHcD+ED4o2ETZsR6w/vYVjUWe3YegFlFpLsxmeHQSIJgyNrG1Q92
-    2KRmGRSNfQh+QqEvaylQ+P9l1fmyBlgWvkkl23T/05sF32Y7IIaw2Tze+e72NAlDYKU3Rz
-    QwabmXJTlGrmsSJ5SLS6V7czjl2luBBtYDbtyX0GlTahKj4wz3Gifp1LUUWopLNyklvcs+
-    RKuP/8wZOq3zTTiNIWLWr2s1DhFvmjB6g0krgJ+FgxbOiKMSgHsPB+BuK0EQz+hJxwKvQ2
-    aKj5UlFyHK1KM4ptgQ/xqfO2GhlaO5qCe4Gm+VGHL/fDmxNqzSKwyFVhdmo0it7Oj/DdGo
-    tj1RxFUgagQ2Pqhh/VIp3Zd0Za3xIM0UOt2QcduxjxUNGzRJ6TKGu2R/klDkeQkXWoY9W7
-    mJ8ICcdLM5C47BDNX8mh05ONIhFIlzJUgwFbSpunZzlQhVMp/58G+9o8zTzaKZwKuveZUw
-    DJxQyfrql4cTERNizKplR1KtpHb3dGJXfP0ggeutXzzXH+M62nsYKVhZE/u4VjiDagckOw
-    4CI60LdBLqD4+bWWiWDpHiXtIwSZIV1LAGxDSvfLffFL+LNHhQ8bDfEcE3ivL6jGgPSyAK
-    WMsJ9ono1c2tHJfnY2T/bGTGBhdGcnmeQfb+ztXTNoUb3FiUXMU1isO27ADw
-X-ME-Proxy: <xmx:swkIa4axoGPvjzw1uZZ23X4uvlN0NrivII5g1pa_XT7XKa7Uazmfnw>
-    <xmx:swkIaxqA6gjXk0pq710itYZE3OP_HBqM_4SrgSrud9Bg10sHeQ2MlA>
-    <xmx:swkIa8QqNhbXv00qX_1fInBQ8rik95iTW3zXTqgmbFC59tr89obd5g>
-    <xmx:swkIa1ogEXscMOOoZgkF3tAG1Lo-w2SVT4IcGR_WApA89kW7YeIpuA>
-    <xmx:swkIa229HngrpqPfgPEC1cjJ1ap903UDIBzgl_LyMoj00Bo1ivKSsoIk>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 4E101F80093; Thu, 26 Nov 2026 05:28:00 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 26 Nov 2026 11:09:23 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id AEB021A17E3;
+	Thu, 26 Nov 2026 11:09:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7CAF460237;
+	Thu, 26 Nov 2026 11:09:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A61D211E6B368;
+	Thu, 26 Nov 2026 12:09:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795691353; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=y1/wD7Wi9STowuQTsl3HDTiGkdek0lFr2Qc9ETyKkHc=;
+	b=CT0q90WVIJc4zyZoQOxtFRwovUp/lD1tvYC8y28IdlSTZHylCR+SJOmgbdnavDoSIkKJZ7
+	UQHzhfp1dRSy6+1mQ58pLkQKWb6rDLC50feZHn9Pd5znOcWpj7D5Q9l8chtedbMZd2oDLJ
+	ZmLDRvMzlrHQxZPH5Eic6XzwoJQMgIXhdfgkIsLG7EiBT8CbTTjEdoIHRCvVjU+Te4B3r8
+	AQFb4tWn9rZC2cYUS3f3KjYpHTHLUb6guHhBk2tbVLMW1Bfs4Eaee4bo7sjgUwuMgJ4yos
+	1IXLZNk6X6lqfWFueUY4owHyk7QJ2sJAxW6L5yGfOuj+wpDnU0wIA23rihiUPw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Liang Yang <liang.yang@amlogic.com>,  Feng Chen <feng.chen@amlogic.com>,
+  Xianwei Zhao <xianwei.zhao@amlogic.com>,  Han Xu <han.xu@nxp.com>,  Conor
+ Dooley <conor.dooley@microchip.com>,  Valentina Fernandez
+ <valentina.fernandezalanis@microchip.com>,  Daire McNamara
+ <daire.mcnamara@microchip.com>,  Haibo Chen <haibo.chen@nxp.com>,  Jyan
+ Chou <jyanchou@realtek.com>,  Yu-Chun Lin <eleanor.lin@realtek.com>,
+  Maxime Coquelin <mcoquelin.stm32@gmail.com>,  Alexandre Torgue
+ <alexandre.torgue@foss.st.com>,  Pratyush Yadav <pratyush@kernel.org>,
+  Michael Walle <mwalle@kernel.org>,  Takahiro Kuwano
+ <takahiro.kuwano@infineon.com>,  Richard Weinberger <richard@nod.at>,
+  Vignesh Raghavendra <vigneshr@ti.com>,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>,  Alvin Zhou <alvinzhou@mxic.com.tw>,
+  Cheng Ming Lin <chengminglin@mxic.com.tw>,  linux-spi@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
+  imx@lists.linux.dev,  linux-riscv@lists.infradead.org,
+  linux-stm32@st-md-mailman.stormreply.com,
+  linux-arm-kernel@lists.infradead.org,  linux-mtd@lists.infradead.org
+Subject: Re: [PATCH RFC 00/16] spi: spi-mem: Express the dummy phase using
+ cycles when relevant
+In-Reply-To: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+	(Miquel Raynal's message of "Wed, 25 Nov 2026 18:51:14 +0100")
+References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 26 Nov 2026 12:09:05 +0100
+Message-ID: <87wlpzx31q.fsf@bootlin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Date: Thu, 26 Nov 2026 11:27:39 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Dmitry Antipov" <dmantipov@yandex.ru>
-Cc: "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Huacai Chen" <chenhuacai@kernel.org>,
- "WANG Xuerui" <kernel@xen0n.name>, linux-efi@vger.kernel.org,
- linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
- "kernel test robot" <lkp@intel.com>
-Message-Id: <088e4dcc-8f8d-4b89-b33f-8ec39fb857ae@app.fastmail.com>
-In-Reply-To: <20261126101452.590895-1-dmantipov@yandex.ru>
-References: <20261126101452.590895-1-dmantipov@yandex.ru>
-Subject: Re: [PATCH] efi/libstub: fix building loongarch32 without zboot enabled
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261126_030922_710501_3C332282 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,63 +90,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-On Thu, 26 Nov 2026, at 11:14, Dmitry Antipov wrote:
-> Kernel test robot has reported the following error observed on loongarch:
->
-> loongarch64-linux-ld: 
-> ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function 
-> `__efistub_.L47':
-> __efistub_cmdline.c:(.init.text+0x258): undefined reference to 
-> `__efistub___ashldi3'
-> loongarch64-linux-ld: __efistub_cmdline.c:(.init.text+0x268): undefined 
-> reference to `__efistub___lshrdi3'
->
-> Since this happens with CONFIG_EFI_GENERIC_STUB enabled but
-> CONFIG_EFI_ZBOOT disabled, tweak loongarch32 build to hook
-> extra library objects on the former rather than latter. And
-> this quirk seems no longer neeeded on riscv32 because it has
-> architecture-specific implementations of ashldi3() and lsrdi3()
-> which are aliased to corresponding EFI stubs via
-> arch/riscv/kernel/image-vars.h.
->
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: 
-> https://lore.kernel.org/oe-kbuild-all/20261122125352.gAcg5yLx-lkp@intel.com/
-> Fixes: 442082297e3d ("riscv: fix building compressed EFI image")
-> Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
-> ---
->  drivers/firmware/efi/libstub/Makefile | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
->
-
-Would this work as well?
-
---- a/arch/loongarch/kernel/image-vars.h
-+++ b/arch/loongarch/kernel/image-vars.h
-@@ -8,7 +8,8 @@
- #ifdef CONFIG_EFI_STUB
- 
- __efistub_strcmp               = strcmp;
--
-+__efistub___lshrdi3            = __lshrdi3;
-+__efistub___ashldi3            = __ashldi3;
- #endif
- 
- #endif /* __LOONGARCH_KERNEL_IMAGE_VARS_H */
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cj4gQ29udmVydCBzcGktbWVtLCBhbGwgdGhlIHRyaXZpYWwgc3BpLW1lbSBjb250cm9sbGVyIGRy
+aXZlcnMgYW5kIHRoZW4KPiBTUEkgTk9SIHRvIHVzZSBkdW1teSBjeWNsZXMgaW5zdGVhZCBvZiBk
+dW1teSBieXRlcy4gU1BJIE5BTkQgbWF5IGNvbWUKPiBsYXRlci4KPgo+IFRoaXMgaXMgb25seSBi
+dWlsZCB0ZXN0ZWQgZm9yIHRoZSBtb21lbnQgYW5kIHNlbnQgYXMgYW4gUkZDIGJlY2F1c2UgdGhp
+cwo+IHRvcGljIGhhcyByYWlzZWQgYSBsb3Qgb2YgcXVlc3Rpb25zLCB0aGVyZSBtYXkgYmUgdGhp
+bmdzIEkgaGF2ZQo+IGZvcmdvdHRlbiBhYm91dCwgc28gSSB3b3VsZCBsaWtlIGFsbCBwYXJ0aWVz
+IHRvIGFncmVlIG9uIHRoZSBkaXJlY3Rpb24KPiBiZWZvcmUgSSBjb21taXQgaW50byBzb21ldGhp
+bmcgY2xlYW5lci4gSSBiZXQgU2FzaGlrbyB3aWxsIGFsc28gaGF2ZQo+IGludGVyZXN0aW5nIGZl
+ZWRiYWNrIHRvIG1ha2UuLi4KCkkgbWFkZSBzZXZlcmFsIHRyaXZpYWwgaXNzdWVzIGluIHRoZSBj
+b250cm9sbGVyJ3MgY29udmVyc2lvbnMgd2hpY2gKdHJpZ2dlcmVkIGEgbG90IG9mIFNhc2hpa28g
+YW5zd2VycyBleHByZXNzaW5nIHRoZSBmZWVsaW5nIHRoYXQgdGhlCnBhdGNoc2V0IHdhcyBub3Qg
+cmVhZHkuIFRoZSBpbXBvcnRhbnQgcGFydCBjbGVhcmx5IGFyZSB0aGUgc3BpLW1lbQpjaGFuZ2Vz
+LCB0aGUgbW9kaWZpY2F0aW9ucyBvbiB0b3AgYXJlIGFsbW9zdCBpbmRlcGVuZGVudCBmb2xsb3ct
+dXBzCnNob3dpbmcgd2h5IHRoaXMgbWF5IGJlIHVzZWZ1bC4gTmV2ZXJ0aGVsZXNzLCBJJ20gZ29u
+bmEgYWRkcmVzcyBhbGwKdGhvc2UgaXNzdWVzIGFuZCBzZW5kIGEgdjIgd2l0aCBob3BlZnVsbHkg
+bGVzcyBvYnZpb3VzIGlzc3Vlcy4KClRoYW5rcywKTWlxdcOobAoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
