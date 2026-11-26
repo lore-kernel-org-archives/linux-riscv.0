@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 142C8606A31C
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 19:12:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A91D606A31C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2026 19:12:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dw4uHdqX;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=174A3/ER
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mgzyZ5Zp;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=PuLVR2do
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -14,43 +14,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DhU3xSDpwk9cFrfu7CZvrZWmgEfgc/D8ha2lIUciU3g=; b=dw4uHdqX6eXmpZTPplCIuOohxQ
-	ozCJCkiOxYG3/MPxcEusYeplLT+Hnjoc4CV451LmiOdHta5grngR614FbrfVQDrRe2IdorUxUalg+
-	CILZu5qrXnH5L42xcYRuzBrh3emKt0+9B4IXrmvyYmASPMRdDmsY+YbeqjLMjgcnku2iwwkI7ykB6
-	Ibm3HmuvkfVRLIYG3MxEkKWK695nQVsCKPyXbC3EjSSMWPJl0I5oIYsB0rJHzoy/g53kh0CSo8wWU
-	66B776gmEFnCwAtPgnhMEq56pkYyt4zyD5HjxLwhLDekYsqlDgkF6cg0NRPUNu6bO2gHAGGwHuSj9
-	/O5sydmA==;
+	bh=6XIChSq85/vziavpFgxXKkZCW2qBATsK0mOreb0Y8sI=; b=mgzyZ5ZpNv02dvgQu0dms4KnIY
+	Ya9RKtcNdCh8M0ezxJTd2ftdPpz5qPA1QIHoOPUOVsfXgPqznAW+u4ftgqEQ8K5xAJOkqggMSTqlz
+	D9UKM/Sz0OvtKzLj+cSeXQ9WiDnuo7m0mTKzmPvPaW6ZRedxHni5s5TWm/9Eukd1EjfGNnCRMQvBZ
+	n4otWhTcUKYRF7K7rNU1sxJx5Tc7yqsUFD7o9pf6eytPQ9odW6hm2ew8gedqVlOgTEbWfXdPi9N90
+	oKGTf0HVzCETTKmTSbgNIT8Sxmt9cmV4eMhenk9FdvfLQeo+dm268pANJnkM84CcpjKoE0oOKkp7U
+	SF5han4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWetE-0000000EFbb-2vrI;
-	Thu, 26 Nov 2026 19:12:16 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xWetQ-0000000EFrR-45QT;
+	Thu, 26 Nov 2026 19:12:28 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWesZ-0000000EEfS-1K0R;
-	Thu, 26 Nov 2026 19:11:42 +0000
+	id 1xWesf-0000000EEgV-1Yak
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Nov 2026 19:11:49 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 7ED7A4E417B1;
-	Thu, 26 Nov 2026 19:11:33 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id A5D141A1824;
+	Thu, 26 Nov 2026 19:11:39 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4BA2F60558;
-	Thu, 26 Nov 2026 19:11:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 99A1511E691BE;
-	Thu, 26 Nov 2026 20:11:28 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7B7B660558;
+	Thu, 26 Nov 2026 19:11:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C4FE511E691C1;
+	Thu, 26 Nov 2026 20:11:34 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795720291; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795720298; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=J3cxwMSjfPOfECyzSF0/c9jEyI6ns/iThNgz9XnWfH8=;
-	b=174A3/ERrUkIvgIWug2p2tUsHS/lB++0dxxlCKdVMV+0MQXdyO8lWS1K3qyRl0ofvGa00c
-	zCobdVMEzlFwpBlxd4Qr+kb264D0XGXIyAgwLkO4MgqCSLQ2UXJBjvRow2RBkPFurjFA+o
-	FQiChGR9MvudZKcERxMobRb/LeppKSOaoMCIwseO4cQnFigLR+ypqSqMcV8VLN5FN40Asz
-	yx/T6oPghjdCCZ+TJ5OhSlowT1bkXvORv/i7QJoi41Qqxj3WVHeyELJJchueOyU1fJy6pi
-	+KBKni4xKI6mN/kXHTBjunMYLs8OstioERtiX1j/adq40Qouq/DHpc7iWU6eUQ==
+	bh=lbbDUAZ42bjaI/Zz1oo3546qmyA1evX9LxfwdDvdb8c=;
+	b=PuLVR2dojQC8Tq1JLBpLi7shyMSTTwy7V22OSKh2rrJy8a6p8JGau53CW5xapcL+Y45SLa
+	bzRk6nIFSaYnHtXUUpfbozomnKODW7SnDWsLM+EIZVpILyRxUn6gDy5a0aKj2VRJ4BtxTu
+	mPa/nee7hIJN5vJ3XMSXxcm5rlCaMGwwjpN9ts2qavWOL7e5w2LmBGGFyLZGNIizCqYFss
+	HuC9Mo9CGOsispB0hM+a9f4uNrNP7WCh1PwAVhGMNHvQe1iHfR7Rizp/tkr2Fo9uZecyel
+	jdvbfltEv45ZDYtxKWKeBg0oQMVu/s6BSo3qEwBB3GACic8Ok0iHIy8gqU9Rjg==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 26 Nov 2026 20:10:28 +0100
-Subject: [PATCH 09/12] spi: mtk-nor: Validate the dummy buswidth
+Date: Thu, 26 Nov 2026 20:10:30 +0100
+Subject: [PATCH 11/12] spi: ti-qspi: Validate the dummy buswidth
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261126-macronix-upstreaming-spi-driver-fixes-v1-9-ca8e924cca1b@bootlin.com>
+Message-Id: <20261126-macronix-upstreaming-spi-driver-fixes-v1-11-ca8e924cca1b@bootlin.com>
 References: <20261126-macronix-upstreaming-spi-driver-fixes-v1-0-ca8e924cca1b@bootlin.com>
 In-Reply-To: <20261126-macronix-upstreaming-spi-driver-fixes-v1-0-ca8e924cca1b@bootlin.com>
 To: Raju Rangoju <Raju.Rangoju@amd.com>, 
@@ -73,8 +74,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261126_111140_635323_60123B2A 
-X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-CacheID: sfid-20261126_111142_185458_368F75A0 
+X-CRM114-Status: UNSURE (   8.94  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -96,29 +97,40 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The driver only supports the dummy phase on the address bus; the
-read mode is selected from the address buswidth. Reject operations where
-the dummy buswidth differs from the address buswidth.
+The driver has no separate dummy buswidth; the dummy phase is clocked
+with the data buswidth. Reject operations asking for a different dummy
+buswidth.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/spi/spi-mtk-nor.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/spi/spi-ti-qspi.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/drivers/spi/spi-mtk-nor.c b/drivers/spi/spi-mtk-nor.c
-index 6b6e55d68048..350b47fab7e6 100644
---- a/drivers/spi/spi-mtk-nor.c
-+++ b/drivers/spi/spi-mtk-nor.c
-@@ -317,6 +317,9 @@ static bool mtk_nor_supports_op(struct spi_mem *mem,
- 	if (op->cmd.buswidth != 1)
- 		return false;
+diff --git a/drivers/spi/spi-ti-qspi.c b/drivers/spi/spi-ti-qspi.c
+index 091a8b8842f5..5aa6176a3123 100644
+--- a/drivers/spi/spi-ti-qspi.c
++++ b/drivers/spi/spi-ti-qspi.c
+@@ -651,7 +651,20 @@ static int ti_qspi_exec_mem_op(struct spi_mem *mem,
+ 	return ret;
+ }
  
-+	if (op->dummy.nbytes && op->dummy.buswidth != op->addr.buswidth)
++static bool ti_qspi_supports_op(struct spi_mem *mem,
++				const struct spi_mem_op *op)
++{
++	if (!spi_mem_default_supports_op(mem, op))
 +		return false;
 +
- 	if ((op->addr.nbytes == 3) || (op->addr.nbytes == 4)) {
- 		switch (op->data.dir) {
- 		case SPI_MEM_DATA_IN:
++	if (op->dummy.nbytes && op->dummy.buswidth != op->data.buswidth)
++		return false;
++
++	return true;
++}
++
+ static const struct spi_controller_mem_ops ti_qspi_mem_ops = {
++	.supports_op = ti_qspi_supports_op,
+ 	.exec_op = ti_qspi_exec_mem_op,
+ 	.adjust_op_size = ti_qspi_adjust_op_size,
+ };
 
 -- 
 2.56.0
