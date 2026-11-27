@@ -2,12 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28A68606A31E
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 10:10:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 448A3606A321
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 10:10:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pbhq6TOL;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=YzU8aiXT;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=gxvGi8l5
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KHpFxt9+;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=qRhS3iLw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -15,51 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QhC61Xfo1+o/uUYz9ylGErcuQuoCvEDf8SYk8AyT2U4=; b=Pbhq6TOL8IJ2lXR0UiYe+g97c/
-	DxEHLk5N+HeKhaV88b6tJ56Mlj8YqnembVx9jTfNqw4lAaLGOoMiaA+txXrZO6Qmh5yHJBKrzxVHx
-	K8jCA+CYMiHez3CJubHLpoFUE0obSFsyeyJRAfU4vRsd0xOGacCncBUsKOULcLG1UlwumqrhGWLb8
-	8soejG+SVDu8IVbJOX4NCHhrzrwCb3CecIPvbN7w5DGhemz3VRTIGw7SIXrBwFuaQBoaCMzMnzwZU
-	/fY6f+249iK/9nOk4Opbl8/7U87rwA4LVS4wYWWD3Ygs4EqcZnda+T1j7knGyD4yE6M6Xkr4wB0ZV
-	G/3CZy2A==;
+	bh=KmYqcBgJbxGYxLInv56vfPXws/vLsf62RyG2gT4emms=; b=KHpFxt9+pBLu9Ml5P78WDAethq
+	+DE8rY9IvIhpYwigSU3U9kahICZmXqc6OFCJq46E93XxxDo3TEhg6q6guL1nUZQVPz32HJ2E6/fQp
+	7D/C29/sltbndqEt2IWRIPHFTO/zdjSI3v7O33pRHseMnpA3HebZi0W2HIKvblkINu8BH1bIoVq01
+	S4Ppvd5CW7MZU4uN0xg9BWiPmcDjv/mcitTr8eBEM7EwmwfI1bpSjXgw9r14tIDNwFvsgwKW63kwZ
+	aq2eOgq7f/4l043DWbbwkld0dFSyTiIfMQHaKDXQ3sB/ouf3Zha+RE/gshZzAG5bGfl0jhiHINxrd
+	tIdSKIDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWsuZ-0000000FXZi-35t3;
-	Fri, 27 Nov 2026 10:10:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xWsuE-0000000FX9C-07rq;
+	Fri, 27 Nov 2026 10:10:14 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWsuC-0000000FX6A-2tir;
-	Fri, 27 Nov 2026 10:10:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=VAYr9WX92dg3SvFjZudKbj8hGUmjBf0kHQsMj3Huy2A=; b=YzU8aiXTQHr+Me2KzPGRh4hyrp
-	rPdvyjBdf54UzgYkO6ymMs/guaDNI9UjbqrGC1h2dDknlc0NMdhr27KGOE4pFCFd7doBK/5tKc7Qm
-	CUOLSNxRKPPfcCHuw8tdPXZiyRuml823W+5jhukSv/WhmdAXQ+eVZhQ4zwlSwwBpXXPpoV/E3ZaPW
-	z/oOt1WjWTm1q+izB3hrobvhsAOD9p/N0xhPlfYpka9CNNB9D73vkJxc8WWHu1whIRUyE99S6PCzq
-	CRPskxDaGl3ShwTqnc3pZNU9YTSp+IqshKzalYmbIny154Ty7IZrmr9HfPDi4GwRE5b6FRoRM+JiW
-	mi182NXg==;
-Received: from [113.46.200.221] (helo=canpmsgout06.his.huawei.com)
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWsu6-00000007Yrz-3Za1;
-	Fri, 27 Nov 2026 10:10:11 +0000
+	id 1xWsu1-0000000FWqm-3JEo;
+	Fri, 27 Nov 2026 10:10:05 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=VAYr9WX92dg3SvFjZudKbj8hGUmjBf0kHQsMj3Huy2A=;
-	b=gxvGi8l5GYdAixG1QRWsiSMLXXsHyOINqSPUArEqcmmeWhWDwV6nk3CkHtY7MDp+FMWYyzx6n
-	HOBPUbx0XU/w94jHsTYt7dspTnSwdWfKEmGxB/qdyl9efuTCs2wvrwlVEjkDtbQfNn79EZnH2fE
-	I8C2D6gS4O3csk5lTZtUg8E=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jbTfl2PZkzRhWM;
-	Fri, 27 Nov 2026 18:09:35 +0800 (CST)
+	bh=GSvCD8YM1NLMl6gb9M0IUK1AOC5Amk2NGzrI5vOZULM=;
+	b=qRhS3iLw77pcE5v6L2S0WLGzpBeBzVWXExiJkMyzNJCYEpBE+EtOGk27PFt2SBZZhFexmjIYD
+	5H4Zi9uy+ya9TotL4eNtKmplB15MYgEVVWVPEMya4TWg1l6ZAyMvGP2G9zQu+FxREVevZgrsYa1
+	3aFC89g8Y2vZbsDorarGkdk=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jbTds5K64zcb4H;
+	Fri, 27 Nov 2026 18:08:49 +0800 (CST)
 Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 303DF40575;
-	Fri, 27 Nov 2026 18:09:55 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id DD15840538;
+	Fri, 27 Nov 2026 18:09:58 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
  (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 27 Nov
- 2026 18:09:53 +0800
+ 2026 18:09:56 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
@@ -87,9 +72,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<kexec@lists.infradead.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v9 07/11] powerpc: kexec_file: Use the common segment helpers
-Date: Fri, 27 Nov 2026 18:09:21 +0800
-Message-ID: <20261127100925.3019877-8-ruanjinjie@huawei.com>
+Subject: [PATCH v9 09/11] kexec: Add kexec_rollback_segments() helper
+Date: Fri, 27 Nov 2026 18:09:23 +0800
+Message-ID: <20261127100925.3019877-10-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261127100925.3019877-1-ruanjinjie@huawei.com>
 References: <20261127100925.3019877-1-ruanjinjie@huawei.com>
@@ -98,9 +83,10 @@ MIME-Version: 1.0
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261127_101007_387126_97083E7B 
-X-CRM114-Status: GOOD (  13.26  )
-X-Spam-Score: 0.4 (/)
+X-CRM114-CacheID: sfid-20261127_021002_175218_3E539193 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,91 +106,54 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-load_elfcorehdr_segment() builds the elf core header from the powerpc
-crash memory ranges and places it as a segment.  The header needs
-powerpc specific post processing, so keep building it here, but use
-kexec_add_elf_core_header() to place it.
+A load attempt that cannot place all of its segments drops the segments
+it added, but the CMA pages backing them become unreachable.
 
-elf64_load() also loads the initrd by hand, use kexec_add_initrd()
-for it.
+Add a helper that releases those pages and truncates nr_segments,
+so the loaders do not have to open code it.
 
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: Christophe Leroy <chleroy@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>
 Cc: Baoquan He <baoquan.he@linux.dev>
 Cc: Mike Rapoport <rppt@kernel.org>
+Suggested-by: Mike Rapoport <rppt@kernel.org>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/powerpc/kexec/elf_64.c       |  9 ++-------
- arch/powerpc/kexec/file_load_64.c | 14 ++++----------
- 2 files changed, 6 insertions(+), 17 deletions(-)
+ include/linux/kexec.h |  1 +
+ kernel/kexec_file.c   | 12 ++++++++++++
+ 2 files changed, 13 insertions(+)
 
-diff --git a/arch/powerpc/kexec/elf_64.c b/arch/powerpc/kexec/elf_64.c
-index d9a466cd602e..1ef444494641 100644
---- a/arch/powerpc/kexec/elf_64.c
-+++ b/arch/powerpc/kexec/elf_64.c
-@@ -96,18 +96,13 @@ static void *elf64_load(struct kimage *image, char *kernel_buf,
- 
- 	kexec_dprintk("Command line: %s", cmdline ? cmdline : "");
- 
--	if (initrd != NULL) {
--		kbuf.buffer = initrd;
--		kbuf.bufsz = kbuf.memsz = initrd_len;
-+	if (initrd) {
- 		kbuf.buf_align = PAGE_SIZE;
- 		kbuf.top_down = false;
--		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
--		ret = kexec_add_buffer(&kbuf);
-+		ret = kexec_add_initrd(image, &kbuf);
- 		if (ret)
- 			goto out;
- 		initrd_load_addr = kbuf.mem;
--
--		kexec_dprintk("Loaded initrd at 0x%lx\n", initrd_load_addr);
- 	}
- 
- 	ret = get_reserved_memory_ranges(&rmem);
-diff --git a/arch/powerpc/kexec/file_load_64.c b/arch/powerpc/kexec/file_load_64.c
-index 0cf03cee35a7..77652db7d1ca 100644
---- a/arch/powerpc/kexec/file_load_64.c
-+++ b/arch/powerpc/kexec/file_load_64.c
-@@ -416,9 +416,8 @@ static int load_elfcorehdr_segment(struct kimage *image, struct kexec_buf *kbuf)
- 	/* Fix the offset for backup region in the ELF header */
- 	sync_backup_region_phdr(image, headers, false);
- 
--	kbuf->buffer = headers;
--	kbuf->mem = KEXEC_BUF_MEM_UNKNOWN;
--	kbuf->bufsz = headers_sz;
-+	image->elf_headers = headers;
-+	image->elf_headers_sz = headers_sz;
- 
- 	/*
- 	 * Account for extra space required to accommodate additional memory
-@@ -427,13 +426,9 @@ static int load_elfcorehdr_segment(struct kimage *image, struct kexec_buf *kbuf)
- 	kbuf->memsz = headers_sz + kdump_extra_elfcorehdr_size(cmem);
- 	kbuf->top_down = false;
- 
--	ret = kexec_add_buffer(kbuf);
--	if (ret) {
--		vfree(headers);
-+	ret = kexec_add_elf_core_header(image, kbuf);
-+	if (ret)
- 		goto out;
--	}
--
--	image->elf_load_addr = kbuf->mem;
- 
- 	/*
- 	 * If CONFIG_CRASH_HOTPLUG is enabled, the elfcorehdr kexec segment
-@@ -442,7 +437,6 @@ static int load_elfcorehdr_segment(struct kimage *image, struct kexec_buf *kbuf)
- 	 * memory in the FDT prepared for kdump.
- 	 */
- 	image->elf_headers_sz = kbuf->memsz;
--	image->elf_headers = headers;
- out:
- 	kfree(cmem);
- 	return ret;
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index 3c030e478adf..bfcc0a362fc9 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -259,6 +259,7 @@ int kexec_kernel_verify_pe_sig(const char *kernel, unsigned long kernel_len);
+ extern int kexec_add_buffer(struct kexec_buf *kbuf);
+ int kexec_locate_mem_hole(struct kexec_buf *kbuf);
+ int kexec_add_initrd(struct kimage *image, struct kexec_buf *kbuf);
++void kexec_rollback_segments(struct kimage *image, unsigned long nr_segments);
+ #ifdef CONFIG_CRASH_DUMP
+ int kexec_prepare_elf_core_header(struct kimage *image, bool need_kernel_map,
+ 				  unsigned long *nr_ranges);
+diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+index 66f389346c2b..d9ae97564a4a 100644
+--- a/kernel/kexec_file.c
++++ b/kernel/kexec_file.c
+@@ -1375,3 +1375,15 @@ int kexec_purgatory_get_set_symbol(struct kimage *image, const char *name,
+ 	return 0;
+ }
+ #endif /* CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY */
++
++/*
++ * Undo a partial load attempt: release the CMA pages backing
++ * the segments above @nr_segments and drop them from the image.
++ */
++void kexec_rollback_segments(struct kimage *image, unsigned long nr_segments)
++{
++	while (image->nr_segments > nr_segments) {
++		kexec_free_segment_cma(image, image->nr_segments - 1);
++		image->nr_segments--;
++	}
++}
 -- 
 2.34.1
 
