@@ -2,12 +2,12 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33024606A6AB
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 14:24:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEED3606C2DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 14:24:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vMnodYjY;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=EgS5lmrc;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=rnfWUyNN
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=275ig0lT;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=IuvCJAfP;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=VUC9H8n3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -15,60 +15,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nnIAj6VAk5vIEQ518k8uUfCLqgqy6Rvg9YExvYzS+rk=; b=vMnodYjY+B/vL/JbRZFjhXVnWT
-	Y9CbK49dGWq2VzEXTS/mUeSZsB/ttvCPY7qfNRdRaiW6SpMJGt/oC7YnchQuodfBoQfCV1llJ/bCp
-	3/3hD7FiVWyQu3ROrSYq4aBEU0UmMJKbzXa2H7Rb/1QTrtIhM1ZSjcvhi/BhhEY6hdCxyfN0giO0Z
-	pbP1VyMiLfQnkB+wSDkBOxxTACuNvgtZZcJRrohtSYMLSkivqdUKOb+lbbAzEgR/4DwpxuEu04vdi
-	2Zo9KOWqKgWldAXkCCjfFtIEvKRaiVVo6dUWJHL4Epxq0+a8JUmgvobAkYN0ymULUEcFgwImI0GpJ
-	s4bOTP6Q==;
+	bh=P3LSWyHL7OGw4s4aI2wiaJjdm1im7G8PKD5P83HDV/I=; b=275ig0lTEKvKrw8gwpZddNm2de
+	AwV8FrUPTKXCGhfZKxKD40DnkJ6kIStGSPu+hzG4gqUHY5Y4gT06/TYVSB/k9SR7p2/WabnX20XDu
+	Uka3N2H3vHZOfAgbuS2m53LBo5ltS39n/TCBlgqGCGm0WhoSwE97f19h6MOuX5vyZ3dDWEV5gpMja
+	DSqJ5EDJkvr5qqLG+Otj+Vc4JS74W0DzNckLMn0u+/sK2aF3bMMNKC9A5pinfQr2H3ZcanLhvXiih
+	fmFCvxH5gtOCPSFVUNM+QDnsxfpoAMtF6JpW7naahJfNb8eI5FlapkQzSOVOh8ugn3l1G0iR5M/vU
+	prEKD+kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWwri-0000000GNFU-1Wag;
-	Fri, 27 Nov 2026 14:23:54 +0000
+	id 1xWwrz-0000000GNYj-0iBW;
+	Fri, 27 Nov 2026 14:24:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWwrd-0000000GN6l-1tnb
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 27 Nov 2026 14:23:49 +0000
+	id 1xWwrm-0000000GNJf-38Tv;
+	Fri, 27 Nov 2026 14:23:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=HXhroBPZRcgrGIbcVc0pbxOO3IgNrBXDGvDEJWoY0CY=; b=EgS5lmrcYlL9GfVeZRSMN8BoI+
-	yJ7SwNm7KLFYFoWVVl3otqub20GjLXVaBLcowFBGx9NKxthRMM98ql4+7PgKVDd0jMmXefA1sJLfK
-	Vc+jgfYpJOvftskdqZFx54Colu86uyCvccGIJGjjTX743GgfIpnmWivQ+qMaHbJAugz1O/FhfGR9z
-	KOhMuckgLx7MVvC5Al+dIkK80MF+yv2mREtrAjEmHiDGoT9j+HpS7oTBPa40wDDwejYwgxZOee9QW
-	XkqUQaTfiglTfrsL2KY3tqUFcCITu+jayIby9FTrAsSB6kN+xP2x/o6dhLRISKPhOdflZpIQqZYTF
-	EqYo7rsA==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	bh=rLV3AiVfesH7+JN4SghWwMFjSPsBHJqy3yngjEbzPMg=; b=IuvCJAfPnJl9Q2ay/B3sq4b+I9
+	zdiec/VuZpS9V9JYD+GBcsCkGMNGYBtw/jqSjwzt2T+PBDQRYKzKIB+VyDMVLAGEktwuwOAneenv6
+	/Ad2oD5ILOmp7W8nwFBZ0rhmdaqlvi2LGx++HwRsTKuFoN2a6PUmc7+8az+MY4Pkt5/Mgq4ZqHdUK
+	Vs9ZFXUWZ3e3/7uWSi8p6+x9A9gv9AGODhD6RR9UNxXhuJcsVsGc0mh1/1FIFRJjLABRFLHThNctB
+	24xWpFkHzFR/8SsHUDNYZWC/0AWUolZS+8PBnUKhbo+b+5GpHtq6iZ2BTtWNiho8nzr74rQ3RUJYU
+	lz2Fzf+g==;
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWwrZ-00000007mG8-12zX
-	for linux-riscv@lists.infradead.org;
-	Fri, 27 Nov 2026 14:23:48 +0000
+	id 1xWwrh-00000007mKa-1WwT;
+	Fri, 27 Nov 2026 14:23:57 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 372A74E417C9;
-	Fri, 27 Nov 2026 14:23:44 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 22E67C2AC4D;
+	Fri, 27 Nov 2026 14:24:01 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0352B6049C;
-	Fri, 27 Nov 2026 14:23:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E836E11E68FD9;
-	Fri, 27 Nov 2026 15:23:32 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 547B16049C;
+	Fri, 27 Nov 2026 14:23:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6422611E68FDF;
+	Fri, 27 Nov 2026 15:23:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795789420; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795789429; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=HXhroBPZRcgrGIbcVc0pbxOO3IgNrBXDGvDEJWoY0CY=;
-	b=rnfWUyNNVeOK0yIxaUGUvuInfYVJ+8b8lpDJm7yQa263eaQy52ZcaPnICSJQiAeL1v5PW1
-	BnxVGnjOPlC8YUqXIxXhDIQUW/RW3ZRbLzF5WsQCZz0yDnP5ZL71LBUa587cvfv2OJ9sv/
-	UcAi5Mj64c6CUQXYFtv835NnxDv3LiUbKzxbXYI8NMWmsBtskn3W3+HIPWoWNYL5qwTQEZ
-	vIJ5IR5fSoZzIQ7kOiVGXDybE81wHr76CUoskIRh15IokIpWwGocq6mcYlvefx27LCEEdx
-	Fx8MHL/xhrCG9qjTqN8pmNrGBupdr2M7X6UB1sRWSTFWLhMjXM/RydF0YQeuVw==
+	bh=rLV3AiVfesH7+JN4SghWwMFjSPsBHJqy3yngjEbzPMg=;
+	b=VUC9H8n3pAarXQo2g6qN067XkCpnQwpm/9E/2Hk/I/tB2/1XjdWLGM9P4hBoCk9E1JFxvl
+	7J73tquQz2tKFGE2WS1IAUZmedaT+KEy8IOWHjtt+NZ5NVCKpzAogmzQQ432xXmK788h7I
+	OPnifGiuXyvdQgpKjfmZW/6R/gmGUXYAqZN5x8erH8kLD7UZmo88dREo0edxaZo7/VHVOB
+	O8HcV8efoiegMzRWc5KP4Jp+8apQaRGkS6nhprcWVDoH/FjQQxuOI06RFltCq+Kqlauzdv
+	16TuJt77aMuawELzzNmaPR/mVBrmDeGr+G1nP3Q9031kHufg6haf+aH0byuP1A==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 27 Nov 2026 15:22:25 +0100
-Subject: [PATCH RFC v2 03/35] spi: spi-mem: Handle a corner case while
- sanitizing ops
+Date: Fri, 27 Nov 2026 15:22:26 +0100
+Subject: [PATCH RFC v2 04/35] spi: spi-mem: Sanitize mixed DTR modes
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-3-5c93f5e5d630@bootlin.com>
+Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-4-5c93f5e5d630@bootlin.com>
 References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
 In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
 To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
@@ -108,8 +105,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261127_142345_242577_2F2E130E 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20261127_142353_332272_C5A3DF77 
+X-CRM114-Status: GOOD (  11.65  )
 X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,74 +127,54 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Mixed DTR operations (eg. 1S-xD-yD) set op_is_dtr but do not enter the
-ODTR checks, so their command size is never validated.
+The following operations are supported:
+- S-S-D
+- S-D-D
+- D-D-D
+But the following are not:
+- S-D-S
+- D-D-S
+- D-S-S
 
-Always check the command size: one byte, or two bytes in ODTR mode.
-Require an even byte count only on 8-bit DTR phases, which carry two
-bytes per clock cycle. Narrower DTR phases may use odd counts.
+Make sure these cases are refused by the core.
 
-Regarding the dummy phase, either the controller is only supporting
-"bytes", in which case the check must be performed, or (soon) they might
-advertize the dummy_cycles capability for which sending an even number
-of dummy bytes is irrelevant. The check can remain though, since in this
-case dummy.nbytes will be 0 (those values are mutually exclusive, the
-core will check that).
-
-Fixes: 8618271887ca ("spi: spi-mem: Limit octal DTR constraints to octal DTR situations")
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/spi/spi-mem.c | 28 +++++++++++++---------------
- 1 file changed, 13 insertions(+), 15 deletions(-)
+ drivers/spi/spi-mem.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
 diff --git a/drivers/spi/spi-mem.c b/drivers/spi/spi-mem.c
-index f4d71f740163..3989017dd86f 100644
+index 3989017dd86f..25f795d5e9ba 100644
 --- a/drivers/spi/spi-mem.c
 +++ b/drivers/spi/spi-mem.c
-@@ -171,6 +171,7 @@ bool spi_mem_default_supports_op(struct spi_mem *mem,
- 	struct spi_controller *ctlr = mem->spi->controller;
- 	bool op_is_dtr =
- 		op->cmd.dtr || op->addr.dtr || op->dummy.dtr || op->data.dtr;
-+	bool op_is_odtr = op->cmd.dtr && op->cmd.buswidth == 8;
- 
- 	if (op_is_dtr) {
- 		if (!spi_mem_controller_is_capable(ctlr, dtr) && !ctlr->dtr_caps)
-@@ -178,23 +179,20 @@ bool spi_mem_default_supports_op(struct spi_mem *mem,
- 
- 		if (op->data.swap16 && !spi_mem_controller_is_capable(ctlr, swap16))
- 			return false;
-+	}
- 
--		/* Extra 8D-8D-8D limitations */
--		if (op->cmd.dtr && op->cmd.buswidth == 8) {
--			if (op->cmd.nbytes != 2)
--				return false;
-+	/* Command phase is single byte, except in ODTR mode where it is two */
-+	if ((!op_is_odtr && op->cmd.nbytes != 1) ||
-+	    (op_is_odtr && op->cmd.nbytes != 2))
-+		return false;
- 
--			if ((op->addr.nbytes % 2) ||
--			    (op->dummy.nbytes % 2) ||
--			    (op->data.nbytes % 2)) {
--				dev_err(&ctlr->dev,
--					"Odd byte numbers not allowed in octal DTR operations\n");
--				return false;
--			}
--		}
--	} else {
--		if (op->cmd.nbytes != 1)
--			return false;
-+	/* ODTR phases shall carry even byte numbers */
-+	if ((op->addr.dtr && op->addr.buswidth == 8 && op->addr.nbytes % 2) ||
-+	    (op->dummy.dtr && op->dummy.buswidth == 8 && op->dummy.nbytes % 2) ||
-+	    (op->data.dtr && op->data.buswidth == 8 && op->data.nbytes % 2)) {
-+		dev_err(&ctlr->dev,
-+			"Odd byte numbers not allowed in octal DTR phases\n");
-+		return false;
+@@ -195,6 +195,27 @@ bool spi_mem_default_supports_op(struct spi_mem *mem,
+ 		return false;
  	}
  
++	/* xD-xS-xS is not allowed */
++	if (op->cmd.dtr) {
++		if ((op->addr.nbytes && !op->addr.dtr) ||
++		    (op->dummy.nbytes && !op->dummy.dtr) ||
++		    (op->data.nbytes && !op->data.dtr))
++			return false;
++	}
++
++	/* xS-xD-xS is not allowed */
++	if (op->addr.nbytes && op->addr.dtr) {
++		if ((op->dummy.nbytes && !op->dummy.dtr) ||
++		    (op->data.nbytes && !op->data.dtr))
++			return false;
++	}
++
++	/* xS-xS-xD-xS is not allowed */
++	if (op->dummy.nbytes && op->dummy.dtr) {
++		if (op->data.nbytes && !op->data.dtr)
++			return false;
++	}
++
  	if (op->data.ecc) {
+ 		if (!spi_mem_controller_is_capable(ctlr, ecc))
+ 			return false;
 
 -- 
 2.56.0
