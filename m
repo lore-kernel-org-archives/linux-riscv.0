@@ -2,95 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 226F2606A31E
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 15:04:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EA71606A31E
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 15:18:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E39J2yR+;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AfXQ5I/n
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZL/TW4Q4;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=BVsHDsN5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IZDJNjL/T94ohb1AThX1lDbDPXmjXXxFNz6QSW0nQ+w=; b=E39J2yR+7t+EihtZaoE4hoXp1L
-	kML8pGxJnBhDsZMCzDT26UAewchf/H/5CbLKe137Sm9PtMCkC/4PqpuhqAxSJV2upDTjLVxaAUX1V
-	pS55Nna1a6pN183Wg8RNYUESWQTjKraADDymqizKcFdSyLKdVCH/R9dUPxEzYaPYVB0NtRvDswv1q
-	S+BOwKzPlgyfiP0f8NfoBVtcvt2yYY9LydBv3ymjpirEBgidSpyzusPfSOhGGeCGjFlujrz+n3m9/
-	N/qI2woI+pTgTC4GzxzLu6s/3v2c52t6XdixMhs8m65NsZwVKj3F+r2rI+tRQTjUzFavRFENLyhsu
-	MWMK+4SQ==;
+	bh=9fwRM7n/K/hz9QvKs9bmgh1a4sOvFZ5NkaamzzCvkMI=; b=ZL/TW4Q4SE8dTNHhSsilNeBdK7
+	sZP2Pe5Id+VW/tc+xFGbHzFjFsbAWqSgrTt66BV+DtuFIGtbqB6kWkhqEf6qFgxgD3d+x6dWNkHyM
+	cUvEsWXRYK+pRKYdKSK38w3RuWGx1eTtsuzs0YhLuW4hnIh24rqSFjmY57kwqhHiwK5WVrtjTO7KE
+	2hqXHDYGpnLmTk99W8ENqPjuidU7wQdIbi0zXqEZ3tl1JwCwpnxCLwEwb9B9ZqxTaZKlmGSjhL+1B
+	YvT10plxOm4S+R/GjpvRJTRoGKpEyfQycdBJisL+G2GgMI/ZZ8Ir8+kRi9Y9VNVzLEZIYhauyKQ/H
+	zPoZnPnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWxUR-0000000Ggn0-1Grh;
-	Fri, 27 Nov 2026 15:03:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xWxi1-0000000GjNG-2qKW;
+	Fri, 27 Nov 2026 15:17:57 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWxUP-0000000Ggli-16tL;
-	Fri, 27 Nov 2026 15:03:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8071E60234;
-	Fri, 27 Nov 2026 15:03:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 283F41F000C1;
-	Fri, 27 Nov 2026 15:03:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795791830;
-	bh=HTsNEFdag3FLow13gNwrWPqr9RuSS6VGPBj7nBJXbBs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AfXQ5I/ncWiUS+XG5a6ulZQQLbXKF9UOyn/8RazJyU2fzEiQ4HydxY3JSQhY4TJff
-	 FbN11xcrwu7edOw7Htf9HdJTaQgpNqszcygI0dh65AT485sjpGcQy+e85Ms3ps+/3b
-	 DqyrkFPIbE3pB6hVtk4kue5cNJTfWm8tIYqxhe6hXMJ/xVRnegq/bkpUqM9Tn6AMjG
-	 UFtgoAopN9wh6AfTxC4paoeTrxA2T9sLBPXQTpRAd9LBKcFvH6Sn3Vf3Qz6KxusdpA
-	 ehn8sp2OjFMK0kNQaL/Xfiw7reDTExIgn7VzpizK5aD3olmzW4CrQNWgyjU9bgO+e+
-	 SO+pQ4xd/deyA==
-Date: Fri, 27 Nov 2026 15:03:39 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Liang Yang <liang.yang@amlogic.com>, Feng Chen <feng.chen@amlogic.com>,
-	Xianwei Zhao <xianwei.zhao@amlogic.com>, Han Xu <han.xu@nxp.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>,
-	Yu-Chun Lin <eleanor.lin@realtek.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Takahiro Kuwano <takahiro.kuwano@infineon.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Yogesh Gaur <yogeshgaur.83@gmail.com>,
-	Chris Packham <chris.packham@alliedtelesis.co.nz>,
-	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
-	Michal Simek <michal.simek@amd.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Alvin Zhou <alvinzhou@mxic.com.tw>,
-	Cheng Ming Lin <chengminglin@mxic.com.tw>,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH RFC v2 00/35] spi: spi-mem: Express the dummy phase using
- cycles when relevant
-Message-ID: <d95e931f-0521-42db-85ac-a4d1fc4018fd@sirena.org.uk>
-References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
+	id 1xWxhs-0000000GjM9-3BDT
+	for linux-riscv@lists.infradead.org;
+	Fri, 27 Nov 2026 15:17:53 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6ba12b00c76so8594202a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Nov 2026 07:17:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795792667; x=1796397467; darn=lists.infradead.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ZLbQvYUrjzEDTt2mCUe1XfDKZ160von+CQ6nnPe3W3A=;
+        b=BVsHDsN5FyWgM9tqmg7Ny8y5Aw2RF9b+igAhbpZYgSl7zFEiiLMPWRO8PI04Jn2nRj
+         w1USxihIiNwMzUwpD3Lx4KUjsuu+2CpP++hvcYpUK31jd0i2mp0iql2e1B4ygzJN1XWg
+         eogTh5zJphqBkZqyQHK5mTKrnhEuD3LMo4shEUAi30E3aZ6ICTO9emBZC6RHDn+VrkqQ
+         rXIJ2zOza4yrjrkt9vCvdX0IyseCLvF4SYK/GHJVNDe0Jbuv+nqeBqiDszW9vJGz7vrg
+         m0E/OB4mI3RlCeQsQ+IVSRFuZ6Na4Jz2IFzRErmIyT7s/PdG2Wp+O98QAMESXfonrvC7
+         AUpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795792667; x=1796397467;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZLbQvYUrjzEDTt2mCUe1XfDKZ160von+CQ6nnPe3W3A=;
+        b=XirQQBhNJaznh1f3OdK/DM4Jd2NRjCksWaFbEXHAKVkZnJauPsq8kfnhoUhR9ihWnH
+         l52oFkDBb0FjBE9oKNOEE7qF97+o2JCepGl2H/sVncI9PTETHwh5rfnK9K6Pzm294vll
+         1RtYWhkhYxhMFz1qfy2fUBft9wF42OEGtas+6rA9WoaBqzYrRM3yEj1dYBS+i8bF6KU4
+         KdSBydiME870xv4p6rlHLyn4HJzojT6yIadkA03RhWxt2wThwGNwUpmd/vwtnz/Kb/ml
+         1shBJA77K/vqR5qrmqVilVvidhFKKCA4updb/jwuxzErr+3dZXZfJc7eY+V1ztT9yjIs
+         v7uA==
+X-Forwarded-Encrypted: i=1; AL+hErE/n1LeS5WAy6msOXT+D0xXEsG615I5GHlVBCjUdNExF0pi18pbLq2LPBHUPee+YUkJymH3EY91OOlYSQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/cBBx5rrVRmKYk+NOH6gJxEASA4LYfAlH7phRw5vcDrpldHLNB
+	7Wwc6/srEyGCCgJkA/33IaM2i34WyeoHRyPfZ4qOQpuoiRLryP3OK0bDbuQpuIHn4Sc=
+X-Gm-Gg: AZFdTZdISOkHmgEHEuME4h/m9drmL1QPqcVrS7tFtbgY0Urt1TPOp7PIrke0YFmmxr7
+	50MGW1eWnxWhqm9erT0ry2ypu7K77UUUcNdTmy3R1cKn4Amm9FgeG7Un8YnH/ATMLttzAn//QhQ
+	ifilEl3mkOJT+FHLf6LSmeAjOdRzaUJMV5LyQqmziin1xiEf+lGdd6aMqodxw814oNcREGhzh+H
+	OC8p0hx6thgQSKli/qfcupj4fTEeuY8kAdiOOsRa4PVQVuX+C6CHHcmJAHSBtgx8HomGN2GUXcU
+	9JoZdiBDuvXjXcGFEdlaAaJ7bS2qSJi1ObBnJhjpt/q+M+gU9Ktlypmg9FkJTL9tSvuB/OV1xBg
+	ljiKIOiyAejZgqQBDDOMV6hzcRszMcd+ZQ2SEQHIJaERVZIKQVQSmV69r5T9LVudawl6JPptizE
+	iGXqfZ7/xTCIlUxUIaGRM1s0QuG5SspbMQ76g4s8ogQdzhBHXjBF6Y2ezrqzTCpJKtetQubBj5+
+	iMuiJMAhDs/R4uUxQWL5CJJnHW4VHw+fWtqrLVsb+yCiW2jcxQqzPPDn94pq+XXl3v/MsLKCQLK
+	Wo78rcweNxR+YdMiemLgxMPwIC/fPvA4IXRgXNZqq79OffXm
+X-Received: by 2002:a17:906:1911:b0:c41:b94c:4538 with SMTP id a640c23a62f3a-c513acd297fmr1475999466b.47.1795792666943;
+        Fri, 27 Nov 2026 07:17:46 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc2455sm868490666b.57.2026.11.27.07.17.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 07:17:46 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
-X-Cookie: Sank heaven for leetle curls.
+Subject: Re: [PATCH v3 1/6] clk: starfive: jh7110-sys: Fix memory leak in
+ reset controller register
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Brian Masney <bmasney@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Hal Feng <hal.feng@starfivetech.com>, Jerome Brunet <jbrunet@baylibre.com>
+In-Reply-To: <20261123112053.20400-2-changhuang.liang@starfivetech.com>
+References: <20261123112053.20400-1-changhuang.liang@starfivetech.com>
+ <20261123112053.20400-2-changhuang.liang@starfivetech.com>
+Date: Fri, 27 Nov 2026 16:17:40 +0100
+Message-Id: <179579266081.2809466.15729395589845750540.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=443; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=KwT62dMsS+rp93AZIY4GYCZTTc4JdLTdUPR1lLaOY8Y=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNmc8yXD9nyo/DD900IziTDfXyfsLwu37F9nXxx7YY/2A
+ VUHu7X7O0pZGMS4GGTFFFlquKvF30lqfZk1Xec2zBxWJpAhDFycAjCRVjlGhr1bD0n4ZtZ9XRD1
+ esH1TWtt5gitnBJw6NZEf/MKE2/rOZcYGf6+WDtb/Rz7gfqPZrfEcs3jP72QE/RYveZa6D7/e2b
+ X+3gA
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261127_071748_859076_14E978C8 
+X-CRM114-Status: UNSURE (   7.09  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,77 +116,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0072945604986467806=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+> auxiliary_device_init() returns an error before device_initialize() is
+> called, so the release callback never runs on this path and the rdev
+> allocated in jh7110_reset_controller_register() is leaked.
+> 
+> Free rdev when auxiliary_device_init() fails.
+> 
+> Fixes: d1aae0663023 ("clk: starfive: Avoid casting iomem pointers")
 
---===============0072945604986467806==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="EKfE0NJTn63pxWNZ"
-Content-Disposition: inline
+sashiko is right about this tag, this needs fixing
+I'll do it while applying the change
 
+-- 
+Jerome
 
---EKfE0NJTn63pxWNZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Fri, Nov 27, 2026 at 03:22:22PM +0100, Miquel Raynal wrote:
-
-> ---
-> base-commit: 19d1b4de6d37bccecc3ad9144d279f1baa405eb1
-> change-id: 20261125-macronix-upstreaming-spi-mem-cycles-103274708fec
-> prerequisite-message-id: <20261126-macronix-upstreaming-spi-driver-fixes-v1-0-ca8e924cca1b@bootlin.com>
-> prerequisite-patch-id: 2f68de4139876dfa8e57afb65b429a69628214ab
-> prerequisite-patch-id: 7182a6b4808193323664f79c226ae2a57104b473
-> prerequisite-patch-id: 34a99e8e6644d1db0978b5aa6ca90342a42561f8
-> prerequisite-patch-id: cc060f58179f09af4593df6909b958a29bf11cb2
-> prerequisite-patch-id: c5a7a78ef01696c25c10b6d2968c0b65ab0f4ec6
-> prerequisite-patch-id: 340ee3d69095259d6141c017ea59c0c137d353b5
-> prerequisite-patch-id: 1629dd27a1f0b1d6622199cc7603dad4b17d29b6
-> prerequisite-patch-id: 29bc9e59b1d732a00cd65ba1d73270e051898fd7
-> prerequisite-patch-id: 7a028831f1df214099241bfac0dc290e2f799276
-> prerequisite-patch-id: c28c78ff316ce2ac8c1b6151367662ca8039acd3
-> prerequisite-patch-id: eea3b5adeb19b753a14bf03c5114eb407566c248
-> prerequisite-patch-id: 87bd95813776fe216ac157f9fad23586c71db87b
-
-Please do not stack serieses on top of of each other like this,
-especially not enormous ones like this.  It makes it far too difficult
-to track what is going on.
-
---EKfE0NJTn63pxWNZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsJm8oACgkQJNaLcl1U
-h9Dqkgf9E0bJ2UXkjbckVvjHc+7mjSLOnT6yLtoLsCIaplWfF3H7hanJ7Crja+w9
-0NL1DSaqeHjHuahV3QcpGdIcxsNNFpHiqU/S/hCxVjPLmFGFaoBD79xppeSPeP0J
-laUs2W3a2Z/DHt4/whYH6QyMKF3UbJe9uH1VjXixiGQ4ZEuXX1mzwUnQq9Oa650k
-wu6xRgXl0C/Ts8LRbg4vwtf/AelEaDGshnkWfcszi/b0hgwIgcvYWo7XNdNcknb/
-EU4JBHGO5mbrmR4P6t5ABa+wD4LeaUCFP2Trov9vSRC14lL0hh9X8TpKLt4/B6wF
-OdsSR/Ry9PuwuhvrMT5bEtcLFpv27A==
-=8Hf0
------END PGP SIGNATURE-----
-
---EKfE0NJTn63pxWNZ--
-
-
---===============0072945604986467806==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0072945604986467806==--
-
