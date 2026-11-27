@@ -2,104 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4F62606A31C
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 05:28:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32856606A31C
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 06:01:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Vgn3sFYU;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=tenstorrent.com header.i=@tenstorrent.com header.a=rsa-sha256 header.s=google header.b=fUzilic0
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S/l5vCyV;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=udXPH5Co
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=s/+i3TPOKShmM+oy5fBlW6PWIcnlh+9JoCYnl6anEHo=; b=Vgn3sFYUGO73xx95AJOKCJX8d8
-	IE4YuoR8i0ru0EeyByZKWu9Q2ulIydAeRor2HPg5AG6ON+J8smUvFEh4ov5SvB0XXtibCIuGoXe6C
-	sNPACZv6MvSC7xVd6tvZw2BUT7osekV/8rLyAisXPRANAIrbHuXidhAqE2/mMdbRVzE02MUA8b//t
-	WuK9ysRsydP4gowdpEQ1Yp5f//qZIlEenILHWa8WcB06gZONB/bG5rPrVJGL9/ozCqPPfFs+HzRuV
-	HPzOyvDDS+rixd+FMX91zGoHMd3jtVvhcEqfQk+G+zl0Tu/C+xXwLbHd0IXRsQYfG6mKuXA/vZ2VZ
-	MBB0HYtA==;
+	bh=/qcfidq5ZEtAYRNFfWeGn8AxguyU/kJ5v8Q12K3rrvU=; b=S/l5vCyVgXa03DGHV9nnzCr9HW
+	ZhT3RfzxNLrQRr5gFvtt7obXAAvXhGzy/Qk5ZBcB+3Iq6hIb/5c3NeZiHed9bXb0DY5A/dR4mMMKq
+	9LES/Mk8kyG7yP6f6ZiFhabjmhOxUad9opArig1Dw62kfn8z/MIGpUW76Ho21EWUQ5JODE1Anly/k
+	436/cKaectTwvjcLfSAaGvZCcXM+X1lt8y0Oukw4PoXQg+cwbdzw+siRpKflSISB5q0ASecD0O4Kg
+	NedCSXOA+gPG2H5kFJtONiVHkn0by6n5llcdwE1KuaC23MhZhKXsnPl9BjRgLLrUKWvkg1gaHFSo4
+	he54T0Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWoVN-0000000Exb7-1byY;
-	Fri, 27 Nov 2026 05:28:17 +0000
-Received: from mail-yx1-xb12d.google.com ([2607:f8b0:4864:20::b12d])
+	id 1xWp1D-0000000Ezh4-09aK;
+	Fri, 27 Nov 2026 06:01:11 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWoVK-0000000Exa3-209N
+	id 1xWp16-0000000EzgG-0UpK
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Nov 2026 05:28:16 +0000
-Received: by mail-yx1-xb12d.google.com with SMTP id 956f58d0204a3-679aeeddc6bso7337298d50.2
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 21:28:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1795757293; x=1796362093; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9jH/OKgM1gQSDKQc5kAy7iczSgneLDrLRkuuGZg3T08=;
-        b=fUzilic0Uq6sNzF5y7BMJ88QUo9IP0CRswYUpUkW/7vnlTUbpPg9X2MLBVcpGB+skP
-         X9C3cZgpA0eu1h8t5Uj523AjtyMavmsUr4JDLTS8DQ3uxVsRJHeT5i3DrbClBVBo1W/v
-         rTm1bduHEjVo7IrLnaahOPAguENGXjzcykCRfU5F7m+zDLsAvMRE+X3EuHLVtBxt8vDj
-         TeEUZkpsq/PF5Bt0dKQ5ErZqVGKsQNW7+j+IkO8dE0lcxTfXBa3ZA3q4XpcsMMxIOPB8
-         Dz+uFaneovsNRSmQIjO+cjy2ephwmZ4b7Q3FStKIE2LpjkRRwozbzk3P9gobuYQRhY5g
-         CC5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795757293; x=1796362093;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9jH/OKgM1gQSDKQc5kAy7iczSgneLDrLRkuuGZg3T08=;
-        b=P5j2UgNspUbn/RmwZ6oHEx29iLljPJm+EaGZurIeGoH468HTprWORFGc3ol4/v5Cjv
-         CzBgy4jtskwoNHhT6qU7N4nDb47HzQt6NU5mPCEnwwmOXVmLXrqMGBYrJOs6v5aFOj4W
-         VItmYmR5JkXP6gKOiB+hE15vAy4ZBmT3dtfUgmqWOhOBjv+P6VQ3xGqMG1j2O1AeRkwh
-         CiD0bgriUprsIoB3ryzr0VQG5LpKaJiRFFyNtx7FPAJ4EkmbjUBmOiceNOFnhhURp8DX
-         SZc4glmWVAPYjfaEB5jMTOjMiQJfzKfoyPPiO3jEbYO8hyRHcIsi+tY3aE81iTk0JCMv
-         yNeg==
-X-Forwarded-Encrypted: i=1; AL+hErGV344BGvlXVQclTlzwvV8MNIjlQWHrQ3raf22Szyce9UBuvqV1ml51REwTjYoG8ieTgGZvdy9n0zTyPA==@lists.infradead.org
-X-Gm-Message-State: APuU4Z9qZSIVFBWx6HzM/jLjUor/cCaID0sP4ef8fvrJ5IaK8IOjOECK
-	/fWsinZyODvmCxFb/jZYsi7iKMDOxv7A8J8vdRdj17XeGkInYUMSY6E58ukLvgwI7Uw=
-X-Gm-Gg: AZFdTZew+uHvUeYBUq7B9h39bTxFzjmZzTL94WqlY71+T+mx3VTQBnRzo2EBqVPAZdG
-	h0SQT8vGizYEcAKBpK5qW7Q6GQB7e7hX4Irp9bzEERBtZBCKQmfeTesUf9iyVleBf13eOlyCzAQ
-	UXKcEA+2Et5wo2wRxna/y7geTpoGGUKKYzn4TajgsRUDSnly2KCxTSbnAlsZwBhA/IVajXQGE6H
-	H1/fXI73ItS66jPN1k4ZwCiq1cDmOevCgH9GmYaURVV3YQaF5vckZC/5qhfrvvxHfLm5zehsEC5
-	1V41qAoLj7J06uh3JKsEyi7Se57vyGwE99ho5PZftqWC0i1Vc6JnkjOIDjNkE4s0ZOIOhkw8Rix
-	EPXrS+Bzvhcryzpvs7ddh0K2aKkV1FfiWtT3CS9ypqJSEa7w3C5mN4C5Oer0umAyvVl3sS+InQe
-	y9hcvJZz/BUtxdrPrfWQ0ImDgEwcUVHOOgpTKeK1BcKmqfrhtLMA0EVV+fstLwQrhMi4sdN3R+v
-	qgtizv2OODa50JEmOxvq+HulynBoAUon7rFVD0K9UiKjoRQ+JA5yToCK8VSFe3ZiApeDyIiSDeM
-	2qFDaxXk9VWxcObxZG8pETSgcFLOJSS3JLLu21Fb+jgBUrpQx62Hmw5pxOD+5CyaMau0AQLkp09
-	spmaxAQvO8LGzjYEbFlTI
-X-Received: by 2002:a05:690e:4594:20b0:67c:6ce7:c513 with SMTP id 956f58d0204a3-67df44da548mr5273707d50.82.1795757292881;
-        Thu, 26 Nov 2026 21:28:12 -0800 (PST)
-Received: from toolbox ([2600:1700:220:59e0:e3a5:f585:4070:c566])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df33d64a0sm11238363d50.22.2026.11.26.21.28.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:28:12 -0800 (PST)
-Date: Thu, 26 Nov 2026 23:27:47 -0600
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>, 
-	Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Anup Patel <anup@brainfault.org>, Guodong Xu <docular.xu@gmail.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Conor Dooley <conor.dooley@microchip.com>, Bo Gan <ganboing@gmail.com>
-Subject: Re: [PATCH v3 6/6] riscv: dts: spacemit: k3: Replace incorrect CLINT
- node with ACLINT nodes
-Message-ID: <yf2dawzefycxhhs7zkua3v3hoirals3wtr6rheh4li33eq7r4i@yb7cem4r6x3z>
-References: <20260918-k3-aclint-v3-0-cf4fd4050e14@pigmoral.tech>
- <20260918-k3-aclint-v3-6-cf4fd4050e14@pigmoral.tech>
+	Fri, 27 Nov 2026 06:01:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1795759205;
+	bh=W5orpNQRwzUsBFtBd4lKgk0noKXsQvGISmKxvFmwlXQ=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=udXPH5CoHvXAfxhAFIvhAGd1cAWKjuWGDFGZ8Bj/GnFrorSn1XB+O9oECrCJTtKrk
+	 dO0MQo0gyq5RxnnilQYu7cID6Ujhmb9NaTciIBBpJjkJEeGNOEKpz7kl4bYAebtrkn
+	 lYHjMzRgx/xWuUZ6HIok6eQzdVQr/4mnszW6X11o=
+X-QQ-mid: zesmtpgz6t1795759198t02bcd124
+X-QQ-Originating-IP: CyiqXhML3xAjxSMuZRfc6KNxWUfRG9AMsUIeo1bcios=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 27 Nov 2026 13:59:55 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5876352062716450279
+EX-QQ-RecipientCnt: 25
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260918-k3-aclint-v3-6-cf4fd4050e14@pigmoral.tech>
+Mime-Version: 1.0
+Date: Fri, 27 Nov 2026 05:59:54 +0000
+Message-Id: <DN5RI93NOUY6.2TXJX73EU84KJ@linux.spacemit.com>
+Cc: "Alessio Belle" <alessio.belle@imgtec.com>, "Luigi Santivetti"
+ <luigi.santivetti@imgtec.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Yixun Lan" <dlan@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Troy
+ Mitchell" <troy.mitchell@linux.spacemit.com>, "Baihui Liang"
+ <liangbaihui@linux.spacemit.com>, <imagination@lists.freedesktop.org>,
+ <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>
+Subject: Re: [PATCH v2] riscv: dts: spacemit: k1: add PowerVR GPU device
+ node
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Iker Pedrosa" <ikerpedrosam@gmail.com>,
+ =?utf-8?q?Fr=C3=A9d=C3=A9ric_Mah=C3=A9?= <frederic.mahe@cirad.fr>
+X-Mailer: aerc 0.21.0-reader-ipc4
+References: <20261118-orangepi-gpu-v2-1-f68676f844eb@gmail.com>
+ <20261122184434.545341-1-frederic.mahe@cirad.fr>
+ <CABdCQ=PnfXRd2=b6_yEN94RCRvPnWx-WFfHZDC+jhHv_UFZ1ZQ@mail.gmail.com>
+In-Reply-To: <CABdCQ=PnfXRd2=b6_yEN94RCRvPnWx-WFfHZDC+jhHv_UFZ1ZQ@mail.gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Mdw6+lqugK2CvZJHCS1LrDPF+Hj9qgBYBDw/eWVDA3sRaPVNAzBOCiym
+	Yiey3YYUnX/+MQfYoOO9hZHqKcD0OCc+5PF5yGdx+hFQdS8dsZzECJRZSgm6+IzWDVWipUt
+	GYtP7GAVRKYkRfmrKmI7BmohM/+lrWI31C0OiENSUIgv0xlJIaUT9Ad3zJdGTAjdA84zVnX
+	AR8A+fUn2GYXkmsASkqYRiLPv0zKHY70X7KY2KsCWE004YuQcPvZtnvG8OIcFwEbP4PHVJe
+	BjUS5vyFHfO2DGdevuj1Lr43ndVT1bmFSAwMUfXJHD4kquG6XeDDmrGaPg5TXZpm7muWEM9
+	i2xinTQfNF/JZfW8AlYK6jUlbDEy9+gmg8ug9Of02RuqffqPFjS0ftjwmtJk6p2B4l6GQ1V
+	NMNZDZx3j2ubfzstl7gI29g7OIz3RkNMgZ1EHSu8Mo/Kfu9QKe+RMutHgLu4YFKAFoep5Ro
+	3K6TQgglINUVhiZvg8QpQY7Y8/Vc1I7nr5fAzQrHHaM+I3eLzzVUudoXTtZiJTQ1FRhrydi
+	2z6bxRpo7WprihcQta8hwu3R9GBLb0mBHNXYI4IhD0CjhoAJZinOu8OfGof/YAkkxgtSn9x
+	s/cZWZwIYvlEpoVSRVyeGm+U72Dk7Kb7TXGHEyzJxLAA2gz+czKJIe2SCxn16jmOEumqte8
+	TkosUE2o4WnXGN1vTglvdUZgatGc6KvqsX4D+NrNbbjTEJ5ZZDnvrytIVB1g0qY9rO0ukeC
+	hDDyRqwMKNA4sN1EukMGsJuL2smOUvQZM+rARFquFx3n7+vKXlnnDmQASijg9Arwk0X/9+F
+	IS1jGg55tDuGZP7HtoMyRM4OKqWDeEiTgPloPo/L82VFt7n/XVvN8e/hw/3EliQJVUt/YQq
+	Hr8ANf7CwpiAbgEH14V7eCt6V0W+w+9NnW15sO8lpj/dUHgadJUrbgcfy1RykCwA8D9qe3w
+	WK6vvJrEjztaClHofTqDPk0/03PdXyDVAMMjPNn61R+uAZlcUDwlnuZqe/mwkT1E6c2fALt
+	7/pzvGwt2ksHOfCJL5lQknHdTeJOsTJfV13ofq8BcRB2tXTlJxXKEGFz+mZcecM/Ne1SR7l
+	w==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261126_212814_656207_CE257084 
-X-CRM114-Status: GOOD (  20.98  )
-X-Spam-Score: -2.0 (--)
+X-CRM114-CacheID: sfid-20261126_220104_632905_1571431C 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,102 +108,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8306904162924179285=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Junhui,
+--===============8306904162924179285==
+Content-Type: multipart/signed;
+ boundary=d1ae752c97959d5b8d8cd87d8f8f5410d469b0ecca2088ec5a8e5567b25f;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
 
-On Fri, Sep 18, 2026 at 12:29:38AM +0800, Junhui Liu wrote:
-> The K3 implements separate ACLINT MSWI, MTIMER and SSWI devices. The
-> existing CLINT node at 0xe081c000 incorrectly describes the SSWI
-> register space in the non-secure window as a legacy CLINT.
-> 
-> The ACLINT register space is mapped at two base addresses: a secure
-> window at 0xf1810000 and a non-secure window at 0xe0810000. The
-> secure window exposes all three components, while the non-secure
-> window only exposes SSWI; the MSWI and MTIMER offsets are reserved
-> there. Moreover, depending on the eFuse configuration, the non-secure
-> window may be entirely inaccessible, whereas the secure window is
-> always available.
-> 
-> Replace the CLINT node with the three ACLINT devices, all using
-> secure-window addresses: MSWI and MTIMER for machine-level firmware
-> such as OpenSBI, and SSWI for supervisor software interrupts.
-> 
-> Fixes: 56f37e391a62 ("riscv: dts: spacemit: add initial support for K3 SoC")
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  arch/riscv/boot/dts/spacemit/k3.dtsi | 43 +++++++++++++++++++++++++-----------
->  1 file changed, 30 insertions(+), 13 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> index c3f2dce0969c..74831974435e 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> @@ -1261,19 +1261,6 @@ saplic: interrupt-controller@e0804000 {
->  			riscv,num-sources = <512>;
->  		};
->  
-> -		clint: timer@e081c000 {
-> -			compatible = "spacemit,k3-clint", "sifive,clint0";
-> -			reg = <0x0 0xe081c000 0x0 0x4000>;
-> -			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
-> -					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-> -					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-> -					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-> -					      <&cpu4_intc 3>, <&cpu4_intc 7>,
-> -					      <&cpu5_intc 3>, <&cpu5_intc 7>,
-> -					      <&cpu6_intc 3>, <&cpu6_intc 7>,
-> -					      <&cpu7_intc 3>, <&cpu7_intc 7>;
-> -		};
-> -
->  		/* sec_i2c3: 0xf0614000, not available from Linux */
->  
->  		mimsic: interrupt-controller@f1000000 {
-> @@ -1305,5 +1292,35 @@ maplic: interrupt-controller@f1800000 {
->  			riscv,num-sources = <512>;
->  			status = "reserved";
->  		};
-> +
-> +		aclint_mswi: interrupt-controller@f1810000 {
-> +			compatible = "spacemit,k3-aclint-mswi";
-> +			reg = <0x0 0xf1810000 0x0 0x4000>;
-> +			interrupts-extended = <&cpu0_intc 3>, <&cpu1_intc 3>,
-> +					      <&cpu2_intc 3>, <&cpu3_intc 3>,
-> +					      <&cpu4_intc 3>, <&cpu5_intc 3>,
-> +					      <&cpu6_intc 3>, <&cpu7_intc 3>;
-> +		};
-> +
-> +		aclint_mtimer: timer@f1814000 {
-> +			compatible = "spacemit,k3-aclint-mtimer";
+--d1ae752c97959d5b8d8cd87d8f8f5410d469b0ecca2088ec5a8e5567b25f
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-I think you'll need to also include the "riscv,aclint-mtimer" compatible
-here so that this DT can be used with upstream OpenSBI. OpenSBI doesn't
-include the spacemit specific compatible. OpenSBI boot prints this
-currently.
-
-Platform Timer Device       : --- @ 0Hz
-
-> +			reg = <0x0 0xf1814000 0x0 0x8000>;
-> +			reg-names = "mtimecmp";
-> +			interrupts-extended = <&cpu0_intc 7>, <&cpu1_intc 7>,
-> +					      <&cpu2_intc 7>, <&cpu3_intc 7>,
-> +					      <&cpu4_intc 7>, <&cpu5_intc 7>,
-> +					      <&cpu6_intc 7>, <&cpu7_intc 7>;
-> +		};
+On Mon Nov 23, 2026 at 6:41 PM GMT, Iker Pedrosa wrote:
+> Hi Fr=C3=A9d=C3=A9ric,
+>
+> Thanks for testing this on the BPI-F3!
+>
+>> Two notes:
+>>
+>> - On v7.4-rc1 the driver refuses the GPU ("Unknown GPU! Set
+>>   'exp_hw_support' to bypass this check"); with
+>>   powervr.exp_hw_support=3D1 it works as above. Is a driver patch
+>>   adding the K1 GPU pending somewhere?
+>
+> You're right. I forgot to mention in the cover letter that I was loading
+> the module with:
+> sudo modprobe powervr exp_hw_support=3D1
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 
-Regards
-Anirudh Srinivasan
+--=20
+Troy Mitchell
+
+
+--d1ae752c97959d5b8d8cd87d8f8f5410d469b0ecca2088ec5a8e5567b25f
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCawkcWiEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC9jPwEAkEDYQ/DUZqdM
+7fO73JXCHzzyxH2RSvNzzjPHVh6TJCAA/jY1bbDX9rE04bGONDjWVzwEHNrfpRKP
+pCll1aV1PnkD
+=NZI6
+-----END PGP SIGNATURE-----
+
+--d1ae752c97959d5b8d8cd87d8f8f5410d469b0ecca2088ec5a8e5567b25f--
+
+
+--===============8306904162924179285==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8306904162924179285==--
+
