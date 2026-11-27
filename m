@@ -2,113 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BE40606A31C
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 06:11:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31B3C606A321
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 06:16:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Hd7w4Pyu;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=jms.id.au header.i=@jms.id.au header.a=rsa-sha256 header.s=google header.b=DCwKqdhi
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=X0QtNxwW;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fOu2r9SE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5U1n/tpqrFxxttxK/6XACiO7Ae7YrjOXTt3+gLYJI1E=; b=Hd7w4PyuDznlyYk5c6NKpfnDSZ
-	DTuw6PRA2ll0ZgZLlvQu9Mks27d/tw6ny8YEdEAn9H883R/fuvDxowkgyx7jNuU9eTpUIN4YwiKS2
-	pq/+Z+Z9ozRkR8KfZU26HGGMYKqtYVgNKhZes1N+TF3liHD0xA75hZaIiKs3h7p7x/fB9A5FNyWXh
-	2wbDyhb1P6V4WDjQJnjAmkZfzNHC7rNwSvyg//Y4AaMS6X5MO0cWyphGDfbsUuJ20d3awRuErzGYT
-	SFJRsYdUes1vJwSNTH3SGtAfQ6pUhP/V1loBCIrCXXUQVsnVUvDSxwx9vR+7SunhpZYEsKrm/8LC6
-	t84sDitA==;
+	bh=Xr5NgYreGKDrhsQ6TUHJJAqjNCM3TkDnkfH7I+7557A=; b=X0QtNxwW3I+SmkEvdoNRJDc0Ad
+	3SXBJJyztokditqJnsFVcNdMNPhFfi+h/az0LOxthp7GNiKghg6DZhv+BhxqkJbUuvjSXZORwPIQm
+	VGeXYfxnyi9kEsApLJBEISPPjvUdTOLRF+E/8rIO5pJxwqBDdrFDHvvLq3/DocDle2NiyrpOnkZaF
+	uN4yZSm5R/4BysXmpFQt+drbFv08Oj8XzMoa6xwX49dWFUZMu9DU1QDooJaD/1qIJOixYEZrLjmyM
+	YuuUQdtQKU2C5ruZD+7HeEpxqkloFwG0EcjEz3AVeG7IdY0fxwg64TwIzcH+m63uqQerEwKfwP/4q
+	k/8FnOzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWpBK-0000000F0X2-2Oct;
-	Fri, 27 Nov 2026 06:11:38 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1xWpFt-0000000F0r2-1opk;
+	Fri, 27 Nov 2026 06:16:21 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWpBI-0000000F0WN-0Len
+	id 1xWpFq-0000000F0qU-2ykd
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Nov 2026 06:11:37 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-8b2d14968c9so73007587b3.0
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 22:11:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795759894; cv=none;
-        d=google.com; s=arc-20260327;
-        b=JCeAlSydHq86c/pPMTzrmOkbMgbRKskPgnthG6YPOa9BF6JE+WwgOjHVHD1tiBW5w2
-         AfsMR3i1lDzGitffBDaqOqj+aj9JCDiL441u8KOAz5KtzJi2LARQ+UCavuyeHg+tHpob
-         RLKSsB30qgrn2TIR4hH1GfihENtm3w5ExaTAF1hK1GBylS0sU8X1tG4pEMmk2w/vhZEr
-         xbpHHRkyFORxg+Bhyium4jayCtuOL/j+hmXlDEw4haZYmS3u1p02DuleODCK+d+PL8a6
-         J6qD5cNiejOQSX82PJ7VBxqbMobZGu02EqyuQJ20SvxKIMqi+MiAaHYtCPpHJYfWzfXj
-         WK9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=5vKFfwX22kLU+bDkkntkUc0V0wt+jMool0fJOroPxrE=;
-        fh=dRiHog7UpYfZKenpOirphLe8U3kzWtwRfvivYtmELxY=;
-        b=WtYfC57MnMztWc7cTUlG9KtEWFvPXPeF1erX1RF6XkcgHVO2DHBCe/w6YclCCUh1cb
-         UCRGZP/LCdSoYyJHWDPQqAEJ2qFkSQV12EIgbQNBoOzwjWpJEQTVnCS+Qhw3+OlpeaMB
-         05mN8w0N89Qruk9+MYAFmBCUInofOMTPRTazusyW8nF6jr1LW1Qgn+cJL2qDTBZQHpHA
-         hI6k38DHXdoLM5bhheEZVWoiDF8/uBxhJq8wO5izwbsMIMwodD/CCS8oychpULQuG0rb
-         b6VnrnIfn3nzHItiuczvF5bcDtBe74NdOQJS24JSs2GExvRFUzAXhlDu/kc4dJOA22v5
-         7sxg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 27 Nov 2026 06:16:20 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2f02ee04378so60355905ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 22:16:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jms.id.au; s=google; t=1795759894; x=1796364694; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795760177; x=1796364977; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=5vKFfwX22kLU+bDkkntkUc0V0wt+jMool0fJOroPxrE=;
-        b=DCwKqdhi+Cro6eDEDQ4puRWYY6Z683Ty0sHFinUeyjRlydmgzNQl2Ibi29inW9aKQv
-         dx88EDM5S+uzSLKwuv1pOkb1hdPCRIFrYAlRrLheP5M7n0x8mIQiOqfSXSSBcGTyJxZX
-         kxudUD5isrv2/wWo3lPWW728DNRG+jye0vJHU=
+        bh=OuWplakanAytLhzmNLShOdT3+3TOarOEOpiBZuZmu44=;
+        b=fOu2r9SER7BYBuQnCZtB8gY86ndFxn7VhBTIuOPTRlM0j9d8+xzWMc+C5a+cq53upT
+         GphAWNXToQp/nVTxGt01B+kuSB4My7BoYwrwIm3QuDVpLNW+MOHOIuxxX+zVjV6eJ7ZO
+         SaazO3/ZVrug/b/w8Uy+xqzaOKG4O+btaFMeTN6vBaw1/qF1Z5Y8eoTvpeCxgtfoeS/k
+         tbJjEu4bxnKiHOHx49D9qT5wrkGoiRTzNFFMASsHh/cJZ++SZfX6JTU4hou7b4egtWNj
+         1VVI7L+0R2jHciLBORCe0bRbit2Iwc0QRWHIuBC1FBLmcspYp/6qfysrhJZ3Oq+PYNvh
+         JtBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795759894; x=1796364694;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=5vKFfwX22kLU+bDkkntkUc0V0wt+jMool0fJOroPxrE=;
-        b=jinFAum92R18y5I1Wh+PD0T16eBwh2Erb0KBiKU8mf3VqK1aLcZIStUBSvnx6KcHOu
-         s34cOW7cMlOi399gAegL3y+PHP8qiHuo1XEiE2C4Nh0f9Zq5+hVDVkvxn2UuQ+wTSzbH
-         UQOPVCXSxITksdTjmO9L1+33rZy+8XZCCSjS+fQ3uAMaPpKI+TAylN3kFpmpVmvKkJw/
-         nEm4Orr/hwv9kNHLCBVvrTfRBnSK0WMX91HPsxAgep4CsGIwpa1H8ctWVZsd5KDVvpaD
-         qV/P1319axVtfAoT7QDxbF0gN6MqR8cfkqJ3iC/Ryj0bAQQgTbEW+0E5jTkJaeEtlNNw
-         47lA==
-X-Forwarded-Encrypted: i=1; AL+hErE+yTXGnIYLQHOlzowoiwDaHNHwPGKMVBkA3DHUFQL4GnkcFLfQUjn9Om3QxySQLLtHueuSpIbGtcGXrQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z/t7m99fqYkl/H2diNRO84dfg3CqBzy2qgBTh0nT2yf1YLFRs4U
-	rJOZj6amXzro+5tnab22CQ+BgKvEM3Xl/dy3vo/Oeqt7drXb/IsiT5aBUO3MkAIX+te8C8H5XuO
-	kQjJI4sNOufvLs8N9ZvyaolA0KVcsFm2APIqE
-X-Gm-Gg: AZFdTZeWKqePScUrKS/gaK/rgJT6AnGdjA95IkMnnX1yCSMVeqorAV4tZNJWEryQRiY
-	kn3b1MtPsanClykc8SA6fMiffAp0WV5R/f77T813ZwHSi+ZHjeqCAelOpspGbge5ow/V0AM6Ty4
-	rjCqzgUyMtv4Q7gzUwphK9oEZxPqmaEhWlrWm0oL2pfZMbfwBHVlKAuxHt57apHKcdephtAysrI
-	N8iZGRRsNGjtgDyUS3mR8zBfnJhL2ih6kkY7wwzM7OwGNKPJrFqsXiFGFreFY71eeb4zEM8Q3LK
-	HP98mC2M0BxVO2lhTCYCiDqfeoNEtHjilBYoY+HSiz0i19qY6O2d2463ATrHU1BXMzCnLL+NhYV
-	009JoN4gonMk+t2P9Y7Mq6U9tzgdbRg8Jc0FRpaFSBRs893DncX8OwkED2Pyq9enCjqcGIxn/3G
-	Sxsbc6jCvEn2V5damb560UH2mgetT7kim+gQz19ptCbaz7mS2ayJonrGkeIFg4lRNs3eyx061c4
-	M3zBKMBOjGhbA==
-X-Received: by 2002:a05:690c:990:b0:8b5:6a83:5e0b with SMTP id
- 00721157ae682-8b56a835f62mr24337447b3.13.1795759894475; Thu, 26 Nov 2026
- 22:11:34 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795760177; x=1796364977;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OuWplakanAytLhzmNLShOdT3+3TOarOEOpiBZuZmu44=;
+        b=S/19SnfQLGLWSl5thEm7zPX4Q+ihrvQ95eczU7KvIDktdpgMjMvN3O85rPKnWeEod9
+         iK0nX9b0jp4CLao6bCC0D63Bc52MHT00V4VpDuVNJUG0O7mu86gbgpbhz5Ly8GEjVTxR
+         lg5dOBSL+L7UV0Dr2mo23kMzDgM2BTTm7CzsLu9QtkWzRjlyJcQ2+PMPdNZgnGA/KB/F
+         VSd46Te80ptUywdEd0uFfrow/EJ0p22+FmXfyhrhJsrPsKsIfJsGkULPq8wsjNGQDV8W
+         1UdIO/tLDnWT5PbuEiSM+Ju/0jIhF9XXgqo9LodyaPtLTNyE6t0jG1XCRUuo/LTvfjz7
+         cD7g==
+X-Forwarded-Encrypted: i=1; AL+hErG73Zjaopa2LWqnE5iUoLWX7NGA+P4m/MmPS2L0hmUCsIaSe8p4Dlbi+ly0Qsjl15xUCOi9wtynlYzqBw==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/L618ibYEyM/HPRVzxBNwnVPxwatuEv//59K+/dYGVBlrrNCQl
+	ep8lJcKeblUwYbM8ir3pcj9bRtBxJUa7iOXX5SQQGQ7S5J2fpP+Qikg3
+X-Gm-Gg: AZFdTZc2Le9ye8ILhj/GEGk0t7l8V54Nq3PLEiiKhovwCPIcJZbLZM3oOpM6fIIVWnJ
+	3cVNI175FRykBsZJNXjhSgXSlEejmGBzISQx4WCMc8nUmMXUMZ7qv8zKIyTqyt8TL7eUQjQhDRX
+	Rk/FSfF/h46Oxq5/Mozf50EJW6SxF3h9F4c37b/icklESZUoe/44ugCbXoTvj5bFfHHp0F2In0Z
+	0SKyJwLWIuOzcBGCKITN+G+DW2c9+K0JqWNjaTeO/PhlO2oUo7tFVH1MoCnxfpPqoNtwII4/KNO
+	0IRkY0UYMuFmtBPYibZ+jpDzVnUHWVFjU6XZh9/ui0vdERfXyEFIWHFOqwteq2e+I+YMedBOr/H
+	yNEX5ToISDseU1GXuQpG32tk9FSFNbcq/zuO2+r3+QPITyxLfwrxufcdgMCBWgh+25dLKclK4IQ
+	LF7daeG5ZezTwnQo83QAMi0bD8+/0/35kDrQlsdzsE9aW2jnxdAicSnKGDgqjQhsy5wJPqezKvw
+	yDC0uMNxjAh5uYCwg3JbqlQxe5Nd1Jx0i1NotHF/CNXpYFK46U2hDOtm/8avfllzZ86odkHLZD0
+	Ei/XDrhHQNnhkJh+pEODtZDo11EX13r6CSnxau06BdY4mPufb/c67KZiuniKvN/KpfjXMSzxt3O
+	E8KVAwu+bzs/FvrGLAU7ADn357YfSTPap5iWhW1PzR5R/0py+YZ7erZYXpsb19/337HUu9cv1lY
+	DOQuxirMnC
+X-Received: by 2002:a17:902:ec8a:b0:2f0:446d:30cb with SMTP id d9443c01a7336-2f0446d312emr253910605ad.15.1795760177447;
+        Thu, 26 Nov 2026 22:16:17 -0800 (PST)
+Received: from donnager-debian.. ([180.150.112.169])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dcbe3sm114829495ad.28.2026.11.26.22.16.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 22:16:16 -0800 (PST)
+From: Joel Stanley <joel@jms.id.au>
+To: Paul Walmsley <pjw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Anup Patel <anup@brainfault.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Michael Ellerman <mpe@kernel.org>,
+	Drew Fustini <fustini@kernel.org>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v4 0/6] riscv: dts: tenstorrent: Add Atlantis platform
+Date: Fri, 27 Nov 2026 16:44:20 +1030
+Message-ID: <20261127061432.17306-1-joel@jms.id.au>
+X-Mailer: git-send-email 2.47.3
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261109051050.105623-1-joel@jms.id.au> <20261109051050.105623-8-joel@jms.id.au>
- <CAJM55Z_zrUjaWrxSqZ=8VWEJqbh_Oa6gTHf=UJZyR2__MCVueQ@mail.gmail.com>
-In-Reply-To: <CAJM55Z_zrUjaWrxSqZ=8VWEJqbh_Oa6gTHf=UJZyR2__MCVueQ@mail.gmail.com>
-From: Joel Stanley <joel@jms.id.au>
-Date: Fri, 27 Nov 2026 16:41:22 +1030
-X-Gm-Features: Aa3M54oFZihiIV36Dcy6W1EGQUXnzGceYVdcHza3Im8kbnWUM1Yjw7rBqcfA4gE
-Message-ID: <CACPK8Xc2oCDV9jeN08mrsGoS222JL3KphheOAp-pOP9_3ee=CA@mail.gmail.com>
-Subject: Re: [PATCH v3 7/7] riscv: dts: tenstorrent: Add Atlantis platform
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner <tglx@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, 
-	Michael Ellerman <mpe@kernel.org>, Drew Fustini <fustini@kernel.org>, 
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261126_221136_524313_2930674F 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20261126_221618_756227_134EF9CE 
+X-CRM114-Status: GOOD (  12.30  )
 X-Spam-Score: -1.7 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,58 +109,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 11 Nov 2026 at 06:02, Emil Renner Berthing
-<emil.renner.berthing@canonical.com> wrote:
->
-> Quoting Joel Stanley (2026-11-09 06:10:47)
-> > Add initial support for the Tenstorrent Atlantis platform, based on the
-> > Atlantis SoC featuring 8x RVA23-compliant Tenstorrent Ascalon-XG cores.
-> >
-> > The evb machine represents an internal bringup vehicle with just the
-> > interrupt controllers and a UART. This will be updated in time with a
-> > full featured machine once details are available.
-> >
-> > The chosen node sets bootargs to earlycon=sbi to aid debugging early
-> > boot, as the platform may not have a bootloader to fill out the chosen
-> > node.
->
-> Does this mean OpenSBI uses a different uart from uart1?
+Add initial support for the Tenstorrent Atlantis platform, based on the
+Atlantis SoC featuring 8x RVA23-compliant Tenstorrent Ascalon-XG cores.
 
-If you boot OpenSBI and Linux with this device tree, no, they are
-using the same one.
+The series adds a bare bones device tree with the CPU, interrupt
+controllers and a UART.
 
-> If not that means both Linux in S-mode and OpenSBI in M-mode will
-> both try to use uart1 at the same time. It might work by chance,
-> but a much better solution would be to just use "earlycon".
+Patches 1 to 5 add compatibles or extensions to existing bindings.
 
-Your suggestion will configure the early console to use the UART
-registers directly, instead of through OpenSBI's driver via the DBCN
-extension. With earlycon=sbi only OpenSBI touches the UART until the
-kernel's serial driver takes over, so the two are not writing at the
-same time. If there's a problem with both writing to the registers,
-plain earlycon makes it happen sooner, but I don't think it changes
-the outcome.
+This version drops the aclint mtimer binding patch, which will be posted
+as a standalone series along with converting the relevant boards. The
+Atlantis device tree omits that node for now.
 
-OpenSBI doesn't normally print anything at runtime (unless it panics,
-at which point all bets are off), so no corruption occurs. Was this
-your concern?
+The series has been boot tested on QEMU and internal development
+platforms.
 
-We will keep using earlycon=sbi as this has the highest chance of
-getting characters out the serial port when debugging. If we go with
-the UART directly, you can't tell the difference between crashing
-early in the kernel and kernel UART being misconfigured, which can be
-annoying to debug.
+v3:
+https://lore.kernel.org/linux-riscv/20261109051050.105623-1-joel@jms.id.au/
 
-Cheers,
+Changes since v3:
+ - Drop mtimer binding document, will be posted independently
+ - Remove mtimer node from dtsi until binding is finalised
+ - Reorder properties to pass strict style checking
+ - Use the correct value for the timebase property
+ - Add cpus label to cpus node
 
-Joel
+Changes since v2:
+ - Fixes to prcm_rcpu and aplic dt nodes
+ - Drop uart1 clock override. UART now depends on a working PRCM driver
+ - Drop bootargs console=ttyS0 in favour of stdout-path
+ - Justify aclint mtimer bindings
+
+Changes since v1:
+ - Rework mtimer bindings, fix reg property, update compatible and use
+   priv spec as reference
+ - Drop Drew's sob from bindings patches I wrote
+ - Add Drew's co-developed-by to dts patch
+ - Correct aplic num-sources
+
+
+Drew Fustini (1):
+  dt-bindings: riscv: add Smrnmi extension description
+
+Joel Stanley (5):
+  dt-bindings: aplic: Add Tenstorrent Atlantis compatible
+  dt-bindings: imsics: Add Tenstorrent Atlantis compatible
+  dt-bindings: riscv: cpus: Add Tenstorrent Ascalon
+  dt-bindings: riscv: Add Tenstorrent Atlantis platform
+  riscv: dts: tenstorrent: Add Atlantis platform
+
+ .../interrupt-controller/riscv,aplic.yaml     |   1 +
+ .../interrupt-controller/riscv,imsics.yaml    |   1 +
+ .../devicetree/bindings/riscv/cpus.yaml       |   5 +
+ .../devicetree/bindings/riscv/extensions.yaml |   6 +
+ .../bindings/riscv/tenstorrent.yaml           |   4 +
+ arch/riscv/boot/dts/tenstorrent/Makefile      |   1 +
+ .../boot/dts/tenstorrent/atlantis-evb.dts     |  29 ++
+ .../boot/dts/tenstorrent/atlantis-soc.dtsi    | 467 ++++++++++++++++++
+ 8 files changed, 514 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/tenstorrent/atlantis-evb.dts
+ create mode 100644 arch/riscv/boot/dts/tenstorrent/atlantis-soc.dtsi
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.47.3
+
 
 _______________________________________________
 linux-riscv mailing list
