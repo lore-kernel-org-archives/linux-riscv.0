@@ -2,97 +2,95 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71770606A31F
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 14:34:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 226F2606A31E
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 15:04:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4AWSI26d;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=xUKHApLT
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E39J2yR+;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AfXQ5I/n
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=I+Z0T9AxPgZeoF1EySh5m7YwE0FDMKcxI+kPDe3q7rU=; b=4AWSI26d2m6EwTgPt24ts+Vh3i
-	ITpQnjJxLS72LWVrhSM1TQzbDfJDQKDVhJQT1hJBs/BBdsEnDK9xS84Uh1y3wc71Q8BSbcl6JKPgG
-	RjkiF3Uega3xMUI4qAIgALQjA1cwrSGKfYydrYpfrL1tt39MeXR1FCPPescB1FsWGvDd5BEsNsaGE
-	T+fgIWXoger3ziiAn2Xqzf6mvFyuO9qakORHhkgy46ATXU6TwJHfcR6VCPQ2SdPGx+69kMoMRkaGZ
-	6jIap0Ck3QvYa2VTQflYx/86yHpEd8E8VN5k7d5NI2sXlhkHUD1SDSwXy8X5iyRoB7bGnRMCXG4uD
-	XX1hJBVA==;
+	bh=IZDJNjL/T94ohb1AThX1lDbDPXmjXXxFNz6QSW0nQ+w=; b=E39J2yR+7t+EihtZaoE4hoXp1L
+	kML8pGxJnBhDsZMCzDT26UAewchf/H/5CbLKe137Sm9PtMCkC/4PqpuhqAxSJV2upDTjLVxaAUX1V
+	pS55Nna1a6pN183Wg8RNYUESWQTjKraADDymqizKcFdSyLKdVCH/R9dUPxEzYaPYVB0NtRvDswv1q
+	S+BOwKzPlgyfiP0f8NfoBVtcvt2yYY9LydBv3ymjpirEBgidSpyzusPfSOhGGeCGjFlujrz+n3m9/
+	N/qI2woI+pTgTC4GzxzLu6s/3v2c52t6XdixMhs8m65NsZwVKj3F+r2rI+tRQTjUzFavRFENLyhsu
+	MWMK+4SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWx1u-0000000GZIm-2ykP;
-	Fri, 27 Nov 2026 14:34:26 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xWxUR-0000000Ggn0-1Grh;
+	Fri, 27 Nov 2026 15:03:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWx1a-0000000GYv4-20T9;
-	Fri, 27 Nov 2026 14:34:08 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 6B4181A0440;
-	Fri, 27 Nov 2026 14:26:57 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 380A76049C;
-	Fri, 27 Nov 2026 14:26:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 67FC511E68FF4;
-	Fri, 27 Nov 2026 15:26:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795789614; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=RkWpdIcMYE1qUrSwQ6cT++4Zmo/YUx2kY/UpVSD4g1U=;
-	b=xUKHApLTmpzwZ0shJxRBf3V4t+FY3xbHepnyoQtp1vN/aFk2tnCz/PEUKH/vV/zT/u8Z0r
-	fyHpysVFXcZrIkHcEJjMoBZIgRUFAPIh3xO62fcBGZK67KqOrd8v0M7fQ+TnfhhlWZ2j4S
-	Vi1+zd91hXkjDpMNV18eGD37J1SYrAuoOW6HxGoNHaXCwzW8LOtSAo0+oFx58pp2+WTmbU
-	l7e6q514l4qPFU8+JUnOEc7flUpJlvE4bLUpTXXPcsqGrXgxV6OTFlyG5vookvNpeffMc1
-	ExLhV6MDJgeUjiRlbjy/mCu/YMnGDGl6NCwwa5GEeWE3qdLCp7BIAWyLD1laBA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 27 Nov 2026 15:22:49 +0100
-Subject: [PATCH RFC v2 27/35] spi: sn-f-ospi: Consume dummy cycles directly
+	id 1xWxUP-0000000Ggli-16tL;
+	Fri, 27 Nov 2026 15:03:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8071E60234;
+	Fri, 27 Nov 2026 15:03:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 283F41F000C1;
+	Fri, 27 Nov 2026 15:03:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795791830;
+	bh=HTsNEFdag3FLow13gNwrWPqr9RuSS6VGPBj7nBJXbBs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AfXQ5I/ncWiUS+XG5a6ulZQQLbXKF9UOyn/8RazJyU2fzEiQ4HydxY3JSQhY4TJff
+	 FbN11xcrwu7edOw7Htf9HdJTaQgpNqszcygI0dh65AT485sjpGcQy+e85Ms3ps+/3b
+	 DqyrkFPIbE3pB6hVtk4kue5cNJTfWm8tIYqxhe6hXMJ/xVRnegq/bkpUqM9Tn6AMjG
+	 UFtgoAopN9wh6AfTxC4paoeTrxA2T9sLBPXQTpRAd9LBKcFvH6Sn3Vf3Qz6KxusdpA
+	 ehn8sp2OjFMK0kNQaL/Xfiw7reDTExIgn7VzpizK5aD3olmzW4CrQNWgyjU9bgO+e+
+	 SO+pQ4xd/deyA==
+Date: Fri, 27 Nov 2026 15:03:39 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Liang Yang <liang.yang@amlogic.com>, Feng Chen <feng.chen@amlogic.com>,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>, Han Xu <han.xu@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>,
+	Yu-Chun Lin <eleanor.lin@realtek.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Takahiro Kuwano <takahiro.kuwano@infineon.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Yogesh Gaur <yogeshgaur.83@gmail.com>,
+	Chris Packham <chris.packham@alliedtelesis.co.nz>,
+	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
+	Michal Simek <michal.simek@amd.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Alvin Zhou <alvinzhou@mxic.com.tw>,
+	Cheng Ming Lin <chengminglin@mxic.com.tw>,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, openbmc@lists.ozlabs.org
+Subject: Re: [PATCH RFC v2 00/35] spi: spi-mem: Express the dummy phase using
+ cycles when relevant
+Message-ID: <d95e931f-0521-42db-85ac-a4d1fc4018fd@sirena.org.uk>
+References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-27-5c93f5e5d630@bootlin.com>
-References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
 In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
-To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
- Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
- Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
- Yu-Chun Lin <eleanor.lin@realtek.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Yogesh Gaur <yogeshgaur.83@gmail.com>, 
- Chris Packham <chris.packham@alliedtelesis.co.nz>, 
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
- Michal Simek <michal.simek@amd.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Alvin Zhou <alvinzhou@mxic.com.tw>, 
- Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
- linux-trace-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261127_063406_678335_EAF53F74 
-X-CRM114-Status: GOOD (  12.20  )
-X-Spam-Score: -2.1 (--)
+X-Cookie: Sank heaven for leetle curls.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,85 +100,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0072945604986467806=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The controller programs the dummy phase in clock cycles, but the driver
-converts the legacy dummy byte count into cycles. Advertise the
-dummy_cycles capability and use op->dummy.ncycles directly.
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/spi/spi-sn-f-ospi.c | 15 ++-------------
- 1 file changed, 2 insertions(+), 13 deletions(-)
+--===============0072945604986467806==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EKfE0NJTn63pxWNZ"
+Content-Disposition: inline
 
-diff --git a/drivers/spi/spi-sn-f-ospi.c b/drivers/spi/spi-sn-f-ospi.c
-index f0320e96fe23..2f6d493a1ba4 100644
---- a/drivers/spi/spi-sn-f-ospi.c
-+++ b/drivers/spi/spi-sn-f-ospi.c
-@@ -104,7 +104,6 @@
- 
- /* Parameters */
- #define OSPI_NUM_CS				4
--#define OSPI_DUMMY_CYCLE_MAX			255
- #define OSPI_WAIT_MAX_MSEC			100
- 
- struct f_ospi {
-@@ -114,14 +113,6 @@ struct f_ospi {
- 	struct mutex mlock;
- };
- 
--static u32 f_ospi_get_dummy_cycle(const struct spi_mem_op *op)
--{
--	if (!op->dummy.nbytes)
--		return 0;
--
--	return (op->dummy.nbytes * 8) / op->dummy.buswidth;
--}
--
- static void f_ospi_clear_irq(struct f_ospi *ospi)
- {
- 	writel(OSPI_IRQ_CS_DEASSERT | OSPI_IRQ_CS_TRANS_COMP,
-@@ -348,7 +339,7 @@ static int f_ospi_indir_prepare_op(struct f_ospi *ospi, struct spi_mem *mem,
- 
- 	f_ospi_config_indir_protocol(ospi, mem, op);
- 
--	writel(f_ospi_get_dummy_cycle(op), ospi->base + OSPI_DMY_INDIR);
-+	writel(op->dummy.ncycles, ospi->base + OSPI_DMY_INDIR);
- 	writel(op->addr.val, ospi->base + OSPI_ADDR);
- 	writel(op->cmd.opcode, ospi->base + OSPI_CMD_IDX_INDIR);
- 
-@@ -553,9 +544,6 @@ static bool f_ospi_supports_op_width(struct spi_mem *mem,
- static bool f_ospi_supports_op(struct spi_mem *mem,
- 			       const struct spi_mem_op *op)
- {
--	if (f_ospi_get_dummy_cycle(op) > OSPI_DUMMY_CYCLE_MAX)
--		return false;
--
- 	if (op->addr.nbytes > 4)
- 		return false;
- 
-@@ -580,6 +568,7 @@ static const struct spi_controller_mem_ops f_ospi_mem_ops = {
- 
- static const struct spi_controller_mem_caps f_ospi_mem_caps = {
- 	.per_op_freq = true,
-+	.dummy_cycles = true,
- };
- 
- static int f_ospi_init(struct f_ospi *ospi)
 
--- 
-2.56.0
+--EKfE0NJTn63pxWNZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Fri, Nov 27, 2026 at 03:22:22PM +0100, Miquel Raynal wrote:
+
+> ---
+> base-commit: 19d1b4de6d37bccecc3ad9144d279f1baa405eb1
+> change-id: 20261125-macronix-upstreaming-spi-mem-cycles-103274708fec
+> prerequisite-message-id: <20261126-macronix-upstreaming-spi-driver-fixes-v1-0-ca8e924cca1b@bootlin.com>
+> prerequisite-patch-id: 2f68de4139876dfa8e57afb65b429a69628214ab
+> prerequisite-patch-id: 7182a6b4808193323664f79c226ae2a57104b473
+> prerequisite-patch-id: 34a99e8e6644d1db0978b5aa6ca90342a42561f8
+> prerequisite-patch-id: cc060f58179f09af4593df6909b958a29bf11cb2
+> prerequisite-patch-id: c5a7a78ef01696c25c10b6d2968c0b65ab0f4ec6
+> prerequisite-patch-id: 340ee3d69095259d6141c017ea59c0c137d353b5
+> prerequisite-patch-id: 1629dd27a1f0b1d6622199cc7603dad4b17d29b6
+> prerequisite-patch-id: 29bc9e59b1d732a00cd65ba1d73270e051898fd7
+> prerequisite-patch-id: 7a028831f1df214099241bfac0dc290e2f799276
+> prerequisite-patch-id: c28c78ff316ce2ac8c1b6151367662ca8039acd3
+> prerequisite-patch-id: eea3b5adeb19b753a14bf03c5114eb407566c248
+> prerequisite-patch-id: 87bd95813776fe216ac157f9fad23586c71db87b
+
+Please do not stack serieses on top of of each other like this,
+especially not enormous ones like this.  It makes it far too difficult
+to track what is going on.
+
+--EKfE0NJTn63pxWNZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsJm8oACgkQJNaLcl1U
+h9Dqkgf9E0bJ2UXkjbckVvjHc+7mjSLOnT6yLtoLsCIaplWfF3H7hanJ7Crja+w9
+0NL1DSaqeHjHuahV3QcpGdIcxsNNFpHiqU/S/hCxVjPLmFGFaoBD79xppeSPeP0J
+laUs2W3a2Z/DHt4/whYH6QyMKF3UbJe9uH1VjXixiGQ4ZEuXX1mzwUnQq9Oa650k
+wu6xRgXl0C/Ts8LRbg4vwtf/AelEaDGshnkWfcszi/b0hgwIgcvYWo7XNdNcknb/
+EU4JBHGO5mbrmR4P6t5ABa+wD4LeaUCFP2Trov9vSRC14lL0hh9X8TpKLt4/B6wF
+OdsSR/Ry9PuwuhvrMT5bEtcLFpv27A==
+=8Hf0
+-----END PGP SIGNATURE-----
+
+--EKfE0NJTn63pxWNZ--
+
+
+--===============0072945604986467806==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0072945604986467806==--
+
