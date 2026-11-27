@@ -2,99 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 151BF606A31C
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 16:56:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41EC8606A321
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 17:30:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=b2Sgf2q/;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XVdMxSKn
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tPIhw9ru;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gXAAaHUE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=UN7GR+SGOGEbtYYYpUcDJ3ANlvwIn9ItQQ/h47loqfI=; b=b2Sgf2q/f+uowlWlcoswlatTn3
-	4GI/55ehUbPspb7VIwidBadooGS/K7dlaWam6MEQA06m3In0vY40aQKrT3QHIQ1ChnysrQy2XKuxI
-	9iKqJymFiKsnCLs+DlXWT1vRbLnAvona4pxpzA4WWiamIdsPlkd8bJkN0g+2vaKhaEhqpKJDiIu+g
-	ZsV4qyC0B6tJY7i8S9Z8rjVS83bMktUGv+hiGQVIEz9ZUIJBbPh+asaY425mRzEYlqSyDL4nR7zTR
-	RTkT7uJrP4wBXSsbG5XcZe+q03KoeoeUBGxY/Ay3oEJWx0fedE057idVxQFoA6Mu/Hex5/pCnNW9G
-	fLHKn6hg==;
+	bh=iy0yLrwkpmXqT6ZJAT+y8oLv4NFMsP4ZazaWOsHliEA=; b=tPIhw9ruZnwXwYJ7yq+ojArjW1
+	9QEOEWibRtGHqFGLstM0mHN/e5EhlRkFwtzcwcX4LyoFszP1NJdyTuaRa3ktddPGxklSClo1GTwmF
+	aO5TBkj3BMFlq3VVaOyNq7yRRmWkmEgex/I5T5ZCUXNPith+Bu5HvZ/+WzjiMFg10OBbm/LJFxPJb
+	wuO5CoFrrBDJE7ixmXXqGtBww7t0fUi4kYF4yplpbYCffKU7KkgOkLoFJnKOheEb/FmaBgNiX4tsQ
+	xYJZ2kMQQo5sEMqTQMuFOVkkXqm+n/FDwWbA0cKnANxsVrbwIZ/u+CjflZxzUod7h8mDNfqgi5Q5x
+	YGFWgf1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWzFB-0000000HAk7-1Kbv;
-	Fri, 27 Nov 2026 16:56:17 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1xWzlg-0000000HH6G-3w0D;
+	Fri, 27 Nov 2026 17:29:52 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWzF6-0000000HAgo-0n8v
+	id 1xWzlb-0000000HH4d-3RWk
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Nov 2026 16:56:13 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so5678229f8f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Nov 2026 08:56:11 -0800 (PST)
+	Fri, 27 Nov 2026 17:29:51 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3b532e633e1so502404a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Nov 2026 09:29:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795798570; x=1796403370; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795800587; x=1796405387; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=ipkmKJKWGNB6mDs2u9bY6uizcIe+dVA2X22JdmXX2qw=;
-        b=XVdMxSKnf97JanPkuAGaueL+REQ5SozmfBXTQySyTXAR+96K8gbaO/IeT7vNauDXsV
-         qB19nY2XPazmacAl6DTqobQ5BnYx7JY+vAp6rjpMrw+kZvVETq7kaTeTSm6ZlpMXm0rC
-         u0uW1PLG6ZhQjj85dAIE3okkH0bLAINsdvXsCQC8IzFZ3y8viAiQF8PDBBtzp4FHmoDT
-         2m8a3+R+IvUTUXMsfzVOr8sbfY1Y8XKeIOdrdlDx4dQuOK8c1oMwsKcjsUXkxpbOzXyi
-         1lsH0qdxOi66tWIoQRxwuPSdVLb00IC6wc2Iyx6MtsjzCxeqdyes6rqP2av7eOQWe/95
-         SXxA==
+        bh=htgkc1niw9wiArafcYtBRNur9uqGXrmAC1AoCVzanjA=;
+        b=gXAAaHUEyp9jkUA/toCHYuwWKOl3PjxcutYJvoY9Y/bP6V3ZIf0NY/gmiMpiqiqCqf
+         H1YcVY8+iQwY8wOtxDk+rTQREVCXQlJSvhEKLXUATs+WS1683XH7dySx+miwQ4XIqL7x
+         5OmCmxTZrRIo6D4v9zRrT9fgF4Lug6kgwfAvBIM2uxy1dTMljmKbRTXW+NXzRSFyuXJi
+         vWh0irvb5P1UrAZprWluoNN2A1DKsXayDK7rcTVU+u3nDpugCLq6TcOnGrGnsdMB99Qk
+         CdCIx4CsGiVdm75xQnHp/yoDUZ84kAyIGE7sDCNtMfIFu7PUiPR/UZZyru082znLH3De
+         /8DA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795798570; x=1796403370;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795800587; x=1796405387;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ipkmKJKWGNB6mDs2u9bY6uizcIe+dVA2X22JdmXX2qw=;
-        b=LNL+J9uvTY8nP4WxHpo5S6XlA5G/0aMCfWJDrS+/PR2mSSX56EnFmy69NLgqy4+2Ek
-         rDKxv+NXJ2vc6o3nIsG70a6kB1+CzqDtt8vX4vM5fjBIWZqMrFRqAQabwObL7rR+lzSn
-         4SRXMuZgKY66waR9KZdyJvhax2fIRYpmHRkokJuwJkfu5nbbvYjMAlMYLZtSghtu9HrG
-         rfr6FgamDywQOOxs/M7q+peu9fehvvqYS/VtBBC61yhIcyIqUsQc2cGSU4qcQUC33R01
-         lV6fv3bYHzZvgCRr90DPhLga499P1+o51duQlZmk+I+Jfltg6r44cDSwgisg3ag1IztS
-         xmVQ==
-X-Forwarded-Encrypted: i=1; AL+hErFKzoIHJqaQ6cDau81Pd2ACZjMV5Ldoav6BVUZmj9DwJevYXDUtoHvtuu/NOMX1uj2xS6AiD9xG/lx5CQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8Jp5qKKNbmsiqc1khsSP+2ZNCWDyY7PyE7i+wI4x16LZMC9SID
-	r1IP3bkYSQpnIhbiarrFNws1rHLSzutdpyAyg88F2YYYyZMgb6SaYqIF
-X-Gm-Gg: AZFdTZddmWo3Jpconw9xF01lEuFMZyyo6J5t+nuUbi8TdntKGLFm6W2+NqQbpWnWNkS
-	43URE6D3aRunCnl4DqdrqoSiWPK2DEJ0VYbCgYj97toMWwYLlIxUZ1YCH1NKq3KwSeyzz4MYgCA
-	qj1ySnzTUq270WiHVNcNX8Uogyp/1nGUJg1iMRfH2+8nI+E0anfjn5KjlAB+MZmgP+S/EQmiH4q
-	vIu6lUsTJh7CrjXNm94OuicXrWutgKJ1TK2qER2cnktNOEXZZPnpPiHyzS93fb9qWtW9jwifU+l
-	61QKcONcqpAsae9R+1Pmd/KQDq5BXXnrgfcIeA3M1Bqp+pOJfHwZfmEyomtpeQIkc+pwF2eSZOe
-	xCkFahFUl0c/nNcSNQflNrWvFsi6NQm0FQAV3zfPLDNSizFuFB5mNCXdg1geGJtZvFN9rcFWNXB
-	eBahLoAdAQMZLVEG8FZo6mC55LpewwFzWbBbPGrVyipnIaVkPbuQQkZJMdOD/pMIP3VGeKwzksc
-	zHdXiD2wcylPzCe6VyfJsqYsVgZnwKBb67VjMCdHLECQQCS1fcZFr3cNgVE10uK2Qz75dVJ4gPH
-	NOCN/aThjDfAvdL3lzdfwXFbJ0Wzz13aUx684k4+8gOnh4kuAoFIAHifYCBi3Onh3pujooGWEhB
-	m2FRaI+0=
-X-Received: by 2002:a05:600d:6510:10b0:4a1:811c:8078 with SMTP id 5b1f17b1804b1-4bb8881de57mr352984235e9.26.1795798570113;
-        Fri, 27 Nov 2026 08:56:10 -0800 (PST)
-Received: from localhost (bl20-90-91.dsl.telepac.pt. [2.81.90.91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884ab091sm979838655e9.11.2026.11.27.08.56.09
+        bh=htgkc1niw9wiArafcYtBRNur9uqGXrmAC1AoCVzanjA=;
+        b=I0xKFuwga7iwvq1gqtCpcjX1H13A6mcWt1dSEMg9/Uyg2/TfrGeYQQ9pf1AlV82HFf
+         CdQIG/teuy6FHYKDnk5aEos1TkUu+Z2XsaWpsLI3CAMfjDZNi2lu5IvpHtRaRj2spRKN
+         abYWeupwUAnunQFedpvz7YH5UmuYammgTKAY5YK0LbEPtmaXu3HZFzA2aCeqUk1wUsKl
+         m5eH+JZjpjJcppyf6E8t+GyrO5GK5jaHNb+hePRmatQx962gopD30cCpWEEbM2Ow/g13
+         ihXbtE9y7EdjnfGrimvdzWDihH6pxZBM6uPkExaer9tn/8fdA3RvnnFNN0a9Fxm5HJSA
+         ckLg==
+X-Forwarded-Encrypted: i=1; AL+hErFukOAu/Yqf/p55G/cdPOcjx1Mwd/X/Bju5DpDWq1QIWAkAisj0lNZ+MVDzXZZmi2Z8hImllhIh/ii8bg==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/JxpCPWDdTuZb11L+lr5ldhQL6khrd6qasE55PTJHAU9A8UEB6
+	Soa4D4vx0gkMF9DkAM/7pLb6/PvxSJQPhMil6nntP445jkMgKa7Bk7nvGW8kGQ==
+X-Gm-Gg: AZFdTZebR3dfUbpFryRVc7pHJB4hwb1W0rSH+RExEdEQu8cQKLsM89F+F3/gQ39acRJ
+	YByJaLGrn2+AM+nZw7UZzCrkNXhZFs2+EQ0xDD+YHsfIv3ccpUmaCI2XXmEg6E8LWvstrUWut69
+	8yc1OvbOKBLgDea8kB5Vsw7E9ZwFC60fMufHgPS8blxaRe1HKFWXLstWWbvfg5POrhj+rPPEwn5
+	YClkWdAQhcJe6e3zBYqB0dOEVITYAXnCPyCjPQh+xDGuYh8H9unXsO/HUivXHj3lzoT6YI/LRpX
+	bixw0KTRVQaT8+261YYHV9XWwylfUT2NKYE2S/srErfyewJW1mNXpwDKEC/Yfv053IHsH3iwmP4
+	QSdbPqxpmi0kgQUwubUVNy6evH5qWQ3TrnQVs08pU59KMqkuBYqxwAzg66ujeB5FjWeRCPaUw4p
+	u7lyPEdmHusmWCq44VQwDNl2iGXyqm0heF2ABbcoQtWuug+FRkshh6M0KY8/rxirfGzpQbyHZQ+
+	oF+sM6e9+VyVij3jTtsKICSHrVya3EuYx3SnZ36RnkACxiwvjfjva/CZSMOvifm0UaV09LZj8sF
+	BdPPHPbqazGUjs3NLdevldItDisV2BVQ3g3syhCqTaPi5jlN9S0=
+X-Received: by 2002:a17:90b:248e:b0:3b5:35eb:5e85 with SMTP id 98e67ed59e1d1-3b535eb5f39mr2367200a91.2.1795800586587;
+        Fri, 27 Nov 2026 09:29:46 -0800 (PST)
+Received: from google.com ([118.150.148.19])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d05782asm12632435a12.24.2026.11.27.09.29.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 08:56:09 -0800 (PST)
-From: =?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
-To: linux-serial@vger.kernel.org
-Cc: gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	linux-riscv@lists.infradead.org,
-	sashiko-reviews@lists.linux.dev,
-	=?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
-Subject: [PATCH RFC 3/4] serial: esp32: Deliver and mask receive break interrupts
-Date: Fri, 27 Nov 2026 16:55:51 +0000
-Message-ID: <20261127165552.133713-3-vitorhg20080@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261127165552.133713-1-vitorhg20080@gmail.com>
-References: <20261125233020.1380594-11-vitorhg20080@gmail.com>
- <20261127165552.133713-1-vitorhg20080@gmail.com>
+        Fri, 27 Nov 2026 09:29:46 -0800 (PST)
+Date: Sat, 28 Nov 2026 01:29:42 +0800
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH RESEND] clocksource/timer-riscv: use
+ riscv_has_extension_likely
+Message-ID: <awm-BjjOPxHo2n2E@google.com>
+References: <20261107134952.17873-1-jszhang@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20261107134952.17873-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261127_085612_709630_2CEFF0D9 
-X-CRM114-Status: GOOD (  10.51  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261127_092950_595337_94CF3087 
+X-CRM114-Status: GOOD (  21.86  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +103,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
 	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-UGFzcyBhIGhhcmR3YXJlIGJyZWFrIHRvIHRoZSBUVFkgbGF5ZXIgd2hlbiB1YXJ0X2hhbmRsZV9i
-cmVhaygpCmxlYXZlcyBpdCB1bmhhbmRsZWQuIFRoaXMgbGV0cyB0aGUgbGluZSBkaXNjaXBsaW5l
-IGFwcGx5IHRoZSBicmVhawpoYW5kbGluZyBjb25maWd1cmVkIGluIHRlcm1pb3MuCgpNYXNrIHRo
-ZSBicmVhayBpbnRlcnJ1cHQgdG9nZXRoZXIgd2l0aCB0aGUgUlggRklGTyBpbnRlcnJ1cHQgaW4K
-c3RvcF9yeCgpIHNvIGEgYnJlYWsgY2Fubm90IHJlc3RhcnQgcmVjZWl2ZSBoYW5kbGluZy4gTGVh
-dmUgdGhlIFRYCmludGVycnVwdCBtYXNrIHVuY2hhbmdlZC4KCkEgbW9ja2VkIGludGVycnVwdCB0
-ZXN0IHZlcmlmaWVkIGJyZWFrIGRlbGl2ZXJ5LCBoYW5kbGluZyBieSB0aGUKc2VyaWFsIGNvcmUg
-YW5kIHRoZSByZXN1bHRpbmcgaW50ZXJydXB0IGVuYWJsZSBtYXNrLgoKU2lnbmVkLW9mZi1ieTog
-VsOtdG9yIEh1Z28gU2lsdmEgPHZpdG9yaGcyMDA4MEBnbWFpbC5jb20+Ci0tLQogZHJpdmVycy90
-dHkvc2VyaWFsL2VzcDMyX3VhcnQuYyB8IDUgKysrLS0KIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2Vy
-dGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy90dHkvc2VyaWFs
-L2VzcDMyX3VhcnQuYyBiL2RyaXZlcnMvdHR5L3NlcmlhbC9lc3AzMl91YXJ0LmMKaW5kZXggMGU3
-MTI4YS4uNDBhY2ZmNyAxMDA2NDQKLS0tIGEvZHJpdmVycy90dHkvc2VyaWFsL2VzcDMyX3VhcnQu
-YworKysgYi9kcml2ZXJzL3R0eS9zZXJpYWwvZXNwMzJfdWFydC5jCkBAIC0zMTcsNyArMzE3LDgg
-QEAgc3RhdGljIHZvaWQgZXNwMzJfdWFydF9yeGludChzdHJ1Y3QgdWFydF9wb3J0ICpwb3J0KQog
-CQkgICAgKGVzcDMyX3VhcnRfcmVhZChwb3J0LCBVQVJUX0lOVF9TVF9SRUcpICYgVUFSVF9CUktf
-REVUX0lOVCkpIHsKIAkJCWVzcDMyX3VhcnRfd3JpdGUocG9ydCwgVUFSVF9JTlRfQ0xSX1JFRywg
-VUFSVF9CUktfREVUX0lOVCk7CiAJCQkrK3BvcnQtPmljb3VudC5icms7Ci0JCQl1YXJ0X2hhbmRs
-ZV9icmVhayhwb3J0KTsKKwkJCWlmICghdWFydF9oYW5kbGVfYnJlYWsocG9ydCkpCisJCQkJdHR5
-X2luc2VydF9mbGlwX2NoYXIodHR5X3BvcnQsIDAsIFRUWV9CUkVBSyk7CiAJCX0gZWxzZSB7CiAJ
-CQlpZiAodWFydF9oYW5kbGVfc3lzcnFfY2hhcihwb3J0LCAodW5zaWduZWQgY2hhcilyeCkpCiAJ
-CQkJY29udGludWU7CkBAIC00MDMsNyArNDA0LDcgQEAgc3RhdGljIHZvaWQgZXNwMzJfdWFydF9z
-dG9wX3J4KHN0cnVjdCB1YXJ0X3BvcnQgKnBvcnQpCiAJdTMyIGludF9lbmE7CiAKIAlpbnRfZW5h
-ID0gZXNwMzJfdWFydF9yZWFkKHBvcnQsIFVBUlRfSU5UX0VOQV9SRUcpOwotCWludF9lbmEgJj0g
-flVBUlRfUlhGSUZPX0ZVTExfSU5UOworCWludF9lbmEgJj0gfihVQVJUX1JYRklGT19GVUxMX0lO
-VCB8IFVBUlRfQlJLX0RFVF9JTlQpOwogCWVzcDMyX3VhcnRfd3JpdGUocG9ydCwgVUFSVF9JTlRf
-RU5BX1JFRywgaW50X2VuYSk7CiB9CiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+Hi Jisheng,
+
+On Sat, Nov 07, 2026 at 09:49:52PM +0800, Jisheng Zhang wrote:
+> Instead of static branch, use riscv_has_extension_likely() to check
+> whether SSTC is supported or not. For one thing, this is straight
+> forward, no need to add and enable/disable a static branch during
+> probe; For another, riscv_has_extension_likely() is based on
+> alternative mechanism, it avoid some downsides of static branch, for
+> example static branch's metadata in the __jump_table section, which is
+> not discarded after ISA extensions are finalized, wastes some space.
+
+After reading the __jump_table note above, I checked the generated
+timer-riscv.o. One side effect I noticed in the disassembly is that gcc
+stops inlining riscv_clock_event_stop() with the alternative asm, so
+riscv_timer_interrupt() ends up doing an extra call/ret plus a stack
+spill/reload on every timer irq.
+
+Not sure if it's worth worrying about, or if marking
+riscv_clock_event_stop() inline makes sense to keep the irq path flat.
+
+Otherwise, I tested this on qemu virt smp for both rv64 and rv32 with
+sstc enabled and disabled, including cpu hotplug, and everything worked
+fine.
+
+Tested-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+
+Regards,
+Kuan-Wei
+
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  drivers/clocksource/timer-riscv.c | 11 ++++-------
+>  1 file changed, 4 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+> index b310e6721fac..151f4f0cfd6c 100644
+> --- a/drivers/clocksource/timer-riscv.c
+> +++ b/drivers/clocksource/timer-riscv.c
+> @@ -29,12 +29,11 @@
+>  #include <asm/sbi.h>
+>  #include <asm/timex.h>
+>  
+> -static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
+>  static bool riscv_timer_cannot_wake_cpu;
+>  
+>  static void riscv_clock_event_stop(void)
+>  {
+> -	if (static_branch_likely(&riscv_sstc_available)) {
+> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC)) {
+>  		csr_write(CSR_STIMECMP, ULONG_MAX);
+>  		if (IS_ENABLED(CONFIG_32BIT))
+>  			csr_write(CSR_STIMECMPH, ULONG_MAX);
+> @@ -48,7 +47,7 @@ static int riscv_clock_next_event(unsigned long delta,
+>  {
+>  	u64 next_tval = get_cycles64() + delta;
+>  
+> -	if (static_branch_likely(&riscv_sstc_available)) {
+> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC)) {
+>  #if defined(CONFIG_32BIT)
+>  		csr_write(CSR_STIMECMP, ULONG_MAX);
+>  		csr_write(CSR_STIMECMPH, next_tval >> 32);
+> @@ -112,7 +111,7 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+>  	ce->irq = riscv_clock_event_irq;
+>  	if (riscv_timer_cannot_wake_cpu)
+>  		ce->features |= CLOCK_EVT_FEAT_C3STOP;
+> -	if (static_branch_likely(&riscv_sstc_available))
+> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC))
+>  		ce->rating = 450;
+>  	clockevents_config_and_register(ce, riscv_timebase, 100, ULONG_MAX);
+>  
+> @@ -186,10 +185,8 @@ static int __init riscv_timer_init_common(void)
+>  		return error;
+>  	}
+>  
+> -	if (riscv_isa_extension_available(NULL, SSTC)) {
+> +	if (riscv_isa_extension_available(NULL, SSTC))
+>  		pr_info("Timer interrupt in S-mode is available via sstc extension\n");
+> -		static_branch_enable(&riscv_sstc_available);
+> -	}
+>  
+>  	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
+>  			 "clockevents/riscv/timer:starting",
+> -- 
+> 2.53.0
+> 
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
