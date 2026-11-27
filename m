@@ -2,91 +2,114 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3EEF606A31C
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 06:11:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BE40606A31C
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 06:11:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g1XwmUim;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=IlGuBUNf
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Hd7w4Pyu;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=jms.id.au header.i=@jms.id.au header.a=rsa-sha256 header.s=google header.b=DCwKqdhi
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=u/RZA/phest0TQPWdu7RrqB+vPhQlR8GUxVTFW5LVg8=; b=g1XwmUimT+DEGIgvCUjOet8b6/
-	xhbCtd2+hH4UG1W1euqlmg8Ack0z7TpVLkSH37Pb1YPVvtM/Miqw2zyMs3SZN5zmBF44oB0If8n0l
-	R2ClDNex3dlxztCkHMB6qKlGKfYeFi06OZT51tJWeZlPTTjXbrAMTBUMSYmdCTq6gRr63gRhFXD2W
-	CWOLTwo1jWk+B86qchFp20YYtmTkv0NQ4AYIDPNCJ3zM/7sd1igdjYWDfzRh5h9JorPTU4QgYLJiw
-	hvIU7jm/ty9j2efJi+48+ohwKyy7rz6SvCaqtkAqKGughL2BmXNS86IsMGsCCQr7WQHh/lzLH8ioo
-	eTms14xw==;
+	bh=5U1n/tpqrFxxttxK/6XACiO7Ae7YrjOXTt3+gLYJI1E=; b=Hd7w4PyuDznlyYk5c6NKpfnDSZ
+	DTuw6PRA2ll0ZgZLlvQu9Mks27d/tw6ny8YEdEAn9H883R/fuvDxowkgyx7jNuU9eTpUIN4YwiKS2
+	pq/+Z+Z9ozRkR8KfZU26HGGMYKqtYVgNKhZes1N+TF3liHD0xA75hZaIiKs3h7p7x/fB9A5FNyWXh
+	2wbDyhb1P6V4WDjQJnjAmkZfzNHC7rNwSvyg//Y4AaMS6X5MO0cWyphGDfbsUuJ20d3awRuErzGYT
+	SFJRsYdUes1vJwSNTH3SGtAfQ6pUhP/V1loBCIrCXXUQVsnVUvDSxwx9vR+7SunhpZYEsKrm/8LC6
+	t84sDitA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWpAz-0000000F0Ua-1xz3;
-	Fri, 27 Nov 2026 06:11:17 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1xWpBK-0000000F0X2-2Oct;
+	Fri, 27 Nov 2026 06:11:38 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWpAw-0000000F0UC-2Hl9
+	id 1xWpBI-0000000F0WN-0Len
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Nov 2026 06:11:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1795759815;
-	bh=E2NeSLXfonrxSY+W49lO191CRD3CyOzI7hF6dMSOWd8=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=IlGuBUNfuc0X+Pt3hn9np8itQgtiT5Y6SrDdfdiN0lIRUOz21aPe8g8Qgadna6M75
-	 bdn2tXw/j7r0us/0BtOSVxF1Yjyjb3TUWZxP8XiPP5Q5qt8PZW/QpXEI/b84/aI1Ze
-	 6Lxe3kwqdBXOal+B4RzUZg3Lpsm30yimKVcfbLH0=
-X-QQ-mid: zesmtpsz4t1795759813ta86aa600
-X-QQ-Originating-IP: n4795X9CtarIxKcBmI9iCqupaEOTuiKZlULc3AJEdYw=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 27 Nov 2026 14:10:11 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10182266507146119862
-EX-QQ-RecipientCnt: 13
+	Fri, 27 Nov 2026 06:11:37 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-8b2d14968c9so73007587b3.0
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2026 22:11:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795759894; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JCeAlSydHq86c/pPMTzrmOkbMgbRKskPgnthG6YPOa9BF6JE+WwgOjHVHD1tiBW5w2
+         AfsMR3i1lDzGitffBDaqOqj+aj9JCDiL441u8KOAz5KtzJi2LARQ+UCavuyeHg+tHpob
+         RLKSsB30qgrn2TIR4hH1GfihENtm3w5ExaTAF1hK1GBylS0sU8X1tG4pEMmk2w/vhZEr
+         xbpHHRkyFORxg+Bhyium4jayCtuOL/j+hmXlDEw4haZYmS3u1p02DuleODCK+d+PL8a6
+         J6qD5cNiejOQSX82PJ7VBxqbMobZGu02EqyuQJ20SvxKIMqi+MiAaHYtCPpHJYfWzfXj
+         WK9A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=5vKFfwX22kLU+bDkkntkUc0V0wt+jMool0fJOroPxrE=;
+        fh=dRiHog7UpYfZKenpOirphLe8U3kzWtwRfvivYtmELxY=;
+        b=WtYfC57MnMztWc7cTUlG9KtEWFvPXPeF1erX1RF6XkcgHVO2DHBCe/w6YclCCUh1cb
+         UCRGZP/LCdSoYyJHWDPQqAEJ2qFkSQV12EIgbQNBoOzwjWpJEQTVnCS+Qhw3+OlpeaMB
+         05mN8w0N89Qruk9+MYAFmBCUInofOMTPRTazusyW8nF6jr1LW1Qgn+cJL2qDTBZQHpHA
+         hI6k38DHXdoLM5bhheEZVWoiDF8/uBxhJq8wO5izwbsMIMwodD/CCS8oychpULQuG0rb
+         b6VnrnIfn3nzHItiuczvF5bcDtBe74NdOQJS24JSs2GExvRFUzAXhlDu/kc4dJOA22v5
+         7sxg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jms.id.au; s=google; t=1795759894; x=1796364694; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5vKFfwX22kLU+bDkkntkUc0V0wt+jMool0fJOroPxrE=;
+        b=DCwKqdhi+Cro6eDEDQ4puRWYY6Z683Ty0sHFinUeyjRlydmgzNQl2Ibi29inW9aKQv
+         dx88EDM5S+uzSLKwuv1pOkb1hdPCRIFrYAlRrLheP5M7n0x8mIQiOqfSXSSBcGTyJxZX
+         kxudUD5isrv2/wWo3lPWW728DNRG+jye0vJHU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795759894; x=1796364694;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=5vKFfwX22kLU+bDkkntkUc0V0wt+jMool0fJOroPxrE=;
+        b=jinFAum92R18y5I1Wh+PD0T16eBwh2Erb0KBiKU8mf3VqK1aLcZIStUBSvnx6KcHOu
+         s34cOW7cMlOi399gAegL3y+PHP8qiHuo1XEiE2C4Nh0f9Zq5+hVDVkvxn2UuQ+wTSzbH
+         UQOPVCXSxITksdTjmO9L1+33rZy+8XZCCSjS+fQ3uAMaPpKI+TAylN3kFpmpVmvKkJw/
+         nEm4Orr/hwv9kNHLCBVvrTfRBnSK0WMX91HPsxAgep4CsGIwpa1H8ctWVZsd5KDVvpaD
+         qV/P1319axVtfAoT7QDxbF0gN6MqR8cfkqJ3iC/Ryj0bAQQgTbEW+0E5jTkJaeEtlNNw
+         47lA==
+X-Forwarded-Encrypted: i=1; AL+hErE+yTXGnIYLQHOlzowoiwDaHNHwPGKMVBkA3DHUFQL4GnkcFLfQUjn9Om3QxySQLLtHueuSpIbGtcGXrQ==@lists.infradead.org
+X-Gm-Message-State: APuU4Z/t7m99fqYkl/H2diNRO84dfg3CqBzy2qgBTh0nT2yf1YLFRs4U
+	rJOZj6amXzro+5tnab22CQ+BgKvEM3Xl/dy3vo/Oeqt7drXb/IsiT5aBUO3MkAIX+te8C8H5XuO
+	kQjJI4sNOufvLs8N9ZvyaolA0KVcsFm2APIqE
+X-Gm-Gg: AZFdTZeWKqePScUrKS/gaK/rgJT6AnGdjA95IkMnnX1yCSMVeqorAV4tZNJWEryQRiY
+	kn3b1MtPsanClykc8SA6fMiffAp0WV5R/f77T813ZwHSi+ZHjeqCAelOpspGbge5ow/V0AM6Ty4
+	rjCqzgUyMtv4Q7gzUwphK9oEZxPqmaEhWlrWm0oL2pfZMbfwBHVlKAuxHt57apHKcdephtAysrI
+	N8iZGRRsNGjtgDyUS3mR8zBfnJhL2ih6kkY7wwzM7OwGNKPJrFqsXiFGFreFY71eeb4zEM8Q3LK
+	HP98mC2M0BxVO2lhTCYCiDqfeoNEtHjilBYoY+HSiz0i19qY6O2d2463ATrHU1BXMzCnLL+NhYV
+	009JoN4gonMk+t2P9Y7Mq6U9tzgdbRg8Jc0FRpaFSBRs893DncX8OwkED2Pyq9enCjqcGIxn/3G
+	Sxsbc6jCvEn2V5damb560UH2mgetT7kim+gQz19ptCbaz7mS2ayJonrGkeIFg4lRNs3eyx061c4
+	M3zBKMBOjGhbA==
+X-Received: by 2002:a05:690c:990:b0:8b5:6a83:5e0b with SMTP id
+ 00721157ae682-8b56a835f62mr24337447b3.13.1795759894475; Thu, 26 Nov 2026
+ 22:11:34 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Date: Fri, 27 Nov 2026 06:10:10 +0000
-Message-Id: <DN5RQ489MNYL.1WRXDMIRHZK6I@linux.spacemit.com>
-Cc: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 4/4] riscv: dts: spacemit: k3: Set CD pin bias
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Yixun Lan" <dlan@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-X-Mailer: aerc 0.21.0-reader-ipc4
-References: <20261125-09-k3-dt-minor-misc-v1-0-dd887a8eb326@kernel.org>
- <20261125-09-k3-dt-minor-misc-v1-4-dd887a8eb326@kernel.org>
-In-Reply-To: <20261125-09-k3-dt-minor-misc-v1-4-dd887a8eb326@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NPhALGoAJPM8bVLOJNUsgGmOkOFiqtOOUiYoxC1L7S/MM+r05SX1ibCk
-	OqEELwN5YBBcDCEO7ca6rd7uE6Vd0D/gC5037rOeHXSprOKLHZ8T59gqLkNh86U46aZftoX
-	wnhAgezQTtL3/z5PdXu3H9zMsKXOPb79IxZYb4foYQqCc5Ifl2k7thsqrjgn8ydYt4DlwCl
-	2K5PaLsBigw6EGrCapVzC6vuu7p2yMmvoRiBoI9FffzjQ2C7yEaOYAJry8hic1hRVqC1PKd
-	YgigMFcVvG96f4XANSW1oSYAeopAEGhcCQesHait+RPFeLAMwaYZp3H+HJnU5dls1H6G8vg
-	ZOpb1SKlg7dLZzS1n4wp+aGmh3P/C3t1njiWwuYgo7fFbybtc8Xuj24+v1yFy6HDdBPtGwn
-	rDRkYOsi//WoozCmpn9eJmpLK0lZJn/DCNaayxXfBNLEb8NVFF33tC8xCpeoomP507I1dLj
-	nkgFITt4684hsdYsUO67+yFdlas9eYD0iHCyy6zYfopYAlbTK3pCRbUEVZkjD8PTDVZlpvJ
-	phy14aEOlRgdIJznuRSPUWC2cmGfEDpsa6t0S7lQElfP+TKeO9D3ysVGPeliBTFtqscMwJi
-	2F0s1cOl1j1OgaaqGpG2c07jyan+LtWxl3zFijxSuHWpWVE1kmuj6g84/nKIqGlAgSSCNug
-	zsKaNzBhXw1AusWEgqm4P5zv/klTY2KC6yazXDQVfynhTLHKDnNKl7AM3OOUhYi0B7kOLIh
-	ezuwXXJRQlMRdeLikkyJjWQ3GWen26qQkEE9C5qI/Lny/Ws+FT98h/fBTKFUzP5WRhHjOKy
-	2aLAUUN8zk+sj+xmKf5VIJZGfqJjIhAfeKfPDbhGUHdcuTs91P1jrDATXjyf+i+DRQOfW5J
-	Ge01M8ILw4PSvy6e0c6as8Lrs22ugr0ilA2qMDykCNTiCime+VCwmueLz+bjZtPvM2L+aX/
-	yEhxFjOo89yS95Zzl9z05EZ5uY5nlnOZSaA3+PXwZ0kdltB8gWPRwTTFi/126NdU536M3DM
-	+OjmxnbD2wZSVjm64XyBnsRno6HIHzL9j/CbL89tDUAmVdheiL7XdwdReXxY7I40nEU2gbL
-	cg2um7Vyisvmr0//pvf7+YwPemzkiK07Igjot1NGi4SwqcxZRykkpY=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
+MIME-Version: 1.0
+References: <20261109051050.105623-1-joel@jms.id.au> <20261109051050.105623-8-joel@jms.id.au>
+ <CAJM55Z_zrUjaWrxSqZ=8VWEJqbh_Oa6gTHf=UJZyR2__MCVueQ@mail.gmail.com>
+In-Reply-To: <CAJM55Z_zrUjaWrxSqZ=8VWEJqbh_Oa6gTHf=UJZyR2__MCVueQ@mail.gmail.com>
+From: Joel Stanley <joel@jms.id.au>
+Date: Fri, 27 Nov 2026 16:41:22 +1030
+X-Gm-Features: Aa3M54oFZihiIV36Dcy6W1EGQUXnzGceYVdcHza3Im8kbnWUM1Yjw7rBqcfA4gE
+Message-ID: <CACPK8Xc2oCDV9jeN08mrsGoS222JL3KphheOAp-pOP9_3ee=CA@mail.gmail.com>
+Subject: Re: [PATCH v3 7/7] riscv: dts: tenstorrent: Add Atlantis platform
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner <tglx@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, 
+	Michael Ellerman <mpe@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261126_221115_049960_FA598662 
-X-CRM114-Status: GOOD (  14.04  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261126_221136_524313_2930674F 
+X-CRM114-Status: GOOD (  21.82  )
+X-Spam-Score: -1.7 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,83 +119,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1295145837845654252=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---===============1295145837845654252==
-Content-Type: multipart/signed;
- boundary=26ed1f322d44d2ecd4a6afc050eef67eafba067d32d916536e0aeaac7c68;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-
---26ed1f322d44d2ecd4a6afc050eef67eafba067d32d916536e0aeaac7c68
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-On Wed Nov 25, 2026 at 7:46 AM GMT, Yixun Lan wrote:
-> Explicitly configure the bias settings of the CD (Card Detect) pin
-> for MicroSD card in CoM260-IFX board.
+On Wed, 11 Nov 2026 at 06:02, Emil Renner Berthing
+<emil.renner.berthing@canonical.com> wrote:
 >
-> During the GPIO pin request phase, the pinctrl driver disables bias
-> settings in function spacemit_request_gpio(), this happens to work
-> in kernel side, but doesn't for U-Boot. Adding a flag to fix this.
+> Quoting Joel Stanley (2026-11-09 06:10:47)
+> > Add initial support for the Tenstorrent Atlantis platform, based on the
+> > Atlantis SoC featuring 8x RVA23-compliant Tenstorrent Ascalon-XG cores.
+> >
+> > The evb machine represents an internal bringup vehicle with just the
+> > interrupt controllers and a UART. This will be updated in time with a
+> > full featured machine once details are available.
+> >
+> > The chosen node sets bootargs to earlycon=sbi to aid debugging early
+> > boot, as the platform may not have a bootloader to fill out the chosen
+> > node.
 >
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
->
-> ---
-> K3 Use same SD card slot as K1's MusePi-PRO, which needs PULL_UP.
-> ---
->  arch/riscv/boot/dts/spacemit/k3-com260.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boo=
-t/dts/spacemit/k3-com260.dtsi
-> index 65c6f49f8591..598a53461afc 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-> @@ -240,7 +240,7 @@ &sdhci0 {
->  	pinctrl-0 =3D <&mmc1_cfg>;
->  	pinctrl-1 =3D <&mmc1_uhs_cfg>;
->  	bus-width =3D <4>;
-> -	cd-gpios =3D <&gpio K3_GPIO(4) GPIO_ACTIVE_HIGH>;
-> +	cd-gpios =3D <&gpio K3_GPIO(4) (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> Does this mean OpenSBI uses a different uart from uart1?
 
+If you boot OpenSBI and Linux with this device tree, no, they are
+using the same one.
 
---=20
-Troy Mitchell
+> If not that means both Linux in S-mode and OpenSBI in M-mode will
+> both try to use uart1 at the same time. It might work by chance,
+> but a much better solution would be to just use "earlycon".
 
+Your suggestion will configure the early console to use the UART
+registers directly, instead of through OpenSBI's driver via the DBCN
+extension. With earlycon=sbi only OpenSBI touches the UART until the
+kernel's serial driver takes over, so the two are not writing at the
+same time. If there's a problem with both writing to the registers,
+plain earlycon makes it happen sooner, but I don't think it changes
+the outcome.
 
---26ed1f322d44d2ecd4a6afc050eef67eafba067d32d916536e0aeaac7c68
-Content-Type: application/pgp-signature; name="signature.asc"
+OpenSBI doesn't normally print anything at runtime (unless it panics,
+at which point all bets are off), so no corruption occurs. Was this
+your concern?
 
------BEGIN PGP SIGNATURE-----
+We will keep using earlycon=sbi as this has the highest chance of
+getting characters out the serial port when debugging. If we go with
+the UART directly, you can't tell the difference between crashing
+early in the kernel and kernel UART being misconfigured, which can be
+annoying to debug.
 
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCawkewiEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC/aXQEA1ljwDzb2fdP6
-XzncsQ9ip4r67ZDtHNdpKwFVYpXsXskBAJwpqVE+V9wjlbhp5FQodbaCyQVw4YuI
-iJup+srjnbgK
-=BeSR
------END PGP SIGNATURE-----
+Cheers,
 
---26ed1f322d44d2ecd4a6afc050eef67eafba067d32d916536e0aeaac7c68--
-
-
---===============1295145837845654252==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Joel
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1295145837845654252==--
-
