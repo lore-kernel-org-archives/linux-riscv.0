@@ -2,12 +2,12 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 635E4606A321
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 09:08:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 508DA606A31E
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 09:09:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0Z/2bLg9;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=mkHcM7Ge;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qSZ/LUQQ
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3i4NDXO4;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=G/+d2qqE;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y6z4DySM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -15,80 +15,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=eaMWwlpPOfotHef0UGynCxbgrfQhRbxZVSlk/aDb334=; b=0Z/2bLg9UveUeWISY5jb55kMmB
-	uu8zqFeOWlM/31lPMzwF1rwRBULrfU0YoHzKMPP7oukNSRnleJFTcWEAj+vxuwBc49YTeu8DmqdUg
-	9F/1+S9C4ECn4RmsaiKmNlF1afmpEcxaXtZpFyJiGyiV0AJV5L8BP6tX0RnpLvO652cKwyIj2UExv
-	vKNI8hq6dItX5BGiwsi24QzF8CI5rEQ2ld5BscbAJXp2s2W4kWWr1tp/HYiIXgDt6qdjSBqUGrlg+
-	p/Zt7tKtc+kY8PeSs/pX9n7Uh8BWRdNL7gH12y4W5VJ6YvhxTrPLRMMFwxFXH0tXhAcqGoLZx+uCk
-	aKx2gy4g==;
+	bh=lpYSPOkl8tmPSTdqUpFPVO44QLw7Dy7CWIZwOK4D56Y=; b=3i4NDXO43ySs6YkQRoLbPd9NUX
+	HaGaTXXqpy5f2G+LH82AhUfUQhnpkPXIj6AqQ2mBfg7zSXAnbHoS8ygtHK2NANkJ4x3JPHo29eC3p
+	6h9FxAf1Z6uJeHPyXgjyV8fvGuCjxiJaor+fls3R8Mia40XhDXDUMsQOPs0xf6O7gXR9WT6sBUefH
+	OyivyhING/qU0+vzaFlojrF7AR6Zv5qUkBUG7SYOplvIhLdJdGbipn9nD5/8VsLyQlLNbYL7WxPaM
+	zkpBWEO5VC0OR6KF4Q7wIBz1wiKRpDIzmlcu74s9oX4kYJQCynFHyGtSADSz+Z1o2M0MQj3LToG5c
+	60eMilcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWrwh-0000000FMfM-1J0Y;
-	Fri, 27 Nov 2026 09:08:43 +0000
+	id 1xWrx2-0000000FMvh-1Crr;
+	Fri, 27 Nov 2026 09:09:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWrwf-0000000FMd6-1dV1
+	id 1xWrx0-0000000FMub-3PJJ
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 27 Nov 2026 09:08:41 +0000
+	Fri, 27 Nov 2026 09:09:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=s7Fb6KtcWAXnUfcecLaSQ1H6J8YKvEJFUWN8A6hcpOc=; b=mkHcM7Gew9IcIqMQGYd/Ixgf3G
-	5N7lahfyZYPCU+j6M60S6Yet+Y5DGOKKGP+xOrC86ubOU+I2F6MxK9eURPTHFYDdtjdy55m2lsCzB
-	vchkELfgd6egCy11KcV/f69nOG0qg6tD+MWmgmwYRPuUYQ8WHdOq5dbaajvFCkFk1SJ9gX2unK0Xk
-	fn8ZUzQtiGN4Q1Wjvp3Qm+Zaxd1UEht6kAeEbwO6utvakmW63q15ZXz7XZlZG+qOjcZbldntFlk63
-	0P0PSbqWhIhp4WUWEbgx2aHxfPAcgrNC8MhQHVc5wlgkOBJJq78IueYKme1ReMOdGXGtKhk6STwnm
-	bUnyAkAw==;
+	bh=dYWYab/i6KswA9jBoR7n0gUVHNmGP1kEM/igKErB1/4=; b=G/+d2qqELh8wBs6UkoINL2Nw3j
+	w3Gg0A9Q0Zyt4udk386KAtLL7QhjN4aKvBMGh+21K6ChR++s3sNRncAZ0mGw3ZgUIJAeW4DyJACT1
+	e5kd6GnxKnRT7DAmYHPe0CtWcFjB64dgj1OE9gtl7XX1Iukt1iGCOx6xC5ZAKYv5IizhrwX/JwOO/
+	pg8gmfEkFaYnnuGOrxN+mRSWkrpS7xOnmhRMx1X7wrzj0GtsYDj72lTYeSM7b8pKNft/FyC3G9oV3
+	8d9MJNdUXTcLTCFzcFCIAYz90Q09R2ezj9mVRaS8TX4iktNUmQoZye9KSJhqx2mvASu6YaxDxmEvM
+	eIZyczaw==;
 Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWrwZ-00000007UTO-1T6q
+	id 1xWrwy-00000007UcH-1DUQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Nov 2026 09:08:40 +0000
-Received: by mail-pj2-x0b.google.com with SMTP id 98e67ed59e1d1-3b426133d98so2053007a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Nov 2026 01:08:34 -0800 (PST)
+	Fri, 27 Nov 2026 09:09:01 +0000
+Received: by mail-pj2-x0b.google.com with SMTP id 98e67ed59e1d1-3b094d5f1b4so1403138a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Nov 2026 01:08:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795770513; x=1796375313; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1795770538; x=1796375338; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=s7Fb6KtcWAXnUfcecLaSQ1H6J8YKvEJFUWN8A6hcpOc=;
-        b=qSZ/LUQQJCAY0eBWKLrV0vQJNSHhG6KE05bsTKhA8mJnaciMdF/QluTEfb7wsfwUNQ
-         1zMs9X3a5iN6n14c1SUHCkGxk4Oy5kPB3BzCoQQqeoC5TkTS5gpSLAUL7en93+2ZWMc3
-         w2RyqgHb+ECTfIt5zo+pENfnD/nc11o74acdN4+jbUsiatUIuoqifBksFIXpTVtGoZKq
-         fDxMILX1nh9bXvmArDYUioVA8UAkwlM0/ZEjG7hYSiIVXFqZJal/VxApbmJl3+J5x2F0
-         HTk+lmt+P5N79QsWxw2B8JZt50gVINLqfJNzbelr5Ja+TMhCtWz9eKP7nvxD/ulZQhy+
-         BGCg==
+        bh=dYWYab/i6KswA9jBoR7n0gUVHNmGP1kEM/igKErB1/4=;
+        b=y6z4DySM5L4QXnUppOf9Wy6MzkYo9/VtzXYBQzpGDu3eAklQNiC7aAXUhXvMfY3u/c
+         5558LqxqSQj8RFWY1w+2F0T8ltALZWVvn1AspkuTtU/Cdl2DBJzFj0zFcr0ItH+RX7Xa
+         EZZa5HNB550CN6dtsHwwMEhsOuK+0RbsVUfAYlRZPb9qyd0sHCGBrc3ugNr2BMIkZ3+2
+         c0ykFpwyVpG/TpbWr45YREw+nU4yiZ8guK7CtRcIvD6egc41pTiyetBNA2hkEZUZr+j5
+         NR+H0rWKCSAGWPnYj8ZI4SEzgZlhMPWP6SYujYG8aIdVhCGMoGBZ1A+XHFdYhrlWL4w5
+         Ue/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795770513; x=1796375313;
+        d=1e100.net; s=20260707; t=1795770538; x=1796375338;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=s7Fb6KtcWAXnUfcecLaSQ1H6J8YKvEJFUWN8A6hcpOc=;
-        b=VFKwAmGwV/r50HlL+h41Ys6XG+lH7e4YdXm/gqxyj1gfgg5ujvI4Knwbffk80sTS0Q
-         d9iLG8H73989gnR7pJpwWVsJOJk0xuPEt5i77b8DdGPNAPcc6FmsEYsf00UTBzDTOEnM
-         YxNp8v0M3WZmsae1isv8V336yNkHOZ+5Yhi9+TxUKE7uVCgHhpTSS6m6BYP6bNCkFS8E
-         IcXpkRkBT4dtrj6kG18QhIFJcjpD8ByPAl4qXrytHWNrHCXSnoFHj70mfXqy2srbYxQu
-         1quiUVCtYthLmNk4OA91vNfGwQ0psMFEOvPHfgQYEvIwItVtdgs+rKAHGX4vOaTh46CJ
-         rIyg==
-X-Forwarded-Encrypted: i=1; AL+hErGHXZfv7jZyd/DqAbXg5xgAIqrhg9D18H0ulAxYoCAKrI/2lR42Q2IxnOVw8jB5thHC/0IboHjNkDONtw==@lists.infradead.org
-X-Gm-Message-State: APuU4Z8QhjbIi9KVmiVxmDBdjVNp5o/0uaL3Ndr/noRFfhk7ySUvgRvk
-	T8NqWyUutfaimCCXfUMRj7zqRLVNxbG5FtzFcAP1MI8QttsfAb/dVhYA
-X-Gm-Gg: AZFdTZdLdgn69Taqp08/i88yHXzVfs7Ks7U1rZ4EHQr3NnaLGf6tKmVast9q3PefKIC
-	MCGEPt2YbKvMp579B0c5HNNK5+Mg2aZaOiQ3sE4svsfKgrG9rFYsA1iFK3OdK0Y2eRnoE/b+Gsb
-	uIUc9IB8aDikg6oNakb8ZGI4J29RFExow4cRzIP3K7nFYd9+nriUhNYqaHTlcMxVTH3BBrnb6Ax
-	Q2D6qrUI+I6/VNH/bteAEW0Ku55ce5wvg4t05fFuucfDR0MCoudYMoAEhp3IiPeldHSIaCdweff
-	cKU82qjjbQkZGs17fmT/z5/NAaCHGhF8mvBwextIcX0oz+eWqJYLAzz+0am44M9UPE5Jb6TQe48
-	19dX98jOWCjxFvCW/xD4WfK7w5apyThmulZdvPsMiuBvVedqv3PY0xX9YxLZQD6kFUgjKorZHPW
-	EeoHYxlNXK55ixfNaf3RhvF2SQ6P3YzdQ2CzkzUkDPLEm9FCG1vkrhMwBIfQsPBZdIaTrfsgCww
-	rk3tMPd0FOpPh8BVQAYzP4lVYhpKmAiMoZ3tVOLwniu0d4lsjRIlko5w1EypmzyEc1rXtl5qaTY
-	oO0/7HRFsxevZHTYQhBJbb4LobfPAOoZkf4rSbz1nA==
-X-Received: by 2002:a17:90b:554d:b0:3ad:d29c:5e64 with SMTP id 98e67ed59e1d1-3b41c9b361fmr22966937a91.65.1795770513277;
-        Fri, 27 Nov 2026 01:08:33 -0800 (PST)
+        bh=dYWYab/i6KswA9jBoR7n0gUVHNmGP1kEM/igKErB1/4=;
+        b=Myo2ujLhMvJWCUzoE0RkNQLKlUVp2pzEEx5DpfxT5dMLAKkvgwvV4NVzvPsIS0c5d6
+         EzWaI05P6lHXepyvXLhAyNK04vkPD8ye5jU4ZquaV89xs+0t3s3ffmUS06ZapUQou/f0
+         t4DVA4Cujh2vUlPwUnxuy4pCcWh3PvZUjARkQXbBVaHyj3dm3BY0ZLYdHrU/2iAgl+tx
+         narl5k9p2VM0ykRaaVLZx5x/Bhd/ft39fQrXLpAioc8p4WuKy4W7PLev3hAwmJxISf+L
+         1Vt4owaI6YMlsKTeASAk5ZZMjz9OJolH+nmUnUxcTpJu4HPFjivvLZX0/cKMzoK9bKpA
+         Ssvw==
+X-Forwarded-Encrypted: i=1; AL+hErF94VcSXPFKnvJBQlOCWVC6ifq65ktZn+4Qg9VIpBGApo4jgrAKLiqUomy77/YBcsMa7l3oyMdSJwIflA==@lists.infradead.org
+X-Gm-Message-State: APuU4Z9tC2QQeTtcVIbgpxu6uc1VvIz6RRQStCycxNpX543tc2U9UELu
+	WgZDB0Y+H1IoL2cEc8R6g/OTaeUAhB80GrpUlfQRKywjDkas4wI5QCHz
+X-Gm-Gg: AZFdTZey+6GqtlzamWspdvPRK9ctSKPNPKq5ickTUy/5jxREImAbFw0FCC/AyJJeBaG
+	VFUzgMhguNL1eVWMGHGrcnQz9DeN0McrN5ifoJoXMB6W+i4XUIh0JbgR59K+2Zm7by8PKrg2StF
+	R6lVMjniL5XbyMW9q4zK5CSZ/lb8oOj5vlh16mgf5qZRHygV0/kAinLkhQKVgl5TcJvnu/24Yz2
+	A2nq3TzOJ2Hdytl18EN86YoiD1zO5CU9vAn//pbb5s2HDyGnS5ZfDXyJD1qvvmDKUJ6gNN7E34p
+	ogiDcE1l5y+JDPtQwRjaMsddHDqh/gxVMX8ZZygRUcdV8bG3OFwN/TrVurPSxbtKj4QUv390UK6
+	klLDVlJlsBRR42jLmmJstb6DoF1o3sJmv4I7o8jvZO2uUTa/8908ucsSsb2MmdLS/xBT1cRTAtE
+	bQWIiucR8mjtBAh0sSLscIJoo21miJ07J36BBAanAK3orSdIBZN6vY0nneAaLR9wsP1HhSGMDBw
+	8sCMmjMypTnB+4LavnhLFry3tF0XwSSOY+5je2WRSHFNCzae5OZeuaN9/bAFjnR326orL6jJP5R
+	hk5GWQviASndjpzMGrvHS7NVfAGKyR/ToaHpnG82RG0=
+X-Received: by 2002:a17:90b:3d92:b0:3b0:91ce:672e with SMTP id 98e67ed59e1d1-3b41c8dc8a3mr20396792a91.17.1795770538277;
+        Fri, 27 Nov 2026 01:08:58 -0800 (PST)
 Received: from intel.company.local ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d06ee37sm11718725a12.28.2026.11.27.01.08.20
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d06ee37sm11718725a12.28.2026.11.27.01.08.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:08:32 -0800 (PST)
+        Fri, 27 Nov 2026 01:08:57 -0800 (PST)
 From: Wandun Chen <chenwandun1@gmail.com>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -124,17 +124,17 @@ Cc: catalin.marinas@arm.com,
 	kexec@lists.infradead.org,
 	linux-mm@kvack.org,
 	iommu@lists.linux.dev
-Subject: [PATCH v10 4/8] crash_core: replace for_each_mem_range() with for_each_mem_region()
-Date: Fri, 27 Nov 2026 17:07:19 +0800
-Message-ID: <20261127090723.741253-5-chenwandun1@gmail.com>
+Subject: [PATCH v10 6/8] of: reserved_mem: add dumpable flag to opt-in vmcore
+Date: Fri, 27 Nov 2026 17:07:21 +0800
+Message-ID: <20261127090723.741253-7-chenwandun1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261127090723.741253-1-chenwandun1@gmail.com>
 References: <20261127090723.741253-1-chenwandun1@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261127_090837_067997_8351AB32 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20261127_090900_279351_7E82CFC8 
+X-CRM114-Status: GOOD (  12.42  )
 X-Spam-Score: 0.1 (/)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -158,68 +158,51 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Wandun Chen <chenwandun@lixiang.com>
 
-for_each_mem_range() skips MEMBLOCK_NOMAP regions implicitly. Switch the
-weak defaults to for_each_mem_region(), which exposes struct
-memblock_region and per-region flags, and filter NOMAP regions explicitly
-via the new crash_should_skip_region() helper. This prepares for a
-subsequent patch to extend the skip filter.
+Add a 'dumpable' flag to struct reserved_mem to decide whether a
+reserved area should be included in the kdump vmcore. Non-dumpable
+regions are later marked MEMBLOCK_NODUMP; the filtering itself happens
+in memblock, keeping the arch kdump code independent of the DT API.
 
-No functional change.
+Most reserved regions are owned by devices and do not contain data
+useful for kernel crash analysis, so dumpable default to false.
+Reusable CMA regions are different: their pages are handed back to the
+buddy allocator and may contain key data for crash analysis, so set
+dumpable to true in rmem_cma_setup().
 
+Suggested-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-Acked-by: Baoquan He <baoquan.he@linux.dev>
+Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- kernel/crash_core.c | 25 +++++++++++++++++--------
- 1 file changed, 17 insertions(+), 8 deletions(-)
+ include/linux/of_reserved_mem.h | 1 +
+ kernel/dma/contiguous.c         | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index 8a861a946e26..e161c8b65e00 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -283,25 +283,34 @@ static struct crash_mem *alloc_cmem(unsigned int nr_ranges)
- }
+diff --git a/include/linux/of_reserved_mem.h b/include/linux/of_reserved_mem.h
+index 7a940d1815b6..caac366bcb66 100644
+--- a/include/linux/of_reserved_mem.h
++++ b/include/linux/of_reserved_mem.h
+@@ -15,6 +15,7 @@ struct reserved_mem {
+ 	phys_addr_t			base;
+ 	phys_addr_t			size;
+ 	void				*priv;
++	bool				dumpable;
+ };
  
- #ifdef CONFIG_ARCH_KEEP_MEMBLOCK
-+/* Exclude NOMAP regions from the vmcore. */
-+static bool crash_should_skip_region(struct memblock_region *reg)
-+{
-+	return memblock_is_nomap(reg);
-+}
-+
- unsigned int __weak arch_get_system_nr_ranges(void)
- {
- 	unsigned int nr_ranges = 2 + crashk_cma_cnt; /* crashk_res + crashk_low_res, +CMA splits */
--	phys_addr_t start, end;
--	u64 i;
-+	struct memblock_region *reg;
+ struct reserved_mem_ops {
+diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
+index 865d7cd2f0e1..ff92dfb09649 100644
+--- a/kernel/dma/contiguous.c
++++ b/kernel/dma/contiguous.c
+@@ -555,6 +555,7 @@ static int __init rmem_cma_setup(unsigned long node, struct reserved_mem *rmem)
+ 		dma_contiguous_default_area = cma;
  
--	for_each_mem_range(i, &start, &end)
-+	for_each_mem_region(reg) {
-+		if (crash_should_skip_region(reg))
-+			continue;
- 		nr_ranges++;
-+	}
- 	return nr_ranges;
- }
+ 	rmem->priv = cma;
++	rmem->dumpable = true;
  
- int __weak arch_crash_populate_cmem(struct crash_mem *cmem)
- {
--	phys_addr_t start, end;
--	u64 i;
-+	struct memblock_region *reg;
- 
--	for_each_mem_range(i, &start, &end) {
--		cmem->ranges[cmem->nr_ranges].start = start;
--		cmem->ranges[cmem->nr_ranges].end = end - 1;
-+	for_each_mem_region(reg) {
-+		if (crash_should_skip_region(reg))
-+			continue;
-+		cmem->ranges[cmem->nr_ranges].start = reg->base;
-+		cmem->ranges[cmem->nr_ranges].end = reg->base + reg->size - 1;
- 		cmem->nr_ranges++;
- 	}
- 	return 0;
+ 	pr_info("Reserved memory: created CMA memory pool at %pa, size %ld MiB\n",
+ 		&rmem->base, (unsigned long)rmem->size / SZ_1M);
 -- 
 2.43.0
 
