@@ -2,90 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95EFC606A321
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 10:11:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DF9C606A31E
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 11:30:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D6S3wgPZ;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=oyPM1LHY
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uei/cB6L;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eRpJ3oiJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DDQ/aZDEOlgmcrvkqZhFYZAwnDWDXh8mPZPgGwBF1Ww=; b=D6S3wgPZ7WL6OTBuMKEBOXErb/
-	ITBDRuUOJTEbxeP3czssBlTXc9FbSdav4vw8pfd4n6tO46ZvwSGLI9YJG/eWbCURWYUf/q+R8jfMl
-	+bu14AIrdB/Bjt20vsfCdDrxAOc3heuq3b6/iG2TKtksrJSHTOi5wGrgiaPX0Hlu/+nPedjepLAH4
-	KfMe64NgmOGlAiqvT+EtC2qIRCUzQr9WrSHUzaHanVlVIXfQeMUCkNKPQXAtk1tU16OtMMcwGskvU
-	Ww7sZb+8oiUCNHccq4+G28ljd3lbFKGS5Gjit4mddppH0pPNuJe1VwbpmIHWarPayMBg8A6ADZOF2
-	lsUhfrXw==;
+	bh=klFAlxFuO93Wgf6peE6DJhIQsBZ8xXj4P9xJQX/xYUQ=; b=uei/cB6LATsQ7WiRvHadyokgTB
+	E1B0TLycNi0At7z7UjcBzglJG+KXRN2CFYN6IQ2lVh4W2mZ9db6dQD9CVuRZi0iojUwtsCXJx7x3D
+	Bvh/YJWoLQSOoUPrcQUEgHgA2NTLqXbu2ac5BrjlMdB7UO05SJ2sgpkvsgVJ5WgZEeJElsoM1qg1U
+	8jzpS6Mglw4kKGXvjuypmjmxCeNvO/mYZkgDnx21H8Dd/p9OhFx/sH6tOPuhr6Q+r2BZaMqxQSFel
+	EllOXmPd0tZskCqxyBI/btjHQmO/t4qxWLNjd7wmJy4/73XudgGl4LASjbgimPs7z14JdFsDMixPp
+	xaT70nvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWsuY-0000000FXXU-1cIZ;
-	Fri, 27 Nov 2026 10:10:34 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1xWu9l-0000000FoO3-11yA;
+	Fri, 27 Nov 2026 11:30:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWsu7-0000000FWx2-1cLW;
-	Fri, 27 Nov 2026 10:10:12 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=g2aQKnf0jkhqB/I9ZHGtic+nzES7sUc76+DfqqwSp3U=;
-	b=oyPM1LHY89iXEB/3m8eV7j/JnAvgIAmIVdOB3B0IFDd3WF/qjOBWoPQKp5QuLXZhR6PVx6H/Y
-	1dPu66Tj827doYjgQXafxjgCASuqLAY5JFDlN2FcJGp8tMdwFfK/b5JFqj8ZQSX6tXe2R8eYfbV
-	Nn0Eonw/t6FYr3r3mWlR4F4=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jbTfr6DyczRhXD;
-	Fri, 27 Nov 2026 18:09:40 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id B5B074057D;
-	Fri, 27 Nov 2026 18:10:00 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 27 Nov
- 2026 18:09:58 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
-	<ritesh.list@gmail.com>, <sshegde@linux.ibm.com>, <pjw@kernel.org>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <robh@kernel.org>,
-	<saravanak@kernel.org>, <akpm@linux-foundation.org>, <baoquan.he@linux.dev>,
-	<rppt@kernel.org>, <pasha.tatashin@soleen.com>, <pratyush@kernel.org>,
-	<ben@cressey.dev>, <leitao@debian.org>, <mpilaniy@redhat.com>,
-	<yeoreum.yun@arm.com>, <coiby.xu@gmail.com>, <Yeking@Red54.com>,
-	<prudo@redhat.com>, <bradley.morgan@linux.dev>, <sourabhjain@linux.ibm.com>,
-	<blum@kernel.org>, <hbathini@linux.ibm.com>, <qirui.001@bytedance.com>,
-	<hui.wang@canonical.com>, <sohammetha01@gmail.com>, <guoren@kernel.org>,
-	<gaohan@iscas.ac.cn>, <ionut.nechita@windriver.com>,
-	<vishal.l.verma@intel.com>, <seanjc@google.com>, <ardb@kernel.org>,
-	<arnd@arndb.de>, <tzimmermann@suse.de>, <kas@kernel.org>,
-	<rick.p.edgecombe@intel.com>, <mhklinux@outlook.com>, <piliu@redhat.com>,
-	<shradhagupta@linux.microsoft.com>, <thuth@redhat.com>,
-	<ebiggers@kernel.org>, <me@linux.beauty>, <mclapinski@google.com>,
-	<graf@amazon.com>, <tangyouling@kylinos.cn>, <x86@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v9 10/11] arm64: kexec_file: Fix CMA segment placement retries
-Date: Fri, 27 Nov 2026 18:09:24 +0800
-Message-ID: <20261127100925.3019877-11-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261127100925.3019877-1-ruanjinjie@huawei.com>
-References: <20261127100925.3019877-1-ruanjinjie@huawei.com>
+	id 1xWu9k-0000000FoNe-1PfZ;
+	Fri, 27 Nov 2026 11:30:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D437F453A5;
+	Fri, 27 Nov 2026 11:30:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E1B91F000C1;
+	Fri, 27 Nov 2026 11:30:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795779019;
+	bh=15lHObMmyGPpj6YoAIfUZKJfHfZrP3j6tm+aE9QITgc=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=eRpJ3oiJWlSUirmaD+LmxhuRi1qhGdFgQgOJ16JgA7cDHI6z8NvWcNJjrCMheJKYB
+	 8idaGg+O5UwqD9w2E7Ctps4fkioj/O+VAUrWDx/FM51PbVFI/1FO88txl0AaIdu8Ub
+	 CFiSeSjIVR3SFkT2BeFCV/RRj/nUNkzxPGC08cRFZXoco0Ld9g4DfPnbUR4QNeWd6m
+	 uU+ybC4a7Pu530Z2z7h2A6pioyF+wpnTkuR8PC5it6Ftrag2l/snSfFLGxF/KM74K6
+	 jTVhaImUjQTSJQb+DLbqhaWqUqnGdsyUPO5SvDBB+YNnQFyDGwu/ZDlPlhGMrlM6Qm
+	 t8OCaNmNBHFNQ==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200008.china.huawei.com (7.202.194.74)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261127_021007_851884_37DDB515 
-X-CRM114-Status: GOOD (  14.45  )
-X-Spam-Score: -2.8 (--)
+Subject: Re: [PATCH v4 2/2] phy: add a driver for T-Head TH1520 USB PHY
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+In-Reply-To: <20261103081444.1983071-3-zhengxingda@iscas.ac.cn>
+References: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
+ <20261103081444.1983071-3-zhengxingda@iscas.ac.cn>
+Date: Fri, 27 Nov 2026 17:00:10 +0530
+Message-Id: <179577901023.3421.16085123878298234680.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=524; i=mani@kernel.org;
+ h=from:subject:message-id; bh=YyFV7s9af4kC0Pv/cS0wCU3OEWYq0SK2owkuNnqdByk=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCWnFEFB/4u8peT3P9un5fE8fPPjIzxZqIShYF
+ I4eaeQlYgOJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawlpxQAKCRBVnxHm/pHO
+ 9anGB/9aTf3MYaPlIVjysYpZxYxQ5CPAVDm2b4edKul/qVV3rgG86keiI9l31FOXdhjTwatY5uM
+ xrC1jCFsbIXOtoCqPe3I1HAaZHVY/HwMeMEQL/e4gm2WU45ECc+ivWDqr6BDuMZB72kN86ZDuix
+ 4zCwxiUAWNaEmA6Qw0ct45dJ+e4UnnWfimEn3qz+YoApLyfe24Ln6RrsyRID113YOiKheLtWesY
+ nCq6mYfWH42PWHJs7Vg4aCMq/CmFb+yn2joXP+43kz+Km7iFMvulvYL/+eFEw1o3HB0ihb0vHdJ
+ G01z4bsKP4J6DtRE17MMqKtu69l3qmp5rhrYsJPl8XICrerr
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,100 +74,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Han Gao <rabenda.cn@gmail.com>, linux-phy@lists.infradead.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, Drew Fustini <dfustini@tenstorrent.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Wei Fu <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The file-based kexec system call places segments with kexec_add_buffer(),
-which takes them from CMA when kexec_alloc_contig() succeeds, to avoid
-copying the payload at kexec time.
+On 2026-11-03 16:14 +0800, Icenowy Zheng wrote:
+> The USB PHY on T-Head TH1520 SoC is a Synopsys USB 3.0 FemtoPHY, with
+> some PHY parameters exported as another system controller along with it.
+> 
+> A few PHY parameters have unusable defaults. Add a driver that programs
+> them before releasing the PHY from reset in addition to
+> clock/reset/regulator management.
+> 
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 
-When load_other_segments() cannot place the initrd or the DTB, the
-segments of the attempt are dropped but their CMA pages are leaked.
-Release them with kexec_rollback_segments() in the retry loop and in the
-error path of load_other_segments().
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
-The loop makes progress by advancing buf_min past a segment placed by the
-walk.  kexec_alloc_contig() ignores buf_min, so once the pages of a CMA
-segment are released, the next attempt can get the same region again and
-the retry makes no progress.  Disable CMA for the retry.
+- Mani
 
-A CMA segment can be anywhere in RAM, so moving buf_min to its end can
-raise the walk's lower bound close to the top of memory and leave the
-retry with too little space for the initrd and DTB, failing with
--EADDRNOTAVAIL.  Only advance buf_min for segments found by the walk.
-
-Tested with a non-crash kexec_file_load() on QEMU virt, 1 GiB RAM and
-cma=64M, which places CMA at the top of RAM.
-
-Before the fix:
-	The retry leaks the CMA pages and kexec_file_load() returns
-	-EADDRNOTAVAIL even though RAM below CMA is free.
-
-After the fix:
-	The kernel and initrd are placed below CMA and the second
-	kernel boots.
-
-Fixes: 07d24902977e ("kexec: enable CMA based contiguous allocation")
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>
-Cc: Pratyush Yadav <pratyush@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Baoquan He <bhe@redhat.com>
-Cc: stable@vger.kernel.org
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/arm64/kernel/kexec_image.c        | 12 ++++++++----
- arch/arm64/kernel/machine_kexec_file.c |  2 +-
- 2 files changed, 9 insertions(+), 5 deletions(-)
-
-diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
-index a2a7c283b331..1cbb3c73c6e9 100644
---- a/arch/arm64/kernel/kexec_image.c
-+++ b/arch/arm64/kernel/kexec_image.c
-@@ -109,11 +109,15 @@ static void *image_load(struct kimage *image,
- 			break;
- 
- 		/*
--		 * We couldn't find space for the other segments; erase the
--		 * kernel segment and try the next available hole.
-+		 * kexec_alloc_contig() ignores buf_min and always returns
-+		 * CMA memory, so disable it and keep buf_min.
- 		 */
--		image->nr_segments -= 1;
--		kbuf.buf_min = kernel_segment->mem + kernel_segment->memsz;
-+		if (image->segment_cma[kernel_segment_number])
-+			image->no_cma = true;
-+		else
-+			kbuf.buf_min = kernel_segment->mem + kernel_segment->memsz;
-+
-+		kexec_rollback_segments(image, kernel_segment_number);
- 		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
- 	}
- 
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index dff2cd613f87..169d991488ff 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -132,7 +132,7 @@ int load_other_segments(struct kimage *image, unsigned long kernel_load_addr,
- 	return 0;
- 
- out_err:
--	image->nr_segments = orig_segments;
-+	kexec_rollback_segments(image, orig_segments);
- 	kvfree(dtb);
- 	return ret;
- }
--- 
-2.34.1
 
 
 _______________________________________________
