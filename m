@@ -2,140 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9605F606A331
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 09:15:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 950B4606A321
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Nov 2026 09:18:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZDTwFnut;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=pQENY8yA;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ngg1FtP8
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=N/pATHi0;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eU5PjGfK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aQ71cL0klWrtXlWFomrIlfca2s+gjUQY9Ie0Go1oA24=; b=ZDTwFnutWjwnI/CW1wlh4atAss
-	iRoLoybPlgQ4B/toivGVFWuKJN9V4sNiJPJZzLvrFlTMiOMtFldrIPq/JwRl4lsh6p3gFYbYFKxAz
-	XI/lha0WFDcJ8+xkDQTEz7216eIbRyxcE6gSYZoY06fw7DcM/K0jpwdzb8g3wdxmlHQtgjdT+iSMC
-	SshYlR2Xa4ak0XofWNkGTnlu2elF0PhDALk8fiarxMESkDpC2TdFXHAgM0PV0uV/brkDGxRvo9UPJ
-	/ILEZwf7loZxve0DT0gXKgodZDpXSGR+IIwf37c4UP/88BJz1lRsTaSKBYpWKP89OG+kNs0gegQiJ
-	C0TCWb2Q==;
+	bh=/E1tiO6E+2L3A1A/CNkfqQSrrulRGITuRO/v+oUx4ac=; b=N/pATHi0ZJfZzrqvTRFnyKXHk5
+	+o2NiNPJqcyBJcB33Bz2Nv7Kw/gLADiXK/D2b7NFOn69YBAqBFP6bnKAzBUwLQ4BkS9YcqwfKNutf
+	NzsAAI9ixsGiIC100ajyULEXoQoDSYaBMoJuBtgh9U0CbyHNrxIFmstZ+FzS4S0UWY+6kL2WjlgvZ
+	H550kGz6JgTcfEssECSCr+qBQFmKRdnQ3jk+oTrtfbwHwX5srspZvHMNitmYzZqUJVP2U5CqPR8YN
+	yjI8J+VzkHdK49I8W6SEZSC/3nhZCGy3/19jWfAl/sI1uLLroIjSc7pNAW5w4ZFOkGRulxCH7jRdt
+	DvgrVh2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWrwp-0000000FMlm-3DEp;
-	Fri, 27 Nov 2026 09:08:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xWs6V-0000000FPGO-2xMA;
+	Fri, 27 Nov 2026 09:18:51 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWrwo-0000000FMkK-1Deq
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 27 Nov 2026 09:08:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=PVjCV5oykzsIMcgSWFAsGQFYmzyPz2B20ED1sYdHTJ8=; b=pQENY8yAltlZWa2OFI8RHjM95V
-	T0jMhXEpyglkXdvdSgZQhgRdtMp3COSbenR2Lg27XBniL385pTxWiYuOUUUqQWZN//znd9TviUTh+
-	KoxYrvfURoSEaqmKA0rqjcLxUDkXVcYeebz4rs0EVDRl5Q5leGDjPcKIcsyiuQJJtRTbJBjo6yZNx
-	rVaf7sdzPSs7TmuCDW/9N6iVP9Zvzhj0QRIw3Oi8RrdU3ePxa8luDmja3tevQrGwTiDzZ1xdtlA2G
-	zmc3i9FI7QZX+TTwC3on5v8TQODqHEJDUO4LxgrRPY7UzUjFrIcfykz5W85GZjdX63EyXCdXa5+d8
-	Hfl3EBlA==;
-Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWrwl-00000007UYB-3BEH
+	id 1xWs6R-0000000FPEo-118U
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Nov 2026 09:08:49 +0000
-Received: by mail-pj2-x0b.google.com with SMTP id d9443c01a7336-2f04158d3cbso26982005ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Nov 2026 01:08:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795770526; x=1796375326; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PVjCV5oykzsIMcgSWFAsGQFYmzyPz2B20ED1sYdHTJ8=;
-        b=Ngg1FtP89fZB7ore7M3Q+4tYUN1BZq+7yUQKL5ZLQhr0xGQzynKuQVL+jcJ/NXX5PP
-         R+Iv65wH8YWVxSaA2fHD5U4ITvBj1fXXRw7CSwL89nsm+DSPW5U7/3NX0kiedTPUkdAY
-         QKSunwSB6XbGijJybHFvoqp5q9MtfEjNjpYrRNi07xgWeZSbgn+KyHzRTyFeiNd9OzXd
-         p0RpX+RdazfPGKb/PGaNnHXgHcpL9ASEHXwRUlPO3NUTizjpbOBYdtYPsirvey03ZU37
-         DvdjPJgOyGpLKwYQQyAyOlttzON7GbOhbuiWXZn973vlxgH3ZaSMM2a2/+SMB38eK+/U
-         eNtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795770526; x=1796375326;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PVjCV5oykzsIMcgSWFAsGQFYmzyPz2B20ED1sYdHTJ8=;
-        b=np0zaFRmyRUvnAkH4hj/8zA83uvUj+8YpU5YQdenSa7YwWU++zzsKHpH/cEwLVtEdH
-         u+GjH06TJU+ROq8mhqsaAEAcAkZfXFXxsa27eSyQidbeXDLGy9GstlOSGQvSHJCaJ1Cj
-         Z7xDHM3NP5FK1U7kmkKdTzjwHT4ng8BB8u1dugQmQ201XagC196PTMAc8ocHeWQ+wB05
-         o93qkx3h4hNPVuXKxaG10R0SKB396ii2ypf1pv/eFJRlX1NlHaez/x46lTtBmecuXktQ
-         XSQZD5C5BNBmGNf3hHK4VUi981AbOaFKNNa6PYwXaUzNHUA3WSsItV6rR9F+t8Dz1fUt
-         OAmg==
-X-Forwarded-Encrypted: i=1; AL+hErHdHGvp2hhDhPkrsZCkI2KiYl/hJSWjTk0JbC+xRQzlstOtT+PfyG3gDD6524riLBzFpfd6vO/KWsBZUQ==@lists.infradead.org
-X-Gm-Message-State: APuU4Z+8AaMn+EFhSIvD6D9uR9fBcl2/o6LU1J5NJ5tKG6Gd3xuP88mx
-	28bbzgsH5bKFsxaXoAN42i+LJzog8TEOsf8WMkBZ6UL8Mvh7UUU+q9w7
-X-Gm-Gg: AZFdTZdg1qX134qFKQuHg9EkRCGjipeLzC2kSbyqZ0GHV2hS/wfpj3Gz6yfvxmEONtE
-	sKzQyQSidhSvxlBpon88TvlN56T2j8XK1itqXG3Uq/D0eREuhcLojCVF7jHYzGMT02Y1Q6RGdoS
-	nzW+rbxRFc0X1g07htQVBmr0EL6FV8fO2RTNRu3QURVkkgNSG1Ns8yvZ3Ra00KHwvbzHFEHClFr
-	dbQ1B3YCdvun67fc6+rNxBF9K5I9YE3lAXHov8VUoH2gByTjia+59buRhDX1jwDds4e1HN4IbmC
-	w3Ddce9/N0vvJ0CKHpO+aN+OV6jbHCUvDN+yq+UyBnhgy4i4dGQ+Tu6k0+yHyvtx2uDI0ZMlLmi
-	0Ov/yngqsQvgXMqSOCMK9SfHnHxc1fWLDBL4yxYnPNP+oAS0/BKIME3m2Da6JhgLgN+LOS1fdns
-	K/KNLuHeLU9ZW9NIF6iLrwcBzDjKeB6TuUHe1MA7kyHFUZyqBgb5rKaqq867SU60+jxGlM4G2h8
-	7ibD67m7qhhxUX7eGItu5fQEWNwAZwtRJiIpGdBvtdhD56rsBjD9tZn4NU6tKxBfXqnoQ55LroY
-	8TIdWDQRtImbHJvWd0wKMepboF0SxC+dm/JQZfninQ==
-X-Received: by 2002:a05:6a21:8982:b0:3e2:4350:1528 with SMTP id adf61e73a8af0-4014a274c36mr23147815637.7.1795770525740;
-        Fri, 27 Nov 2026 01:08:45 -0800 (PST)
-Received: from intel.company.local ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d06ee37sm11718725a12.28.2026.11.27.01.08.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:08:45 -0800 (PST)
-From: Wandun Chen <chenwandun1@gmail.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	robh@kernel.org,
-	baoquan.he@linux.dev,
-	rppt@kernel.org,
-	m.szyprowski@samsung.com
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	saravanak@kernel.org,
-	akpm@linux-foundation.org,
-	pasha.tatashin@soleen.com,
-	pratyush@kernel.org,
-	ruirui.yang@linux.dev,
-	robin.murphy@arm.com,
-	ruanjinjie@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	kexec@lists.infradead.org,
-	linux-mm@kvack.org,
-	iommu@lists.linux.dev
-Subject: [PATCH v10 5/8] memblock: introduce MEMBLOCK_NODUMP flag
-Date: Fri, 27 Nov 2026 17:07:20 +0800
-Message-ID: <20261127090723.741253-6-chenwandun1@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127090723.741253-1-chenwandun1@gmail.com>
-References: <20261127090723.741253-1-chenwandun1@gmail.com>
+	Fri, 27 Nov 2026 09:18:49 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 5ECA5C62216;
+	Fri, 27 Nov 2026 09:18:52 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9DB3C6049C;
+	Fri, 27 Nov 2026 09:18:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8576D11E69295;
+	Fri, 27 Nov 2026 10:18:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795771121; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Qefky8DlOTxPLdU0/wjWVMxmJw9tcsyvpnNkmobea1s=;
+	b=eU5PjGfK1Jl0gedKPU+OWMgLDwNMSEJI7XN2PpMliih5+m/3v/15bPtoXKqnsIg1adOG9b
+	CX+1sL8sBWMl8FCR2Q1oZXjeuEazaHOJF7d0DBG0D4OK0chVYD9dL3txls4r1kGcE9HATF
+	G9eGFbs5Ldi1vJ/asLwHUmi3vbXWtdFbVeGH+JeyOa7gLemLsls7CTjOCUskn3q7I2yp7x
+	zDpxxm7HjFc9pvXIJ6jOKHdFsylL0Xww2reWHt31RQuZ65TBRg3s4SFFRHa1kWrHm6/OWp
+	oHUl7ffFwhYj/ayjOmKF90LDZzTRdFAyout1I03RP2ifRDoc32vCilMejmHuTw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Bough Chen <haibo.chen@oss.nxp.com>
+Cc: Mark Brown <broonie@kernel.org>,  Liang Yang <liang.yang@amlogic.com>,
+  Feng Chen <feng.chen@amlogic.com>,  Xianwei Zhao
+ <xianwei.zhao@amlogic.com>,  Han Xu <han.xu@nxp.com>,  Conor Dooley
+ <conor.dooley@microchip.com>,  Valentina Fernandez
+ <valentina.fernandezalanis@microchip.com>,  Daire McNamara
+ <daire.mcnamara@microchip.com>,  Haibo Chen <haibo.chen@nxp.com>,  Jyan
+ Chou <jyanchou@realtek.com>,  Yu-Chun Lin <eleanor.lin@realtek.com>,
+  Maxime Coquelin <mcoquelin.stm32@gmail.com>,  Alexandre Torgue
+ <alexandre.torgue@foss.st.com>,  Pratyush Yadav <pratyush@kernel.org>,
+  Michael Walle <mwalle@kernel.org>,  Takahiro Kuwano
+ <takahiro.kuwano@infineon.com>,  Richard Weinberger <richard@nod.at>,
+  Vignesh Raghavendra <vigneshr@ti.com>,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>,  Alvin Zhou <alvinzhou@mxic.com.tw>,
+  Cheng Ming Lin <chengminglin@mxic.com.tw>,  linux-spi@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
+  imx@lists.linux.dev,  linux-riscv@lists.infradead.org,
+  linux-stm32@st-md-mailman.stormreply.com,
+  linux-arm-kernel@lists.infradead.org,  linux-mtd@lists.infradead.org
+Subject: Re: [PATCH RFC 01/16] spi: spi-mem: Handle a corner case while
+ sanitizing ops
+In-Reply-To: <20261127084643.ekeao335mv5n5kow@shlinux89> (Bough Chen's message
+	of "Fri, 27 Nov 2026 16:46:43 +0800")
+References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+	<20261125-macronix-upstreaming-spi-mem-cycles-v1-1-fd036402fd37@bootlin.com>
+	<20261127084643.ekeao335mv5n5kow@shlinux89>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Fri, 27 Nov 2026 10:18:33 +0100
+Message-ID: <87bj7avdhy.fsf@bootlin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261127_090847_756341_55DD4A4F 
-X-CRM114-Status: GOOD (  13.27  )
-X-Spam-Score: 0.1 (/)
+X-CRM114-CacheID: sfid-20261127_011847_462075_10ACBFED 
+X-CRM114-Status: GOOD (  18.42  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,116 +92,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Wandun Chen <chenwandun@lixiang.com>
-
-Add MEMBLOCK_NODUMP to mark regions that should be excluded from
-kdump vmcores.
-
-The flag is meant for reserved memory that carries no data useful for
-crash analysis. Reusable reserved regions such as CMA may hold useful
-data, so these regions must not be marked MEMBLOCK_NODUMP. Subsequent
-patches wire this up for /reserved-memory entries.
-
-Suggested-by: Rob Herring <robh@kernel.org>
-Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- include/linux/memblock.h |  9 +++++++++
- mm/memblock.c            | 16 ++++++++++++++++
- 2 files changed, 25 insertions(+)
-
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index 40e6e0aa2f8d..67dbcfda6f49 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -52,6 +52,8 @@ extern unsigned long long max_possible_pfn;
-  * know is good to use. It is the only memory that allocations may happen from
-  * in this phase.
-  * @MEMBLOCK_RSRV_HUGETLB: memory is reserved for hugetlb pages
-+ * @MEMBLOCK_NODUMP: exclude from kdump vmcore. It carries no data useful
-+ * for crash analysis (e.g. firmware carveouts).
-  */
- enum memblock_flags {
- 	MEMBLOCK_NONE		= 0x0,	/* No special request */
-@@ -63,6 +65,7 @@ enum memblock_flags {
- 	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
- 	MEMBLOCK_KHO_NOPRSRV	= 0x40,	/* memory with no KHO preservations */
- 	MEMBLOCK_RSRV_HUGETLB	= 0x80, /* memory reserved for hugetlb pages */
-+	MEMBLOCK_NODUMP		= 0x100,/* exclude from kdump vmcore */
- };
- 
- /**
-@@ -160,6 +163,7 @@ int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
- int memblock_reserved_mark_kern(phys_addr_t base, phys_addr_t size);
- int memblock_mark_kho_noprsrv(phys_addr_t base, phys_addr_t size);
- int memblock_clear_kho_noprsrv(phys_addr_t base, phys_addr_t size);
-+int memblock_mark_nodump(phys_addr_t base, phys_addr_t size);
- 
- void memblock_free(void *ptr, size_t size);
- 
-@@ -305,6 +309,11 @@ static inline bool memblock_is_kho_noprsrv(struct memblock_region *m)
- 	return m->flags & MEMBLOCK_KHO_NOPRSRV;
- }
- 
-+static inline bool memblock_is_nodump(struct memblock_region *m)
-+{
-+	return m->flags & MEMBLOCK_NODUMP;
-+}
-+
- int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
- 			    unsigned long  *end_pfn);
- void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
-diff --git a/mm/memblock.c b/mm/memblock.c
-index 0f466fcfc719..e3ee7f60ec97 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -1221,6 +1221,21 @@ __init int memblock_clear_kho_noprsrv(phys_addr_t base, phys_addr_t size)
- 				    MEMBLOCK_KHO_NOPRSRV);
- }
- 
-+/**
-+ * memblock_mark_nodump - Mark a memory region with flag MEMBLOCK_NODUMP.
-+ * @base: the base phys addr of the region
-+ * @size: the size of the region
-+ *
-+ * Mark the region as not to be included in crash dumps.
-+ *
-+ * Return: 0 on success, -errno on failure.
-+ */
-+int __init_memblock memblock_mark_nodump(phys_addr_t base, phys_addr_t size)
-+{
-+	return memblock_setclr_flag(&memblock.memory, base, size, 1,
-+				    MEMBLOCK_NODUMP);
-+}
-+
- static bool should_skip_region(struct memblock_type *type,
- 			       struct memblock_region *m,
- 			       int nid, int flags)
-@@ -2864,6 +2879,7 @@ static const char * const flagname[] = {
- 	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
- 	[ilog2(MEMBLOCK_KHO_NOPRSRV)] = "KHO_NOPRSRV",
- 	[ilog2(MEMBLOCK_RSRV_HUGETLB)] = "RSV_HUGETLB",
-+	[ilog2(MEMBLOCK_NODUMP)] = "NODUMP",
- };
- 
- static int memblock_debug_show(struct seq_file *m, void *private)
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG8sCgo+IE9uIFdlZCwgTm92IDI1LCAyMDI2IGF0IDA2OjUxOjE1UE0gKzAxMDAsIE1pcXVl
+bCBSYXluYWwgd3JvdGU6Cj4+IFNvbWUgbWl4ZWQgbW9kZSBvcGVyYXRpb25zIChzdWNoIGFzIDFT
+LXhELXlEKSB3aWxsIGJlIGZsYWdnZWQgd2l0aAo+PiBvcF9pc19kdHIgYnV0IHdpbGwgbm90IGVu
+dGVyIHRoZSBPRFRSIGNoZWNrcy4gQXMgYSByZXN1bHQsIHRoZSBudW1iZXIgb2YKPj4gY29tbWFu
+ZCBieXRlcyB3aWxsIG5ldmVyIGJlIGNoZWNrZWQuCj4+IAo+PiBSZW9yZ2FuaXplIGEgbGl0dGxl
+IGJpdCB0aGlzIGhlbHBlcjoKPj4gLSBJZiB0aGUgb3BlcmF0aW9uIGNvbnRhaW5zIGEgRFRSIHBo
+YXNlLCBzYW5pdGl6ZSBpdC4KPj4gLSBUaGVuIHNhbml0aXplIHRoZSBvcCwgc2hvdWxkIGl0IGJl
+Ogo+PiAgIC0gT0RUUiAoOEQtOEQtOEQpCj4+ICAgLSBhbnl0aGluZyBlbHNlCj4+IAo+PiBTaWdu
+ZWQtb2ZmLWJ5OiBNaXF1ZWwgUmF5bmFsIDxtaXF1ZWwucmF5bmFsQGJvb3RsaW4uY29tPgo+PiAt
+LS0KPj4gIGRyaXZlcnMvc3BpL3NwaS1tZW0uYyB8IDI4ICsrKysrKysrKysrKysrLS0tLS0tLS0t
+LS0tLS0KPj4gIDEgZmlsZSBjaGFuZ2VkLCAxNCBpbnNlcnRpb25zKCspLCAxNCBkZWxldGlvbnMo
+LSkKPj4gCj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3NwaS9zcGktbWVtLmMgYi9kcml2ZXJzL3Nw
+aS9zcGktbWVtLmMKPj4gaW5kZXggODA0N2I3NTA4YzhkLi5jNjRlOTA2YmE5MTkgMTAwNjQ0Cj4+
+IC0tLSBhL2RyaXZlcnMvc3BpL3NwaS1tZW0uYwo+PiArKysgYi9kcml2ZXJzL3NwaS9zcGktbWVt
+LmMKPj4gQEAgLTE3MCw2ICsxNzAsNyBAQCBib29sIHNwaV9tZW1fZGVmYXVsdF9zdXBwb3J0c19v
+cChzdHJ1Y3Qgc3BpX21lbSAqbWVtLAo+PiAgCXN0cnVjdCBzcGlfY29udHJvbGxlciAqY3RsciA9
+IG1lbS0+c3BpLT5jb250cm9sbGVyOwo+PiAgCWJvb2wgb3BfaXNfZHRyID0KPj4gIAkJb3AtPmNt
+ZC5kdHIgfHwgb3AtPmFkZHIuZHRyIHx8IG9wLT5kdW1teS5kdHIgfHwgb3AtPmRhdGEuZHRyOwo+
+PiArCWJvb2wgb3BfaXNfb2R0ciA9IG9wLT5jbWQuZHRyICYmIG9wLT5jbWQuYnVzd2lkdGggPT0g
+ODsKPj4gIAo+PiAgCWlmIChvcF9pc19kdHIpIHsKPj4gIAkJaWYgKCFzcGlfbWVtX2NvbnRyb2xs
+ZXJfaXNfY2FwYWJsZShjdGxyLCBkdHIpICYmICFjdGxyLT5kdHJfY2FwcykKPj4gQEAgLTE3Nywy
+MyArMTc4LDIyIEBAIGJvb2wgc3BpX21lbV9kZWZhdWx0X3N1cHBvcnRzX29wKHN0cnVjdCBzcGlf
+bWVtICptZW0sCj4+ICAKPj4gIAkJaWYgKG9wLT5kYXRhLnN3YXAxNiAmJiAhc3BpX21lbV9jb250
+cm9sbGVyX2lzX2NhcGFibGUoY3Rsciwgc3dhcDE2KSkKPj4gIAkJCXJldHVybiBmYWxzZTsKPj4g
+Kwl9Cj4+ICAKPj4gLQkJLyogRXh0cmEgOEQtOEQtOEQgbGltaXRhdGlvbnMgKi8KPj4gLQkJaWYg
+KG9wLT5jbWQuZHRyICYmIG9wLT5jbWQuYnVzd2lkdGggPT0gOCkgewo+PiAtCQkJaWYgKG9wLT5j
+bWQubmJ5dGVzICE9IDIpCj4+IC0JCQkJcmV0dXJuIGZhbHNlOwo+PiAtCj4+IC0JCQlpZiAoKG9w
+LT5hZGRyLm5ieXRlcyAlIDIpIHx8Cj4+IC0JCQkgICAgKG9wLT5kdW1teS5uYnl0ZXMgJSAyKSB8
+fAo+PiAtCQkJICAgIChvcC0+ZGF0YS5uYnl0ZXMgJSAyKSkgewo+PiAtCQkJCWRldl9lcnIoJmN0
+bHItPmRldiwKPj4gLQkJCQkJIkV2ZW4gYnl0ZSBudW1iZXJzIG5vdCBhbGxvd2VkIGluIG9jdGFs
+IERUUiBvcGVyYXRpb25zXG4iKTsKPj4gLQkJCQlyZXR1cm4gZmFsc2U7Cj4+IC0JCQl9Cj4+IC0J
+CX0KPj4gLQl9IGVsc2Ugewo+PiArCWlmICghb3BfaXNfb2R0cikgewo+PiAgCQlpZiAob3AtPmNt
+ZC5uYnl0ZXMgIT0gMSkKPj4gIAkJCXJldHVybiBmYWxzZTsKPgo+IEhpIE1pcXVlbCwKPgo+IFNv
+IHRoaXMgY2hhbmdlIG1lYW5zIG5vIG5ieXRlcyBsaW1pdGF0aW9uIGZvciBtaXhlZCBtb2RlIG9w
+YXJhdGlvbnMsIHN1Y2ggYXMgMVMtMUQtOEQuIElzIGl0IGNvcnJlY3Q/Cj4gSSBnbyB0aHJvdWdo
+IHNwaS1ub3IgYW5kIHNwaS1uYW5kIGRyaXZlciwgc2VlbXMgZm9yIHNwaS1ub3IsIGZvciBEVFIg
+bW9kZSwgaXQgb25seSBzdXBwb3J0IDhELThELThEIG1vZGUsCj4gYnV0IGZvciBzcGktbmFuZCwg
+SSBub3RpY2Ugc29tZSB3aW5ib25kIFczNU4gY2hpcHMgZGlkIHN1cHBvcnQgbm90IG9ubHkgOEQt
+OEQtOEQgbW9kZSwgYnV0IGFsc28gc29tZSBtaXhlZAo+IG1vZGUsIGluY2x1ZGluZyAxUy0xRC04
+RC4gRG9lcyB0aGlzIDFTLTFELThEIG1vZGUgcmVhbGx5IGhhcyBubyBzdWNoIGxpbWl0YXRpb24g
+Zm9yIGFkZHJlc3MgYW5kIGRhdGEgbGVuZ3RoPwo+IEFkZHJlc3MgYW5kIGRhdGEgYXJlIGluZGVl
+ZCBpbiBEVFIgbW9kZS4KClRoYXQgaXMgYSB2ZXJ5IGdvb2QgcG9pbnQuIEkgZG9uJ3QgdGhpbmsg
+dGhlIHNhbml0aXplciBldmVyIGRpZCBjaGVjawp0aGF0IHRob3VnaC4gSSBiZWxpZXZlIHdlIHNo
+b3VsZCBpbiB0aGUgZW5kIGhhdmUgYSBtb3JlICJwZXItcGhhc2UiCmFwcHJvYWNoLCB3aGVyZSB3
+ZSBjaGVjayBhbGwgdGhlc2UgaW5kaXZpZHVhbGx5LgoKVGhlcmUgaXMgYWxzbyBhbiBpbXBsaWNp
+dCBhc3N1bXB0aW9uIHRoYXQgYnVzd2lkdGggd2lsbCBvbmx5IGluY3JlYXNlCihlZyBub3QgMS00
+LTEpIGFuZCBEVFIgY2FwYWJpbGl0eSB3aWxsIG5vdCBkaXNhcHBlYXIgKGVnIG5vIFMtRC1TKS4K
+CkkgZ3Vlc3Mgd2UgbmVlZCB0byBhZGQgbW9yZSBwYXRjaGVzIHRvIG1ha2UgYWxsIHRoZXNlIHNp
+dHVhdGlvbnMgY292ZXJlZAphbmQgYXZvaWQgaGF2aW5nIGRyaXZlcnMgY2hlY2tpbmcgZm9yIHRo
+ZW0uCgpUaGFua3MsCk1pcXXDqGwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
