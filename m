@@ -2,70 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12A83606A31E
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Nov 2026 06:55:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAC3C606A31C
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Nov 2026 08:04:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Rkg+1aXS
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PQufiMEx;
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eC1ubHRY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Z6YqvImyuq/6k2FXDWQ7GR5XckQ/SyaysJk+CKwSNCA=; b=Rkg+1aXS9ANXtHSvyd+5PVsmNu
-	GcvV0KLrAMpewyTa2hwb3IohVuv6JfkZOUt7pJfAep0HutHQDTRiNnH2s3esNPBOobZNqVUkALT2+
-	730+4XD1wIQdAEu78QAwpKusoIRDyyz5mkjU+aviojwbwn1TPPLzX/zYU93Nb0gCS9DdUkB+zb9VQ
-	+pIWNS1r9Go4MPfhM6K/vNeLP/AtLFncdu53dvPB0sFAY725X2yF3OikYcDhKOoggeWoa9csQwc17
-	ovbJbmK9Vkn8b04W/bRxiAYWvEHigEGXh+4CgMunLR3anMQWGhdYYoUacwFUQCFeqWKdUk8QTqv76
-	klKIl29w==;
+	bh=Vv2rNGeHJMFM5mGmx38dVgQPEs8AX05Zx41EIljPtvk=; b=PQufiMExkmKUf+lzJWoo8bUnDL
+	pI14qPk0r8l3l2zSYeSu/e/9D3RNPxcbY2uh/k+TVc5sciUrl/NqBWwhWx7oLrS+jx9Lr2QWs8/us
+	Y1fwi/ryfICsDCZGIY8YgJUvnrFpjTE5l6MgWMF0slkcmQqtto3WUsokBGtd0bT2sZMVFWyUbfSDf
+	y7eoqFiOabZpqMhjukyOe0yPT6k4zPCAbIMr3lQwIxEKNLJ2pGxoZxYyhb/DH0UCkGie8VSfPxi4v
+	D6eM+uEChWUn8tW1u3mwbfxdAVDvHJBFP6LtowRgvNBsVvjiw0i+HJWd4WIuWCyBaKNy606l+eI26
+	HUnXf6wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xXCL0-00000000Qyt-3dzk;
-	Sat, 28 Nov 2026 06:55:10 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1xXDPk-00000000W3Y-16VS;
+	Sat, 28 Nov 2026 08:04:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xXCKt-00000000QyD-1sj2
+	id 1xXDPi-00000000W3Q-0lro
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Nov 2026 06:55:09 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.207])
-	by APP-05 (Coremail) with SMTP id zQCowAC3TrTDegprlgwlAg--.40017S2;
-	Sat, 28 Nov 2026 14:54:59 +0800 (CST)
-Message-ID: <75bc19099b4f2c7384891621a86206c31071ebf5.camel@iscas.ac.cn>
-Subject: Re: [PATCH] MAINTAINERS: matches th1520 in filenames for RISC-V
- THEAD SoC
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 14:54:59 +0800
-In-Reply-To: <awpKGGPVJawHTK5E@thelio>
-References: <20261126-th1520-maintainers-n-clause-v1-1-c1315e68e5be@iscas.ac.cn>
-	 <awpKGGPVJawHTK5E@thelio>
-User-Agent: Evolution 3.58.3 
+	Sat, 28 Nov 2026 08:04:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9A0CC4163F;
+	Sat, 28 Nov 2026 08:04:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A86AB1F00897;
+	Sat, 28 Nov 2026 08:04:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795853045;
+	bh=ln9OYJXGaH2pYepM+2l2e7RDytV9KomXjhzq9mUaLF0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=eC1ubHRYpGTbwjEEoOoHnXIZzZTxDpAnMlRx9TUtMGFz1/XpNPxxBQ3MeqB3fgGwy
+	 ypSU4wHW0kItZeZCx2D7VWmQ6KZRqNTvs7XoNqKCV2PJJw4v6HOL4FiWQ+nlaAkREs
+	 6R+a6PpgXYXGY7/fAl04j0bHx9BxtNHgKG7Aw9b/0kapwFqWF55jObAokJ1xlku0EH
+	 mLx8Jxb/nh6R3gXUfxkBJOrhSNEBPekbya4Rw1NarMeaPKdwtd4h1fukZKypznf1ud
+	 U6eIhyu20ovxdMiGRlSRGJhStQdy9YRsFLJVwc+gJRcRGUaJGVNt85tY+CBNYrINqB
+	 8qyRXxYljtDNQ==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] riscv: kprobes: free insn slot in arch_remove_kprobe() to avoid memory leak
+Date: Sat, 28 Nov 2026 17:04:01 +0900
+Message-ID: <undine-1795853041979314460-9f1047ec8f874a5d@undined.local>
+X-Mailer: UndineD 0.1
+In-Reply-To: <20261120070849.1239-1-yuanxiaofeng@eswincomputing.com>
+References: <20261120070849.1239-1-yuanxiaofeng@eswincomputing.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAC3TrTDegprlgwlAg--.40017S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtw4Utw4rtryrZF4rtFW5ZFb_yoWfWrbEkF
-	WDGrn7Z34UAF40yw45KFn5XrZxJF43XFyUXry8Xa1qvFW5Cr98Xa10k3ySq3W5Jry8AFZr
-	CFn5XrWrGr1YvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb2kYjsxI4VWkCwAYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCY1x0262kKe7AKxVWUAVWUtwCF
-	04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r
-	18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vI
-	r41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr
-	1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvE
-	x4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8XJ55UUUUU==
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261127_225505_347682_EC459D87 
-X-CRM114-Status: GOOD (  10.44  )
-X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +64,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-5ZyoIDIwMjYtMTEtMjfkupTnmoQgMTk6MjcgLTA4MDDvvIxEcmV3IEZ1c3RpbmnlhpnpgZPvvJoK
-PiBPbiBUaHUsIE5vdiAyNiwgMjAyNiBhdCAwNTo1MzozMlBNICswODAwLCBJY2Vub3d5IFpoZW5n
-IHdyb3RlOgo+ID4gQXMgbW9yZSBhbmQgbW9yZSBkZXZpY2UgYmluZGluZyAvIGRyaXZlcnMgYXJl
-IGNvbWluZyBmb3IgVEgxNTIwLAo+ID4gaW5kaXZ1ZGFsIGZpbGVuYW1lcyBub3cgYmxvYXRzIHRo
-aXMgTUFJTlRBSU5FUlMgZW50cnkuCj4gPiAKPiA+IFVzZSBOOiB0byBtYXRjaCB0aDE1MjAgaW4g
-ZmlsZW5hbWVzIGluc3RlYWQgb2YgbGlzdGluZyB0aGVtLgo+IAo+IEdvb2QgaWRlYSwgbm90aGlu
-ZyBkcm9wcyBvdXQsIGFuZCB0aGVhZCx0aDE1MjAtZHctaGRtaS55YW1sIGlzIG5vdwo+IGNvdmVy
-ZWQsIHRvby4KPiAKPiBbLi5dCj4gPiAtRjoJZHJpdmVycy9jbGsvdGhlYWQvY2xrLXRoMTUyMC1h
-cC5jCj4gCj4gZm9yIGNsayBJIHRoaW5rIGl0IHdvdWxkIGJlIGJldHRlciB0byBsaXN0IHRoZSBk
-aXJlY3RvcnkgbGlrZSB0aGUgZW50cnkgYWxyZWFkeSBkb2VzIGZvciBwbWRvbWFpbjoKPiAKPiAg
-ICBGOglkcml2ZXJzL2Nsay90aGVhZC8KCkkgYWdyZWUgd2l0aCB0aGlzLgoKVGhhbmtzLApJY2Vu
-b3d5Cgo+IAo+IEkgY2FuIGRvIHRob3NlIGZpeHVwcyB3aGVuIGFwcGx5aW5nIGlmIHlvdSBhZ3Jl
-ZS4KPiAKPiBUaGFua3MsCj4gRHJldwo+IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+Hi RISC-V maintainers,
+
+Can you pick this fix?
+
+Thank you,
+
+On Fri, 20 Nov 2026 15:08:49 +0800, Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com> wrote:
+> When a kprobe is removed, arch_remove_kprobe() does not free the
+> instruction slot allocated by arch_prepare_kprobe(). This causes
+> a memory leak every time a kprobe is unregistered.
+>
+> Other architectures such as arm64, x86, and powerpc all free the
+> slot in their arch_remove_kprobe() implementations. Add the
+> missing free_insn_slot() call for RISC-V.
+>
+> Registered and unregistered a kprobe on kernel_clone in a loop
+> inside a QEMU (RISC-V virt) guest: before the fix the number of
+> kprobe_insn_page entries in /proc/kallsyms grew by one every 512
+> iterations (each insn-slot page holds 512 eight-byte slots), and
+> after the fix it stays at 1.
+>
+> Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> Signed-off-by: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+> ---
+> Changes in v3:
+>  - Add Fixes tag and Cc stable (Masami Hiramatsu).
+>  - Add Reviewed-by from Masami Hiramatsu. No code change.
+>
+>  arch/riscv/kernel/probes/kprobes.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+> index 9e2afabf9..a76eab297 100644
+> --- a/arch/riscv/kernel/probes/kprobes.c
+> +++ b/arch/riscv/kernel/probes/kprobes.c
+> @@ -128,6 +128,10 @@ void __kprobes arch_disarm_kprobe(struct kprobe *p)
+>  
+>  void __kprobes arch_remove_kprobe(struct kprobe *p)
+>  {
+> +	if (p->ainsn.api.insn) {
+> +		free_insn_slot(p->ainsn.api.insn, 0);
+> +		p->ainsn.api.insn = NULL;
+> +	}
+>  }
+>  
+>  static void __kprobes save_previous_kprobe(struct kprobe_ctlblk *kcb)
+>
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
